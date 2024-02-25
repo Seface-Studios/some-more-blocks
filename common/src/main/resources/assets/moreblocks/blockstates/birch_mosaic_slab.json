@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moreblocks:block/birch_mosaic_slab"
+    },
+    "type=double": {
+      "model": "moreblocks:block/birch_mosaic"
+    },
+    "type=top": {
+      "model": "moreblocks:block/birch_mosaic_slab_top"
+    }
+  }
+}

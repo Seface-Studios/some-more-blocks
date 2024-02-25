@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "moreblocks:block/smooth_purpur",
+    "side": "moreblocks:block/smooth_purpur",
+    "top": "moreblocks:block/smooth_purpur"
+  }
+}

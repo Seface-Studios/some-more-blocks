@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moreblocks:block/polished_mud",
+    "side": "moreblocks:block/polished_mud",
+    "top": "moreblocks:block/polished_mud"
+  }
+}

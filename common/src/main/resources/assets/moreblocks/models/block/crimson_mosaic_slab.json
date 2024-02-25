@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moreblocks:block/crimson_mosaic",
+    "side": "moreblocks:block/crimson_mosaic",
+    "top": "moreblocks:block/crimson_mosaic"
+  }
+}

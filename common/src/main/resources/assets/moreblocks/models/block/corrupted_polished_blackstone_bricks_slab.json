@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moreblocks:block/corrupted_polished_blackstone_bricks",
+    "side": "moreblocks:block/corrupted_polished_blackstone_bricks",
+    "top": "moreblocks:block/corrupted_polished_blackstone_bricks"
+  }
+}

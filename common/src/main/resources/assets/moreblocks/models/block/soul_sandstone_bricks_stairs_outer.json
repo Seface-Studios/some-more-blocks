@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "moreblocks:block/soul_sandstone_bricks",
+    "side": "moreblocks:block/soul_sandstone_bricks",
+    "top": "moreblocks:block/soul_sandstone_bricks"
+  }
+}

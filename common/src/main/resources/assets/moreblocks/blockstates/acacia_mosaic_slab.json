@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moreblocks:block/acacia_mosaic_slab"
+    },
+    "type=double": {
+      "model": "moreblocks:block/acacia_mosaic"
+    },
+    "type=top": {
+      "model": "moreblocks:block/acacia_mosaic_slab_top"
+    }
+  }
+}

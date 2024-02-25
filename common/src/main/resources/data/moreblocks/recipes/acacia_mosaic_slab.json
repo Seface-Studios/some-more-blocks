@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_slab",
+  "key": {
+    "#": { "item": "moreblocks:acacia_mosaic" }
+  },
+
+  "pattern": [
+    "###"
+  ],
+
+  "result": {
+    "count": 6,
+    "item": "moreblocks:acacia_mosaic_slab"
+  }
+}

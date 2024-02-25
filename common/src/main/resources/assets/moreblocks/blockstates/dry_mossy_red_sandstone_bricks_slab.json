@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moreblocks:block/dry_mossy_red_sandstone_bricks_slab"
+    },
+    "type=double": {
+      "model": "moreblocks:block/dry_mossy_red_sandstone_bricks"
+    },
+    "type=top": {
+      "model": "moreblocks:block/dry_mossy_red_sandstone_bricks_slab_top"
+    }
+  }
+}

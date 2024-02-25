@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moreblocks:block/snow_bricks_slab"
+    },
+    "type=double": {
+      "model": "moreblocks:block/snow_bricks"
+    },
+    "type=top": {
+      "model": "moreblocks:block/snow_bricks_slab_top"
+    }
+  }
+}

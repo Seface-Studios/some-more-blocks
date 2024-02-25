@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moreblocks:block/smooth_deepslate_slab"
+    },
+    "type=double": {
+      "model": "moreblocks:block/smooth_deepslate"
+    },
+    "type=top": {
+      "model": "moreblocks:block/smooth_deepslate_slab_top"
+    }
+  }
+}

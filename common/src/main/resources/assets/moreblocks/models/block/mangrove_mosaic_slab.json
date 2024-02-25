@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moreblocks:block/mangrove_mosaic",
+    "side": "moreblocks:block/mangrove_mosaic",
+    "top": "moreblocks:block/mangrove_mosaic"
+  }
+}

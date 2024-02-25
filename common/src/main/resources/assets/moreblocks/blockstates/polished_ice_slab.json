@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moreblocks:block/polished_ice_slab"
+    },
+    "type=double": {
+      "model": "moreblocks:block/polished_ice"
+    },
+    "type=top": {
+      "model": "moreblocks:block/polished_ice_slab_top"
+    }
+  }
+}
