@@ -1,0 +1,11 @@
+{
+  "name": "more-blocks.assets-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Automatically generate assets files for the More Blocks Mod.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "Seface Blocks"
+}

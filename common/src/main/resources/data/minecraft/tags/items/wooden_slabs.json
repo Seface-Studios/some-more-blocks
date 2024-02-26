@@ -1,5 +1,14 @@
 {
   "values": [
-    "moreblocks:acacia_mosaic_slab"
+    "moreblocks:oak_mosaic_slab",
+    "moreblocks:spruce_mosaic_slab",
+    "moreblocks:birch_mosaic_slab",
+    "moreblocks:jungle_mosaic_slab",
+    "moreblocks:acacia_mosaic_slab",
+    "moreblocks:dark_oak_mosaic_slab",
+    "moreblocks:mangrove_mosaic_slab",
+    "moreblocks:crimson_mosaic_slab",
+    "moreblocks:warped_mosaic_slab",
+    "moreblocks:cherry_mosaic_slab"
   ]
 }

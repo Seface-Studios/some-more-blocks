@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.seface.moreblocks.MoreBlocks;
+import net.seface.moreblocks.block.CrackedPoweredBlock;
 import net.seface.moreblocks.block.PoweredPillarBlock;
 
 public class MBBlocks {
@@ -383,16 +384,16 @@ public class MBBlocks {
     public static final Block CUT_IRON = new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
     public static final Block CRACKED_CUT_IRON = new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
     public static final Block IRON_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
-    public static final Block IRON_GRATE = new WaterloggedTransparentBlock(FabricBlockSettings.create().nonOpaque().strength(Blocks.IRON_BLOCK.defaultDestroyTime()).requiresTool().sounds(SoundType.METAL));
+    public static final Block IRON_GRATE = new WaterloggedTransparentBlock(FabricBlockSettings.create().nonOpaque().isRedstoneConductor(Blocks::never).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).strength(Blocks.IRON_BLOCK.defaultDestroyTime()).requiresCorrectToolForDrops().sound(SoundType.METAL));
     public static final Block GOLD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK));
     public static final Block CRACKED_GOLD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK));
     public static final Block CUT_GOLD = new Block(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK));
     public static final Block CRACKED_CUT_GOLD = new Block(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK));
     public static final Block GOLD_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK));
     public static final Block REDSTONE_BRICKS = new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
-    public static final Block CRACKED_REDSTONE_BRICKS = new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
+    public static final Block CRACKED_REDSTONE_BRICKS = new CrackedPoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
     public static final Block CUT_REDSTONE = new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
-    public static final Block CRACKED_CUT_REDSTONE = new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
+    public static final Block CRACKED_CUT_REDSTONE = new CrackedPoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
     public static final Block REDSTONE_PILLAR = new PoweredPillarBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
     public static final Block EMERALD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK));
     public static final Block CRACKED_EMERALD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK));
@@ -417,13 +418,13 @@ public class MBBlocks {
     public static final Block CUT_DIAMOND = new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK));
     public static final Block CRACKED_CUT_DIAMOND = new Block(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK));
     public static final Block DIAMOND_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_BLOCK));
-    public static final Block DIAMOND_GRATE = new WaterloggedTransparentBlock(FabricBlockSettings.create().nonOpaque().strength(Blocks.DIAMOND_BLOCK.defaultDestroyTime()).requiresTool().sounds(SoundType.METAL));
+    public static final Block DIAMOND_GRATE = new WaterloggedTransparentBlock(FabricBlockSettings.create().nonOpaque().isRedstoneConductor(Blocks::never).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).strength(Blocks.DIAMOND_BLOCK.defaultDestroyTime()).requiresCorrectToolForDrops().sound(SoundType.METAL));
     public static final Block NETHERITE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK));
     public static final Block CRACKED_NETHERITE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK));
     public static final Block CUT_NETHERITE = new Block(FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK));
     public static final Block CRACKED_CUT_NETHERITE = new Block(FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK));
     public static final Block NETHERITE_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK));
-    public static final Block NETHERITE_GRATE = new WaterloggedTransparentBlock(FabricBlockSettings.create().nonOpaque().strength(Blocks.NETHERITE_BLOCK.defaultDestroyTime()).requiresTool().sounds(SoundType.NETHERITE_BLOCK));
+    public static final Block NETHERITE_GRATE = new WaterloggedTransparentBlock(FabricBlockSettings.create().nonOpaque().isRedstoneConductor(Blocks::never).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).strength(Blocks.NETHERITE_BLOCK.defaultDestroyTime()).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK));
     public static final Block AMETHYST_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK));
     public static final Block CRACKED_AMETHYST_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK));
     public static final Block CUT_AMETHYST = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK));

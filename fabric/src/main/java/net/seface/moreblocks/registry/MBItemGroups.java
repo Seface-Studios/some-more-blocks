@@ -312,7 +312,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.PURPLE_STAINED_TILED_GLASS);
                 entry.accept(MBItems.MAGENTA_STAINED_TILED_GLASS);
                 entry.accept(MBItems.PINK_STAINED_TILED_GLASS);
-
                 entry.accept(MBItems.SHINGLES);
                 entry.accept(MBItems.WHITE_SHINGLES);
                 entry.accept(MBItems.LIGHT_GRAY_SHINGLES);
@@ -330,7 +329,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.PURPLE_SHINGLES);
                 entry.accept(MBItems.MAGENTA_SHINGLES);
                 entry.accept(MBItems.PINK_SHINGLES);
-
                 entry.accept(MBItems.TERRACOTTA_BRICKS);
                 entry.accept(MBItems.WHITE_TERRACOTTA_BRICKS);
                 entry.accept(MBItems.LIGHT_GRAY_TERRACOTTA_BRICKS);
@@ -348,7 +346,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.PURPLE_TERRACOTTA_BRICKS);
                 entry.accept(MBItems.MAGENTA_TERRACOTTA_BRICKS);
                 entry.accept(MBItems.PINK_TERRACOTTA_BRICKS);
-
                 entry.accept(MBItems.TERRACOTTA_TILES);
                 entry.accept(MBItems.WHITE_TERRACOTTA_TILES);
                 entry.accept(MBItems.LIGHT_GRAY_TERRACOTTA_TILES);
@@ -366,7 +363,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.PURPLE_TERRACOTTA_TILES);
                 entry.accept(MBItems.MAGENTA_TERRACOTTA_TILES);
                 entry.accept(MBItems.PINK_TERRACOTTA_TILES);
-
                 entry.accept(MBItems.WHITE_CONCRETE_BRICKS);
                 entry.accept(MBItems.LIGHT_GRAY_CONCRETE_BRICKS);
                 entry.accept(MBItems.GRAY_CONCRETE_BRICKS);
@@ -383,7 +379,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.PURPLE_CONCRETE_BRICKS);
                 entry.accept(MBItems.MAGENTA_CONCRETE_BRICKS);
                 entry.accept(MBItems.PINK_CONCRETE_BRICKS);
-
                 entry.accept(MBItems.WHITE_CONCRETE_TILES);
                 entry.accept(MBItems.LIGHT_GRAY_CONCRETE_TILES);
                 entry.accept(MBItems.GRAY_CONCRETE_TILES);
