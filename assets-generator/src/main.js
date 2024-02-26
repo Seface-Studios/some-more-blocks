@@ -19,6 +19,9 @@ for (const block of data.Blocks) {
   const isLogLike = block.name.endsWith('Log') || block.name.endsWith('Stem');
   const isWoodLike = block.name.endsWith('Wood') || block.name.endsWith('Hyphae');
 
+  const isIgnored = block?.ignore || false;
+  if (isIgnored) continue;
+
   const hasSlab = block?.hasSlab || false;
   const hasStairs = block?.hasStairs || false;
   const hasFence = block?.hasFence || false;

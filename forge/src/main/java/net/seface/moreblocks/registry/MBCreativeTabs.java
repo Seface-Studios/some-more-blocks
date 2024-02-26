@@ -274,7 +274,7 @@ public class MBCreativeTabs {
             }).build());
 
     private static final RegistryObject<CreativeModeTab> MORE_COLORED_BLOCKS = CREATIVE_MODE_TABS.register("more_colored_blocks", () -> CreativeModeTab.builder()
-            .icon(() -> MBBlocks.PURPLE_SHINGLES.get().asItem().getDefaultInstance())
+            .icon(() -> MBBlocks.MAGENTA_SHINGLES.get().asItem().getDefaultInstance())
             .title(Component.translatable("itemGroup.moreblocks.coloredBlocks"))
             .displayItems((ctx, entry) -> {
                 entry.accept(MBBlocks.TILED_GLASS.get());

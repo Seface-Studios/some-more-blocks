@@ -15,7 +15,6 @@ public class MBItemGroups {
             .icon(() -> new ItemStack(MBItems.MOSSY_BRICK_BLOCK))
             .title(Component.translatable("itemGroup.moreblocks.buildingBlocks"))
             .displayItems((ctx, entry) -> {
-                // Wooden Variations
                 entry.accept(MBItems.CARVED_OAK_LOG);
                 entry.accept(MBItems.CARVED_OAK_WOOD);
                 entry.accept(MBItems.OAK_MOSAIC);
@@ -66,8 +65,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.CHERRY_MOSAIC);
                 entry.accept(MBItems.CHERRY_MOSAIC_STAIRS);
                 entry.accept(MBItems.CHERRY_MOSAIC_SLAB);
-
-                // Stone
                 entry.accept(MBItems.POLISHED_STONE);
                 entry.accept(MBItems.POLISHED_STONE_STAIRS);
                 entry.accept(MBItems.POLISHED_STONE_SLAB);
@@ -181,7 +178,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.DRY_MOSSY_RED_SANDSTONE_BRICKS_STAIRS);
                 entry.accept(MBItems.DRY_MOSSY_RED_SANDSTONE_BRICKS_SLAB);
                 entry.accept(MBItems.DRY_MOSSY_RED_SANDSTONE_BRICKS_WALL);
-
                 entry.accept(MBItems.POLISHED_PRISMARINE);
                 entry.accept(MBItems.POLISHED_PRISMARINE_STAIRS);
                 entry.accept(MBItems.POLISHED_PRISMARINE_SLAB);
@@ -200,12 +196,10 @@ public class MBItemGroups {
                 entry.accept(MBItems.MOSSY_PRISMARINE_BRICKS_WALL);
                 entry.accept(MBItems.SMOOTH_PRISMARINE);
                 entry.accept(MBItems.SMOOTH_PRISMARINE_SLAB);
-
                 entry.accept(MBItems.NETHER_BRICKS_PILLAR);
                 entry.accept(MBItems.CRACKED_RED_NETHER_BRICKS);
                 entry.accept(MBItems.CHISELED_RED_NETHER_BRICKS);
                 entry.accept(MBItems.RED_NETHER_BRICKS_PILLAR);
-
                 entry.accept(MBItems.BLACKSTONE_PILLAR);
                 entry.accept(MBItems.POLISHED_BLACKSTONE_TILES);
                 entry.accept(MBItems.CRACKED_POLISHED_BLACKSTONE_TILES);
@@ -217,7 +211,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.CORRUPTED_POLISHED_BLACKSTONE_BRICKS_SLAB);
                 entry.accept(MBItems.CORRUPTED_POLISHED_BLACKSTONE_BRICKS_WALL);
                 entry.accept(MBItems.SMOOTH_BLACKSTONE);
-
                 entry.accept(MBItems.POLISHED_END_STONE);
                 entry.accept(MBItems.POLISHED_END_STONE_STAIRS);
                 entry.accept(MBItems.POLISHED_END_STONE_SLAB);
@@ -234,51 +227,58 @@ public class MBItemGroups {
                 entry.accept(MBItems.MOSSY_END_STONE_BRICKS_WALL);
                 entry.accept(MBItems.SMOOTH_END_STONE);
                 entry.accept(MBItems.SMOOTH_END_STONE_SLAB);
-
+                entry.accept(MBItems.POLISHED_PURPUR);
+                entry.accept(MBItems.POLISHED_PURPUR_STAIRS);
+                entry.accept(MBItems.POLISHED_PURPUR_SLAB);
+                entry.accept(MBItems.CHISELED_PURPUR);
+                entry.accept(MBItems.CRACKED_PURPUR_BRICKS);
+                entry.accept(MBItems.PURPUR_TILES);
+                entry.accept(MBItems.PURPUR_TILES_STAIRS);
+                entry.accept(MBItems.PURPUR_TILES_SLAB);
+                entry.accept(MBItems.PURPUR_TILES_WALL);
+                entry.accept(MBItems.MOSSY_PURPUR_BRICKS);
+                entry.accept(MBItems.MOSSY_PURPUR_BRICKS_STAIRS);
+                entry.accept(MBItems.MOSSY_PURPUR_BRICKS_SLAB);
+                entry.accept(MBItems.MOSSY_PURPUR_BRICKS_WALL);
+                entry.accept(MBItems.SMOOTH_PURPUR);
+                entry.accept(MBItems.SMOOTH_PURPUR_SLAB);
                 entry.accept(MBItems.COAL_BRICKS);
                 entry.accept(MBItems.CRACKED_COAL_BRICKS);
                 entry.accept(MBItems.COAL_PILLAR);
                 entry.accept(MBItems.CUT_COAL);
                 entry.accept(MBItems.CRACKED_CUT_COAL);
-
                 entry.accept(MBItems.IRON_BRICKS);
                 entry.accept(MBItems.CRACKED_IRON_BRICKS);
                 entry.accept(MBItems.IRON_PILLAR);
                 entry.accept(MBItems.CUT_IRON);
                 entry.accept(MBItems.CRACKED_CUT_IRON);
                 entry.accept(MBItems.IRON_GRATE);
-
                 entry.accept(MBItems.GOLD_BRICKS);
                 entry.accept(MBItems.CRACKED_GOLD_BRICKS);
                 entry.accept(MBItems.GOLD_PILLAR);
                 entry.accept(MBItems.CUT_GOLD);
                 entry.accept(MBItems.CRACKED_CUT_GOLD);
-
                 entry.accept(MBItems.REDSTONE_BRICKS);
                 entry.accept(MBItems.CRACKED_REDSTONE_BRICKS);
                 entry.accept(MBItems.REDSTONE_PILLAR);
                 entry.accept(MBItems.CUT_REDSTONE);
                 entry.accept(MBItems.CRACKED_CUT_REDSTONE);
-
                 entry.accept(MBItems.EMERALD_BRICKS);
                 entry.accept(MBItems.CRACKED_EMERALD_BRICKS);
                 entry.accept(MBItems.EMERALD_PILLAR);
                 entry.accept(MBItems.CUT_EMERALD);
                 entry.accept(MBItems.CRACKED_CUT_EMERALD);
-
                 entry.accept(MBItems.LAPIS_LAZULI_BRICKS);
                 entry.accept(MBItems.CRACKED_LAPIS_LAZULI_BRICKS);
                 entry.accept(MBItems.LAPIS_LAZULI_PILLAR);
                 entry.accept(MBItems.CUT_LAPIS_LAZULI);
                 entry.accept(MBItems.CRACKED_CUT_LAPIS_LAZULI);
-
                 entry.accept(MBItems.DIAMOND_BRICKS);
                 entry.accept(MBItems.CRACKED_DIAMOND_BRICKS);
                 entry.accept(MBItems.DIAMOND_PILLAR);
                 entry.accept(MBItems.CUT_DIAMOND);
                 entry.accept(MBItems.CRACKED_CUT_DIAMOND);
                 entry.accept(MBItems.DIAMOND_GRATE);
-
                 entry.accept(MBItems.NETHERITE_BRICKS);
                 entry.accept(MBItems.CRACKED_NETHERITE_BRICKS);
                 entry.accept(MBItems.NETHERITE_PILLAR);
@@ -286,6 +286,52 @@ public class MBItemGroups {
                 entry.accept(MBItems.CRACKED_CUT_NETHERITE);
                 entry.accept(MBItems.NETHERITE_GRATE);
 
+                entry.accept(MBItems.CRACKED_QUARTZ_BRICKS);
+                entry.accept(MBItems.CUT_QUARTZ);
+                entry.accept(MBItems.CRACKED_CUT_QUARTZ);
+                entry.accept(MBItems.MOSSY_QUARTZ_BRICKS);
+                entry.accept(MBItems.MOSSY_QUARTZ_BRICKS_STAIRS);
+                entry.accept(MBItems.MOSSY_QUARTZ_BRICKS_SLAB);
+                entry.accept(MBItems.SMOOTH_QUARTZ);
+                entry.accept(MBItems.SMOOTH_QUARTZ_SLAB);
+                entry.accept(MBItems.AMETHYST_BRICKS);
+                entry.accept(MBItems.CRACKED_AMETHYST_BRICKS);
+                entry.accept(MBItems.AMETHYST_PILLAR);
+                entry.accept(MBItems.CUT_AMETHYST);
+                entry.accept(MBItems.CRACKED_CUT_AMETHYST);
+                entry.accept(MBItems.BONE_BLOCK_BRICKS);
+                entry.accept(MBItems.CRACKED_BONE_BLOCK_BRICKS);
+                entry.accept(MBItems.BONE_BLOCK_BRICKS_STAIRS);
+                entry.accept(MBItems.BONE_BLOCK_BRICKS_SLAB);
+                entry.accept(MBItems.BONE_BLOCK_BRICKS_WALL);
+                entry.accept(MBItems.BONE_BLOCK_TILES);
+                entry.accept(MBItems.CRACKED_BONE_BLOCK_TILES);
+                entry.accept(MBItems.BONE_BLOCK_TILES_STAIRS);
+                entry.accept(MBItems.BONE_BLOCK_TILES_SLAB);
+                entry.accept(MBItems.BONE_BLOCK_TILES_WALL);
+
+                entry.accept(MBItems.SOUL_SANDSTONE);
+                entry.accept(MBItems.SOUL_SANDSTONE_STAIRS);
+                entry.accept(MBItems.SOUL_SANDSTONE_SLAB);
+                //entry.accept(MBItems.SOUL_SANDSTONE_WALL);
+                entry.accept(MBItems.CHISELED_SOUL_SANDSTONE);
+                entry.accept(MBItems.SOUL_SANDSTONE_BRICKS);
+                entry.accept(MBItems.CRACKED_SOUL_SANDSTONE_BRICKS);
+                entry.accept(MBItems.SOUL_SANDSTONE_BRICKS_STAIRS);
+                entry.accept(MBItems.SOUL_SANDSTONE_BRICKS_SLAB);
+                entry.accept(MBItems.SOUL_SANDSTONE_BRICKS_WALL);
+                entry.accept(MBItems.SOUL_SANDSTONE_PILLAR);
+                entry.accept(MBItems.SOUL_SANDSTONE_TILES);
+                entry.accept(MBItems.CRACKED_SOUL_SANDSTONE_TILES);
+                entry.accept(MBItems.SOUL_SANDSTONE_TILES_STAIRS);
+                entry.accept(MBItems.SOUL_SANDSTONE_TILES_SLAB);
+                entry.accept(MBItems.SOUL_SANDSTONE_TILES_WALL);
+                entry.accept(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS);
+                entry.accept(MBItems.SMOOTH_SOUL_SANDSTONE);
+                entry.accept(MBItems.SMOOTH_SOUL_SANDSTONE_SLAB);
+                entry.accept(MBItems.SMOOTH_SOUL_SANDSTONE_STAIRS);
+                entry.accept(MBItems.CUT_SOUL_SANDSTONE);
+                entry.accept(MBItems.CUT_SOUL_SANDSTONE_SLAB);
 
             }).build();
 
@@ -293,7 +339,6 @@ public class MBItemGroups {
             .icon(() -> new ItemStack(MBItems.MAGENTA_SHINGLES))
             .title(Component.translatable("itemGroup.moreblocks.coloredBlocks"))
             .displayItems((ctx, entry) -> {
-
                 entry.accept(MBItems.TILED_GLASS);
                 entry.accept(MBItems.TILED_TINTED_GLASS);
                 entry.accept(MBItems.WHITE_STAINED_TILED_GLASS);
