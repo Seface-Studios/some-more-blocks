@@ -1,0 +1,51 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "moreblocks:block/leaf_litter"
+      },
+      {
+        "model": "moreblocks:block/leaf_litter_1"
+      },
+      {
+        "model": "moreblocks:block/leaf_litter_2"
+      },
+      {
+        "model": "moreblocks:block/leaf_litter",
+        "y": 90
+      },
+      {
+        "model": "moreblocks:block/leaf_litter_1",
+        "y": 90
+      },
+      {
+        "model": "moreblocks:block/leaf_litter_2",
+        "y": 90
+      },
+      {
+        "model": "moreblocks:block/leaf_litter",
+        "y": 180
+      },
+      {
+        "model": "moreblocks:block/leaf_litter_1",
+        "y": 180
+      },
+      {
+        "model": "moreblocks:block/leaf_litter_2",
+        "y": 180
+      },
+      {
+        "model": "moreblocks:block/leaf_litter",
+        "y": 270
+      },
+      {
+        "model": "moreblocks:block/leaf_litter_1",
+        "y": 270
+      },
+      {
+        "model": "moreblocks:block/leaf_litter_2",
+        "y": 270
+      }
+    ]
+  }
+}

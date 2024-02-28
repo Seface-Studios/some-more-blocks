@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "moreblocks:block/frozen_leaf_litter"
+      },
+      {
+        "model": "moreblocks:block/frozen_leaf_litter",
+        "y": 90
+      },
+      {
+        "model": "moreblocks:block/frozen_leaf_litter",
+        "y": 180
+      },
+      {
+        "model": "moreblocks:block/frozen_leaf_litter",
+        "y": 270
+      }
+    ]
+  }
+}

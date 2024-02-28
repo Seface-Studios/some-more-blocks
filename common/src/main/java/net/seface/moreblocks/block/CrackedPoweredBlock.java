@@ -11,11 +11,11 @@ public class CrackedPoweredBlock extends PoweredBlock {
         super(properties);
     }
 
-    public boolean isSignalSource(BlockState $$0) {
+    public boolean isSignalSource(BlockState state) {
         return true;
     }
 
-    public int getSignal(BlockState $$0, BlockGetter $$1, BlockPos $$2, Direction $$3) {
+    public int getSignal(BlockState state, BlockGetter block, BlockPos pos, Direction direction) {
         return 7;
     }
 }

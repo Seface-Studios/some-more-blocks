@@ -18,9 +18,9 @@ public class PoweredPillarBlock extends RotatedPillarBlock {
         return CODEC;
     }
 
-    public boolean isSignalSource(BlockState blockState) {
+    public boolean isSignalSource(BlockState state) {
         return true;
     }
 
-    public int getSignal(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) { return 15; }
+    public int getSignal(BlockState state, BlockGetter block, BlockPos pos, Direction direction) { return 15; }
 }

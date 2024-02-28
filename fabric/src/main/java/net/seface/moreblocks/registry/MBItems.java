@@ -5,6 +5,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.seface.moreblocks.MoreBlocks;
 
 public class MBItems {
@@ -428,7 +430,6 @@ public class MBItems {
     public static final Item CRACKED_CUT_AMETHYST = new BlockItem(MBBlocks.CRACKED_CUT_AMETHYST, new Item.Properties());
     public static final Item AMETHYST_PILLAR = new BlockItem(MBBlocks.AMETHYST_PILLAR, new Item.Properties());
     public static final Item SHINGLES = new BlockItem(MBBlocks.SHINGLES, new Item.Properties());
-
     public static final Item WHITE_SHINGLES = new BlockItem(MBBlocks.WHITE_SHINGLES, new Item.Properties());
     public static final Item LIGHT_GRAY_SHINGLES = new BlockItem(MBBlocks.LIGHT_GRAY_SHINGLES, new Item.Properties());
     public static final Item GRAY_SHINGLES = new BlockItem(MBBlocks.GRAY_SHINGLES, new Item.Properties());
@@ -530,7 +531,32 @@ public class MBItems {
     public static final Item BONE_BLOCK_TILES_WALL = new BlockItem(MBBlocks.BONE_BLOCK_TILES_WALL, new Item.Properties());
     public static final Item CRACKED_BONE_BLOCK_TILES = new BlockItem(MBBlocks.CRACKED_BONE_BLOCK_TILES, new Item.Properties());
 
+    // Plants
+    public static final Item TINY_CACTUS = new BlockItem(MBBlocks.TINY_CACTUS, new Item.Properties());
+    public static final Item DUNE_GRASS = new BlockItem(MBBlocks.DUNE_GRASS, new Item.Properties());
+    public static final Item TALL_DUNE_GRASS = new BlockItem(MBBlocks.TALL_DUNE_GRASS, new Item.Properties());
+    public static final Item CATTAIL = new BlockItem(MBBlocks.CATTAIL, new Item.Properties());
+    public static final Item SMALL_LILY_PADS = new PlaceOnWaterBlockItem(MBBlocks.SMALL_LILY_PADS, new Item.Properties());
+    public static final Item LUMINOUS_FLOWER = new BlockItem(MBBlocks.LUMINOUS_FLOWER, new Item.Properties());
+
+    public static final Item FROZEN_LEAVES_BUCKET = new BlockItem(MBBlocks.FROZEN_LEAF_LITTER, new Item.Properties());
+    public static final Item LEAVES_BUCKET = new BlockItem(MBBlocks.LEAF_LITTER, new Item.Properties());
+    public static final Item PINK_PETALS_BUCKET = new BlockItem(MBBlocks.PINK_PETALS_LITTER, new Item.Properties());
+
     public static void register() {
+        // Plants
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tiny_cactus"), TINY_CACTUS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "dune_grass"), DUNE_GRASS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tall_dune_grass"), TALL_DUNE_GRASS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cattail"), CATTAIL);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "small_lily_pads"), SMALL_LILY_PADS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "luminous_flower"), LUMINOUS_FLOWER);
+
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "frozen_leaves_bucket"), FROZEN_LEAVES_BUCKET);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "leaves_bucket"), LEAVES_BUCKET);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "pink_petals_bucket"), PINK_PETALS_BUCKET);
+
+        // Blocks
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "packed_snow"), PACKED_SNOW);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "packed_snow_slab"), PACKED_SNOW_SLAB);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "packed_snow_stairs"), PACKED_SNOW_STAIRS);

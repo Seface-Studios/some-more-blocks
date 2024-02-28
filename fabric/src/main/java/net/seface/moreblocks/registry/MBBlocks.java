@@ -4,13 +4,14 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.seface.moreblocks.MoreBlocks;
-import net.seface.moreblocks.block.CrackedPoweredBlock;
-import net.seface.moreblocks.block.PoweredPillarBlock;
+import net.seface.moreblocks.block.*;
 
 public class MBBlocks {
     public static final Block PACKED_SNOW = new Block(FabricBlockSettings.copyOf(Blocks.SNOW_BLOCK));
@@ -532,7 +533,32 @@ public class MBBlocks {
     public static final Block BONE_BLOCK_TILES_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.BONE_BLOCK_TILES).solid());
     public static final Block CRACKED_BONE_BLOCK_TILES = new Block(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
 
+    // Plants
+    public static final Block TINY_CACTUS = new TinyCactusBlock(MobEffects.POISON, 7, FabricBlockSettings.copyOf(Blocks.TORCHFLOWER));
+    public static final Block DUNE_GRASS = new FlowerBlock(MobEffects.ABSORPTION, 1, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
+    public static final Block TALL_DUNE_GRASS = new TallDuneGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
+    public static final Block CATTAIL = new CattailBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
+    public static final Block SMALL_LILY_PADS = new WaterlilyBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).noCollision());
+    public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(MobEffects.HEAL, 7, FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((blockStatex) -> 10));
+
+    public static final Block FROZEN_LEAF_LITTER = new CarpetBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES));
+    public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).noCollision().isValidSpawn(Blocks::never));
+    public static final Block PINK_PETALS_LITTER = new CarpetBlock(FabricBlockSettings.copyOf(Blocks.CHERRY_LEAVES));
+
     public static void register() {
+        // Plants
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tiny_cactus"), TINY_CACTUS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dune_grass"), DUNE_GRASS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tall_dune_grass"), TALL_DUNE_GRASS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cattail"), CATTAIL);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "small_lily_pads"), SMALL_LILY_PADS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "luminous_flower"), LUMINOUS_FLOWER);
+
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "frozen_leaf_litter"), FROZEN_LEAF_LITTER);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "leaf_litter"), LEAF_LITTER);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "pink_petals_litter"), PINK_PETALS_LITTER);
+
+        // Blocks
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "packed_snow"), PACKED_SNOW);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "packed_snow_slab"), PACKED_SNOW_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "packed_snow_stairs"), PACKED_SNOW_STAIRS);

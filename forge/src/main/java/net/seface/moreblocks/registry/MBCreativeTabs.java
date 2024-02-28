@@ -246,7 +246,7 @@ public class MBCreativeTabs {
                 entry.accept(MBBlocks.CRACKED_CUT_GOLD.get());
                 entry.accept(MBBlocks.REDSTONE_BRICKS.get());
                 entry.accept(MBBlocks.CRACKED_REDSTONE_BRICKS.get());
-                //entry.accept(MBBlocks.REDSTONE_PILLAR.get());
+                entry.accept(MBBlocks.REDSTONE_PILLAR.get());
                 entry.accept(MBBlocks.CUT_REDSTONE.get());
                 entry.accept(MBBlocks.CRACKED_CUT_REDSTONE.get());
                 entry.accept(MBBlocks.EMERALD_BRICKS.get());

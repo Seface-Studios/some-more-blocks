@@ -2,12 +2,19 @@ package net.seface.moreblocks;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 import net.seface.moreblocks.registry.MBBlocks;
 
 public class MoreBlocksFabricClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        this.registerBlockRenders();
+        this.registerColorProviders();
+    }
+
+    private void registerBlockRenders() {
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.TILED_GLASS, RenderType.translucent());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.TILED_TINTED_GLASS, RenderType.translucent());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.WHITE_STAINED_TILED_GLASS, RenderType.translucent());
@@ -26,9 +33,22 @@ public class MoreBlocksFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.PURPLE_STAINED_TILED_GLASS, RenderType.translucent());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.MAGENTA_STAINED_TILED_GLASS, RenderType.translucent());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.PINK_STAINED_TILED_GLASS, RenderType.translucent());
-
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.IRON_GRATE, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.DIAMOND_GRATE, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.NETHERITE_GRATE, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.LUMINOUS_FLOWER, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.TINY_CACTUS, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.DUNE_GRASS, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.TALL_DUNE_GRASS, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.CATTAIL, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.SMALL_LILY_PADS, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.LUMINOUS_FLOWER, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.FROZEN_LEAF_LITTER, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.LEAF_LITTER, RenderType.cutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.PINK_PETALS_LITTER, RenderType.cutout());
+    }
+
+    private void registerColorProviders() {
+        ColorProviderRegistry.BLOCK.register((blockState, tint, pos, i) -> BiomeColors.getAverageGrassColor(tint, pos), MBBlocks.LEAF_LITTER);
     }
 }

@@ -285,7 +285,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.CUT_NETHERITE);
                 entry.accept(MBItems.CRACKED_CUT_NETHERITE);
                 entry.accept(MBItems.NETHERITE_GRATE);
-
                 entry.accept(MBItems.CRACKED_QUARTZ_BRICKS);
                 entry.accept(MBItems.CUT_QUARTZ);
                 entry.accept(MBItems.CRACKED_CUT_QUARTZ);
@@ -309,7 +308,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.BONE_BLOCK_TILES_STAIRS);
                 entry.accept(MBItems.BONE_BLOCK_TILES_SLAB);
                 entry.accept(MBItems.BONE_BLOCK_TILES_WALL);
-
                 entry.accept(MBItems.SOUL_SANDSTONE);
                 entry.accept(MBItems.SOUL_SANDSTONE_STAIRS);
                 entry.accept(MBItems.SOUL_SANDSTONE_SLAB);
@@ -332,7 +330,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.SMOOTH_SOUL_SANDSTONE_STAIRS);
                 entry.accept(MBItems.CUT_SOUL_SANDSTONE);
                 entry.accept(MBItems.CUT_SOUL_SANDSTONE_SLAB);
-
             }).build();
 
     private static final CreativeModeTab MORE_COLORED_BLOCKS = FabricItemGroup.builder()
@@ -442,8 +439,25 @@ public class MBItemGroups {
                 entry.accept(MBItems.PINK_CONCRETE_TILES);
             }).build();
 
+    private static final CreativeModeTab MORE_NATURAL_BLOCKS = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(MBItems.TINY_CACTUS))
+            .title(Component.translatable("itemGroup.moreblocks.naturalBlocks"))
+            .displayItems((ctx, entry) -> {
+                entry.accept(MBItems.TINY_CACTUS);
+                entry.accept(MBItems.DUNE_GRASS);
+                entry.accept(MBItems.TALL_DUNE_GRASS);
+                entry.accept(MBItems.CATTAIL);
+
+                entry.accept(MBItems.LEAVES_BUCKET);
+                entry.accept(MBItems.FROZEN_LEAVES_BUCKET);
+                entry.accept(MBItems.PINK_PETALS_BUCKET);
+                entry.accept(MBItems.SMALL_LILY_PADS);
+                entry.accept(MBItems.LUMINOUS_FLOWER);
+            }).build();
+
     public static void register() {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "more_building_blocks"), MORE_BUILDING_BLOCKS);
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "more_colored_blocks"), MORE_COLORED_BLOCKS);
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "more_natural_blocks"), MORE_NATURAL_BLOCKS);
     }
 }

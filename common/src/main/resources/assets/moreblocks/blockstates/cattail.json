@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "moreblocks:block/cattail_bottom"
+    },
+    "half=upper": {
+      "model": "moreblocks:block/cattail_top"
+    }
+  }
+}
