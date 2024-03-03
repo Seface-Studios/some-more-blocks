@@ -40,15 +40,21 @@ public class MoreBlocksFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.TINY_CACTUS, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.DUNE_GRASS, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.TALL_DUNE_GRASS, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.SNOW_GRASS, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.TALL_SNOW_GRASS, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.CATTAIL, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.SMALL_LILY_PADS, RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.LUMINOUS_FLOWER, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.FROZEN_LEAF_LITTER, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.LEAF_LITTER, RenderType.cutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.PINK_PETALS_LITTER, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.BIG_LILY_PAD, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.BROWN_MUSHROOM_COLONY, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.BROWN_MUSHROOM_COLONY_WALL, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.RED_MUSHROOM_COLONY, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.RED_MUSHROOM_COLONY_WALL, RenderType.cutout());
     }
 
     private void registerColorProviders() {
-        ColorProviderRegistry.BLOCK.register((blockState, tint, pos, i) -> BiomeColors.getAverageGrassColor(tint, pos), MBBlocks.LEAF_LITTER);
+        ColorProviderRegistry.BLOCK.register((blockState, tint, pos, i) -> BiomeColors.getAverageFoliageColor(tint, pos), MBBlocks.LEAF_LITTER);
     }
 }

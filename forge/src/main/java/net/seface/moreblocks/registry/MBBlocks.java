@@ -1,5 +1,6 @@
 package net.seface.moreblocks.registry;
 
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -12,8 +13,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.moreblocks.MoreBlocks;
-import net.seface.moreblocks.block.PoweredPillarBlock;
+import net.seface.moreblocks.block.*;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.function.Supplier;
 
 public class MBBlocks {
@@ -538,14 +540,34 @@ public class MBBlocks {
     public static final RegistryObject<Block> BONE_BLOCK_TILES_WALL = registerBlock("bone_block_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.BONE_BLOCK_TILES.get())));
     public static final RegistryObject<Block> CRACKED_BONE_BLOCK_TILES = registerBlock("cracked_bone_block_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BONE_BLOCK)));
 
+    // Plants
+    public static final RegistryObject<Block> TINY_CACTUS = registerBlock("tiny_cactus", () -> new TinyCactusBlock(MobEffects.POISON, 7, BlockBehaviour.Properties.ofFullCopy(Blocks.TORCHFLOWER)));
+    public static final RegistryObject<Block> DUNE_GRASS = registerBlock("dune_grass", () -> new FlowerBlock(MobEffects.ABSORPTION, 1, BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
+    public static final RegistryObject<Block> TALL_DUNE_GRASS = registerBlock("tall_dune_grass", () -> new TallDuneGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
+    public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new CattailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
+    public static final RegistryObject<Block> SMALL_LILY_PADS = registerBlock("small_lily_pads", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).noCollission()), false);
+    public static final RegistryObject<Block> LUMINOUS_FLOWER = registerBlock("luminous_flower", () -> new LuminousFlowerBlock(MobEffects.HEAL, 7, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION).lightLevel((blockStatex) -> 10)));
+
+    public static final RegistryObject<Block> FROZEN_LEAF_LITTER = registerBlock("frozen_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_LEAVES).noCollission()), false);
+    public static final RegistryObject<Block> LEAF_LITTER = registerBlock("leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).noCollission()), false);
+    public static final RegistryObject<Block> PINK_PETALS_LITTER = registerBlock("pink_petals_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).noCollission()), false);
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
+        return registerBlock(name, block, true);
+    }
+
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, boolean registerItemBlock) {
         RegistryObject<T> blockInstance = BLOCKS.register(name, block);
-        registerBlockItem(name, blockInstance);
+
+        if (registerItemBlock) {
+            registerBlockItem(name, blockInstance);
+        }
+
         return blockInstance;
     }
 
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-        return MBItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        return MBItems.registerItem(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static void register(IEventBus event) {

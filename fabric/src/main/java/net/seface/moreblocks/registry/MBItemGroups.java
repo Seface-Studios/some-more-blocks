@@ -446,13 +446,19 @@ public class MBItemGroups {
                 entry.accept(MBItems.TINY_CACTUS);
                 entry.accept(MBItems.DUNE_GRASS);
                 entry.accept(MBItems.TALL_DUNE_GRASS);
+                entry.accept(MBItems.SNOW_GRASS);
+                entry.accept(MBItems.TALL_SNOW_GRASS);
                 entry.accept(MBItems.CATTAIL);
-
                 entry.accept(MBItems.LEAVES_BUCKET);
                 entry.accept(MBItems.FROZEN_LEAVES_BUCKET);
                 entry.accept(MBItems.PINK_PETALS_BUCKET);
+                entry.accept(MBItems.BIG_LILY_PAD);
                 entry.accept(MBItems.SMALL_LILY_PADS);
                 entry.accept(MBItems.LUMINOUS_FLOWER);
+                entry.accept(MBItems.BROWN_MUSHROOM_COLONY);
+                entry.accept(MBItems.BROWN_MUSHROOM_COLONY_WALL);
+                entry.accept(MBItems.RED_MUSHROOM_COLONY);
+                entry.accept(MBItems.RED_MUSHROOM_COLONY_WALL);
             }).build();
 
     public static void register() {

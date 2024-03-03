@@ -3,10 +3,9 @@ package net.seface.moreblocks.registry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.PlaceOnWaterBlockItem;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.*;
+import net.seface.moreblocks.BigLilyPadBlockItem;
 import net.seface.moreblocks.MoreBlocks;
 
 public class MBItems {
@@ -535,26 +534,38 @@ public class MBItems {
     public static final Item TINY_CACTUS = new BlockItem(MBBlocks.TINY_CACTUS, new Item.Properties());
     public static final Item DUNE_GRASS = new BlockItem(MBBlocks.DUNE_GRASS, new Item.Properties());
     public static final Item TALL_DUNE_GRASS = new BlockItem(MBBlocks.TALL_DUNE_GRASS, new Item.Properties());
+    public static final Item SNOW_GRASS = new BlockItem(MBBlocks.SNOW_GRASS, new Item.Properties());
+    public static final Item TALL_SNOW_GRASS = new BlockItem(MBBlocks.TALL_SNOW_GRASS, new Item.Properties());
     public static final Item CATTAIL = new BlockItem(MBBlocks.CATTAIL, new Item.Properties());
     public static final Item SMALL_LILY_PADS = new PlaceOnWaterBlockItem(MBBlocks.SMALL_LILY_PADS, new Item.Properties());
     public static final Item LUMINOUS_FLOWER = new BlockItem(MBBlocks.LUMINOUS_FLOWER, new Item.Properties());
-
-    public static final Item FROZEN_LEAVES_BUCKET = new BlockItem(MBBlocks.FROZEN_LEAF_LITTER, new Item.Properties());
-    public static final Item LEAVES_BUCKET = new BlockItem(MBBlocks.LEAF_LITTER, new Item.Properties());
-    public static final Item PINK_PETALS_BUCKET = new BlockItem(MBBlocks.PINK_PETALS_LITTER, new Item.Properties());
+    public static final Item LEAVES_BUCKET = new SolidBucketItem(MBBlocks.LEAF_LITTER, SoundEvents.AMETHYST_BLOCK_PLACE, (new Item.Properties()).stacksTo(1));
+    public static final Item FROZEN_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.FROZEN_LEAF_LITTER, SoundEvents.TNT_PRIMED, (new Item.Properties()).stacksTo(1));
+    public static final Item PINK_PETALS_BUCKET = new SolidBucketItem(MBBlocks.PINK_PETALS_LITTER, SoundEvents.FROG_AMBIENT, (new Item.Properties()).stacksTo(1));
+    public static final Item BIG_LILY_PAD = new BigLilyPadBlockItem(MBBlocks.BIG_LILY_PAD, new Item.Properties());
+    public static final Item BROWN_MUSHROOM_COLONY = new BlockItem(MBBlocks.BROWN_MUSHROOM_COLONY, new Item.Properties());
+    public static final Item BROWN_MUSHROOM_COLONY_WALL = new BlockItem(MBBlocks.BROWN_MUSHROOM_COLONY_WALL, new Item.Properties());
+    public static final Item RED_MUSHROOM_COLONY = new BlockItem(MBBlocks.RED_MUSHROOM_COLONY, new Item.Properties());
+    public static final Item RED_MUSHROOM_COLONY_WALL = new BlockItem(MBBlocks.RED_MUSHROOM_COLONY_WALL, new Item.Properties());
 
     public static void register() {
         // Plants
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tiny_cactus"), TINY_CACTUS);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "dune_grass"), DUNE_GRASS);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tall_dune_grass"), TALL_DUNE_GRASS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "snow_grass"), SNOW_GRASS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tall_snow_grass"), TALL_SNOW_GRASS);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cattail"), CATTAIL);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "small_lily_pads"), SMALL_LILY_PADS);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "luminous_flower"), LUMINOUS_FLOWER);
-
-        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "frozen_leaves_bucket"), FROZEN_LEAVES_BUCKET);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "big_lily_pad"), BIG_LILY_PAD);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "leaves_bucket"), LEAVES_BUCKET);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "frozen_leaves_bucket"), FROZEN_LEAVES_BUCKET);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "pink_petals_bucket"), PINK_PETALS_BUCKET);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "brown_mushroom_colony"), BROWN_MUSHROOM_COLONY);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "brown_mushroom_colony_wall"), BROWN_MUSHROOM_COLONY_WALL);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "red_mushroom_colony"), RED_MUSHROOM_COLONY);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "red_mushroom_colony_wall"), RED_MUSHROOM_COLONY_WALL);
 
         // Blocks
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "packed_snow"), PACKED_SNOW);

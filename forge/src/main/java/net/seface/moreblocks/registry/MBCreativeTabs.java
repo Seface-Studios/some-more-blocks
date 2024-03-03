@@ -380,6 +380,21 @@ public class MBCreativeTabs {
                 entry.accept(MBBlocks.PINK_CONCRETE_TILES.get());
             }).build());
 
+    private static final RegistryObject<CreativeModeTab> MORE_NATURAL_BLOCKS = CREATIVE_MODE_TABS.register("more_natural_blocks", () -> CreativeModeTab.builder()
+            .icon(() -> MBBlocks.TINY_CACTUS.get().asItem().getDefaultInstance())
+            .title(Component.translatable("itemGroup.moreblocks.naturalBlocks"))
+            .displayItems((ctx, entry) -> {
+                entry.accept(MBBlocks.TINY_CACTUS.get());
+                entry.accept(MBBlocks.DUNE_GRASS.get());
+                entry.accept(MBBlocks.TALL_DUNE_GRASS.get());
+                entry.accept(MBBlocks.CATTAIL.get());
+               //entry.accept(MBItems.LEAVES_BUCKET.get());
+               //entry.accept(MBItems.FROZEN_LEAVES_BUCKET.get());
+               //entry.accept(MBItems.PINK_PETALS_BUCKET.get());
+                entry.accept(MBItems.SMALL_LILY_PADS.get());
+                entry.accept(MBBlocks.LUMINOUS_FLOWER.get());
+            }).build());
+
     public static void register(IEventBus event) {
         CREATIVE_MODE_TABS.register(event);
     }

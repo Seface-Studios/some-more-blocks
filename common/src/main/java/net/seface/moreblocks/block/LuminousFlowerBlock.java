@@ -22,14 +22,14 @@ public class LuminousFlowerBlock extends FlowerBlock {
     }
 
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        VoxelShape $$4 = this.getShape(state, level, pos, CollisionContext.empty());
-        Vec3 $$5 = $$4.bounds().getCenter();
-        double $$6 = (double)pos.getX() + $$5.x;
-        double $$7 = (double)pos.getZ() + $$5.z;
+        VoxelShape shape = this.getShape(state, level, pos, CollisionContext.empty());
+        Vec3 shapeCenter = shape.bounds().getCenter();
+        double x = (double) pos.getX() + shapeCenter.x;
+        double z = (double) pos.getZ() + shapeCenter.z;
 
-        for(int $$8 = 0; $$8 < 3; ++$$8) {
+        for(int i = 0; i < 3; ++i) {
             if (random.nextBoolean()) {
-                level.addParticle(ParticleTypes.END_ROD, $$6 + random.nextDouble() / 5.0, (double)pos.getY() + (0.25 + random.nextDouble()), $$7 + random.nextDouble() / 5.0, 0.0, 0.0, 0.0);
+                level.addParticle(ParticleTypes.END_ROD, x + random.nextDouble() / 5.0, (double)pos.getY() + (0.25 + random.nextDouble()), z + random.nextDouble() / 5.0, 0.0, 0.0, 0.0);
             }
         }
     }
