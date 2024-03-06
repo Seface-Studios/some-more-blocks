@@ -4,8 +4,10 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.TransparentBlock;
@@ -43,5 +45,11 @@ public class WallMushroomColonyBlock extends TransparentBlock {
 
     public BlockState getStateForPlacement(BlockPlaceContext block) {
         return this.defaultBlockState().setValue(FACING, block.getHorizontalDirection());
+    }
+
+    @Override
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        BlockState block = level.getBlockState(pos.relative(state.getValue(FACING)));
+        return block.is(BlockTags.LOGS) || block.is(BlockTags.DIRT);
     }
 }

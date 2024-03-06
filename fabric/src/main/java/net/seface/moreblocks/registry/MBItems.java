@@ -5,8 +5,9 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
-import net.seface.moreblocks.BigLilyPadBlockItem;
+import net.seface.moreblocks.item.BigLilyPadBlockItem;
 import net.seface.moreblocks.MoreBlocks;
+import net.seface.moreblocks.item.MushroomColonyBlockItem;
 
 public class MBItems {
     public static final Item PACKED_SNOW = new BlockItem(MBBlocks.PACKED_SNOW, new Item.Properties());
@@ -495,7 +496,7 @@ public class MBItems {
     public static final Item CHERRY_MOSAIC_STAIRS = new BlockItem(MBBlocks.CHERRY_MOSAIC_STAIRS, new Item.Properties());
     public static final Item CARVED_CHERRY_LOG = new BlockItem(MBBlocks.CARVED_CHERRY_LOG, new Item.Properties());
     public static final Item CARVED_CHERRY_WOOD = new BlockItem(MBBlocks.CARVED_CHERRY_WOOD, new Item.Properties());
-    //public static final Item BLOCK_OF_CARVED_BAMBOO = new BlockItem(MBBlocks.BLOCK_OF_CARVED_BAMBOO, new Item.Properties());
+    public static final Item CARVED_BAMBOO_BLOCK = new BlockItem(MBBlocks.CARVED_BAMBOO_BLOCK, new Item.Properties());
     public static final Item MOSSY_BRICK_BLOCK = new BlockItem(MBBlocks.MOSSY_BRICK_BLOCK, new Item.Properties());
     public static final Item MOSSY_BRICK_BLOCK_SLAB = new BlockItem(MBBlocks.MOSSY_BRICK_BLOCK_SLAB, new Item.Properties());
     public static final Item MOSSY_BRICK_BLOCK_STAIRS = new BlockItem(MBBlocks.MOSSY_BRICK_BLOCK_STAIRS, new Item.Properties());
@@ -543,10 +544,9 @@ public class MBItems {
     public static final Item FROZEN_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.FROZEN_LEAF_LITTER, SoundEvents.TNT_PRIMED, (new Item.Properties()).stacksTo(1));
     public static final Item PINK_PETALS_BUCKET = new SolidBucketItem(MBBlocks.PINK_PETALS_LITTER, SoundEvents.FROG_AMBIENT, (new Item.Properties()).stacksTo(1));
     public static final Item BIG_LILY_PAD = new BigLilyPadBlockItem(MBBlocks.BIG_LILY_PAD, new Item.Properties());
-    public static final Item BROWN_MUSHROOM_COLONY = new BlockItem(MBBlocks.BROWN_MUSHROOM_COLONY, new Item.Properties());
-    public static final Item BROWN_MUSHROOM_COLONY_WALL = new BlockItem(MBBlocks.BROWN_MUSHROOM_COLONY_WALL, new Item.Properties());
-    public static final Item RED_MUSHROOM_COLONY = new BlockItem(MBBlocks.RED_MUSHROOM_COLONY, new Item.Properties());
-    public static final Item RED_MUSHROOM_COLONY_WALL = new BlockItem(MBBlocks.RED_MUSHROOM_COLONY_WALL, new Item.Properties());
+
+    public static final Item BROWN_MUSHROOM_COLONY = new MushroomColonyBlockItem(MBBlocks.BROWN_MUSHROOM_COLONY, MBBlocks.BROWN_MUSHROOM_COLONY_WALL, new Item.Properties());
+    public static final Item RED_MUSHROOM_COLONY = new MushroomColonyBlockItem(MBBlocks.RED_MUSHROOM_COLONY, MBBlocks.RED_MUSHROOM_COLONY_WALL, new Item.Properties());
 
     public static void register() {
         // Plants
@@ -563,9 +563,7 @@ public class MBItems {
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "frozen_leaves_bucket"), FROZEN_LEAVES_BUCKET);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "pink_petals_bucket"), PINK_PETALS_BUCKET);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "brown_mushroom_colony"), BROWN_MUSHROOM_COLONY);
-        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "brown_mushroom_colony_wall"), BROWN_MUSHROOM_COLONY_WALL);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "red_mushroom_colony"), RED_MUSHROOM_COLONY);
-        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "red_mushroom_colony_wall"), RED_MUSHROOM_COLONY_WALL);
 
         // Blocks
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "packed_snow"), PACKED_SNOW);
@@ -1052,7 +1050,7 @@ public class MBItems {
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cherry_mosaic_stairs"), CHERRY_MOSAIC_STAIRS);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "carved_cherry_log"), CARVED_CHERRY_LOG);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "carved_cherry_wood"), CARVED_CHERRY_WOOD);
-        //Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "block_of_carved_bamboo"), BLOCK_OF_CARVED_BAMBOO);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "carved_bamboo_block"), CARVED_BAMBOO_BLOCK);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "mossy_brick_block"), MOSSY_BRICK_BLOCK);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "mossy_brick_block_slab"), MOSSY_BRICK_BLOCK_SLAB);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "mossy_brick_block_stairs"), MOSSY_BRICK_BLOCK_STAIRS);

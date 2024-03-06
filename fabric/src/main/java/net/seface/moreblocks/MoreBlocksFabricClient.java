@@ -52,6 +52,9 @@ public class MoreBlocksFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.BROWN_MUSHROOM_COLONY_WALL, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.RED_MUSHROOM_COLONY, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.RED_MUSHROOM_COLONY_WALL, RenderType.cutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.POTTED_LUMINOUS_FLOWER, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.POTTED_TINY_CACTUS, RenderType.cutout());
     }
 
     private void registerColorProviders() {

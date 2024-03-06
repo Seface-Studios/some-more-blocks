@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "moreblocks:blocks/dry_mossy_red_sandstone_bricks",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "moreblocks:dry_mossy_red_sandstone_bricks"
+        }
+      ]
+    }
+  ]
+}

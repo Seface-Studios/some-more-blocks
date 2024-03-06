@@ -19,6 +19,10 @@ export class PillarBlock extends AbstractBlockModel {
     );
 
     AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}`] = this.blockName;
+
+    if(blockName.includes('Snow')) {
+      AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}`);
+    }
   }
 
   build() {

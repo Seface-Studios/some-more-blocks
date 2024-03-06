@@ -4,11 +4,13 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.seface.moreblocks.MoreBlocks;
 import net.seface.moreblocks.block.*;
 import net.seface.moreblocks.block.BigLilyPadBlock;
@@ -222,12 +224,12 @@ public class MBBlocks {
     public static final Block MOSSY_QUARTZ_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_QUARTZ_BRICKS).solid());
     public static final Block CUT_QUARTZ = new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BRICKS));
     public static final Block CRACKED_CUT_QUARTZ = new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BRICKS));
-    public static final Block POLISHED_MUD = new Block(FabricBlockSettings.copyOf(Blocks.MUD));
+    public static final Block POLISHED_MUD = new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS));
     public static final Block POLISHED_MUD_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.POLISHED_MUD));
     public static final Block POLISHED_MUD_STAIRS = new StairBlock(POLISHED_MUD.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.POLISHED_MUD));
-    public static final Block SMOOTH_MUD = new Block(FabricBlockSettings.copyOf(Blocks.MUD));
+    public static final Block SMOOTH_MUD = new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS));
     public static final Block SMOOTH_MUD_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_MUD));
-    public static final Block CHISELED_MUD = new Block(FabricBlockSettings.copyOf(Blocks.MUD));
+    public static final Block CHISELED_MUD = new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS));
     public static final Block CRACKED_MUD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS));
     public static final Block MOSSY_MUD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS));
     public static final Block MOSSY_MUD_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_MUD_BRICKS));
@@ -498,7 +500,7 @@ public class MBBlocks {
     public static final Block CHERRY_MOSAIC_STAIRS = new StairBlock(CHERRY_MOSAIC.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.CHERRY_MOSAIC));
     public static final Block CARVED_CHERRY_LOG = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_CHERRY_LOG));
     public static final Block CARVED_CHERRY_WOOD = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_CHERRY_WOOD));
-    //public static final Block BLOCK_OF_CARVED_BAMBOO = new Block(FabricBlockSettings.copyOf(Blocks.BAMBOO_BLOCK));
+    public static final Block CARVED_BAMBOO_BLOCK = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_BAMBOO_BLOCK));
     public static final Block MOSSY_BRICK_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.BRICKS));
     public static final Block MOSSY_BRICK_BLOCK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_BRICK_BLOCK));
     public static final Block MOSSY_BRICK_BLOCK_STAIRS = new StairBlock(MOSSY_BRICK_BLOCK.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.MOSSY_BRICK_BLOCK));
@@ -535,21 +537,25 @@ public class MBBlocks {
 
     // Plants
     public static final Block TINY_CACTUS = new TinyCactusBlock(MobEffects.POISON, 7, FabricBlockSettings.copyOf(Blocks.TORCHFLOWER));
-    public static final Block DUNE_GRASS = new TallGrassBlock(FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
     public static final Block TALL_DUNE_GRASS = new TallDuneGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
-    public static final Block SNOW_GRASS = new TallGrassBlock(FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
+    public static final Block DUNE_GRASS = new DuneGrassBlock(TALL_DUNE_GRASS, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
     public static final Block TALL_SNOW_GRASS = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
+    public static final Block SNOW_GRASS = new SnowGrassBlock(TALL_SNOW_GRASS, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
     public static final Block CATTAIL = new CattailBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
     public static final Block SMALL_LILY_PADS = new WaterlilyBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).noCollision());
     public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(MobEffects.HEAL, 7, FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((blockStatex) -> 10));
-    public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).noCollision().isValidSpawn(Blocks::never));
-    public static final Block FROZEN_LEAF_LITTER = new LeafLitterBlock( FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES));
-    public static final Block PINK_PETALS_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.CHERRY_LEAVES));
+    public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).noCollision().isValidSpawn(Blocks::never).instabreak());
+    public static final Block FROZEN_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).instabreak());
+    public static final Block PINK_PETALS_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.CHERRY_LEAVES).instabreak());
     public static final Block BIG_LILY_PAD = new BigLilyPadBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD));
     public static final Block BROWN_MUSHROOM_COLONY = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
     public static final Block BROWN_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.BROWN_MUSHROOM_COLONY));
     public static final Block RED_MUSHROOM_COLONY = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
     public static final Block RED_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.RED_MUSHROOM_COLONY));
+
+    // Flower Pots
+    public static final Block POTTED_TINY_CACTUS = createFlowerPotBlock(TINY_CACTUS);
+    public static final Block POTTED_LUMINOUS_FLOWER = createFlowerPotBlock(LUMINOUS_FLOWER, 10);
 
     public static void register() {
         // Plants
@@ -569,6 +575,9 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "brown_mushroom_colony_wall"), BROWN_MUSHROOM_COLONY_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "red_mushroom_colony"), RED_MUSHROOM_COLONY);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "red_mushroom_colony_wall"), RED_MUSHROOM_COLONY_WALL);
+
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "potted_luminous_flower"), POTTED_LUMINOUS_FLOWER);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "potted_tiny_cactus"), POTTED_TINY_CACTUS);
 
         // Blocks
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "packed_snow"), PACKED_SNOW);
@@ -1055,7 +1064,7 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cherry_mosaic_stairs"), CHERRY_MOSAIC_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "carved_cherry_log"), CARVED_CHERRY_LOG);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "carved_cherry_wood"), CARVED_CHERRY_WOOD);
-        //Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "block_of_carved_bamboo"), BLOCK_OF_CARVED_BAMBOO);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "carved_bamboo_block"), CARVED_BAMBOO_BLOCK);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_brick_block"), MOSSY_BRICK_BLOCK);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_brick_block_slab"), MOSSY_BRICK_BLOCK_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_brick_block_stairs"), MOSSY_BRICK_BLOCK_STAIRS);
@@ -1090,5 +1099,13 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_tiles_wall"), BONE_BLOCK_TILES_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_bone_block_tiles"), CRACKED_BONE_BLOCK_TILES);
 
+    }
+
+    private static Block createFlowerPotBlock(Block block) {
+        return new FlowerPotBlock(block, FabricBlockSettings.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY));
+    }
+
+    private static Block createFlowerPotBlock(Block block, int lightLevel) {
+        return new FlowerPotBlock(block, FabricBlockSettings.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY).lightLevel((state) -> lightLevel));
     }
 }

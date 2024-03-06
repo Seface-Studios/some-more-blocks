@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "moreblocks:oak_mosaic_slab",
     "moreblocks:spruce_mosaic_slab",

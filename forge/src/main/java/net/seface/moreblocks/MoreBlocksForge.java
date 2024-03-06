@@ -1,10 +1,8 @@
 package net.seface.moreblocks;
 
-import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.level.ColorResolver;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -16,7 +14,6 @@ import net.seface.moreblocks.registry.MBItems;
 
 @Mod(MoreBlocks.ID)
 public class MoreBlocksForge {
-
     public MoreBlocksForge() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -61,6 +58,7 @@ public class MoreBlocksForge {
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.TALL_DUNE_GRASS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.CATTAIL.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.SMALL_LILY_PADS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.BIG_LILY_PAD.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.FROZEN_LEAF_LITTER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.LEAF_LITTER.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.PINK_PETALS_LITTER.get(), RenderType.cutout());

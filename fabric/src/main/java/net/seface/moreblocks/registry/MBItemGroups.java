@@ -65,6 +65,7 @@ public class MBItemGroups {
                 entry.accept(MBItems.CHERRY_MOSAIC);
                 entry.accept(MBItems.CHERRY_MOSAIC_STAIRS);
                 entry.accept(MBItems.CHERRY_MOSAIC_SLAB);
+                entry.accept(MBItems.CARVED_BAMBOO_BLOCK);
                 entry.accept(MBItems.POLISHED_STONE);
                 entry.accept(MBItems.POLISHED_STONE_STAIRS);
                 entry.accept(MBItems.POLISHED_STONE_SLAB);
@@ -330,6 +331,39 @@ public class MBItemGroups {
                 entry.accept(MBItems.SMOOTH_SOUL_SANDSTONE_STAIRS);
                 entry.accept(MBItems.CUT_SOUL_SANDSTONE);
                 entry.accept(MBItems.CUT_SOUL_SANDSTONE_SLAB);
+
+                entry.accept(MBItems.PACKED_SNOW);
+                entry.accept(MBItems.PACKED_SNOW_STAIRS);
+                entry.accept(MBItems.PACKED_SNOW_SLAB);
+                entry.accept(MBItems.POLISHED_SNOW);
+                entry.accept(MBItems.POLISHED_SNOW_STAIRS);
+                entry.accept(MBItems.POLISHED_SNOW_SLAB);
+                entry.accept(MBItems.SNOW_BRICKS);
+                entry.accept(MBItems.CRACKED_SNOW_BRICKS);
+                entry.accept(MBItems.SNOW_BRICKS_STAIRS);
+                entry.accept(MBItems.SNOW_BRICKS_SLAB);
+                entry.accept(MBItems.SNOW_BRICKS_WALL);
+                entry.accept(MBItems.SNOW_PILLAR);
+                entry.accept(MBItems.SNOW_TILES);
+                entry.accept(MBItems.CRACKED_SNOW_TILES);
+                entry.accept(MBItems.SNOW_TILES_STAIRS);
+                entry.accept(MBItems.SNOW_TILES_SLAB);
+                entry.accept(MBItems.SNOW_TILES_WALL);
+
+                entry.accept(MBItems.POLISHED_ICE);
+                entry.accept(MBItems.POLISHED_ICE_STAIRS);
+                entry.accept(MBItems.POLISHED_ICE_SLAB);
+                entry.accept(MBItems.ICE_BRICKS);
+                entry.accept(MBItems.CRACKED_ICE_BRICKS);
+                entry.accept(MBItems.ICE_BRICKS_STAIRS);
+                entry.accept(MBItems.ICE_BRICKS_SLAB);
+                entry.accept(MBItems.ICE_BRICKS_WALL);
+                entry.accept(MBItems.ICE_PILLAR);
+                entry.accept(MBItems.ICE_TILES);
+                entry.accept(MBItems.CRACKED_ICE_TILES);
+                entry.accept(MBItems.ICE_TILES_STAIRS);
+                entry.accept(MBItems.ICE_TILES_SLAB);
+                entry.accept(MBItems.ICE_TILES_WALL);
             }).build();
 
     private static final CreativeModeTab MORE_COLORED_BLOCKS = FabricItemGroup.builder()
@@ -456,9 +490,7 @@ public class MBItemGroups {
                 entry.accept(MBItems.SMALL_LILY_PADS);
                 entry.accept(MBItems.LUMINOUS_FLOWER);
                 entry.accept(MBItems.BROWN_MUSHROOM_COLONY);
-                entry.accept(MBItems.BROWN_MUSHROOM_COLONY_WALL);
                 entry.accept(MBItems.RED_MUSHROOM_COLONY);
-                entry.accept(MBItems.RED_MUSHROOM_COLONY_WALL);
             }).build();
 
     public static void register() {

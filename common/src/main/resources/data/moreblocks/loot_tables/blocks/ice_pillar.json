@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "moreblocks:blocks/ice_pillar",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "enchantments": [
+              {
+                "enchantment": "minecraft:silk_touch",
+                "levels": {
+                  "min": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "moreblocks:ice_pillar"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

@@ -19,6 +19,8 @@ export class LogBlock extends AbstractBlockModel {
     );
 
     AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}`] = this.blockName;
+
+    AbstractBlockModel.tags.logs.push(`${this.NAMESPACE}:${this.blockId}`);
   }
 
   build() {

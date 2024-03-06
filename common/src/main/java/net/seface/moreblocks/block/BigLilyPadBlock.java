@@ -2,6 +2,9 @@ package net.seface.moreblocks.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -13,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.seface.moreblocks.utils.BigLilyPadDirectionOffset;
@@ -40,7 +44,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
         return this.defaultBlockState().setValue(FACING, block.getHorizontalDirection());
     }
 
-    @Override
+    /*@Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity livingEntity, ItemStack item) {
         Direction facing = state.getValue(FACING);
         BigLilyPadDirectionOffset offset = BigLilyPadDirectionOffset.getByDirection(facing);
@@ -49,7 +53,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
         level.setBlock(offset.getTopOffset(pos), this.defaultBlockState().setValue(TEXTURE, 2).setValue(FACING, facing), 3);
         level.setBlock(offset.getRightOffset(pos), this.defaultBlockState().setValue(TEXTURE, 1).setValue(FACING, facing), 3);
         level.setBlock(offset.getTopRightOffset(pos), this.defaultBlockState().setValue(TEXTURE, 3).setValue(FACING, facing), 3);
-    }
+    }*/
 
     public void place(Level level, BlockPos pos, BlockState state, Direction direction) {
         BigLilyPadDirectionOffset offset = BigLilyPadDirectionOffset.getByDirection(direction);
@@ -58,57 +62,26 @@ public class BigLilyPadBlock extends WaterlilyBlock {
         level.setBlock(offset.getTopOffset(pos), this.defaultBlockState().setValue(TEXTURE, 2).setValue(FACING, direction), 3);
         level.setBlock(offset.getRightOffset(pos), this.defaultBlockState().setValue(TEXTURE, 1).setValue(FACING, direction), 3);
         level.setBlock(offset.getTopRightOffset(pos), this.defaultBlockState().setValue(TEXTURE, 3).setValue(FACING, direction), 3);
-
     }
 
     public boolean isValidPlace(Level level, BlockPos pos, Direction direction) {
+        BlockPos above = pos.above();
         BigLilyPadDirectionOffset offset = BigLilyPadDirectionOffset.getByDirection(direction);
 
         boolean srcFluid = level.getBlockState(pos).getFluidState().isSource();
-        boolean topFluid = level.getBlockState(offset.getTopOffset(pos)).getFluidState().isSource();
-        boolean rightFluid = level.getBlockState(offset.getRightOffset(pos)).getFluidState().isSource();
-        boolean topRightFluid = level.getBlockState(offset.getTopRightOffset(pos)).getFluidState().isSource();
+        boolean srcAir = level.getBlockState(above).isAir();
 
-        boolean srcAir = level.getBlockState(pos.above()).isAir();
-        boolean topAir = level.getBlockState(offset.getTopOffset(pos.above())).isAir();
-        boolean rightAir = level.getBlockState(offset.getRightOffset(pos.above())).isAir();
-        boolean topRightAir = level.getBlockState(offset.getTopRightOffset(pos.above())).isAir();
+        boolean topFluid = offset.getTopBlockState(level, pos).getFluidState().isSource();
+        boolean topAir = offset.getTopBlockState(level, above).isAir();
+
+        boolean rightFluid = offset.getRightBlockState(level, pos).getFluidState().isSource();
+        boolean rightAir = offset.getRightBlockState(level, above).isAir();
+
+        boolean topRightFluid = offset.getTopRightBlockState(level, pos).getFluidState().isSource();
+        boolean topRightAir = offset.getRightBlockState(level, above).isAir();
 
         return (srcFluid && topFluid && rightFluid && topRightFluid) && (srcAir && topAir && rightAir && topRightAir);
     }
-
-    /**
-     * Checks if all the 4 needed blocks are air.
-     * @param level The world level.
-     * @param pos The source position.
-     * @param state
-     * @return
-     */
-    /*public static boolean isValidPosition(Level level, BlockPos pos, BlockState state) {
-
-        BlockState source = level.getBlockState(pos.above());
-        BlockState top = level.getBlockState(offset.getTopOffset(pos).above());
-        BlockState right = level.getBlockState(offset.getRightOffset(pos).above());
-        BlockState topRight = level.getBlockState(offset.getTopRightOffset(pos).above());
-    }*/
-
-
-
-
-
-
-    /*@Override
-    protected boolean mayPlaceOn(@NotNull BlockState state, BlockGetter block, BlockPos pos) {
-        Direction facing = block.getBlockState(pos).getValue(FACING);
-        BigLilyPadDirectionOffset offset = BigLilyPadDirectionOffset.getByFacingPropertyValue(facing);
-
-        BlockState source = block.getBlockState(pos.above());
-        BlockState top = block.getBlockState(offset.getTopOffset(pos).above());
-        BlockState right = block.getBlockState(offset.getRightOffset(pos).above());
-        BlockState topRight = block.getBlockState(offset.getTopRightOffset(pos).above());
-
-        return source.is(Blocks.AIR) && top.is(Blocks.AIR) && right.is(Blocks.AIR) && topRight.is(Blocks.AIR);
-    }*/
 
     @Override
     public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
@@ -207,9 +180,5 @@ public class BigLilyPadBlock extends WaterlilyBlock {
         }
 
         return super.playerWillDestroy(level, pos, state, player);
-    }
-
-    private static boolean isValidBlockAt(BlockPos pos) {
-        return true;
     }
 }

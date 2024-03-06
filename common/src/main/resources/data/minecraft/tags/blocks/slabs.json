@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "moreblocks:packed_snow_slab",
     "moreblocks:polished_snow_slab",
@@ -62,11 +63,6 @@
     "moreblocks:smooth_purpur_slab",
     "moreblocks:mossy_purpur_bricks_slab",
     "moreblocks:purpur_tiles_slab",
-    "moreblocks:soul_sandstone_slab",
-    "moreblocks:cut_soul_sandstone_slab",
-    "moreblocks:smooth_soul_sandstone_slab",
-    "moreblocks:soul_sandstone_bricks_slab",
-    "moreblocks:soul_sandstone_tiles_slab",
     "moreblocks:mossy_brick_block_slab",
     "moreblocks:bone_block_bricks_slab",
     "moreblocks:bone_block_tiles_slab"

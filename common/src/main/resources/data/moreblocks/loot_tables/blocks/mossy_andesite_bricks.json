@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "moreblocks:blocks/mossy_andesite_bricks",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "moreblocks:mossy_andesite_bricks"
+        }
+      ]
+    }
+  ]
+}

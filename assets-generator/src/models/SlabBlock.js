@@ -26,6 +26,12 @@ export class SlabBlock extends AbstractBlockModel {
     }
 
     AbstractBlockModel.tags.slabs.push(`${this.NAMESPACE}:${this.blockId}_slab`);
+
+    if (!blockName.includes('Snow')) {
+      AbstractBlockModel.tags.mineable_pickaxe.push(`${this.NAMESPACE}:${this.blockId}_slab`);
+    } else if (blockName.includes('Snow')) {
+      AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}_slab`);
+    }
   }
 
   build() {
@@ -78,6 +84,112 @@ export class SlabBlock extends AbstractBlockModel {
             "model": `${this.NAMESPACE}:block/${this.blockId}_slab_top`
           }
         }
+      },
+      '_slab.json'
+    ]
+  }
+
+  buildLootTable() {
+    return !this.dropOnlyWithSilkTouch() ?
+    [
+      {
+        "type": "minecraft:block",
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_slab`,
+        "pools": [
+          {
+            "bonus_rolls": 0.0,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "functions": [
+                  {
+                    "add": false,
+                    "conditions": [
+                      {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "enchantments": [
+                            {
+                              "enchantment": "minecraft:silk_touch",
+                              "levels": {
+                                "min": 1
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "block": `${this.NAMESPACE}:${this.blockId}_slab`,
+                        "condition": "minecraft:block_state_property",
+                        "properties": {
+                          "type": "double"
+                        }
+                      }
+                    ],
+                    "count": 2.0,
+                    "function": "minecraft:set_count"
+                  },
+                  {
+                    "function": "minecraft:explosion_decay"
+                  }
+                ],
+                "name": `${this.NAMESPACE}:${this.blockId}_slab`
+              }
+            ],
+            "rolls": 1.0
+          }
+        ]
+      },
+      '_slab.json'
+    ] :
+    [
+      {
+        "type": "minecraft:block",
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_slab`,
+        "pools": [
+          {
+            "bonus_rolls": 0.0,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "functions": [
+                  {
+                    "add": false,
+                    "conditions": [
+                      {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "enchantments": [
+                            {
+                              "enchantment": "minecraft:silk_touch",
+                              "levels": {
+                                "min": 1
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "block": `${this.NAMESPACE}:${this.blockId}_slab`,
+                        "condition": "minecraft:block_state_property",
+                        "properties": {
+                          "type": "double"
+                        }
+                      }
+                    ],
+                    "count": 2.0,
+                    "function": "minecraft:set_count"
+                  },
+                  {
+                    "function": "minecraft:explosion_decay"
+                  }
+                ],
+                "name": `${this.NAMESPACE}:${this.blockId}_slab`
+              }
+            ],
+            "rolls": 1.0
+          }
+        ]
       },
       '_slab.json'
     ]

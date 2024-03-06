@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "moreblocks:packed_snow_stairs",
     "moreblocks:polished_snow_stairs",
@@ -49,10 +50,6 @@
     "moreblocks:polished_purpur_stairs",
     "moreblocks:mossy_purpur_bricks_stairs",
     "moreblocks:purpur_tiles_stairs",
-    "moreblocks:soul_sandstone_stairs",
-    "moreblocks:smooth_soul_sandstone_stairs",
-    "moreblocks:soul_sandstone_bricks_stairs",
-    "moreblocks:soul_sandstone_tiles_stairs",
     "moreblocks:mossy_brick_block_stairs",
     "moreblocks:bone_block_bricks_stairs",
     "moreblocks:bone_block_tiles_stairs"

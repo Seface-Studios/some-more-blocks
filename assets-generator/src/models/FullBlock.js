@@ -23,6 +23,10 @@ export class FullBlock extends AbstractBlockModel {
     if (this.blockName.includes('Mosaic')) {
       AbstractBlockModel.tags.planks.push(`${this.NAMESPACE}:${this.blockId}`);
     }
+
+    if(blockName.includes('Snow')) {
+      AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}`);
+    }
   }
 
   build() {

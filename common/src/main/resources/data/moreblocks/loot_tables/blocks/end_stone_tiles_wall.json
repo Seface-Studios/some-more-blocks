@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "moreblocks:blocks/end_stone_tiles_wall",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "moreblocks:end_stone_tiles_wall"
+        }
+      ]
+    }
+  ]
+}

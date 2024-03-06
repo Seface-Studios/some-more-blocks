@@ -32,12 +32,12 @@ for (const block of data.Blocks) {
                 isWoodLike ? new WoodBlock(block.name) :
                 new FullBlock(block.name);
 
-  model.saveBlockModelFile();
+  model.saveModels();
 
-  if (hasSlab) { new SlabBlock(block.name).saveBlockModelFile(); }
-  if (hasStairs) { new StairsBlock(block.name).saveBlockModelFile(); }
-  if (hasFence) { new FenceBlock(block.name).saveBlockModelFile(); }
-  if (hasWall) { new WallBlock(block.name).saveBlockModelFile(); }
+  if (hasSlab) { new SlabBlock(block.name).saveModels(); }
+  if (hasStairs) { new StairsBlock(block.name).saveModels(); }
+  if (hasFence) { new FenceBlock(block.name).saveModels(); }
+  if (hasWall) { new WallBlock(block.name).saveModels(); }
 
   /* if (!block.name.includes('Mosaic') && hasStairs) {
     temps.push('moreblocks:' + AbstractBlockModel.parseNameToIdentifier(block.name) + '_stairs')

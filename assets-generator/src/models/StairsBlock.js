@@ -26,6 +26,12 @@ export class StairsBlock extends AbstractBlockModel {
     }
 
     AbstractBlockModel.tags.stairs.push(`${this.NAMESPACE}:${this.blockId}_stairs`);
+
+    if (!blockName.includes('Snow')) {
+      AbstractBlockModel.tags.mineable_pickaxe.push(`${this.NAMESPACE}:${this.blockId}_stairs`);
+    } else if (blockName.includes('Snow')) {
+      AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}_stairs`);
+    }
   }
 
   build() {
@@ -285,6 +291,67 @@ export class StairsBlock extends AbstractBlockModel {
             "y": 180
           }
         }
+      },
+      '_stairs.json'
+    ]
+  }
+
+  buildLootTable() {
+    return !this.dropOnlyWithSilkTouch() ?
+    [
+      {
+        "type": "minecraft:block",
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_stairs`,
+        "pools": [
+          {
+            "bonus_rolls": 0.0,
+            "conditions": [
+              { "condition": "minecraft:survives_explosion" }
+            ],
+      
+            "rolls": 1.0,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": `${this.NAMESPACE}:${this.blockId}_stairs`
+              }
+            ]
+          }
+        ]
+      },
+      '_stairs.json'
+    ] :
+    [
+      {
+        "type": "minecraft:block",
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_stairs`,
+        "pools": [
+          {
+            "bonus_rolls": 0.0,
+            "conditions": [
+              {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "enchantments": [
+                    {
+                      "enchantment": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": `${this.NAMESPACE}:${this.blockId}_stairs`
+              }
+            ],
+            "rolls": 1.0
+          }
+        ]
       },
       '_stairs.json'
     ]

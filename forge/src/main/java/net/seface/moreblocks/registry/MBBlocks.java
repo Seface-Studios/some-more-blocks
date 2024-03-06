@@ -546,6 +546,7 @@ public class MBBlocks {
     public static final RegistryObject<Block> TALL_DUNE_GRASS = registerBlock("tall_dune_grass", () -> new TallDuneGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new CattailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> SMALL_LILY_PADS = registerBlock("small_lily_pads", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).noCollission()), false);
+    public static final RegistryObject<Block> BIG_LILY_PAD = registerBlock("big_lily_pads", () -> new BigLilyPadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).noCollission()), false);
     public static final RegistryObject<Block> LUMINOUS_FLOWER = registerBlock("luminous_flower", () -> new LuminousFlowerBlock(MobEffects.HEAL, 7, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION).lightLevel((blockStatex) -> 10)));
 
     public static final RegistryObject<Block> FROZEN_LEAF_LITTER = registerBlock("frozen_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_LEAVES).noCollission()), false);

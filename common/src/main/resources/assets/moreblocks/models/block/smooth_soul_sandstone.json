@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "moreblocks:block/smooth_soul_sandstone"
+    "all": "moreblocks:block/soul_sandstone_top"
   }
 }

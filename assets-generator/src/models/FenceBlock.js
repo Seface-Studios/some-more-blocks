@@ -111,4 +111,30 @@ export class FenceBlock extends AbstractBlockModel {
       '_fence.json'
     ]
   }
+
+  buildLootTable() {
+    return [
+      {
+        "type": "minecraft:block",
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_fence`,
+        "pools": [
+          {
+            "bonus_rolls": 0.0,
+            "conditions": [
+              { "condition": "minecraft:survives_explosion" }
+            ],
+      
+            "rolls": 1.0,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": `${this.NAMESPACE}:${this.blockId}_fence`
+              }
+            ]
+          }
+        ]
+      },
+      '_fence.json'
+    ]
+  }
 }

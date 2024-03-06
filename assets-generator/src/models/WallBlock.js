@@ -20,6 +20,10 @@ export class WallBlock extends AbstractBlockModel {
 
     AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}_wall`] = this.blockName.concat(' Wall');
     AbstractBlockModel.tags.walls.push(`${this.NAMESPACE}:${this.blockId}_wall`);
+
+    if(blockName.includes('Snow')) {
+      AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}_wall`);
+    }
   }
 
   build() {
@@ -161,6 +165,67 @@ export class WallBlock extends AbstractBlockModel {
             "when": {
               "west": "tall"
             }
+          }
+        ]
+      },
+      '_wall.json'
+    ]
+  }
+
+  buildLootTable() {
+    return !this.dropOnlyWithSilkTouch() ?
+    [
+      {
+        "type": "minecraft:block",
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_wall`,
+        "pools": [
+          {
+            "bonus_rolls": 0.0,
+            "conditions": [
+              { "condition": "minecraft:survives_explosion" }
+            ],
+      
+            "rolls": 1.0,
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": `${this.NAMESPACE}:${this.blockId}_wall`
+              }
+            ]
+          }
+        ]
+      },
+      '_wall.json'
+    ] :
+    [
+      {
+        "type": "minecraft:block",
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_wall`,
+        "pools": [
+          {
+            "bonus_rolls": 0.0,
+            "conditions": [
+              {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "enchantments": [
+                    {
+                      "enchantment": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": `${this.NAMESPACE}:${this.blockId}_wall`
+              }
+            ],
+            "rolls": 1.0
           }
         ]
       },

@@ -13,13 +13,14 @@ public class TallDuneGrassBlock extends DoublePlantBlock {
     }
 
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        BlockState bellowBlockState = level.getBlockState(pos.below());
+        BlockState blockBelow = level.getBlockState(pos.below());
 
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
-            bellowBlockState = level.getBlockState(pos.below());
-            return bellowBlockState.is(BlockTags.SAND) && !level.getBlockState(pos.above()).liquid();
+            blockBelow = level.getBlockState(pos.below());
+            return blockBelow.is(BlockTags.SAND) ||
+                    (blockBelow.is(BlockTags.DIRT) && level.getBiome(pos).value().getBaseTemperature() >= DuneGrassBlock.TEMPERATURE) && !level.getBlockState(pos.above()).liquid();
         }
 
-        return bellowBlockState.is(this) && bellowBlockState.getValue(HALF) == DoubleBlockHalf.LOWER;
+        return blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER;
     }
 }

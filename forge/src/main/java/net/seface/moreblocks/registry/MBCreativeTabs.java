@@ -388,6 +388,7 @@ public class MBCreativeTabs {
                 entry.accept(MBBlocks.DUNE_GRASS.get());
                 entry.accept(MBBlocks.TALL_DUNE_GRASS.get());
                 entry.accept(MBBlocks.CATTAIL.get());
+                entry.accept(MBItems.BIG_LILY_PADS.get());
                //entry.accept(MBItems.LEAVES_BUCKET.get());
                //entry.accept(MBItems.FROZEN_LEAVES_BUCKET.get());
                //entry.accept(MBItems.PINK_PETALS_BUCKET.get());

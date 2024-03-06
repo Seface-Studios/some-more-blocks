@@ -3,7 +3,6 @@ package net.seface.moreblocks.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -21,7 +20,7 @@ public class LuminousFlowerBlock extends FlowerBlock {
         super(mobEffect, amplifier, properties);
     }
 
-    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+    /*public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         VoxelShape shape = this.getShape(state, level, pos, CollisionContext.empty());
         Vec3 shapeCenter = shape.bounds().getCenter();
         double x = (double) pos.getX() + shapeCenter.x;
@@ -32,13 +31,12 @@ public class LuminousFlowerBlock extends FlowerBlock {
                 level.addParticle(ParticleTypes.END_ROD, x + random.nextDouble() / 5.0, (double)pos.getY() + (0.25 + random.nextDouble()), z + random.nextDouble() / 5.0, 0.0, 0.0, 0.0);
             }
         }
-    }
+    }*/
 
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if (level.isClientSide) return;
 
-        if (entity instanceof LivingEntity) {
-            LivingEntity affectedEntity = (LivingEntity) entity;
+        if (entity instanceof LivingEntity affectedEntity) {
             affectedEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 60));
         }
     }

@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "bottom": "moreblocks:block/cut_soul_sandstone",
+    "bottom": "moreblocks:block/soul_sandstone_bottom",
     "side": "moreblocks:block/cut_soul_sandstone",
-    "top": "moreblocks:block/cut_soul_sandstone"
+    "top": "moreblocks:block/soul_sandstone_top"
   }
 }
