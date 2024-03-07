@@ -4,7 +4,7 @@
       "model": "moreblocks:block/smooth_granite_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/smooth_granite_slab"
+      "model": "moreblocks:block/smooth_granite"
     },
     "type=top": {
       "model": "moreblocks:block/smooth_granite_slab_top"

@@ -1,13 +1,13 @@
 import { BlockTags } from "../BlockTags.js";
-import { AbstractBlockModel } from "./AbstractBlockModel.js";
+import { Block } from "./Block.js";
 
-export class PillarBlock extends AbstractBlockModel {
+export class PillarBlock extends Block {
   constructor(blockName, ignoreList, stonecutterOptions) {
     super(blockName, ignoreList, stonecutterOptions);
     this.addVariables('RotatedPillarBlock');
   }
 
-  build() {
+  blockModels() {
     return [
       [
         {
@@ -33,23 +33,21 @@ export class PillarBlock extends AbstractBlockModel {
   }
   
   buildBlockstate() {
-    return [
-      {
-        "variants": {
-          "axis=x": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_horizontal`,
-            "x": 90,
-            "y": 90
-          },
-          "axis=y": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}`
-          },
-          "axis=z": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_horizontal`,
-            "x": 90
-          }
+    return {
+      "variants": {
+        "axis=x": {
+          "model": `${this.NAMESPACE}:block/${this.blockId}_horizontal`,
+          "x": 90,
+          "y": 90
+        },
+        "axis=y": {
+          "model": `${this.NAMESPACE}:block/${this.blockId}`
+        },
+        "axis=z": {
+          "model": `${this.NAMESPACE}:block/${this.blockId}_horizontal`,
+          "x": 90
         }
       }
-    ]
+    }
   }
 }

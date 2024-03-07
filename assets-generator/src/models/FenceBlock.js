@@ -1,14 +1,12 @@
-import { AbstractBlockModel } from "./AbstractBlockModel.js";
+import { Block } from "./Block.js";
 
-export class FenceBlock extends AbstractBlockModel {
+export class FenceBlock extends Block {
   constructor(blockName, ignoreList, stonecutterOptions) {
     super(blockName.concat(' Fence'), ignoreList, stonecutterOptions);
     this.addVariables('FenceBlock');
-
-    AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}`] = this.blockName;
   }
 
-  build() {
+  blockModels() {
     return [
       [
         {
@@ -41,106 +39,55 @@ export class FenceBlock extends AbstractBlockModel {
   }
 
   buildItemModel() {
-    return [
-      {
-        "parent": `${this.NAMESPACE}:block/${this.blockId}_fence_inventory`
-      },
-      '_fence.json'
-    ]
+    return {
+      "parent": `${this.NAMESPACE}:block/${this.blockId}_inventory`
+    }
   }
 
   buildBlockstate() {
-    return [
-      {
-        "multipart": [
-          {
-            "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_fence_post`
-            }
-          },
-          {
-            "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_fence_side`,
-              "uvlock": true
-            },
-
-            "when": { "north": "true" }
-          },
-          {
-            "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_fence_side`,
-              "uvlock": true,
-              "y": 90
-            },
-
-            "when": { "east": "true" }
-          },
-          {
-            "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_fence_side`,
-              "uvlock": true,
-              "y": 180
-            },
-            
-            "when": { "south": "true" }
-          },
-          {
-            "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_fence_side`,
-              "uvlock": true,
-              "y": 270
-            },
-
-            "when": { "west": "true" }
+    return {
+      "multipart": [
+        {
+          "apply": {
+            "model": `${this.NAMESPACE}:block/${this.blockId}_post`
           }
-        ]
-      },
-      '_fence.json'
-    ]
-  }
-
-  buildLootTable() {
-    return [
-      {
-        "type": "minecraft:block",
-        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_fence`,
-        "pools": [
-          {
-            "bonus_rolls": 0.0,
-            "conditions": [
-              { "condition": "minecraft:survives_explosion" }
-            ],
-      
-            "rolls": 1.0,
-            "entries": [
-              {
-                "type": "minecraft:item",
-                "name": `${this.NAMESPACE}:${this.blockId}_fence`
-              }
-            ]
-          }
-        ]
-      },
-      '_fence.json'
-    ]
-  }
-
-  buildRecipeForStonecutter(baseBlock) {
-    const baseIdentifier = baseBlock
-      .replace('minecraft:', '')
-      .replace(`${this.NAMESPACE}:`, '');
-
-    return [
-      {
-        "type": "minecraft:stonecutting",
-        "count": 1,
-        "ingredient": {
-          "item": `${baseBlock}`
         },
+        {
+          "apply": {
+            "model": `${this.NAMESPACE}:block/${this.blockId}_side`,
+            "uvlock": true
+          },
 
-        "result": `${this.NAMESPACE}:${this.blockId}_fence`
-      },
-      `_fence_from_${baseIdentifier}_stonecutting.json`
-    ]
+          "when": { "north": "true" }
+        },
+        {
+          "apply": {
+            "model": `${this.NAMESPACE}:block/${this.blockId}_side`,
+            "uvlock": true,
+            "y": 90
+          },
+
+          "when": { "east": "true" }
+        },
+        {
+          "apply": {
+            "model": `${this.NAMESPACE}:block/${this.blockId}_side`,
+            "uvlock": true,
+            "y": 180
+          },
+          
+          "when": { "south": "true" }
+        },
+        {
+          "apply": {
+            "model": `${this.NAMESPACE}:block/${this.blockId}_side`,
+            "uvlock": true,
+            "y": 270
+          },
+
+          "when": { "west": "true" }
+        }
+      ]
+    }
   }
 }

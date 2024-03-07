@@ -4,7 +4,7 @@
       "model": "moreblocks:block/smooth_quartz_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/smooth_quartz_slab"
+      "model": "moreblocks:block/smooth_quartz"
     },
     "type=top": {
       "model": "moreblocks:block/smooth_quartz_slab_top"

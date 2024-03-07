@@ -4,7 +4,7 @@
       "model": "moreblocks:block/red_sandstone_tiles_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/red_sandstone_tiles_slab"
+      "model": "moreblocks:block/red_sandstone_tiles"
     },
     "type=top": {
       "model": "moreblocks:block/red_sandstone_tiles_slab_top"

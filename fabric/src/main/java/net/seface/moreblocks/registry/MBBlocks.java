@@ -123,6 +123,10 @@ public class MBBlocks {
     public static final Block SMOOTH_TUFF = new Block(FabricBlockSettings.copyOf(Blocks.TUFF));
     public static final Block SMOOTH_TUFF_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_TUFF));
     public static final Block CRACKED_TUFF_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
+    public static final Block MOSSY_TUFF_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS).lightLevel(state -> 7));
+    public static final Block MOSSY_TUFF_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
+    public static final Block MOSSY_TUFF_BRICKS_STAIRS = new StairBlock(MOSSY_TUFF_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
+    public static final Block MOSSY_TUFF_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
     public static final Block TUFF_TILES = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
     public static final Block TUFF_TILES_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.TUFF_TILES).sound(SoundType.TUFF_BRICKS));
     public static final Block TUFF_TILES_STAIRS = new StairBlock(TUFF_TILES.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.TUFF_TILES).sound(SoundType.TUFF_BRICKS));
@@ -684,6 +688,10 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "end_stone_tiles_wall"), END_STONE_TILES_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_end_stone_tiles"), CRACKED_END_STONE_TILES);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "end_stone_pillar"), END_STONE_PILLAR);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks"), MOSSY_TUFF_BRICKS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks_slab"), MOSSY_TUFF_BRICKS_SLAB);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks_stairs"), MOSSY_TUFF_BRICKS_STAIRS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks_wall"), MOSSY_TUFF_BRICKS_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_tuff"), SMOOTH_TUFF);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_tuff_slab"), SMOOTH_TUFF_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_tuff_bricks"), CRACKED_TUFF_BRICKS);

@@ -4,7 +4,7 @@
       "model": "moreblocks:block/end_stone_tiles_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/end_stone_tiles_slab"
+      "model": "moreblocks:block/end_stone_tiles"
     },
     "type=top": {
       "model": "moreblocks:block/end_stone_tiles_slab_top"

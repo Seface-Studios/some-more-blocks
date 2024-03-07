@@ -4,7 +4,7 @@
       "model": "moreblocks:block/polished_dripstone_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/polished_dripstone_slab"
+      "model": "moreblocks:block/polished_dripstone"
     },
     "type=top": {
       "model": "moreblocks:block/polished_dripstone_slab_top"

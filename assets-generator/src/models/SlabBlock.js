@@ -1,7 +1,7 @@
 import { BlockTags } from "../BlockTags.js";
-import { AbstractBlockModel } from "./AbstractBlockModel.js";
+import { Block } from "./Block.js";
 
-export class SlabBlock extends AbstractBlockModel {
+export class SlabBlock extends Block {
   constructor(blockName, ignoreList, stonecutterOptions) {
     super(blockName.concat(' Slab'), ignoreList, stonecutterOptions);
     this.addVariables('SlabBlock');
@@ -15,12 +15,12 @@ export class SlabBlock extends AbstractBlockModel {
       return;
     }
 
-    AbstractBlockModel.tags.slabs.push(`${this.NAMESPACE}:${this.blockId}`);
+    BlockTags.tags.slabs.push(`${this.NAMESPACE}:${this.blockId}`);
   }
 
   isSlab() { return true; }
 
-  build() {
+  blockModels() {
     return [
       [
         {
@@ -46,31 +46,21 @@ export class SlabBlock extends AbstractBlockModel {
       ]
     ]
   }
-
-  buildItemModel() {
-    return [
-      {
-        "parent": `${this.NAMESPACE}:block/${this.blockId}`
-      }
-    ]
-  }
   
   buildBlockstate() {
-    return [
-      {
-        "variants": {
-          "type=bottom": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}`
-          },
-          "type=double": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}`
-          },
-          "type=top": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_top`
-          }
+    return {
+      "variants": {
+        "type=bottom": {
+          "model": `${this.NAMESPACE}:block/${this.blockId}`
+        },
+        "type=double": {
+          "model": `${this.NAMESPACE}:block/${this.parentBlockId}`
+        },
+        "type=top": {
+          "model": `${this.NAMESPACE}:block/${this.blockId}_top`
         }
       }
-    ]
+    }
   }
 
   buildLootTable() {

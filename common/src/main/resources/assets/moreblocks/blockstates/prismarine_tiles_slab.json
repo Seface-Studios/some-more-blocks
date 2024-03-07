@@ -4,7 +4,7 @@
       "model": "moreblocks:block/prismarine_tiles_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/prismarine_tiles_slab"
+      "model": "moreblocks:block/prismarine_tiles"
     },
     "type=top": {
       "model": "moreblocks:block/prismarine_tiles_slab_top"

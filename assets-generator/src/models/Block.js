@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { BlockTags } from '../BlockTags.js';
 import { Localization } from '../Localization.js';
+import { Generators } from '../utils/Generators.js';
+import chalk from 'chalk';
 
 export class Block {
   NAMESPACE = 'moreblocks';
@@ -76,7 +78,6 @@ export class Block {
     return this.blockName.includes('Glass') || this.blockName.includes('Ice');
   }
 
-  buildBlockModels() { return [] }
   isStairs() { return false; }
   isWall() { return false; }
   isSlab() { return false; }
@@ -86,120 +87,130 @@ export class Block {
     return this.isStairs() || this.isSlab() || this.isWall();
   }
 
-  saveModels() {
-    try {
-      for (const content of this.buildBlockModels()) {
-        this.createAndSaveGeneratedFiles('block_model', this.blockModelPath, content)
-            .createAndSaveGeneratedFiles('item_model', this.itemModelPath, this.buildItemModel())
-            .createAndSaveGeneratedFiles('blockstate', this.blockstateModelPath, this.buildBlockstate())
-            .createAndSaveGeneratedFiles('loot_table', this.lootTableModelPath, this.buildLootTable());
+  createAndSave() {
+    for (const blockModel of this.blockModels()) {
+      this.generateFileFor('block_model', this.blockModelPath, blockModel);
+    }
+
+    this.generateFileFor('item_model', this.itemModelPath, this.buildItemModel())
+        .generateFileFor('blockstate', this.blockstateModelPath, this.buildBlockstate())
+        .generateFileFor('loot_table', this.lootTableModelPath, this.buildLootTable());
         
-        for (const option of this.stonecutterOptions) {
-          this.createAndSaveGeneratedFiles(
-            'recipe_stonecutter', 
-            this.recipeModelPath, 
-            this.buildRecipeForStonecutter(option), 
-            (this.stonecutterOptions.length <= 0)
-          );
-        }
-      }
-    } catch (err) {
-      console.error(new Error(`Something happen to create block model files of ${this.blockName}`));
+    for (const option of this.stonecutterOptions) {
+      this.generateFileFor(
+        'recipe_stonecutter', 
+        this.recipeModelPath, 
+        this.buildRecipeForStonecutter(option), 
+        (this.stonecutterOptions.length > 0)
+      );
     }
 
     return this;
   }
 
-  createAndSaveGeneratedFiles(id, basePath, content, predicate = false) {
+  generateFileFor(id, basePath, content, predicate = true) {
     if (this.ignore.includes(id)) {
-      console.log(`${id} of ${this.blockName} was ignored and will not be generated.`);
+      console.log(`${chalk.bold.yellow('·')} ${Generators[id]} of ${chalk.cyan(this.blockName)} marked as ignored.`)
       return this;
     }
 
-    if (predicate) {
-      console.log(`Invalid predicate for ${id} of ${this.blockName} or variations.`);
-      return this;
-    };
+    if (!predicate) return this;
 
-    const data = JSON.stringify(content[0], null, 2);
+    const data = JSON.stringify(content[0] || content, null, 2);
     fs.writeFileSync(basePath.concat(content[1] || '.json'), data, 'utf-8');
 
     return this;
   }
 
-  buildItemModel() {
+  /**
+   * Create all needed block models for this block.
+   * Some blocks need more than one block model, for example, the StairsBlock needs
+   * 3 different block models.
+   * 
+   * @returns [object, string][] A array with all block models.
+   * The 2nd value returned as string on the array is the suffix for the block model file.
+   */
+  blockModels() {
     return [
-      { "parent": `${this.NAMESPACE}:block/${this.blockId}` }
+      [
+        {
+          "parent": "minecraft:block/cube_all",
+          "textures": { "all": `${this.NAMESPACE}:block/${this.blockId}` }
+        },
+        '.json'
+      ]
     ]
   }
 
+  /**
+   * Create the Block item.
+   * @returns 
+   */
+  buildItemModel() {
+    return { "parent": `${this.NAMESPACE}:block/${this.blockId}` }
+  }
+
   buildBlockstate() {
-    return [
-      {
-        "variants": {
-          "": { "model": `${this.NAMESPACE}:block/${this.blockId}` }
-        }
+    return {
+      "variants": {
+        "": { "model": `${this.NAMESPACE}:block/${this.blockId}` }
       }
-    ]
+    }
   }
 
   buildLootTable() {
     return !this.dropOnlyWithSilkTouch() ?
-    [
-      {
-        "type": "minecraft:block",
-        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
-        "pools": [
-          {
-            "rolls": 1.0,
-            "bonus_rolls": 0.0,
-            "conditions": [
-              { "condition": "minecraft:survives_explosion" }
-            ],
-      
-            "entries": [
-              {
-                "type": "minecraft:item",
-                "name": `${this.NAMESPACE}:${this.blockId}`
-              }
-            ]
-          }
-        ]
-      }
-    ] :
-    [
-      {
-        "type": "minecraft:block",
-        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
-        "pools": [
-          {
-            "rolls": 1.0,
-            "bonus_rolls": 0.0,
-            "conditions": [
-              {
-                "condition": "minecraft:match_tool",
-                "predicate": {
-                  "enchantments": [
-                    {
-                      "enchantment": "minecraft:silk_touch",
-                      "levels": {
-                        "min": 1
-                      }
+    {
+      "type": "minecraft:block",
+      "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
+      "pools": [
+        {
+          "rolls": 1.0,
+          "bonus_rolls": 0.0,
+          "conditions": [
+            { "condition": "minecraft:survives_explosion" }
+          ],
+    
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": `${this.NAMESPACE}:${this.blockId}`
+            }
+          ]
+        }
+      ]
+    } :
+    {
+      "type": "minecraft:block",
+      "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
+      "pools": [
+        {
+          "rolls": 1.0,
+          "bonus_rolls": 0.0,
+          "conditions": [
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "enchantments": [
+                  {
+                    "enchantment": "minecraft:silk_touch",
+                    "levels": {
+                      "min": 1
                     }
-                  ]
-                }
+                  }
+                ]
               }
-            ],
-            "entries": [
-              {
-                "type": "minecraft:item",
-                "name": `${this.NAMESPACE}:${this.blockId}`
-              }
-            ]
-          }
-        ]
-      }
-    ]
+            }
+          ],
+          "entries": [
+            {
+              "type": "minecraft:item",
+              "name": `${this.NAMESPACE}:${this.blockId}`
+            }
+          ]
+        }
+      ]
+    }
   }
 
   buildRecipeForStonecutter(baseBlock) {

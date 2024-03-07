@@ -4,7 +4,7 @@
       "model": "moreblocks:block/polished_calcite_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/polished_calcite_slab"
+      "model": "moreblocks:block/polished_calcite"
     },
     "type=top": {
       "model": "moreblocks:block/polished_calcite_slab_top"

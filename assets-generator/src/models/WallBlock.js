@@ -1,7 +1,7 @@
 import { BlockTags } from "../BlockTags.js";
-import { AbstractBlockModel } from "./AbstractBlockModel.js";
+import { Block } from "./Block.js";
 
-export class WallBlock extends AbstractBlockModel {
+export class WallBlock extends Block {
   constructor(blockName, ignoreList, stonecutterOptions) {
     super(blockName.concat(' Wall'), ignoreList, stonecutterOptions);
     this.addVariables('WallBlock');
@@ -15,7 +15,7 @@ export class WallBlock extends AbstractBlockModel {
 
   isWall() { return true; }
 
-  build() {
+  blockModels() {
     return [
       [
         {
@@ -57,11 +57,9 @@ export class WallBlock extends AbstractBlockModel {
   }
 
   buildItemModel() {
-    return [
-      {
-        "parent": `${this.NAMESPACE}:block/${this.blockId}_inventory`
-      }
-    ]
+    return {
+      "parent": `${this.NAMESPACE}:block/${this.blockId}_inventory`
+    }
   }
 
   buildBlockstate() {

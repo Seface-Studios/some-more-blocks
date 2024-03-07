@@ -4,7 +4,7 @@
       "model": "moreblocks:block/smooth_end_stone_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/smooth_end_stone_slab"
+      "model": "moreblocks:block/smooth_end_stone"
     },
     "type=top": {
       "model": "moreblocks:block/smooth_end_stone_slab_top"

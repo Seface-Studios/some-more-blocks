@@ -4,7 +4,7 @@
       "model": "moreblocks:block/jungle_mosaic_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/jungle_mosaic_slab"
+      "model": "moreblocks:block/jungle_mosaic"
     },
     "type=top": {
       "model": "moreblocks:block/jungle_mosaic_slab_top"

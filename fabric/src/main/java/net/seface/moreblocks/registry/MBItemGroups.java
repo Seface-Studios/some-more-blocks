@@ -134,6 +134,10 @@ public class MBItemGroups {
                 entry.accept(MBItems.TUFF_TILES_STAIRS);
                 entry.accept(MBItems.TUFF_TILES_SLAB);
                 entry.accept(MBItems.TUFF_TILES_WALL);
+                entry.accept(MBItems.MOSSY_TUFF_BRICKS);
+                entry.accept(MBItems.MOSSY_TUFF_BRICKS_STAIRS);
+                entry.accept(MBItems.MOSSY_TUFF_BRICKS_SLAB);
+                entry.accept(MBItems.MOSSY_TUFF_BRICKS_WALL);
                 entry.accept(MBItems.SMOOTH_TUFF);
                 entry.accept(MBItems.SMOOTH_TUFF_SLAB);
                 entry.accept(MBItems.CRACKED_BRICK_BLOCK);

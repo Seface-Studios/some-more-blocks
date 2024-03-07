@@ -4,7 +4,7 @@
       "model": "moreblocks:block/diorite_tiles_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/diorite_tiles_slab"
+      "model": "moreblocks:block/diorite_tiles"
     },
     "type=top": {
       "model": "moreblocks:block/diorite_tiles_slab_top"

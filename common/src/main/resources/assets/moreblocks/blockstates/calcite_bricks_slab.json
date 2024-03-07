@@ -4,7 +4,7 @@
       "model": "moreblocks:block/calcite_bricks_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/calcite_bricks_slab"
+      "model": "moreblocks:block/calcite_bricks"
     },
     "type=top": {
       "model": "moreblocks:block/calcite_bricks_slab_top"

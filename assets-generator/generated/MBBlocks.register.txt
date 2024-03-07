@@ -105,6 +105,10 @@ Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "end_stone_pil
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "smooth_tuff"), SMOOTH_TUFF);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "smooth_tuff_slab"), SMOOTH_TUFF_SLAB);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cracked_tuff_bricks"), CRACKED_TUFF_BRICKS);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "mossy_tuff_bricks"), MOSSY_TUFF_BRICKS);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "mossy_tuff_bricks_slab"), MOSSY_TUFF_BRICKS_SLAB);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "mossy_tuff_bricks_stairs"), MOSSY_TUFF_BRICKS_STAIRS);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "mossy_tuff_bricks_wall"), MOSSY_TUFF_BRICKS_WALL);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "tuff_tiles"), TUFF_TILES);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "tuff_tiles_slab"), TUFF_TILES_SLAB);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "tuff_tiles_stairs"), TUFF_TILES_STAIRS);

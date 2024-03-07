@@ -3,7 +3,7 @@ import { FullBlock } from './models/FullBlock.js';
 import { PillarBlock } from './models/PillarBlock.js';
 import { SlabBlock } from './models/SlabBlock.js';
 import { StairsBlock } from './models/StairsBlock.js';
-import { AbstractBlockModel } from './models/AbstractBlockModel.js';
+import { Block } from './models/Block.js';
 import { FenceBlock } from './models/FenceBlock.js';
 import { WallBlock } from './models/WallBlock.js';
 import { LogBlock } from './models/LogBlock.js';
@@ -31,12 +31,12 @@ for (const block of data.Blocks) {
                 isWoodLike ? new WoodBlock(block.name, ignore, block?.stonecutterOptions) :
                 new FullBlock(block.name, ignore, block?.stonecutterOptions);
 
-  model.saveModels();
+  model.createAndSave();
 
-  if (hasSlab) { new SlabBlock(block.name, ignore, block?.stonecutterOptions).saveModels(); }
-  if (hasStairs) { new StairsBlock(block.name, ignore, block?.stonecutterOptions).saveModels(); }
-  if (hasFence) { new FenceBlock(block.name, ignore, block?.stonecutterOptions).saveModels(); }
-  if (hasWall) { new WallBlock(block.name, ignore, block?.stonecutterOptions).saveModels(); }
+  if (hasSlab) { new SlabBlock(block.name, ignore, block?.stonecutterOptions).createAndSave(); }
+  if (hasStairs) { new StairsBlock(block.name, ignore, block?.stonecutterOptions).createAndSave(); }
+  if (hasFence) { new FenceBlock(block.name, ignore, block?.stonecutterOptions).createAndSave(); }
+  if (hasWall) { new WallBlock(block.name, ignore, block?.stonecutterOptions).createAndSave(); }
 }
 
 BlockTags.createAndSave();
@@ -48,12 +48,12 @@ fs.unlinkSync('generated/MBItems.variables.txt');
 fs.unlinkSync('generated/MBItems.register.txt');
 
 // Variables
-for (const itemVar of AbstractBlockModel.itemBlockVariables) {
+for (const itemVar of Block.itemBlockVariables) {
   fs.appendFileSync('generated/MBItems.variables.txt', itemVar + '\n', 'utf-8');
 }
 
 // Registers
-for (const registerVar of AbstractBlockModel.registerItemBlockList) {
+for (const registerVar of Block.registerItemBlockList) {
   fs.appendFileSync('generated/MBItems.register.txt', registerVar + '\n', 'utf-8');
 }
 
@@ -62,11 +62,11 @@ fs.unlinkSync('generated/MBBlocks.variables.txt');
 fs.unlinkSync('generated/MBBlocks.register.txt');
 
 // Variables
-for (const itemVar of AbstractBlockModel.blockVariables) {
+for (const itemVar of Block.blockVariables) {
   fs.appendFileSync('generated/MBBlocks.variables.txt', itemVar + '\n', 'utf-8');
 }
 
 // Registers
-for (const registerVar of AbstractBlockModel.registerBlockList) {
+for (const registerVar of Block.registerBlockList) {
   fs.appendFileSync('generated/MBBlocks.register.txt', registerVar + '\n', 'utf-8');
 }

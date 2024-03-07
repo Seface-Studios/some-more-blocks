@@ -117,6 +117,10 @@ public class MBItems {
     public static final Item SMOOTH_TUFF = new BlockItem(MBBlocks.SMOOTH_TUFF, new Item.Properties());
     public static final Item SMOOTH_TUFF_SLAB = new BlockItem(MBBlocks.SMOOTH_TUFF_SLAB, new Item.Properties());
     public static final Item CRACKED_TUFF_BRICKS = new BlockItem(MBBlocks.CRACKED_TUFF_BRICKS, new Item.Properties());
+    public static final Item MOSSY_TUFF_BRICKS = new BlockItem(MBBlocks.MOSSY_TUFF_BRICKS, new Item.Properties());
+    public static final Item MOSSY_TUFF_BRICKS_SLAB = new BlockItem(MBBlocks.MOSSY_TUFF_BRICKS_SLAB, new Item.Properties());
+    public static final Item MOSSY_TUFF_BRICKS_STAIRS = new BlockItem(MBBlocks.MOSSY_TUFF_BRICKS_STAIRS, new Item.Properties());
+    public static final Item MOSSY_TUFF_BRICKS_WALL = new BlockItem(MBBlocks.MOSSY_TUFF_BRICKS_WALL, new Item.Properties());
     public static final Item TUFF_TILES = new BlockItem(MBBlocks.TUFF_TILES, new Item.Properties());
     public static final Item TUFF_TILES_SLAB = new BlockItem(MBBlocks.TUFF_TILES_SLAB, new Item.Properties());
     public static final Item TUFF_TILES_STAIRS = new BlockItem(MBBlocks.TUFF_TILES_STAIRS, new Item.Properties());
@@ -673,6 +677,10 @@ public class MBItems {
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "smooth_tuff"), SMOOTH_TUFF);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "smooth_tuff_slab"), SMOOTH_TUFF_SLAB);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cracked_tuff_bricks"), CRACKED_TUFF_BRICKS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks"), MOSSY_TUFF_BRICKS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks_slab"), MOSSY_TUFF_BRICKS_SLAB);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks_stairs"), MOSSY_TUFF_BRICKS_STAIRS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks_wall"), MOSSY_TUFF_BRICKS_WALL);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tuff_tiles"), TUFF_TILES);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tuff_tiles_slab"), TUFF_TILES_SLAB);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tuff_tiles_stairs"), TUFF_TILES_STAIRS);

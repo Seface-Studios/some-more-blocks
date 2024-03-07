@@ -1,14 +1,15 @@
-import { AbstractBlockModel } from "./AbstractBlockModel.js";
+import { Block } from "./Block.js";
+import { BlockTags } from "../BlockTags.js";
 
-export class WoodBlock extends AbstractBlockModel {
+export class WoodBlock extends Block {
   constructor(blockName, ignoreList, stonecutterOptions) {
     super(blockName, ignoreList, stonecutterOptions);
     this.addVariables('RotatedPillarBlock');
 
-    AbstractBlockModel.tags.logs.push(`${this.NAMESPACE}:${this.blockId}`);
+    BlockTags.tags.logs.push(`${this.NAMESPACE}:${this.blockId}`);
   }
 
-  build() {
+  blockModels() {
     const _id = this.blockId.replace('wood', 'log').replace('hyphae', 'stem');
     return [
       [
@@ -25,23 +26,21 @@ export class WoodBlock extends AbstractBlockModel {
   }
   
   buildBlockstate() {
-    return [
-      {
-        "variants": {
-          "axis=x": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}`,
-            "x": 90,
-            "y": 90
-          },
-          "axis=y": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}`
-          },
-          "axis=z": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}`,
-            "x": 90
-          }
+    return {
+      "variants": {
+        "axis=x": {
+          "model": `${this.NAMESPACE}:block/${this.blockId}`,
+          "x": 90,
+          "y": 90
+        },
+        "axis=y": {
+          "model": `${this.NAMESPACE}:block/${this.blockId}`
+        },
+        "axis=z": {
+          "model": `${this.NAMESPACE}:block/${this.blockId}`,
+          "x": 90
         }
       }
-    ]
+    }
   }
 }

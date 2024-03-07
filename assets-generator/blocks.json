@@ -48,6 +48,7 @@
     { "name": "End Stone Pillar", "stonecutterOptions": ["minecraft:end_stone"] },
     { "name": "Smooth Tuff", "hasSlab": true },
     { "name": "Cracked Tuff Bricks" },
+    { "name": "Mossy Tuff Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
     { "name": "Tuff Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:tuff"] },
     { "name": "Cracked Tuff Tiles" },
     { "name": "Tuff Pillar", "stonecutterOptions": ["minecraft:tuff"] },

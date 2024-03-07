@@ -1,7 +1,7 @@
 import { BlockTags } from "../BlockTags.js";
-import { AbstractBlockModel } from "./AbstractBlockModel.js";
+import { Block } from "./Block.js";
 
-export class LogBlock extends AbstractBlockModel {
+export class LogBlock extends Block {
   constructor(blockName, ignoreList, stonecutterOptions) {
     super(blockName, ignoreList, stonecutterOptions);
     this.addVariables('RotatedPillarBlock');
@@ -9,7 +9,7 @@ export class LogBlock extends AbstractBlockModel {
     BlockTags.tags.logs.push(`${this.NAMESPACE}:${this.blockId}`);
   }
 
-  build() {
+  blockModels() {
     const topTexture = this.blockId.replace('carved', 'stripped')
 
     return [
@@ -37,23 +37,21 @@ export class LogBlock extends AbstractBlockModel {
   }
   
   buildBlockstate() {
-    return [
-      {
-        "variants": {
-          "axis=x": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_horizontal`,
-            "x": 90,
-            "y": 90
-          },
-          "axis=y": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}`
-          },
-          "axis=z": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_horizontal`,
-            "x": 90
-          }
+    return {
+      "variants": {
+        "axis=x": {
+          "model": `${this.NAMESPACE}:block/${this.blockId}_horizontal`,
+          "x": 90,
+          "y": 90
+        },
+        "axis=y": {
+          "model": `${this.NAMESPACE}:block/${this.blockId}`
+        },
+        "axis=z": {
+          "model": `${this.NAMESPACE}:block/${this.blockId}_horizontal`,
+          "x": 90
         }
       }
-    ]
+    }
   }
 }
