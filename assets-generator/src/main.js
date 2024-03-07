@@ -8,11 +8,11 @@ import { FenceBlock } from './models/FenceBlock.js';
 import { WallBlock } from './models/WallBlock.js';
 import { LogBlock } from './models/LogBlock.js';
 import { WoodBlock } from './models/WoodBlock.js';
+import { BlockTags } from './BlockTags.js';
+import { Localization } from './Localization.js';
 
 const rawJSON = fs.readFileSync('./blocks.json');
 const data = JSON.parse(rawJSON);
-
-//const temps = [];
 
 for (const block of data.Blocks) {
   const isPillar = block.name.endsWith('Pillar');
@@ -37,16 +37,10 @@ for (const block of data.Blocks) {
   if (hasStairs) { new StairsBlock(block.name, ignore, block?.stonecutterOptions).saveModels(); }
   if (hasFence) { new FenceBlock(block.name, ignore, block?.stonecutterOptions).saveModels(); }
   if (hasWall) { new WallBlock(block.name, ignore, block?.stonecutterOptions).saveModels(); }
-
-  /* if (!block.name.includes('Mosaic') && hasStairs) {
-    temps.push('moreblocks:' + AbstractBlockModel.parseNameToIdentifier(block.name) + '_stairs')
-  } */
 }
 
-AbstractBlockModel.createAndSaveTagFiles();
-
-fs.writeFileSync('generated/en_us.json', JSON.stringify(AbstractBlockModel.language, null, 2), 'utf-8');
-console.log('Generating Java content in text files.');
+BlockTags.createAndSave();
+Localization.createAndSave();
 //console.log(temps)
 
 // * MBItems

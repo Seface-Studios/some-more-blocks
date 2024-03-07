@@ -1,32 +1,15 @@
+import { BlockTags } from "../BlockTags.js";
 import { AbstractBlockModel } from "./AbstractBlockModel.js";
 
 export class WallBlock extends AbstractBlockModel {
   constructor(blockName, ignoreList, stonecutterOptions) {
     super(blockName.concat(' Wall'), ignoreList, stonecutterOptions);
+    this.addVariables('WallBlock');
 
-    AbstractBlockModel.blockVariables.push(
-      `public static final Block ${this.blockId.toUpperCase()} = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}).solid());`
-    );
-    AbstractBlockModel.itemBlockVariables.push(
-      `public static final Item ${this.blockId.toUpperCase()} = new BlockItem(MBBlocks.${this.blockId.toUpperCase()}, new Item.Settings());`
-    );
-
-    AbstractBlockModel.registerBlockList.push(
-      `Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
-    );
-    AbstractBlockModel.registerItemBlockList.push(
-      `Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
-    );
-
-    AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}`] = this.blockName;
-    AbstractBlockModel.tags.walls.push(`${this.NAMESPACE}:${this.blockId}`);
+    BlockTags.tags.walls.push(`${this.NAMESPACE}:${this.blockId}`);
 
     if ((this.stonecutterOptions.length > 0 || this.isWall()) && !this.isWood() && !this.ignoredByStonecutter()) {
       this.stonecutterOptions.push(`${this.NAMESPACE}:${this.parentBlockId}`);
-    }
-
-    if(blockName.includes('Snow')) {
-      AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}`);
     }
   }
 

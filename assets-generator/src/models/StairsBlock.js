@@ -1,39 +1,19 @@
+import { BlockTags } from "../BlockTags.js";
 import { AbstractBlockModel } from "./AbstractBlockModel.js";
 
 export class StairsBlock extends AbstractBlockModel {
   constructor(blockName, ignoreList, stonecutterOptions) {
     super(blockName.concat(' Stairs'), ignoreList, stonecutterOptions);
-
-    AbstractBlockModel.blockVariables.push(
-      `public static final Block ${this.blockId.toUpperCase()} = new StairsBlock(${this.blockId.toUpperCase()}.getDefaultState(), FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}));`
-    );
-    AbstractBlockModel.itemBlockVariables.push(
-      `public static final Item ${this.blockId.toUpperCase()} = new BlockItem(MBBlocks.${this.blockId.toUpperCase()}, new Item.Settings());`
-    );
-
-    AbstractBlockModel.registerBlockList.push(
-      `Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
-    );
-    AbstractBlockModel.registerItemBlockList.push(
-      `Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
-    );
-
-    AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}`] = this.blockName.concat(' Stairs');
+    this.addVariables('StairBlock')
 
     if ((this.stonecutterOptions.length > 0 || this.isStairs()) && !this.ignoredByStonecutter()) {
       this.stonecutterOptions.push(`${this.NAMESPACE}:${this.parentBlockId}`);
     }
 
     if (blockName.includes('Mosaic')) {
-      AbstractBlockModel.tags.wooden_stairs.push(`${this.NAMESPACE}:${this.blockId}`);
+      BlockTags.tags.wooden_stairs.push(`${this.NAMESPACE}:${this.blockId}`);
     } else {
-      AbstractBlockModel.tags.stairs.push(`${this.NAMESPACE}:${this.blockId}`);
-    }
-
-    if (!blockName.includes('Snow')) {
-      AbstractBlockModel.tags.mineable_pickaxe.push(`${this.NAMESPACE}:${this.blockId}`);
-    } else if (blockName.includes('Snow')) {
-      AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}`);
+      BlockTags.tags.stairs.push(`${this.NAMESPACE}:${this.blockId}`);
     }
   }
 

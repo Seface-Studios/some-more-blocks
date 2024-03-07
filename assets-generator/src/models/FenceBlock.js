@@ -3,20 +3,7 @@ import { AbstractBlockModel } from "./AbstractBlockModel.js";
 export class FenceBlock extends AbstractBlockModel {
   constructor(blockName, ignoreList, stonecutterOptions) {
     super(blockName.concat(' Fence'), ignoreList, stonecutterOptions);
-
-    AbstractBlockModel.blockVariables.push(
-      `public static final Block ${this.blockId.toUpperCase()} = new FenceBlock(FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}));`
-    );
-    AbstractBlockModel.itemBlockVariables.push(
-      `public static final Item ${this.blockId.toUpperCase()} = new BlockItem(MBBlocks.${this.blockId.toUpperCase()}, new Item.Settings());`
-    );
-
-    AbstractBlockModel.registerBlockList.push(
-      `Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
-    );
-    AbstractBlockModel.registerItemBlockList.push(
-      `Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
-    );
+    this.addVariables('FenceBlock');
 
     AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}`] = this.blockName;
   }

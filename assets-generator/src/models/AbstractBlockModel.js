@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import { BlockTags } from '../BlockTags.js';
+import { Localization } from '../Localization.js';
 
-export class AbstractBlockModel {
+export class Block {
   NAMESPACE = 'moreblocks';
 
   static tags = {
@@ -30,13 +32,9 @@ export class AbstractBlockModel {
   LOOT_TABLE_EXPORT_PATH = 'common/src/main/resources/data/moreblocks/loot_tables/blocks';
   RECIPE_EXPORT_PATH = 'common/src/main/resources/data/moreblocks/recipes';
 
-  static TAG_BLOCKS_EXPORT_PATH = 'common/src/main/resources/data/minecraft/tags/blocks';
-  static TAG_ITEM_EXPORT_PATH = 'common/src/main/resources/data/minecraft/tags/items';
-  static TAG_MINEABLE_EXPORT_PATH = 'common/src/main/resources/data/minecraft/tags/blocks/mineable';
-
   constructor(blockName, ignoreList, stonecutterOptions) {
     this.blockName = blockName;
-    this.blockId = AbstractBlockModel.parseNameToIdentifier(blockName);
+    this.blockId = Block.parseNameToIdentifier(blockName);
     this.stonecutterOptions = stonecutterOptions || [];
     this.ignore = ignoreList;
     this.parentBlockId = this.blockId
@@ -52,10 +50,16 @@ export class AbstractBlockModel {
     this.recipeModelPath = path.join('..', this.RECIPE_EXPORT_PATH, this.blockId);
 
     if(
-      !this.isWood() && !blockName.includes('Snow') &&
-      !blockName.includes('Glass') && !blockName.includes('Ice')) {
-        AbstractBlockModel.tags.mineable_pickaxe.push(`${this.NAMESPACE}:${this.blockId}`);
+      !this.isWood() && !this.blockName.includes('Snow') &&
+      !this.blockName.includes('Glass') && !this.blockName.includes('Ice')) {
+        BlockTags.tags.mineable_pickaxe.push(`${this.NAMESPACE}:${this.blockId}`);
     }
+
+    if(blockName.includes('Snow')) {
+      BlockTags.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}`);
+    }
+
+    Localization.add(this.NAMESPACE, this.blockId, this.blockName);
   }
 
   ignoredByStonecutter() {
@@ -72,7 +76,7 @@ export class AbstractBlockModel {
     return this.blockName.includes('Glass') || this.blockName.includes('Ice');
   }
 
-  build() { return [] }
+  buildBlockModels() { return [] }
   isStairs() { return false; }
   isWall() { return false; }
   isSlab() { return false; }
@@ -84,7 +88,7 @@ export class AbstractBlockModel {
 
   saveModels() {
     try {
-      for (const content of this.build()) {
+      for (const content of this.buildBlockModels()) {
         this.createAndSaveGeneratedFiles('block_model', this.blockModelPath, content)
             .createAndSaveGeneratedFiles('item_model', this.itemModelPath, this.buildItemModel())
             .createAndSaveGeneratedFiles('blockstate', this.blockstateModelPath, this.buildBlockstate())
@@ -217,6 +221,21 @@ export class AbstractBlockModel {
     ]
   }
 
+  addVariables(classObj) {
+    Block.blockVariables.push(
+      `public static final Block ${this.blockId.toUpperCase()} = new ${classObj}(FabricBlockSettings.copyOf(Blocks.ACACIA_PLANKS));`
+    );
+    Block.itemBlockVariables.push(
+      `public static final Item ${this.blockId.toUpperCase()} = new BlockItem(MBBlocks.${this.blockId.toUpperCase()}, new Item.Settings());`
+    );
+    Block.registerBlockList.push(
+      `Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
+    );
+    Block.registerItemBlockList.push(
+      `Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
+    );
+  }
+
   static parseNameToIdentifier(name) {
     return name
       .replaceAll(' ', '_')
@@ -226,32 +245,5 @@ export class AbstractBlockModel {
 
   static popNamespaceFrom(id) {
     return id.replace(/.*:/, "");
-  }
-
-  static createAndSaveTagFiles() {
-    for (const tag of Object.keys(AbstractBlockModel.tags)) {
-      const tagData = JSON.stringify({
-        replace: false,
-        values: AbstractBlockModel.tags[tag]
-      }, null, 2);
-
-      if (tag === "logs") continue;
-
-      if (tag.startsWith('mineable_')) {
-        const mineableTag = tag.replace('mineable_', '');
-        const tagMineablePath = path.join('..', AbstractBlockModel.TAG_MINEABLE_EXPORT_PATH, `${mineableTag}.json`);
-        
-        fs.writeFileSync(tagMineablePath, tagData, 'utf-8');
-        continue;
-      }
-
-      const tagBlockPath = path.join('..', AbstractBlockModel.TAG_BLOCKS_EXPORT_PATH, `${tag}.json`);
-      const tagItemPath = path.join('..', AbstractBlockModel.TAG_ITEM_EXPORT_PATH, `${tag}.json`);
-
-      fs.writeFileSync(tagBlockPath, tagData, 'utf-8');
-      fs.writeFileSync(tagItemPath, tagData, 'utf-8');
-    }
-
-    return this;
   }
 }
