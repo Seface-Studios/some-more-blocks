@@ -1,8 +1,8 @@
 import { AbstractBlockModel } from "./AbstractBlockModel.js";
 
 export class FullBlock extends AbstractBlockModel {
-  constructor(blockName) {
-    super(blockName);
+  constructor(blockName, ignoreList, stonecutterOptions) {
+    super(blockName, ignoreList, stonecutterOptions);
 
     AbstractBlockModel.blockVariables.push(
       `public static final Block ${this.blockId.toUpperCase()} = new Block(FabricBlockSettings.copyOf(Blocks.ACACIA_PLANKS));`

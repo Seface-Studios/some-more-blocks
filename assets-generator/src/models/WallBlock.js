@@ -1,8 +1,8 @@
 import { AbstractBlockModel } from "./AbstractBlockModel.js";
 
 export class WallBlock extends AbstractBlockModel {
-  constructor(blockName) {
-    super(blockName);
+  constructor(blockName, ignoreList, stonecutterOptions) {
+    super(blockName, ignoreList, stonecutterOptions);
 
     AbstractBlockModel.blockVariables.push(
       `public static final Block ${this.blockId.toUpperCase()}_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}).solid());`
@@ -20,6 +20,10 @@ export class WallBlock extends AbstractBlockModel {
 
     AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}_wall`] = this.blockName.concat(' Wall');
     AbstractBlockModel.tags.walls.push(`${this.NAMESPACE}:${this.blockId}_wall`);
+
+    if (this.stonecutterOptions.length > 0) {
+      this.stonecutterOptions.push(`${this.NAMESPACE}:${this.blockId}`);
+    }
 
     if(blockName.includes('Snow')) {
       AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}_wall`);
@@ -230,6 +234,25 @@ export class WallBlock extends AbstractBlockModel {
         ]
       },
       '_wall.json'
+    ]
+  }
+
+  buildRecipeForStonecutter(baseBlock) {
+    const baseIdentifier = baseBlock
+      .replace('minecraft:', '')
+      .replace(`${this.NAMESPACE}:`, '');
+
+    return [
+      {
+        "type": "minecraft:stonecutting",
+        "count": 1,
+        "ingredient": {
+          "item": `${baseBlock}`
+        },
+
+        "result": `${this.NAMESPACE}:${this.blockId}_wall`
+      },
+      `_wall_from_${baseIdentifier}_stonecutting.json`
     ]
   }
 }

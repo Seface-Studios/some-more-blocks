@@ -338,6 +338,16 @@ Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "brown_concret
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "green_concrete_tiles"), GREEN_CONCRETE_TILES);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "red_concrete_tiles"), RED_CONCRETE_TILES);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "black_concrete_tiles"), BLACK_CONCRETE_TILES);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "soul_sandstone"), SOUL_SANDSTONE);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cut_soul_sandstone"), CUT_SOUL_SANDSTONE);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "smooth_soul_sandstone"), SMOOTH_SOUL_SANDSTONE);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "chiseled_soul_sandstone"), CHISELED_SOUL_SANDSTONE);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "soul_sandstone_bricks"), SOUL_SANDSTONE_BRICKS);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cracked_soul_sandstone_bricks"), CRACKED_SOUL_SANDSTONE_BRICKS);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "mossy_soul_sandstone_bricks"), MOSSY_SOUL_SANDSTONE_BRICKS);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "soul_sandstone_tiles"), SOUL_SANDSTONE_TILES);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cracked_soul_sandstone_tiles"), CRACKED_SOUL_SANDSTONE_TILES);
+Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "soul_sandstone_pillar"), SOUL_SANDSTONE_PILLAR);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "coal_bricks"), COAL_BRICKS);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cracked_coal_bricks"), CRACKED_COAL_BRICKS);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cut_coal"), CUT_COAL);

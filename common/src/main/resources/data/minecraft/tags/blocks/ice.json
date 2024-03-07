@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "moreblocks:polished_ice",
+    "moreblocks:polished_ice_stairs",
+    "moreblocks:polished_ice_slab",
+    "moreblocks:ice_bricks",
+    "moreblocks:cracked_ice_bricks",
+    "moreblocks:ice_bricks_stairs",
+    "moreblocks:ice_bricks_slab",
+    "moreblocks:ice_bricks_wall",
+    "moreblocks:ice_pillar",
+    "moreblocks:ice_tiles",
+    "moreblocks:cracked_ice_tiles",
+    "moreblocks:ice_tiles_stairs",
+    "moreblocks:ice_tiles_slab",
+    "moreblocks:ice_tiles_wall"
+  ]
+}

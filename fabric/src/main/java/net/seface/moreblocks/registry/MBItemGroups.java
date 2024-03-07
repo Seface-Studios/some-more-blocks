@@ -127,6 +127,15 @@ public class MBItemGroups {
                 entry.accept(MBItems.SMOOTH_ANDESITE);
                 entry.accept(MBItems.SMOOTH_ANDESITE_SLAB);
                 entry.accept(MBItems.DEEPSLATE_PILLAR);
+                entry.accept(MBItems.CRACKED_TUFF_BRICKS);
+                entry.accept(MBItems.TUFF_PILLAR);
+                entry.accept(MBItems.TUFF_TILES);
+                entry.accept(MBItems.CRACKED_TUFF_TILES);
+                entry.accept(MBItems.TUFF_TILES_STAIRS);
+                entry.accept(MBItems.TUFF_TILES_SLAB);
+                entry.accept(MBItems.TUFF_TILES_WALL);
+                entry.accept(MBItems.SMOOTH_TUFF);
+                entry.accept(MBItems.SMOOTH_TUFF_SLAB);
                 entry.accept(MBItems.CRACKED_BRICK_BLOCK);
                 entry.accept(MBItems.MOSSY_BRICK_BLOCK);
                 entry.accept(MBItems.MOSSY_BRICK_BLOCK_STAIRS);

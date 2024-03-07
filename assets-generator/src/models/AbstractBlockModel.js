@@ -28,20 +28,24 @@ export class AbstractBlockModel {
   ITEM_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/models/item';
   BLOCKSTATES_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/blockstates';
   LOOT_TABLE_EXPORT_PATH = 'common/src/main/resources/data/moreblocks/loot_tables/blocks';
+  RECIPE_EXPORT_PATH = 'common/src/main/resources/data/moreblocks/recipes';
 
   static TAG_BLOCKS_EXPORT_PATH = 'common/src/main/resources/data/minecraft/tags/blocks';
   static TAG_ITEM_EXPORT_PATH = 'common/src/main/resources/data/minecraft/tags/items';
   static TAG_MINEABLE_EXPORT_PATH = 'common/src/main/resources/data/minecraft/tags/blocks/mineable';
 
-  constructor(blockName) {
+  constructor(blockName, ignoreList, stonecutterOptions) {
     this.blockName = blockName;
     this.blockId = AbstractBlockModel.parseNameToIdentifier(blockName);
     this.parentBlockId = this.blockId;
+    this.stonecutterOptions = stonecutterOptions || [];
+    this.ignore = ignoreList;
 
     this.blockModelPath = path.join('..',  this.BLOCK_MODEL_EXPORT_PATH, this.blockId);
     this.itemModelPath = path.join('..', this.ITEM_MODEL_EXPORT_PATH, this.blockId);
     this.blockstateModelPath = path.join('..', this.BLOCKSTATES_MODEL_EXPORT_PATH, this.blockId);
     this.lootTableModelPath = path.join('..', this.LOOT_TABLE_EXPORT_PATH, this.blockId);
+    this.recipeModelPath = path.join('..', this.RECIPE_EXPORT_PATH, this.blockId);
 
     if(
       !this.isLogOrWoodVariation(blockName) && !blockName.includes('Snow') &&
@@ -65,21 +69,35 @@ export class AbstractBlockModel {
   saveModels() {
     try {
       for (const content of this.build()) {
-        const data = JSON.stringify(content[0], null, 2);
-        fs.writeFileSync(this.blockModelPath.concat(content[1]), data, 'utf-8');
-
-        const itemModelData = JSON.stringify(this.buildItemModel()[0], null, 2);
-        fs.writeFileSync(this.itemModelPath.concat(this.buildItemModel()[1]), itemModelData, 'utf-8');
-
-        const blockstateModelData = JSON.stringify(this.buildBlockstate()[0], null, 2);
-        fs.writeFileSync(this.blockstateModelPath.concat(this.buildBlockstate()[1]), blockstateModelData, 'utf-8');
-
-        const lootTableModelData = JSON.stringify(this.buildLootTable()[0], null, 2);
-        fs.writeFileSync(this.lootTableModelPath.concat(this.buildLootTable()[1]), lootTableModelData, 'utf-8');
+        this.createAndSaveGeneratedFiles('block_model', this.blockModelPath, content)
+            .createAndSaveGeneratedFiles('item_model', this.itemModelPath, this.buildItemModel())
+            .createAndSaveGeneratedFiles('blockstate', this.blockstateModelPath, this.buildBlockstate())
+            .createAndSaveGeneratedFiles('loot_table', this.lootTableModelPath, this.buildLootTable());
+        
+        for (const option of this.stonecutterOptions) {
+          this.createAndSaveGeneratedFiles('recipe_stonecutter', this.recipeModelPath, this.buildRecipeForStonecutter(option), this.stonecutterOptions.length <= 0);
+        }
       }
     } catch (err) {
       console.error(new Error(`Something happen to create block model files of ${this.blockName}`));
     }
+
+    return this;
+  }
+
+  createAndSaveGeneratedFiles(id, basePath, content, predicate = false) {
+    if (this.ignore.includes(id)) {
+      console.log(`${id} of ${this.blockName} was ignored and will not be generated.`);
+      return this;
+    }
+
+    if (predicate) {
+      console.log(`Invalid predicate for ${id} of ${this.blockName} or variations.`);
+      return this;
+    };
+
+    const data = JSON.stringify(content[0], null, 2);
+    fs.writeFileSync(basePath.concat(content[1]), data, 'utf-8');
 
     return this;
   }
@@ -165,6 +183,25 @@ export class AbstractBlockModel {
     ]
   }
 
+  buildRecipeForStonecutter(baseBlock) {
+    const baseIdentifier = baseBlock
+      .replace('minecraft:', '')
+      .replace(`${this.NAMESPACE}:`, '');
+
+    return [
+      {
+        "type": "minecraft:stonecutting",
+        "count": 1,
+        "ingredient": {
+          "item": `${baseBlock}`
+        },
+
+        "result": `${this.NAMESPACE}:${this.blockId}`
+      },
+      `_from_${baseIdentifier}_stonecutting.json`
+    ]
+  }
+
   static parseNameToIdentifier(name) {
     return name
       .replaceAll(' ', '_')
@@ -178,6 +215,8 @@ export class AbstractBlockModel {
         replace: false,
         values: AbstractBlockModel.tags[tag]
       }, null, 2);
+
+      if (tag === "logs") continue;
 
       if (tag.startsWith('mineable_')) {
         const mineableTag = tag.replace('mineable_', '');

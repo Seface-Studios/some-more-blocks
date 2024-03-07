@@ -6,7 +6,7 @@ plugins {
 }
 
 base {
-    archivesName = "${mod_name}-fabric-${minecraft_version}"
+    archivesName = "${mod_name.replaceAll(' ', '')}@fabric-${minecraft_version}"
 }
 
 dependencies {

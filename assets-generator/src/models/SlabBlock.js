@@ -1,9 +1,9 @@
 import { AbstractBlockModel } from "./AbstractBlockModel.js";
 
 export class SlabBlock extends AbstractBlockModel {
-  constructor(blockName) {
-    super(blockName);
-
+  constructor(blockName, ignoreList, stonecutterOptions) {
+    super(blockName, ignoreList, stonecutterOptions);
+    
     AbstractBlockModel.blockVariables.push(
       `public static final Block ${this.blockId.toUpperCase()}_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}));`
     );
@@ -19,6 +19,10 @@ export class SlabBlock extends AbstractBlockModel {
     );
 
     AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}_slab`] = this.blockName.concat(' Slab');
+
+    if (this.stonecutterOptions.length > 0) {
+      this.stonecutterOptions.push(`${this.NAMESPACE}:${this.blockId}`);
+    }
 
     if (blockName.includes('Mosaic')) {
       AbstractBlockModel.tags.wooden_slabs.push(`${this.NAMESPACE}:${this.blockId}_slab`);
@@ -192,6 +196,25 @@ export class SlabBlock extends AbstractBlockModel {
         ]
       },
       '_slab.json'
+    ]
+  }
+
+  buildRecipeForStonecutter(baseBlock) {
+    const baseIdentifier = baseBlock
+      .replace('minecraft:', '')
+      .replace(`${this.NAMESPACE}:`, '');
+
+    return [
+      {
+        "type": "minecraft:stonecutting",
+        "count": 2,
+        "ingredient": {
+          "item": `${baseBlock}`
+        },
+
+        "result": `${this.NAMESPACE}:${this.blockId}_slab`
+      },
+      `_slab_from_${baseIdentifier}_stonecutting.json`
     ]
   }
 }

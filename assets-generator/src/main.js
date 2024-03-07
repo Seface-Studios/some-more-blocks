@@ -19,25 +19,24 @@ for (const block of data.Blocks) {
   const isLogLike = block.name.endsWith('Log') || block.name.endsWith('Stem');
   const isWoodLike = block.name.endsWith('Wood') || block.name.endsWith('Hyphae');
 
-  const isIgnored = block?.ignore || false;
-  if (isIgnored) continue;
+  const ignore = block?.ignore || [];
 
   const hasSlab = block?.hasSlab || false;
   const hasStairs = block?.hasStairs || false;
   const hasFence = block?.hasFence || false;
   const hasWall = block?.hasWall || false;
 
-  const model = isPillar ? new PillarBlock(block.name) : 
-                isLogLike ? new LogBlock(block.name) : 
-                isWoodLike ? new WoodBlock(block.name) :
-                new FullBlock(block.name);
+  const model = isPillar ? new PillarBlock(block.name, ignore, block?.stonecutterOptions) : 
+                isLogLike ? new LogBlock(block.name, ignore, block?.stonecutterOptions) : 
+                isWoodLike ? new WoodBlock(block.name, ignore, block?.stonecutterOptions) :
+                new FullBlock(block.name, ignore, block?.stonecutterOptions);
 
   model.saveModels();
 
-  if (hasSlab) { new SlabBlock(block.name).saveModels(); }
-  if (hasStairs) { new StairsBlock(block.name).saveModels(); }
-  if (hasFence) { new FenceBlock(block.name).saveModels(); }
-  if (hasWall) { new WallBlock(block.name).saveModels(); }
+  if (hasSlab) { new SlabBlock(block.name, ignore, block?.stonecutterOptions).saveModels(); }
+  if (hasStairs) { new StairsBlock(block.name, ignore, block?.stonecutterOptions).saveModels(); }
+  if (hasFence) { new FenceBlock(block.name, ignore, block?.stonecutterOptions).saveModels(); }
+  if (hasWall) { new WallBlock(block.name, ignore, block?.stonecutterOptions).saveModels(); }
 
   /* if (!block.name.includes('Mosaic') && hasStairs) {
     temps.push('moreblocks:' + AbstractBlockModel.parseNameToIdentifier(block.name) + '_stairs')

@@ -1,8 +1,8 @@
 import { AbstractBlockModel } from "./AbstractBlockModel.js";
 
 export class FenceBlock extends AbstractBlockModel {
-  constructor(blockName) {
-    super(blockName);
+  constructor(blockName, ignoreList, stonecutterOptions) {
+    super(blockName, ignoreList, stonecutterOptions);
 
     AbstractBlockModel.blockVariables.push(
       `public static final Block ${this.blockId.toUpperCase()}_FENCE = new FenceBlock(FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}));`
@@ -135,6 +135,25 @@ export class FenceBlock extends AbstractBlockModel {
         ]
       },
       '_fence.json'
+    ]
+  }
+
+  buildRecipeForStonecutter(baseBlock) {
+    const baseIdentifier = baseBlock
+      .replace('minecraft:', '')
+      .replace(`${this.NAMESPACE}:`, '');
+
+    return [
+      {
+        "type": "minecraft:stonecutting",
+        "count": 1,
+        "ingredient": {
+          "item": `${baseBlock}`
+        },
+
+        "result": `${this.NAMESPACE}:${this.blockId}_fence`
+      },
+      `_fence_from_${baseIdentifier}_stonecutting.json`
     ]
   }
 }

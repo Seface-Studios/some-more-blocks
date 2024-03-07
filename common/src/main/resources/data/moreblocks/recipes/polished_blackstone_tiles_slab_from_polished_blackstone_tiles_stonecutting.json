@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "moreblocks:polished_blackstone_tiles"
+  },
+  "result": "moreblocks:polished_blackstone_tiles_slab"
+}

@@ -1,8 +1,8 @@
 import { AbstractBlockModel } from "./AbstractBlockModel.js";
 
 export class StairsBlock extends AbstractBlockModel {
-  constructor(blockName) {
-    super(blockName);
+  constructor(blockName, ignoreList, stonecutterOptions) {
+    super(blockName, ignoreList, stonecutterOptions);
 
     AbstractBlockModel.blockVariables.push(
       `public static final Block ${this.blockId.toUpperCase()}_STAIRS = new StairsBlock(${this.blockId.toUpperCase()}.getDefaultState(), FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}));`
@@ -19,6 +19,10 @@ export class StairsBlock extends AbstractBlockModel {
     );
 
     AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}_stairs`] = this.blockName.concat(' Stairs');
+
+    if (this.stonecutterOptions.length > 0) {
+      this.stonecutterOptions.push(`${this.NAMESPACE}:${this.blockId}`);
+    }
 
     if (blockName.includes('Mosaic')) {
       AbstractBlockModel.tags.wooden_stairs.push(`${this.NAMESPACE}:${this.blockId}_stairs`);
@@ -354,6 +358,25 @@ export class StairsBlock extends AbstractBlockModel {
         ]
       },
       '_stairs.json'
+    ]
+  }
+
+  buildRecipeForStonecutter(baseBlock) {
+    const baseIdentifier = baseBlock
+      .replace('minecraft:', '')
+      .replace(`${this.NAMESPACE}:`, '');
+
+    return [
+      {
+        "type": "minecraft:stonecutting",
+        "count": 1,
+        "ingredient": {
+          "item": `${baseBlock}`
+        },
+
+        "result": `${this.NAMESPACE}:${this.blockId}_stairs`
+      },
+      `_stairs_from_${baseIdentifier}_stonecutting.json`
     ]
   }
 }
