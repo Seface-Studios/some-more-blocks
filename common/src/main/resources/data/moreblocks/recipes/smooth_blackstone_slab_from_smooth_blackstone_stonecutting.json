@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "moreblocks:smooth_blackstone"
+  },
+  "result": "moreblocks:smooth_blackstone_slab"
+}

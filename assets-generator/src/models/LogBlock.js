@@ -67,8 +67,7 @@ export class LogBlock extends AbstractBlockModel {
             "x": 90
           }
         }
-      },
-      '.json'
+      }
     ]
   }
 }

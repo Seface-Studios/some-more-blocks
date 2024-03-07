@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "moreblocks:smooth_dripstone"
+  },
+  "result": "moreblocks:smooth_dripstone_slab"
+}

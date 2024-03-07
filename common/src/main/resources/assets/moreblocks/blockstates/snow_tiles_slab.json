@@ -4,7 +4,7 @@
       "model": "moreblocks:block/snow_tiles_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/snow_tiles"
+      "model": "moreblocks:block/snow_tiles_slab"
     },
     "type=top": {
       "model": "moreblocks:block/snow_tiles_slab_top"

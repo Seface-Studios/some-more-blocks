@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moreblocks:mossy_dripstone_bricks"
+  },
+  "result": "moreblocks:mossy_dripstone_bricks_wall"
+}

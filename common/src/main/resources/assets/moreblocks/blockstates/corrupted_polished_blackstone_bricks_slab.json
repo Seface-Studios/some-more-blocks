@@ -4,7 +4,7 @@
       "model": "moreblocks:block/corrupted_polished_blackstone_bricks_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/corrupted_polished_blackstone_bricks"
+      "model": "moreblocks:block/corrupted_polished_blackstone_bricks_slab"
     },
     "type=top": {
       "model": "moreblocks:block/corrupted_polished_blackstone_bricks_slab_top"

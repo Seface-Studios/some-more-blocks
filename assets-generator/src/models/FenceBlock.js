@@ -2,23 +2,23 @@ import { AbstractBlockModel } from "./AbstractBlockModel.js";
 
 export class FenceBlock extends AbstractBlockModel {
   constructor(blockName, ignoreList, stonecutterOptions) {
-    super(blockName, ignoreList, stonecutterOptions);
+    super(blockName.concat(' Fence'), ignoreList, stonecutterOptions);
 
     AbstractBlockModel.blockVariables.push(
-      `public static final Block ${this.blockId.toUpperCase()}_FENCE = new FenceBlock(FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}));`
+      `public static final Block ${this.blockId.toUpperCase()} = new FenceBlock(FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}));`
     );
     AbstractBlockModel.itemBlockVariables.push(
-      `public static final Item ${this.blockId.toUpperCase()}_FENCE = new BlockItem(MBBlocks.${this.blockId.toUpperCase()}_FENCE, new Item.Settings());`
+      `public static final Item ${this.blockId.toUpperCase()} = new BlockItem(MBBlocks.${this.blockId.toUpperCase()}, new Item.Settings());`
     );
 
     AbstractBlockModel.registerBlockList.push(
-      `Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "${this.blockId}_fence"), ${this.blockId.toUpperCase()}_FENCE);`
+      `Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
     );
     AbstractBlockModel.registerItemBlockList.push(
-      `Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "${this.blockId}_fence"), ${this.blockId.toUpperCase()}_FENCE);`
+      `Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
     );
 
-    AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}_fence`] = this.blockName.concat(' Fence');
+    AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}`] = this.blockName;
   }
 
   build() {

@@ -4,7 +4,7 @@
       "model": "moreblocks:block/andesite_tiles_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/andesite_tiles"
+      "model": "moreblocks:block/andesite_tiles_slab"
     },
     "type=top": {
       "model": "moreblocks:block/andesite_tiles_slab_top"

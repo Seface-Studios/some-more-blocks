@@ -3,6 +3,7 @@
   "random_sequence": "moreblocks:blocks/cracked_ice_bricks",
   "pools": [
     {
+      "rolls": 1,
       "bonus_rolls": 0,
       "conditions": [
         {
@@ -24,8 +25,7 @@
           "type": "minecraft:item",
           "name": "moreblocks:cracked_ice_bricks"
         }
-      ],
-      "rolls": 1
+      ]
     }
   ]
 }

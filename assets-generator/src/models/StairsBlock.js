@@ -2,41 +2,42 @@ import { AbstractBlockModel } from "./AbstractBlockModel.js";
 
 export class StairsBlock extends AbstractBlockModel {
   constructor(blockName, ignoreList, stonecutterOptions) {
-    super(blockName, ignoreList, stonecutterOptions);
+    super(blockName.concat(' Stairs'), ignoreList, stonecutterOptions);
 
     AbstractBlockModel.blockVariables.push(
-      `public static final Block ${this.blockId.toUpperCase()}_STAIRS = new StairsBlock(${this.blockId.toUpperCase()}.getDefaultState(), FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}));`
+      `public static final Block ${this.blockId.toUpperCase()} = new StairsBlock(${this.blockId.toUpperCase()}.getDefaultState(), FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}));`
     );
     AbstractBlockModel.itemBlockVariables.push(
-      `public static final Item ${this.blockId.toUpperCase()}_STAIRS = new BlockItem(MBBlocks.${this.blockId.toUpperCase()}_STAIRS, new Item.Settings());`
+      `public static final Item ${this.blockId.toUpperCase()} = new BlockItem(MBBlocks.${this.blockId.toUpperCase()}, new Item.Settings());`
     );
 
     AbstractBlockModel.registerBlockList.push(
-      `Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "${this.blockId}_stairs"), ${this.blockId.toUpperCase()}_STAIRS);`
+      `Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
     );
     AbstractBlockModel.registerItemBlockList.push(
-      `Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "${this.blockId}_stairs"), ${this.blockId.toUpperCase()}_STAIRS);`
+      `Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
     );
 
-    AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}_stairs`] = this.blockName.concat(' Stairs');
+    AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}`] = this.blockName.concat(' Stairs');
 
-    if (this.stonecutterOptions.length > 0) {
-      this.stonecutterOptions.push(`${this.NAMESPACE}:${this.blockId}`);
+    if ((this.stonecutterOptions.length > 0 || this.isStairs()) && !this.ignoredByStonecutter()) {
+      this.stonecutterOptions.push(`${this.NAMESPACE}:${this.parentBlockId}`);
     }
 
     if (blockName.includes('Mosaic')) {
-      AbstractBlockModel.tags.wooden_stairs.push(`${this.NAMESPACE}:${this.blockId}_stairs`);
-      return;
+      AbstractBlockModel.tags.wooden_stairs.push(`${this.NAMESPACE}:${this.blockId}`);
+    } else {
+      AbstractBlockModel.tags.stairs.push(`${this.NAMESPACE}:${this.blockId}`);
     }
-
-    AbstractBlockModel.tags.stairs.push(`${this.NAMESPACE}:${this.blockId}_stairs`);
 
     if (!blockName.includes('Snow')) {
-      AbstractBlockModel.tags.mineable_pickaxe.push(`${this.NAMESPACE}:${this.blockId}_stairs`);
+      AbstractBlockModel.tags.mineable_pickaxe.push(`${this.NAMESPACE}:${this.blockId}`);
     } else if (blockName.includes('Snow')) {
-      AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}_stairs`);
+      AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}`);
     }
   }
+
+  isStairs() { return true; }
 
   build() {
     return [
@@ -44,34 +45,34 @@ export class StairsBlock extends AbstractBlockModel {
         {
           "parent": "minecraft:block/stairs",
           "textures": {
-            "bottom": `${this.NAMESPACE}:block/${this.blockId}`,
-            "side": `${this.NAMESPACE}:block/${this.blockId}`,
-            "top": `${this.NAMESPACE}:block/${this.blockId}`
+            "bottom": `${this.NAMESPACE}:block/${this.parentBlockId}`,
+            "side": `${this.NAMESPACE}:block/${this.parentBlockId}`,
+            "top": `${this.NAMESPACE}:block/${this.parentBlockId}`
           }
         },
-        '_stairs.json'
+        '.json'
       ],
       [
         {
           "parent": "minecraft:block/inner_stairs",
           "textures": {
-            "bottom": `${this.NAMESPACE}:block/${this.blockId}`,
-            "side": `${this.NAMESPACE}:block/${this.blockId}`,
-            "top": `${this.NAMESPACE}:block/${this.blockId}`
+            "bottom": `${this.NAMESPACE}:block/${this.parentBlockId}`,
+            "side": `${this.NAMESPACE}:block/${this.parentBlockId}`,
+            "top": `${this.NAMESPACE}:block/${this.parentBlockId}`
           }
         },
-        '_stairs_inner.json'
+        '_inner.json'
       ],
       [
         {
           "parent": "minecraft:block/outer_stairs",
           "textures": {
-            "bottom": `${this.NAMESPACE}:block/${this.blockId}`,
-            "side": `${this.NAMESPACE}:block/${this.blockId}`,
-            "top": `${this.NAMESPACE}:block/${this.blockId}`
+            "bottom": `${this.NAMESPACE}:block/${this.parentBlockId}`,
+            "side": `${this.NAMESPACE}:block/${this.parentBlockId}`,
+            "top": `${this.NAMESPACE}:block/${this.parentBlockId}`
           }
         },
-        '_stairs_outer.json'
+        '_outer.json'
       ]
     ]
   }
@@ -79,9 +80,8 @@ export class StairsBlock extends AbstractBlockModel {
   buildItemModel() {
     return [
       {
-        "parent": `${this.NAMESPACE}:block/${this.blockId}_stairs`
-      },
-      '_stairs.json'
+        "parent": `${this.NAMESPACE}:block/${this.blockId}`
+      }
     ]
   }
   
@@ -90,213 +90,212 @@ export class StairsBlock extends AbstractBlockModel {
       {
         "variants": {
           "facing=east,half=bottom,shape=inner_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "y": 270
           },
           "facing=east,half=bottom,shape=inner_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`
           },
           "facing=east,half=bottom,shape=outer_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "y": 270
           },
           "facing=east,half=bottom,shape=outer_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`
           },
           "facing=east,half=bottom,shape=straight": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs`
+            "model": `${this.NAMESPACE}:block/${this.blockId}`
           },
           "facing=east,half=top,shape=inner_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "x": 180
           },
           "facing=east,half=top,shape=inner_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "x": 180,
             "y": 90
           },
           "facing=east,half=top,shape=outer_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "x": 180
           },
           "facing=east,half=top,shape=outer_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "x": 180,
             "y": 90
           },
           "facing=east,half=top,shape=straight": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}`,
             "uvlock": true,
             "x": 180
           },
           "facing=north,half=bottom,shape=inner_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "y": 180
           },
           "facing=north,half=bottom,shape=inner_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "y": 270
           },
           "facing=north,half=bottom,shape=outer_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "y": 180
           },
           "facing=north,half=bottom,shape=outer_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "y": 270
           },
           "facing=north,half=bottom,shape=straight": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}`,
             "uvlock": true,
             "y": 270
           },
           "facing=north,half=top,shape=inner_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "x": 180,
             "y": 270
           },
           "facing=north,half=top,shape=inner_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "x": 180
           },
           "facing=north,half=top,shape=outer_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "x": 180,
             "y": 270
           },
           "facing=north,half=top,shape=outer_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "x": 180
           },
           "facing=north,half=top,shape=straight": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}`,
             "uvlock": true,
             "x": 180,
             "y": 270
           },
           "facing=south,half=bottom,shape=inner_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`
           },
           "facing=south,half=bottom,shape=inner_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "y": 90
           },
           "facing=south,half=bottom,shape=outer_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`
           },
           "facing=south,half=bottom,shape=outer_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "y": 90
           },
           "facing=south,half=bottom,shape=straight": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}`,
             "uvlock": true,
             "y": 90
           },
           "facing=south,half=top,shape=inner_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "x": 180,
             "y": 90
           },
           "facing=south,half=top,shape=inner_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "x": 180,
             "y": 180
           },
           "facing=south,half=top,shape=outer_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "x": 180,
             "y": 90
           },
           "facing=south,half=top,shape=outer_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "x": 180,
             "y": 180
           },
           "facing=south,half=top,shape=straight": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}`,
             "uvlock": true,
             "x": 180,
             "y": 90
           },
           "facing=west,half=bottom,shape=inner_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "y": 90
           },
           "facing=west,half=bottom,shape=inner_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "y": 180
           },
           "facing=west,half=bottom,shape=outer_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "y": 90
           },
           "facing=west,half=bottom,shape=outer_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "y": 180
           },
           "facing=west,half=bottom,shape=straight": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}`,
             "uvlock": true,
             "y": 180
           },
           "facing=west,half=top,shape=inner_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "x": 180,
             "y": 180
           },
           "facing=west,half=top,shape=inner_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_inner`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_inner`,
             "uvlock": true,
             "x": 180,
             "y": 270
           },
           "facing=west,half=top,shape=outer_left": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "x": 180,
             "y": 180
           },
           "facing=west,half=top,shape=outer_right": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs_outer`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}_outer`,
             "uvlock": true,
             "x": 180,
             "y": 270
           },
           "facing=west,half=top,shape=straight": {
-            "model": `${this.NAMESPACE}:block/${this.blockId}_stairs`,
+            "model": `${this.NAMESPACE}:block/${this.blockId}`,
             "uvlock": true,
             "x": 180,
             "y": 180
           }
         }
-      },
-      '_stairs.json'
+      }
     ]
   }
 
@@ -305,7 +304,7 @@ export class StairsBlock extends AbstractBlockModel {
     [
       {
         "type": "minecraft:block",
-        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_stairs`,
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
         "pools": [
           {
             "bonus_rolls": 0.0,
@@ -317,18 +316,17 @@ export class StairsBlock extends AbstractBlockModel {
             "entries": [
               {
                 "type": "minecraft:item",
-                "name": `${this.NAMESPACE}:${this.blockId}_stairs`
+                "name": `${this.NAMESPACE}:${this.blockId}`
               }
             ]
           }
         ]
-      },
-      '_stairs.json'
+      }
     ] :
     [
       {
         "type": "minecraft:block",
-        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_stairs`,
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
         "pools": [
           {
             "bonus_rolls": 0.0,
@@ -350,33 +348,13 @@ export class StairsBlock extends AbstractBlockModel {
             "entries": [
               {
                 "type": "minecraft:item",
-                "name": `${this.NAMESPACE}:${this.blockId}_stairs`
+                "name": `${this.NAMESPACE}:${this.blockId}`
               }
             ],
             "rolls": 1.0
           }
         ]
-      },
-      '_stairs.json'
-    ]
-  }
-
-  buildRecipeForStonecutter(baseBlock) {
-    const baseIdentifier = baseBlock
-      .replace('minecraft:', '')
-      .replace(`${this.NAMESPACE}:`, '');
-
-    return [
-      {
-        "type": "minecraft:stonecutting",
-        "count": 1,
-        "ingredient": {
-          "item": `${baseBlock}`
-        },
-
-        "result": `${this.NAMESPACE}:${this.blockId}_stairs`
-      },
-      `_stairs_from_${baseIdentifier}_stonecutting.json`
+      }
     ]
   }
 }

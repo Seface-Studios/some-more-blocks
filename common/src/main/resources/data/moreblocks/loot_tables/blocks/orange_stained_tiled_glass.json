@@ -3,6 +3,7 @@
   "random_sequence": "moreblocks:blocks/orange_stained_tiled_glass",
   "pools": [
     {
+      "rolls": 1,
       "bonus_rolls": 0,
       "conditions": [
         {
@@ -24,8 +25,7 @@
           "type": "minecraft:item",
           "name": "moreblocks:orange_stained_tiled_glass"
         }
-      ],
-      "rolls": 1
+      ]
     }
   ]
 }

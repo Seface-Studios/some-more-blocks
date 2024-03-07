@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "moreblocks:dry_mossy_red_sandstone_bricks"
+  },
+  "result": "moreblocks:dry_mossy_red_sandstone_bricks_slab"
+}

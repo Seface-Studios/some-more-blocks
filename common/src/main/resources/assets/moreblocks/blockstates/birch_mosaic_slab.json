@@ -4,7 +4,7 @@
       "model": "moreblocks:block/birch_mosaic_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/birch_mosaic"
+      "model": "moreblocks:block/birch_mosaic_slab"
     },
     "type=top": {
       "model": "moreblocks:block/birch_mosaic_slab_top"

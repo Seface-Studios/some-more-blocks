@@ -37,9 +37,13 @@ export class AbstractBlockModel {
   constructor(blockName, ignoreList, stonecutterOptions) {
     this.blockName = blockName;
     this.blockId = AbstractBlockModel.parseNameToIdentifier(blockName);
-    this.parentBlockId = this.blockId;
     this.stonecutterOptions = stonecutterOptions || [];
     this.ignore = ignoreList;
+    this.parentBlockId = this.blockId
+      .replace('_wall', '')
+      .replace('_stairs', '')
+      .replace('_slab', '')
+      .replace('_fence', '');
 
     this.blockModelPath = path.join('..',  this.BLOCK_MODEL_EXPORT_PATH, this.blockId);
     this.itemModelPath = path.join('..', this.ITEM_MODEL_EXPORT_PATH, this.blockId);
@@ -48,16 +52,20 @@ export class AbstractBlockModel {
     this.recipeModelPath = path.join('..', this.RECIPE_EXPORT_PATH, this.blockId);
 
     if(
-      !this.isLogOrWoodVariation(blockName) && !blockName.includes('Snow') &&
+      !this.isWood() && !blockName.includes('Snow') &&
       !blockName.includes('Glass') && !blockName.includes('Ice')) {
         AbstractBlockModel.tags.mineable_pickaxe.push(`${this.NAMESPACE}:${this.blockId}`);
     }
   }
 
-  isLogOrWoodVariation(blockName) {
-    return blockName.includes('Mosaic') || blockName.includes('Stem') ||
-           blockName.includes('Hyphae') || blockName.includes('Log') ||
-           blockName.includes('Wood')
+  ignoredByStonecutter() {
+    return this.isWood() || this.blockName.includes('Snow');
+  }
+
+  isWood() {
+    return this.blockName.includes('Mosaic') || this.blockName.includes('Stem') ||
+           this.blockName.includes('Hyphae') || this.blockName.includes('Log') ||
+           this.blockName.includes('Wood')
   }
 
   dropOnlyWithSilkTouch() {
@@ -65,6 +73,14 @@ export class AbstractBlockModel {
   }
 
   build() { return [] }
+  isStairs() { return false; }
+  isWall() { return false; }
+  isSlab() { return false; }
+  isFence() { return false; }
+
+  isDifferentModel() {
+    return this.isStairs() || this.isSlab() || this.isWall();
+  }
 
   saveModels() {
     try {
@@ -75,7 +91,12 @@ export class AbstractBlockModel {
             .createAndSaveGeneratedFiles('loot_table', this.lootTableModelPath, this.buildLootTable());
         
         for (const option of this.stonecutterOptions) {
-          this.createAndSaveGeneratedFiles('recipe_stonecutter', this.recipeModelPath, this.buildRecipeForStonecutter(option), this.stonecutterOptions.length <= 0);
+          this.createAndSaveGeneratedFiles(
+            'recipe_stonecutter', 
+            this.recipeModelPath, 
+            this.buildRecipeForStonecutter(option), 
+            (this.stonecutterOptions.length <= 0)
+          );
         }
       }
     } catch (err) {
@@ -97,17 +118,14 @@ export class AbstractBlockModel {
     };
 
     const data = JSON.stringify(content[0], null, 2);
-    fs.writeFileSync(basePath.concat(content[1]), data, 'utf-8');
+    fs.writeFileSync(basePath.concat(content[1] || '.json'), data, 'utf-8');
 
     return this;
   }
 
   buildItemModel() {
     return [
-      {
-        "parent": `${this.NAMESPACE}:block/${this.blockId}`
-      },
-      '.json'
+      { "parent": `${this.NAMESPACE}:block/${this.blockId}` }
     ]
   }
 
@@ -117,8 +135,7 @@ export class AbstractBlockModel {
         "variants": {
           "": { "model": `${this.NAMESPACE}:block/${this.blockId}` }
         }
-      },
-      '.json'
+      }
     ]
   }
 
@@ -130,12 +147,12 @@ export class AbstractBlockModel {
         "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
         "pools": [
           {
+            "rolls": 1.0,
             "bonus_rolls": 0.0,
             "conditions": [
               { "condition": "minecraft:survives_explosion" }
             ],
       
-            "rolls": 1.0,
             "entries": [
               {
                 "type": "minecraft:item",
@@ -144,8 +161,7 @@ export class AbstractBlockModel {
             ]
           }
         ]
-      },
-      '.json'
+      }
     ] :
     [
       {
@@ -153,6 +169,7 @@ export class AbstractBlockModel {
         "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
         "pools": [
           {
+            "rolls": 1.0,
             "bonus_rolls": 0.0,
             "conditions": [
               {
@@ -174,12 +191,10 @@ export class AbstractBlockModel {
                 "type": "minecraft:item",
                 "name": `${this.NAMESPACE}:${this.blockId}`
               }
-            ],
-            "rolls": 1.0
+            ]
           }
         ]
-      },
-      '.json'
+      }
     ]
   }
 
@@ -207,6 +222,10 @@ export class AbstractBlockModel {
       .replaceAll(' ', '_')
       .replaceAll("'", '')
       .toLowerCase();
+  }
+
+  static popNamespaceFrom(id) {
+    return id.replace(/.*:/, "");
   }
 
   static createAndSaveTagFiles() {

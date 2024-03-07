@@ -19,7 +19,6 @@ export class WoodBlock extends AbstractBlockModel {
     );
 
     AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}`] = this.blockName;
-
     AbstractBlockModel.tags.logs.push(`${this.NAMESPACE}:${this.blockId}`);
   }
 
@@ -56,8 +55,7 @@ export class WoodBlock extends AbstractBlockModel {
             "x": 90
           }
         }
-      },
-      '.json'
+      }
     ]
   }
 }

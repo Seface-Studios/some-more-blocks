@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "moreblocks:smooth_mud"
+  },
+  "result": "moreblocks:smooth_mud_slab"
+}

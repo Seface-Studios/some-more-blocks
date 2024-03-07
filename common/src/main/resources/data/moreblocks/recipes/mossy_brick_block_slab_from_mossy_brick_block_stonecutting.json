@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "moreblocks:mossy_brick_block"
+  },
+  "result": "moreblocks:mossy_brick_block_slab"
+}

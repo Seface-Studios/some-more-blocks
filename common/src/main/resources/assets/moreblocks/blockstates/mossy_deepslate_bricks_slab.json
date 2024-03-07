@@ -4,7 +4,7 @@
       "model": "moreblocks:block/mossy_deepslate_bricks_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/mossy_deepslate_bricks"
+      "model": "moreblocks:block/mossy_deepslate_bricks_slab"
     },
     "type=top": {
       "model": "moreblocks:block/mossy_deepslate_bricks_slab_top"

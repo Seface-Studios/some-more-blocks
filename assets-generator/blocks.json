@@ -323,9 +323,9 @@
     { "name": "Purple Stained Tiled Glass", "needSilkTouch": true },
     { "name": "Magenta Stained Tiled Glass", "needSilkTouch": true },
     { "name": "Pink Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Bone Block Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
+    { "name": "Bone Block Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:bone_block"] },
     { "name": "Cracked Bone Block Bricks" },
-    { "name": "Bone Block Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true },
+    { "name": "Bone Block Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:bone_block"] },
     { "name": "Cracked Bone Block Tiles" }
   ]
 }

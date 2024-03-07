@@ -2,33 +2,35 @@ import { AbstractBlockModel } from "./AbstractBlockModel.js";
 
 export class WallBlock extends AbstractBlockModel {
   constructor(blockName, ignoreList, stonecutterOptions) {
-    super(blockName, ignoreList, stonecutterOptions);
+    super(blockName.concat(' Wall'), ignoreList, stonecutterOptions);
 
     AbstractBlockModel.blockVariables.push(
-      `public static final Block ${this.blockId.toUpperCase()}_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}).solid());`
+      `public static final Block ${this.blockId.toUpperCase()} = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.${this.blockId.toUpperCase()}).solid());`
     );
     AbstractBlockModel.itemBlockVariables.push(
-      `public static final Item ${this.blockId.toUpperCase()}_WALL = new BlockItem(MBBlocks.${this.blockId.toUpperCase()}_WALL, new Item.Settings());`
+      `public static final Item ${this.blockId.toUpperCase()} = new BlockItem(MBBlocks.${this.blockId.toUpperCase()}, new Item.Settings());`
     );
 
     AbstractBlockModel.registerBlockList.push(
-      `Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "${this.blockId}_wall"), ${this.blockId.toUpperCase()}_WALL);`
+      `Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
     );
     AbstractBlockModel.registerItemBlockList.push(
-      `Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "${this.blockId}_wall"), ${this.blockId.toUpperCase()}_WALL);`
+      `Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
     );
 
-    AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}_wall`] = this.blockName.concat(' Wall');
-    AbstractBlockModel.tags.walls.push(`${this.NAMESPACE}:${this.blockId}_wall`);
+    AbstractBlockModel.language[`block.${this.NAMESPACE}.${this.blockId}`] = this.blockName;
+    AbstractBlockModel.tags.walls.push(`${this.NAMESPACE}:${this.blockId}`);
 
-    if (this.stonecutterOptions.length > 0) {
-      this.stonecutterOptions.push(`${this.NAMESPACE}:${this.blockId}`);
+    if ((this.stonecutterOptions.length > 0 || this.isWall()) && !this.isWood() && !this.ignoredByStonecutter()) {
+      this.stonecutterOptions.push(`${this.NAMESPACE}:${this.parentBlockId}`);
     }
 
     if(blockName.includes('Snow')) {
-      AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}_wall`);
+      AbstractBlockModel.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}`);
     }
   }
+
+  isWall() { return true; }
 
   build() {
     return [
@@ -36,37 +38,37 @@ export class WallBlock extends AbstractBlockModel {
         {
           "parent": "minecraft:block/wall_inventory",
           "textures": {
-            "wall": `${this.NAMESPACE}:block/${this.blockId}`
+            "wall": `${this.NAMESPACE}:block/${this.parentBlockId}`
           }
         },
-        '_wall_inventory.json'
+        '_inventory.json'
       ],
       [
         {
           "parent": "minecraft:block/template_wall_post",
           "textures": {
-            "wall": `${this.NAMESPACE}:block/${this.blockId}`
+            "wall": `${this.NAMESPACE}:block/${this.parentBlockId}`
           }
         },
-        '_wall_post.json'
+        '_post.json'
       ],
       [
         {
           "parent": "minecraft:block/template_wall_side",
           "textures": {
-            "wall": `${this.NAMESPACE}:block/${this.blockId}`
+            "wall": `${this.NAMESPACE}:block/${this.parentBlockId}`
           }
         },
-        '_wall_side.json'
+        '_side.json'
       ],
       [
         {
           "parent": "minecraft:block/template_wall_side_tall",
           "textures": {
-            "wall": `${this.NAMESPACE}:block/${this.blockId}`
+            "wall": `${this.NAMESPACE}:block/${this.parentBlockId}`
           }
         },
-        '_wall_side_tall.json'
+        '_side_tall.json'
       ]
     ]
   }
@@ -74,9 +76,8 @@ export class WallBlock extends AbstractBlockModel {
   buildItemModel() {
     return [
       {
-        "parent": `${this.NAMESPACE}:block/${this.blockId}_wall_inventory`
-      },
-      '_wall.json'
+        "parent": `${this.NAMESPACE}:block/${this.blockId}_inventory`
+      }
     ]
   }
 
@@ -86,7 +87,7 @@ export class WallBlock extends AbstractBlockModel {
         "multipart": [
           {
             "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_wall_post`
+              "model": `${this.NAMESPACE}:block/${this.blockId}_post`
             },
             "when": {
               "up": "true"
@@ -94,7 +95,7 @@ export class WallBlock extends AbstractBlockModel {
           },
           {
             "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_wall_side`,
+              "model": `${this.NAMESPACE}:block/${this.blockId}_side`,
               "uvlock": true
             },
             "when": {
@@ -103,7 +104,7 @@ export class WallBlock extends AbstractBlockModel {
           },
           {
             "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_wall_side`,
+              "model": `${this.NAMESPACE}:block/${this.blockId}_side`,
               "uvlock": true,
               "y": 90
             },
@@ -113,7 +114,7 @@ export class WallBlock extends AbstractBlockModel {
           },
           {
             "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_wall_side`,
+              "model": `${this.NAMESPACE}:block/${this.blockId}_side`,
               "uvlock": true,
               "y": 180
             },
@@ -123,7 +124,7 @@ export class WallBlock extends AbstractBlockModel {
           },
           {
             "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_wall_side`,
+              "model": `${this.NAMESPACE}:block/${this.blockId}_side`,
               "uvlock": true,
               "y": 270
             },
@@ -133,7 +134,7 @@ export class WallBlock extends AbstractBlockModel {
           },
           {
             "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_wall_side_tall`,
+              "model": `${this.NAMESPACE}:block/${this.blockId}_side_tall`,
               "uvlock": true
             },
             "when": {
@@ -142,7 +143,7 @@ export class WallBlock extends AbstractBlockModel {
           },
           {
             "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_wall_side_tall`,
+              "model": `${this.NAMESPACE}:block/${this.blockId}_side_tall`,
               "uvlock": true,
               "y": 90
             },
@@ -152,7 +153,7 @@ export class WallBlock extends AbstractBlockModel {
           },
           {
             "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_wall_side_tall`,
+              "model": `${this.NAMESPACE}:block/${this.blockId}_side_tall`,
               "uvlock": true,
               "y": 180
             },
@@ -162,7 +163,7 @@ export class WallBlock extends AbstractBlockModel {
           },
           {
             "apply": {
-              "model": `${this.NAMESPACE}:block/${this.blockId}_wall_side_tall`,
+              "model": `${this.NAMESPACE}:block/${this.blockId}_side_tall`,
               "uvlock": true,
               "y": 270
             },
@@ -171,8 +172,7 @@ export class WallBlock extends AbstractBlockModel {
             }
           }
         ]
-      },
-      '_wall.json'
+      }
     ]
   }
 
@@ -181,7 +181,7 @@ export class WallBlock extends AbstractBlockModel {
     [
       {
         "type": "minecraft:block",
-        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_wall`,
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
         "pools": [
           {
             "bonus_rolls": 0.0,
@@ -193,18 +193,17 @@ export class WallBlock extends AbstractBlockModel {
             "entries": [
               {
                 "type": "minecraft:item",
-                "name": `${this.NAMESPACE}:${this.blockId}_wall`
+                "name": `${this.NAMESPACE}:${this.blockId}`
               }
             ]
           }
         ]
-      },
-      '_wall.json'
+      }
     ] :
     [
       {
         "type": "minecraft:block",
-        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}_wall`,
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
         "pools": [
           {
             "bonus_rolls": 0.0,
@@ -226,33 +225,13 @@ export class WallBlock extends AbstractBlockModel {
             "entries": [
               {
                 "type": "minecraft:item",
-                "name": `${this.NAMESPACE}:${this.blockId}_wall`
+                "name": `${this.NAMESPACE}:${this.blockId}`
               }
             ],
             "rolls": 1.0
           }
         ]
-      },
-      '_wall.json'
-    ]
-  }
-
-  buildRecipeForStonecutter(baseBlock) {
-    const baseIdentifier = baseBlock
-      .replace('minecraft:', '')
-      .replace(`${this.NAMESPACE}:`, '');
-
-    return [
-      {
-        "type": "minecraft:stonecutting",
-        "count": 1,
-        "ingredient": {
-          "item": `${baseBlock}`
-        },
-
-        "result": `${this.NAMESPACE}:${this.blockId}_wall`
-      },
-      `_wall_from_${baseIdentifier}_stonecutting.json`
+      }
     ]
   }
 }

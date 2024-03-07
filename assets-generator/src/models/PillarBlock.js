@@ -67,8 +67,7 @@ export class PillarBlock extends AbstractBlockModel {
             "x": 90
           }
         }
-      },
-      '.json'
+      }
     ]
   }
 }

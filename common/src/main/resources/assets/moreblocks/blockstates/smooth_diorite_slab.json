@@ -4,7 +4,7 @@
       "model": "moreblocks:block/smooth_diorite_slab"
     },
     "type=double": {
-      "model": "moreblocks:block/smooth_diorite"
+      "model": "moreblocks:block/smooth_diorite_slab"
     },
     "type=top": {
       "model": "moreblocks:block/smooth_diorite_slab_top"
