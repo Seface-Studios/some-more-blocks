@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import chalk from 'chalk';
 import { BlockTags } from '../BlockTags.js';
 import { Localization } from '../Localization.js';
 import { Generators } from '../utils/Generators.js';
-import chalk from 'chalk';
 
 export class Block {
   NAMESPACE = 'moreblocks';
@@ -14,28 +14,45 @@ export class Block {
   static registerBlockList = [];
   static registerItemBlockList = [];
 
-  BLOCK_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/models/block';
-  ITEM_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/models/item';
-  BLOCKSTATES_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/blockstates';
-  LOOT_TABLE_EXPORT_PATH = 'common/src/main/resources/data/moreblocks/loot_tables/blocks';
-  RECIPE_EXPORT_PATH = 'common/src/main/resources/data/moreblocks/recipes';
+  static #BLOCK_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/models/block';
+  static #ITEM_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/models/item';
+  static #BLOCKSTATES_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/blockstates';
+  static #LOOT_TABLE_EXPORT_PATH = 'common/src/main/resources/data/moreblocks/loot_tables/blocks';
+  static #RECIPE_EXPORT_PATH = 'common/src/main/resources/data/moreblocks/recipes';
 
-  constructor(blockName, ignoreList, stonecutterOptions) {
+  /**
+   * Creates a new block instance.
+   * @param {string} blockName The block name. The name will be used to create the block id too. 
+   * @param {{
+   *  ignore: string[],
+   *  autoGenerate: string[],
+   *  stoneCuttingWith: string[],
+   *  smeltingWith: string,
+   *  craftingWith: string
+   * }} options All the configuration of the block.
+   */
+  constructor(blockName, options, ignoreAutoGenerate = false) {
     this.blockName = blockName;
     this.blockId = Block.parseNameToIdentifier(blockName);
-    this.stonecutterOptions = stonecutterOptions || [];
-    this.ignore = ignoreList;
-    this.parentBlockId = this.blockId
-      .replace('_wall', '')
-      .replace('_stairs', '')
-      .replace('_slab', '')
-      .replace('_fence', '');
+    this.options = options; 
 
-    this.blockModelPath = path.join('..',  this.BLOCK_MODEL_EXPORT_PATH, this.blockId);
-    this.itemModelPath = path.join('..', this.ITEM_MODEL_EXPORT_PATH, this.blockId);
-    this.blockstateModelPath = path.join('..', this.BLOCKSTATES_MODEL_EXPORT_PATH, this.blockId);
-    this.lootTableModelPath = path.join('..', this.LOOT_TABLE_EXPORT_PATH, this.blockId);
-    this.recipeModelPath = path.join('..', this.RECIPE_EXPORT_PATH, this.blockId);
+    this.ignore = this.options?.ignore || [];
+    this.stoneCuttingWith = this.options?.stoneCuttingWith || [];
+    this.smeltingWith = this.options?.smeltingWith || false;
+    this.baseBlock = this.options?.craftingWith;
+
+    this.autoGenerate = !ignoreAutoGenerate ? {
+      stairs: this.options?.autoGenerate?.includes('stairs') || false,
+      slab: this.options?.autoGenerate?.includes('slab') || false,
+      wall: this.options?.autoGenerate?.includes('wall') || false,
+      fence: this.options?.autoGenerate?.includes('fence') || false
+    } : {};
+
+
+    /** Only used with non-solid blocks. */
+    this.parentBlockId = this.blockId
+      .replace('_wall', '').replace('_stairs', '')
+      .replace('_slab', '').replace('_fence', '');
 
     if(
       !this.isWood() && !this.blockName.includes('Snow') &&
@@ -66,6 +83,10 @@ export class Block {
     return this.isWood() || this.blockName.includes('Snow');
   }
 
+  isFullBlock() {
+    return !this.isStairs() && !this.isWall() && !this.isSlab() && !this.isFence();
+  }
+
   isStairs() { return false; }
   isWall() { return false; }
   isSlab() { return false; }
@@ -79,23 +100,23 @@ export class Block {
 
   createAndSave() {
     for (const blockModel of this.blockModels()) {
-      this.#generateFileFor('block_model', this.blockModelPath, blockModel);
+      this.#generateFileFor('block_model', Block.#BLOCK_MODEL_EXPORT_PATH, blockModel);
     }
 
-    this.#generateFileFor('item_model', this.itemModelPath, this.buildItemModel())
-        .#generateFileFor('blockstate', this.blockstateModelPath, this.buildBlockstate())
-        .#generateFileFor('loot_table', this.lootTableModelPath, this.buildLootTable())
-        .#generateFileFor('recipe_crafting_table', this.recipeModelPath, this.buildRecipeForCraftingTable(), (this.isSlab() || this.isWall() || this.isStairs()))
+    this.#generateFileFor('item_model', Block.#ITEM_MODEL_EXPORT_PATH, this.buildItemModel())
+        .#generateFileFor('blockstate', Block.#BLOCKSTATES_MODEL_EXPORT_PATH, this.buildBlockstate())
+        .#generateFileFor('loot_table', Block.#LOOT_TABLE_EXPORT_PATH, this.buildLootTable())
+        .#generateFileFor('recipe_smelting', Block.#RECIPE_EXPORT_PATH, this.buildRecipeForSmelting(), this.smeltingWith && this.isFullBlock())
+        .#generateFileFor('recipe_crafting_table', Block.#RECIPE_EXPORT_PATH, this.buildRecipeForCraftingTable(), (this.isSlab() || this.isWall() || this.isStairs()))
         
-    for (const option of this.stonecutterOptions) {
+    for (const option of this.stoneCuttingWith) {
       this.#generateFileFor(
         'recipe_stonecutter', 
-        this.recipeModelPath, 
+        Block.#RECIPE_EXPORT_PATH, 
         this.buildRecipeForStonecutter(option), 
-        (this.stonecutterOptions.length > 0)
+        (this.stoneCuttingWith.length > 0)
       );
     }
-
     return this;
   }
 
@@ -108,6 +129,8 @@ export class Block {
    * @returns {Block}
    */
   #generateFileFor(id, basePath, content, predicate = true) {
+    const saveAt = path.join('..', basePath, this.blockId);
+
     if (this.ignore.includes(id)) {
       let cNum = '';
       if (content[1] !== '.json') {
@@ -121,7 +144,7 @@ export class Block {
     if (!predicate) return this;
 
     const data = JSON.stringify(content[0] || content, null, 2);
-    fs.writeFileSync(basePath.concat(content[1] || '.json'), data, 'utf-8');
+    fs.writeFileSync(saveAt.concat(content[1] || '.json'), data, 'utf-8');
 
     return this;
   }
@@ -226,7 +249,7 @@ export class Block {
   }
 
   /**
-   * Create the Recipe on Stonecutter model.
+   * Create the Recipe for Stonecutter model.
    * @returns {{}} The Recipe on Stonecutter model object.
    */
   buildRecipeForStonecutter(baseBlock) {
@@ -248,8 +271,29 @@ export class Block {
     ]
   }
 
+  /**
+   * Create the Recipe for Crafting Table model.
+   * @returns {{}} The Recipe on Crafting Table model object.
+   */
   buildRecipeForCraftingTable() {
     return [{}, '.json']
+  }
+
+  /**
+   * Create the Recipe for Smelting model.
+   * @returns {{}} The Recipe on Smelting model object.
+   */
+  buildRecipeForSmelting() {
+    return {
+      "type": "minecraft:smelting",
+      "category": "blocks",
+      "cookingtime": 200,
+      "experience": 0.1,
+      "ingredient": {
+        "item": `${this.smeltingWith}`
+      },
+      "result": `${this.NAMESPACE}:${this.blockId}`
+    }
   }
 
   addVariables(classObj) {

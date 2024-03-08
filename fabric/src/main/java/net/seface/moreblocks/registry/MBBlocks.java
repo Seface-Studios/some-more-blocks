@@ -219,8 +219,6 @@ public class MBBlocks {
     public static final Block POLISHED_BLACKSTONE_TILES_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.POLISHED_BLACKSTONE_TILES).solid());
     public static final Block CRACKED_POLISHED_BLACKSTONE_TILES = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BLACKSTONE_BRICKS));
     public static final Block BLACKSTONE_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.POLISHED_BLACKSTONE_BRICKS));
-    public static final Block SMOOTH_QUARTZ = new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK));
-    public static final Block SMOOTH_QUARTZ_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_QUARTZ));
     public static final Block CRACKED_QUARTZ_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BRICKS));
     public static final Block MOSSY_QUARTZ_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BRICKS));
     public static final Block MOSSY_QUARTZ_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_QUARTZ_BRICKS));
@@ -787,8 +785,6 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_blackstone_tiles_wall"), POLISHED_BLACKSTONE_TILES_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_polished_blackstone_tiles"), CRACKED_POLISHED_BLACKSTONE_TILES);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "blackstone_pillar"), BLACKSTONE_PILLAR);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_quartz"), SMOOTH_QUARTZ);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_quartz_slab"), SMOOTH_QUARTZ_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_quartz_bricks"), CRACKED_QUARTZ_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_quartz_bricks"), MOSSY_QUARTZ_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_quartz_bricks_slab"), MOSSY_QUARTZ_BRICKS_SLAB);

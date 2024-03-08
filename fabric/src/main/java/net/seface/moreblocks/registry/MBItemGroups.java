@@ -305,8 +305,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.MOSSY_QUARTZ_BRICKS);
                 entry.accept(MBItems.MOSSY_QUARTZ_BRICKS_STAIRS);
                 entry.accept(MBItems.MOSSY_QUARTZ_BRICKS_SLAB);
-                entry.accept(MBItems.SMOOTH_QUARTZ);
-                entry.accept(MBItems.SMOOTH_QUARTZ_SLAB);
                 entry.accept(MBItems.AMETHYST_BRICKS);
                 entry.accept(MBItems.CRACKED_AMETHYST_BRICKS);
                 entry.accept(MBItems.AMETHYST_PILLAR);

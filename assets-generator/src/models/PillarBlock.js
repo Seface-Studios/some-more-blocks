@@ -2,8 +2,8 @@ import { BlockTags } from "../BlockTags.js";
 import { Block } from "./Block.js";
 
 export class PillarBlock extends Block {
-  constructor(blockName, ignoreList, stonecutterOptions) {
-    super(blockName, ignoreList, stonecutterOptions);
+  constructor(blockName, options) {
+    super(blockName, options);
     this.addVariables('RotatedPillarBlock');
   }
 

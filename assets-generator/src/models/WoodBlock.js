@@ -2,8 +2,8 @@ import { Block } from "./Block.js";
 import { BlockTags } from "../BlockTags.js";
 
 export class WoodBlock extends Block {
-  constructor(blockName, ignoreList, stonecutterOptions) {
-    super(blockName, ignoreList, stonecutterOptions);
+  constructor(blockName, options) {
+    super(blockName, options);
     this.addVariables('RotatedPillarBlock');
 
     BlockTags.tags.logs.push(`${this.NAMESPACE}:${this.blockId}`);

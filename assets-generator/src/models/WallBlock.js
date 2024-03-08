@@ -2,14 +2,14 @@ import { BlockTags } from "../BlockTags.js";
 import { Block } from "./Block.js";
 
 export class WallBlock extends Block {
-  constructor(blockName, ignoreList, stonecutterOptions) {
-    super(blockName.concat(' Wall'), ignoreList, stonecutterOptions);
+  constructor(blockName, options) {
+    super(blockName.concat(' Wall'), options, true);
     this.addVariables('WallBlock');
 
     BlockTags.tags.walls.push(`${this.NAMESPACE}:${this.blockId}`);
 
-    if ((this.stonecutterOptions.length > 0 || this.isWall()) && !this.isWood() && !this.isIgnoredByStonecutter()) {
-      this.stonecutterOptions.push(`${this.NAMESPACE}:${this.parentBlockId}`);
+    if ((this.stoneCuttingWith.length > 0 || this.isWall()) && !this.isWood() && !this.isIgnoredByStonecutter()) {
+      this.stoneCuttingWith.push(`${this.NAMESPACE}:${this.parentBlockId}`);
     }
   }
 

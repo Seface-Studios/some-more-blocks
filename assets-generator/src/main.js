@@ -10,6 +10,7 @@ import { LogBlock } from './models/LogBlock.js';
 import { WoodBlock } from './models/WoodBlock.js';
 import { BlockTags } from './BlockTags.js';
 import { Localization } from './Localization.js';
+import { BlockTypes } from './utils/BlockTypes.js';
 
 const rawJSON = fs.readFileSync('./blocks.json');
 const data = JSON.parse(rawJSON);
@@ -19,24 +20,20 @@ for (const block of data.Blocks) {
   const isLogLike = block.name.endsWith('Log') || block.name.endsWith('Stem');
   const isWoodLike = block.name.endsWith('Wood') || block.name.endsWith('Hyphae');
 
-  const ignore = block?.ignore || [];
+  const options = block?.options || null;
 
-  const hasSlab = block?.hasSlab || false;
-  const hasStairs = block?.hasStairs || false;
-  const hasFence = block?.hasFence || false;
-  const hasWall = block?.hasWall || false;
+  const blockInstance = isPillar ? new PillarBlock(block.name, options) : 
+                isLogLike ? new LogBlock(block.name, options) : 
+                isWoodLike ? new WoodBlock(block.name, options) :
+                new FullBlock(block.name, options);
 
-  const model = isPillar ? new PillarBlock(block.name, ignore, block?.stonecutterOptions) : 
-                isLogLike ? new LogBlock(block.name, ignore, block?.stonecutterOptions) : 
-                isWoodLike ? new WoodBlock(block.name, ignore, block?.stonecutterOptions) :
-                new FullBlock(block.name, ignore, block?.stonecutterOptions);
+  blockInstance.createAndSave();
 
-  model.createAndSave();
-
-  if (hasSlab) { new SlabBlock(block.name, ignore, block?.stonecutterOptions).createAndSave(); }
-  if (hasStairs) { new StairsBlock(block.name, ignore, block?.stonecutterOptions).createAndSave(); }
-  if (hasFence) { new FenceBlock(block.name, ignore, block?.stonecutterOptions).createAndSave(); }
-  if (hasWall) { new WallBlock(block.name, ignore, block?.stonecutterOptions).createAndSave(); }
+  for (const key of Object.keys(blockInstance.autoGenerate)) {
+    if (!blockInstance.autoGenerate[key]) continue;
+    const type = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
+    BlockTypes[type](block.name, options).createAndSave();
+  }
 }
 
 BlockTags.createAndSave();

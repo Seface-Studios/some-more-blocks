@@ -2,8 +2,8 @@ import { BlockTags } from "../BlockTags.js";
 import { Block } from "./Block.js";
 
 export class LogBlock extends Block {
-  constructor(blockName, ignoreList, stonecutterOptions) {
-    super(blockName, ignoreList, stonecutterOptions);
+  constructor(blockName, options) {
+    super(blockName, options);
     this.addVariables('RotatedPillarBlock');
 
     BlockTags.tags.logs.push(`${this.NAMESPACE}:${this.blockId}`);

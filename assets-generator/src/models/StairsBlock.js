@@ -2,12 +2,12 @@ import { BlockTags } from "../BlockTags.js";
 import { Block } from "./Block.js";
 
 export class StairsBlock extends Block {
-  constructor(blockName, ignoreList, stonecutterOptions) {
-    super(blockName.concat(' Stairs'), ignoreList, stonecutterOptions);
+  constructor(blockName, options) {
+    super(blockName.concat(' Stairs'), options, true);
     this.addVariables('StairBlock')
 
-    if ((this.stonecutterOptions.length > 0 || this.isStairs()) && !this.isIgnoredByStonecutter()) {
-      this.stonecutterOptions.push(`${this.NAMESPACE}:${this.parentBlockId}`);
+    if ((this.stoneCuttingWith.length > 0 || this.isStairs()) && !this.isIgnoredByStonecutter()) {
+      this.stoneCuttingWith.push(`${this.NAMESPACE}:${this.parentBlockId}`);
     }
 
     if (blockName.includes('Mosaic')) {

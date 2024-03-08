@@ -1,206 +1,1066 @@
 {
   "Blocks": [
-    { "name": "Packed Snow", "hasSlab": true, "hasStairs": true, "requiredTool": "shovel" },
-    { "name": "Polished Snow", "hasSlab": true, "hasStairs": true, "requiredTool": "shovel" },
-    { "name": "Snow Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "requiredTool": "shovel" },
-    { "name": "Cracked Snow Bricks", "requiredTool": "shovel" },
-    { "name": "Snow Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "requiredTool": "shovel" },
-    { "name": "Cracked Snow Tiles", "requiredTool": "shovel" },
-    { "name": "Snow Pillar", "requiredTool": "shovel" },
-    { "name": "Smooth Deepslate", "hasSlab": true },
-    { "name": "Mossy Deepslate Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Deepslate Pillar", "stonecutterOptions": ["minecraft:cobbled_deepslate"] },
-    { "name": "Polished Stone", "hasSlab": true, "hasStairs": true, "stonecutterOptions": ["minecraft:stone"] },
-    { "name": "Stone Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:stone"] },
+    {
+      "name": "Packed Snow",
+      "options": {
+        "autoGenerate": ["slab", "stairs"]
+      }
+    },
+    {
+      "name": "Polished Snow",
+      "options": {
+        "autoGenerate": ["slab", "stairs"]
+      }
+    },
+    {
+      "name": "Snow Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    { "name": "Cracked Snow Bricks" },
+    {
+      "name": "Snow Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    { "name": "Cracked Snow Tiles" },
+    { "name": "Snow Pillar" },
+    {
+      "name": "Smooth Deepslate",
+      "options": {
+        "smeltingWith": "minecraft:deepslate",
+        "autoGenerate": ["slab"]
+      }
+    },
+    {
+      "name": "Mossy Deepslate Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Deepslate Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:cobbled_deepslate"]
+      }
+    },
+    {
+      "name": "Polished Stone",
+      "options": {
+        "autoGenerate": ["slab", "stairs"],
+        "stoneCuttingWith": ["minecraft:stone"]
+      }
+    },
+    {
+      "name": "Stone Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:stone"]
+      }
+    },
     { "name": "Cracked Stone Tiles" },
-    { "name": "Stone Pillar", "stonecutterOptions": ["minecraft:stone"] },
-    { "name": "Smooth Granite", "hasSlab": true },
-    { "name": "Chiseled Granite Bricks", "stonecutterOptions": ["minecraft:granite"] },
-    { "name": "Granite Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:granite"] },
+    {
+      "name": "Stone Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:stone"]
+      }
+    },
+    {
+      "name": "Smooth Granite",
+      "options": {
+        "smeltingWith": "minecraft:granite",
+        "autoGenerate": ["slab"]
+      }
+    },
+    {
+      "name": "Chiseled Granite Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:granite"]
+      }
+    },
+    {
+      "name": "Granite Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:granite"]
+      }
+    },
     { "name": "Cracked Granite Bricks" },
-    { "name": "Mossy Granite Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Granite Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:granite"] },
+    {
+      "name": "Mossy Granite Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Granite Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:granite"]
+      }
+    },
     { "name": "Cracked Granite Tiles" },
-    { "name": "Granite Pillar", "stonecutterOptions": ["minecraft:granite"] },
-    { "name": "Smooth Diorite", "hasSlab": true },
-    { "name": "Chiseled Diorite Bricks", "stonecutterOptions": ["minecraft:diorite"] },
-    { "name": "Diorite Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:diorite"] },
+    {
+      "name": "Granite Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:granite"]
+      }
+    },
+    {
+      "name": "Smooth Diorite",
+      "options": {
+        "smeltingWith": "minecraft:diorite",
+        "autoGenerate": ["slab"]
+      }
+    },
+    {
+      "name": "Chiseled Diorite Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:diorite"]
+      }
+    },
+    {
+      "name": "Diorite Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:diorite"]
+      }
+    },
     { "name": "Cracked Diorite Bricks" },
-    { "name": "Mossy Diorite Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Diorite Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:diorite"] },
+    {
+      "name": "Mossy Diorite Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Diorite Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:diorite"]
+      }
+    },
     { "name": "Cracked Diorite Tiles" },
-    { "name": "Diorite Pillar", "stonecutterOptions": ["minecraft:diorite"] },
-    { "name": "Smooth Andesite", "hasSlab": true },
-    { "name": "Chiseled Andesite Bricks", "stonecutterOptions": ["minecraft:andesite"] },
-    { "name": "Andesite Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:andesite"] },
+    {
+      "name": "Diorite Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:diorite"]
+      }
+    },
+    {
+      "name": "Smooth Andesite",
+      "options": {
+        "smeltingWith": "minecraft:andesite",
+        "autoGenerate": ["slab"]
+      }
+    },
+    {
+      "name": "Chiseled Andesite Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:andesite"]
+      }
+    },
+    {
+      "name": "Andesite Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:andesite"]
+      }
+    },
     { "name": "Cracked Andesite Bricks" },
-    { "name": "Mossy Andesite Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Andesite Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:andesite"] },
+    {
+      "name": "Mossy Andesite Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Andesite Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:andesite"]
+      }
+    },
     { "name": "Cracked Andesite Tiles" },
-    { "name": "Andesite Pillar", "stonecutterOptions": ["minecraft:andesite"] },
-    { "name": "Polished End Stone", "hasSlab": true, "hasStairs": true, "stonecutterOptions": ["minecraft:end_stone"] },
-    { "name": "Smooth End Stone", "hasSlab": true },
-    { "name": "Chiseled End Stone", "stonecutterOptions": ["minecraft:end_stone"] },
+    {
+      "name": "Andesite Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:andesite"]
+      }
+    },
+    {
+      "name": "Polished End Stone",
+      "options": {
+        "autoGenerate": ["slab", "stairs"],
+        "stoneCuttingWith": ["minecraft:end_stone"]
+      }
+    },
+    {
+      "name": "Smooth End Stone",
+      "options": {
+        "smeltingWith": "minecraft:end_stone",
+        "autoGenerate": ["slab"]
+      }
+    },
+    {
+      "name": "Chiseled End Stone",
+      "options": {
+        "stoneCuttingWith": ["minecraft:end_stone"]
+      }
+    },
     { "name": "Cracked End Stone Bricks" },
-    { "name": "Mossy End Stone Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "End Stone Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:end_stone"] },
+    { "name": "Mossy End Stone Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "End Stone Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:end_stone"]
+      }
+    },
     { "name": "Cracked End Stone Tiles" },
-    { "name": "End Stone Pillar", "stonecutterOptions": ["minecraft:end_stone"] },
-    { "name": "Smooth Tuff", "hasSlab": true },
+    {
+      "name": "End Stone Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:end_stone"]
+      }
+    },
+    { "name": "Smooth Tuff",
+      "options": {
+        "smeltingWith": "minecraft:tuff",
+        "autoGenerate": ["slab"]
+      }
+    },
     { "name": "Cracked Tuff Bricks" },
-    { "name": "Mossy Tuff Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Tuff Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:tuff"] },
+    { "name": "Mossy Tuff Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Tuff Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:tuff"]
+      }
+    },
     { "name": "Cracked Tuff Tiles" },
-    { "name": "Tuff Pillar", "stonecutterOptions": ["minecraft:tuff"] },
-    { "name": "Red Sandstone Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:red_sandstone"] },
+    {
+      "name": "Tuff Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:tuff"]
+      }
+    },
+    {
+      "name": "Red Sandstone Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:red_sandstone"]
+      }
+    },
     { "name": "Cracked Red Sandstone Bricks" },
-    { "name": "Dry Mossy Red Sandstone Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Red Sandstone Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:red_sandstone"] },
+    { "name": "Dry Mossy Red Sandstone Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Red Sandstone Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:red_sandstone"]
+      }
+    },
     { "name": "Cracked Red Sandstone Tiles" },
-    { "name": "Red Sandstone Pillar", "stonecutterOptions": ["minecraft:red_sandstone"] },
-    { "name": "Polished Calcite", "hasSlab": true, "hasStairs": true, "stonecutterOptions": ["minecraft:calcite"] },
-    { "name": "Smooth Calcite", "hasSlab": true },
-    { "name": "Chiseled Calcite", "stonecutterOptions": ["minecraft:calcite"] },
-    { "name": "Calcite Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:calcite"] },
+    {
+      "name": "Red Sandstone Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:red_sandstone"]
+      }
+    },
+    {
+      "name": "Polished Calcite",
+      "options": {
+        "autoGenerate": ["slab", "stairs"],
+        "stoneCuttingWith": ["minecraft:calcite"]
+      }
+    },
+    {
+      "name": "Smooth Calcite",
+      "options": {
+        "smeltingWith": "minecraft:calcite",
+        "autoGenerate": ["slab"]
+      }
+    },
+    {
+      "name": "Chiseled Calcite",
+      "options": {
+        "stoneCuttingWith": ["minecraft:calcite"]
+      }
+    },
+    {
+      "name": "Calcite Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:calcite"]
+      }
+    },
     { "name": "Cracked Calcite Bricks" },
-    { "name": "Mossy Calcite Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Calcite Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:calcite"] },
+    {
+      "name": "Mossy Calcite Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Calcite Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:calcite"]
+      }
+    },
     { "name": "Cracked Calcite Tiles" },
-    { "name": "Calcite Pillar", "stonecutterOptions": ["minecraft:calcite"] },
-    { "name": "Polished Dripstone", "hasSlab": true, "hasStairs": true, "stonecutterOptions": ["minecraft:dripstone_block"] },
-    { "name": "Smooth Dripstone", "hasSlab": true },
-    { "name": "Chiseled Dripstone", "stonecutterOptions": ["minecraft:dripstone_block"] },
-    { "name": "Dripstone Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:dripstone_block"] },
+    {
+      "name": "Calcite Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:calcite"]
+      }
+    },
+    {
+      "name": "Polished Dripstone",
+      "options": {
+        "autoGenerate": ["slab", "stairs"],
+        "stoneCuttingWith": ["minecraft:dripstone_block"]
+      }
+    },
+    {
+      "name": "Smooth Dripstone",
+      "options": {
+        "smeltingWith": "minecraft:dripstone_block",
+        "autoGenerate": ["slab"]
+      }
+    },
+    {
+      "name": "Chiseled Dripstone",
+      "options": {
+        "stoneCuttingWith": ["minecraft:dripstone_block"]
+      }
+    },
+    {
+      "name": "Dripstone Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:dripstone_block"]
+      }
+    },
     { "name": "Cracked Dripstone Bricks" },
-    { "name": "Mossy Dripstone Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Dripstone Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:dripstone_block"] },
+    {
+      "name": "Mossy Dripstone Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Dripstone Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:dripstone_block"]
+      }
+    },
     { "name": "Cracked Dripstone Tiles" },
-    { "name": "Dripstone Pillar", "stonecutterOptions": ["minecraft:dripstone_block"] },
-    { "name": "Polished Prismarine", "hasSlab": true, "hasStairs": true, "stonecutterOptions": ["minecraft:prismarine"] },
-    { "name": "Smooth Prismarine", "hasSlab": true },
-    { "name": "Chiseled Prismarine", "stonecutterOptions": ["minecraft:prismarine"] },
+    {
+      "name": "Dripstone Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:dripstone_block"]
+      }
+    },
+    {
+      "name": "Polished Prismarine",
+      "options": {
+        "autoGenerate": ["slab", "stairs"],
+        "stoneCuttingWith": ["minecraft:prismarine"]
+      }
+    },
+    {
+      "name": "Smooth Prismarine",
+      "options": {
+        "smeltingWith": "minecraft:prismarine",
+        "autoGenerate": ["slab"]
+      }
+    },
+    {
+      "name": "Chiseled Prismarine",
+      "options": {
+        "stoneCuttingWith": ["minecraft:prismarine"]
+      }
+    },
     { "name": "Cracked Prismarine Bricks" },
-    { "name": "Mossy Prismarine Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Prismarine Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:prismarine"] },
+    {
+      "name": "Mossy Prismarine Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Prismarine Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:prismarine"]
+      }
+    },
     { "name": "Cracked Prismarine Tiles" },
-    { "name": "Prismarine Pillar", "stonecutterOptions": ["minecraft:prismarine"] },
-    { "name": "Smooth Blackstone", "hasSlab": true },
-    { "name": "Corrupted Polished Blackstone Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Polished Blackstone Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:blackstone"] },
+    {
+      "name": "Prismarine Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:prismarine"]
+      }
+    },
+    {
+      "name": "Smooth Blackstone",
+      "options": {
+        "smeltingWith": "minecraft:blackstone",
+        "autoGenerate": ["slab"]
+      }
+    },
+    {
+      "name": "Corrupted Polished Blackstone Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Polished Blackstone Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:blackstone"]
+      }
+    },
     { "name": "Cracked Polished Blackstone Tiles" },
-    { "name": "Blackstone Pillar", "stonecutterOptions": ["minecraft:blackstone"] },
-    { "name": "Smooth Quartz", "hasSlab": true },
+    {
+      "name": "Blackstone Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:blackstone"]
+      }
+    },
     { "name": "Cracked Quartz Bricks" },
-    { "name": "Mossy Quartz Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Cut Quartz", "stonecutterOptions": ["minecraft:quartz_block"] },
+    {
+      "name": "Mossy Quartz Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Cut Quartz",
+      "options": {
+        "stoneCuttingWith": ["minecraft:quartz_block"]
+      }
+    },
     { "name": "Cracked Cut Quartz" },
-    { "name": "Polished Mud", "hasSlab": true, "hasStairs": true },
-    { "name": "Smooth Mud", "hasSlab": true },
+    {
+      "name": "Polished Mud",
+      "options": {
+        "autoGenerate": ["stairs", "slab"]
+      }
+    },
+    {
+      "name": "Smooth Mud",
+      "options": {
+        "smeltingWith": "minecraft:packed_mud",
+        "autoGenerate": ["slab"]
+      }
+    },
     { "name": "Chiseled Mud" },
     { "name": "Cracked Mud Bricks" },
-    { "name": "Mossy Mud Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Mud Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true },
+    {
+      "name": "Mossy Mud Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Mud Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
     { "name": "Cracked Mud Tiles" },
     { "name": "Mud Pillar" },
-    { "name": "Sandstone Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:sandstone"] },
+    {
+      "name": "Sandstone Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:sandstone"]
+      }
+    },
     { "name": "Cracked Sandstone Bricks" },
-    { "name": "Dry Mossy Sandstone Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Sandstone Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:sandstone"] },
+    {
+      "name": "Dry Mossy Sandstone Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Sandstone Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:sandstone"]
+      }
+    },
     { "name": "Cracked Sandstone Tiles" },
-    { "name": "Sandstone Pillar", "stonecutterOptions": ["minecraft:sandstone"] },
-    { "name": "Nether Bricks Pillar", "stonecutterOptions": ["minecraft:nether_bricks"] },
-    { "name": "Chiseled Red Nether Bricks", "stonecutterOptions": ["minecraft:red_nether_bricks"] },
+    {
+      "name": "Sandstone Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:sandstone"]
+      }
+    },
+    {
+      "name": "Nether Bricks Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:nether_bricks"]
+      }
+    },
+    {
+      "name": "Chiseled Red Nether Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:red_nether_bricks"]
+      }
+    },
     { "name": "Cracked Red Nether Bricks" },
-    { "name": "Red Nether Bricks Pillar", "stonecutterOptions": ["minecraft:red_nether_bricks"] },
-    { "name": "Polished Ice", "hasSlab": true, "hasStairs": true, "needSilkTouch": true, "stonecutterOptions": ["minecraft:packed_ice"] },
-    { "name": "Ice Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "needSilkTouch": true, "stonecutterOptions": ["minecraft:packed_ice"] },
-    { "name": "Cracked Ice Bricks", "needSilkTouch": true },
-    { "name": "Ice Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "needSilkTouch": true, "stonecutterOptions": ["minecraft:packed_ice"] },
-    { "name": "Cracked Ice Tiles", "needSilkTouch": true },
-    { "name": "Ice Pillar", "needSilkTouch": true, "stonecutterOptions": ["minecraft:packed_ice"] },
-    { "name": "Polished Purpur", "hasSlab": true, "hasStairs": true, "stonecutterOptions": ["minecraft:purpur_block"] },
-    { "name": "Smooth Purpur", "hasSlab": true },
-    { "name": "Chiseled Purpur", "stonecutterOptions": ["minecraft:purpur_block"] },
+    {
+      "name": "Red Nether Bricks Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:red_nether_bricks"]
+      }
+    },
+    {
+      "name": "Polished Ice",
+      "options": {
+        "autoGenerate": ["slab", "stairs"],
+        "stoneCuttingWith": ["minecraft:packed_ice"]
+      }
+    },
+    {
+      "name": "Ice Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:packed_ice"]
+      }
+    },
+    { "name": "Cracked Ice Bricks" },
+    {
+      "name": "Ice Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:packed_ice"]
+      }
+    },
+    { "name": "Cracked Ice Tiles" },
+    {
+      "name": "Ice Pillar",
+      "options": {
+        "stoneCuttingWith": ["minecraft:packed_ice"]
+      }
+    },
+    {
+      "name": "Polished Purpur",
+      "options": {
+        "autoGenerate": ["slab", "stairs"],
+        "stoneCuttingWith": ["minecraft:purpur_block"]
+      }
+    },
+    { "name": "Smooth Purpur",
+      "options": {
+        "smeltingWith": "minecraft:purpur_block",
+        "autoGenerate": ["slab"]
+      }
+    },
+    {
+      "name": "Chiseled Purpur",
+      "options": {
+        "stoneCuttingWith": ["minecraft:purpur_block"]
+      }
+    },
     { "name": "Cracked Purpur Bricks" },
-    { "name": "Mossy Purpur Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true },
-    { "name": "Purpur Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:purpur_block"] },
+    {
+      "name": "Mossy Purpur Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "name": "Purpur Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:purpur_block"]
+      }
+    },
     { "name": "Cracked Purpur Tiles" },
-    { "name": "Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:terracotta"] },
-    { "name": "White Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:white_terracotta"] },
-    { "name": "Orange Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:orange_terracotta"] },
-    { "name": "Magenta Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:magenta_terracotta"] },
-    { "name": "Light Blue Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:light_blue_terracotta"] },
-    { "name": "Yellow Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:yellow_terracotta"] },
-    { "name": "Lime Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:lime_terracotta"] },
-    { "name": "Pink Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:pink_terracotta"] },
-    { "name": "Gray Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:gray_terracotta"] },
-    { "name": "Light Gray Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:light_gray_terracotta"] },
-    { "name": "Cyan Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:cyan_terracotta"] },
-    { "name": "Purple Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:purple_terracotta"] },
-    { "name": "Blue Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:blue_terracotta"] },
-    { "name": "Brown Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:brown_terracotta"] },
-    { "name": "Green Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:green_terracotta"] },
-    { "name": "Red Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:red_terracotta"] },
-    { "name": "Black Terracotta Bricks", "colored": true, "stonecutterOptions": ["minecraft:black_terracotta"] },
-    { "name": "Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:terracotta"] },
-    { "name": "White Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:white_terracotta"] },
-    { "name": "Orange Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:orange_terracotta"] },
-    { "name": "Magenta Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:magenta_terracotta"] },
-    { "name": "Light Blue Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:light_blue_terracotta"] },
-    { "name": "Yellow Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:yellow_terracotta"] },
-    { "name": "Lime Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:lime_terracotta"] },
-    { "name": "Pink Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:pink_terracotta"] },
-    { "name": "Gray Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:gray_terracotta"] },
-    { "name": "Light Gray Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:light_gray_terracotta"] },
-    { "name": "Cyan Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:cyan_terracotta"] },
-    { "name": "Purple Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:purple_terracotta"] },
-    { "name": "Blue Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:blue_terracotta"] },
-    { "name": "Brown Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:brown_terracotta"] },
-    { "name": "Green Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:green_terracotta"] },
-    { "name": "Red Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:red_terracotta"] },
-    { "name": "Black Terracotta Tiles", "colored": true, "stonecutterOptions": ["minecraft:black_terracotta"] },
-    { "name": "White Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:white_concrete"] },
-    { "name": "Orange Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:orange_concrete"] },
-    { "name": "Magenta Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:magenta_concrete"] },
-    { "name": "Light Blue Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:light_blue_concrete"] },
-    { "name": "Yellow Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:yellow_concrete"] },
-    { "name": "Lime Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:lime_concrete"] },
-    { "name": "Pink Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:pink_concrete"] },
-    { "name": "Gray Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:gray_concrete"] },
-    { "name": "Light Gray Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:light_gray_concrete"] },
-    { "name": "Cyan Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:cyan_concrete"] },
-    { "name": "Purple Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:purple_concrete"] },
-    { "name": "Blue Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:blue_concrete"] },
-    { "name": "Brown Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:brown_concrete"] },
-    { "name": "Green Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:green_concrete"] },
-    { "name": "Red Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:red_concrete"] },
-    { "name": "Black Concrete Bricks", "colored": true, "stonecutterOptions": ["minecraft:black_concrete"] },
-    { "name": "White Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:white_concrete"] },
-    { "name": "Orange Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:orange_concrete"] },
-    { "name": "Magenta Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:magenta_concrete"] },
-    { "name": "Light Blue Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:light_blue_concrete"] },
-    { "name": "Yellow Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:yellow_concrete"] },
-    { "name": "Lime Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:lime_concrete"] },
-    { "name": "Pink Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:pink_concrete"] },
-    { "name": "Gray Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:gray_concrete"] },
-    { "name": "Light Gray Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:light_gray_concrete"] },
-    { "name": "Cyan Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:cyan_concrete"] },
-    { "name": "Purple Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:purple_concrete"] },
-    { "name": "Blue Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:blue_concrete"] },
-    { "name": "Brown Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:brown_concrete"] },
-    { "name": "Green Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:green_concrete"] },
-    { "name": "Red Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:red_concrete"] },
-    { "name": "Black Concrete Tiles", "colored": true, "stonecutterOptions": ["minecraft:black_concrete"] },
-    { "name": "Soul Sandstone", "hasSlab": true, "hasStairs": true, "hasWall": true, "ignore": ["block_model"] },
-    { "name": "Cut Soul Sandstone", "hasSlab": true, "ignore": ["block_model"], "stonecutterOptions": ["moreblocks:soul_sandstone"] },
-    { "name": "Smooth Soul Sandstone", "hasSlab": true, "hasStairs": true, "hasWall": true, "ignore": ["block_model"] },
-    { "name": "Chiseled Soul Sandstone", "ignore": ["block_model"], "stonecutterOptions": ["moreblocks:soul_sandstone"] },
-    { "name": "Soul Sandstone Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "ignore": ["block_model"], "stonecutterOptions": ["moreblocks:soul_sandstone"] },
-    { "name": "Cracked Soul Sandstone Bricks", "ignore": ["block_model"] },
-    { "name": "Mossy Soul Sandstone Bricks", "ignore": ["block_model"] },
-    { "name": "Soul Sandstone Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "ignore": ["block_model"], "stonecutterOptions": ["moreblocks:soul_sandstone"] },
-    { "name": "Cracked Soul Sandstone Tiles", "ignore": ["block_model"] },
-    { "name": "Soul Sandstone Pillar", "ignore": ["block_model"], "stonecutterOptions": ["moreblocks:soul_sandstone"] },
+    {
+      "name": "Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:terracotta"]
+      }
+    },
+    {
+      "name": "White Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:white_terracotta"]
+      }
+    },
+    {
+      "name": "Orange Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:orange_terracotta"]
+      }
+    },
+    {
+      "name": "Magenta Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:magenta_terracotta"]
+      }
+    },
+    {
+      "name": "Light Blue Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:light_blue_terracotta"]
+      }
+    },
+    {
+      "name": "Yellow Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:yellow_terracotta"]
+      }
+    },
+    {
+      "name": "Lime Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:lime_terracotta"]
+      }
+    },
+    {
+      "name": "Pink Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:pink_terracotta"]
+      }
+    },
+    {
+      "name": "Gray Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:gray_terracotta"]
+      }
+    },
+    {
+      "name": "Light Gray Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:light_gray_terracotta"]
+      }
+    },
+    {
+      "name": "Cyan Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:cyan_terracotta"]
+      }
+    },
+    {
+      "name": "Purple Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:purple_terracotta"]
+      }
+    },
+    {
+      "name": "Blue Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:blue_terracotta"]
+      }
+    },
+    {
+      "name": "Brown Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:brown_terracotta"]
+      }
+    },
+    {
+      "name": "Green Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:green_terracotta"]
+      }
+    },
+    {
+      "name": "Red Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:red_terracotta"]
+      }
+    },
+    {
+      "name": "Black Terracotta Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:black_terracotta"]
+      }
+    },
+    {
+      "name": "Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:terracotta"]
+      }
+    },
+    {
+      "name": "White Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:white_terracotta"]
+      }
+    },
+    {
+      "name": "Orange Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:orange_terracotta"]
+      }
+    },
+    {
+      "name": "Magenta Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:magenta_terracotta"]
+      }
+    },
+    {
+      "name": "Light Blue Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:light_blue_terracotta"]
+      }
+    },
+    {
+      "name": "Yellow Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:yellow_terracotta"]
+      }
+    },
+    {
+      "name": "Lime Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:lime_terracotta"]
+      }
+    },
+    {
+      "name": "Pink Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:pink_terracotta"]
+      }
+    },
+    {
+      "name": "Gray Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:gray_terracotta"]
+      }
+    },
+    {
+      "name": "Light Gray Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:light_gray_terracotta"]
+      }
+    },
+    {
+      "name": "Cyan Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:cyan_terracotta"]
+      }
+    },
+    {
+      "name": "Purple Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:purple_terracotta"]
+      }
+    },
+    {
+      "name": "Blue Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:blue_terracotta"]
+      }
+    },
+    {
+      "name": "Brown Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:brown_terracotta"]
+      }
+    },
+    {
+      "name": "Green Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:green_terracotta"]
+      }
+    },
+    {
+      "name": "Red Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:red_terracotta"]
+      }
+    },
+    {
+      "name": "Black Terracotta Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:black_terracotta"]
+      }
+    },
+    {
+      "name": "White Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:white_concrete"]
+      }
+    },
+    {
+      "name": "Orange Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:orange_concrete"]
+      }
+    },
+    {
+      "name": "Magenta Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:magenta_concrete"]
+      }
+    },
+    {
+      "name": "Light Blue Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:light_blue_concrete"]
+      }
+    },
+    {
+      "name": "Yellow Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:yellow_concrete"]
+      }
+    },
+    {
+      "name": "Lime Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:lime_concrete"]
+      }
+    },
+    {
+      "name": "Pink Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:pink_concrete"]
+      }
+    },
+    {
+      "name": "Gray Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:gray_concrete"]
+      }
+    },
+    {
+      "name": "Light Gray Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:light_gray_concrete"]
+      }
+    },
+    {
+      "name": "Cyan Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:cyan_concrete"]
+      }
+    },
+    {
+      "name": "Purple Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:purple_concrete"]
+      }
+    },
+    {
+      "name": "Blue Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:blue_concrete"]
+      }
+    },
+    {
+      "name": "Brown Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:brown_concrete"]
+      }
+    },
+    {
+      "name": "Green Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:green_concrete"]
+      }
+    },
+    {
+      "name": "Red Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:red_concrete"]
+      }
+    },
+    {
+      "name": "Black Concrete Bricks",
+      "options": {
+        "stoneCuttingWith": ["minecraft:black_concrete"]
+      }
+    },
+    {
+      "name": "White Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:white_concrete"]
+      }
+    },
+    {
+      "name": "Orange Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:orange_concrete"]
+      }
+    },
+    {
+      "name": "Magenta Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:magenta_concrete"]
+      }
+    },
+    {
+      "name": "Light Blue Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:light_blue_concrete"]
+      }
+    },
+    {
+      "name": "Yellow Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:yellow_concrete"]
+      }
+    },
+    {
+      "name": "Lime Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:lime_concrete"]
+      }
+    },
+    {
+      "name": "Pink Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:pink_concrete"]
+      }
+    },
+    {
+      "name": "Gray Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:gray_concrete"]
+      }
+    },
+    {
+      "name": "Light Gray Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:light_gray_concrete"]
+      }
+    },
+    {
+      "name": "Cyan Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:cyan_concrete"]
+      }
+    },
+    {
+      "name": "Purple Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:purple_concrete"]
+      }
+    },
+    {
+      "name": "Blue Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:blue_concrete"]
+      }
+    },
+    {
+      "name": "Brown Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:brown_concrete"]
+      }
+    },
+    {
+      "name": "Green Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:green_concrete"]
+      }
+    },
+    {
+      "name": "Red Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:red_concrete"]
+      }
+    },
+    {
+      "name": "Black Concrete Tiles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:black_concrete"]
+      }
+    },
+    {
+      "name": "Soul Sandstone",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "ignore": ["block_model"]
+      }
+    },
+    {
+      "name": "Cut Soul Sandstone",
+      "options": {
+        "autoGenerate": ["slab"],
+        "ignore": ["block_model"],
+        "stoneCuttingWith": ["moreblocks:soul_sandstone"]
+      }
+    },
+    {
+      "name": "Smooth Soul Sandstone",
+      "options": {
+        "smeltingWith": "moreblocks:soul_sandstone",
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "ignore": ["block_model"]
+      }
+    },
+    {
+      "name": "Chiseled Soul Sandstone",
+      "options": {
+        "ignore": ["block_model"],
+        "stoneCuttingWith": ["moreblocks:soul_sandstone"]
+      }
+    },
+    {
+      "name": "Soul Sandstone Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "ignore": ["block_model"], 
+        "stoneCuttingWith": ["moreblocks:soul_sandstone"]
+      }
+    },
+    {
+      "name": "Cracked Soul Sandstone Bricks",
+      "options": { "ignore": ["block_model"] }
+    },
+    {
+      "name": "Mossy Soul Sandstone Bricks",
+      "options": { "ignore": ["block_model"] }
+    },
+    {
+      "name": "Soul Sandstone Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "ignore": ["block_model"], 
+        "stoneCuttingWith": ["moreblocks:soul_sandstone"]
+      }
+    },
+    {
+      "name": "Cracked Soul Sandstone Tiles",
+      "options": { "ignore": ["block_model"] }
+    },
+    {
+      "name": "Soul Sandstone Pillar",
+      "options": {
+        "ignore": ["block_model"], 
+        "stoneCuttingWith": ["moreblocks:soul_sandstone"]
+      }
+    },
     { "name": "Coal Bricks" },
     { "name": "Cracked Coal Bricks" },
     { "name": "Cut Coal" },
@@ -257,76 +1117,228 @@
     { "name": "Cut Amethyst" },
     { "name": "Cracked Cut Amethyst" },
     { "name": "Amethyst Pillar" },
-    { "name": "Shingles", "colored": true, "stonecutterOptions": ["minecraft:terracotta"] },
-    { "name": "White Shingles", "colored": true, "stonecutterOptions": ["minecraft:white_terracotta"] },
-    { "name": "Orange Shingles", "colored": true, "stonecutterOptions": ["minecraft:orange_terracotta"] },
-    { "name": "Magenta Shingles", "colored": true, "stonecutterOptions": ["minecraft:magenta_terracotta"] },
-    { "name": "Light Blue Shingles", "colored": true, "stonecutterOptions": ["minecraft:light_blue_terracotta"] },
-    { "name": "Yellow Shingles", "colored": true, "stonecutterOptions": ["minecraft:yellow_terracotta"] },
-    { "name": "Lime Shingles", "colored": true, "stonecutterOptions": ["minecraft:lime_terracotta"] },
-    { "name": "Pink Shingles", "colored": true, "stonecutterOptions": ["minecraft:pink_terracotta"] },
-    { "name": "Gray Shingles", "colored": true, "stonecutterOptions": ["minecraft:gray_terracotta"] },
-    { "name": "Light Gray Shingles", "colored": true, "stonecutterOptions": ["minecraft:light_gray_terracotta"] },
-    { "name": "Cyan Shingles", "colored": true, "stonecutterOptions": ["minecraft:cyan_terracotta"] },
-    { "name": "Purple Shingles", "colored": true, "stonecutterOptions": ["minecraft:purple_terracotta"] },
-    { "name": "Blue Shingles", "colored": true, "stonecutterOptions": ["minecraft:blue_terracotta"] },
-    { "name": "Brown Shingles", "colored": true, "stonecutterOptions": ["minecraft:brown_terracotta"] },
-    { "name": "Green Shingles", "colored": true, "stonecutterOptions": ["minecraft:green_terracotta"] },
-    { "name": "Red Shingles", "colored": true, "stonecutterOptions": ["minecraft:red_terracotta"] },
-    { "name": "Black Shingles", "colored": true, "stonecutterOptions": ["minecraft:black_terracotta"] },
-    { "name": "Oak Mosaic", "hasSlab": true, "hasStairs": true },
+    {
+      "name": "Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:terracotta"]
+      }
+    },
+    {
+      "name": "White Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:white_terracotta"]
+      }
+    },
+    {
+      "name": "Orange Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:orange_terracotta"]
+      }
+    },
+    {
+      "name": "Magenta Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:magenta_terracotta"]
+      }
+    },
+    {
+      "name": "Light Blue Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:light_blue_terracotta"]
+      }
+    },
+    {
+      "name": "Yellow Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:yellow_terracotta"]
+      }
+    },
+    {
+      "name": "Lime Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:lime_terracotta"]
+      }
+    },
+    {
+      "name": "Pink Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:pink_terracotta"]
+      }
+    },
+    {
+      "name": "Gray Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:gray_terracotta"]
+      }
+    },
+    {
+      "name": "Light Gray Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:light_gray_terracotta"]
+      }
+    },
+    {
+      "name": "Cyan Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:cyan_terracotta"]
+      }
+    },
+    {
+      "name": "Purple Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:purple_terracotta"]
+      }
+    },
+    {
+      "name": "Blue Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:blue_terracotta"]
+      }
+    },
+    {
+      "name": "Brown Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:brown_terracotta"]
+      }
+    },
+    {
+      "name": "Green Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:green_terracotta"]
+      }
+    },
+    {
+      "name": "Red Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:red_terracotta"]
+      }
+    },
+    {
+      "name": "Black Shingles",
+      "options": {
+        "stoneCuttingWith": ["minecraft:black_terracotta"]
+      }
+    },
+    {
+      "name": "Oak Mosaic",
+      "options": {
+        "autoGenerate": ["stairs", "slab"]
+      }
+    },
     { "name": "Carved Oak Log" },
     { "name": "Carved Oak Wood" },
-    { "name": "Spruce Mosaic", "hasSlab": true, "hasStairs": true },
+    {
+      "name": "Spruce Mosaic",
+      "options": {
+        "autoGenerate": ["stairs", "slab"]
+      }
+    },
     { "name": "Carved Spruce Log" },
     { "name": "Carved Spruce Wood" },
-    { "name": "Birch Mosaic", "hasSlab": true, "hasStairs": true },
+    {
+      "name": "Birch Mosaic",
+      "options": {
+        "autoGenerate": ["stairs", "slab"]
+      }
+    },
     { "name": "Carved Birch Log" },
     { "name": "Carved Birch Wood" },
-    { "name": "Jungle Mosaic", "hasSlab": true, "hasStairs": true },
+    {
+      "name": "Jungle Mosaic",
+      "options": {
+        "autoGenerate": ["stairs", "slab"]
+      }
+    },
     { "name": "Carved Jungle Log" },
     { "name": "Carved Jungle Wood" },
-    { "name": "Acacia Mosaic", "hasSlab": true, "hasStairs": true },
+    {
+      "name": "Acacia Mosaic",
+      "options": {
+        "autoGenerate": ["stairs", "slab"]
+      }
+    },
     { "name": "Carved Acacia Log" },
     { "name": "Carved Acacia Wood" },
-    { "name": "Dark Oak Mosaic", "hasSlab": true, "hasStairs": true },
+    {
+      "name": "Dark Oak Mosaic",
+      "options": {
+        "autoGenerate": ["stairs", "slab"]
+      }
+    },
     { "name": "Carved Dark Oak Log" },
     { "name": "Carved Dark Oak Wood" },
-    { "name": "Mangrove Mosaic", "hasSlab": true, "hasStairs": true },
+    {
+      "name": "Mangrove Mosaic",
+      "options": {
+        "autoGenerate": ["stairs", "slab"]
+      }
+    },
     { "name": "Carved Mangrove Log" },
     { "name": "Carved Mangrove Wood" },
-    { "name": "Crimson Mosaic", "hasSlab": true, "hasStairs": true },
+    {
+      "name": "Crimson Mosaic",
+      "options": {
+        "autoGenerate": ["stairs", "slab"]
+      }
+    },
     { "name": "Carved Crimson Stem" },
     { "name": "Carved Crimson Hyphae" },
-    { "name": "Warped Mosaic", "hasSlab": true, "hasStairs": true },
+    {
+      "name": "Warped Mosaic",
+      "options": {
+        "autoGenerate": ["stairs", "slab"]
+      }
+    },
     { "name": "Carved Warped Stem" },
     { "name": "Carved Warped Hyphae" },
-    { "name": "Cherry Mosaic", "hasSlab": true, "hasStairs": true },
+    {
+      "name": "Cherry Mosaic",
+      "options": {
+        "autoGenerate": ["stairs", "slab"]
+      }
+    },
     { "name": "Carved Cherry Log" },
     { "name": "Carved Cherry Wood" },
-    { "name": "Mossy Brick Block", "hasSlab": true, "hasStairs": true, "hasWall": true },
+    {
+      "name": "Mossy Brick Block",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
     { "name": "Cracked Brick Block" },
-    { "name": "Tiled Glass", "needSilkTouch": true },
-    { "name": "Tiled Tinted Glass", "needSilkTouch": true },
-    { "name": "White Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Light Gray Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Gray Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Black Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Brown Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Red Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Orange Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Yellow Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Lime Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Green Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Cyan Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Light Blue Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Blue Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Purple Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Magenta Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Pink Stained Tiled Glass", "needSilkTouch": true },
-    { "name": "Bone Block Bricks", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:bone_block"] },
+    { "name": "Tiled Glass" },
+    { "name": "Tiled Tinted Glass" },
+    { "name": "White Stained Tiled Glass" },
+    { "name": "Light Gray Stained Tiled Glass" },
+    { "name": "Gray Stained Tiled Glass" },
+    { "name": "Black Stained Tiled Glass" },
+    { "name": "Brown Stained Tiled Glass" },
+    { "name": "Red Stained Tiled Glass" },
+    { "name": "Orange Stained Tiled Glass" },
+    { "name": "Yellow Stained Tiled Glass" },
+    { "name": "Lime Stained Tiled Glass" },
+    { "name": "Green Stained Tiled Glass" },
+    { "name": "Cyan Stained Tiled Glass" },
+    { "name": "Light Blue Stained Tiled Glass" },
+    { "name": "Blue Stained Tiled Glass" },
+    { "name": "Purple Stained Tiled Glass" },
+    { "name": "Magenta Stained Tiled Glass" },
+    { "name": "Pink Stained Tiled Glass" },
+    {
+      "name": "Bone Block Bricks",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:bone_block"]
+      }
+    },
     { "name": "Cracked Bone Block Bricks" },
-    { "name": "Bone Block Tiles", "hasSlab": true, "hasStairs": true, "hasWall": true, "stonecutterOptions": ["minecraft:bone_block"] },
+    {
+      "name": "Bone Block Tiles",
+      "options": {
+        "autoGenerate": ["slab", "stairs", "wall"],
+        "stoneCuttingWith": ["minecraft:bone_block"]
+      }
+    },
     { "name": "Cracked Bone Block Tiles" }
   ]
 }

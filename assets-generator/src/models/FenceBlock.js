@@ -1,8 +1,8 @@
 import { Block } from "./Block.js";
 
 export class FenceBlock extends Block {
-  constructor(blockName, ignoreList, stonecutterOptions) {
-    super(blockName.concat(' Fence'), ignoreList, stonecutterOptions);
+  constructor(blockName, options) {
+    super(blockName.concat(' Fence'), options);
     this.addVariables('FenceBlock');
   }
 

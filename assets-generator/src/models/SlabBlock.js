@@ -2,12 +2,12 @@ import { BlockTags } from "../BlockTags.js";
 import { Block } from "./Block.js";
 
 export class SlabBlock extends Block {
-  constructor(blockName, ignoreList, stonecutterOptions) {
-    super(blockName.concat(' Slab'), ignoreList, stonecutterOptions);
+  constructor(blockName, options) {
+    super(blockName.concat(' Slab'), options, true);
     this.addVariables('SlabBlock');
 
-    if ((this.stonecutterOptions.length > 0 || this.isSlab()) && !this.isWood() && !this.isIgnoredByStonecutter()) {
-      this.stonecutterOptions.push(`${this.NAMESPACE}:${this.parentBlockId}`);
+    if ((this.stoneCuttingWith.length > 0 || this.isSlab()) && !this.isWood() && !this.isIgnoredByStonecutter()) {
+      this.stoneCuttingWith.push(`${this.NAMESPACE}:${this.parentBlockId}`);
     }
 
     if (blockName.includes('Mosaic')) {
