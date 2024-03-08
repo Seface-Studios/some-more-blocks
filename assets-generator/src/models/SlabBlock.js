@@ -6,7 +6,7 @@ export class SlabBlock extends Block {
     super(blockName.concat(' Slab'), ignoreList, stonecutterOptions);
     this.addVariables('SlabBlock');
 
-    if ((this.stonecutterOptions.length > 0 || this.isSlab()) && !this.isWood() && !this.ignoredByStonecutter()) {
+    if ((this.stonecutterOptions.length > 0 || this.isSlab()) && !this.isWood() && !this.isIgnoredByStonecutter()) {
       this.stonecutterOptions.push(`${this.NAMESPACE}:${this.parentBlockId}`);
     }
 
@@ -64,7 +64,7 @@ export class SlabBlock extends Block {
   }
 
   buildLootTable() {
-    return !this.dropOnlyWithSilkTouch() ?
+    return !this.isSensitiveBlock() ?
     [
       {
         "type": "minecraft:block",
@@ -180,5 +180,24 @@ export class SlabBlock extends Block {
       },
       `_from_${SlabBlock.popNamespaceFrom(baseBlockId)}_stonecutting.json`
     ]
+  }
+
+  buildRecipeForCraftingTable() {
+    return {
+      "type": "minecraft:crafting_shaped",
+      "category": "building",
+      "key": {
+        "#": {
+          "item": `${this.NAMESPACE}:${this.parentBlockId}`
+        }
+      },
+      "pattern": [
+        "###"
+      ],
+      "result": {
+        "count": 6,
+        "item": `${this.NAMESPACE}:${this.blockId}`
+      }
+    }
   }
 }

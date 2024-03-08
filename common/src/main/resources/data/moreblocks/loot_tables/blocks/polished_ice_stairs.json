@@ -3,6 +3,7 @@
   "random_sequence": "moreblocks:blocks/polished_ice_stairs",
   "pools": [
     {
+      "rolls": 1,
       "bonus_rolls": 0,
       "conditions": [
         {
@@ -24,8 +25,7 @@
           "type": "minecraft:item",
           "name": "moreblocks:polished_ice_stairs"
         }
-      ],
-      "rolls": 1
+      ]
     }
   ]
 }

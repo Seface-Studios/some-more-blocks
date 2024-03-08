@@ -8,25 +8,11 @@ import chalk from 'chalk';
 export class Block {
   NAMESPACE = 'moreblocks';
 
-  static tags = {
-    logs: [],
-    planks: [],
-    slabs: [],
-    stairs: [],
-    walls: [],
-    wooden_slabs: [],
-    wooden_stairs: [],
-
-    mineable_pickaxe: [],
-    mineable_shovel: []
-  };
-
   static blockVariables = [];
   static itemBlockVariables = [];
 
   static registerBlockList = [];
   static registerItemBlockList = [];
-  static language = {};
 
   BLOCK_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/models/block';
   ITEM_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/models/item';
@@ -64,18 +50,20 @@ export class Block {
     Localization.add(this.NAMESPACE, this.blockId, this.blockName);
   }
 
-  ignoredByStonecutter() {
-    return this.isWood() || this.blockName.includes('Snow');
-  }
-
-  isWood() {
-    return this.blockName.includes('Mosaic') || this.blockName.includes('Stem') ||
-           this.blockName.includes('Hyphae') || this.blockName.includes('Log') ||
-           this.blockName.includes('Wood')
-  }
-
-  dropOnlyWithSilkTouch() {
+  /**
+   * Sensitive blocks need to be broken with a tool
+   * containing the Silk Touch enchantment.
+   */
+  isSensitiveBlock() {
     return this.blockName.includes('Glass') || this.blockName.includes('Ice');
+  }
+
+  /**
+   * Ignored blocks will not generate stonecutting craft and your variations.
+   * @returns {boolean} If is ignored by Stonecutter.
+   */
+  isIgnoredByStonecutter() {
+    return this.isWood() || this.blockName.includes('Snow');
   }
 
   isStairs() { return false; }
@@ -83,21 +71,24 @@ export class Block {
   isSlab() { return false; }
   isFence() { return false; }
 
-  isDifferentModel() {
-    return this.isStairs() || this.isSlab() || this.isWall();
+  isWood() {
+    return this.blockName.includes('Mosaic') || this.blockName.includes('Stem') ||
+           this.blockName.includes('Hyphae') || this.blockName.includes('Log') ||
+           this.blockName.includes('Wood')
   }
 
   createAndSave() {
     for (const blockModel of this.blockModels()) {
-      this.generateFileFor('block_model', this.blockModelPath, blockModel);
+      this.#generateFileFor('block_model', this.blockModelPath, blockModel);
     }
 
-    this.generateFileFor('item_model', this.itemModelPath, this.buildItemModel())
-        .generateFileFor('blockstate', this.blockstateModelPath, this.buildBlockstate())
-        .generateFileFor('loot_table', this.lootTableModelPath, this.buildLootTable());
+    this.#generateFileFor('item_model', this.itemModelPath, this.buildItemModel())
+        .#generateFileFor('blockstate', this.blockstateModelPath, this.buildBlockstate())
+        .#generateFileFor('loot_table', this.lootTableModelPath, this.buildLootTable())
+        .#generateFileFor('recipe_crafting_table', this.recipeModelPath, this.buildRecipeForCraftingTable(), (this.isSlab() || this.isWall() || this.isStairs()))
         
     for (const option of this.stonecutterOptions) {
-      this.generateFileFor(
+      this.#generateFileFor(
         'recipe_stonecutter', 
         this.recipeModelPath, 
         this.buildRecipeForStonecutter(option), 
@@ -108,9 +99,22 @@ export class Block {
     return this;
   }
 
-  generateFileFor(id, basePath, content, predicate = true) {
+  /**
+   * Generate JSON file with parsed content on specific path.
+   * @param {string} id Generate id. See the possible generators at Generators.js!
+   * @param {string} basePath The base export path.
+   * @param {{}|[]} content The rawData to be stringfied to with JSON.
+   * @param {boolean} predicate The valid predicate to generate the wanted content.
+   * @returns {Block}
+   */
+  #generateFileFor(id, basePath, content, predicate = true) {
     if (this.ignore.includes(id)) {
-      console.log(`${chalk.bold.yellow('·')} ${Generators[id]} of ${chalk.cyan(this.blockName)} marked as ignored.`)
+      let cNum = '';
+      if (content[1] !== '.json') {
+        cNum = ` (${content[1].slice(1).replace('.json', '')})`
+      }
+
+      console.log(`${chalk.bold.yellow('·')} ${Generators[id]} of ${chalk.cyan(this.blockName)}${chalk.gray(cNum)} marked as ignored.`)
       return this;
     }
 
@@ -143,13 +147,17 @@ export class Block {
   }
 
   /**
-   * Create the Block item.
-   * @returns 
+   * Create the Block Item model.
+   * @returns {{}} The Block Item model object.
    */
   buildItemModel() {
     return { "parent": `${this.NAMESPACE}:block/${this.blockId}` }
   }
 
+  /**
+   * Create the Blockstate model.
+   * @returns {{}} The Blockstate model object.
+   */
   buildBlockstate() {
     return {
       "variants": {
@@ -158,61 +166,69 @@ export class Block {
     }
   }
 
+  /**
+   * Create the Loot Table model.
+   * @returns {{}} The Loot Table model object.
+   */
   buildLootTable() {
-    return !this.dropOnlyWithSilkTouch() ?
-    {
-      "type": "minecraft:block",
-      "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
-      "pools": [
-        {
-          "rolls": 1.0,
-          "bonus_rolls": 0.0,
-          "conditions": [
-            { "condition": "minecraft:survives_explosion" }
-          ],
-    
-          "entries": [
-            {
-              "type": "minecraft:item",
-              "name": `${this.NAMESPACE}:${this.blockId}`
-            }
-          ]
-        }
-      ]
-    } :
-    {
-      "type": "minecraft:block",
-      "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
-      "pools": [
-        {
-          "rolls": 1.0,
-          "bonus_rolls": 0.0,
-          "conditions": [
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "enchantments": [
-                  {
-                    "enchantment": "minecraft:silk_touch",
-                    "levels": {
-                      "min": 1
-                    }
-                  }
-                ]
+    return !this.isSensitiveBlock() ?
+      {
+        "type": "minecraft:block",
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
+        "pools": [
+          {
+            "rolls": 1.0,
+            "bonus_rolls": 0.0,
+            "conditions": [
+              { "condition": "minecraft:survives_explosion" }
+            ],
+      
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": `${this.NAMESPACE}:${this.blockId}`
               }
-            }
-          ],
-          "entries": [
-            {
-              "type": "minecraft:item",
-              "name": `${this.NAMESPACE}:${this.blockId}`
-            }
-          ]
-        }
-      ]
-    }
+            ]
+          }
+        ]
+      } :
+      {
+        "type": "minecraft:block",
+        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
+        "pools": [
+          {
+            "rolls": 1.0,
+            "bonus_rolls": 0.0,
+            "conditions": [
+              {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "enchantments": [
+                    {
+                      "enchantment": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "entries": [
+              {
+                "type": "minecraft:item",
+                "name": `${this.NAMESPACE}:${this.blockId}`
+              }
+            ]
+          }
+        ]
+      }
   }
 
+  /**
+   * Create the Recipe on Stonecutter model.
+   * @returns {{}} The Recipe on Stonecutter model object.
+   */
   buildRecipeForStonecutter(baseBlock) {
     const baseIdentifier = baseBlock
       .replace('minecraft:', '')
@@ -230,6 +246,10 @@ export class Block {
       },
       `_from_${baseIdentifier}_stonecutting.json`
     ]
+  }
+
+  buildRecipeForCraftingTable() {
+    return [{}, '.json']
   }
 
   addVariables(classObj) {

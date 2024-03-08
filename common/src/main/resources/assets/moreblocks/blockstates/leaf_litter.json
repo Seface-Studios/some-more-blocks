@@ -2,7 +2,7 @@
   "variants": {
     "lower=false": [
       {
-        "model": "moreblocks:block/leaf_litter"
+        "model": "moreblocks:block/leaf_litter_0"
       },
       {
         "model": "moreblocks:block/leaf_litter_1"
@@ -11,7 +11,7 @@
         "model": "moreblocks:block/leaf_litter_2"
       },
       {
-        "model": "moreblocks:block/leaf_litter",
+        "model": "moreblocks:block/leaf_litter_0",
         "y": 90
       },
       {
@@ -23,7 +23,7 @@
         "y": 90
       },
       {
-        "model": "moreblocks:block/leaf_litter",
+        "model": "moreblocks:block/leaf_litter_0",
         "y": 180
       },
       {
@@ -35,7 +35,7 @@
         "y": 180
       },
       {
-        "model": "moreblocks:block/leaf_litter",
+        "model": "moreblocks:block/leaf_litter_0",
         "y": 270
       },
       {
@@ -49,7 +49,7 @@
     ],
     "lower=true": [
       {
-        "model": "moreblocks:block/leaf_litter_lower"
+        "model": "moreblocks:block/leaf_litter_0_lower"
       },
       {
         "model": "moreblocks:block/leaf_litter_1_lower"
@@ -58,7 +58,7 @@
         "model": "moreblocks:block/leaf_litter_2_lower"
       },
       {
-        "model": "moreblocks:block/leaf_litter_lower",
+        "model": "moreblocks:block/leaf_litter_0_lower",
         "y": 90
       },
       {
@@ -70,7 +70,7 @@
         "y": 90
       },
       {
-        "model": "moreblocks:block/leaf_litter_lower",
+        "model": "moreblocks:block/leaf_litter_0_lower",
         "y": 180
       },
       {
@@ -82,7 +82,7 @@
         "y": 180
       },
       {
-        "model": "moreblocks:block/leaf_litter_lower",
+        "model": "moreblocks:block/leaf_litter_0_lower",
         "y": 270
       },
       {

@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "moreblocks:block/leaf_litter",
-    "texture": "moreblocks:block/leaf_litter"
+    "particle": "moreblocks:block/leaf_litter_0",
+    "texture": "moreblocks:block/leaf_litter_0"
   },
   "elements": [
     {

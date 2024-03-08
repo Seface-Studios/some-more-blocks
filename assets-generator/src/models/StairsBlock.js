@@ -6,7 +6,7 @@ export class StairsBlock extends Block {
     super(blockName.concat(' Stairs'), ignoreList, stonecutterOptions);
     this.addVariables('StairBlock')
 
-    if ((this.stonecutterOptions.length > 0 || this.isStairs()) && !this.ignoredByStonecutter()) {
+    if ((this.stonecutterOptions.length > 0 || this.isStairs()) && !this.isIgnoredByStonecutter()) {
       this.stonecutterOptions.push(`${this.NAMESPACE}:${this.parentBlockId}`);
     }
 
@@ -54,14 +54,6 @@ export class StairsBlock extends Block {
         },
         '_outer.json'
       ]
-    ]
-  }
-
-  buildItemModel() {
-    return [
-      {
-        "parent": `${this.NAMESPACE}:block/${this.blockId}`
-      }
     ]
   }
   
@@ -277,62 +269,24 @@ export class StairsBlock extends Block {
     }
   }
 
-  buildLootTable() {
-    return !this.dropOnlyWithSilkTouch() ?
-    [
-      {
-        "type": "minecraft:block",
-        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
-        "pools": [
-          {
-            "bonus_rolls": 0.0,
-            "conditions": [
-              { "condition": "minecraft:survives_explosion" }
-            ],
-      
-            "rolls": 1.0,
-            "entries": [
-              {
-                "type": "minecraft:item",
-                "name": `${this.NAMESPACE}:${this.blockId}`
-              }
-            ]
-          }
-        ]
+  buildRecipeForCraftingTable() {
+    return {
+      "type": "minecraft:crafting_shaped",
+      "category": "building",
+      "key": {
+        "#": {
+          "item": `${this.NAMESPACE}:${this.parentBlockId}`
+        }
+      },
+      "pattern": [
+        "#  ",
+        "## ",
+        "###"
+      ],
+      "result": {
+        "count": 4,
+        "item": `${this.NAMESPACE}:${this.blockId}`
       }
-    ] :
-    [
-      {
-        "type": "minecraft:block",
-        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
-        "pools": [
-          {
-            "bonus_rolls": 0.0,
-            "conditions": [
-              {
-                "condition": "minecraft:match_tool",
-                "predicate": {
-                  "enchantments": [
-                    {
-                      "enchantment": "minecraft:silk_touch",
-                      "levels": {
-                        "min": 1
-                      }
-                    }
-                  ]
-                }
-              }
-            ],
-            "entries": [
-              {
-                "type": "minecraft:item",
-                "name": `${this.NAMESPACE}:${this.blockId}`
-              }
-            ],
-            "rolls": 1.0
-          }
-        ]
-      }
-    ]
+    }
   }
 }

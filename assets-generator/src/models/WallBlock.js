@@ -8,7 +8,7 @@ export class WallBlock extends Block {
 
     BlockTags.tags.walls.push(`${this.NAMESPACE}:${this.blockId}`);
 
-    if ((this.stonecutterOptions.length > 0 || this.isWall()) && !this.isWood() && !this.ignoredByStonecutter()) {
+    if ((this.stonecutterOptions.length > 0 || this.isWall()) && !this.isWood() && !this.isIgnoredByStonecutter()) {
       this.stonecutterOptions.push(`${this.NAMESPACE}:${this.parentBlockId}`);
     }
   }
@@ -157,62 +157,23 @@ export class WallBlock extends Block {
     ]
   }
 
-  buildLootTable() {
-    return !this.dropOnlyWithSilkTouch() ?
-    [
-      {
-        "type": "minecraft:block",
-        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
-        "pools": [
-          {
-            "bonus_rolls": 0.0,
-            "conditions": [
-              { "condition": "minecraft:survives_explosion" }
-            ],
-      
-            "rolls": 1.0,
-            "entries": [
-              {
-                "type": "minecraft:item",
-                "name": `${this.NAMESPACE}:${this.blockId}`
-              }
-            ]
-          }
-        ]
+  buildRecipeForCraftingTable() {
+    return {
+      "type": "minecraft:crafting_shaped",
+      "category": "misc",
+      "key": {
+        "#": {
+          "item": `${this.NAMESPACE}:${this.parentBlockId}`
+        }
+      },
+      "pattern": [
+        "###",
+        "###"
+      ],
+      "result": {
+        "count": 6,
+        "item": `${this.NAMESPACE}:${this.blockId}`
       }
-    ] :
-    [
-      {
-        "type": "minecraft:block",
-        "random_sequence": `${this.NAMESPACE}:blocks/${this.blockId}`,
-        "pools": [
-          {
-            "bonus_rolls": 0.0,
-            "conditions": [
-              {
-                "condition": "minecraft:match_tool",
-                "predicate": {
-                  "enchantments": [
-                    {
-                      "enchantment": "minecraft:silk_touch",
-                      "levels": {
-                        "min": 1
-                      }
-                    }
-                  ]
-                }
-              }
-            ],
-            "entries": [
-              {
-                "type": "minecraft:item",
-                "name": `${this.NAMESPACE}:${this.blockId}`
-              }
-            ],
-            "rolls": 1.0
-          }
-        ]
-      }
-    ]
+    }
   }
 }
