@@ -158,22 +158,27 @@ export class WallBlock extends Block {
   }
 
   buildRecipeForCraftingTable() {
-    return {
-      "type": "minecraft:crafting_shaped",
-      "category": "misc",
-      "key": {
-        "#": {
-          "item": `${this.NAMESPACE}:${this.parentBlockId}`
-        }
-      },
-      "pattern": [
-        "###",
-        "###"
-      ],
-      "result": {
-        "count": 6,
-        "item": `${this.NAMESPACE}:${this.blockId}`
-      }
-    }
+    return [
+      [
+        {
+          "type": "minecraft:crafting_shaped",
+          "category": "misc",
+          "key": {
+            "#": {
+              "item": `${this.NAMESPACE}:${this.parentBlockId}`
+            }
+          },
+          "pattern": [
+            "###",
+            "###"
+          ],
+          "result": {
+            "count": 6,
+            "item": `${this.NAMESPACE}:${this.blockId}`
+          }
+        },
+        ".json"
+      ]
+    ]
   }
 }

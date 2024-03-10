@@ -11,6 +11,8 @@ import { WoodBlock } from './models/WoodBlock.js';
 import { BlockTags } from './BlockTags.js';
 import { Localization } from './Localization.js';
 import { BlockTypes } from './utils/BlockTypes.js';
+import chalk from 'chalk';
+import { Generators } from './utils/Generators.js';
 
 const rawJSON = fs.readFileSync('./blocks.json');
 const data = JSON.parse(rawJSON);
@@ -19,6 +21,11 @@ for (const block of data.Blocks) {
   const isPillar = block.name.endsWith('Pillar');
   const isLogLike = block.name.endsWith('Log') || block.name.endsWith('Stem');
   const isWoodLike = block.name.endsWith('Wood') || block.name.endsWith('Hyphae');
+  const __note = block?.__note;
+
+  if (__note) {
+    console.log(`${chalk.blueBright(`[${block.name}]`)} ${__note}`);
+  }
 
   const options = block?.options || null;
 
@@ -38,6 +45,7 @@ for (const block of data.Blocks) {
 
 BlockTags.createAndSave();
 Localization.createAndSave();
+Generators.log();
 //console.log(temps)
 
 // * MBItems

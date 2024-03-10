@@ -1,3 +1,16 @@
 {
-  "parent": "moreblocks:block/cracked_tuff_tiles"
+  "overrides": [
+    {
+      "predicate": {
+        "moreblocks:experimental_1_21": 0
+      },
+      "model": "moreblocks:block/cracked_tuff_tiles"
+    },
+    {
+      "predicate": {
+        "moreblocks:experimental_1_21": 1
+      },
+      "model": "moreblocks:block/1.21/cracked_tuff_tiles_1_21"
+    }
+  ]
 }

@@ -3,18 +3,21 @@
     {
       "name": "Packed Snow",
       "options": {
+        "craftingWith": "minecraft:snow_block",
         "autoGenerate": ["slab", "stairs"]
       }
     },
     {
       "name": "Polished Snow",
       "options": {
+        "craftingWith": "moreblocks:packed_snow",
         "autoGenerate": ["slab", "stairs"]
       }
     },
     {
       "name": "Snow Bricks",
       "options": {
+        "craftingWith": "moreblocks:polished_snow",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
@@ -22,11 +25,17 @@
     {
       "name": "Snow Tiles",
       "options": {
+        "craftingWith": "moreblocks:snow_bricks",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
     { "name": "Cracked Snow Tiles" },
-    { "name": "Snow Pillar" },
+    {
+      "name": "Snow Pillar",
+      "options": {
+        "craftingWith": "moreblocks:snow_bricks"
+      }
+    },
     {
       "name": "Smooth Deepslate",
       "options": {
@@ -37,12 +46,14 @@
     {
       "name": "Mossy Deepslate Bricks",
       "options": {
+        "craftingWith": "minecraft:deepslate_bricks",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
     {
       "name": "Deepslate Pillar",
       "options": {
+        "craftingWith": "minecraft:deepslate_bricks",
         "stoneCuttingWith": ["minecraft:cobbled_deepslate"]
       }
     },
@@ -56,6 +67,7 @@
     {
       "name": "Stone Tiles",
       "options": {
+        "craftingWith": "minecraft:stone_bricks",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:stone"]
       }
@@ -64,6 +76,7 @@
     {
       "name": "Stone Pillar",
       "options": {
+        "craftingWith": "minecraft:stone_bricks",
         "stoneCuttingWith": ["minecraft:stone"]
       }
     },
@@ -77,12 +90,14 @@
     {
       "name": "Chiseled Granite Bricks",
       "options": {
+        "craftingWith": "moreblocks:granite_bricks_slab",
         "stoneCuttingWith": ["minecraft:granite"]
       }
     },
     {
       "name": "Granite Bricks",
       "options": {
+        "craftingWith": "minecraft:polished_granite",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:granite"]
       }
@@ -91,12 +106,14 @@
     {
       "name": "Mossy Granite Bricks",
       "options": {
+        "craftingWith": "moreblocks:granite_bricks",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
     {
       "name": "Granite Tiles",
       "options": {
+        "craftingWith": "moreblocks:granite_bricks",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:granite"]
       }
@@ -105,6 +122,7 @@
     {
       "name": "Granite Pillar",
       "options": {
+        "craftingWith": "moreblocks:granite_bricks",
         "stoneCuttingWith": ["minecraft:granite"]
       }
     },
@@ -118,12 +136,14 @@
     {
       "name": "Chiseled Diorite Bricks",
       "options": {
+        "craftingWith": "moreblocks:diorite_bricks_slab",
         "stoneCuttingWith": ["minecraft:diorite"]
       }
     },
     {
       "name": "Diorite Bricks",
       "options": {
+        "craftingWith": "minecraft:polished_diorite",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:diorite"]
       }
@@ -132,12 +152,14 @@
     {
       "name": "Mossy Diorite Bricks",
       "options": {
+        "craftingWith": "moreblocks:diorite_bricks",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
     {
       "name": "Diorite Tiles",
       "options": {
+        "craftingWith": "moreblocks:diorite_bricks",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:diorite"]
       }
@@ -146,6 +168,7 @@
     {
       "name": "Diorite Pillar",
       "options": {
+        "craftingWith": "moreblocks:diorite_bricks",
         "stoneCuttingWith": ["minecraft:diorite"]
       }
     },
@@ -159,12 +182,14 @@
     {
       "name": "Chiseled Andesite Bricks",
       "options": {
+        "craftingWith": "moreblocks:andesite_bricks_slab",
         "stoneCuttingWith": ["minecraft:andesite"]
       }
     },
     {
       "name": "Andesite Bricks",
       "options": {
+        "craftingWith": "minecraft:polished_andesite",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:andesite"]
       }
@@ -173,12 +198,14 @@
     {
       "name": "Mossy Andesite Bricks",
       "options": {
+        "craftingWith": "moreblocks:andesite_bricks",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
     {
       "name": "Andesite Tiles",
       "options": {
+        "craftingWith": "moreblocks:andesite_bricks",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:andesite"]
       }
@@ -187,6 +214,7 @@
     {
       "name": "Andesite Pillar",
       "options": {
+        "craftingWith": "moreblocks:andesite_bricks",
         "stoneCuttingWith": ["minecraft:andesite"]
       }
     },
@@ -207,18 +235,22 @@
     {
       "name": "Chiseled End Stone",
       "options": {
+        "craftingWith": "minecraft:end_stone_brick_slab",
         "stoneCuttingWith": ["minecraft:end_stone"]
       }
     },
     { "name": "Cracked End Stone Bricks" },
-    { "name": "Mossy End Stone Bricks",
+    {
+      "name": "Mossy End Stone Bricks",
       "options": {
+        "ignore": ["recipe_crafting_table"],
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
     {
       "name": "End Stone Tiles",
       "options": {
+        "craftingWith": "minecraft:end_stone_bricks",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:end_stone"]
       }
@@ -227,51 +259,94 @@
     {
       "name": "End Stone Pillar",
       "options": {
+        "craftingWith": "minecraft:end_stone_bricks",
         "stoneCuttingWith": ["minecraft:end_stone"]
       }
     },
-    { "name": "Smooth Tuff",
+    {
+      "__note": "Ignored for now. Upcoming 1.21.",
+      "name": "Polished Tuff",
       "options": {
-        "smeltingWith": "minecraft:tuff",
-        "autoGenerate": ["slab"]
+        "autoGenerate": ["slab", "stairs"]
       }
     },
-    { "name": "Cracked Tuff Bricks" },
-    { "name": "Mossy Tuff Bricks",
+    {
+      "__note": "Ignored for now. Upcoming 1.21.",
+      "name": "Tuff Bricks",
       "options": {
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
     {
+      "__note": "Ignored for now. Upcoming 1.21.",
+      "name": "Chiseled Tuff"
+    },
+    {
+      "name": "Smooth Tuff",
+      "options": {
+        "smeltingWith": "minecraft:tuff",
+        "autoGenerate": ["slab"]
+      }
+    },
+    {
+      "name": "Cracked Tuff Bricks",
+      "options": {
+        "ignore": ["block_model", "blockstate"]
+      }
+    },
+    {
+      "__note": "Should be craftable with 'minecraft:tuff_bricks + minecraft:glow_lichen'",
+      "name": "Mossy Tuff Bricks",
+      "options": {
+        "ignore": ["block_model", "blockstate", "recipe_crafting_table"],
+        "autoGenerate": ["slab", "stairs", "wall"]
+      }
+    },
+    {
+      "__note": "Using minecraft:tuff_bricks. Need 1.21 feature enabled!",
       "name": "Tuff Tiles",
       "options": {
+        "ignore": ["block_model", "blockstate"],
+        "craftingWith": "minecraft:tuff_bricks",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:tuff"]
       }
     },
-    { "name": "Cracked Tuff Tiles" },
     {
+      "name": "Cracked Tuff Tiles",
+      "options": {
+        "ignore": ["block_model", "blockstate"]
+      }
+    },
+    {
+      "__note": "Using minecraft:tuff_bricks. Need 1.21 feature enabled!",
       "name": "Tuff Pillar",
       "options": {
+        "ignore": ["block_model", "blockstate"],
+        "craftingWith": "minecraft:tuff_bricks",
         "stoneCuttingWith": ["minecraft:tuff"]
       }
     },
     {
       "name": "Red Sandstone Bricks",
       "options": {
+        "craftingWith": "minecraft:red_smooth_sandstone",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:red_sandstone"]
       }
     },
     { "name": "Cracked Red Sandstone Bricks" },
-    { "name": "Dry Mossy Red Sandstone Bricks",
+    {
+      "name": "Dry Mossy Red Sandstone Bricks",
       "options": {
+        "ignore": ["recipe_crafting_table"],
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
     {
       "name": "Red Sandstone Tiles",
       "options": {
+        "craftingWith": "moreblocks:red_sandstone_bricks",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:red_sandstone"]
       }
@@ -280,6 +355,7 @@
     {
       "name": "Red Sandstone Pillar",
       "options": {
+        "craftingWith": "moreblocks:red_sandstone_bricks",
         "stoneCuttingWith": ["minecraft:red_sandstone"]
       }
     },
@@ -300,12 +376,14 @@
     {
       "name": "Chiseled Calcite",
       "options": {
+        "craftingWith": "moreblocks:calcite_bricks_slab",
         "stoneCuttingWith": ["minecraft:calcite"]
       }
     },
     {
       "name": "Calcite Bricks",
       "options": {
+        "smeltingWith": "minecraft:calcite",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:calcite"]
       }
@@ -320,6 +398,7 @@
     {
       "name": "Calcite Tiles",
       "options": {
+        "craftingWith": "moreblocks:calcite_bricks",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:calcite"]
       }
@@ -328,6 +407,7 @@
     {
       "name": "Calcite Pillar",
       "options": {
+        "craftingWith": "moreblocks:calcite_bricks",
         "stoneCuttingWith": ["minecraft:calcite"]
       }
     },
@@ -348,12 +428,14 @@
     {
       "name": "Chiseled Dripstone",
       "options": {
+        "craftingWith": "moreblocks:dripstone_bricks_slab",
         "stoneCuttingWith": ["minecraft:dripstone_block"]
       }
     },
     {
       "name": "Dripstone Bricks",
       "options": {
+        "craftingWith": "minecraft:dripstone_block",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:dripstone_block"]
       }
@@ -368,6 +450,7 @@
     {
       "name": "Dripstone Tiles",
       "options": {
+        "craftingWith": "moreblocks:dripstone_bricks",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:dripstone_block"]
       }
@@ -376,6 +459,7 @@
     {
       "name": "Dripstone Pillar",
       "options": {
+        "craftingWith": "moreblocks:dripstone_bricks",
         "stoneCuttingWith": ["minecraft:dripstone_block"]
       }
     },
@@ -396,19 +480,23 @@
     {
       "name": "Chiseled Prismarine",
       "options": {
+        "craftingWith": "minecraft:prismarine_brick_slab",
         "stoneCuttingWith": ["minecraft:prismarine"]
       }
     },
     { "name": "Cracked Prismarine Bricks" },
     {
+      "__note": "Should be craftable with 'minecraft:prismarine_bricks + minecraft:kelp'",
       "name": "Mossy Prismarine Bricks",
       "options": {
+        "ignore": ["recipe_crafting_table"],
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
     {
       "name": "Prismarine Tiles",
       "options": {
+        "craftingWith": "minecraft:prismarine_bricks",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:prismarine"]
       }
@@ -417,6 +505,7 @@
     {
       "name": "Prismarine Pillar",
       "options": {
+        "craftingWith": "minecraft:prismarine_bricks",
         "stoneCuttingWith": ["minecraft:prismarine"]
       }
     },
@@ -428,6 +517,7 @@
       }
     },
     {
+      "__note": "Should be craftable with 'minecraft:polished_blackstone_bricks + minecraft:lava_bucket' or 'minecraft:magma_cream'",
       "name": "Corrupted Polished Blackstone Bricks",
       "options": {
         "autoGenerate": ["slab", "stairs", "wall"]
@@ -444,13 +534,16 @@
     {
       "name": "Blackstone Pillar",
       "options": {
+        "craftingWith": "minecraft:polished_blackstone_bricks",
         "stoneCuttingWith": ["minecraft:blackstone"]
       }
     },
     { "name": "Cracked Quartz Bricks" },
     {
+      "__note": "To be defined how should be craftable.",
       "name": "Mossy Quartz Bricks",
       "options": {
+        "ignore": ["recipe_crafting_table"],
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
@@ -474,11 +567,18 @@
         "autoGenerate": ["slab"]
       }
     },
-    { "name": "Chiseled Mud" },
+    {
+      "name": "Chiseled Mud",
+      "options": {
+        "craftingWith": "minecraft:mud_brick_slab",
+        "stoneCuttingWith": ["minecraft:packed_mud"]
+      }
+    },
     { "name": "Cracked Mud Bricks" },
     {
       "name": "Mossy Mud Bricks",
       "options": {
+        "craftingWith": "minecraft:mud_bricks",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
@@ -501,6 +601,7 @@
     {
       "name": "Dry Mossy Sandstone Bricks",
       "options": {
+        "ignore": ["recipe_crafting_table"],
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
@@ -527,6 +628,7 @@
     {
       "name": "Chiseled Red Nether Bricks",
       "options": {
+        "craftingWith": "minecraft:red_nether_brick_slab",
         "stoneCuttingWith": ["minecraft:red_nether_bricks"]
       }
     },
@@ -589,6 +691,7 @@
     {
       "name": "Mossy Purpur Bricks",
       "options": {
+        "ignore": ["recipe_crafting_table"],
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
@@ -1023,6 +1126,7 @@
       "name": "Chiseled Soul Sandstone",
       "options": {
         "ignore": ["block_model"],
+        "craftingWith": "moreblocks:soul_sandstone",
         "stoneCuttingWith": ["moreblocks:soul_sandstone"]
       }
     },
@@ -1040,7 +1144,9 @@
     },
     {
       "name": "Mossy Soul Sandstone Bricks",
-      "options": { "ignore": ["block_model"] }
+      "options": {
+        "ignore": ["block_model", "recipe_crafting_table"]
+      }
     },
     {
       "name": "Soul Sandstone Tiles",
@@ -1302,6 +1408,7 @@
     {
       "name": "Mossy Brick Block",
       "options": {
+        "craftingWith": "minecraft:bricks",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },

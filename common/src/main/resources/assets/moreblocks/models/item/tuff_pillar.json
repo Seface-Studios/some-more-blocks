@@ -1,3 +1,16 @@
 {
-  "parent": "moreblocks:block/tuff_pillar"
+  "overrides": [
+    {
+      "predicate": {
+        "moreblocks:experimental_1_21": 0
+      },
+      "model": "moreblocks:block/tuff_pillar"
+    },
+    {
+      "predicate": {
+        "moreblocks:experimental_1_21": 1
+      },
+      "model": "moreblocks:block/1.21/tuff_pillar_1_21"
+    }
+  ]
 }

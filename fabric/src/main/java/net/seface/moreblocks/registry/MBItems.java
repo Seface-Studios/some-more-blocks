@@ -114,6 +114,16 @@ public class MBItems {
     public static final Item END_STONE_TILES_WALL = new BlockItem(MBBlocks.END_STONE_TILES_WALL, new Item.Properties());
     public static final Item CRACKED_END_STONE_TILES = new BlockItem(MBBlocks.CRACKED_END_STONE_TILES, new Item.Properties());
     public static final Item END_STONE_PILLAR = new BlockItem(MBBlocks.END_STONE_PILLAR, new Item.Properties());
+
+    public static final Item TUFF_BRICKS = new BlockItem(MBBlocks.TUFF_BRICKS, new Item.Properties());
+    public static final Item TUFF_BRICKS_SLAB = new BlockItem(MBBlocks.TUFF_BRICKS_SLAB, new Item.Properties());
+    public static final Item TUFF_BRICKS_STAIRS = new BlockItem(MBBlocks.TUFF_BRICKS_STAIRS, new Item.Properties());
+    public static final Item TUFF_BRICKS_WALL = new BlockItem(MBBlocks.TUFF_BRICKS_WALL, new Item.Properties());
+    public static final Item CHISELED_TUFF = new BlockItem(MBBlocks.CHISELED_TUFF, new Item.Properties());
+    public static final Item POLISHED_TUFF = new BlockItem(MBBlocks.POLISHED_TUFF, new Item.Properties());
+    public static final Item POLISHED_TUFF_SLAB = new BlockItem(MBBlocks.POLISHED_TUFF_SLAB, new Item.Properties());
+    public static final Item POLISHED_TUFF_STAIRS = new BlockItem(MBBlocks.POLISHED_TUFF_STAIRS, new Item.Properties());
+
     public static final Item SMOOTH_TUFF = new BlockItem(MBBlocks.SMOOTH_TUFF, new Item.Properties());
     public static final Item SMOOTH_TUFF_SLAB = new BlockItem(MBBlocks.SMOOTH_TUFF_SLAB, new Item.Properties());
     public static final Item CRACKED_TUFF_BRICKS = new BlockItem(MBBlocks.CRACKED_TUFF_BRICKS, new Item.Properties());
@@ -672,6 +682,16 @@ public class MBItems {
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "end_stone_tiles_wall"), END_STONE_TILES_WALL);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cracked_end_stone_tiles"), CRACKED_END_STONE_TILES);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "end_stone_pillar"), END_STONE_PILLAR);
+
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tuff_bricks"), TUFF_BRICKS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tuff_bricks_slab"), TUFF_BRICKS_SLAB);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tuff_bricks_stairs"), TUFF_BRICKS_STAIRS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tuff_bricks_wall"), TUFF_BRICKS_WALL);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "chiseled_tuff"), CHISELED_TUFF);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "polished_tuff"), POLISHED_TUFF);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "polished_tuff_slab"), POLISHED_TUFF_SLAB);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "polished_tuff_stairs"), POLISHED_TUFF_STAIRS);
+
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "smooth_tuff"), SMOOTH_TUFF);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "smooth_tuff_slab"), SMOOTH_TUFF_SLAB);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cracked_tuff_bricks"), CRACKED_TUFF_BRICKS);

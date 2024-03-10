@@ -3,15 +3,51 @@ package net.seface.moreblocks;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.flag.FeatureFlag;
+import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Item;
 import net.seface.moreblocks.registry.MBBlocks;
+import net.seface.moreblocks.registry.MBItems;
 
 public class MoreBlocksFabricClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         this.registerBlockRenders();
         this.registerColorProviders();
+        this.registerItemModelPredicates();
+    }
+
+    private void registerItemModelPredicates() {
+        this.addItemModelPredicateWithFeatureFlag(MBItems.CRACKED_TUFF_BRICKS, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+            .addItemModelPredicateWithFeatureFlag(MBItems.CRACKED_TUFF_BRICKS, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+            .addItemModelPredicateWithFeatureFlag(MBItems.TUFF_PILLAR, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+            .addItemModelPredicateWithFeatureFlag(MBItems.TUFF_TILES, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+            .addItemModelPredicateWithFeatureFlag(MBItems.TUFF_TILES_SLAB, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+            .addItemModelPredicateWithFeatureFlag(MBItems.TUFF_TILES_STAIRS, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+            .addItemModelPredicateWithFeatureFlag(MBItems.TUFF_TILES_WALL, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+            .addItemModelPredicateWithFeatureFlag(MBItems.CRACKED_TUFF_TILES, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+            .addItemModelPredicateWithFeatureFlag(MBItems.MOSSY_TUFF_BRICKS, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+            .addItemModelPredicateWithFeatureFlag(MBItems.MOSSY_TUFF_BRICKS_SLAB, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+            .addItemModelPredicateWithFeatureFlag(MBItems.MOSSY_TUFF_BRICKS_STAIRS, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+            .addItemModelPredicateWithFeatureFlag(MBItems.MOSSY_TUFF_BRICKS_WALL, "experimental_1_21", FeatureFlags.UPDATE_1_21)
+
+        ;
+    }
+
+    private MoreBlocksFabricClient addItemModelPredicateWithFeatureFlag(Item item, String predicateId, FeatureFlag feature) {
+        FabricModelPredicateProviderRegistry.register(
+                item,
+                new ResourceLocation(MoreBlocks.ID, predicateId), (stack, level, entity, i) -> {
+                    if (entity == null) return 0.0F;
+                    return level.enabledFeatures().contains(feature) ? 1.0F : 0.0F;
+                }
+        );
+
+        return this;
     }
 
     private void registerBlockRenders() {

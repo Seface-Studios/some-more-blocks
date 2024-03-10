@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "moreblocks:block/1.21/tuff_tiles"
+  }
+}

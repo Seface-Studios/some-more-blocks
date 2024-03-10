@@ -1,13 +1,23 @@
 {
   "variants": {
-    "type=bottom": {
+    "type=bottom,needed_feature_enabled=false": {
       "model": "moreblocks:block/mossy_tuff_bricks_slab"
     },
-    "type=double": {
+    "type=double,needed_feature_enabled=false": {
       "model": "moreblocks:block/mossy_tuff_bricks"
     },
-    "type=top": {
+    "type=top,needed_feature_enabled=false": {
       "model": "moreblocks:block/mossy_tuff_bricks_slab_top"
+    },
+
+    "type=bottom,needed_feature_enabled=true": {
+      "model": "moreblocks:block/1.21/mossy_tuff_bricks_slab_1_21"
+    },
+    "type=double,needed_feature_enabled=true": {
+      "model": "moreblocks:block/1.21/mossy_tuff_bricks_1_21"
+    },
+    "type=top,needed_feature_enabled=true": {
+      "model": "moreblocks:block/1.21/mossy_tuff_bricks_slab_1_21_top"
     }
   }
 }

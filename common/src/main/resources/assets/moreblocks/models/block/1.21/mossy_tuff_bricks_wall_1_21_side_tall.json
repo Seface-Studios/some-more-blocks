@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side_tall",
+  "textures": {
+    "wall": "moreblocks:block/1.21/mossy_tuff_bricks"
+  }
+}

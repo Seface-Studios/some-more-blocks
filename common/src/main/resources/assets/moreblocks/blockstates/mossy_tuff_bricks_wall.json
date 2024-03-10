@@ -5,7 +5,8 @@
         "model": "moreblocks:block/mossy_tuff_bricks_wall_post"
       },
       "when": {
-        "up": "true"
+        "up": "true",
+        "needed_feature_enabled": false
       }
     },
     {
@@ -14,7 +15,8 @@
         "uvlock": true
       },
       "when": {
-        "north": "low"
+        "north": "low",
+        "needed_feature_enabled": false
       }
     },
     {
@@ -24,7 +26,8 @@
         "y": 90
       },
       "when": {
-        "east": "low"
+        "east": "low",
+        "needed_feature_enabled": false
       }
     },
     {
@@ -34,7 +37,8 @@
         "y": 180
       },
       "when": {
-        "south": "low"
+        "south": "low",
+        "needed_feature_enabled": false
       }
     },
     {
@@ -44,7 +48,8 @@
         "y": 270
       },
       "when": {
-        "west": "low"
+        "west": "low",
+        "needed_feature_enabled": false
       }
     },
     {
@@ -53,7 +58,8 @@
         "uvlock": true
       },
       "when": {
-        "north": "tall"
+        "north": "tall",
+        "needed_feature_enabled": false
       }
     },
     {
@@ -63,7 +69,8 @@
         "y": 90
       },
       "when": {
-        "east": "tall"
+        "east": "tall",
+        "needed_feature_enabled": false
       }
     },
     {
@@ -73,7 +80,8 @@
         "y": 180
       },
       "when": {
-        "south": "tall"
+        "south": "tall",
+        "needed_feature_enabled": false
       }
     },
     {
@@ -83,7 +91,104 @@
         "y": 270
       },
       "when": {
-        "west": "tall"
+        "west": "tall",
+        "needed_feature_enabled": false
+      }
+    },
+
+    {
+      "apply": {
+        "model": "moreblocks:block/1.21/mossy_tuff_bricks_wall_1_21_post"
+      },
+      "when": {
+        "up": "true",
+        "needed_feature_enabled": true
+      }
+    },
+    {
+      "apply": {
+        "model": "moreblocks:block/1.21/mossy_tuff_bricks_wall_1_21_side",
+        "uvlock": true
+      },
+      "when": {
+        "north": "low",
+        "needed_feature_enabled": true
+      }
+    },
+    {
+      "apply": {
+        "model": "moreblocks:block/1.21/mossy_tuff_bricks_wall_1_21_side",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "low",
+        "needed_feature_enabled": true
+      }
+    },
+    {
+      "apply": {
+        "model": "moreblocks:block/1.21/mossy_tuff_bricks_wall_1_21_side",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "low",
+        "needed_feature_enabled": true
+      }
+    },
+    {
+      "apply": {
+        "model": "moreblocks:block/1.21/mossy_tuff_bricks_wall_1_21_side",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "west": "low",
+        "needed_feature_enabled": true
+      }
+    },
+    {
+      "apply": {
+        "model": "moreblocks:block/1.21/mossy_tuff_bricks_wall_1_21_side_tall",
+        "uvlock": true
+      },
+      "when": {
+        "north": "tall",
+        "needed_feature_enabled": true
+      }
+    },
+    {
+      "apply": {
+        "model": "moreblocks:block/1.21/mossy_tuff_bricks_wall_1_21_side_tall",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "tall",
+        "needed_feature_enabled": true
+      }
+    },
+    {
+      "apply": {
+        "model": "moreblocks:block/1.21/mossy_tuff_bricks_wall_1_21_side_tall",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "tall",
+        "needed_feature_enabled": true
+      }
+    },
+    {
+      "apply": {
+        "model": "moreblocks:block/1.21/mossy_tuff_bricks_wall_1_21_side_tall",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "west": "tall",
+        "needed_feature_enabled": true
       }
     }
   ]

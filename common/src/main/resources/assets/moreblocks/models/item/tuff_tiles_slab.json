@@ -1,3 +1,16 @@
 {
-  "parent": "moreblocks:block/tuff_tiles_slab"
+  "overrides": [
+    {
+      "predicate": {
+        "moreblocks:experimental_1_21": 0
+      },
+      "model": "moreblocks:block/tuff_tiles_slab"
+    },
+    {
+      "predicate": {
+        "moreblocks:experimental_1_21": 1
+      },
+      "model": "moreblocks:block/1.21/tuff_tiles_slab_1_21"
+    }
+  ]
 }

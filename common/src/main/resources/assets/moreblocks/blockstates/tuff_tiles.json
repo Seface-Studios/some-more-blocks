@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "needed_feature_enabled=false": {
       "model": "moreblocks:block/tuff_tiles"
+    },
+    "needed_feature_enabled=true": {
+      "model": "moreblocks:block/1.21/tuff_tiles_1_21"
     }
   }
 }

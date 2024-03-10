@@ -4,8 +4,8 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -14,6 +14,8 @@ import net.minecraft.world.level.material.PushReaction;
 import net.seface.moreblocks.MoreBlocks;
 import net.seface.moreblocks.block.*;
 import net.seface.moreblocks.block.BigLilyPadBlock;
+import net.seface.moreblocks.block.featured.*;
+import net.seface.moreblocks.mixin.StairBlockMixin;
 
 public class MBBlocks {
     public static final Block PACKED_SNOW = new Block(FabricBlockSettings.copyOf(Blocks.SNOW_BLOCK));
@@ -120,19 +122,29 @@ public class MBBlocks {
     public static final Block END_STONE_TILES_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.END_STONE_TILES).solid());
     public static final Block CRACKED_END_STONE_TILES = new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS));
     public static final Block END_STONE_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS));
+
+    public static final Block TUFF_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.TUFF));
+    public static final Block TUFF_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
+    public static final Block TUFF_BRICKS_STAIRS = new StairBlock(TUFF_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
+    public static final Block TUFF_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
+    public static final Block CHISELED_TUFF = new Block(FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
+    public static final Block POLISHED_TUFF = new Block(FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
+    public static final Block POLISHED_TUFF_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
+    public static final Block POLISHED_TUFF_STAIRS = new StairBlock(POLISHED_TUFF.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
+
     public static final Block SMOOTH_TUFF = new Block(FabricBlockSettings.copyOf(Blocks.TUFF));
     public static final Block SMOOTH_TUFF_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_TUFF));
-    public static final Block CRACKED_TUFF_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
-    public static final Block MOSSY_TUFF_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS).lightLevel(state -> 7));
+    public static final Block CRACKED_TUFF_BRICKS = new FeaturedBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21); // TODO: TESTING FeaturedBlock
+    public static final Block MOSSY_TUFF_BRICKS = new FeaturedBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS).lightLevel(state -> 7), FeatureFlags.UPDATE_1_21);
     public static final Block MOSSY_TUFF_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
     public static final Block MOSSY_TUFF_BRICKS_STAIRS = new StairBlock(MOSSY_TUFF_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
     public static final Block MOSSY_TUFF_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
-    public static final Block TUFF_TILES = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
+    public static final Block TUFF_TILES = new FeaturedBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21);
     public static final Block TUFF_TILES_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.TUFF_TILES).sound(SoundType.TUFF_BRICKS));
     public static final Block TUFF_TILES_STAIRS = new StairBlock(TUFF_TILES.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.TUFF_TILES).sound(SoundType.TUFF_BRICKS));
     public static final Block TUFF_TILES_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.TUFF_TILES).solid().sound(SoundType.TUFF_BRICKS));
-    public static final Block CRACKED_TUFF_TILES = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
-    public static final Block TUFF_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
+    public static final Block CRACKED_TUFF_TILES = new FeaturedBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21);
+    public static final Block TUFF_PILLAR = new FeaturedRotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21);
     public static final Block RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE));
     public static final Block RED_SANDSTONE_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.RED_SANDSTONE_BRICKS));
     public static final Block RED_SANDSTONE_BRICKS_STAIRS = new StairBlock(RED_SANDSTONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.RED_SANDSTONE_BRICKS));
@@ -686,6 +698,16 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "end_stone_tiles_wall"), END_STONE_TILES_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_end_stone_tiles"), CRACKED_END_STONE_TILES);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "end_stone_pillar"), END_STONE_PILLAR);
+
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tuff_bricks"), TUFF_BRICKS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tuff_bricks_slab"), TUFF_BRICKS_SLAB);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tuff_bricks_stairs"), TUFF_BRICKS_STAIRS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tuff_bricks_wall"), TUFF_BRICKS_WALL);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_tuff"), CHISELED_TUFF);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_tuff"), POLISHED_TUFF);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_tuff_slab"), POLISHED_TUFF_SLAB);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_tuff_stairs"), POLISHED_TUFF_STAIRS);
+
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks"), MOSSY_TUFF_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks_slab"), MOSSY_TUFF_BRICKS_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks_stairs"), MOSSY_TUFF_BRICKS_STAIRS);
@@ -1102,7 +1124,6 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_tiles_stairs"), BONE_BLOCK_TILES_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_tiles_wall"), BONE_BLOCK_TILES_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_bone_block_tiles"), CRACKED_BONE_BLOCK_TILES);
-
     }
 
     private static Block createFlowerPotBlock(Block block) {

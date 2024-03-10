@@ -1,15 +1,28 @@
 {
   "variants": {
-    "axis=x": {
+    "axis=x,needed_feature_enabled=false": {
       "model": "moreblocks:block/tuff_pillar_horizontal",
       "x": 90,
       "y": 90
     },
-    "axis=y": {
+    "axis=y,needed_feature_enabled=false": {
       "model": "moreblocks:block/tuff_pillar"
     },
-    "axis=z": {
+    "axis=z,needed_feature_enabled=false": {
       "model": "moreblocks:block/tuff_pillar_horizontal",
+      "x": 90
+    },
+
+    "axis=x,needed_feature_enabled=true": {
+      "model": "moreblocks:block/1.21/tuff_pillar_1_21_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,needed_feature_enabled=true": {
+      "model": "moreblocks:block/1.21/tuff_pillar_1_21"
+    },
+    "axis=z,needed_feature_enabled=true": {
+      "model": "moreblocks:block/1.21/tuff_pillar_1_21_horizontal",
       "x": 90
     }
   }

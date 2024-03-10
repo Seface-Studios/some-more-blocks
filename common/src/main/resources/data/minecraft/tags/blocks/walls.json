@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "values": [
     "moreblocks:snow_bricks_wall",
     "moreblocks:snow_tiles_wall",
@@ -16,6 +15,7 @@
     "moreblocks:andesite_tiles_wall",
     "moreblocks:mossy_end_stone_bricks_wall",
     "moreblocks:end_stone_tiles_wall",
+    "moreblocks:tuff_bricks_wall",
     "moreblocks:mossy_tuff_bricks_wall",
     "moreblocks:tuff_tiles_wall",
     "moreblocks:red_sandstone_bricks_wall",
@@ -41,8 +41,6 @@
     "moreblocks:ice_tiles_wall",
     "moreblocks:mossy_purpur_bricks_wall",
     "moreblocks:purpur_tiles_wall",
-    "moreblocks:soul_sandstone_wall",
-    "moreblocks:smooth_soul_sandstone_wall",
     "moreblocks:soul_sandstone_bricks_wall",
     "moreblocks:soul_sandstone_tiles_wall",
     "moreblocks:mossy_brick_block_wall",

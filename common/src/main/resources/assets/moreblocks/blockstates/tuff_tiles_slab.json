@@ -1,13 +1,23 @@
 {
   "variants": {
-    "type=bottom": {
+    "type=bottom,needed_feature_enabled=false": {
       "model": "moreblocks:block/tuff_tiles_slab"
     },
-    "type=double": {
+    "type=double,needed_feature_enabled=false": {
       "model": "moreblocks:block/tuff_tiles"
     },
-    "type=top": {
+    "type=top,needed_feature_enabled=false": {
       "model": "moreblocks:block/tuff_tiles_slab_top"
+    },
+
+    "type=bottom,needed_feature_enabled=true": {
+      "model": "moreblocks:block/1.21/tuff_tiles_slab_1_21"
+    },
+    "type=double,needed_feature_enabled=true": {
+      "model": "moreblocks:block/1.21/tuff_tiles_1_21"
+    },
+    "type=top,needed_feature_enabled=true": {
+      "model": "moreblocks:block/1.21/tuff_tiles_slab_1_21_top"
     }
   }
 }

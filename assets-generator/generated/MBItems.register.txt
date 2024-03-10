@@ -102,6 +102,14 @@ Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "end_stone_tile
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "end_stone_tiles_wall"), END_STONE_TILES_WALL);
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "cracked_end_stone_tiles"), CRACKED_END_STONE_TILES);
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "end_stone_pillar"), END_STONE_PILLAR);
+Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "polished_tuff"), POLISHED_TUFF);
+Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "polished_tuff_stairs"), POLISHED_TUFF_STAIRS);
+Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "polished_tuff_slab"), POLISHED_TUFF_SLAB);
+Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "tuff_bricks"), TUFF_BRICKS);
+Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "tuff_bricks_stairs"), TUFF_BRICKS_STAIRS);
+Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "tuff_bricks_slab"), TUFF_BRICKS_SLAB);
+Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "tuff_bricks_wall"), TUFF_BRICKS_WALL);
+Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "chiseled_tuff"), CHISELED_TUFF);
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "smooth_tuff"), SMOOTH_TUFF);
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "smooth_tuff_slab"), SMOOTH_TUFF_SLAB);
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "cracked_tuff_bricks"), CRACKED_TUFF_BRICKS);

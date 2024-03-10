@@ -39,7 +39,7 @@ export class Block {
     this.ignore = this.options?.ignore || [];
     this.stoneCuttingWith = this.options?.stoneCuttingWith || [];
     this.smeltingWith = this.options?.smeltingWith || false;
-    this.baseBlock = this.options?.craftingWith;
+    this.craftingWith = this.options?.craftingWith || false;
 
     this.autoGenerate = !ignoreAutoGenerate ? {
       stairs: this.options?.autoGenerate?.includes('stairs') || false,
@@ -98,6 +98,18 @@ export class Block {
            this.blockName.includes('Wood')
   }
 
+  isMossyVariant() {
+    return this.blockName.includes('Mossy');
+  }
+
+  isChiseledVariant() {
+    return this.blockName.includes('Chiseled');
+  }
+
+  isPillarVariant() {
+    return this.blockName.includes('Pillar');
+  }
+
   createAndSave() {
     for (const blockModel of this.blockModels()) {
       this.#generateFileFor('block_model', Block.#BLOCK_MODEL_EXPORT_PATH, blockModel);
@@ -106,8 +118,16 @@ export class Block {
     this.#generateFileFor('item_model', Block.#ITEM_MODEL_EXPORT_PATH, this.buildItemModel())
         .#generateFileFor('blockstate', Block.#BLOCKSTATES_MODEL_EXPORT_PATH, this.buildBlockstate())
         .#generateFileFor('loot_table', Block.#LOOT_TABLE_EXPORT_PATH, this.buildLootTable())
-        .#generateFileFor('recipe_smelting', Block.#RECIPE_EXPORT_PATH, this.buildRecipeForSmelting(), this.smeltingWith && this.isFullBlock())
-        .#generateFileFor('recipe_crafting_table', Block.#RECIPE_EXPORT_PATH, this.buildRecipeForCraftingTable(), (this.isSlab() || this.isWall() || this.isStairs()))
+        .#generateFileFor('recipe_smelting', Block.#RECIPE_EXPORT_PATH, this.buildRecipeForSmelting(), this.smeltingWith && this.isFullBlock());
+
+    for (const craftOption of this.buildRecipeForCraftingTable()) {
+      this.#generateFileFor(
+        'recipe_crafting_table',
+        Block.#RECIPE_EXPORT_PATH,
+        craftOption,
+        this.craftingWith
+      )
+    }
         
     for (const option of this.stoneCuttingWith) {
       this.#generateFileFor(
@@ -131,13 +151,11 @@ export class Block {
   #generateFileFor(id, basePath, content, predicate = true) {
     const saveAt = path.join('..', basePath, this.blockId);
 
-    if (this.ignore.includes(id)) {
-      let cNum = '';
-      if (content[1] !== '.json') {
-        cNum = ` (${content[1].slice(1).replace('.json', '')})`
+    if (this.ignore.includes(id) || this.ignore.includes('all')) {
+      if (!Generators.IGNORED_CONTENT[id].includes(this)) {
+        Generators.IGNORED_CONTENT[id].push(this);
       }
 
-      console.log(`${chalk.bold.yellow('·')} ${Generators[id]} of ${chalk.cyan(this.blockName)}${chalk.gray(cNum)} marked as ignored.`)
       return this;
     }
 
@@ -276,7 +294,79 @@ export class Block {
    * @returns {{}} The Recipe on Crafting Table model object.
    */
   buildRecipeForCraftingTable() {
-    return [{}, '.json']
+    return !this.isMossyVariant() && !this.isChiseledVariant() && !this.isPillarVariant() ?
+    [
+      [
+        {
+          "type": "minecraft:crafting_shaped",
+          "category": "building",
+          "key": {
+            "#": { "item": `${this.craftingWith}` }
+          },
+          "pattern": [
+            "##",
+            "##"
+          ],
+          "result": {
+            "count": 4,
+            "item": `${this.NAMESPACE}:${this.blockId}`
+          }
+        },
+        ".json"
+      ]
+    ] : this.isChiseledVariant() || this.isPillarVariant() ? // else if
+    [
+      [
+        {
+          "type": "minecraft:crafting_shaped",
+          "category": "building",
+          "key": {
+            "#": { "item": `${this.craftingWith}` }
+          },
+          "pattern": [
+            "#",
+            "#"
+          ],
+          "result": {
+            "count": this.isPillarVariant() ? 2 : 1,
+            "item": `${this.NAMESPACE}:${this.blockId}`
+          }
+        },
+        ".json"
+      ]
+    ] : // else
+    [
+      [
+        {
+          "type": "minecraft:crafting_shapeless",
+          "category": "building",
+          "group": `${Block.popNamespaceFrom(this.blockId)}`,
+          "ingredients": [
+            { "item": `${this.craftingWith}` },
+            { "item": "minecraft:moss_block" }
+          ],
+          "result": {
+            "item": `${this.NAMESPACE}:${this.blockId}`
+          }
+        },
+        '_from_moss_block.json'
+      ],
+      [
+        {
+          "type": "minecraft:crafting_shapeless",
+          "category": "building",
+          "group": `${Block.popNamespaceFrom(this.blockId)}`,
+          "ingredients": [
+            { "item": `${this.craftingWith}` },
+            { "item": "minecraft:vine" }
+          ],
+          "result": {
+            "item": `${this.NAMESPACE}:${this.blockId}`
+          }
+        },
+        '_from_vine.json'
+      ]
+    ]
   }
 
   /**

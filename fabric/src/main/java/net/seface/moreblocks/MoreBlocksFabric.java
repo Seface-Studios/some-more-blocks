@@ -1,6 +1,10 @@
 package net.seface.moreblocks;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.world.flag.FeatureFlag;
+import net.minecraft.world.flag.FeatureFlagRegistry;
+import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.level.block.Blocks;
 import net.seface.moreblocks.registry.MBBlockTypes;
 import net.seface.moreblocks.registry.MBBlocks;
 import net.seface.moreblocks.registry.MBItemGroups;
