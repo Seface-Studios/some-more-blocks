@@ -18,7 +18,7 @@ More Blocks is a vanilla-like project which will add blocks that should exist an
 > [!NOTE]
 > Have you found any bugs or inconsistencies in the new blocks? Please open an [issue](https://github.com/Seface-Blocks/more-blocks-mod/issues) for us to review and correct in future versions.
 
-## Contact
-Seface Studios - [@SefaceStudios](https://x.com/Studios) contact@sefacestudios.net
-
-![X](https://img.shields.io/badge/Follow%20Us-Twitter?logo=X&logoColor=fff&color=000&link=https%3A%2F%2Fmodrinth.com%2Fmod%2Fsome-more-blocks)
+<div style="text-align: right">
+<h3>Seface Studios</h3>
+<a title='Follow us on X' href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> - <a href="https://x.com/SefaceStudios" />@SefaceStudios</a>
+</div>
