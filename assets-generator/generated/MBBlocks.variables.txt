@@ -357,7 +357,6 @@ public static final Block CUT_SOUL_SANDSTONE_SLAB = new SlabBlock(FabricBlockSet
 public static final Block SMOOTH_SOUL_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.ACACIA_PLANKS));
 public static final Block SMOOTH_SOUL_SANDSTONE_STAIRS = new StairBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_PLANKS));
 public static final Block SMOOTH_SOUL_SANDSTONE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_PLANKS));
-public static final Block SMOOTH_SOUL_SANDSTONE_WALL = new WallBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_PLANKS));
 public static final Block CHISELED_SOUL_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.ACACIA_PLANKS));
 public static final Block SOUL_SANDSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.ACACIA_PLANKS));
 public static final Block SOUL_SANDSTONE_BRICKS_STAIRS = new StairBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_PLANKS));

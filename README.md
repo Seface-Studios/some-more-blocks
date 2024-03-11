@@ -1,3 +1,5 @@
-# <img width="32" height="32" src="https://media.discordapp.net/attachments/1214009345419776050/1214985059153608756/Thumb_Mine_2024.gif?ex=65fb1a03&is=65e8a503&hm=77fc44086e8207785832a0802d2fe81d3ee1e05edb6f5c1c8fb3e3d78ae55586&" title="Neelix Icon"> Neelix
+# More Blocks Mod
+![Latest Release](https://img.shields.io/github/v/release/seface-studios/more-blocks-mod?logo=github&logoColor=959da5&labelColor=353c43&color=0091c2&Current&label=Latest%20Release) ![Static Badge](https://img.shields.io/badge/CurseForge%20Download-test?logo=CurseForge&logoColor=fff&color=EB622B&link=https%3A%2F%2Fwww.curseforge.com%2Fminecraft%2Fmc-mods%2Fsome-more-blocks) ![Static Badge](https://img.shields.io/badge/Modrinth%20Download-test?logo=Modrinth&logoColor=fff&color=1bd96a&link=https%3A%2F%2Fmodrinth.com%2Fmod%2Fsome-more-blocks)
 
-This is a commit to testing the header and icon image align.
+More Blocks is a vanilla-like project which will add blocks that should exist and that the community has been asking for years to be added to the base game.
+

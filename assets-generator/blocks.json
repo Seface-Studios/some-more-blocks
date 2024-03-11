@@ -387,7 +387,7 @@
     {
       "name": "Red Sandstone Bricks",
       "options": {
-        "craftingWith": "minecraft:red_smooth_sandstone",
+        "craftingWith": "minecraft:smooth_red_sandstone",
         "autoGenerate": ["slab", "stairs", "wall"],
         "stoneCuttingWith": ["minecraft:red_sandstone"]
       }
@@ -1272,7 +1272,7 @@
       "name": "Smooth Soul Sandstone",
       "options": {
         "smeltingWith": "moreblocks:soul_sandstone",
-        "autoGenerate": ["slab", "stairs", "wall"],
+        "autoGenerate": ["slab", "stairs"],
         "ignore": ["block_model"]
       }
     },

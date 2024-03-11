@@ -357,7 +357,6 @@ Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "cut_soul_sands
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "smooth_soul_sandstone"), SMOOTH_SOUL_SANDSTONE);
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "smooth_soul_sandstone_stairs"), SMOOTH_SOUL_SANDSTONE_STAIRS);
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "smooth_soul_sandstone_slab"), SMOOTH_SOUL_SANDSTONE_SLAB);
-Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "smooth_soul_sandstone_wall"), SMOOTH_SOUL_SANDSTONE_WALL);
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "chiseled_soul_sandstone"), CHISELED_SOUL_SANDSTONE);
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "soul_sandstone_bricks"), SOUL_SANDSTONE_BRICKS);
 Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "soul_sandstone_bricks_stairs"), SOUL_SANDSTONE_BRICKS_STAIRS);

@@ -15,6 +15,7 @@ import net.seface.moreblocks.MoreBlocks;
 import net.seface.moreblocks.block.*;
 import net.seface.moreblocks.block.BigLilyPadBlock;
 import net.seface.moreblocks.block.featured.*;
+import net.seface.moreblocks.core.LinkCrackedBlocks;
 
 public class MBBlocks {
     public static final Block PACKED_SNOW = new Block(FabricBlockSettings.copyOf(Blocks.SNOW_BLOCK));
@@ -372,6 +373,7 @@ public class MBBlocks {
     public static final Block SOUL_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE));
     public static final Block SOUL_SANDSTONE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SOUL_SANDSTONE));
     public static final Block SOUL_SANDSTONE_STAIRS = new StairBlock(SOUL_SANDSTONE.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.SOUL_SANDSTONE));
+    public static final Block SOUL_SANDSTONE_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.SOUL_SANDSTONE));
     public static final Block CUT_SOUL_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.CUT_SANDSTONE));
     public static final Block CUT_SOUL_SANDSTONE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.CUT_SOUL_SANDSTONE));
     public static final Block SMOOTH_SOUL_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_SANDSTONE));
@@ -954,6 +956,7 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "soul_sandstone"), SOUL_SANDSTONE);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "soul_sandstone_slab"), SOUL_SANDSTONE_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "soul_sandstone_stairs"), SOUL_SANDSTONE_STAIRS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "soul_sandstone_wall"), SOUL_SANDSTONE_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cut_soul_sandstone"), CUT_SOUL_SANDSTONE);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cut_soul_sandstone_slab"), CUT_SOUL_SANDSTONE_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_soul_sandstone"), SMOOTH_SOUL_SANDSTONE);
@@ -1131,46 +1134,46 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_bone_block_tiles"), CRACKED_BONE_BLOCK_TILES);
     }
 
-    public static void registerCracklableBlockManager() {
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_STONE_TILES, MBBlocks.STONE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_GRANITE_BRICKS, MBBlocks.GRANITE_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_GRANITE_TILES, MBBlocks.GRANITE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_DIORITE_BRICKS, MBBlocks.DIORITE_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_DIORITE_TILES, MBBlocks.DIORITE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_ANDESITE_BRICKS, MBBlocks.ANDESITE_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_ANDESITE_TILES, MBBlocks.ANDESITE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_CALCITE_BRICKS, MBBlocks.CALCITE_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_CALCITE_TILES, MBBlocks.CALCITE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_TUFF_BRICKS, MBBlocks.TUFF_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_TUFF_BRICKS, Blocks.TUFF_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_TUFF_TILES, MBBlocks.TUFF_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_DRIPSTONE_BRICKS, MBBlocks.DRIPSTONE_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_DRIPSTONE_TILES, MBBlocks.DRIPSTONE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_BRICK_BLOCK, Blocks.BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_MUD_BRICKS, Blocks.MUD_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_MUD_TILES, MBBlocks.MUD_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SANDSTONE_BRICKS, MBBlocks.SANDSTONE_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SANDSTONE_TILES, MBBlocks.SANDSTONE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS, MBBlocks.RED_SANDSTONE_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_RED_SANDSTONE_TILES, MBBlocks.RED_SANDSTONE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_PRISMARINE_BRICKS, Blocks.PRISMARINE_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_PRISMARINE_TILES, MBBlocks.PRISMARINE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_POLISHED_BLACKSTONE_TILES, MBBlocks.POLISHED_BLACKSTONE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_END_STONE_BRICKS, Blocks.END_STONE_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_END_STONE_TILES, MBBlocks.END_STONE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_PURPUR_BLOCK, Blocks.PURPUR_BLOCK));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_PURPUR_TILES, MBBlocks.PURPUR_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_QUARTZ_BRICKS, Blocks.QUARTZ_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_CUT_QUARTZ, MBBlocks.CUT_QUARTZ));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_BONE_BLOCK_BRICKS, MBBlocks.BONE_BLOCK_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_BONE_BLOCK_TILES, MBBlocks.BONE_BLOCK_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SOUL_SANDSTONE_BRICKS, MBBlocks.SOUL_SANDSTONE_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SOUL_SANDSTONE_TILES, MBBlocks.SOUL_SANDSTONE_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SNOW_BRICKS, MBBlocks.SNOW_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SNOW_TILES, MBBlocks.SNOW_TILES));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_ICE_BRICKS, MBBlocks.ICE_BRICKS));
-        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_ICE_TILES, MBBlocks.ICE_TILES));
+    public static void registerCrackedSystem() {
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_STONE_TILES, MBBlocks.STONE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_GRANITE_BRICKS, MBBlocks.GRANITE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_GRANITE_TILES, MBBlocks.GRANITE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_DIORITE_BRICKS, MBBlocks.DIORITE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_DIORITE_TILES, MBBlocks.DIORITE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_ANDESITE_BRICKS, MBBlocks.ANDESITE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_ANDESITE_TILES, MBBlocks.ANDESITE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CALCITE_BRICKS, MBBlocks.CALCITE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CALCITE_TILES, MBBlocks.CALCITE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_TUFF_BRICKS, MBBlocks.TUFF_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_TUFF_BRICKS, Blocks.TUFF_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_TUFF_TILES, MBBlocks.TUFF_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_DRIPSTONE_BRICKS, MBBlocks.DRIPSTONE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_DRIPSTONE_TILES, MBBlocks.DRIPSTONE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_BRICK_BLOCK, Blocks.BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_MUD_BRICKS, Blocks.MUD_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_MUD_TILES, MBBlocks.MUD_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SANDSTONE_BRICKS, MBBlocks.SANDSTONE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SANDSTONE_TILES, MBBlocks.SANDSTONE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS, MBBlocks.RED_SANDSTONE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_RED_SANDSTONE_TILES, MBBlocks.RED_SANDSTONE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_PRISMARINE_BRICKS, Blocks.PRISMARINE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_PRISMARINE_TILES, MBBlocks.PRISMARINE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_POLISHED_BLACKSTONE_TILES, MBBlocks.POLISHED_BLACKSTONE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_END_STONE_BRICKS, Blocks.END_STONE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_END_STONE_TILES, MBBlocks.END_STONE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_PURPUR_BLOCK, Blocks.PURPUR_BLOCK));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_PURPUR_TILES, MBBlocks.PURPUR_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_QUARTZ_BRICKS, Blocks.QUARTZ_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_QUARTZ, MBBlocks.CUT_QUARTZ));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_BONE_BLOCK_BRICKS, MBBlocks.BONE_BLOCK_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_BONE_BLOCK_TILES, MBBlocks.BONE_BLOCK_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SOUL_SANDSTONE_BRICKS, MBBlocks.SOUL_SANDSTONE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SOUL_SANDSTONE_TILES, MBBlocks.SOUL_SANDSTONE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SNOW_BRICKS, MBBlocks.SNOW_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SNOW_TILES, MBBlocks.SNOW_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_ICE_BRICKS, MBBlocks.ICE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_ICE_TILES, MBBlocks.ICE_TILES));
     }
 
     private static Block createFlowerPotBlock(Block block) {

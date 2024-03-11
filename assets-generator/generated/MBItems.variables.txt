@@ -357,7 +357,6 @@ public static final Item CUT_SOUL_SANDSTONE_SLAB = new BlockItem(MBBlocks.CUT_SO
 public static final Item SMOOTH_SOUL_SANDSTONE = new BlockItem(MBBlocks.SMOOTH_SOUL_SANDSTONE, new Item.Settings());
 public static final Item SMOOTH_SOUL_SANDSTONE_STAIRS = new BlockItem(MBBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS, new Item.Settings());
 public static final Item SMOOTH_SOUL_SANDSTONE_SLAB = new BlockItem(MBBlocks.SMOOTH_SOUL_SANDSTONE_SLAB, new Item.Settings());
-public static final Item SMOOTH_SOUL_SANDSTONE_WALL = new BlockItem(MBBlocks.SMOOTH_SOUL_SANDSTONE_WALL, new Item.Settings());
 public static final Item CHISELED_SOUL_SANDSTONE = new BlockItem(MBBlocks.CHISELED_SOUL_SANDSTONE, new Item.Settings());
 public static final Item SOUL_SANDSTONE_BRICKS = new BlockItem(MBBlocks.SOUL_SANDSTONE_BRICKS, new Item.Settings());
 public static final Item SOUL_SANDSTONE_BRICKS_STAIRS = new BlockItem(MBBlocks.SOUL_SANDSTONE_BRICKS_STAIRS, new Item.Settings());

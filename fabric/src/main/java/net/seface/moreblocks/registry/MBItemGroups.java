@@ -79,6 +79,7 @@ public class MBItemGroups {
                 entry.accept(MBItems.STONE_TILES_WALL);
                 entry.accept(MBItems.CHISELED_GRANITE_BRICKS);
                 entry.accept(MBItems.GRANITE_BRICKS);
+                entry.accept(MBItems.CRACKED_GRANITE_BRICKS);
                 entry.accept(MBItems.GRANITE_BRICKS_STAIRS);
                 entry.accept(MBItems.GRANITE_BRICKS_SLAB);
                 entry.accept(MBItems.GRANITE_BRICKS_WALL);
@@ -96,6 +97,7 @@ public class MBItemGroups {
                 entry.accept(MBItems.SMOOTH_GRANITE_SLAB);
                 entry.accept(MBItems.CHISELED_DIORITE_BRICKS);
                 entry.accept(MBItems.DIORITE_BRICKS);
+                entry.accept(MBItems.CRACKED_DIORITE_BRICKS);
                 entry.accept(MBItems.DIORITE_BRICKS_STAIRS);
                 entry.accept(MBItems.DIORITE_BRICKS_SLAB);
                 entry.accept(MBItems.DIORITE_BRICKS_WALL);
@@ -113,6 +115,7 @@ public class MBItemGroups {
                 entry.accept(MBItems.SMOOTH_DIORITE_SLAB);
                 entry.accept(MBItems.CHISELED_ANDESITE_BRICKS);
                 entry.accept(MBItems.ANDESITE_BRICKS);
+                entry.accept(MBItems.CRACKED_ANDESITE_BRICKS);
                 entry.accept(MBItems.ANDESITE_BRICKS_STAIRS);
                 entry.accept(MBItems.ANDESITE_BRICKS_SLAB);
                 entry.accept(MBItems.ANDESITE_BRICKS_WALL);
@@ -288,6 +291,7 @@ public class MBItemGroups {
                 entry.accept(MBItems.CRACKED_END_STONE_BRICKS);
                 entry.accept(MBItems.END_STONE_PILLAR);
                 entry.accept(MBItems.END_STONE_TILES);
+                entry.accept(MBItems.CRACKED_END_STONE_TILES);
                 entry.accept(MBItems.END_STONE_TILES_STAIRS);
                 entry.accept(MBItems.END_STONE_TILES_SLAB);
                 entry.accept(MBItems.END_STONE_TILES_WALL);
@@ -303,6 +307,7 @@ public class MBItemGroups {
                 entry.accept(MBItems.CHISELED_PURPUR);
                 entry.accept(MBItems.CRACKED_PURPUR_BLOCK);
                 entry.accept(MBItems.PURPUR_TILES);
+                entry.accept(MBItems.CRACKED_PURPUR_TILES);
                 entry.accept(MBItems.PURPUR_TILES_STAIRS);
                 entry.accept(MBItems.PURPUR_TILES_SLAB);
                 entry.accept(MBItems.PURPUR_TILES_WALL);
@@ -379,7 +384,7 @@ public class MBItemGroups {
                 entry.accept(MBItems.SOUL_SANDSTONE);
                 entry.accept(MBItems.SOUL_SANDSTONE_STAIRS);
                 entry.accept(MBItems.SOUL_SANDSTONE_SLAB);
-                //entry.accept(MBItems.SOUL_SANDSTONE_WALL);
+                entry.accept(MBItems.SOUL_SANDSTONE_WALL);
                 entry.accept(MBItems.CHISELED_SOUL_SANDSTONE);
                 entry.accept(MBItems.SOUL_SANDSTONE_BRICKS);
                 entry.accept(MBItems.CRACKED_SOUL_SANDSTONE_BRICKS);

@@ -1,30 +1,26 @@
 package net.seface.moreblocks.item;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import net.seface.moreblocks.block.CracklableBlockManager;
+import net.seface.moreblocks.block.featured.FeaturedBlock;
+import net.seface.moreblocks.core.LinkCrackedBlocks;
 import net.seface.moreblocks.block.MBBlockTags;
-
-import java.util.function.Predicate;
 
 public class CrackingToolItem extends Item {
     private final Minecraft minecraft = Minecraft.getInstance();
@@ -50,7 +46,7 @@ public class CrackingToolItem extends Item {
                 handItem.hurtAndBreak(1, player, (p -> p.broadcastBreakEvent(hand)));
             }
 
-            BlockState crackedVersion = CracklableBlockManager.getCrackedVersion(clickedBlock.getBlock()).defaultBlockState();
+            BlockState crackedVersion = LinkCrackedBlocks.getCrackedFrom(clickedBlock.getBlock()).defaultBlockState();
 
             level.setBlock(hitPos, crackedVersion, 11);
             level.gameEvent(GameEvent.BLOCK_CHANGE, hitPos, GameEvent.Context.of(player, crackedVersion));

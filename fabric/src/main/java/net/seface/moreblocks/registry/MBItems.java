@@ -370,6 +370,7 @@ public class MBItems {
     public static final Item SOUL_SANDSTONE = new BlockItem(MBBlocks.SOUL_SANDSTONE, new Item.Properties());
     public static final Item SOUL_SANDSTONE_SLAB = new BlockItem(MBBlocks.SOUL_SANDSTONE_SLAB, new Item.Properties());
     public static final Item SOUL_SANDSTONE_STAIRS = new BlockItem(MBBlocks.SOUL_SANDSTONE_STAIRS, new Item.Properties());
+    public static final Item SOUL_SANDSTONE_WALL = new BlockItem(MBBlocks.SOUL_SANDSTONE_WALL, new Item.Properties());
     public static final Item CUT_SOUL_SANDSTONE = new BlockItem(MBBlocks.CUT_SOUL_SANDSTONE, new Item.Properties());
     public static final Item CUT_SOUL_SANDSTONE_SLAB = new BlockItem(MBBlocks.CUT_SOUL_SANDSTONE_SLAB, new Item.Properties());
     public static final Item SMOOTH_SOUL_SANDSTONE = new BlockItem(MBBlocks.SMOOTH_SOUL_SANDSTONE, new Item.Properties());
@@ -945,6 +946,7 @@ public class MBItems {
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "soul_sandstone"), SOUL_SANDSTONE);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "soul_sandstone_slab"), SOUL_SANDSTONE_SLAB);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "soul_sandstone_stairs"), SOUL_SANDSTONE_STAIRS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "soul_sandstone_wall"), SOUL_SANDSTONE_WALL);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cut_soul_sandstone"), CUT_SOUL_SANDSTONE);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cut_soul_sandstone_slab"), CUT_SOUL_SANDSTONE_SLAB);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "smooth_soul_sandstone"), SMOOTH_SOUL_SANDSTONE);
