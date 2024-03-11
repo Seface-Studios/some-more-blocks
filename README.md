@@ -19,6 +19,8 @@ More Blocks is a vanilla-like project which will add blocks that should exist an
 > Have you found any bugs or inconsistencies in the new blocks? Please open an [issue](https://github.com/Seface-Blocks/more-blocks-mod/issues) for us to review and correct in future versions.
 
 <div style="text-align: right">
-<h3>Seface Studios</h3>
-<a title='Follow us on X' href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> - <a href="https://x.com/SefaceStudios" />@SefaceStudios</a>
+  <h3>Seface Studios</h3>
+  <span>
+    <a title='Follow us on X' href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> - <a href="https://x.com/SefaceStudios">@SefaceStudios</a>
+  </span>
 </div>
