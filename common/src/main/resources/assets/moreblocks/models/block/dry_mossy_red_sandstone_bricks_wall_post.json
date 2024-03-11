@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_wall_post",
-  "textures": {
-    "wall": "moreblocks:block/dry_mossy_red_sandstone_bricks"
-  }
-}

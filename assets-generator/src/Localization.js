@@ -7,6 +7,7 @@ export class Localization {
   static data = {
     ...Localization.addItemGroups(),
     ...Localization.addPlants(),
+    ...Localization.addCrackingTools(),
   }
 
   static add(namespace, id, name) {
@@ -37,6 +38,8 @@ export class Localization {
       'block.moreblocks.tall_dune_grass': 'Tall Dune Grass',
       'block.moreblocks.snow_grass': 'Snow Grass',
       'block.moreblocks.tall_snow_grass': 'Tall Snow Grass',
+      'block.moreblocks.snow_fern': 'Snow Fern',
+      'block.moreblocks.tall_snow_fern': 'Tall Snow Fern',
       'block.moreblocks.cattail': 'Cattail',
       'block.moreblocks.leaves_bucket': 'Bucket of Leaves',
       'block.moreblocks.frozen_leaves_bucket': 'Bucket of Frozen Leaves',
@@ -46,6 +49,12 @@ export class Localization {
       'block.moreblocks.luminous_flower': 'Luminous Flower',
       'block.moreblocks.brown_mushroom_colony': 'Brown Mushroom Colony',
       'block.moreblocks.red_mushroom_colony': 'Red Mushroom Colony',
+    }
+  }
+
+  static addCrackingTools() {
+    return {
+      'item.moreblocks.cracking_tool': 'Cracking Tool',
     }
   }
 }

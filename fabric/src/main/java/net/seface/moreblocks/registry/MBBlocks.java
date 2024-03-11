@@ -15,7 +15,6 @@ import net.seface.moreblocks.MoreBlocks;
 import net.seface.moreblocks.block.*;
 import net.seface.moreblocks.block.BigLilyPadBlock;
 import net.seface.moreblocks.block.featured.*;
-import net.seface.moreblocks.mixin.StairBlockMixin;
 
 public class MBBlocks {
     public static final Block PACKED_SNOW = new Block(FabricBlockSettings.copyOf(Blocks.SNOW_BLOCK));
@@ -150,10 +149,10 @@ public class MBBlocks {
     public static final Block RED_SANDSTONE_BRICKS_STAIRS = new StairBlock(RED_SANDSTONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.RED_SANDSTONE_BRICKS));
     public static final Block RED_SANDSTONE_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.RED_SANDSTONE_BRICKS).solid());
     public static final Block CRACKED_RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE));
-    public static final Block DRY_MOSSY_RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE));
-    public static final Block DRY_MOSSY_RED_SANDSTONE_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.DRY_MOSSY_RED_SANDSTONE_BRICKS));
-    public static final Block DRY_MOSSY_RED_SANDSTONE_BRICKS_STAIRS = new StairBlock(DRY_MOSSY_RED_SANDSTONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.DRY_MOSSY_RED_SANDSTONE_BRICKS));
-    public static final Block DRY_MOSSY_RED_SANDSTONE_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.DRY_MOSSY_RED_SANDSTONE_BRICKS).solid());
+    public static final Block MOSSY_RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE));
+    public static final Block MOSSY_RED_SANDSTONE_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_RED_SANDSTONE_BRICKS));
+    public static final Block MOSSY_RED_SANDSTONE_BRICKS_STAIRS = new StairBlock(MOSSY_RED_SANDSTONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.MOSSY_RED_SANDSTONE_BRICKS));
+    public static final Block MOSSY_RED_SANDSTONE_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_RED_SANDSTONE_BRICKS).solid());
     public static final Block RED_SANDSTONE_TILES = new Block(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE));
     public static final Block RED_SANDSTONE_TILES_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.RED_SANDSTONE_TILES));
     public static final Block RED_SANDSTONE_TILES_STAIRS = new StairBlock(RED_SANDSTONE_TILES.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.RED_SANDSTONE_TILES));
@@ -260,10 +259,10 @@ public class MBBlocks {
     public static final Block SANDSTONE_BRICKS_STAIRS = new StairBlock(SANDSTONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.SANDSTONE_BRICKS));
     public static final Block SANDSTONE_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.SANDSTONE_BRICKS).solid());
     public static final Block CRACKED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE));
-    public static final Block DRY_MOSSY_SANDSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE));
-    public static final Block DRY_MOSSY_SANDSTONE_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.DRY_MOSSY_SANDSTONE_BRICKS));
-    public static final Block DRY_MOSSY_SANDSTONE_BRICKS_STAIRS = new StairBlock(DRY_MOSSY_SANDSTONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.DRY_MOSSY_SANDSTONE_BRICKS));
-    public static final Block DRY_MOSSY_SANDSTONE_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.DRY_MOSSY_SANDSTONE_BRICKS).solid());
+    public static final Block MOSSY_SANDSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE));
+    public static final Block MOSSY_SANDSTONE_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_SANDSTONE_BRICKS));
+    public static final Block MOSSY_SANDSTONE_BRICKS_STAIRS = new StairBlock(MOSSY_SANDSTONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.MOSSY_SANDSTONE_BRICKS));
+    public static final Block MOSSY_SANDSTONE_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_SANDSTONE_BRICKS).solid());
     public static final Block SANDSTONE_TILES = new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE));
     public static final Block SANDSTONE_TILES_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SANDSTONE_TILES));
     public static final Block SANDSTONE_TILES_STAIRS = new StairBlock(SANDSTONE_TILES.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.SANDSTONE_TILES));
@@ -294,11 +293,11 @@ public class MBBlocks {
     public static final Block SMOOTH_PURPUR = new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK));
     public static final Block SMOOTH_PURPUR_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_PURPUR));
     public static final Block CHISELED_PURPUR = new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK));
-    public static final Block CRACKED_PURPUR_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK));
-    public static final Block MOSSY_PURPUR_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK));
-    public static final Block MOSSY_PURPUR_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_PURPUR_BRICKS));
-    public static final Block MOSSY_PURPUR_BRICKS_STAIRS = new StairBlock(MOSSY_PURPUR_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.MOSSY_PURPUR_BRICKS));
-    public static final Block MOSSY_PURPUR_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_PURPUR_BRICKS).solid());
+    public static final Block CRACKED_PURPUR_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK));
+    public static final Block MOSSY_PURPUR_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK));
+    public static final Block MOSSY_PURPUR_BLOCK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_PURPUR_BLOCK));
+    public static final Block MOSSY_PURPUR_BLOCK_STAIRS = new StairBlock(MOSSY_PURPUR_BLOCK.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.MOSSY_PURPUR_BLOCK));
+    public static final Block MOSSY_PURPUR_BLOCK_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_PURPUR_BLOCK).solid());
     public static final Block PURPUR_TILES = new Block(FabricBlockSettings.copyOf(Blocks.PURPUR_BLOCK));
     public static final Block PURPUR_TILES_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.PURPUR_TILES));
     public static final Block PURPUR_TILES_STAIRS = new StairBlock(PURPUR_TILES.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.PURPUR_TILES));
@@ -555,6 +554,8 @@ public class MBBlocks {
     public static final Block DUNE_GRASS = new DuneGrassBlock(TALL_DUNE_GRASS, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
     public static final Block TALL_SNOW_GRASS = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
     public static final Block SNOW_GRASS = new SnowGrassBlock(TALL_SNOW_GRASS, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
+    public static final Block TALL_SNOW_FERN = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.LARGE_FERN));
+    public static final Block SNOW_FERN = new SnowGrassBlock(TALL_SNOW_FERN, FabricBlockSettings.copyOf(Blocks.FERN));
     public static final Block CATTAIL = new CattailBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
     public static final Block SMALL_LILY_PADS = new WaterlilyBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).noCollision());
     public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(MobEffects.HEAL, 7, FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((blockStatex) -> 10));
@@ -570,6 +571,7 @@ public class MBBlocks {
     // Flower Pots
     public static final Block POTTED_TINY_CACTUS = createFlowerPotBlock(TINY_CACTUS);
     public static final Block POTTED_LUMINOUS_FLOWER = createFlowerPotBlock(LUMINOUS_FLOWER, 10);
+    public static final Block POTTED_SNOW_FERN = createFlowerPotBlock(SNOW_FERN);
 
     public static void register() {
         // Plants
@@ -578,6 +580,8 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tall_dune_grass"), TALL_DUNE_GRASS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "snow_grass"), SNOW_GRASS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tall_snow_grass"), TALL_SNOW_GRASS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "snow_fern"), SNOW_FERN);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tall_snow_fern"), TALL_SNOW_FERN);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cattail"), CATTAIL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "small_lily_pads"), SMALL_LILY_PADS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "luminous_flower"), LUMINOUS_FLOWER);
@@ -592,6 +596,7 @@ public class MBBlocks {
 
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "potted_luminous_flower"), POTTED_LUMINOUS_FLOWER);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "potted_tiny_cactus"), POTTED_TINY_CACTUS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "potted_snow_fern"), POTTED_SNOW_FERN);
 
         // Blocks
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "packed_snow"), PACKED_SNOW);
@@ -726,10 +731,10 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "red_sandstone_bricks_stairs"), RED_SANDSTONE_BRICKS_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "red_sandstone_bricks_wall"), RED_SANDSTONE_BRICKS_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_red_sandstone_bricks"), CRACKED_RED_SANDSTONE_BRICKS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dry_mossy_red_sandstone_bricks"), DRY_MOSSY_RED_SANDSTONE_BRICKS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dry_mossy_red_sandstone_bricks_slab"), DRY_MOSSY_RED_SANDSTONE_BRICKS_SLAB);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dry_mossy_red_sandstone_bricks_stairs"), DRY_MOSSY_RED_SANDSTONE_BRICKS_STAIRS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dry_mossy_red_sandstone_bricks_wall"), DRY_MOSSY_RED_SANDSTONE_BRICKS_WALL);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_red_sandstone_bricks"), MOSSY_RED_SANDSTONE_BRICKS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_red_sandstone_bricks_slab"), MOSSY_RED_SANDSTONE_BRICKS_SLAB);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_red_sandstone_bricks_stairs"), MOSSY_RED_SANDSTONE_BRICKS_STAIRS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_red_sandstone_bricks_wall"), MOSSY_RED_SANDSTONE_BRICKS_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "red_sandstone_tiles"), RED_SANDSTONE_TILES);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "red_sandstone_tiles_slab"), RED_SANDSTONE_TILES_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "red_sandstone_tiles_stairs"), RED_SANDSTONE_TILES_STAIRS);
@@ -836,10 +841,10 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "sandstone_bricks_stairs"), SANDSTONE_BRICKS_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "sandstone_bricks_wall"), SANDSTONE_BRICKS_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_sandstone_bricks"), CRACKED_SANDSTONE_BRICKS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dry_mossy_sandstone_bricks"), DRY_MOSSY_SANDSTONE_BRICKS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dry_mossy_sandstone_bricks_slab"), DRY_MOSSY_SANDSTONE_BRICKS_SLAB);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dry_mossy_sandstone_bricks_stairs"), DRY_MOSSY_SANDSTONE_BRICKS_STAIRS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dry_mossy_sandstone_bricks_wall"), DRY_MOSSY_SANDSTONE_BRICKS_WALL);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_sandstone_bricks"), MOSSY_SANDSTONE_BRICKS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_sandstone_bricks_slab"), MOSSY_SANDSTONE_BRICKS_SLAB);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_sandstone_bricks_stairs"), MOSSY_SANDSTONE_BRICKS_STAIRS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_sandstone_bricks_wall"), MOSSY_SANDSTONE_BRICKS_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "sandstone_tiles"), SANDSTONE_TILES);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "sandstone_tiles_slab"), SANDSTONE_TILES_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "sandstone_tiles_stairs"), SANDSTONE_TILES_STAIRS);
@@ -870,11 +875,11 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_purpur"), SMOOTH_PURPUR);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_purpur_slab"), SMOOTH_PURPUR_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_purpur"), CHISELED_PURPUR);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_purpur_bricks"), CRACKED_PURPUR_BRICKS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_purpur_bricks"), MOSSY_PURPUR_BRICKS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_purpur_bricks_slab"), MOSSY_PURPUR_BRICKS_SLAB);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_purpur_bricks_stairs"), MOSSY_PURPUR_BRICKS_STAIRS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_purpur_bricks_wall"), MOSSY_PURPUR_BRICKS_WALL);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_purpur_block"), CRACKED_PURPUR_BLOCK);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_purpur_block"), MOSSY_PURPUR_BLOCK);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_purpur_block_slab"), MOSSY_PURPUR_BLOCK_SLAB);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_purpur_block_stairs"), MOSSY_PURPUR_BLOCK_STAIRS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_purpur_block_wall"), MOSSY_PURPUR_BLOCK_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "purpur_tiles"), PURPUR_TILES);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "purpur_tiles_slab"), PURPUR_TILES_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "purpur_tiles_stairs"), PURPUR_TILES_STAIRS);
@@ -1124,6 +1129,48 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_tiles_stairs"), BONE_BLOCK_TILES_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_tiles_wall"), BONE_BLOCK_TILES_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_bone_block_tiles"), CRACKED_BONE_BLOCK_TILES);
+    }
+
+    public static void registerCracklableBlockManager() {
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_STONE_TILES, MBBlocks.STONE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_GRANITE_BRICKS, MBBlocks.GRANITE_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_GRANITE_TILES, MBBlocks.GRANITE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_DIORITE_BRICKS, MBBlocks.DIORITE_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_DIORITE_TILES, MBBlocks.DIORITE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_ANDESITE_BRICKS, MBBlocks.ANDESITE_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_ANDESITE_TILES, MBBlocks.ANDESITE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_CALCITE_BRICKS, MBBlocks.CALCITE_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_CALCITE_TILES, MBBlocks.CALCITE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_TUFF_BRICKS, MBBlocks.TUFF_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_TUFF_BRICKS, Blocks.TUFF_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_TUFF_TILES, MBBlocks.TUFF_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_DRIPSTONE_BRICKS, MBBlocks.DRIPSTONE_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_DRIPSTONE_TILES, MBBlocks.DRIPSTONE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_BRICK_BLOCK, Blocks.BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_MUD_BRICKS, Blocks.MUD_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_MUD_TILES, MBBlocks.MUD_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SANDSTONE_BRICKS, MBBlocks.SANDSTONE_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SANDSTONE_TILES, MBBlocks.SANDSTONE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS, MBBlocks.RED_SANDSTONE_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_RED_SANDSTONE_TILES, MBBlocks.RED_SANDSTONE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_PRISMARINE_BRICKS, Blocks.PRISMARINE_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_PRISMARINE_TILES, MBBlocks.PRISMARINE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_RED_NETHER_BRICKS, Blocks.RED_NETHER_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_POLISHED_BLACKSTONE_TILES, MBBlocks.POLISHED_BLACKSTONE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_END_STONE_BRICKS, Blocks.END_STONE_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_END_STONE_TILES, MBBlocks.END_STONE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_PURPUR_BLOCK, Blocks.PURPUR_BLOCK));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_PURPUR_TILES, MBBlocks.PURPUR_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_QUARTZ_BRICKS, Blocks.QUARTZ_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_CUT_QUARTZ, MBBlocks.CUT_QUARTZ));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_BONE_BLOCK_BRICKS, MBBlocks.BONE_BLOCK_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_BONE_BLOCK_TILES, MBBlocks.BONE_BLOCK_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SOUL_SANDSTONE_BRICKS, MBBlocks.SOUL_SANDSTONE_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SOUL_SANDSTONE_TILES, MBBlocks.SOUL_SANDSTONE_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SNOW_BRICKS, MBBlocks.SNOW_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_SNOW_TILES, MBBlocks.SNOW_TILES));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_ICE_BRICKS, MBBlocks.ICE_BRICKS));
+        CracklableBlockManager.registerCracklableBlock(new CracklableBlockManager(MBBlocks.CRACKED_ICE_TILES, MBBlocks.ICE_TILES));
     }
 
     private static Block createFlowerPotBlock(Block block) {

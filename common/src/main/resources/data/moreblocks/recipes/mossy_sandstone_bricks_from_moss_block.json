@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mossy_sandstone_bricks",
+  "ingredients": [
+    {
+      "item": "moreblocks:sandstone_bricks"
+    },
+    {
+      "item": "minecraft:moss_block"
+    }
+  ],
+  "result": {
+    "item": "moreblocks:mossy_sandstone_bricks"
+  }
+}

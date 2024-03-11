@@ -29,6 +29,7 @@ export class Block {
    *  stoneCuttingWith: string[],
    *  smeltingWith: string,
    *  craftingWith: string
+   *  cracklableWith: string
    * }} options All the configuration of the block.
    */
   constructor(blockName, options, ignoreAutoGenerate = false) {
@@ -40,6 +41,7 @@ export class Block {
     this.stoneCuttingWith = this.options?.stoneCuttingWith || [];
     this.smeltingWith = this.options?.smeltingWith || false;
     this.craftingWith = this.options?.craftingWith || false;
+    this.cracklableWith = this.options?.cracklableWith || false;
 
     this.autoGenerate = !ignoreAutoGenerate ? {
       stairs: this.options?.autoGenerate?.includes('stairs') || false,
@@ -62,6 +64,10 @@ export class Block {
 
     if(blockName.includes('Snow')) {
       BlockTags.tags.mineable_shovel.push(`${this.NAMESPACE}:${this.blockId}`);
+    }
+
+    if (this.cracklableWith) {
+      BlockTags.tags.cracklable.push(this.cracklableWith);
     }
 
     Localization.add(this.NAMESPACE, this.blockId, this.blockName);

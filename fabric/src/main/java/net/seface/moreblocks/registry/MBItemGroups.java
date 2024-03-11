@@ -1,15 +1,15 @@
 package net.seface.moreblocks.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Blocks;
 import net.seface.moreblocks.MoreBlocks;
 
 public class MBItemGroups {
@@ -229,10 +229,10 @@ public class MBItemGroups {
                 entry.accept(MBItems.SANDSTONE_TILES_STAIRS);
                 entry.accept(MBItems.SANDSTONE_TILES_SLAB);
                 entry.accept(MBItems.SANDSTONE_TILES_WALL);
-                entry.accept(MBItems.DRY_MOSSY_SANDSTONE_BRICKS);
-                entry.accept(MBItems.DRY_MOSSY_SANDSTONE_BRICKS_STAIRS);
-                entry.accept(MBItems.DRY_MOSSY_SANDSTONE_BRICKS_SLAB);
-                entry.accept(MBItems.DRY_MOSSY_SANDSTONE_BRICKS_WALL);
+                entry.accept(MBItems.MOSSY_SANDSTONE_BRICKS);
+                entry.accept(MBItems.MOSSY_SANDSTONE_BRICKS_STAIRS);
+                entry.accept(MBItems.MOSSY_SANDSTONE_BRICKS_SLAB);
+                entry.accept(MBItems.MOSSY_SANDSTONE_BRICKS_WALL);
                 entry.accept(MBItems.RED_SANDSTONE_BRICKS);
                 entry.accept(MBItems.CRACKED_RED_SANDSTONE_BRICKS);
                 entry.accept(MBItems.RED_SANDSTONE_BRICKS_STAIRS);
@@ -244,10 +244,10 @@ public class MBItemGroups {
                 entry.accept(MBItems.RED_SANDSTONE_TILES_STAIRS);
                 entry.accept(MBItems.RED_SANDSTONE_TILES_SLAB);
                 entry.accept(MBItems.RED_SANDSTONE_TILES_WALL);
-                entry.accept(MBItems.DRY_MOSSY_RED_SANDSTONE_BRICKS);
-                entry.accept(MBItems.DRY_MOSSY_RED_SANDSTONE_BRICKS_STAIRS);
-                entry.accept(MBItems.DRY_MOSSY_RED_SANDSTONE_BRICKS_SLAB);
-                entry.accept(MBItems.DRY_MOSSY_RED_SANDSTONE_BRICKS_WALL);
+                entry.accept(MBItems.MOSSY_RED_SANDSTONE_BRICKS);
+                entry.accept(MBItems.MOSSY_RED_SANDSTONE_BRICKS_STAIRS);
+                entry.accept(MBItems.MOSSY_RED_SANDSTONE_BRICKS_SLAB);
+                entry.accept(MBItems.MOSSY_RED_SANDSTONE_BRICKS_WALL);
                 entry.accept(MBItems.POLISHED_PRISMARINE);
                 entry.accept(MBItems.POLISHED_PRISMARINE_STAIRS);
                 entry.accept(MBItems.POLISHED_PRISMARINE_SLAB);
@@ -301,15 +301,15 @@ public class MBItemGroups {
                 entry.accept(MBItems.POLISHED_PURPUR_STAIRS);
                 entry.accept(MBItems.POLISHED_PURPUR_SLAB);
                 entry.accept(MBItems.CHISELED_PURPUR);
-                entry.accept(MBItems.CRACKED_PURPUR_BRICKS);
+                entry.accept(MBItems.CRACKED_PURPUR_BLOCK);
                 entry.accept(MBItems.PURPUR_TILES);
                 entry.accept(MBItems.PURPUR_TILES_STAIRS);
                 entry.accept(MBItems.PURPUR_TILES_SLAB);
                 entry.accept(MBItems.PURPUR_TILES_WALL);
-                entry.accept(MBItems.MOSSY_PURPUR_BRICKS);
-                entry.accept(MBItems.MOSSY_PURPUR_BRICKS_STAIRS);
-                entry.accept(MBItems.MOSSY_PURPUR_BRICKS_SLAB);
-                entry.accept(MBItems.MOSSY_PURPUR_BRICKS_WALL);
+                entry.accept(MBItems.MOSSY_PURPUR_BLOCK);
+                entry.accept(MBItems.MOSSY_PURPUR_BLOCK_STAIRS);
+                entry.accept(MBItems.MOSSY_PURPUR_BLOCK_SLAB);
+                entry.accept(MBItems.MOSSY_PURPUR_BLOCK_WALL);
                 entry.accept(MBItems.SMOOTH_PURPUR);
                 entry.accept(MBItems.SMOOTH_PURPUR_SLAB);
                 entry.accept(MBItems.COAL_BRICKS);
@@ -549,6 +549,8 @@ public class MBItemGroups {
                 entry.accept(MBItems.TALL_DUNE_GRASS);
                 entry.accept(MBItems.SNOW_GRASS);
                 entry.accept(MBItems.TALL_SNOW_GRASS);
+                entry.accept(MBItems.SNOW_FERN);
+                entry.accept(MBItems.TALL_SNOW_FERN);
                 entry.accept(MBItems.CATTAIL);
                 entry.accept(MBItems.LEAVES_BUCKET);
                 entry.accept(MBItems.FROZEN_LEAVES_BUCKET);
@@ -560,10 +562,16 @@ public class MBItemGroups {
                 entry.accept(MBItems.RED_MUSHROOM_COLONY);
             }).build();
 
+
+
     public static void register() {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "more_building_blocks"), MORE_BUILDING_BLOCKS);
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "more_colored_blocks"), MORE_COLORED_BLOCKS);
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "more_natural_blocks"), MORE_NATURAL_BLOCKS);
+
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((entry) -> {
+            entry.addAfter(Items.FISHING_ROD, MBItems.CRACKING_TOOL);
+        });
     }
 
     public static void entryWithoutFeatureFlag(CreativeModeTab.ItemDisplayParameters context, CreativeModeTab.Output entry, FeatureFlag feature, Item item) {

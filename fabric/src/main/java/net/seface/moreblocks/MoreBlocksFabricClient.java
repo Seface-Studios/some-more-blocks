@@ -78,6 +78,8 @@ public class MoreBlocksFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.TALL_DUNE_GRASS, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.SNOW_GRASS, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.TALL_SNOW_GRASS, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.SNOW_FERN, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.TALL_SNOW_FERN, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.CATTAIL, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.SMALL_LILY_PADS, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.FROZEN_LEAF_LITTER, RenderType.cutout());
@@ -91,6 +93,7 @@ public class MoreBlocksFabricClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.POTTED_LUMINOUS_FLOWER, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.POTTED_TINY_CACTUS, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.POTTED_SNOW_FERN, RenderType.cutout());
     }
 
     private void registerColorProviders() {

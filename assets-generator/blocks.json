@@ -21,7 +21,12 @@
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
-    { "name": "Cracked Snow Bricks" },
+    {
+      "name": "Cracked Snow Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:snow_bricks"
+      }
+    },
     {
       "name": "Snow Tiles",
       "options": {
@@ -29,7 +34,12 @@
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
-    { "name": "Cracked Snow Tiles" },
+    {
+      "name": "Cracked Snow Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:snow_tiles"
+      }
+    },
     {
       "name": "Snow Pillar",
       "options": {
@@ -46,6 +56,7 @@
     {
       "name": "Mossy Deepslate Bricks",
       "options": {
+        "ignore": ["recipe_crafting_table"],
         "craftingWith": "minecraft:deepslate_bricks",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
@@ -72,7 +83,12 @@
         "stoneCuttingWith": ["minecraft:stone"]
       }
     },
-    { "name": "Cracked Stone Tiles" },
+    {
+      "name": "Cracked Stone Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:stone_tiles"
+      }
+    },
     {
       "name": "Stone Pillar",
       "options": {
@@ -102,7 +118,12 @@
         "stoneCuttingWith": ["minecraft:granite"]
       }
     },
-    { "name": "Cracked Granite Bricks" },
+    {
+      "name": "Cracked Granite Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:granite_bricks"
+      }
+    },
     {
       "name": "Mossy Granite Bricks",
       "options": {
@@ -118,7 +139,12 @@
         "stoneCuttingWith": ["minecraft:granite"]
       }
     },
-    { "name": "Cracked Granite Tiles" },
+    {
+      "name": "Cracked Granite Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:granite_tiles"
+      }
+    },
     {
       "name": "Granite Pillar",
       "options": {
@@ -148,7 +174,12 @@
         "stoneCuttingWith": ["minecraft:diorite"]
       }
     },
-    { "name": "Cracked Diorite Bricks" },
+    {
+      "name": "Cracked Diorite Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:diorite_bricks"
+      }
+    },
     {
       "name": "Mossy Diorite Bricks",
       "options": {
@@ -164,7 +195,12 @@
         "stoneCuttingWith": ["minecraft:diorite"]
       }
     },
-    { "name": "Cracked Diorite Tiles" },
+    {
+      "name": "Cracked Diorite Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:diorite_tiles"
+      }
+    },
     {
       "name": "Diorite Pillar",
       "options": {
@@ -194,7 +230,12 @@
         "stoneCuttingWith": ["minecraft:andesite"]
       }
     },
-    { "name": "Cracked Andesite Bricks" },
+    {
+      "name": "Cracked Andesite Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:andesite_bricks"
+      }
+    },
     {
       "name": "Mossy Andesite Bricks",
       "options": {
@@ -210,7 +251,12 @@
         "stoneCuttingWith": ["minecraft:andesite"]
       }
     },
-    { "name": "Cracked Andesite Tiles" },
+    {
+      "name": "Cracked Andesite Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:andesite_tiles"
+      }
+    },
     {
       "name": "Andesite Pillar",
       "options": {
@@ -239,11 +285,15 @@
         "stoneCuttingWith": ["minecraft:end_stone"]
       }
     },
-    { "name": "Cracked End Stone Bricks" },
+    {
+      "name": "Cracked End Stone Bricks",
+      "options": {
+        "cracklableWith": "minecraft:end_stone_bricks"
+      }
+    },
     {
       "name": "Mossy End Stone Bricks",
       "options": {
-        "ignore": ["recipe_crafting_table"],
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
@@ -255,7 +305,12 @@
         "stoneCuttingWith": ["minecraft:end_stone"]
       }
     },
-    { "name": "Cracked End Stone Tiles" },
+    {
+      "name": "Cracked End Stone Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:end_stone_tiles"
+      }
+    },
     {
       "name": "End Stone Pillar",
       "options": {
@@ -291,6 +346,7 @@
     {
       "name": "Cracked Tuff Bricks",
       "options": {
+        "cracklableWith": "moreblocks:tuff_bricks",
         "ignore": ["block_model", "blockstate"]
       }
     },
@@ -315,6 +371,7 @@
     {
       "name": "Cracked Tuff Tiles",
       "options": {
+        "cracklableWith": "moreblocks:tuff_tiles",
         "ignore": ["block_model", "blockstate"]
       }
     },
@@ -335,11 +392,16 @@
         "stoneCuttingWith": ["minecraft:red_sandstone"]
       }
     },
-    { "name": "Cracked Red Sandstone Bricks" },
     {
-      "name": "Dry Mossy Red Sandstone Bricks",
+      "name": "Cracked Red Sandstone Bricks",
       "options": {
-        "ignore": ["recipe_crafting_table"],
+        "cracklableWith": "moreblocks:red_sandstone_bricks"
+      }
+    },
+    {
+      "name": "Mossy Red Sandstone Bricks",
+      "options": {
+        "craftingWith": "moreblocks:red_sandstone_bricks",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
@@ -351,7 +413,12 @@
         "stoneCuttingWith": ["minecraft:red_sandstone"]
       }
     },
-    { "name": "Cracked Red Sandstone Tiles" },
+    {
+      "name": "Cracked Red Sandstone Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:red_sandstone_tiles"
+      }
+    },
     {
       "name": "Red Sandstone Pillar",
       "options": {
@@ -388,10 +455,16 @@
         "stoneCuttingWith": ["minecraft:calcite"]
       }
     },
-    { "name": "Cracked Calcite Bricks" },
+    {
+      "name": "Cracked Calcite Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:calcite_bricks"
+      }
+    },
     {
       "name": "Mossy Calcite Bricks",
       "options": {
+        "ignore": ["recipe_crafting_table"],
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
@@ -403,7 +476,12 @@
         "stoneCuttingWith": ["minecraft:calcite"]
       }
     },
-    { "name": "Cracked Calcite Tiles" },
+    {
+      "name": "Cracked Calcite Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:calcite_tiles"
+      }
+    },
     {
       "name": "Calcite Pillar",
       "options": {
@@ -440,10 +518,16 @@
         "stoneCuttingWith": ["minecraft:dripstone_block"]
       }
     },
-    { "name": "Cracked Dripstone Bricks" },
+    {
+      "name": "Cracked Dripstone Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:dripstone_bricks"
+      }
+    },
     {
       "name": "Mossy Dripstone Bricks",
       "options": {
+        "ignore": ["recipe_crafting_table"],
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
@@ -455,7 +539,12 @@
         "stoneCuttingWith": ["minecraft:dripstone_block"]
       }
     },
-    { "name": "Cracked Dripstone Tiles" },
+    {
+      "name": "Cracked Dripstone Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:dripstone_tiles"
+      }
+    },
     {
       "name": "Dripstone Pillar",
       "options": {
@@ -484,7 +573,12 @@
         "stoneCuttingWith": ["minecraft:prismarine"]
       }
     },
-    { "name": "Cracked Prismarine Bricks" },
+    {
+      "name": "Cracked Prismarine Bricks",
+      "options": {
+        "cracklableWith": "minecraft:prismarine_bricks"
+      }
+    },
     {
       "__note": "Should be craftable with 'minecraft:prismarine_bricks + minecraft:kelp'",
       "name": "Mossy Prismarine Bricks",
@@ -501,7 +595,12 @@
         "stoneCuttingWith": ["minecraft:prismarine"]
       }
     },
-    { "name": "Cracked Prismarine Tiles" },
+    {
+      "name": "Cracked Prismarine Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:prismarine_tiles"
+      }
+    },
     {
       "name": "Prismarine Pillar",
       "options": {
@@ -530,7 +629,12 @@
         "stoneCuttingWith": ["minecraft:blackstone"]
       }
     },
-    { "name": "Cracked Polished Blackstone Tiles" },
+    {
+      "name": "Cracked Polished Blackstone Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:polished_blackstone_tiles"
+      }
+    },
     {
       "name": "Blackstone Pillar",
       "options": {
@@ -538,7 +642,12 @@
         "stoneCuttingWith": ["minecraft:blackstone"]
       }
     },
-    { "name": "Cracked Quartz Bricks" },
+    {
+      "name": "Cracked Quartz Bricks",
+      "options": {
+        "cracklableWith": "minecraft:quartz_bricks"
+      }
+    },
     {
       "__note": "To be defined how should be craftable.",
       "name": "Mossy Quartz Bricks",
@@ -574,7 +683,12 @@
         "stoneCuttingWith": ["minecraft:packed_mud"]
       }
     },
-    { "name": "Cracked Mud Bricks" },
+    {
+      "name": "Cracked Mud Bricks",
+      "options": {
+        "cracklableWith": "minecraft:mud_bricks"
+      }
+    },
     {
       "name": "Mossy Mud Bricks",
       "options": {
@@ -588,7 +702,12 @@
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
-    { "name": "Cracked Mud Tiles" },
+    {
+      "name": "Cracked Mud Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:mud_tiles"
+      }
+    },
     { "name": "Mud Pillar" },
     {
       "name": "Sandstone Bricks",
@@ -597,11 +716,16 @@
         "stoneCuttingWith": ["minecraft:sandstone"]
       }
     },
-    { "name": "Cracked Sandstone Bricks" },
     {
-      "name": "Dry Mossy Sandstone Bricks",
+      "name": "Cracked Sandstone Bricks",
       "options": {
-        "ignore": ["recipe_crafting_table"],
+        "cracklableWith": "moreblocks:sandstone_bricks"
+      }
+    },
+    {
+      "name": "Mossy Sandstone Bricks",
+      "options": {
+        "craftingWith": "moreblocks:sandstone_bricks",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
@@ -612,7 +736,12 @@
         "stoneCuttingWith": ["minecraft:sandstone"]
       }
     },
-    { "name": "Cracked Sandstone Tiles" },
+    {
+      "name": "Cracked Sandstone Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:sandstone_tiles"
+      }
+    },
     {
       "name": "Sandstone Pillar",
       "options": {
@@ -632,7 +761,12 @@
         "stoneCuttingWith": ["minecraft:red_nether_bricks"]
       }
     },
-    { "name": "Cracked Red Nether Bricks" },
+    {
+      "name": "Cracked Red Nether Bricks",
+      "options": {
+        "cracklableWith": "minecraft:red_nether_bricks"
+      }
+    },
     {
       "name": "Red Nether Bricks Pillar",
       "options": {
@@ -653,7 +787,12 @@
         "stoneCuttingWith": ["minecraft:packed_ice"]
       }
     },
-    { "name": "Cracked Ice Bricks" },
+    {
+      "name": "Cracked Ice Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:ice_bricks"
+      }
+    },
     {
       "name": "Ice Tiles",
       "options": {
@@ -661,7 +800,12 @@
         "stoneCuttingWith": ["minecraft:packed_ice"]
       }
     },
-    { "name": "Cracked Ice Tiles" },
+    {
+      "name": "Cracked Ice Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:ice_tiles"
+      }
+    },
     {
       "name": "Ice Pillar",
       "options": {
@@ -687,11 +831,16 @@
         "stoneCuttingWith": ["minecraft:purpur_block"]
       }
     },
-    { "name": "Cracked Purpur Bricks" },
     {
-      "name": "Mossy Purpur Bricks",
+      "name": "Cracked Purpur Block",
       "options": {
-        "ignore": ["recipe_crafting_table"],
+        "cracklableWith": "minecraft:purpur_block"
+      }
+    },
+    {
+      "name": "Mossy Purpur Block",
+      "options": {
+        "craftingWith": "minecraft:purpur_block",
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
@@ -702,7 +851,12 @@
         "stoneCuttingWith": ["minecraft:purpur_block"]
       }
     },
-    { "name": "Cracked Purpur Tiles" },
+    {
+      "name": "Cracked Purpur Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:purpur_tiles"
+      }
+    },
     {
       "name": "Terracotta Bricks",
       "options": {
@@ -1140,7 +1294,10 @@
     },
     {
       "name": "Cracked Soul Sandstone Bricks",
-      "options": { "ignore": ["block_model"] }
+      "options": {
+        "cracklableWith": "moreblocks:soul_sandstone_bricks",
+        "ignore": ["block_model"]
+      }
     },
     {
       "name": "Mossy Soul Sandstone Bricks",
@@ -1158,7 +1315,10 @@
     },
     {
       "name": "Cracked Soul Sandstone Tiles",
-      "options": { "ignore": ["block_model"] }
+      "options": {
+        "cracklableWith": "moreblocks:soul_sandstone_tiles",
+        "ignore": ["block_model"]
+      }
     },
     {
       "name": "Soul Sandstone Pillar",
@@ -1412,7 +1572,12 @@
         "autoGenerate": ["slab", "stairs", "wall"]
       }
     },
-    { "name": "Cracked Brick Block" },
+    {
+      "name": "Cracked Brick Block",
+      "options": {
+        "cracklableWith": "minecraft:bricks"
+      }
+    },
     { "name": "Tiled Glass" },
     { "name": "Tiled Tinted Glass" },
     { "name": "White Stained Tiled Glass" },
@@ -1438,7 +1603,12 @@
         "stoneCuttingWith": ["minecraft:bone_block"]
       }
     },
-    { "name": "Cracked Bone Block Bricks" },
+    {
+      "name": "Cracked Bone Block Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:bone_block_bricks"
+      }
+    },
     {
       "name": "Bone Block Tiles",
       "options": {
@@ -1446,6 +1616,11 @@
         "stoneCuttingWith": ["minecraft:bone_block"]
       }
     },
-    { "name": "Cracked Bone Block Tiles" }
+    {
+      "name": "Cracked Bone Block Tiles",
+      "options": {
+        "cracklableWith": "moreblocks:bone_block_tiles"
+      }
+    }
   ]
 }
