@@ -104,8 +104,23 @@ export class Block {
            this.blockName.includes('Wood')
   }
 
+  isBricksVariant() {
+    return !this.isMossyVariant() && !this.isCrackedVariant() &&
+      !this.isCrackedVariant() && !this.isChiseledVariant() &&
+      this.blockName.includes('Bricks');
+  }
+
+  isTilesVariant() {
+    return !this.isCrackedVariant() && !this.isCrackedVariant() &&
+      this.blockName.includes('Tiles');
+  }
+
   isMossyVariant() {
     return this.blockName.includes('Mossy');
+  }
+  
+  isCrackedVariant() {
+    return this.blockName.includes('Cracked');
   }
 
   isChiseledVariant() {
