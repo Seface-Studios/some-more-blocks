@@ -3,6 +3,8 @@ package net.seface.moreblocks;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -24,13 +26,26 @@ public class MoreBlocksForge {
 
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::registerColorProviders);
+        eventBus.addListener(this::commonSetup);
+        eventBus.addListener(MBCreativeTabs::registerOnVanillaTab);
+    }
+
+    private void commonSetup(final FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.LUMINOUS_FLOWER.getId(), MBBlocks.POTTED_LUMINOUS_FLOWER);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.SNOW_FERN.getId(), MBBlocks.POTTED_SNOW_FERN);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.TINY_CACTUS.getId(), MBBlocks.POTTED_TINY_CACTUS);
+            MBBlocks.registerCrackedSystem();
+        });
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
         this.registerBlockRenders();
+        //MBBlocks.registerCrackedSystem();
     }
 
     private void registerBlockRenders() {
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.TILED_GLASS.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.TILED_GLASS.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.TILED_TINTED_GLASS.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.WHITE_STAINED_TILED_GLASS.get(), RenderType.translucent());
@@ -56,12 +71,23 @@ public class MoreBlocksForge {
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.TINY_CACTUS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.DUNE_GRASS.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.TALL_DUNE_GRASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.SNOW_GRASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.TALL_SNOW_GRASS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.SNOW_FERN.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.TALL_SNOW_FERN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.CATTAIL.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.SMALL_LILY_PADS.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(MBBlocks.BIG_LILY_PAD.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.FROZEN_LEAF_LITTER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.LEAF_LITTER.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(MBBlocks.PINK_PETALS_LITTER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.BIG_LILY_PAD.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.BROWN_MUSHROOM_COLONY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.RED_MUSHROOM_COLONY.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.RED_MUSHROOM_COLONY_WALL.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.POTTED_LUMINOUS_FLOWER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.POTTED_TINY_CACTUS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(MBBlocks.POTTED_SNOW_FERN.get(), RenderType.cutout());
     }
 
     private void registerColorProviders(RegisterColorHandlersEvent.Block event) {

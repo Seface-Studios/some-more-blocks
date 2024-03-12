@@ -1,6 +1,7 @@
 package net.seface.moreblocks.registry;
 
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -8,14 +9,18 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.moreblocks.MoreBlocks;
 import net.seface.moreblocks.block.*;
+import net.seface.moreblocks.block.featured.FeaturedBlock;
+import net.seface.moreblocks.block.featured.FeaturedRotatedPillarBlock;
+import net.seface.moreblocks.core.LinkCrackedBlocks;
+import org.intellij.lang.annotations.Flow;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.function.Supplier;
 
 public class MBBlocks {
@@ -30,12 +35,12 @@ public class MBBlocks {
     public static final RegistryObject<Block> SNOW_BRICKS = registerBlock("snow_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
     public static final RegistryObject<Block> SNOW_BRICKS_SLAB = registerBlock("snow_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SNOW_BRICKS.get())));
     public static final RegistryObject<Block> SNOW_BRICKS_STAIRS = registerBlock("snow_bricks_stairs", () -> new StairBlock(SNOW_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.SNOW_BRICKS.get())));
-    public static final RegistryObject<Block> SNOW_BRICKS_WALL = registerBlock("snow_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SNOW_BRICKS.get())));
+    public static final RegistryObject<Block> SNOW_BRICKS_WALL = registerBlock("snow_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SNOW_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_SNOW_BRICKS = registerBlock("cracked_snow_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
     public static final RegistryObject<Block> SNOW_TILES = registerBlock("snow_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
     public static final RegistryObject<Block> SNOW_TILES_SLAB = registerBlock("snow_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SNOW_TILES.get())));
     public static final RegistryObject<Block> SNOW_TILES_STAIRS = registerBlock("snow_tiles_stairs", () -> new StairBlock(SNOW_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.SNOW_TILES.get())));
-    public static final RegistryObject<Block> SNOW_TILES_WALL = registerBlock("snow_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SNOW_TILES.get())));
+    public static final RegistryObject<Block> SNOW_TILES_WALL = registerBlock("snow_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SNOW_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_SNOW_TILES = registerBlock("cracked_snow_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
     public static final RegistryObject<Block> SNOW_PILLAR = registerBlock("snow_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW_BLOCK)));
     public static final RegistryObject<Block> SMOOTH_DEEPSLATE = registerBlock("smooth_deepslate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
@@ -43,7 +48,7 @@ public class MBBlocks {
     public static final RegistryObject<Block> MOSSY_DEEPSLATE_BRICKS = registerBlock("mossy_deepslate_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
     public static final RegistryObject<Block> MOSSY_DEEPSLATE_BRICKS_SLAB = registerBlock("mossy_deepslate_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DEEPSLATE_BRICKS.get())));
     public static final RegistryObject<Block> MOSSY_DEEPSLATE_BRICKS_STAIRS = registerBlock("mossy_deepslate_bricks_stairs", () -> new StairBlock(MOSSY_DEEPSLATE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DEEPSLATE_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_DEEPSLATE_BRICKS_WALL = registerBlock("mossy_deepslate_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DEEPSLATE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_DEEPSLATE_BRICKS_WALL = registerBlock("mossy_deepslate_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DEEPSLATE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> DEEPSLATE_PILLAR = registerBlock("deepslate_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS)));
     public static final RegistryObject<Block> POLISHED_STONE = registerBlock("polished_stone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE)));
     public static final RegistryObject<Block> POLISHED_STONE_SLAB = registerBlock("polished_stone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.POLISHED_STONE.get())));
@@ -51,7 +56,7 @@ public class MBBlocks {
     public static final RegistryObject<Block> STONE_TILES = registerBlock("stone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
     public static final RegistryObject<Block> STONE_TILES_SLAB = registerBlock("stone_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.STONE_TILES.get())));
     public static final RegistryObject<Block> STONE_TILES_STAIRS = registerBlock("stone_tiles_stairs", () -> new StairBlock(STONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.STONE_TILES.get())));
-    public static final RegistryObject<Block> STONE_TILES_WALL = registerBlock("stone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.STONE_TILES.get())));
+    public static final RegistryObject<Block> STONE_TILES_WALL = registerBlock("stone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.STONE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_STONE_TILES = registerBlock("cracked_stone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
     public static final RegistryObject<Block> STONE_PILLAR = registerBlock("stone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
     public static final RegistryObject<Block> SMOOTH_GRANITE = registerBlock("smooth_granite", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE)));
@@ -60,16 +65,16 @@ public class MBBlocks {
     public static final RegistryObject<Block> GRANITE_BRICKS = registerBlock("granite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE)));
     public static final RegistryObject<Block> GRANITE_BRICKS_SLAB = registerBlock("granite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.GRANITE_BRICKS.get())));
     public static final RegistryObject<Block> GRANITE_BRICKS_STAIRS = registerBlock("granite_bricks_stairs", () -> new StairBlock(GRANITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.GRANITE_BRICKS.get())));
-    public static final RegistryObject<Block> GRANITE_BRICKS_WALL = registerBlock("granite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.GRANITE_BRICKS.get())));
+    public static final RegistryObject<Block> GRANITE_BRICKS_WALL = registerBlock("granite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.GRANITE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_GRANITE_BRICKS = registerBlock("cracked_granite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE)));
     public static final RegistryObject<Block> MOSSY_GRANITE_BRICKS = registerBlock("mossy_granite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE)));
     public static final RegistryObject<Block> MOSSY_GRANITE_BRICKS_SLAB = registerBlock("mossy_granite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_GRANITE_BRICKS.get())));
     public static final RegistryObject<Block> MOSSY_GRANITE_BRICKS_STAIRS = registerBlock("mossy_granite_bricks_stairs", () -> new StairBlock(MOSSY_GRANITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_GRANITE_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_GRANITE_BRICKS_WALL = registerBlock("mossy_granite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_GRANITE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_GRANITE_BRICKS_WALL = registerBlock("mossy_granite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_GRANITE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> GRANITE_TILES = registerBlock("granite_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE)));
     public static final RegistryObject<Block> GRANITE_TILES_SLAB = registerBlock("granite_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.GRANITE_TILES.get())));
     public static final RegistryObject<Block> GRANITE_TILES_STAIRS = registerBlock("granite_tiles_stairs", () -> new StairBlock(GRANITE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.GRANITE_TILES.get())));
-    public static final RegistryObject<Block> GRANITE_TILES_WALL = registerBlock("granite_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.GRANITE_TILES.get())));
+    public static final RegistryObject<Block> GRANITE_TILES_WALL = registerBlock("granite_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.GRANITE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_GRANITE_TILES = registerBlock("cracked_granite_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE)));
     public static final RegistryObject<Block> GRANITE_PILLAR = registerBlock("granite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE)));
     public static final RegistryObject<Block> SMOOTH_DIORITE = registerBlock("smooth_diorite", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE)));
@@ -78,16 +83,16 @@ public class MBBlocks {
     public static final RegistryObject<Block> DIORITE_BRICKS = registerBlock("diorite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE)));
     public static final RegistryObject<Block> DIORITE_BRICKS_SLAB = registerBlock("diorite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DIORITE_BRICKS.get())));
     public static final RegistryObject<Block> DIORITE_BRICKS_STAIRS = registerBlock("diorite_bricks_stairs", () -> new StairBlock(DIORITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.DIORITE_BRICKS.get())));
-    public static final RegistryObject<Block> DIORITE_BRICKS_WALL = registerBlock("diorite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DIORITE_BRICKS.get())));
+    public static final RegistryObject<Block> DIORITE_BRICKS_WALL = registerBlock("diorite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DIORITE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_DIORITE_BRICKS = registerBlock("cracked_diorite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE)));
     public static final RegistryObject<Block> MOSSY_DIORITE_BRICKS = registerBlock("mossy_diorite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE)));
     public static final RegistryObject<Block> MOSSY_DIORITE_BRICKS_SLAB = registerBlock("mossy_diorite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DIORITE_BRICKS.get())));
     public static final RegistryObject<Block> MOSSY_DIORITE_BRICKS_STAIRS = registerBlock("mossy_diorite_bricks_stairs", () -> new StairBlock(MOSSY_DIORITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DIORITE_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_DIORITE_BRICKS_WALL = registerBlock("mossy_diorite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DIORITE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_DIORITE_BRICKS_WALL = registerBlock("mossy_diorite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DIORITE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> DIORITE_TILES = registerBlock("diorite_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE)));
     public static final RegistryObject<Block> DIORITE_TILES_SLAB = registerBlock("diorite_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DIORITE_TILES.get())));
     public static final RegistryObject<Block> DIORITE_TILES_STAIRS = registerBlock("diorite_tiles_stairs", () -> new StairBlock(DIORITE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.DIORITE_TILES.get())));
-    public static final RegistryObject<Block> DIORITE_TILES_WALL = registerBlock("diorite_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DIORITE_TILES.get())));
+    public static final RegistryObject<Block> DIORITE_TILES_WALL = registerBlock("diorite_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DIORITE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_DIORITE_TILES = registerBlock("cracked_diorite_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE)));
     public static final RegistryObject<Block> DIORITE_PILLAR = registerBlock("diorite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE)));
     public static final RegistryObject<Block> SMOOTH_ANDESITE = registerBlock("smooth_andesite", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE)));
@@ -96,16 +101,16 @@ public class MBBlocks {
     public static final RegistryObject<Block> ANDESITE_BRICKS = registerBlock("andesite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE)));
     public static final RegistryObject<Block> ANDESITE_BRICKS_SLAB = registerBlock("andesite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ANDESITE_BRICKS.get())));
     public static final RegistryObject<Block> ANDESITE_BRICKS_STAIRS = registerBlock("andesite_bricks_stairs", () -> new StairBlock(ANDESITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.ANDESITE_BRICKS.get())));
-    public static final RegistryObject<Block> ANDESITE_BRICKS_WALL = registerBlock("andesite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ANDESITE_BRICKS.get())));
+    public static final RegistryObject<Block> ANDESITE_BRICKS_WALL = registerBlock("andesite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ANDESITE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_ANDESITE_BRICKS = registerBlock("cracked_andesite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE)));
     public static final RegistryObject<Block> MOSSY_ANDESITE_BRICKS = registerBlock("mossy_andesite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE)));
     public static final RegistryObject<Block> MOSSY_ANDESITE_BRICKS_SLAB = registerBlock("mossy_andesite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_ANDESITE_BRICKS.get())));
     public static final RegistryObject<Block> MOSSY_ANDESITE_BRICKS_STAIRS = registerBlock("mossy_andesite_bricks_stairs", () -> new StairBlock(MOSSY_ANDESITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_ANDESITE_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_ANDESITE_BRICKS_WALL = registerBlock("mossy_andesite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_ANDESITE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_ANDESITE_BRICKS_WALL = registerBlock("mossy_andesite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_ANDESITE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> ANDESITE_TILES = registerBlock("andesite_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE)));
     public static final RegistryObject<Block> ANDESITE_TILES_SLAB = registerBlock("andesite_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ANDESITE_TILES.get())));
     public static final RegistryObject<Block> ANDESITE_TILES_STAIRS = registerBlock("andesite_tiles_stairs", () -> new StairBlock(ANDESITE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.ANDESITE_TILES.get())));
-    public static final RegistryObject<Block> ANDESITE_TILES_WALL = registerBlock("andesite_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ANDESITE_TILES.get())));
+    public static final RegistryObject<Block> ANDESITE_TILES_WALL = registerBlock("andesite_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ANDESITE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_ANDESITE_TILES = registerBlock("cracked_andesite_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE)));
     public static final RegistryObject<Block> ANDESITE_PILLAR = registerBlock("andesite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE)));
     public static final RegistryObject<Block> POLISHED_END_STONE = registerBlock("polished_end_stone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE)));
@@ -118,35 +123,47 @@ public class MBBlocks {
     public static final RegistryObject<Block> MOSSY_END_STONE_BRICKS = registerBlock("mossy_end_stone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE_BRICKS)));
     public static final RegistryObject<Block> MOSSY_END_STONE_BRICKS_SLAB = registerBlock("mossy_end_stone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_END_STONE_BRICKS.get())));
     public static final RegistryObject<Block> MOSSY_END_STONE_BRICKS_STAIRS = registerBlock("mossy_end_stone_bricks_stairs", () -> new StairBlock(MOSSY_END_STONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_END_STONE_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_END_STONE_BRICKS_WALL = registerBlock("mossy_end_stone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_END_STONE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_END_STONE_BRICKS_WALL = registerBlock("mossy_end_stone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_END_STONE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> END_STONE_TILES = registerBlock("end_stone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE_BRICKS)));
     public static final RegistryObject<Block> END_STONE_TILES_SLAB = registerBlock("end_stone_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.END_STONE_TILES.get())));
     public static final RegistryObject<Block> END_STONE_TILES_STAIRS = registerBlock("end_stone_tiles_stairs", () -> new StairBlock(END_STONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.END_STONE_TILES.get())));
-    public static final RegistryObject<Block> END_STONE_TILES_WALL = registerBlock("end_stone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.END_STONE_TILES.get())));
+    public static final RegistryObject<Block> END_STONE_TILES_WALL = registerBlock("end_stone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.END_STONE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_END_STONE_TILES = registerBlock("cracked_end_stone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE_BRICKS)));
     public static final RegistryObject<Block> END_STONE_PILLAR = registerBlock("end_stone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE_BRICKS)));
+    public static final RegistryObject<Block> TUFF_BRICKS = registerBlock("tuff_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF)));
+    public static final RegistryObject<Block> TUFF_BRICKS_SLAB = registerBlock("tuff_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_BRICKS.get())));
+    public static final RegistryObject<Block> TUFF_BRICKS_STAIRS = registerBlock("tuff_bricks_stairs", () -> new StairBlock(TUFF_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_BRICKS.get())));
+    public static final RegistryObject<Block> TUFF_BRICKS_WALL = registerBlock("tuff_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_BRICKS.get())));
+    public static final RegistryObject<Block> CHISELED_TUFF = registerBlock("chiseled_tuff", () -> new Block(BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_BRICKS.get())));
+    public static final RegistryObject<Block> POLISHED_TUFF = registerBlock("polished_tuff", () -> new Block(BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_BRICKS.get())));
+    public static final RegistryObject<Block> POLISHED_TUFF_SLAB = registerBlock("polished_tuff_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_BRICKS.get())));
+    public static final RegistryObject<Block> POLISHED_TUFF_STAIRS = registerBlock("polished_tuff_stairs", () -> new StairBlock(POLISHED_TUFF.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_BRICKS.get())));
     public static final RegistryObject<Block> SMOOTH_TUFF = registerBlock("smooth_tuff", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF)));
     public static final RegistryObject<Block> SMOOTH_TUFF_SLAB = registerBlock("smooth_tuff_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SMOOTH_TUFF.get())));
-    public static final RegistryObject<Block> CRACKED_TUFF_BRICKS = registerBlock("cracked_tuff_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF_BRICKS)));
-    public static final RegistryObject<Block> TUFF_TILES = registerBlock("tuff_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF_BRICKS)));
-    public static final RegistryObject<Block> TUFF_TILES_SLAB = registerBlock("tuff_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_TILES.get())));
-    public static final RegistryObject<Block> TUFF_TILES_STAIRS = registerBlock("tuff_tiles_stairs", () -> new StairBlock(TUFF_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_TILES.get())));
-    public static final RegistryObject<Block> TUFF_TILES_WALL = registerBlock("tuff_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_TILES.get())));
-    public static final RegistryObject<Block> CRACKED_TUFF_TILES = registerBlock("cracked_tuff_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF_BRICKS)));
-    public static final RegistryObject<Block> TUFF_PILLAR = registerBlock("tuff_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF_BRICKS)));
+    public static final RegistryObject<Block> CRACKED_TUFF_BRICKS = registerBlock("cracked_tuff_bricks", () -> new FeaturedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21));
+    public static final RegistryObject<Block> MOSSY_TUFF_BRICKS = registerBlock("mossy_tuff_bricks", () -> new FeaturedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS).lightLevel(state -> 7), FeatureFlags.UPDATE_1_21));
+    public static final RegistryObject<Block> MOSSY_TUFF_BRICKS_SLAB = registerBlock("mossy_tuff_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_TUFF_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_TUFF_BRICKS_STAIRS = registerBlock("mossy_tuff_bricks_stairs", () -> new StairBlock(MOSSY_TUFF_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_TUFF_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_TUFF_BRICKS_WALL = registerBlock("mossy_tuff_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_TUFF_BRICKS.get())));
+    public static final RegistryObject<Block> TUFF_TILES = registerBlock("tuff_tiles", () -> new FeaturedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21));
+    public static final RegistryObject<Block> TUFF_TILES_SLAB = registerBlock("tuff_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_TILES.get()).sound(SoundType.TUFF_BRICKS)));
+    public static final RegistryObject<Block> TUFF_TILES_STAIRS = registerBlock("tuff_tiles_stairs", () -> new StairBlock(TUFF_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_TILES.get()).sound(SoundType.TUFF_BRICKS)));
+    public static final RegistryObject<Block> TUFF_TILES_WALL = registerBlock("tuff_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_TILES.get()).forceSolidOn().sound(SoundType.TUFF_BRICKS)));
+    public static final RegistryObject<Block> CRACKED_TUFF_TILES = registerBlock("cracked_tuff_tiles", () -> new FeaturedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21));
+    public static final RegistryObject<Block> TUFF_PILLAR = registerBlock("tuff_pillar", () -> new FeaturedRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21));
     public static final RegistryObject<Block> RED_SANDSTONE_BRICKS = registerBlock("red_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SANDSTONE)));
     public static final RegistryObject<Block> RED_SANDSTONE_BRICKS_SLAB = registerBlock("red_sandstone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_SANDSTONE_BRICKS.get())));
     public static final RegistryObject<Block> RED_SANDSTONE_BRICKS_STAIRS = registerBlock("red_sandstone_bricks_stairs", () -> new StairBlock(RED_SANDSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_SANDSTONE_BRICKS.get())));
-    public static final RegistryObject<Block> RED_SANDSTONE_BRICKS_WALL = registerBlock("red_sandstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_SANDSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> RED_SANDSTONE_BRICKS_WALL = registerBlock("red_sandstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_SANDSTONE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_RED_SANDSTONE_BRICKS = registerBlock("cracked_red_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SANDSTONE)));
-    public static final RegistryObject<Block> DRY_MOSSY_RED_SANDSTONE_BRICKS = registerBlock("dry_mossy_red_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SANDSTONE)));
-    public static final RegistryObject<Block> DRY_MOSSY_RED_SANDSTONE_BRICKS_SLAB = registerBlock("dry_mossy_red_sandstone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRY_MOSSY_RED_SANDSTONE_BRICKS.get())));
-    public static final RegistryObject<Block> DRY_MOSSY_RED_SANDSTONE_BRICKS_STAIRS = registerBlock("dry_mossy_red_sandstone_bricks_stairs", () -> new StairBlock(DRY_MOSSY_RED_SANDSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRY_MOSSY_RED_SANDSTONE_BRICKS.get())));
-    public static final RegistryObject<Block> DRY_MOSSY_RED_SANDSTONE_BRICKS_WALL = registerBlock("dry_mossy_red_sandstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRY_MOSSY_RED_SANDSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_RED_SANDSTONE_BRICKS = registerBlock("mossy_red_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SANDSTONE)));
+    public static final RegistryObject<Block> MOSSY_RED_SANDSTONE_BRICKS_SLAB = registerBlock("mossy_red_sandstone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_RED_SANDSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_RED_SANDSTONE_BRICKS_STAIRS = registerBlock("mossy_red_sandstone_bricks_stairs", () -> new StairBlock(MOSSY_RED_SANDSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_RED_SANDSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_RED_SANDSTONE_BRICKS_WALL = registerBlock("mossy_red_sandstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_RED_SANDSTONE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> RED_SANDSTONE_TILES = registerBlock("red_sandstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SANDSTONE)));
     public static final RegistryObject<Block> RED_SANDSTONE_TILES_SLAB = registerBlock("red_sandstone_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_SANDSTONE_TILES.get())));
     public static final RegistryObject<Block> RED_SANDSTONE_TILES_STAIRS = registerBlock("red_sandstone_tiles_stairs", () -> new StairBlock(RED_SANDSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_SANDSTONE_TILES.get())));
-    public static final RegistryObject<Block> RED_SANDSTONE_TILES_WALL = registerBlock("red_sandstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_SANDSTONE_TILES.get())));
+    public static final RegistryObject<Block> RED_SANDSTONE_TILES_WALL = registerBlock("red_sandstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_SANDSTONE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_RED_SANDSTONE_TILES = registerBlock("cracked_red_sandstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SANDSTONE)));
     public static final RegistryObject<Block> RED_SANDSTONE_PILLAR = registerBlock("red_sandstone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SANDSTONE)));
     public static final RegistryObject<Block> POLISHED_CALCITE = registerBlock("polished_calcite", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE)));
@@ -158,16 +175,16 @@ public class MBBlocks {
     public static final RegistryObject<Block> CALCITE_BRICKS = registerBlock("calcite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE)));
     public static final RegistryObject<Block> CALCITE_BRICKS_SLAB = registerBlock("calcite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.CALCITE_BRICKS.get())));
     public static final RegistryObject<Block> CALCITE_BRICKS_STAIRS = registerBlock("calcite_bricks_stairs", () -> new StairBlock(CALCITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.CALCITE_BRICKS.get())));
-    public static final RegistryObject<Block> CALCITE_BRICKS_WALL = registerBlock("calcite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.CALCITE_BRICKS.get())));
+    public static final RegistryObject<Block> CALCITE_BRICKS_WALL = registerBlock("calcite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.CALCITE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_CALCITE_BRICKS = registerBlock("cracked_calcite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE)));
     public static final RegistryObject<Block> MOSSY_CALCITE_BRICKS = registerBlock("mossy_calcite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE)));
     public static final RegistryObject<Block> MOSSY_CALCITE_BRICKS_SLAB = registerBlock("mossy_calcite_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_CALCITE_BRICKS.get())));
     public static final RegistryObject<Block> MOSSY_CALCITE_BRICKS_STAIRS = registerBlock("mossy_calcite_bricks_stairs", () -> new StairBlock(MOSSY_CALCITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_CALCITE_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_CALCITE_BRICKS_WALL = registerBlock("mossy_calcite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_CALCITE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_CALCITE_BRICKS_WALL = registerBlock("mossy_calcite_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_CALCITE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CALCITE_TILES = registerBlock("calcite_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE)));
     public static final RegistryObject<Block> CALCITE_TILES_SLAB = registerBlock("calcite_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.CALCITE_TILES.get())));
     public static final RegistryObject<Block> CALCITE_TILES_STAIRS = registerBlock("calcite_tiles_stairs", () -> new StairBlock(CALCITE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.CALCITE_TILES.get())));
-    public static final RegistryObject<Block> CALCITE_TILES_WALL = registerBlock("calcite_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.CALCITE_TILES.get())));
+    public static final RegistryObject<Block> CALCITE_TILES_WALL = registerBlock("calcite_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.CALCITE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_CALCITE_TILES = registerBlock("cracked_calcite_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE)));
     public static final RegistryObject<Block> CALCITE_PILLAR = registerBlock("calcite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CALCITE)));
     public static final RegistryObject<Block> POLISHED_DRIPSTONE = registerBlock("polished_dripstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIPSTONE_BLOCK)));
@@ -179,16 +196,16 @@ public class MBBlocks {
     public static final RegistryObject<Block> DRIPSTONE_BRICKS = registerBlock("dripstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIPSTONE_BLOCK)));
     public static final RegistryObject<Block> DRIPSTONE_BRICKS_SLAB = registerBlock("dripstone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRIPSTONE_BRICKS.get())));
     public static final RegistryObject<Block> DRIPSTONE_BRICKS_STAIRS = registerBlock("dripstone_bricks_stairs", () -> new StairBlock(DRIPSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRIPSTONE_BRICKS.get())));
-    public static final RegistryObject<Block> DRIPSTONE_BRICKS_WALL = registerBlock("dripstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRIPSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> DRIPSTONE_BRICKS_WALL = registerBlock("dripstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRIPSTONE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_DRIPSTONE_BRICKS = registerBlock("cracked_dripstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIPSTONE_BLOCK)));
     public static final RegistryObject<Block> MOSSY_DRIPSTONE_BRICKS = registerBlock("mossy_dripstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIPSTONE_BLOCK)));
     public static final RegistryObject<Block> MOSSY_DRIPSTONE_BRICKS_SLAB = registerBlock("mossy_dripstone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DRIPSTONE_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_DRIPSTONE_BRICKS_STAIRS = registerBlock("mossy_dripstone_bricks_stairs", () -> new StairBlock(MOSSY_DRIPSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRIPSTONE_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_DRIPSTONE_BRICKS_WALL = registerBlock("mossy_dripstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DRIPSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_DRIPSTONE_BRICKS_STAIRS = registerBlock("mossy_dripstone_bricks_stairs", () -> new StairBlock(MOSSY_DRIPSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DRIPSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_DRIPSTONE_BRICKS_WALL = registerBlock("mossy_dripstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_DRIPSTONE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> DRIPSTONE_TILES = registerBlock("dripstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIPSTONE_BLOCK)));
     public static final RegistryObject<Block> DRIPSTONE_TILES_SLAB = registerBlock("dripstone_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRIPSTONE_TILES.get())));
     public static final RegistryObject<Block> DRIPSTONE_TILES_STAIRS = registerBlock("dripstone_tiles_stairs", () -> new StairBlock(DRIPSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRIPSTONE_TILES.get())));
-    public static final RegistryObject<Block> DRIPSTONE_TILES_WALL = registerBlock("dripstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRIPSTONE_TILES.get())));
+    public static final RegistryObject<Block> DRIPSTONE_TILES_WALL = registerBlock("dripstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRIPSTONE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_DRIPSTONE_TILES = registerBlock("cracked_dripstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIPSTONE_BLOCK)));
     public static final RegistryObject<Block> DRIPSTONE_PILLAR = registerBlock("dripstone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DRIPSTONE_BLOCK)));
     public static final RegistryObject<Block> POLISHED_PRISMARINE = registerBlock("polished_prismarine", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE)));
@@ -201,11 +218,11 @@ public class MBBlocks {
     public static final RegistryObject<Block> MOSSY_PRISMARINE_BRICKS = registerBlock("mossy_prismarine_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
     public static final RegistryObject<Block> MOSSY_PRISMARINE_BRICKS_SLAB = registerBlock("mossy_prismarine_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_PRISMARINE_BRICKS.get())));
     public static final RegistryObject<Block> MOSSY_PRISMARINE_BRICKS_STAIRS = registerBlock("mossy_prismarine_bricks_stairs", () -> new StairBlock(MOSSY_PRISMARINE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_PRISMARINE_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_PRISMARINE_BRICKS_WALL = registerBlock("mossy_prismarine_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_PRISMARINE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_PRISMARINE_BRICKS_WALL = registerBlock("mossy_prismarine_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_PRISMARINE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> PRISMARINE_TILES = registerBlock("prismarine_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
     public static final RegistryObject<Block> PRISMARINE_TILES_SLAB = registerBlock("prismarine_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.PRISMARINE_TILES.get())));
     public static final RegistryObject<Block> PRISMARINE_TILES_STAIRS = registerBlock("prismarine_tiles_stairs", () -> new StairBlock(PRISMARINE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.PRISMARINE_TILES.get())));
-    public static final RegistryObject<Block> PRISMARINE_TILES_WALL = registerBlock("prismarine_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.PRISMARINE_TILES.get())));
+    public static final RegistryObject<Block> PRISMARINE_TILES_WALL = registerBlock("prismarine_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.PRISMARINE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_PRISMARINE_TILES = registerBlock("cracked_prismarine_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
     public static final RegistryObject<Block> PRISMARINE_PILLAR = registerBlock("prismarine_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS)));
     public static final RegistryObject<Block> SMOOTH_BLACKSTONE = registerBlock("smooth_blackstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE)));
@@ -213,52 +230,50 @@ public class MBBlocks {
     public static final RegistryObject<Block> CORRUPTED_POLISHED_BLACKSTONE_BRICKS = registerBlock("corrupted_polished_blackstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICKS)));
     public static final RegistryObject<Block> CORRUPTED_POLISHED_BLACKSTONE_BRICKS_SLAB = registerBlock("corrupted_polished_blackstone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get())));
     public static final RegistryObject<Block> CORRUPTED_POLISHED_BLACKSTONE_BRICKS_STAIRS = registerBlock("corrupted_polished_blackstone_bricks_stairs", () -> new StairBlock(CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get())));
-    public static final RegistryObject<Block> CORRUPTED_POLISHED_BLACKSTONE_BRICKS_WALL = registerBlock("corrupted_polished_blackstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> CORRUPTED_POLISHED_BLACKSTONE_BRICKS_WALL = registerBlock("corrupted_polished_blackstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> POLISHED_BLACKSTONE_TILES = registerBlock("polished_blackstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICKS)));
     public static final RegistryObject<Block> POLISHED_BLACKSTONE_TILES_SLAB = registerBlock("polished_blackstone_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.POLISHED_BLACKSTONE_TILES.get())));
     public static final RegistryObject<Block> POLISHED_BLACKSTONE_TILES_STAIRS = registerBlock("polished_blackstone_tiles_stairs", () -> new StairBlock(POLISHED_BLACKSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.POLISHED_BLACKSTONE_TILES.get())));
-    public static final RegistryObject<Block> POLISHED_BLACKSTONE_TILES_WALL = registerBlock("polished_blackstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.POLISHED_BLACKSTONE_TILES.get())));
+    public static final RegistryObject<Block> POLISHED_BLACKSTONE_TILES_WALL = registerBlock("polished_blackstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.POLISHED_BLACKSTONE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_POLISHED_BLACKSTONE_TILES = registerBlock("cracked_polished_blackstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICKS)));
     public static final RegistryObject<Block> BLACKSTONE_PILLAR = registerBlock("blackstone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICKS)));
-    public static final RegistryObject<Block> SMOOTH_QUARTZ = registerBlock("smooth_quartz", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BLOCK)));
-    public static final RegistryObject<Block> SMOOTH_QUARTZ_SLAB = registerBlock("smooth_quartz_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SMOOTH_QUARTZ.get())));
     public static final RegistryObject<Block> CRACKED_QUARTZ_BRICKS = registerBlock("cracked_quartz_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BRICKS)));
     public static final RegistryObject<Block> MOSSY_QUARTZ_BRICKS = registerBlock("mossy_quartz_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BRICKS)));
     public static final RegistryObject<Block> MOSSY_QUARTZ_BRICKS_SLAB = registerBlock("mossy_quartz_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_QUARTZ_BRICKS.get())));
     public static final RegistryObject<Block> MOSSY_QUARTZ_BRICKS_STAIRS = registerBlock("mossy_quartz_bricks_stairs", () -> new StairBlock(MOSSY_QUARTZ_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_QUARTZ_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_QUARTZ_BRICKS_WALL = registerBlock("mossy_quartz_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_QUARTZ_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_QUARTZ_BRICKS_WALL = registerBlock("mossy_quartz_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_QUARTZ_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CUT_QUARTZ = registerBlock("cut_quartz", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BRICKS)));
     public static final RegistryObject<Block> CRACKED_CUT_QUARTZ = registerBlock("cracked_cut_quartz", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BRICKS)));
-    public static final RegistryObject<Block> POLISHED_MUD = registerBlock("polished_mud", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD)));
+    public static final RegistryObject<Block> POLISHED_MUD = registerBlock("polished_mud", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)));
     public static final RegistryObject<Block> POLISHED_MUD_SLAB = registerBlock("polished_mud_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.POLISHED_MUD.get())));
     public static final RegistryObject<Block> POLISHED_MUD_STAIRS = registerBlock("polished_mud_stairs", () -> new StairBlock(POLISHED_MUD.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.POLISHED_MUD.get())));
-    public static final RegistryObject<Block> SMOOTH_MUD = registerBlock("smooth_mud", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD)));
+    public static final RegistryObject<Block> SMOOTH_MUD = registerBlock("smooth_mud", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)));
     public static final RegistryObject<Block> SMOOTH_MUD_SLAB = registerBlock("smooth_mud_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SMOOTH_MUD.get())));
-    public static final RegistryObject<Block> CHISELED_MUD = registerBlock("chiseled_mud", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD)));
+    public static final RegistryObject<Block> CHISELED_MUD = registerBlock("chiseled_mud", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)));
     public static final RegistryObject<Block> CRACKED_MUD_BRICKS = registerBlock("cracked_mud_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)));
     public static final RegistryObject<Block> MOSSY_MUD_BRICKS = registerBlock("mossy_mud_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)));
     public static final RegistryObject<Block> MOSSY_MUD_BRICKS_SLAB = registerBlock("mossy_mud_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_MUD_BRICKS.get())));
     public static final RegistryObject<Block> MOSSY_MUD_BRICKS_STAIRS = registerBlock("mossy_mud_bricks_stairs", () -> new StairBlock(MOSSY_MUD_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_MUD_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_MUD_BRICKS_WALL = registerBlock("mossy_mud_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_MUD_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_MUD_BRICKS_WALL = registerBlock("mossy_mud_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_MUD_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> MUD_TILES = registerBlock("mud_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)));
     public static final RegistryObject<Block> MUD_TILES_SLAB = registerBlock("mud_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MUD_TILES.get())));
     public static final RegistryObject<Block> MUD_TILES_STAIRS = registerBlock("mud_tiles_stairs", () -> new StairBlock(MUD_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MUD_TILES.get())));
-    public static final RegistryObject<Block> MUD_TILES_WALL = registerBlock("mud_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MUD_TILES.get())));
+    public static final RegistryObject<Block> MUD_TILES_WALL = registerBlock("mud_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MUD_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_MUD_TILES = registerBlock("cracked_mud_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)));
     public static final RegistryObject<Block> MUD_PILLAR = registerBlock("mud_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD_BRICKS)));
     public static final RegistryObject<Block> SANDSTONE_BRICKS = registerBlock("sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
     public static final RegistryObject<Block> SANDSTONE_BRICKS_SLAB = registerBlock("sandstone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SANDSTONE_BRICKS.get())));
     public static final RegistryObject<Block> SANDSTONE_BRICKS_STAIRS = registerBlock("sandstone_bricks_stairs", () -> new StairBlock(SANDSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.SANDSTONE_BRICKS.get())));
-    public static final RegistryObject<Block> SANDSTONE_BRICKS_WALL = registerBlock("sandstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SANDSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> SANDSTONE_BRICKS_WALL = registerBlock("sandstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SANDSTONE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_SANDSTONE_BRICKS = registerBlock("cracked_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
-    public static final RegistryObject<Block> DRY_MOSSY_SANDSTONE_BRICKS = registerBlock("dry_mossy_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
-    public static final RegistryObject<Block> DRY_MOSSY_SANDSTONE_BRICKS_SLAB = registerBlock("dry_mossy_sandstone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRY_MOSSY_SANDSTONE_BRICKS.get())));
-    public static final RegistryObject<Block> DRY_MOSSY_SANDSTONE_BRICKS_STAIRS = registerBlock("dry_mossy_sandstone_bricks_stairs", () -> new StairBlock(DRY_MOSSY_SANDSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRY_MOSSY_SANDSTONE_BRICKS.get())));
-    public static final RegistryObject<Block> DRY_MOSSY_SANDSTONE_BRICKS_WALL = registerBlock("dry_mossy_sandstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.DRY_MOSSY_SANDSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_SANDSTONE_BRICKS = registerBlock("mossy_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
+    public static final RegistryObject<Block> MOSSY_SANDSTONE_BRICKS_SLAB = registerBlock("mossy_sandstone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_SANDSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_SANDSTONE_BRICKS_STAIRS = registerBlock("mossy_sandstone_bricks_stairs", () -> new StairBlock(MOSSY_SANDSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_SANDSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> MOSSY_SANDSTONE_BRICKS_WALL = registerBlock("mossy_sandstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_SANDSTONE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> SANDSTONE_TILES = registerBlock("sandstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
     public static final RegistryObject<Block> SANDSTONE_TILES_SLAB = registerBlock("sandstone_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SANDSTONE_TILES.get())));
     public static final RegistryObject<Block> SANDSTONE_TILES_STAIRS = registerBlock("sandstone_tiles_stairs", () -> new StairBlock(SANDSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.SANDSTONE_TILES.get())));
-    public static final RegistryObject<Block> SANDSTONE_TILES_WALL = registerBlock("sandstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SANDSTONE_TILES.get())));
+    public static final RegistryObject<Block> SANDSTONE_TILES_WALL = registerBlock("sandstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SANDSTONE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_SANDSTONE_TILES = registerBlock("cracked_sandstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
     public static final RegistryObject<Block> SANDSTONE_PILLAR = registerBlock("sandstone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
     public static final RegistryObject<Block> NETHER_BRICKS_PILLAR = registerBlock("nether_bricks_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_BRICKS)));
@@ -271,12 +286,12 @@ public class MBBlocks {
     public static final RegistryObject<Block> ICE_BRICKS = registerBlock("ice_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ICE)));
     public static final RegistryObject<Block> ICE_BRICKS_SLAB = registerBlock("ice_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ICE_BRICKS.get())));
     public static final RegistryObject<Block> ICE_BRICKS_STAIRS = registerBlock("ice_bricks_stairs", () -> new StairBlock(ICE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.ICE_BRICKS.get())));
-    public static final RegistryObject<Block> ICE_BRICKS_WALL = registerBlock("ice_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ICE_BRICKS.get())));
+    public static final RegistryObject<Block> ICE_BRICKS_WALL = registerBlock("ice_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ICE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_ICE_BRICKS = registerBlock("cracked_ice_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ICE)));
     public static final RegistryObject<Block> ICE_TILES = registerBlock("ice_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ICE)));
     public static final RegistryObject<Block> ICE_TILES_SLAB = registerBlock("ice_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ICE_TILES.get())));
     public static final RegistryObject<Block> ICE_TILES_STAIRS = registerBlock("ice_tiles_stairs", () -> new StairBlock(ICE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.ICE_TILES.get())));
-    public static final RegistryObject<Block> ICE_TILES_WALL = registerBlock("ice_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ICE_TILES.get())));
+    public static final RegistryObject<Block> ICE_TILES_WALL = registerBlock("ice_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.ICE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_ICE_TILES = registerBlock("cracked_ice_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ICE)));
     public static final RegistryObject<Block> ICE_PILLAR = registerBlock("ice_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ICE)));
     public static final RegistryObject<Block> POLISHED_PURPUR = registerBlock("polished_purpur", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_BLOCK)));
@@ -285,15 +300,15 @@ public class MBBlocks {
     public static final RegistryObject<Block> SMOOTH_PURPUR = registerBlock("smooth_purpur", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_BLOCK)));
     public static final RegistryObject<Block> SMOOTH_PURPUR_SLAB = registerBlock("smooth_purpur_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SMOOTH_PURPUR.get())));
     public static final RegistryObject<Block> CHISELED_PURPUR = registerBlock("chiseled_purpur", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_BLOCK)));
-    public static final RegistryObject<Block> CRACKED_PURPUR_BRICKS = registerBlock("cracked_purpur_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_BLOCK)));
-    public static final RegistryObject<Block> MOSSY_PURPUR_BRICKS = registerBlock("mossy_purpur_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_BLOCK)));
-    public static final RegistryObject<Block> MOSSY_PURPUR_BRICKS_SLAB = registerBlock("mossy_purpur_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_PURPUR_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_PURPUR_BRICKS_STAIRS = registerBlock("mossy_purpur_bricks_stairs", () -> new StairBlock(MOSSY_PURPUR_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_PURPUR_BRICKS.get())));
-    public static final RegistryObject<Block> MOSSY_PURPUR_BRICKS_WALL = registerBlock("mossy_purpur_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_PURPUR_BRICKS.get())));
+    public static final RegistryObject<Block> CRACKED_PURPUR_BLOCK = registerBlock("cracked_purpur_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_BLOCK)));
+    public static final RegistryObject<Block> MOSSY_PURPUR_BLOCK = registerBlock("mossy_purpur_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_BLOCK)));
+    public static final RegistryObject<Block> MOSSY_PURPUR_BLOCK_SLAB = registerBlock("mossy_purpur_block_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_PURPUR_BLOCK.get())));
+    public static final RegistryObject<Block> MOSSY_PURPUR_BLOCK_STAIRS = registerBlock("mossy_purpur_block_stairs", () -> new StairBlock(MOSSY_PURPUR_BLOCK.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_PURPUR_BLOCK.get())));
+    public static final RegistryObject<Block> MOSSY_PURPUR_BLOCK_WALL = registerBlock("mossy_purpur_block_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_PURPUR_BLOCK.get()).forceSolidOn()));
     public static final RegistryObject<Block> PURPUR_TILES = registerBlock("purpur_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_BLOCK)));
     public static final RegistryObject<Block> PURPUR_TILES_SLAB = registerBlock("purpur_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.PURPUR_TILES.get())));
     public static final RegistryObject<Block> PURPUR_TILES_STAIRS = registerBlock("purpur_tiles_stairs", () -> new StairBlock(PURPUR_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.PURPUR_TILES.get())));
-    public static final RegistryObject<Block> PURPUR_TILES_WALL = registerBlock("purpur_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.PURPUR_TILES.get())));
+    public static final RegistryObject<Block> PURPUR_TILES_WALL = registerBlock("purpur_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.PURPUR_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_PURPUR_TILES = registerBlock("cracked_purpur_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_BLOCK)));
     public static final RegistryObject<Block> TERRACOTTA_BRICKS = registerBlock("terracotta_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TERRACOTTA)));
     public static final RegistryObject<Block> WHITE_TERRACOTTA_BRICKS = registerBlock("white_terracotta_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TERRACOTTA)));
@@ -364,6 +379,7 @@ public class MBBlocks {
     public static final RegistryObject<Block> SOUL_SANDSTONE = registerBlock("soul_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
     public static final RegistryObject<Block> SOUL_SANDSTONE_SLAB = registerBlock("soul_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE.get())));
     public static final RegistryObject<Block> SOUL_SANDSTONE_STAIRS = registerBlock("soul_sandstone_stairs", () -> new StairBlock(SOUL_SANDSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE.get())));
+    public static final RegistryObject<Block> SOUL_SANDSTONE_WALL = registerBlock("soul_sandstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE.get())));
     public static final RegistryObject<Block> CUT_SOUL_SANDSTONE = registerBlock("cut_soul_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_SANDSTONE)));
     public static final RegistryObject<Block> CUT_SOUL_SANDSTONE_SLAB = registerBlock("cut_soul_sandstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.CUT_SOUL_SANDSTONE.get())));
     public static final RegistryObject<Block> SMOOTH_SOUL_SANDSTONE = registerBlock("smooth_soul_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_SANDSTONE)));
@@ -373,13 +389,13 @@ public class MBBlocks {
     public static final RegistryObject<Block> SOUL_SANDSTONE_BRICKS = registerBlock("soul_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
     public static final RegistryObject<Block> SOUL_SANDSTONE_BRICKS_SLAB = registerBlock("soul_sandstone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE_BRICKS.get())));
     public static final RegistryObject<Block> SOUL_SANDSTONE_BRICKS_STAIRS = registerBlock("soul_sandstone_bricks_stairs", () -> new StairBlock(SOUL_SANDSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE_BRICKS.get())));
-    public static final RegistryObject<Block> SOUL_SANDSTONE_BRICKS_WALL = registerBlock("soul_sandstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE_BRICKS.get())));
+    public static final RegistryObject<Block> SOUL_SANDSTONE_BRICKS_WALL = registerBlock("soul_sandstone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_SOUL_SANDSTONE_BRICKS = registerBlock("cracked_soul_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
     public static final RegistryObject<Block> MOSSY_SOUL_SANDSTONE_BRICKS = registerBlock("mossy_soul_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
     public static final RegistryObject<Block> SOUL_SANDSTONE_TILES = registerBlock("soul_sandstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
     public static final RegistryObject<Block> SOUL_SANDSTONE_TILES_SLAB = registerBlock("soul_sandstone_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE_TILES.get())));
     public static final RegistryObject<Block> SOUL_SANDSTONE_TILES_STAIRS = registerBlock("soul_sandstone_tiles_stairs", () -> new StairBlock(SOUL_SANDSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE_TILES.get())));
-    public static final RegistryObject<Block> SOUL_SANDSTONE_TILES_WALL = registerBlock("soul_sandstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE_TILES.get())));
+    public static final RegistryObject<Block> SOUL_SANDSTONE_TILES_WALL = registerBlock("soul_sandstone_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_SOUL_SANDSTONE_TILES = registerBlock("cracked_soul_sandstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
     public static final RegistryObject<Block> SOUL_SANDSTONE_PILLAR = registerBlock("soul_sandstone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
     public static final RegistryObject<Block> COAL_BRICKS = registerBlock("coal_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)));
@@ -399,10 +415,10 @@ public class MBBlocks {
     public static final RegistryObject<Block> CRACKED_CUT_GOLD = registerBlock("cracked_cut_gold", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
     public static final RegistryObject<Block> GOLD_PILLAR = registerBlock("gold_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
     public static final RegistryObject<Block> REDSTONE_BRICKS = registerBlock("redstone_bricks", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
-    public static final RegistryObject<Block> CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
+    public static final RegistryObject<Block> CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", () -> new CrackedPoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
     public static final RegistryObject<Block> CUT_REDSTONE = registerBlock("cut_redstone", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
-    public static final RegistryObject<Block> CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
-    public static final RegistryObject<Block> REDSTONE_PILLAR = registerBlock("redstone_pillar", () -> new PoweredPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK))); // TODO: PoweredPillarBlock class
+    public static final RegistryObject<Block> CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", () -> new CrackedPoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
+    public static final RegistryObject<Block> REDSTONE_PILLAR = registerBlock("redstone_pillar", () -> new PoweredPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
     public static final RegistryObject<Block> EMERALD_BRICKS = registerBlock("emerald_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> CRACKED_EMERALD_BRICKS = registerBlock("cracked_emerald_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> CUT_EMERALD = registerBlock("cut_emerald", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
@@ -505,11 +521,11 @@ public class MBBlocks {
     public static final RegistryObject<Block> CHERRY_MOSAIC_STAIRS = registerBlock("cherry_mosaic_stairs", () -> new StairBlock(CHERRY_MOSAIC.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.CHERRY_MOSAIC.get())));
     public static final RegistryObject<Block> CARVED_CHERRY_LOG = registerBlock("carved_cherry_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_LOG)));
     public static final RegistryObject<Block> CARVED_CHERRY_WOOD = registerBlock("carved_cherry_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_CHERRY_WOOD)));
-    //public static final RegistryObject<Block> registerBlock("",Bloc ()  BLOCK_OF_CARVED_BAMBOO = new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_BLOCK)));
+    public static final RegistryObject<Block> CARVED_BAMBOO_BLOCK = registerBlock("carved_bamboo_block", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_BAMBOO_BLOCK)));
     public static final RegistryObject<Block> MOSSY_BRICK_BLOCK = registerBlock("mossy_brick_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS)));
     public static final RegistryObject<Block> MOSSY_BRICK_BLOCK_SLAB = registerBlock("mossy_brick_block_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_BRICK_BLOCK.get())));
     public static final RegistryObject<Block> MOSSY_BRICK_BLOCK_STAIRS = registerBlock("mossy_brick_block_stairs", () -> new StairBlock(MOSSY_BRICK_BLOCK.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_BRICK_BLOCK.get())));
-    public static final RegistryObject<Block> MOSSY_BRICK_BLOCK_WALL = registerBlock("mossy_brick_block_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_BRICK_BLOCK.get())));
+    public static final RegistryObject<Block> MOSSY_BRICK_BLOCK_WALL = registerBlock("mossy_brick_block_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_BRICK_BLOCK.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_BRICK_BLOCK = registerBlock("cracked_brick_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS)));
     public static final RegistryObject<Block> TILED_GLASS = registerBlock("tiled_glass", () -> new TransparentBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
     public static final RegistryObject<Block> TILED_TINTED_GLASS = registerBlock("tiled_tinted_glass", () -> new TintedGlassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TINTED_GLASS)));
@@ -532,26 +548,118 @@ public class MBBlocks {
     public static final RegistryObject<Block> BONE_BLOCK_BRICKS = registerBlock("bone_block_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BONE_BLOCK)));
     public static final RegistryObject<Block> BONE_BLOCK_BRICKS_SLAB = registerBlock("bone_block_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.BONE_BLOCK_BRICKS.get())));
     public static final RegistryObject<Block> BONE_BLOCK_BRICKS_STAIRS = registerBlock("bone_block_bricks_stairs", () -> new StairBlock(BONE_BLOCK_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.BONE_BLOCK_BRICKS.get())));
-    public static final RegistryObject<Block> BONE_BLOCK_BRICKS_WALL = registerBlock("bone_block_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.BONE_BLOCK_BRICKS.get())));
+    public static final RegistryObject<Block> BONE_BLOCK_BRICKS_WALL = registerBlock("bone_block_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.BONE_BLOCK_BRICKS.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_BONE_BLOCK_BRICKS = registerBlock("cracked_bone_block_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BONE_BLOCK)));
     public static final RegistryObject<Block> BONE_BLOCK_TILES = registerBlock("bone_block_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BONE_BLOCK)));
     public static final RegistryObject<Block> BONE_BLOCK_TILES_SLAB = registerBlock("bone_block_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.BONE_BLOCK_TILES.get())));
     public static final RegistryObject<Block> BONE_BLOCK_TILES_STAIRS = registerBlock("bone_block_tiles_stairs", () -> new StairBlock(BONE_BLOCK_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.BONE_BLOCK_TILES.get())));
-    public static final RegistryObject<Block> BONE_BLOCK_TILES_WALL = registerBlock("bone_block_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.BONE_BLOCK_TILES.get())));
+    public static final RegistryObject<Block> BONE_BLOCK_TILES_WALL = registerBlock("bone_block_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.BONE_BLOCK_TILES.get()).forceSolidOn()));
     public static final RegistryObject<Block> CRACKED_BONE_BLOCK_TILES = registerBlock("cracked_bone_block_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BONE_BLOCK)));
-
-    // Plants
     public static final RegistryObject<Block> TINY_CACTUS = registerBlock("tiny_cactus", () -> new TinyCactusBlock(MobEffects.POISON, 7, BlockBehaviour.Properties.ofFullCopy(Blocks.TORCHFLOWER)));
-    public static final RegistryObject<Block> DUNE_GRASS = registerBlock("dune_grass", () -> new FlowerBlock(MobEffects.ABSORPTION, 1, BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
     public static final RegistryObject<Block> TALL_DUNE_GRASS = registerBlock("tall_dune_grass", () -> new TallDuneGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
+    public static final RegistryObject<Block> DUNE_GRASS = registerBlock("dune_grass", () -> new DuneGrassBlock(TALL_DUNE_GRASS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
+    public static final RegistryObject<Block> TALL_SNOW_GRASS = registerBlock("tall_snow_grass", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
+    public static final RegistryObject<Block> SNOW_GRASS = registerBlock("snow_grass", () -> new SnowGrassBlock(TALL_SNOW_GRASS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
+    public static final RegistryObject<Block> TALL_SNOW_FERN = registerBlock("tall_snow_fern", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LARGE_FERN)));
+    public static final RegistryObject<Block> SNOW_FERN = registerBlock("snow_fern", () -> new SnowGrassBlock(TALL_SNOW_FERN.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FERN)));
     public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new CattailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> SMALL_LILY_PADS = registerBlock("small_lily_pads", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).noCollission()), false);
-    public static final RegistryObject<Block> BIG_LILY_PAD = registerBlock("big_lily_pads", () -> new BigLilyPadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).noCollission()), false);
-    public static final RegistryObject<Block> LUMINOUS_FLOWER = registerBlock("luminous_flower", () -> new LuminousFlowerBlock(MobEffects.HEAL, 7, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION).lightLevel((blockStatex) -> 10)));
+    public static final RegistryObject<Block> LUMINOUS_FLOWER = registerBlock("luminous_flower", () -> new LuminousFlowerBlock(MobEffects.HEAL, 7, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION).lightLevel((state) -> 10)));
+    public static final RegistryObject<Block> LEAF_LITTER = registerBlock("leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).noCollission().instabreak()), false);
+    public static final RegistryObject<Block> FROZEN_LEAF_LITTER = registerBlock("frozen_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_LEAVES).instabreak()), false);
+    public static final RegistryObject<Block> PINK_PETALS_LITTER = registerBlock("pink_petals_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).instabreak()), false);
+    public static final RegistryObject<Block> BIG_LILY_PAD = registerBlock("big_lily_pad", () -> new BigLilyPadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD)), false);
+    public static final RegistryObject<Block> BROWN_MUSHROOM_COLONY = registerBlock("brown_mushroom_colony", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)), false);
+    public static final RegistryObject<Block> BROWN_MUSHROOM_COLONY_WALL = registerBlock("brown_mushroom_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.BROWN_MUSHROOM_COLONY.get())), false);
+    public static final RegistryObject<Block> RED_MUSHROOM_COLONY = registerBlock("red_mushroom_colony", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)), false);
+    public static final RegistryObject<Block> RED_MUSHROOM_COLONY_WALL = registerBlock("red_mushroom_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_MUSHROOM_COLONY.get())), false);
 
-    public static final RegistryObject<Block> FROZEN_LEAF_LITTER = registerBlock("frozen_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_LEAVES).noCollission()), false);
-    public static final RegistryObject<Block> LEAF_LITTER = registerBlock("leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).noCollission()), false);
-    public static final RegistryObject<Block> PINK_PETALS_LITTER = registerBlock("pink_petals_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).noCollission()), false);
+    public static final RegistryObject<Block> POTTED_TINY_CACTUS = registerPottedFlower("potted_tiny_cactus", MBBlocks.TINY_CACTUS);
+    public static final RegistryObject<Block> POTTED_LUMINOUS_FLOWER = registerPottedFlower("potted_luminous_flower", MBBlocks.LUMINOUS_FLOWER, 10);
+    public static final RegistryObject<Block> POTTED_SNOW_FERN = registerPottedFlower("potted_snow_fern", MBBlocks.SNOW_FERN);
+
+    public static void registerCrackedSystem() {
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_STONE_TILES.get(), MBBlocks.STONE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_GRANITE_BRICKS.get(), MBBlocks.GRANITE_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_GRANITE_TILES.get(), MBBlocks.GRANITE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_DIORITE_BRICKS.get(), MBBlocks.DIORITE_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_DIORITE_TILES.get(), MBBlocks.DIORITE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_ANDESITE_BRICKS.get(), MBBlocks.ANDESITE_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_ANDESITE_TILES.get(), MBBlocks.ANDESITE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CALCITE_BRICKS.get(), MBBlocks.CALCITE_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CALCITE_TILES.get(), MBBlocks.CALCITE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_TUFF_BRICKS.get(), MBBlocks.TUFF_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_TUFF_BRICKS.get(), Blocks.TUFF_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_TUFF_TILES.get(), MBBlocks.TUFF_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_DRIPSTONE_BRICKS.get(), MBBlocks.DRIPSTONE_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_DRIPSTONE_TILES.get(), MBBlocks.DRIPSTONE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_BRICK_BLOCK.get(), Blocks.BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_MUD_BRICKS.get(), Blocks.MUD_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_MUD_TILES.get(), MBBlocks.MUD_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SANDSTONE_BRICKS.get(), MBBlocks.SANDSTONE_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SANDSTONE_TILES.get(), MBBlocks.SANDSTONE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS.get(), MBBlocks.RED_SANDSTONE_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_RED_SANDSTONE_TILES.get(), MBBlocks.RED_SANDSTONE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_PRISMARINE_BRICKS.get(), Blocks.PRISMARINE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_PRISMARINE_TILES.get(), MBBlocks.PRISMARINE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_RED_NETHER_BRICKS.get(), Blocks.RED_NETHER_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_POLISHED_BLACKSTONE_TILES.get(), MBBlocks.POLISHED_BLACKSTONE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_END_STONE_BRICKS.get(), Blocks.END_STONE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_END_STONE_TILES.get(), MBBlocks.END_STONE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_PURPUR_BLOCK.get(), Blocks.PURPUR_BLOCK));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_PURPUR_TILES.get(), MBBlocks.PURPUR_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_QUARTZ_BRICKS.get(), Blocks.QUARTZ_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_QUARTZ.get(), MBBlocks.CUT_QUARTZ.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_BONE_BLOCK_BRICKS.get(), MBBlocks.BONE_BLOCK_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_BONE_BLOCK_TILES.get(), MBBlocks.BONE_BLOCK_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SOUL_SANDSTONE_BRICKS.get(), MBBlocks.SOUL_SANDSTONE_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SOUL_SANDSTONE_TILES.get(), MBBlocks.SOUL_SANDSTONE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SNOW_BRICKS.get(), MBBlocks.SNOW_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SNOW_TILES.get(), MBBlocks.SNOW_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_ICE_BRICKS.get(), MBBlocks.ICE_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_ICE_TILES.get(), MBBlocks.ICE_TILES.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_COAL_BRICKS.get(), MBBlocks.COAL_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_IRON_BRICKS.get(), MBBlocks.IRON_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_GOLD_BRICKS.get(), MBBlocks.GOLD_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_REDSTONE_BRICKS.get(), MBBlocks.REDSTONE_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_EMERALD_BRICKS.get(), MBBlocks.EMERALD_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_LAPIS_LAZULI_BRICKS.get(), MBBlocks.LAPIS_LAZULI_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_DIAMOND_BRICKS.get(), MBBlocks.DIAMOND_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_NETHERITE_BRICKS.get(), MBBlocks.NETHERITE_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_AMETHYST_BRICKS.get(), MBBlocks.AMETHYST_BRICKS.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_COAL.get(), MBBlocks.CUT_COAL.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_IRON.get(), MBBlocks.CUT_IRON.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_GOLD.get(), MBBlocks.CUT_GOLD.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_REDSTONE.get(), MBBlocks.CUT_REDSTONE.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_EMERALD.get(), MBBlocks.CUT_EMERALD.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_LAPIS_LAZULI.get(), MBBlocks.CUT_LAPIS_LAZULI.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_DIAMOND.get(), MBBlocks.CUT_DIAMOND.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_NETHERITE.get(), MBBlocks.CUT_NETHERITE.get()));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_AMETHYST.get(), MBBlocks.CUT_AMETHYST.get()));
+    }
+
+    private static RegistryObject<Block> registerPottedFlower(String name, Supplier<Block> plant) {
+        return registerBlock(name,
+                () -> new FlowerPotBlock(() ->
+                        ((FlowerPotBlock) Blocks.FLOWER_POT),
+                        plant,
+                        BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY)
+                ),
+                false
+        );
+    }
+
+    // new FlowerPotBlock(BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY).lightLevel((state) -> lightLevel))
+    private static RegistryObject<Block> registerPottedFlower(String name, Supplier<Block> plant, int lightLevel) {
+        return registerBlock(name,
+                () -> new FlowerPotBlock(() ->
+                        ((FlowerPotBlock) Blocks.FLOWER_POT),
+                        plant,
+                        BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY).lightLevel((state) -> lightLevel)
+                ),
+                false
+        );
+    }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         return registerBlock(name, block, true);

@@ -132,8 +132,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.SMOOTH_ANDESITE);
                 entry.accept(MBItems.SMOOTH_ANDESITE_SLAB);
                 entry.accept(MBItems.DEEPSLATE_PILLAR);
-
-
                 entry.accept(MBItems.POLISHED_CALCITE);
                 entry.accept(MBItems.POLISHED_CALCITE_STAIRS);
                 entry.accept(MBItems.POLISHED_CALCITE_SLAB);
@@ -155,7 +153,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.MOSSY_CALCITE_BRICKS_WALL);
                 entry.accept(MBItems.SMOOTH_CALCITE);
                 entry.accept(MBItems.SMOOTH_CALCITE_SLAB);
-
                 entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.TUFF_BRICKS);
                 entry.accept(MBItems.CRACKED_TUFF_BRICKS);
                 entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.TUFF_BRICKS_SLAB);
@@ -165,7 +162,6 @@ public class MBItemGroups {
                 entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.POLISHED_TUFF);
                 entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.POLISHED_TUFF_SLAB);
                 entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.POLISHED_TUFF_STAIRS);
-
                 entry.accept(MBItems.TUFF_PILLAR);
                 entry.accept(MBItems.TUFF_TILES);
                 entry.accept(MBItems.CRACKED_TUFF_TILES);
@@ -254,7 +250,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.POLISHED_PRISMARINE);
                 entry.accept(MBItems.POLISHED_PRISMARINE_STAIRS);
                 entry.accept(MBItems.POLISHED_PRISMARINE_SLAB);
-                //entry.accept(MBItems.POLISHED_PRISMARINE_WALL);
                 entry.accept(MBItems.CHISELED_PRISMARINE);
                 entry.accept(MBItems.CRACKED_PRISMARINE_BRICKS);
                 entry.accept(MBItems.PRISMARINE_PILLAR);
@@ -403,7 +398,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.SMOOTH_SOUL_SANDSTONE_STAIRS);
                 entry.accept(MBItems.CUT_SOUL_SANDSTONE);
                 entry.accept(MBItems.CUT_SOUL_SANDSTONE_SLAB);
-
                 entry.accept(MBItems.PACKED_SNOW);
                 entry.accept(MBItems.PACKED_SNOW_STAIRS);
                 entry.accept(MBItems.PACKED_SNOW_SLAB);
@@ -421,7 +415,6 @@ public class MBItemGroups {
                 entry.accept(MBItems.SNOW_TILES_STAIRS);
                 entry.accept(MBItems.SNOW_TILES_SLAB);
                 entry.accept(MBItems.SNOW_TILES_WALL);
-
                 entry.accept(MBItems.POLISHED_ICE);
                 entry.accept(MBItems.POLISHED_ICE_STAIRS);
                 entry.accept(MBItems.POLISHED_ICE_SLAB);

@@ -4,7 +4,11 @@
     "package": "net.seface.moreblocks.mixin",
     "refmap": "${mod_id}.refmap.json",
     "compatibilityLevel": "JAVA_17",
-    "mixins": [],
+    "mixins": [
+        "block.SlabBlockMixin",
+        "block.StairBlockMixin",
+        "block.WallBlockMixin"
+    ],
     "client": [],
     "server": [],
     "injectors": {

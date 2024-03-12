@@ -19,6 +19,10 @@ The mod adds over 500 new blocks such as bricks, tiles, mossy bricks, wood mosai
 ![Screenshot](.github/assets/banner.png)
 See more In-Game screenshots [here](https://www.curseforge.com/minecraft/mc-mods/some-more-blocks/screenshots).
 
+### Roadmap
+- [ ] Add more flowers and plants type.
+- [ ] Add basic structures generation.
+
 > [!NOTE]
 > Have you found any bugs or inconsistencies in the new blocks? Please open an [issue](https://github.com/Seface-Blocks/more-blocks-mod/issues) for us to review and correct in future versions.
 
@@ -28,5 +32,5 @@ See more In-Game screenshots [here](https://www.curseforge.com/minecraft/mc-mods
   <img align="right" width="64" height="64" src="https://media.discordapp.net/attachments/1214009345419776050/1214985059153608756/Thumb_Mine_2024.gif?ex=65fb1a03&is=65e8a503&hm=77fc44086e8207785832a0802d2fe81d3ee1e05edb6f5c1c8fb3e3d78ae55586&" title="More Blocks Icon">
   
   <h3>Seface Studios</h3>
-  <p><a href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> - <a href="[mailto:contact@sefacestudios.net](https://x.com/SefaceStudios)">@SefaceStudios</a></p>
+  <p><a href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> - <a title="X/Twitter" href="https://x.com/SefaceStudios">@SefaceStudios</a></p>
 </div>

@@ -15,6 +15,7 @@ public class FeaturedBlock extends Block {
 
     public FeaturedBlock(Properties properties, FeatureFlag wantedFeature) {
         super(properties);
+        this.defaultBlockState().setValue(FEATURE_TEXTURE, false);
         this.wantedFeature = wantedFeature;
     }
 

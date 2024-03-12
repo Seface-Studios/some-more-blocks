@@ -1,6 +1,5 @@
 package net.seface.moreblocks.block.featured;
 
-import net.minecraft.core.Direction;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -17,6 +16,7 @@ public class FeaturedRotatedPillarBlock extends RotatedPillarBlock {
 
     public FeaturedRotatedPillarBlock(Properties properties, FeatureFlag wantedFeature) {
         super(properties);
+        this.defaultBlockState().setValue(FEATURE_TEXTURE, false);
         this.wantedFeature = wantedFeature;
     }
 
