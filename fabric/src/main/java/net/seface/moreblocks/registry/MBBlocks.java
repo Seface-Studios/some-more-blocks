@@ -1174,6 +1174,24 @@ public class MBBlocks {
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_SNOW_TILES, MBBlocks.SNOW_TILES));
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_ICE_BRICKS, MBBlocks.ICE_BRICKS));
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_ICE_TILES, MBBlocks.ICE_TILES));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_COAL_BRICKS, MBBlocks.COAL_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_IRON_BRICKS, MBBlocks.IRON_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_GOLD_BRICKS, MBBlocks.GOLD_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_REDSTONE_BRICKS, MBBlocks.REDSTONE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_EMERALD_BRICKS, MBBlocks.EMERALD_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_LAPIS_LAZULI_BRICKS, MBBlocks.LAPIS_LAZULI_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_DIAMOND_BRICKS, MBBlocks.DIAMOND_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_NETHERITE_BRICKS, MBBlocks.NETHERITE_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_AMETHYST_BRICKS, MBBlocks.AMETHYST_BRICKS));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_COAL, MBBlocks.CUT_COAL));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_IRON, MBBlocks.CUT_IRON));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_GOLD, MBBlocks.CUT_GOLD));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_REDSTONE, MBBlocks.CUT_REDSTONE));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_EMERALD, MBBlocks.CUT_EMERALD));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_LAPIS_LAZULI, MBBlocks.CUT_LAPIS_LAZULI));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_DIAMOND, MBBlocks.CUT_DIAMOND));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_NETHERITE, MBBlocks.CUT_NETHERITE));
+        LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_AMETHYST, MBBlocks.CUT_AMETHYST));
     }
 
     private static Block createFlowerPotBlock(Block block) {

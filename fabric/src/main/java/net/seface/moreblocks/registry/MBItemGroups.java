@@ -575,7 +575,7 @@ public class MBItemGroups {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "more_natural_blocks"), MORE_NATURAL_BLOCKS);
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((entry) -> {
-            entry.addAfter(Items.FISHING_ROD, MBItems.CRACKING_TOOL);
+            entry.addBefore(Items.FISHING_ROD, MBItems.CRACKING_TOOL);
         });
     }
 

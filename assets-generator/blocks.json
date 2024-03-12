@@ -1327,62 +1327,279 @@
         "stoneCuttingWith": ["moreblocks:soul_sandstone"]
       }
     },
-    { "name": "Coal Bricks" },
-    { "name": "Cracked Coal Bricks" },
-    { "name": "Cut Coal" },
-    { "name": "Cracked Cut Coal" },
-    { "name": "Coal Pillar" },
-    { "name": "Iron Bricks" },
-    { "name": "Cracked Iron Bricks" },
-    { "name": "Cut Iron" },
-    { "name": "Cracked Cut Iron" },
-    { "name": "Iron Pillar" },
+    {
+      "name": "Coal Bricks",
+      "options": {
+        "craftingWith": "minecraft:coal_block"
+      }
+    },
+    {
+      "name": "Cracked Coal Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:coal_bricks"
+      }
+    },
+    {
+      "name": "Cut Coal",
+      "options": {
+        "craftingWith": "moreblocks:coal_bricks"
+      }
+    },
+    {
+      "name": "Cracked Cut Coal",
+      "options": {
+        "cracklableWith": "moreblocks:cut_coal"
+      }
+    },
+    {
+      "name": "Coal Pillar",
+      "options": {
+        "craftingWith": "minecraft:coal_block"
+      }
+    },
+    {
+      "name": "Iron Bricks",
+      "options": {
+        "craftingWith": "minecraft:iron_block"
+      }
+    },
+    {
+      "name": "Cracked Iron Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:iron_bricks"
+      }
+    },
+    {
+      "name": "Cut Iron",
+      "options": {
+        "craftingWith": "moreblocks:iron_bricks"
+      }
+    },
+    {
+      "name": "Cracked Cut Iron",
+      "options": {
+        "cracklableWith": "moreblocks:cut_iron"
+      }
+    },
+    {
+      "name": "Iron Pillar",
+      "options": {
+        "craftingWith": "minecraft:coal_block"
+      }
+    },
     { "name": "Iron Grate" },
-    { "name": "Gold Bricks" },
-    { "name": "Cracked Gold Bricks" },
-    { "name": "Cut Gold" },
-    { "name": "Cracked Cut Gold" },
-    { "name": "Gold Pillar" },
-    { "name": "Redstone Bricks" },
-    { "name": "Cracked Redstone Bricks" },
-    { "name": "Cut Redstone" },
-    { "name": "Cracked Cut Redstone" },
-    { "name": "Redstone Pillar" },
-    { "name": "Emerald Bricks" },
-    { "name": "Cracked Emerald Bricks" },
-    { "name": "Cut Emerald" },
-    { "name": "Cracked Cut Emerald" },
-    { "name": "Emerald Pillar" },
-    { "name": "Ruby Ore" },
-    { "name": "Deepslate Ruby Ore" },
-    { "name": "Ruby Block" },
-    { "name": "Ruby Bricks" },
-    { "name": "Cracked Ruby Bricks" },
-    { "name": "Cut Ruby" },
-    { "name": "Cracked Cut Ruby" },
-    { "name": "Ruby Pillar" },
-    { "name": "Lapis Lazuli Bricks" },
-    { "name": "Cracked Lapis Lazuli Bricks" },
-    { "name": "Cut Lapis Lazuli" },
-    { "name": "Cracked Cut Lapis Lazuli" },
-    { "name": "Lapis Lazuli Pillar" },
-    { "name": "Diamond Bricks" },
-    { "name": "Cracked Diamond Bricks" },
-    { "name": "Cut Diamond" },
-    { "name": "Cracked Cut Diamond" },
-    { "name": "Diamond Pillar" },
+    {
+      "name": "Gold Bricks",
+      "options": {
+        "craftingWith": "minecraft:gold_block"
+      }
+    },
+    {
+      "name": "Cracked Gold Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:gold_bricks"
+      }
+    },
+    {
+      "name": "Cut Gold",
+      "options": {
+        "craftingWith": "moreblocks:gold_bricks"
+      }
+    },
+    {
+      "name": "Cracked Cut Gold",
+      "options": {
+        "cracklableWith": "moreblocks:cut_gold"
+      }
+    },
+    {
+      "name": "Gold Pillar",
+      "options": {
+        "craftingWith": "minecraft:gold_block"
+      }
+    },
+    {
+      "name": "Redstone Bricks",
+      "options": {
+        "craftingWith": "minecraft:redstone_block"
+      }
+    },
+    {
+      "name": "Cracked Redstone Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:redstone_bricks"
+      }
+    },
+    {
+      "name": "Cut Redstone",
+      "options": {
+        "craftingWith": "moreblocks:redstone_bricks"
+      }
+    },
+    {
+      "name": "Cracked Cut Redstone",
+      "options": {
+        "cracklableWith": "moreblocks:cut_redstone"
+      }
+    },
+    {
+      "name": "Redstone Pillar",
+      "options": {
+        "craftingWith": "minecraft:redstone_block"
+      }
+    },
+    {
+      "name": "Emerald Bricks",
+      "options": {
+        "craftingWith": "minecraft:emerald_block"
+      }
+    },
+    {
+      "name": "Cracked Emerald Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:emerald_bricks"
+      }
+    },
+    {
+      "name": "Cut Emerald",
+      "options": {
+        "craftingWith": "moreblocks:emerald_bricks"
+      }
+    },
+    {
+      "name": "Cracked Cut Emerald",
+      "options": {
+        "cracklableWith": "moreblocks:cut_emerald"
+      }
+    },
+    {
+      "name": "Emerald Pillar",
+      "options": {
+        "craftingWith": "minecraft:emerald_block"
+      }
+    },
+    {
+      "name": "Lapis Lazuli Bricks",
+      "options": {
+        "craftingWith": "minecraft:lapis_block"
+      }
+    },
+    {
+      "name": "Cracked Lapis Lazuli Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:lapis_lazuli_bricks"
+      }
+    },
+    {
+      "name": "Cut Lapis Lazuli",
+      "options": {
+        "craftingWith": "moreblocks:lapis_lazuli_bricks"
+      }
+    },
+    {
+      "name": "Cracked Cut Lapis Lazuli",
+      "options": {
+        "cracklableWith": "moreblocks:cut_lapis_lazuli"
+      }
+    },
+    {
+      "name": "Lapis Lazuli Pillar",
+      "options": {
+        "craftingWith": "minecraft:lapis_block"
+      }
+    },
+    {
+      "name": "Diamond Bricks",
+      "options": {
+        "craftingWith": "minecraft:diamond_block"
+      }
+    },
+    {
+      "name": "Cracked Diamond Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:diamond_bricks"
+      }
+    },
+    {
+      "name": "Cut Diamond",
+      "options": {
+        "craftingWith": "moreblocks:diamond_bricks"
+      }
+    },
+    {
+      "name": "Cracked Cut Diamond",
+      "options": {
+        "cracklableWith": "moreblocks:cut_diamond"
+      }
+    },
+    {
+      "name": "Diamond Pillar",
+      "options": {
+        "craftingWith": "minecraft:diamond_block"
+      }
+    },
     { "name": "Diamond Grate" },
-    { "name": "Netherite Bricks" },
-    { "name": "Cracked Netherite Bricks" },
-    { "name": "Cut Netherite" },
-    { "name": "Cracked Cut Netherite" },
-    { "name": "Netherite Pillar" },
+    {
+      "name": "Netherite Bricks",
+      "options": {
+        "craftingWith": "minecraft:netherite_block"
+      }
+    },
+    {
+      "name": "Cracked Netherite Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:netherite_bricks"
+      }
+    },
+    {
+      "name": "Cut Netherite",
+      "options": {
+        "craftingWith": "moreblocks:netherite_bricks"
+      }
+    },
+    {
+      "name": "Cracked Cut Netherite",
+      "options": {
+        "cracklableWith": "moreblocks:cut_netherite"
+      }
+    },
+    {
+      "name": "Netherite Pillar",
+      "options": {
+        "craftingWith": "minecraft:netherite_block"
+      }
+    },
     { "name": "Netherite Grate" },
-    { "name": "Amethyst Bricks" },
-    { "name": "Cracked Amethyst Bricks" },
-    { "name": "Cut Amethyst" },
-    { "name": "Cracked Cut Amethyst" },
-    { "name": "Amethyst Pillar" },
+    {
+      "name": "Amethyst Bricks",
+      "options": {
+        "craftingWith": "minecraft:amethyst_block"
+      }
+    },
+    {
+      "name": "Cracked Amethyst Bricks",
+      "options": {
+        "cracklableWith": "moreblocks:amethyst_bricks"
+      }
+    },
+    {
+      "name": "Cut Amethyst",
+      "options": {
+        "craftingWith": "moreblocks:amethyst_bricks"
+      }
+    },
+    {
+      "name": "Cracked Cut Amethyst",
+      "options": {
+        "cracklableWith": "moreblocks:cut_amethyst"
+      }
+    },
+    {
+      "name": "Amethyst Pillar",
+      "options": {
+        "craftingWith": "minecraft:amethyst_block"
+      }
+    },
     {
       "name": "Shingles",
       "options": {
@@ -1578,24 +1795,114 @@
         "cracklableWith": "minecraft:bricks"
       }
     },
-    { "name": "Tiled Glass" },
-    { "name": "Tiled Tinted Glass" },
-    { "name": "White Stained Tiled Glass" },
-    { "name": "Light Gray Stained Tiled Glass" },
-    { "name": "Gray Stained Tiled Glass" },
-    { "name": "Black Stained Tiled Glass" },
-    { "name": "Brown Stained Tiled Glass" },
-    { "name": "Red Stained Tiled Glass" },
-    { "name": "Orange Stained Tiled Glass" },
-    { "name": "Yellow Stained Tiled Glass" },
-    { "name": "Lime Stained Tiled Glass" },
-    { "name": "Green Stained Tiled Glass" },
-    { "name": "Cyan Stained Tiled Glass" },
-    { "name": "Light Blue Stained Tiled Glass" },
-    { "name": "Blue Stained Tiled Glass" },
-    { "name": "Purple Stained Tiled Glass" },
-    { "name": "Magenta Stained Tiled Glass" },
-    { "name": "Pink Stained Tiled Glass" },
+    {
+      "name": "Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:glass"
+      }
+    },
+    {
+      "name": "Tiled Tinted Glass",
+      "options": {
+        "craftingWith": "minecraft:tinted_glass"
+      }
+    },
+    {
+      "name": "White Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:white_stained_glass"
+      }
+    },
+    {
+      "name": "Light Gray Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:light_gray_stained_glass"
+      }
+    },
+    {
+      "name": "Gray Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:gray_stained_glass"
+      }
+    },
+    {
+      "name": "Black Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:black_stained_glass"
+      }
+    },
+    {
+      "name": "Brown Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:brown_stained_glass"
+      }
+    },
+    {
+      "name": "Red Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:red_stained_glass"
+      }
+    },
+    {
+      "name": "Orange Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:orange_stained_glass"
+      }
+    },
+    {
+      "name": "Yellow Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:yellow_stained_glass"
+      }
+    },
+    {
+      "name": "Lime Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:lime_stained_glass"
+      }
+    },
+    {
+      "name": "Green Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:green_stained_glass"
+      }
+    },
+    {
+      "name": "Cyan Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:cyan_stained_glass"
+      }
+    },
+    {
+      "name": "Light Blue Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:light_blue_stained_glass"
+      }
+    },
+    {
+      "name": "Blue Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:blue_stained_glass"
+      }
+    },
+    {
+      "name": "Purple Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:purple_stained_glass"
+      }
+    },
+    {
+      "name": "Magenta Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:magenta_stained_glass"
+      }
+    },
+    {
+      "name": "Pink Stained Tiled Glass",
+      "options": {
+        "craftingWith": "minecraft:pink_stained_glass"
+      }
+    },
     {
       "name": "Bone Block Bricks",
       "options": {

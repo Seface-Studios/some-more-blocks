@@ -396,14 +396,6 @@ Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cracked_emera
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cut_emerald"), CUT_EMERALD);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cracked_cut_emerald"), CRACKED_CUT_EMERALD);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "emerald_pillar"), EMERALD_PILLAR);
-Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "ruby_ore"), RUBY_ORE);
-Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "deepslate_ruby_ore"), DEEPSLATE_RUBY_ORE);
-Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "ruby_block"), RUBY_BLOCK);
-Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "ruby_bricks"), RUBY_BRICKS);
-Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cracked_ruby_bricks"), CRACKED_RUBY_BRICKS);
-Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cut_ruby"), CUT_RUBY);
-Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cracked_cut_ruby"), CRACKED_CUT_RUBY);
-Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "ruby_pillar"), RUBY_PILLAR);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "lapis_lazuli_bricks"), LAPIS_LAZULI_BRICKS);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cracked_lapis_lazuli_bricks"), CRACKED_LAPIS_LAZULI_BRICKS);
 Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "cut_lapis_lazuli"), CUT_LAPIS_LAZULI);
