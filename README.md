@@ -3,6 +3,8 @@
 
 More Blocks is a vanilla-like project which will add blocks that should exist and that the community has been asking for years to be added to the base game.
 
+The mod adds over 500 new blocks such as bricks, tiles, mossy bricks, wood mosaics and more
+
 ## Instalation
 1. Download and install your preference Mod Loader
     - [Fabric](https://fabricmc.net/use/installer/) and [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
@@ -13,13 +15,15 @@ More Blocks is a vanilla-like project which will add blocks that should exist an
 
 ---
 
-![Image Test](.github/assets/banner.png)
+![Screenshot](.github/assets/banner.png)
 See more In-Game screenshots [here](https://www.curseforge.com/minecraft/mc-mods/some-more-blocks/screenshots).
 
 > [!NOTE]
 > Have you found any bugs or inconsistencies in the new blocks? Please open an [issue](https://github.com/Seface-Blocks/more-blocks-mod/issues) for us to review and correct in future versions.
 
 ---
-
-### Seface Studios
-contact@sefacestudios.net - [@SefaceStudios](https://x.com/SefaceStudios)
+<div>
+  <h3>Seface Studios</h3>
+  <p><a href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> - <a href="[mailto:contact@sefacestudios.net](https://x.com/SefaceStudios)">@SefaceStudios</a></p>
+  <img align="right" width="64" height="64" src="https://media.discordapp.net/attachments/1214009345419776050/1214985059153608756/Thumb_Mine_2024.gif?ex=65fb1a03&is=65e8a503&hm=77fc44086e8207785832a0802d2fe81d3ee1e05edb6f5c1c8fb3e3d78ae55586&" title="Forge and Fabric Mod Loaders">
+</div>
