@@ -13,7 +13,7 @@ More Blocks is a vanilla-like project which will add blocks that should exist an
 
 ---
 
-![Image Test](.github/assets/banner_alt.png)
+![Image Test](.github/assets/banner.png)
 See more In-Game screenshots [here](https://www.curseforge.com/minecraft/mc-mods/some-more-blocks/screenshots).
 
 > [!NOTE]
