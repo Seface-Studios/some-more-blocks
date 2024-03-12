@@ -13,12 +13,13 @@ More Blocks is a vanilla-like project which will add blocks that should exist an
 
 ---
 
-![Image Test](.github/assets/banner.png)
+![Image Test](.github/assets/banner_alt.png)
+See more In-Game screenshots [here](https://www.curseforge.com/minecraft/mc-mods/some-more-blocks/screenshots).
 
 > [!NOTE]
 > Have you found any bugs or inconsistencies in the new blocks? Please open an [issue](https://github.com/Seface-Blocks/more-blocks-mod/issues) for us to review and correct in future versions.
 
 ---
 
-### Seface Studios from <img src="https://i.imgur.com/15kgsym.png" width="16" height="16" />
+### Seface Studios
 contact@sefacestudios.net - [@SefaceStudios](https://x.com/SefaceStudios)
