@@ -41,11 +41,13 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
     }
 
     /*public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        BlockState blockAbove = level.getBlockState(pos.above());
         BlockState blockBelow = level.getBlockState(pos.below());
 
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
             blockBelow = level.getBlockState(pos.below());
-            return blockBelow.is(BlockTags.SAND) || blockBelow.is(BlockTags.DIRT) || blockBelow.is(Blocks.GRAVEL);
+            return blockBelow.is(BlockTags.SAND) || blockBelow.is(BlockTags.DIRT) || blockBelow.is(Blocks.GRAVEL) &&
+                   !blockAbove.getValue(WATERLOGGED);
         }
 
         return blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER;

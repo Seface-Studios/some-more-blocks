@@ -552,7 +552,7 @@ public class MBBlocks {
     public static final Block SNOW_GRASS = new SnowGrassBlock(TALL_SNOW_GRASS, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
     public static final Block TALL_SNOW_FERN = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.LARGE_FERN));
     public static final Block SNOW_FERN = new SnowGrassBlock(TALL_SNOW_FERN, FabricBlockSettings.copyOf(Blocks.FERN));
-    public static final Block CATTAIL = new CattailBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
+    public static final Block CATTAIL = new CattailBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).noOcclusion());
     public static final Block SMALL_LILY_PADS = new WaterlilyBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).noCollision());
     public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(MobEffects.HEAL, 7, FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((blockStatex) -> 10));
     public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).noCollision().isValidSpawn(Blocks::never).instabreak());

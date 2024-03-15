@@ -6,6 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.seface.moreblocks.worldgen.feature.CattailFeature;
 
@@ -19,7 +20,7 @@ public class MBFeatures {
     public static void register() {
         Registry.register(BuiltInRegistries.FEATURE, CattailFeature.ID, CATTAIL_FEATURE);
         BiomeModifications.addFeature(
-                BiomeSelectors.foundInOverworld(),
+                BiomeSelectors.includeByKey(Biomes.SWAMP, Biomes.MANGROVE_SWAMP),
                 GenerationStep.Decoration.VEGETAL_DECORATION,
                 ResourceKey.create(Registries.PLACED_FEATURE, CattailFeature.ID));
     }

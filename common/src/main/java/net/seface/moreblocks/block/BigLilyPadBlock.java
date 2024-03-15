@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -42,6 +43,11 @@ public class BigLilyPadBlock extends WaterlilyBlock {
 
     public BlockState getStateForPlacement(BlockPlaceContext block) {
         return this.defaultBlockState().setValue(FACING, block.getHorizontalDirection());
+    }
+
+    @Override
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        return super.canSurvive(state, level, pos);
     }
 
     /*@Override

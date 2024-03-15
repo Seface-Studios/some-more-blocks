@@ -40,7 +40,7 @@ public class CattailFeature extends Feature<CattailFeature.Configuration> {
             if (world.getBlockState(testPos).is(BlockTags.DIRT)) {
                 if (world.getBlockState(testPos.above()).is(Blocks.AIR)) {
                     for (int i = 0; i < number; i++) {
-                        world.setBlock(testPos, blockState, 0x10);
+                        world.setBlock(testPos.above().above(), blockState, 0x10);
                         testPos = testPos.above();
 
                         if (testPos.getY() >= world.getMaxBuildHeight()) break;

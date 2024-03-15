@@ -72,6 +72,9 @@ public class MoreBlocksFabricClient implements ClientModInitializer {
         );
         */
 
+        /*ColorProviderRegistry.BLOCK.register((state, tint, pos, idx) -> idx == 0 ?
+                BiomeColors.getAverageGrassColor(tint, pos) : -1, MBBlocks.CATTAIL);*/
+
         ColorProviderRegistry.BLOCK.register((state, tint, pos, idx) -> idx == 0 ?
                 BiomeColors.getAverageFoliageColor(tint, pos) : -1, MBBlocks.BLUE_HYDRANGEA);
         ColorProviderRegistry.BLOCK.register((state, tint, pos, idx) -> idx == 0 ?

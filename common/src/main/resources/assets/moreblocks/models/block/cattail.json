@@ -1,0 +1,58 @@
+{
+	"credit": "Made by Seface Studios",
+	"textures": {
+		"0": "moreblocks:block/cattail_bottom",
+		"1": "moreblocks:block/cattail_bottom_plume",
+		"particle": "moreblocks:block/cattail_bottom"
+	},
+	"elements": [
+		{
+			"from": [-0.22183, 0, 7.77817],
+			"to": [15.77817, 16, 7.77817],
+			"rotation": {"angle": -45, "axis": "y", "origin": [7.77817, 8, 7.77817]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		},
+		{
+			"from": [-0.22183, 0, 7.77817],
+			"to": [15.77817, 16, 7.77817],
+			"rotation": {"angle": 45, "axis": "y", "origin": [7.77817, 8, 7.77817]},
+			"faces": {
+				"south": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		},
+		{
+			"from": [-0.22183, 0, 7.77817],
+			"to": [15.77817, 16, 7.77817],
+			"rotation": {"angle": -45, "axis": "y", "origin": [7.77817, 8, 7.77817]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		},
+		{
+			"from": [-0.22183, 0, 7.77817],
+			"to": [15.77817, 16, 7.77817],
+			"rotation": {"angle": 45, "axis": "y", "origin": [7.77817, 8, 7.77817]},
+			"faces": {
+				"south": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "block",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1]
+		},
+		{
+			"name": "plume",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [2, 3]
+		}
+	]
+}
