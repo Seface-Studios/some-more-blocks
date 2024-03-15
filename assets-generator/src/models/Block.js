@@ -50,7 +50,6 @@ export class Block {
       fence: this.options?.autoGenerate?.includes('fence') || false
     } : {};
 
-
     /** Only used with non-solid blocks. */
     this.parentBlockId = this.blockId
       .replace('_wall', '').replace('_stairs', '')

@@ -1,10 +1,7 @@
 {
   "variants": {
-    "needed_feature_enabled=false": {
+    "": {
       "model": "moreblocks:block/cracked_tuff_bricks"
-    },
-    "needed_feature_enabled=true": {
-      "model": "moreblocks:block/1.21/cracked_tuff_bricks_1_21"
     }
   }
 }

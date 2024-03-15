@@ -18,8 +18,9 @@ The mod adds over 500 new blocks such as bricks, tiles, mossy bricks, wood mosai
 See more In-Game screenshots [here](https://www.curseforge.com/minecraft/mc-mods/some-more-blocks/screenshots).
 
 ### Roadmap
-- [ ] Add more flowers and plants type.
-- [ ] Add basic structures generation.
+- [ ] Add more unique blocks.
+- [ ] Add more flowers and plants type (Nether and End content 🤔).
+- [ ] Add **simple** structures generation.
 - [ ] Custom sounds for some blocks.
 
 > [!NOTE]

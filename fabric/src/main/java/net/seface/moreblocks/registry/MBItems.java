@@ -10,8 +10,6 @@ import net.seface.moreblocks.MoreBlocks;
 import net.seface.moreblocks.item.CrackingToolItem;
 import net.seface.moreblocks.item.MushroomColonyBlockItem;
 
-import java.util.function.Supplier;
-
 public class MBItems {
     public static final Item PACKED_SNOW = new BlockItem(MBBlocks.PACKED_SNOW, new Item.Properties());
     public static final Item PACKED_SNOW_SLAB = new BlockItem(MBBlocks.PACKED_SNOW_SLAB, new Item.Properties());

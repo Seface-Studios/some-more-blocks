@@ -1,8 +1,10 @@
 package net.seface.moreblocks.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -37,4 +39,15 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
     public FluidState getFluidState(BlockState state) {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
+
+    /*public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        BlockState blockBelow = level.getBlockState(pos.below());
+
+        if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
+            blockBelow = level.getBlockState(pos.below());
+            return blockBelow.is(BlockTags.SAND) || blockBelow.is(BlockTags.DIRT) || blockBelow.is(Blocks.GRAVEL);
+        }
+
+        return blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER;
+    }*/
 }

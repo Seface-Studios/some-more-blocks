@@ -5,7 +5,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -14,7 +13,6 @@ import net.minecraft.world.level.material.PushReaction;
 import net.seface.moreblocks.MoreBlocks;
 import net.seface.moreblocks.block.*;
 import net.seface.moreblocks.block.BigLilyPadBlock;
-import net.seface.moreblocks.block.featured.*;
 import net.seface.moreblocks.core.LinkCrackedBlocks;
 
 public class MBBlocks {
@@ -132,17 +130,17 @@ public class MBBlocks {
     public static final Block POLISHED_TUFF_STAIRS = new StairBlock(POLISHED_TUFF.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
     public static final Block SMOOTH_TUFF = new Block(FabricBlockSettings.copyOf(Blocks.TUFF));
     public static final Block SMOOTH_TUFF_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_TUFF));
-    public static final Block CRACKED_TUFF_BRICKS = new FeaturedBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21); // TODO: TESTING FeaturedBlock
-    public static final Block MOSSY_TUFF_BRICKS = new FeaturedBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS).lightLevel(state -> 7), FeatureFlags.UPDATE_1_21);
+    public static final Block CRACKED_TUFF_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
+    public static final Block MOSSY_TUFF_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS).lightLevel(state -> 7));
     public static final Block MOSSY_TUFF_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
     public static final Block MOSSY_TUFF_BRICKS_STAIRS = new StairBlock(MOSSY_TUFF_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
     public static final Block MOSSY_TUFF_BRICKS_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
-    public static final Block TUFF_TILES = new FeaturedBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21);
+    public static final Block TUFF_TILES = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
     public static final Block TUFF_TILES_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.TUFF_TILES).sound(SoundType.TUFF_BRICKS));
     public static final Block TUFF_TILES_STAIRS = new StairBlock(TUFF_TILES.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.TUFF_TILES).sound(SoundType.TUFF_BRICKS));
     public static final Block TUFF_TILES_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.TUFF_TILES).solid().sound(SoundType.TUFF_BRICKS));
-    public static final Block CRACKED_TUFF_TILES = new FeaturedBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21);
-    public static final Block TUFF_PILLAR = new FeaturedRotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21);
+    public static final Block CRACKED_TUFF_TILES = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
+    public static final Block TUFF_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
     public static final Block RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE));
     public static final Block RED_SANDSTONE_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.RED_SANDSTONE_BRICKS));
     public static final Block RED_SANDSTONE_BRICKS_STAIRS = new StairBlock(RED_SANDSTONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.RED_SANDSTONE_BRICKS));
@@ -569,7 +567,15 @@ public class MBBlocks {
     public static final Block POTTED_LUMINOUS_FLOWER = createFlowerPotBlock(LUMINOUS_FLOWER, 10);
     public static final Block POTTED_SNOW_FERN = createFlowerPotBlock(SNOW_FERN);
 
+    public static final Block BLUE_HYDRANGEA = new TallGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
+    public static final Block PINK_HYDRANGEA = new TallGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
+    public static final Block PURPLE_HYDRANGEA = new TallGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
+
     public static void register() {
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "blue_hydrangea"), BLUE_HYDRANGEA);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "pink_hydrangea"), PINK_HYDRANGEA);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "purple_hydrangea"), PURPLE_HYDRANGEA);
+
         // Plants
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tiny_cactus"), TINY_CACTUS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dune_grass"), DUNE_GRASS);
@@ -1128,7 +1134,7 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_bone_block_tiles"), CRACKED_BONE_BLOCK_TILES);
     }
 
-   /* public static void registerCrackedSystem() {
+    public static void registerCrackedSystem() {
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_STONE_TILES, MBBlocks.STONE_TILES));
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_GRANITE_BRICKS, MBBlocks.GRANITE_BRICKS));
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_GRANITE_TILES, MBBlocks.GRANITE_TILES));
@@ -1187,7 +1193,6 @@ public class MBBlocks {
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_NETHERITE, MBBlocks.CUT_NETHERITE));
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_AMETHYST, MBBlocks.CUT_AMETHYST));
     }
-*/
     private static Block createFlowerPotBlock(Block block) {
         return createFlowerPotBlock(block, 0);
     }

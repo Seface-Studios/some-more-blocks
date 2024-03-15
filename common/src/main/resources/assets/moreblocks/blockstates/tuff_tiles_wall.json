@@ -5,8 +5,7 @@
         "model": "moreblocks:block/tuff_tiles_wall_post"
       },
       "when": {
-        "up": "true",
-        "needed_feature_enabled": false
+        "up": "true"
       }
     },
     {
@@ -15,8 +14,7 @@
         "uvlock": true
       },
       "when": {
-        "north": "low",
-        "needed_feature_enabled": false
+        "north": "low"
       }
     },
     {
@@ -26,8 +24,7 @@
         "y": 90
       },
       "when": {
-        "east": "low",
-        "needed_feature_enabled": false
+        "east": "low"
       }
     },
     {
@@ -37,8 +34,7 @@
         "y": 180
       },
       "when": {
-        "south": "low",
-        "needed_feature_enabled": false
+        "south": "low"
       }
     },
     {
@@ -48,8 +44,7 @@
         "y": 270
       },
       "when": {
-        "west": "low",
-        "needed_feature_enabled": false
+        "west": "low"
       }
     },
     {
@@ -58,8 +53,7 @@
         "uvlock": true
       },
       "when": {
-        "north": "tall",
-        "needed_feature_enabled": false
+        "north": "tall"
       }
     },
     {
@@ -69,8 +63,7 @@
         "y": 90
       },
       "when": {
-        "east": "tall",
-        "needed_feature_enabled": false
+        "east": "tall"
       }
     },
     {
@@ -80,8 +73,7 @@
         "y": 180
       },
       "when": {
-        "south": "tall",
-        "needed_feature_enabled": false
+        "south": "tall"
       }
     },
     {
@@ -91,8 +83,7 @@
         "y": 270
       },
       "when": {
-        "west": "tall",
-        "needed_feature_enabled": false
+        "west": "tall"
       }
     },
 
@@ -101,8 +92,7 @@
         "model": "moreblocks:block/1.21/tuff_tiles_wall_1_21_post"
       },
       "when": {
-        "up": "true",
-        "needed_feature_enabled": true
+        "up": "true"
       }
     },
     {
@@ -111,8 +101,7 @@
         "uvlock": true
       },
       "when": {
-        "north": "low",
-        "needed_feature_enabled": true
+        "north": "low"
       }
     },
     {
@@ -122,8 +111,7 @@
         "y": 90
       },
       "when": {
-        "east": "low",
-        "needed_feature_enabled": true
+        "east": "low"
       }
     },
     {
@@ -133,8 +121,7 @@
         "y": 180
       },
       "when": {
-        "south": "low",
-        "needed_feature_enabled": true
+        "south": "low"
       }
     },
     {
@@ -144,8 +131,7 @@
         "y": 270
       },
       "when": {
-        "west": "low",
-        "needed_feature_enabled": true
+        "west": "low"
       }
     },
     {
@@ -154,8 +140,7 @@
         "uvlock": true
       },
       "when": {
-        "north": "tall",
-        "needed_feature_enabled": true
+        "north": "tall"
       }
     },
     {
@@ -165,8 +150,7 @@
         "y": 90
       },
       "when": {
-        "east": "tall",
-        "needed_feature_enabled": true
+        "east": "tall"
       }
     },
     {
@@ -176,8 +160,7 @@
         "y": 180
       },
       "when": {
-        "south": "tall",
-        "needed_feature_enabled": true
+        "south": "tall"
       }
     },
     {
@@ -187,8 +170,7 @@
         "y": 270
       },
       "when": {
-        "west": "tall",
-        "needed_feature_enabled": true
+        "west": "tall"
       }
     }
   ]

@@ -1,7 +1,6 @@
 package net.seface.moreblocks.registry;
 
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -16,10 +15,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.moreblocks.MoreBlocks;
 import net.seface.moreblocks.block.*;
-import net.seface.moreblocks.block.featured.FeaturedBlock;
-import net.seface.moreblocks.block.featured.FeaturedRotatedPillarBlock;
 import net.seface.moreblocks.core.LinkCrackedBlocks;
-import org.intellij.lang.annotations.Flow;
 
 import java.util.function.Supplier;
 
@@ -140,17 +136,17 @@ public class MBBlocks {
     public static final RegistryObject<Block> POLISHED_TUFF_STAIRS = registerBlock("polished_tuff_stairs", () -> new StairBlock(POLISHED_TUFF.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_BRICKS.get())));
     public static final RegistryObject<Block> SMOOTH_TUFF = registerBlock("smooth_tuff", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF)));
     public static final RegistryObject<Block> SMOOTH_TUFF_SLAB = registerBlock("smooth_tuff_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SMOOTH_TUFF.get())));
-    public static final RegistryObject<Block> CRACKED_TUFF_BRICKS = registerBlock("cracked_tuff_bricks", () -> new FeaturedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21));
-    public static final RegistryObject<Block> MOSSY_TUFF_BRICKS = registerBlock("mossy_tuff_bricks", () -> new FeaturedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS).lightLevel(state -> 7), FeatureFlags.UPDATE_1_21));
+    public static final RegistryObject<Block> CRACKED_TUFF_BRICKS = registerBlock("cracked_tuff_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS)));
+    public static final RegistryObject<Block> MOSSY_TUFF_BRICKS = registerBlock("mossy_tuff_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS).lightLevel(state -> 7)));
     public static final RegistryObject<Block> MOSSY_TUFF_BRICKS_SLAB = registerBlock("mossy_tuff_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_TUFF_BRICKS.get())));
     public static final RegistryObject<Block> MOSSY_TUFF_BRICKS_STAIRS = registerBlock("mossy_tuff_bricks_stairs", () -> new StairBlock(MOSSY_TUFF_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_TUFF_BRICKS.get())));
     public static final RegistryObject<Block> MOSSY_TUFF_BRICKS_WALL = registerBlock("mossy_tuff_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.MOSSY_TUFF_BRICKS.get())));
-    public static final RegistryObject<Block> TUFF_TILES = registerBlock("tuff_tiles", () -> new FeaturedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21));
+    public static final RegistryObject<Block> TUFF_TILES = registerBlock("tuff_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS)));
     public static final RegistryObject<Block> TUFF_TILES_SLAB = registerBlock("tuff_tiles_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_TILES.get()).sound(SoundType.TUFF_BRICKS)));
     public static final RegistryObject<Block> TUFF_TILES_STAIRS = registerBlock("tuff_tiles_stairs", () -> new StairBlock(TUFF_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_TILES.get()).sound(SoundType.TUFF_BRICKS)));
     public static final RegistryObject<Block> TUFF_TILES_WALL = registerBlock("tuff_tiles_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.TUFF_TILES.get()).forceSolidOn().sound(SoundType.TUFF_BRICKS)));
-    public static final RegistryObject<Block> CRACKED_TUFF_TILES = registerBlock("cracked_tuff_tiles", () -> new FeaturedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21));
-    public static final RegistryObject<Block> TUFF_PILLAR = registerBlock("tuff_pillar", () -> new FeaturedRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS), FeatureFlags.UPDATE_1_21));
+    public static final RegistryObject<Block> CRACKED_TUFF_TILES = registerBlock("cracked_tuff_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS)));
+    public static final RegistryObject<Block> TUFF_PILLAR = registerBlock("tuff_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS)));
     public static final RegistryObject<Block> RED_SANDSTONE_BRICKS = registerBlock("red_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SANDSTONE)));
     public static final RegistryObject<Block> RED_SANDSTONE_BRICKS_SLAB = registerBlock("red_sandstone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_SANDSTONE_BRICKS.get())));
     public static final RegistryObject<Block> RED_SANDSTONE_BRICKS_STAIRS = registerBlock("red_sandstone_bricks_stairs", () -> new StairBlock(RED_SANDSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_SANDSTONE_BRICKS.get())));

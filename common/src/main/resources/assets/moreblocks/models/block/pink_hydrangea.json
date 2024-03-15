@@ -1,0 +1,54 @@
+{
+	"credit": "Made By Seface Studios",
+	"textures": {
+		"hydrangea": "moreblocks:block/hydrangea",
+		"hydrangea_flower": "moreblocks:block/pink_hydrangea",
+		"particle": "moreblocks:block/hydrangea"
+	},
+	"elements": [
+		{
+			"from": [0, 0, -4],
+			"to": [0, 30, 26],
+			"rotation": {"angle": 45, "axis": "y", "origin": [0, 0, 0]},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "hydrangea", "tintindex": 0 },
+				"west": {"uv": [0, 0, 16, 16], "texture": "hydrangea", "tintindex": 0 }
+			}
+		},
+		{
+			"from": [11.3, 0, -15],
+			"to": [11.3, 30, 15],
+			"rotation": {"angle": -45, "axis": "y", "origin": [0, 0, 0]},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "hydrangea", "tintindex": 0 },
+				"west": {"uv": [0, 0, 16, 16], "texture": "hydrangea", "tintindex": 0 }
+			}
+		},
+		{
+			"from": [11.3, 0, -15],
+			"to": [11.3, 30, 15],
+			"rotation": {"angle": -45, "axis": "y", "origin": [0, 0, 0]},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "hydrangea_flower", "tintindex": 1 },
+				"west": {"uv": [0, 0, 16, 16], "texture": "hydrangea_flower", "tintindex": 1 }
+			}
+		},
+		{
+			"from": [0, 0, -4],
+			"to": [0, 30, 26],
+			"rotation": {"angle": 45, "axis": "y", "origin": [0, 0, 0]},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "hydrangea_flower", "tintindex": 1 },
+				"west": {"uv": [0, 0, 16, 16], "texture": "hydrangea_flower", "tintindex": 1 }
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "block",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}
