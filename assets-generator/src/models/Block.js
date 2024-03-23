@@ -20,6 +20,10 @@ export class Block {
   static #LOOT_TABLE_EXPORT_PATH = 'common/src/main/resources/data/moreblocks/loot_tables/blocks';
   static #RECIPE_EXPORT_PATH = 'common/src/main/resources/data/moreblocks/recipes';
 
+  static BRICKS = [];
+  static CRACKED_BRICKS = [];
+  static MOSSY_BRICKS = [];
+
   /**
    * Creates a new block instance.
    * @param {string} blockName The block name. The name will be used to create the block id too. 
@@ -70,6 +74,26 @@ export class Block {
     }
 
     Localization.add(this.NAMESPACE, this.blockId, this.blockName);
+
+    // TEMP
+    if (this.isSlab() || this.isStairs() || this.isWall() || this.isPillarVariant()) return;
+    if (this.isBricksVariant()) {
+      Block.BRICKS.push(
+        `* ![${this.blockName}](https://github.com/Seface-Studios/more-blocks-mod/blob/main/common/src/main/resources/assets/moreblocks/textures/block/${this.blockId}.png) [${this.blockName}](${this.blockName.replaceAll(' ', '-')})`
+      )
+    }
+
+    if (this.isBricksVariant() && this.isCrackedVariant()) {
+      Block.CRACKED_BRICKS.push(
+        `* ![${this.blockName}](https://github.com/Seface-Studios/more-blocks-mod/blob/main/common/src/main/resources/assets/moreblocks/textures/block/${this.blockId}.png) [${this.blockName}](${this.blockName.replaceAll(' ', '-')})`
+      )
+    }
+
+    if (this.isMossyVariant()) {
+      Block.MOSSY_BRICKS.push(
+        `* ![${this.blockName}](https://github.com/Seface-Studios/more-blocks-mod/blob/main/common/src/main/resources/assets/moreblocks/textures/block/${this.blockId}.png) [${this.blockName}](${this.blockName.replaceAll(' ', '-')})`
+      )
+    }
   }
 
   /**
@@ -97,6 +121,10 @@ export class Block {
   isSlab() { return false; }
   isFence() { return false; }
 
+  isMosaicVariant() {
+    return this.blockName.includes('Mosaic');
+  }
+
   isWood() {
     return this.blockName.includes('Mosaic') || this.blockName.includes('Stem') ||
            this.blockName.includes('Hyphae') || this.blockName.includes('Log') ||
@@ -104,9 +132,8 @@ export class Block {
   }
 
   isBricksVariant() {
-    return !this.isMossyVariant() && !this.isCrackedVariant() &&
-      !this.isCrackedVariant() && !this.isChiseledVariant() &&
-      this.blockName.includes('Bricks');
+    return !this.isMossyVariant()&&
+      !this.isChiseledVariant() && this.blockName.includes('Bricks');
   }
 
   isTilesVariant() {

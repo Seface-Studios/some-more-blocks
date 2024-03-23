@@ -86,6 +86,7 @@
     {
       "name": "Cracked Stone Tiles",
       "options": {
+        "smeltingWith": "moreblocks:stone_tiles",
         "cracklableWith": "moreblocks:stone_tiles"
       }
     },
@@ -121,6 +122,7 @@
     {
       "name": "Cracked Granite Bricks",
       "options": {
+        "smeltingWith": "moreblocks:granite_bricks",
         "cracklableWith": "moreblocks:granite_bricks"
       }
     },
@@ -142,6 +144,7 @@
     {
       "name": "Cracked Granite Tiles",
       "options": {
+        "smeltingWith": "moreblocks:granite_tiles",
         "cracklableWith": "moreblocks:granite_tiles"
       }
     },
@@ -177,6 +180,7 @@
     {
       "name": "Cracked Diorite Bricks",
       "options": {
+        "smeltingWith": "moreblocks:diorite_bricks",
         "cracklableWith": "moreblocks:diorite_bricks"
       }
     },
@@ -198,6 +202,7 @@
     {
       "name": "Cracked Diorite Tiles",
       "options": {
+        "smeltingWith": "moreblocks:diorite_tiles",
         "cracklableWith": "moreblocks:diorite_tiles"
       }
     },
@@ -233,6 +238,7 @@
     {
       "name": "Cracked Andesite Bricks",
       "options": {
+        "smeltingWith": "moreblocks:andesite_bricks",
         "cracklableWith": "moreblocks:andesite_bricks"
       }
     },
@@ -254,6 +260,7 @@
     {
       "name": "Cracked Andesite Tiles",
       "options": {
+        "smeltingWith": "moreblocks:andesite_tiles",
         "cracklableWith": "moreblocks:andesite_tiles"
       }
     },
@@ -288,6 +295,7 @@
     {
       "name": "Cracked End Stone Bricks",
       "options": {
+        "smeltingWith": "minecraft:end_stone_bricks",
         "cracklableWith": "minecraft:end_stone_bricks"
       }
     },
@@ -308,6 +316,7 @@
     {
       "name": "Cracked End Stone Tiles",
       "options": {
+        "smeltingWith": "moreblocks:end_stone_tiles",
         "cracklableWith": "moreblocks:end_stone_tiles"
       }
     },
@@ -346,6 +355,7 @@
     {
       "name": "Cracked Tuff Bricks",
       "options": {
+        "smeltingWith": "moreblocks:tuff_bricks",
         "cracklableWith": "moreblocks:tuff_bricks",
         "ignore": ["block_model", "blockstate"]
       }
@@ -371,6 +381,7 @@
     {
       "name": "Cracked Tuff Tiles",
       "options": {
+        "smeltingWith": "moreblocks:tuff_tiles",
         "cracklableWith": "moreblocks:tuff_tiles",
         "ignore": ["block_model", "blockstate"]
       }
@@ -395,6 +406,7 @@
     {
       "name": "Cracked Red Sandstone Bricks",
       "options": {
+        "smeltingWith": "moreblocks:red_sandstone_bricks",
         "cracklableWith": "moreblocks:red_sandstone_bricks"
       }
     },
@@ -416,6 +428,7 @@
     {
       "name": "Cracked Red Sandstone Tiles",
       "options": {
+        "smeltingWith": "moreblocks:red_sandstone_tiles",
         "cracklableWith": "moreblocks:red_sandstone_tiles"
       }
     },
@@ -458,6 +471,7 @@
     {
       "name": "Cracked Calcite Bricks",
       "options": {
+        "smeltingWith": "moreblocks:calcite_bricks",
         "cracklableWith": "moreblocks:calcite_bricks"
       }
     },
@@ -479,6 +493,7 @@
     {
       "name": "Cracked Calcite Tiles",
       "options": {
+        "smeltingWith": "moreblocks:calcite_tiles",
         "cracklableWith": "moreblocks:calcite_tiles"
       }
     },
@@ -521,6 +536,7 @@
     {
       "name": "Cracked Dripstone Bricks",
       "options": {
+        "smeltingWith": "moreblocks:dripstone_bricks",
         "cracklableWith": "moreblocks:dripstone_bricks"
       }
     },
@@ -542,6 +558,7 @@
     {
       "name": "Cracked Dripstone Tiles",
       "options": {
+        "smeltingWith": "moreblocks:dripstone_tiles",
         "cracklableWith": "moreblocks:dripstone_tiles"
       }
     },
@@ -576,6 +593,7 @@
     {
       "name": "Cracked Prismarine Bricks",
       "options": {
+        "smeltingWith": "minecraft:prismarine_bricks",
         "cracklableWith": "minecraft:prismarine_bricks"
       }
     },
@@ -598,6 +616,7 @@
     {
       "name": "Cracked Prismarine Tiles",
       "options": {
+        "smeltingWith": "moreblocks:prismarine_tiles",
         "cracklableWith": "moreblocks:prismarine_tiles"
       }
     },
@@ -632,6 +651,7 @@
     {
       "name": "Cracked Polished Blackstone Tiles",
       "options": {
+        "smeltingWith": "moreblocks:polished_blackstone_tiles",
         "cracklableWith": "moreblocks:polished_blackstone_tiles"
       }
     },
@@ -645,6 +665,7 @@
     {
       "name": "Cracked Quartz Bricks",
       "options": {
+        "smeltingWith": "minecraft:quartz_bricks",
         "cracklableWith": "minecraft:quartz_bricks"
       }
     },
@@ -686,6 +707,7 @@
     {
       "name": "Cracked Mud Bricks",
       "options": {
+        "smeltingWith": "minecraft:mud_bricks",
         "cracklableWith": "minecraft:mud_bricks"
       }
     },
@@ -705,6 +727,7 @@
     {
       "name": "Cracked Mud Tiles",
       "options": {
+        "smeltingWith": "moreblocks:mud_tiles",
         "cracklableWith": "moreblocks:mud_tiles"
       }
     },
@@ -719,6 +742,7 @@
     {
       "name": "Cracked Sandstone Bricks",
       "options": {
+        "smeltingWith": "moreblocks:sandstone_bricks",
         "cracklableWith": "moreblocks:sandstone_bricks"
       }
     },
@@ -739,6 +763,7 @@
     {
       "name": "Cracked Sandstone Tiles",
       "options": {
+        "smeltingWith": "moreblocks:sandstone_tiles",
         "cracklableWith": "moreblocks:sandstone_tiles"
       }
     },
@@ -764,6 +789,7 @@
     {
       "name": "Cracked Red Nether Bricks",
       "options": {
+        "smeltingWith": "minecraft:red_nether_bricks",
         "cracklableWith": "minecraft:red_nether_bricks"
       }
     },
@@ -834,6 +860,7 @@
     {
       "name": "Cracked Purpur Block",
       "options": {
+        "smeltingWith": "minecraft:purpur_block",
         "cracklableWith": "minecraft:purpur_block"
       }
     },
@@ -854,6 +881,7 @@
     {
       "name": "Cracked Purpur Tiles",
       "options": {
+        "smeltingWith": "moreblocks:purpur_tiles",
         "cracklableWith": "moreblocks:purpur_tiles"
       }
     },
@@ -1295,6 +1323,7 @@
     {
       "name": "Cracked Soul Sandstone Bricks",
       "options": {
+        "smeltingWith": "moreblocks:soul_sandstone_bricks",
         "cracklableWith": "moreblocks:soul_sandstone_bricks",
         "ignore": ["block_model"]
       }
@@ -1316,6 +1345,7 @@
     {
       "name": "Cracked Soul Sandstone Tiles",
       "options": {
+        "smeltingWith": "moreblocks:soul_sandstone_tiles",
         "cracklableWith": "moreblocks:soul_sandstone_tiles",
         "ignore": ["block_model"]
       }
@@ -1705,6 +1735,7 @@
     {
       "name": "Oak Mosaic",
       "options": {
+        "craftingWith": "minecraft:oak_slab",
         "autoGenerate": ["stairs", "slab"]
       }
     },
@@ -1713,6 +1744,7 @@
     {
       "name": "Spruce Mosaic",
       "options": {
+        "craftingWith": "minecraft:spruce_slab",
         "autoGenerate": ["stairs", "slab"]
       }
     },
@@ -1721,6 +1753,7 @@
     {
       "name": "Birch Mosaic",
       "options": {
+        "craftingWith": "minecraft:birch_slab",
         "autoGenerate": ["stairs", "slab"]
       }
     },
@@ -1729,6 +1762,7 @@
     {
       "name": "Jungle Mosaic",
       "options": {
+        "craftingWith": "minecraft:jungle_slab",
         "autoGenerate": ["stairs", "slab"]
       }
     },
@@ -1737,6 +1771,7 @@
     {
       "name": "Acacia Mosaic",
       "options": {
+        "craftingWith": "minecraft:acacia_slab",
         "autoGenerate": ["stairs", "slab"]
       }
     },
@@ -1745,6 +1780,7 @@
     {
       "name": "Dark Oak Mosaic",
       "options": {
+        "craftingWith": "minecraft:dark_oak_slab",
         "autoGenerate": ["stairs", "slab"]
       }
     },
@@ -1753,6 +1789,7 @@
     {
       "name": "Mangrove Mosaic",
       "options": {
+        "craftingWith": "minecraft:mangrove_slab",
         "autoGenerate": ["stairs", "slab"]
       }
     },
@@ -1761,6 +1798,7 @@
     {
       "name": "Crimson Mosaic",
       "options": {
+        "craftingWith": "minecraft:crimson_slab",
         "autoGenerate": ["stairs", "slab"]
       }
     },
@@ -1769,6 +1807,7 @@
     {
       "name": "Warped Mosaic",
       "options": {
+        "craftingWith": "minecraft:warped_slab",
         "autoGenerate": ["stairs", "slab"]
       }
     },
@@ -1777,6 +1816,7 @@
     {
       "name": "Cherry Mosaic",
       "options": {
+        "craftingWith": "minecraft:cherry_slab",
         "autoGenerate": ["stairs", "slab"]
       }
     },
@@ -1792,6 +1832,7 @@
     {
       "name": "Cracked Brick Block",
       "options": {
+        "smeltingWith": "minecraft:bricks",
         "cracklableWith": "minecraft:bricks"
       }
     },
@@ -1913,6 +1954,7 @@
     {
       "name": "Cracked Bone Block Bricks",
       "options": {
+        "smeltingWith": "moreblocks:bone_block_bricks",
         "cracklableWith": "moreblocks:bone_block_bricks"
       }
     },
@@ -1926,6 +1968,7 @@
     {
       "name": "Cracked Bone Block Tiles",
       "options": {
+        "smeltingWith": "moreblocks:bone_block_tiles",
         "cracklableWith": "moreblocks:bone_block_tiles"
       }
     }

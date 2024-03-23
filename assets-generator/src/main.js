@@ -46,7 +46,7 @@ for (const block of data.Blocks) {
 BlockTags.createAndSave();
 Localization.createAndSave();
 Generators.log();
-//console.log(temps)
+console.log(Block.CRACKED_BRICKS)
 
 // * MBItems
 fs.unlinkSync('generated/MBItems.variables.txt');

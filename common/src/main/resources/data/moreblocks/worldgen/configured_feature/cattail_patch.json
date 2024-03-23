@@ -1,97 +1,110 @@
 {
   "type": "minecraft:random_patch",
   "config": {
+    "tries": 128,
+    "xz_spread": 14,
+    "y_spread": 6,
     "feature": {
-      "feature": {
-        "type": "minecraft:simple_block",
-        "config": {
-          "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "moreblocks:cattail",
-              "Properties": {
-                "half": "lower"
-              }
-            }
-          }
-        }
-      },
+      "feature": "minecraft:oak",
       "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:any_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  1,
+                  -1,
+                  0
+                ],
+                "fluids": "minecraft:water"
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  -1,
+                  -1,
+                  0
+                ],
+                "fluids": "minecraft:water"
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  0,
+                  -1,
+                  1
+                ],
+                "fluids": "minecraft:water"
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  0,
+                  -1,
+                  -1
+                ],
+                "fluids": "minecraft:water"
+              }
+            ]
+          }
+        },
         {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
             "type": "minecraft:all_of",
             "predicates": [
               {
-                "type": "minecraft:any_of",
-                "predicates": [
-                  {
-                    "type": "minecraft:matching_blocks",
-                    "blocks": "minecraft:air"
-                  },
-                  {
-                    "type": "minecraft:all_of",
-                    "predicates": [
-                      {
-                        "type": "minecraft:matching_fluids",
-                        "fluids": ["minecraft:water"]
-                      },
-                      {
-                        "type": "minecraft:matching_blocks",
-                        "blocks": ["minecraft:dirt"],
-                        "offset": [0, -1, 0]
-                      },
-                      {
-                        "type": "minecraft:any_of",
-                        "predicates": [
-                          {
-                            "type": "minecraft:matching_blocks",
-                            "blocks": ["minecraft:dirt", "minecraft:grass_block", "moreblocks:cattail"],
-                            "offset": [-1, 0, 0]
-                          },
-                          {
-                            "type": "minecraft:matching_blocks",
-                            "blocks": ["minecraft:dirt", "minecraft:grass_block", "moreblocks:cattail"],
-                            "offset": [1, 0, 0]
-                          },
-                          {
-                            "type": "minecraft:matching_blocks",
-                            "blocks": ["minecraft:dirt", "minecraft:grass_block", "moreblocks:cattail"],
-                            "offset": [0, 0, -1]
-                          },
-                          {
-                            "type": "minecraft:matching_blocks",
-                            "blocks": ["minecraft:dirt", "minecraft:grass_block", "moreblocks:cattail"],
-                            "offset": [0, 0, 1]
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  0,
+                  0,
+                  0
+                ],
+                "fluids": "minecraft:water"
               },
               {
                 "type": "minecraft:any_of",
                 "predicates": [
                   {
-                    "type": "minecraft:matching_fluids",
-                    "fluids": ["minecraft:water"],
-                    "offset": [1, -1, 0]
+                    "type": "minecraft:matching_blocks",
+                    "offset": [
+                      1,
+                      0,
+                      0
+                    ],
+                    "blocks": [
+                      "minecraft:grass_block"
+                    ]
                   },
                   {
-                    "type": "minecraft:matching_fluids",
-                    "fluids": ["minecraft:water"],
-                    "offset": [-1, -1, 0]
+                    "type": "minecraft:matching_blocks",
+                    "offset": [
+                      -1,
+                      0,
+                      0
+                    ],
+                    "blocks": "minecraft:grass_block"
                   },
                   {
-                    "type": "minecraft:matching_fluids",
-                    "fluids": ["minecraft:water"],
-                    "offset": [0, -1, 1]
+                    "type": "minecraft:matching_blocks",
+                    "offset": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "blocks": "minecraft:grass_block"
                   },
                   {
-                    "type": "minecraft:matching_fluids",
-                    "fluids": ["minecraft:water"],
-                    "offset": [0, -1, -1]
+                    "type": "minecraft:matching_blocks",
+                    "offset": [
+                      0,
+                      0,
+                      -1
+                    ],
+                    "blocks": "minecraft:grass_block"
                   }
                 ]
               }
@@ -99,10 +112,6 @@
           }
         }
       ]
-    },
-
-    "tries": 516,
-    "xz_spread": 14,
-    "y_spread": 6
+    }
   }
 }

@@ -58,7 +58,7 @@ subprojects {
     processResources {
         def expandProps = [
                 "version": version,
-                "group": project.group, //Else we target the task's group.
+                "group": project.group,
                 "minecraft_version": minecraft_version,
                 "forge_version": forge_version,
                 "forge_loader_version_range": forge_loader_version_range,

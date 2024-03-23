@@ -6,8 +6,33 @@ export class FullBlock extends Block {
     super(blockName, options);
     this.addVariables('Block');
 
-    if (this.blockName.includes('Mosaic')) {
+    if (this.isMosaicVariant()) {
       BlockTags.tags.planks.push(`${this.NAMESPACE}:${this.blockId}`);
     }
+  }
+
+  buildRecipeForCraftingTable() {
+    return this.isMosaicVariant() ?
+    [
+      [
+        {
+          "type": "minecraft:crafting_shaped",
+          "category": "building",
+          "key": {
+            "#": { "item": `${this.craftingWith}` }
+          },
+          "pattern": [
+            "#",
+            "#"
+          ],
+          "result": {
+            "count": 1,
+            "item": `${this.NAMESPACE}:${this.blockId}`
+          }
+        },
+        ".json"
+      ]
+    ] : // else
+    super.buildRecipeForCraftingTable();
   }
 }

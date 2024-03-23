@@ -2,7 +2,9 @@ package net.seface.moreblocks.worldgen.feature;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ExtraCodecs;
@@ -24,6 +26,7 @@ public class CattailFeature extends Feature<CattailFeature.Configuration> {
 
     @Override
     public boolean place(FeaturePlaceContext<Configuration> context) {
+        Minecraft.getInstance().player.sendSystemMessage(Component.literal("Testando"));
         WorldGenLevel world = context.level();
         BlockPos origin = context.origin();
         RandomSource random = context.random();

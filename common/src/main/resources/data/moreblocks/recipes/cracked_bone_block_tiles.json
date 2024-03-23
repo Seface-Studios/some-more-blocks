@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "moreblocks:bone_block_tiles"
+  },
+  "result": "moreblocks:cracked_bone_block_tiles"
+}
