@@ -10,10 +10,7 @@ public class MoreBlocksFabric implements ModInitializer {
         MoreBlocks.init();
 
         MBBlocks.register();
-        MBBlocks.registerCrackedSystem();
-        MBBlockTypes.register();
         MBItemGroups.register();
         MBItems.register();
-        MBFeatures.register();
     }
 }

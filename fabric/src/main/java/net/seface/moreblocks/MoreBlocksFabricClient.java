@@ -57,31 +57,9 @@ public class MoreBlocksFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.POTTED_LUMINOUS_FLOWER, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.POTTED_TINY_CACTUS, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.POTTED_SNOW_FERN, RenderType.cutout());
-
-        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.BLUE_HYDRANGEA, RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.PINK_HYDRANGEA, RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.PURPLE_HYDRANGEA, RenderType.cutout());
     }
 
     private void registerColorProviders() {
-
-        /*
-        ColorProviderRegistry.ITEM.register((stack, idx) -> (
-                        (Test) stack.getItem()).getColor(idx),
-                MBItems.HYDRANGEA
-        );
-        */
-
-        /*ColorProviderRegistry.BLOCK.register((state, tint, pos, idx) -> idx == 0 ?
-                BiomeColors.getAverageGrassColor(tint, pos) : -1, MBBlocks.CATTAIL);*/
-
-        ColorProviderRegistry.BLOCK.register((state, tint, pos, idx) -> idx == 0 ?
-                BiomeColors.getAverageFoliageColor(tint, pos) : -1, MBBlocks.BLUE_HYDRANGEA);
-        ColorProviderRegistry.BLOCK.register((state, tint, pos, idx) -> idx == 0 ?
-                BiomeColors.getAverageFoliageColor(tint, pos) : -1, MBBlocks.PINK_HYDRANGEA);
-        ColorProviderRegistry.BLOCK.register((state, tint, pos, idx) -> idx == 0 ?
-                BiomeColors.getAverageFoliageColor(tint, pos) : -1, MBBlocks.PURPLE_HYDRANGEA);
-
         ColorProviderRegistry.BLOCK.register((blockState, tint, pos, i) -> BiomeColors.getAverageFoliageColor(tint, pos), MBBlocks.LEAF_LITTER);
     }
 }

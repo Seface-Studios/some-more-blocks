@@ -16,6 +16,30 @@ import net.seface.moreblocks.block.BigLilyPadBlock;
 import net.seface.moreblocks.core.LinkCrackedBlocks;
 
 public class MBBlocks {
+    // Custom Plants & Flower Pots
+    public static final Block TINY_CACTUS = new TinyCactusBlock(MobEffects.POISON, 7, FabricBlockSettings.copyOf(Blocks.TORCHFLOWER));
+    public static final Block TALL_DUNE_GRASS = new TallDuneGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
+    public static final Block DUNE_GRASS = new DuneGrassBlock(TALL_DUNE_GRASS, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
+    public static final Block TALL_SNOW_GRASS = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
+    public static final Block SNOW_GRASS = new SnowGrassBlock(TALL_SNOW_GRASS, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
+    public static final Block TALL_SNOW_FERN = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.LARGE_FERN));
+    public static final Block SNOW_FERN = new SnowGrassBlock(TALL_SNOW_FERN, FabricBlockSettings.copyOf(Blocks.FERN));
+    public static final Block CATTAIL = new CattailBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).noOcclusion());
+    public static final Block SMALL_LILY_PADS = new WaterlilyBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).noCollision());
+    public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(MobEffects.HEAL, 7, FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((blockStatex) -> 10));
+    public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).noCollision().isValidSpawn(Blocks::never).instabreak());
+    public static final Block FROZEN_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).instabreak());
+    public static final Block PINK_PETALS_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.CHERRY_LEAVES).instabreak());
+    public static final Block BIG_LILY_PAD = new BigLilyPadBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD));
+    public static final Block BROWN_MUSHROOM_COLONY = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
+    public static final Block BROWN_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.BROWN_MUSHROOM_COLONY));
+    public static final Block RED_MUSHROOM_COLONY = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
+    public static final Block RED_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.RED_MUSHROOM_COLONY));
+    public static final Block POTTED_TINY_CACTUS = createFlowerPotBlock(TINY_CACTUS);
+    public static final Block POTTED_LUMINOUS_FLOWER = createFlowerPotBlock(LUMINOUS_FLOWER, 10);
+    public static final Block POTTED_SNOW_FERN = createFlowerPotBlock(SNOW_FERN);
+
+    // Custom Generic Blocks
     public static final Block PACKED_SNOW = new Block(FabricBlockSettings.copyOf(Blocks.SNOW_BLOCK));
     public static final Block PACKED_SNOW_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.PACKED_SNOW));
     public static final Block PACKED_SNOW_STAIRS = new StairBlock(PACKED_SNOW.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.PACKED_SNOW));
@@ -545,48 +569,22 @@ public class MBBlocks {
     public static final Block BONE_BLOCK_TILES_STAIRS = new StairBlock(BONE_BLOCK_TILES.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.BONE_BLOCK_TILES));
     public static final Block BONE_BLOCK_TILES_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.BONE_BLOCK_TILES).solid());
     public static final Block CRACKED_BONE_BLOCK_TILES = new Block(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
-    public static final Block TINY_CACTUS = new TinyCactusBlock(MobEffects.POISON, 7, FabricBlockSettings.copyOf(Blocks.TORCHFLOWER));
-    public static final Block TALL_DUNE_GRASS = new TallDuneGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
-    public static final Block DUNE_GRASS = new DuneGrassBlock(TALL_DUNE_GRASS, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
-    public static final Block TALL_SNOW_GRASS = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
-    public static final Block SNOW_GRASS = new SnowGrassBlock(TALL_SNOW_GRASS, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
-    public static final Block TALL_SNOW_FERN = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.LARGE_FERN));
-    public static final Block SNOW_FERN = new SnowGrassBlock(TALL_SNOW_FERN, FabricBlockSettings.copyOf(Blocks.FERN));
-    public static final Block CATTAIL = new CattailBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).noOcclusion());
-    public static final Block SMALL_LILY_PADS = new WaterlilyBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).noCollision());
-    public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(MobEffects.HEAL, 7, FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((blockStatex) -> 10));
-    public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).noCollision().isValidSpawn(Blocks::never).instabreak());
-    public static final Block FROZEN_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).instabreak());
-    public static final Block PINK_PETALS_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.CHERRY_LEAVES).instabreak());
-    public static final Block BIG_LILY_PAD = new BigLilyPadBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD));
-    public static final Block BROWN_MUSHROOM_COLONY = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
-    public static final Block BROWN_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.BROWN_MUSHROOM_COLONY));
-    public static final Block RED_MUSHROOM_COLONY = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
-    public static final Block RED_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.RED_MUSHROOM_COLONY));
-    public static final Block POTTED_TINY_CACTUS = createFlowerPotBlock(TINY_CACTUS);
-    public static final Block POTTED_LUMINOUS_FLOWER = createFlowerPotBlock(LUMINOUS_FLOWER, 10);
-    public static final Block POTTED_SNOW_FERN = createFlowerPotBlock(SNOW_FERN);
-
-    public static final Block BLUE_HYDRANGEA = new TallGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
-    public static final Block PINK_HYDRANGEA = new TallGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
-    public static final Block PURPLE_HYDRANGEA = new TallGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
 
     public static void register() {
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "blue_hydrangea"), BLUE_HYDRANGEA);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "pink_hydrangea"), PINK_HYDRANGEA);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "purple_hydrangea"), PURPLE_HYDRANGEA);
-
-        // Plants
+        // Custom Plants & Flower Pots
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tiny_cactus"), TINY_CACTUS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "potted_tiny_cactus"), POTTED_TINY_CACTUS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dune_grass"), DUNE_GRASS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tall_dune_grass"), TALL_DUNE_GRASS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "snow_grass"), SNOW_GRASS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tall_snow_grass"), TALL_SNOW_GRASS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "snow_fern"), SNOW_FERN);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "potted_snow_fern"), POTTED_SNOW_FERN);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tall_snow_fern"), TALL_SNOW_FERN);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cattail"), CATTAIL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "small_lily_pads"), SMALL_LILY_PADS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "luminous_flower"), LUMINOUS_FLOWER);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "potted_luminous_flower"), POTTED_LUMINOUS_FLOWER);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "big_lily_pad"), BIG_LILY_PAD);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "frozen_leaf_litter"), FROZEN_LEAF_LITTER);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "leaf_litter"), LEAF_LITTER);
@@ -596,11 +594,7 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "red_mushroom_colony"), RED_MUSHROOM_COLONY);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "red_mushroom_colony_wall"), RED_MUSHROOM_COLONY_WALL);
 
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "potted_luminous_flower"), POTTED_LUMINOUS_FLOWER);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "potted_tiny_cactus"), POTTED_TINY_CACTUS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "potted_snow_fern"), POTTED_SNOW_FERN);
-
-        // Blocks
+        // Custom Blocks
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "packed_snow"), PACKED_SNOW);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "packed_snow_slab"), PACKED_SNOW_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "packed_snow_stairs"), PACKED_SNOW_STAIRS);
@@ -705,7 +699,6 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "end_stone_tiles_wall"), END_STONE_TILES_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_end_stone_tiles"), CRACKED_END_STONE_TILES);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "end_stone_pillar"), END_STONE_PILLAR);
-
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tuff_bricks"), TUFF_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tuff_bricks_slab"), TUFF_BRICKS_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tuff_bricks_stairs"), TUFF_BRICKS_STAIRS);
@@ -714,7 +707,6 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_tuff"), POLISHED_TUFF);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_tuff_slab"), POLISHED_TUFF_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_tuff_stairs"), POLISHED_TUFF_STAIRS);
-
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks"), MOSSY_TUFF_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks_slab"), MOSSY_TUFF_BRICKS_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_tuff_bricks_stairs"), MOSSY_TUFF_BRICKS_STAIRS);
@@ -1132,8 +1124,13 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_tiles_stairs"), BONE_BLOCK_TILES_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_tiles_wall"), BONE_BLOCK_TILES_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_bone_block_tiles"), CRACKED_BONE_BLOCK_TILES);
+
+        registerCrackedSystem();
     }
 
+    /**
+     * @deprecated - Maybe this will be removed before the release. Just discovered that you can smelt bricks to create the cracked variation :(
+     */
     public static void registerCrackedSystem() {
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_STONE_TILES, MBBlocks.STONE_TILES));
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_GRANITE_BRICKS, MBBlocks.GRANITE_BRICKS));
@@ -1193,6 +1190,7 @@ public class MBBlocks {
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_NETHERITE, MBBlocks.CUT_NETHERITE));
         LinkCrackedBlocks.register(new LinkCrackedBlocks(MBBlocks.CRACKED_CUT_AMETHYST, MBBlocks.CUT_AMETHYST));
     }
+
     private static Block createFlowerPotBlock(Block block) {
         return createFlowerPotBlock(block, 0);
     }

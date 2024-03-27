@@ -8,12 +8,6 @@ import { Generators } from '../utils/Generators.js';
 export class Block {
   NAMESPACE = 'moreblocks';
 
-  static blockVariables = [];
-  static itemBlockVariables = [];
-
-  static registerBlockList = [];
-  static registerItemBlockList = [];
-
   static #BLOCK_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/models/block';
   static #ITEM_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/models/item';
   static #BLOCKSTATES_MODEL_EXPORT_PATH = 'common/src/main/resources/assets/moreblocks/blockstates';
@@ -431,21 +425,6 @@ export class Block {
       },
       "result": `${this.NAMESPACE}:${this.blockId}`
     }
-  }
-
-  addVariables(classObj) {
-    Block.blockVariables.push(
-      `public static final Block ${this.blockId.toUpperCase()} = new ${classObj}(FabricBlockSettings.copyOf(Blocks.ACACIA_PLANKS));`
-    );
-    Block.itemBlockVariables.push(
-      `public static final Item ${this.blockId.toUpperCase()} = new BlockItem(MBBlocks.${this.blockId.toUpperCase()}, new Item.Settings());`
-    );
-    Block.registerBlockList.push(
-      `Registry.register(Registries.BLOCK, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
-    );
-    Block.registerItemBlockList.push(
-      `Registry.register(Registries.ITEM, new Identifier(MoreBlocks.ID, "${this.blockId}"), ${this.blockId.toUpperCase()});`
-    );
   }
 
   static parseNameToIdentifier(name) {

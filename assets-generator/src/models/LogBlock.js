@@ -4,7 +4,6 @@ import { Block } from "./Block.js";
 export class LogBlock extends Block {
   constructor(blockName, options) {
     super(blockName, options);
-    this.addVariables('RotatedPillarBlock');
 
     BlockTags.tags.logs.push(`${this.NAMESPACE}:${this.blockId}`);
   }

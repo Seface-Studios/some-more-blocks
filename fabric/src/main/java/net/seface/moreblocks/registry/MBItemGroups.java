@@ -9,7 +9,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Blocks;
 import net.seface.moreblocks.MoreBlocks;
 
 public class MBItemGroups {

@@ -11,6 +11,25 @@ import net.seface.moreblocks.item.CrackingToolItem;
 import net.seface.moreblocks.item.MushroomColonyBlockItem;
 
 public class MBItems {
+    // Plants
+    public static final Item TINY_CACTUS = new BlockItem(MBBlocks.TINY_CACTUS, new Item.Properties());
+    public static final Item DUNE_GRASS = new BlockItem(MBBlocks.DUNE_GRASS, new Item.Properties());
+    public static final Item TALL_DUNE_GRASS = new BlockItem(MBBlocks.TALL_DUNE_GRASS, new Item.Properties());
+    public static final Item SNOW_GRASS = new BlockItem(MBBlocks.SNOW_GRASS, new Item.Properties());
+    public static final Item TALL_SNOW_GRASS = new BlockItem(MBBlocks.TALL_SNOW_GRASS, new Item.Properties());
+    public static final Item SNOW_FERN = new BlockItem(MBBlocks.SNOW_FERN, new Item.Properties());
+    public static final Item TALL_SNOW_FERN = new BlockItem(MBBlocks.TALL_SNOW_FERN, new Item.Properties());
+    public static final Item CATTAIL = new BlockItem(MBBlocks.CATTAIL, new Item.Properties());
+    public static final Item SMALL_LILY_PADS = new PlaceOnWaterBlockItem(MBBlocks.SMALL_LILY_PADS, new Item.Properties());
+    public static final Item LUMINOUS_FLOWER = new BlockItem(MBBlocks.LUMINOUS_FLOWER, new Item.Properties());
+    public static final Item LEAVES_BUCKET = new SolidBucketItem(MBBlocks.LEAF_LITTER, SoundEvents.AMETHYST_BLOCK_PLACE, (new Item.Properties()).stacksTo(1));
+    public static final Item FROZEN_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.FROZEN_LEAF_LITTER, SoundEvents.TNT_PRIMED, (new Item.Properties()).stacksTo(1));
+    public static final Item PINK_PETALS_BUCKET = new SolidBucketItem(MBBlocks.PINK_PETALS_LITTER, SoundEvents.FROG_AMBIENT, (new Item.Properties()).stacksTo(1));
+    public static final Item BIG_LILY_PAD = new BigLilyPadBlockItem(MBBlocks.BIG_LILY_PAD, new Item.Properties());
+    public static final Item BROWN_MUSHROOM_COLONY = new MushroomColonyBlockItem(MBBlocks.BROWN_MUSHROOM_COLONY, MBBlocks.BROWN_MUSHROOM_COLONY_WALL, new Item.Properties());
+    public static final Item RED_MUSHROOM_COLONY = new MushroomColonyBlockItem(MBBlocks.RED_MUSHROOM_COLONY, MBBlocks.RED_MUSHROOM_COLONY_WALL, new Item.Properties());
+
+    // Custom Blocks
     public static final Item PACKED_SNOW = new BlockItem(MBBlocks.PACKED_SNOW, new Item.Properties());
     public static final Item PACKED_SNOW_SLAB = new BlockItem(MBBlocks.PACKED_SNOW_SLAB, new Item.Properties());
     public static final Item PACKED_SNOW_STAIRS = new BlockItem(MBBlocks.PACKED_SNOW_STAIRS, new Item.Properties());
@@ -115,7 +134,6 @@ public class MBItems {
     public static final Item END_STONE_TILES_WALL = new BlockItem(MBBlocks.END_STONE_TILES_WALL, new Item.Properties());
     public static final Item CRACKED_END_STONE_TILES = new BlockItem(MBBlocks.CRACKED_END_STONE_TILES, new Item.Properties());
     public static final Item END_STONE_PILLAR = new BlockItem(MBBlocks.END_STONE_PILLAR, new Item.Properties());
-
     public static final Item TUFF_BRICKS = new BlockItem(MBBlocks.TUFF_BRICKS, new Item.Properties());
     public static final Item TUFF_BRICKS_SLAB = new BlockItem(MBBlocks.TUFF_BRICKS_SLAB, new Item.Properties());
     public static final Item TUFF_BRICKS_STAIRS = new BlockItem(MBBlocks.TUFF_BRICKS_STAIRS, new Item.Properties());
@@ -124,7 +142,6 @@ public class MBItems {
     public static final Item POLISHED_TUFF = new BlockItem(MBBlocks.POLISHED_TUFF, new Item.Properties());
     public static final Item POLISHED_TUFF_SLAB = new BlockItem(MBBlocks.POLISHED_TUFF_SLAB, new Item.Properties());
     public static final Item POLISHED_TUFF_STAIRS = new BlockItem(MBBlocks.POLISHED_TUFF_STAIRS, new Item.Properties());
-
     public static final Item SMOOTH_TUFF = new BlockItem(MBBlocks.SMOOTH_TUFF, new Item.Properties());
     public static final Item SMOOTH_TUFF_SLAB = new BlockItem(MBBlocks.SMOOTH_TUFF_SLAB, new Item.Properties());
     public static final Item CRACKED_TUFF_BRICKS = new BlockItem(MBBlocks.CRACKED_TUFF_BRICKS, new Item.Properties());
@@ -297,7 +314,6 @@ public class MBItems {
     public static final Item PURPUR_TILES_STAIRS = new BlockItem(MBBlocks.PURPUR_TILES_STAIRS, new Item.Properties());
     public static final Item PURPUR_TILES_WALL = new BlockItem(MBBlocks.PURPUR_TILES_WALL, new Item.Properties());
     public static final Item CRACKED_PURPUR_TILES = new BlockItem(MBBlocks.CRACKED_PURPUR_TILES, new Item.Properties());
-
     public static final Item TERRACOTTA_BRICKS = new BlockItem(MBBlocks.TERRACOTTA_BRICKS, new Item.Properties());
     public static final Item WHITE_TERRACOTTA_BRICKS = new BlockItem(MBBlocks.WHITE_TERRACOTTA_BRICKS, new Item.Properties());
     public static final Item LIGHT_GRAY_TERRACOTTA_BRICKS = new BlockItem(MBBlocks.LIGHT_GRAY_TERRACOTTA_BRICKS, new Item.Properties());
@@ -364,7 +380,6 @@ public class MBItems {
     public static final Item PURPLE_CONCRETE_TILES = new BlockItem(MBBlocks.PURPLE_CONCRETE_TILES, new Item.Properties());
     public static final Item MAGENTA_CONCRETE_TILES = new BlockItem(MBBlocks.MAGENTA_CONCRETE_TILES, new Item.Properties());
     public static final Item PINK_CONCRETE_TILES = new BlockItem(MBBlocks.PINK_CONCRETE_TILES, new Item.Properties());
-
     public static final Item SOUL_SANDSTONE = new BlockItem(MBBlocks.SOUL_SANDSTONE, new Item.Properties());
     public static final Item SOUL_SANDSTONE_SLAB = new BlockItem(MBBlocks.SOUL_SANDSTONE_SLAB, new Item.Properties());
     public static final Item SOUL_SANDSTONE_STAIRS = new BlockItem(MBBlocks.SOUL_SANDSTONE_STAIRS, new Item.Properties());
@@ -545,25 +560,6 @@ public class MBItems {
     public static final Item BONE_BLOCK_TILES_WALL = new BlockItem(MBBlocks.BONE_BLOCK_TILES_WALL, new Item.Properties());
     public static final Item CRACKED_BONE_BLOCK_TILES = new BlockItem(MBBlocks.CRACKED_BONE_BLOCK_TILES, new Item.Properties());
 
-    // Plants
-    public static final Item TINY_CACTUS = new BlockItem(MBBlocks.TINY_CACTUS, new Item.Properties());
-    public static final Item DUNE_GRASS = new BlockItem(MBBlocks.DUNE_GRASS, new Item.Properties());
-    public static final Item TALL_DUNE_GRASS = new BlockItem(MBBlocks.TALL_DUNE_GRASS, new Item.Properties());
-    public static final Item SNOW_GRASS = new BlockItem(MBBlocks.SNOW_GRASS, new Item.Properties());
-    public static final Item TALL_SNOW_GRASS = new BlockItem(MBBlocks.TALL_SNOW_GRASS, new Item.Properties());
-    public static final Item SNOW_FERN = new BlockItem(MBBlocks.SNOW_FERN, new Item.Properties());
-    public static final Item TALL_SNOW_FERN = new BlockItem(MBBlocks.TALL_SNOW_FERN, new Item.Properties());
-    public static final Item CATTAIL = new BlockItem(MBBlocks.CATTAIL, new Item.Properties());
-    public static final Item SMALL_LILY_PADS = new PlaceOnWaterBlockItem(MBBlocks.SMALL_LILY_PADS, new Item.Properties());
-    public static final Item LUMINOUS_FLOWER = new BlockItem(MBBlocks.LUMINOUS_FLOWER, new Item.Properties());
-    public static final Item LEAVES_BUCKET = new SolidBucketItem(MBBlocks.LEAF_LITTER, SoundEvents.AMETHYST_BLOCK_PLACE, (new Item.Properties()).stacksTo(1));
-    public static final Item FROZEN_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.FROZEN_LEAF_LITTER, SoundEvents.TNT_PRIMED, (new Item.Properties()).stacksTo(1));
-    public static final Item PINK_PETALS_BUCKET = new SolidBucketItem(MBBlocks.PINK_PETALS_LITTER, SoundEvents.FROG_AMBIENT, (new Item.Properties()).stacksTo(1));
-    public static final Item BIG_LILY_PAD = new BigLilyPadBlockItem(MBBlocks.BIG_LILY_PAD, new Item.Properties());
-
-    public static final Item BROWN_MUSHROOM_COLONY = new MushroomColonyBlockItem(MBBlocks.BROWN_MUSHROOM_COLONY, MBBlocks.BROWN_MUSHROOM_COLONY_WALL, new Item.Properties());
-    public static final Item RED_MUSHROOM_COLONY = new MushroomColonyBlockItem(MBBlocks.RED_MUSHROOM_COLONY, MBBlocks.RED_MUSHROOM_COLONY_WALL, new Item.Properties());
-
     // Cracking Tool
     public static final Item CRACKING_TOOL = new CrackingToolItem(new Item.Properties().durability(238));
 
@@ -588,7 +584,7 @@ public class MBItems {
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "brown_mushroom_colony"), BROWN_MUSHROOM_COLONY);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "red_mushroom_colony"), RED_MUSHROOM_COLONY);
 
-        // Blocks
+        // Custom Blocks
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "packed_snow"), PACKED_SNOW);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "packed_snow_slab"), PACKED_SNOW_SLAB);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "packed_snow_stairs"), PACKED_SNOW_STAIRS);
@@ -693,7 +689,6 @@ public class MBItems {
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "end_stone_tiles_wall"), END_STONE_TILES_WALL);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cracked_end_stone_tiles"), CRACKED_END_STONE_TILES);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "end_stone_pillar"), END_STONE_PILLAR);
-
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tuff_bricks"), TUFF_BRICKS);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tuff_bricks_slab"), TUFF_BRICKS_SLAB);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tuff_bricks_stairs"), TUFF_BRICKS_STAIRS);
@@ -702,7 +697,6 @@ public class MBItems {
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "polished_tuff"), POLISHED_TUFF);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "polished_tuff_slab"), POLISHED_TUFF_SLAB);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "polished_tuff_stairs"), POLISHED_TUFF_STAIRS);
-
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "smooth_tuff"), SMOOTH_TUFF);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "smooth_tuff_slab"), SMOOTH_TUFF_SLAB);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cracked_tuff_bricks"), CRACKED_TUFF_BRICKS);

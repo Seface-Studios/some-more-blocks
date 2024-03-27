@@ -4,7 +4,6 @@ import { Block } from "./Block.js";
 export class PillarBlock extends Block {
   constructor(blockName, options) {
     super(blockName, options);
-    this.addVariables('RotatedPillarBlock');
   }
 
   blockModels() {

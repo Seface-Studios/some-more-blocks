@@ -4,7 +4,6 @@ import { Block } from "./Block.js";
 export class SlabBlock extends Block {
   constructor(blockName, options) {
     super(blockName.concat(' Slab'), options, true);
-    this.addVariables('SlabBlock');
 
     if ((this.stoneCuttingWith.length > 0 || this.isSlab()) && !this.isWood() && !this.isIgnoredByStonecutter()) {
       this.stoneCuttingWith.push(`${this.NAMESPACE}:${this.parentBlockId}`);

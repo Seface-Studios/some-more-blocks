@@ -4,7 +4,6 @@ import { Block } from "./Block.js";
 export class WallBlock extends Block {
   constructor(blockName, options) {
     super(blockName.concat(' Wall'), options, true);
-    this.addVariables('WallBlock');
 
     BlockTags.tags.walls.push(`${this.NAMESPACE}:${this.blockId}`);
 

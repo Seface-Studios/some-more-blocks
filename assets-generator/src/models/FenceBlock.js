@@ -3,7 +3,6 @@ import { Block } from "./Block.js";
 export class FenceBlock extends Block {
   constructor(blockName, options) {
     super(blockName.concat(' Fence'), options);
-    this.addVariables('FenceBlock');
   }
 
   blockModels() {

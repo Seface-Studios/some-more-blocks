@@ -4,7 +4,6 @@ import { Block } from "./Block.js";
 export class StairsBlock extends Block {
   constructor(blockName, options) {
     super(blockName.concat(' Stairs'), options, true);
-    this.addVariables('StairBlock')
 
     if ((this.stoneCuttingWith.length > 0 || this.isStairs()) && !this.isIgnoredByStonecutter()) {
       this.stoneCuttingWith.push(`${this.NAMESPACE}:${this.parentBlockId}`);
