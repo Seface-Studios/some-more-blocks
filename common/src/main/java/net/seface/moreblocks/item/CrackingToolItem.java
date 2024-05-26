@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.seface.moreblocks.core.LinkCrackedBlocks;
-import net.seface.moreblocks.block.MBBlockTags;
+import net.seface.moreblocks.block.MBBlockTagsOld;
 
 public class CrackingToolItem extends Item {
     private final Minecraft minecraft = Minecraft.getInstance();
@@ -36,7 +36,7 @@ public class CrackingToolItem extends Item {
         BlockPos hitPos = hitResult.getBlockPos();
         BlockState clickedBlock = level.getBlockState(hitPos);
 
-        if (!clickedBlock.is(MBBlockTags.CRACKLABLE)) return super.useOn(ctx);
+        if (!clickedBlock.is(MBBlockTagsOld.CRACKLABLE)) return super.useOn(ctx);
 
         if (!level.isClientSide) {
             if (player != null) {

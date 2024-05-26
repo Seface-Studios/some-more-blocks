@@ -1,17 +1,17 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=west": {
       "model": "moreblocks:block/brown_wall_mushroom_colony",
       "y": 90
     },
-    "facing=north": {
+    "facing=south": {
       "model": "moreblocks:block/brown_wall_mushroom_colony"
     },
-    "facing=south": {
+    "facing=north": {
       "model": "moreblocks:block/brown_wall_mushroom_colony",
       "y": 180
     },
-    "facing=west": {
+    "facing=east": {
       "model": "moreblocks:block/brown_wall_mushroom_colony",
       "y": 270
     }

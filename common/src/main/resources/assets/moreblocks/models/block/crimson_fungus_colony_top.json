@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "moreblocks:block/crimson_fungus_colony_top"
+  }
+}

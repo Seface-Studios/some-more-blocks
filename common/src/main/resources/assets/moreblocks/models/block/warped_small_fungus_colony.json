@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "moreblocks:block/warped_small_fungus_colony"
+  }
+}

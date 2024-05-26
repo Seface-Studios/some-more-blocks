@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "moreblocks:block/warped_fungus_colony_bottom"
+    },
+    "half=upper": {
+      "model": "moreblocks:block/warped_fungus_colony_top"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "values": [
+    "minecraft:mossy_cobblestone",
+    "minecraft:mossy_stone_bricks",
+    "moreblocks:mossy_granite_bricks",
+    "moreblocks:mossy_diorite_bricks",
+    "moreblocks:mossy_andesite_bricks",
+    "moreblocks:mossy_calcite_bricks",
+    "moreblocks:mossy_tuff_bricks",
+    "moreblocks:mossy_dripstone_bricks",
+    "moreblocks:mossy_brick_block",
+    "moreblocks:mossy_mud_bricks",
+    "moreblocks:mossy_sandstone_bricks",
+    "moreblocks:mossy_red_sandstone_bricks",
+    "moreblocks:mossy_prismarine_bricks",
+    "moreblocks:mossy_end_stone_bricks"
+  ]
+}

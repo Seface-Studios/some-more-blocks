@@ -549,16 +549,25 @@ public class MBItemGroups {
                 entry.accept(MBItems.SNOW_FERN);
                 entry.accept(MBItems.TALL_SNOW_FERN);
                 entry.accept(MBItems.CATTAIL);
+
                 entry.accept(MBItems.LEAVES_BUCKET);
                 entry.accept(MBItems.FROZEN_LEAVES_BUCKET);
-                entry.accept(MBItems.PINK_PETALS_BUCKET);
+                entry.accept(MBItems.AZALEA_LEAVES_BUCKET);
+                entry.accept(MBItems.FLOWERING_AZALEA_LEAVES_BUCKET);
+
                 entry.accept(MBItems.BIG_LILY_PAD);
                 entry.accept(MBItems.SMALL_LILY_PADS);
                 entry.accept(MBItems.LUMINOUS_FLOWER);
+                entry.accept(MBItems.BROWN_SMALL_MUSHROOM_COLONY);
                 entry.accept(MBItems.BROWN_MUSHROOM_COLONY);
+                entry.accept(MBItems.RED_SMALL_MUSHROOM_COLONY);
                 entry.accept(MBItems.RED_MUSHROOM_COLONY);
-            }).build();
 
+                entry.accept(MBItems.CRIMSON_SMALL_FUNGUS_COLONY);
+                entry.accept(MBItems.CRIMSON_FUNGUS_COLONY);
+                entry.accept(MBItems.WARPED_SMALL_FUNGUS_COLONY);
+                entry.accept(MBItems.WARPED_FUNGUS_COLONY);
+            }).build();
 
 
     public static void register() {
@@ -567,7 +576,6 @@ public class MBItemGroups {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "more_natural_blocks"), MORE_NATURAL_BLOCKS);
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register((entry) -> {
-            entry.addBefore(Items.FISHING_ROD, MBItems.CRACKING_TOOL);
         });
     }
 
