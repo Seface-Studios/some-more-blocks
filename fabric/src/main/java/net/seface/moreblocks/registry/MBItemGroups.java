@@ -567,6 +567,10 @@ public class MBItemGroups {
                 entry.accept(MBItems.CRIMSON_FUNGUS_COLONY);
                 entry.accept(MBItems.WARPED_SMALL_FUNGUS_COLONY);
                 entry.accept(MBItems.WARPED_FUNGUS_COLONY);
+
+                entry.accept(MBItems.OCHRE_REDSTONE_FROGLIGHT);
+                entry.accept(MBItems.VERDANT_REDSTONE_FROGLIGHT);
+                entry.accept(MBItems.PEARLESCENT_REDSTONE_FROGLIGHT);
             }).build();
 
 

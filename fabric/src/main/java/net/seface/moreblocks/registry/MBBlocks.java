@@ -55,6 +55,10 @@ public class MBBlocks {
     public static final Block POTTED_LUMINOUS_FLOWER = createFlowerPotBlock(LUMINOUS_FLOWER, 10);
     public static final Block POTTED_SNOW_FERN = createFlowerPotBlock(SNOW_FERN);
 
+    public static final Block OCHRE_REDSTONE_FROGLIGHT = new RedstoneLampBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_LAMP).sounds(SoundType.FROGLIGHT));
+    public static final Block PEARLESCENT_REDSTONE_FROGLIGHT = new RedstoneLampBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_LAMP).sounds(SoundType.FROGLIGHT));
+    public static final Block VERDANT_REDSTONE_FROGLIGHT = new RedstoneLampBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_LAMP).sounds(SoundType.FROGLIGHT));
+
     // Custom Generic Blocks
     public static final Block PACKED_SNOW = new Block(FabricBlockSettings.copyOf(Blocks.SNOW_BLOCK));
     public static final Block PACKED_SNOW_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.PACKED_SNOW));
@@ -621,6 +625,10 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "crimson_fungus_colony"), CRIMSON_FUNGUS_COLONY);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "crimson_fungus_colony_wall"), CRIMSON_FUNGUS_COLONY_WALL);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "crimson_small_fungus_colony"), CRIMSON_SMALL_FUNGUS_COLONY);
+
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "ochre_redstone_froglight"), OCHRE_REDSTONE_FROGLIGHT);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "pearlescent_redstone_froglight"), PEARLESCENT_REDSTONE_FROGLIGHT);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "verdant_redstone_froglight"), VERDANT_REDSTONE_FROGLIGHT);
 
         // Custom Blocks
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "packed_snow"), PACKED_SNOW);

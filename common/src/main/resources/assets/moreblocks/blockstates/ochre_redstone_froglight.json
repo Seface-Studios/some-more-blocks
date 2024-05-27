@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "moreblocks:block/ochre_redstone_froglight"
+    },
+    "lit=true": {
+      "model": "moreblocks:block/ochre_redstone_froglight_on"
+    }
+  }
+}

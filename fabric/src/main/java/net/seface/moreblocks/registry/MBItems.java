@@ -39,6 +39,9 @@ public class MBItems {
     public static final Item CRIMSON_FUNGUS_COLONY = new BlockItem(MBBlocks.CRIMSON_FUNGUS_COLONY, new Item.Properties());
     public static final Item CRIMSON_SMALL_FUNGUS_COLONY = new StandingAndWallBlockItem(MBBlocks.CRIMSON_SMALL_FUNGUS_COLONY, MBBlocks.CRIMSON_FUNGUS_COLONY_WALL, new Item.Properties(), Direction.DOWN);
 
+    public static final Item OCHRE_REDSTONE_FROGLIGHT = new BlockItem(MBBlocks.OCHRE_REDSTONE_FROGLIGHT, new Item.Properties());
+    public static final Item PEARLESCENT_REDSTONE_FROGLIGHT = new BlockItem(MBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT, new Item.Properties());
+    public static final Item VERDANT_REDSTONE_FROGLIGHT = new BlockItem(MBBlocks.VERDANT_REDSTONE_FROGLIGHT, new Item.Properties());
 
     // Custom Blocks
     public static final Item PACKED_SNOW = new BlockItem(MBBlocks.PACKED_SNOW, new Item.Properties());
@@ -584,21 +587,22 @@ public class MBItems {
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "small_lily_pads"), SMALL_LILY_PADS);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "luminous_flower"), LUMINOUS_FLOWER);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "big_lily_pad"), BIG_LILY_PAD);
-
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "azalea_leaves_bucket"), AZALEA_LEAVES_BUCKET);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "flowering_azalea_leaves_bucket"), FLOWERING_AZALEA_LEAVES_BUCKET);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "frozen_leaves_bucket"), FROZEN_LEAVES_BUCKET);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "leaves_bucket"), LEAVES_BUCKET);
-
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "brown_mushroom_colony"), BROWN_MUSHROOM_COLONY);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "brown_small_mushroom_colony"), BROWN_SMALL_MUSHROOM_COLONY);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "red_mushroom_colony"), RED_MUSHROOM_COLONY);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "red_small_mushroom_colony"), RED_SMALL_MUSHROOM_COLONY);
-
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "warped_fungus_colony"), WARPED_FUNGUS_COLONY);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "warped_small_fungus_colony"), WARPED_SMALL_FUNGUS_COLONY);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "crimson_fungus_colony"), CRIMSON_FUNGUS_COLONY);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "crimson_small_fungus_colony"), CRIMSON_SMALL_FUNGUS_COLONY);
+
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "ochre_redstone_froglight"), OCHRE_REDSTONE_FROGLIGHT);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "pearlescent_redstone_froglight"), PEARLESCENT_REDSTONE_FROGLIGHT);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "verdant_redstone_froglight"), VERDANT_REDSTONE_FROGLIGHT);
 
         // Custom Blocks
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "packed_snow"), PACKED_SNOW);
