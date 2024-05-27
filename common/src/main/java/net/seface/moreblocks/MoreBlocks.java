@@ -9,9 +9,8 @@ public class MoreBlocks {
     public static final String MOD_NAME = "More Blocks";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
-    public static void init() {}
-
-    public static String id(String identifier) {
-        return new ResourceLocation(MoreBlocks.ID, identifier).toString();
+    public static void init() {
+      LOGGER.info("More Blocks mod initialized!");
+      LOGGER.info("Access: www.sefacestudios.net");
     }
 }

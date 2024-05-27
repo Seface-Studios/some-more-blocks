@@ -13,7 +13,6 @@ import net.seface.moreblocks.tags.MBBlockTags;
 
 public class SmallMushroomColonyBlock extends BushBlock {
     public static final MapCodec<SmallMushroomColonyBlock> CODEC = simpleCodec(SmallMushroomColonyBlock::new);
-    protected static final float AABB_OFFSET = 6.0F;
     protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0);
 
     private final TagKey<Block> tagKey;

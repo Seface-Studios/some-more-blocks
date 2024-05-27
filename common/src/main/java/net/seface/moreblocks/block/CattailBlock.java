@@ -3,6 +3,7 @@ package net.seface.moreblocks.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.seface.moreblocks.tags.MBBlockTags;
 
 public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -20,6 +22,11 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
     public CattailBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
+    }
+
+    @Override
+    protected boolean mayPlaceOn(BlockState state, BlockGetter block, BlockPos pos) {
+        return state.is(MBBlockTags.CATTAIL_PLACEABLE);
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
@@ -39,17 +46,4 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
     public FluidState getFluidState(BlockState state) {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
-
-    /*public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        BlockState blockAbove = level.getBlockState(pos.above());
-        BlockState blockBelow = level.getBlockState(pos.below());
-
-        if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
-            blockBelow = level.getBlockState(pos.below());
-            return blockBelow.is(BlockTags.SAND) || blockBelow.is(BlockTags.DIRT) || blockBelow.is(Blocks.GRAVEL) &&
-                   !blockAbove.getValue(WATERLOGGED);
-        }
-
-        return blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER;
-    }*/
 }
