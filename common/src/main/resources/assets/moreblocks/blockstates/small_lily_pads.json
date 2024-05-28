@@ -2,18 +2,41 @@
   "variants": {
     "": [
       {
-        "model": "moreblocks:block/small_lily_pads"
+        "model": "moreblocks:block/small_lily_pads",
+        "weight": 17.5
+      },
+      {
+        "model": "moreblocks:block/small_lily_pads_with_lotus",
+        "weight": 7.5
       },
       {
         "model": "moreblocks:block/small_lily_pads",
+        "weight": 17.5,
+        "y": 90
+      },
+      {
+        "model": "moreblocks:block/small_lily_pads_with_lotus",
+        "weight": 7.5,
         "y": 90
       },
       {
         "model": "moreblocks:block/small_lily_pads",
+        "weight": 17.5,
+        "y": 180
+      },
+      {
+        "model": "moreblocks:block/small_lily_pads_with_lotus",
+        "weight": 7.5,
         "y": 180
       },
       {
         "model": "moreblocks:block/small_lily_pads",
+        "weight": 17.5,
+        "y": 270
+      },
+      {
+        "model": "moreblocks:block/small_lily_pads_with_lotus",
+        "weight": 7.5,
         "y": 270
       }
     ]

@@ -5,9 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.SolidBucketItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -28,14 +26,12 @@ public class MBBlocks {
     public static final Block SNOW_FERN = new SnowGrassBlock(TALL_SNOW_FERN, FabricBlockSettings.copyOf(Blocks.FERN));
     public static final Block CATTAIL = new CattailBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).noOcclusion());
     public static final Block SMALL_LILY_PADS = new WaterlilyBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).noCollision());
-    public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(MobEffects.HEAL, 7, FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((blockStatex) -> 10));
-
+    public static final Block BIG_LILY_PAD = new BigLilyPadBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).pushReaction(PushReaction.BLOCK));
+    public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((blockStatex) -> 10));
     public static final Block AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.AZALEA_LEAVES).noCollision().isValidSpawn(Blocks::never).instabreak());
     public static final Block FLOWERING_AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.FLOWERING_AZALEA_LEAVES).noCollision().isValidSpawn(Blocks::never).instabreak());
     public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).noCollision().isValidSpawn(Blocks::never).instabreak());
     public static final Block FROZEN_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).noCollision().isValidSpawn(Blocks::never).instabreak());
-
-    public static final Block BIG_LILY_PAD = new BigLilyPadBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD));
     public static final Block BROWN_SMALL_MUSHROOM_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
     public static final Block BROWN_MUSHROOM_COLONY = new DoubleMushroomColonyBlock(MBBlocks.BROWN_SMALL_MUSHROOM_COLONY, FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
     public static final Block BROWN_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.BROWN_MUSHROOM_COLONY));

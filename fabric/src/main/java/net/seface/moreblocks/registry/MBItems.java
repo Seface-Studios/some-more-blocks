@@ -20,12 +20,12 @@ public class MBItems {
     public static final Item TALL_SNOW_FERN = new BlockItem(MBBlocks.TALL_SNOW_FERN, new Item.Properties());
     public static final Item CATTAIL = new BlockItem(MBBlocks.CATTAIL, new Item.Properties());
     public static final Item SMALL_LILY_PADS = new PlaceOnWaterBlockItem(MBBlocks.SMALL_LILY_PADS, new Item.Properties());
+    public static final Item BIG_LILY_PAD = new PlaceOnWaterBlockItem(MBBlocks.BIG_LILY_PAD, new Item.Properties());
     public static final Item LUMINOUS_FLOWER = new BlockItem(MBBlocks.LUMINOUS_FLOWER, new Item.Properties());
     public static final Item AZALEA_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.AZALEA_LEAF_LITTER, SoundEvents.AZALEA_LEAVES_PLACE, (new Item.Properties()).stacksTo(1));
     public static final Item FLOWERING_AZALEA_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.FLOWERING_AZALEA_LEAF_LITTER, SoundEvents.AZALEA_LEAVES_PLACE, (new Item.Properties()).stacksTo(1));
     public static final Item FROZEN_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.FROZEN_LEAF_LITTER, SoundEvents.GRASS_PLACE, (new Item.Properties()).stacksTo(1));
     public static final Item LEAVES_BUCKET = new SolidBucketItem(MBBlocks.LEAF_LITTER, SoundEvents.GRASS_PLACE, (new Item.Properties()).stacksTo(1));
-    public static final Item BIG_LILY_PAD = new BigLilyPadBlockItem(MBBlocks.BIG_LILY_PAD, new Item.Properties());
     public static final Item BROWN_MUSHROOM_COLONY = new BlockItem(MBBlocks.BROWN_MUSHROOM_COLONY, new Item.Properties());
     public static final Item BROWN_SMALL_MUSHROOM_COLONY = new StandingAndWallBlockItem(MBBlocks.BROWN_SMALL_MUSHROOM_COLONY, MBBlocks.BROWN_MUSHROOM_COLONY_WALL, new Item.Properties(), Direction.DOWN);
     public static final Item RED_MUSHROOM_COLONY = new BlockItem(MBBlocks.RED_MUSHROOM_COLONY, new Item.Properties());

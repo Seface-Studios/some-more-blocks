@@ -18,7 +18,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class LuminousFlowerBlock extends FlowerBlock {
     public LuminousFlowerBlock(Properties properties) {
-        super(MobEffects.GLOWING, 2, properties);
+        super(MobEffects.GLOWING, 7, properties);
     }
 
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {

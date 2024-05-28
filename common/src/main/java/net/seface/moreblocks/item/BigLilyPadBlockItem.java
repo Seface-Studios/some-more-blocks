@@ -33,10 +33,10 @@ public class BigLilyPadBlockItem extends PlaceOnWaterBlockItem {
         BlockPos pos = hitResult.getBlockPos();
         BigLilyPadBlock lilyPad = (BigLilyPadBlock) this.getBlock();
 
-        if (lilyPad.isValidPlace(level, pos, player.getDirection())) {
-            lilyPad.place(level, pos.above(), this.getBlock().defaultBlockState(), player.getDirection());
-            return InteractionResultHolder.consume(handItem);
-        }
+        //if (lilyPad.isValidPlace(level, pos, player.getDirection())) {
+        //    lilyPad.place(level, pos.above(), this.getBlock().defaultBlockState(), player.getDirection());
+        //    return InteractionResultHolder.consume(handItem);
+        //}
 
         return InteractionResultHolder.fail(handItem);
     }
