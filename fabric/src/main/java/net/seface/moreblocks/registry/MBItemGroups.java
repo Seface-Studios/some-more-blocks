@@ -538,7 +538,7 @@ public class MBItemGroups {
             }).build();
 
     private static final CreativeModeTab MORE_NATURAL_BLOCKS = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(MBItems.TINY_CACTUS))
+            .icon(() -> new ItemStack(MBItems.WARPED_SMALL_FUNGUS_COLONY))
             .title(Component.translatable("itemGroup.moreblocks.naturalBlocks"))
             .displayItems((ctx, entry) -> {
                 entry.accept(MBItems.TINY_CACTUS);
@@ -549,12 +549,10 @@ public class MBItemGroups {
                 entry.accept(MBItems.SNOW_FERN);
                 entry.accept(MBItems.TALL_SNOW_FERN);
                 entry.accept(MBItems.CATTAIL);
-
                 entry.accept(MBItems.LEAVES_BUCKET);
                 entry.accept(MBItems.FROZEN_LEAVES_BUCKET);
                 entry.accept(MBItems.AZALEA_LEAVES_BUCKET);
                 entry.accept(MBItems.FLOWERING_AZALEA_LEAVES_BUCKET);
-
                 entry.accept(MBItems.BIG_LILY_PAD);
                 entry.accept(MBItems.SMALL_LILY_PADS);
                 entry.accept(MBItems.LUMINOUS_FLOWER);
@@ -562,12 +560,10 @@ public class MBItemGroups {
                 entry.accept(MBItems.BROWN_MUSHROOM_COLONY);
                 entry.accept(MBItems.RED_SMALL_MUSHROOM_COLONY);
                 entry.accept(MBItems.RED_MUSHROOM_COLONY);
-
                 entry.accept(MBItems.CRIMSON_SMALL_FUNGUS_COLONY);
                 entry.accept(MBItems.CRIMSON_FUNGUS_COLONY);
                 entry.accept(MBItems.WARPED_SMALL_FUNGUS_COLONY);
                 entry.accept(MBItems.WARPED_FUNGUS_COLONY);
-
                 entry.accept(MBItems.OCHRE_REDSTONE_FROGLIGHT);
                 entry.accept(MBItems.VERDANT_REDSTONE_FROGLIGHT);
                 entry.accept(MBItems.PEARLESCENT_REDSTONE_FROGLIGHT);

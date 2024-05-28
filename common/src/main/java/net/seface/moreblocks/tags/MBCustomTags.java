@@ -6,7 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.seface.moreblocks.MoreBlocks;
 
-public abstract class AbstractCustomTag {
+public abstract class MBCustomTags {
     protected static <T> TagKey<T> register(ResourceKey<Registry<T>> registryType, String identifier) {
         return TagKey.create(registryType, new ResourceLocation(MoreBlocks.ID, identifier));
     }

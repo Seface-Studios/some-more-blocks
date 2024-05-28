@@ -110,47 +110,52 @@ public class BigLilyPadBlock extends WaterlilyBlock {
       return level.destroyBlock(pos, true);
   }
 
-  public enum BigLilyPadChildOffsets {
+  protected enum BigLilyPadChildOffsets {
     DESTROYED_FROM_TEXTURE_0(0,
       new Rotation[]{Rotation.CLOCKWISE_90},
       new Rotation[]{Rotation.CLOCKWISE_90, Rotation.NONE},
-      new Rotation[]{Rotation.NONE}
+      new Rotation[]{Rotation.NONE},
+      false
     ),
     DESTROYED_FROM_TEXTURE_1(1,
       new Rotation[]{Rotation.COUNTERCLOCKWISE_90},
       new Rotation[]{Rotation.NONE},
-      new Rotation[]{Rotation.COUNTERCLOCKWISE_90, Rotation.NONE}
+      new Rotation[]{Rotation.COUNTERCLOCKWISE_90, Rotation.NONE},
+      false
     ),
     DESTROYED_FROM_TEXTURE_2(2,
       new Rotation[]{Rotation.CLOCKWISE_90},
       new Rotation[]{Rotation.NONE},
-      new Rotation[]{Rotation.CLOCKWISE_90, Rotation.NONE}
+      new Rotation[]{Rotation.CLOCKWISE_90, Rotation.NONE},
+      true
     ),
     DESTROYED_FROM_TEXTURE_3(3,
       new Rotation[]{Rotation.COUNTERCLOCKWISE_90},
       new Rotation[]{Rotation.COUNTERCLOCKWISE_90, Rotation.NONE},
-      new Rotation[]{Rotation.NONE}
+      new Rotation[]{Rotation.NONE},
+      true
     );
 
     private final int texture;
     private final Rotation[] sidePosRotations;
     private final Rotation[] sideTopPosRotations;
     private final Rotation[] topPosRotations;
+    private final boolean opposite;
 
     /**
      * Todo: Add a param to use a single getPOSITION method.
      */
-    BigLilyPadChildOffsets(int texture, Rotation[] sidePosRotations, Rotation[] sideTopRotations, Rotation[] topPosRotations) {
+    BigLilyPadChildOffsets(int texture, Rotation[] sidePosRotations, Rotation[] sideTopRotations, Rotation[] topPosRotations, boolean opposite) {
       this.texture = texture;
       this.sidePosRotations = sidePosRotations;
       this.sideTopPosRotations = sideTopRotations;
       this.topPosRotations = topPosRotations;
+      this.opposite = opposite;
     }
 
     public static BlockPos getSidePos(BlockPos pos, Direction facing, int texture) {
       BigLilyPadChildOffsets appendTo = BigLilyPadChildOffsets.getOffsetFromTexture(texture);
-      boolean opposite = appendTo.texture >= 2;
-      facing = opposite ? facing.getOpposite() : facing;
+      facing = appendTo.opposite ? facing.getOpposite() : facing;
 
       BlockPos savedPos = pos;
       for (Rotation rotation : appendTo.sidePosRotations) {

@@ -11,11 +11,9 @@ public class MoreBlocksFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         MoreBlocks.init();
-
         MBItems.register();
         MBBlocks.register();
         MBItemGroups.register();
-
         WorldGeneration.register();
     }
 }
