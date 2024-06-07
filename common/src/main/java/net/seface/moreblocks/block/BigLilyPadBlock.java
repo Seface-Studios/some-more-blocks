@@ -2,17 +2,20 @@ package net.seface.moreblocks.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.levelgen.feature.BlockColumnFeature;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -68,14 +71,14 @@ public class BigLilyPadBlock extends WaterlilyBlock {
       ? super.getStateForPlacement(ctx) : null;
   }
 
-  @Override
+  /*@Override
   public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
     return super.canSurvive(state, level, pos);
-  }
+  }*/
 
   @Override
   public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity player, ItemStack item) {
-    Direction facing = player.getDirection();
+    Direction facing = player != null ? player.getDirection() : Direction.getRandom(RandomSource.create());
 
     BlockPos rightPos = pos.offset(facing.getClockWise().getNormal());
     BlockPos rightTopPos = pos.offset(facing.getClockWise().getNormal().offset(facing.getNormal()));

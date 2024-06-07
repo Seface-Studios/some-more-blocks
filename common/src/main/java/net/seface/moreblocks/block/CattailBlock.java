@@ -1,9 +1,7 @@
 package net.seface.moreblocks.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
@@ -24,10 +22,16 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
         this.registerDefaultState(this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
     }
 
-    @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter block, BlockPos pos) {
-        return state.is(MBBlockTags.CATTAIL_PLACEABLE);
+  @Override
+  public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+    BlockState blockBelow = level.getBlockState(pos.below());
+
+    if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
+      return blockBelow.is(MBBlockTags.CATTAIL_PLACEABLE) && !level.getBlockState(pos.above()).liquid();
     }
+
+    return blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER;
+  }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
         stateBuilder.add(HALF, WATERLOGGED);

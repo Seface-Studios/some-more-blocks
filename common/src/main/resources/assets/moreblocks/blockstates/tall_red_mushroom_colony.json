@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "moreblocks:block/tall_red_mushroom_colony_bottom"
+    },
+    "half=upper": {
+      "model": "moreblocks:block/tall_red_mushroom_colony_top"
+    }
+  }
+}

@@ -15,5 +15,14 @@ public class MoreBlocksFabric implements ModInitializer {
         MBBlocks.register();
         MBItemGroups.register();
         WorldGeneration.register();
+
+        registerSnowyVariations();
+    }
+
+    private static void registerSnowyVariations() {
+      SnowyVariationsManager.register(Blocks.SHORT_GRASS, MBBlocks.SNOW_GRASS);
+      SnowyVariationsManager.register(Blocks.FERN, MBBlocks.SNOW_FERN);
+      SnowyVariationsManager.register(Blocks.TALL_GRASS, MBBlocks.TALL_SNOW_GRASS, true);
+      SnowyVariationsManager.register(Blocks.LARGE_FERN, MBBlocks.TALL_SNOW_FERN, true);
     }
 }

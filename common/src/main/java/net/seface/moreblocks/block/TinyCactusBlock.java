@@ -10,6 +10,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.seface.moreblocks.tags.MBBlockTags;
 
 public class TinyCactusBlock extends FlowerBlock {
     public TinyCactusBlock(MobEffect mobEffect, int i, Properties properties) {
@@ -18,9 +19,7 @@ public class TinyCactusBlock extends FlowerBlock {
 
     public boolean canSurvive(BlockState blockState, LevelReader level, BlockPos blockPos) {
         BlockState bellowBlockState = level.getBlockState(blockPos.below());
-        boolean isValidPlacement = bellowBlockState.is(BlockTags.SAND) || bellowBlockState.is(BlockTags.DIRT);
-
-        return isValidPlacement && !level.getBlockState(blockPos.above()).liquid();
+        return bellowBlockState.is(MBBlockTags.TINY_CACTUS_PLACEABLE) && !level.getBlockState(blockPos.above()).liquid();
     }
 
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {

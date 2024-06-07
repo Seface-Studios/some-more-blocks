@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moreblocks:item/tall_red_mushroom_colony"
+  }
+}

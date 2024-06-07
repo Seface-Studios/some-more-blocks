@@ -15,6 +15,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.moreblocks.MoreBlocks;
 import net.seface.moreblocks.block.*;
+import net.seface.moreblocks.block.generic.GenericBonemealableBushBlock;
+import net.seface.moreblocks.interfaces.IPoweredBlockMixin;
+import net.seface.moreblocks.tags.MBBlockTags;
 
 import java.util.function.Supplier;
 
@@ -24,31 +27,39 @@ public class MBBlocks {
     // Custom Plants & Flower Pots
     public static final RegistryObject<Block> AZALEA_LEAF_LITTER = registerBlock("azalea_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA_LEAVES).noCollission().instabreak()), false);
     public static final RegistryObject<Block> BIG_LILY_PAD = registerBlock("big_lily_pad", () -> new BigLilyPadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).pushReaction(PushReaction.BLOCK)), false);
-    public static final RegistryObject<Block> BROWN_SMALL_MUSHROOM_COLONY = registerBlock("brown_small_mushroom_colony", () -> new SmallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)), false);
-    public static final RegistryObject<Block> BROWN_MUSHROOM_COLONY = registerBlock("brown_mushroom_colony", () -> new DoubleMushroomColonyBlock(MBBlocks.BROWN_SMALL_MUSHROOM_COLONY.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
+
+    public static final RegistryObject<Block> BROWN_MUSHROOM_COLONY = registerBlock("brown_mushroom_colony", () -> new SmallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)), false);
+    public static final RegistryObject<Block> TALL_BROWN_MUSHROOM_COLONY = registerBlock("tall_brown_mushroom_colony", () -> new DoubleMushroomColonyBlock(MBBlocks.BROWN_MUSHROOM_COLONY.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
     public static final RegistryObject<Block> BROWN_MUSHROOM_COLONY_WALL = registerBlock("brown_mushroom_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.BROWN_MUSHROOM_COLONY.get())), false);
+
     public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new CattailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS).noCollission()));
-    public static final RegistryObject<Block> CRIMSON_SMALL_FUNGUS_COLONY = registerBlock("crimson_small_fungus_colony", () -> new SmallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_FUNGUS)), false);
-    public static final RegistryObject<Block> CRIMSON_FUNGUS_COLONY = registerBlock("crimson_fungus_colony", () -> new DoubleMushroomColonyBlock(MBBlocks.CRIMSON_SMALL_FUNGUS_COLONY.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_FUNGUS)));
+
+    public static final RegistryObject<Block> CRIMSON_FUNGUS_COLONY = registerBlock("crimson_fungus_colony", () -> new SmallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_FUNGUS)), false);
+    public static final RegistryObject<Block> TALL_CRIMSON_FUNGUS_COLONY = registerBlock("tall_crimson_fungus_colony", () -> new DoubleMushroomColonyBlock(MBBlocks.CRIMSON_FUNGUS_COLONY.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_FUNGUS)));
     public static final RegistryObject<Block> CRIMSON_FUNGUS_COLONY_WALL = registerBlock("crimson_fungus_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.CRIMSON_FUNGUS_COLONY.get())), false);
+
     public static final RegistryObject<Block> FLOWERING_AZALEA_LEAF_LITTER = registerBlock("flowering_azalea_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWERING_AZALEA_LEAVES).noCollission().instabreak()), false);
     public static final RegistryObject<Block> FROZEN_LEAF_LITTER = registerBlock("frozen_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_LEAVES).noCollission().instabreak()), false);
     public static final RegistryObject<Block> LEAF_LITTER = registerBlock("leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).noCollission().instabreak()), false);
     public static final RegistryObject<Block> LUMINOUS_FLOWER = registerBlock("luminous_flower", () -> new LuminousFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION).lightLevel((blockStatex) -> 10)));
-    public static final RegistryObject<Block> RED_SMALL_MUSHROOM_COLONY = registerBlock("red_small_mushroom_colony", () -> new SmallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)), false);
-    public static final RegistryObject<Block> RED_MUSHROOM_COLONY = registerBlock("red_mushroom_colony", () -> new DoubleMushroomColonyBlock(MBBlocks.RED_SMALL_MUSHROOM_COLONY.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)));
+
+    public static final RegistryObject<Block> RED_MUSHROOM_COLONY = registerBlock("red_mushroom_colony", () -> new SmallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)), false);
+    public static final RegistryObject<Block> TALL_RED_MUSHROOM_COLONY = registerBlock("tall_red_mushroom_colony", () -> new DoubleMushroomColonyBlock(MBBlocks.RED_MUSHROOM_COLONY.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)));
     public static final RegistryObject<Block> RED_MUSHROOM_COLONY_WALL = registerBlock("red_mushroom_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.RED_MUSHROOM_COLONY.get())), false);
+
     public static final RegistryObject<Block> SMALL_LILY_PADS = registerBlock("small_lily_pads", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).noCollission()), false);
     public static final RegistryObject<Block> TALL_DUNE_GRASS = registerBlock("tall_dune_grass", () -> new TallDuneGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
-    public static final RegistryObject<Block> DUNE_GRASS = registerBlock("dune_grass", () -> new DuneGrassBlock(MBBlocks.TALL_DUNE_GRASS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
+    public static final RegistryObject<Block> DUNE_GRASS = registerBlock("dune_grass", () -> new GenericBonemealableBushBlock(MBBlocks.TALL_DUNE_GRASS.get(), MBBlockTags.DUNE_GRASS_PLACEABLE, BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
     public static final RegistryObject<Block> TALL_SNOW_FERN = registerBlock("tall_snow_fern", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LARGE_FERN)));
-    public static final RegistryObject<Block> SNOW_FERN = registerBlock("snow_fern", () -> new SnowGrassBlock(MBBlocks.TALL_DUNE_GRASS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FERN)));
+    public static final RegistryObject<Block> SNOW_FERN = registerBlock("snow_fern", () -> new GenericBonemealableBushBlock(MBBlocks.TALL_SNOW_FERN.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FERN)));
     public static final RegistryObject<Block> TALL_SNOW_GRASS = registerBlock("tall_snow_grass", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
-    public static final RegistryObject<Block> SNOW_GRASS = registerBlock("snow_grass", () -> new SnowGrassBlock(MBBlocks.TALL_DUNE_GRASS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
+    public static final RegistryObject<Block> SNOW_GRASS = registerBlock("snow_grass", () -> new GenericBonemealableBushBlock(MBBlocks.TALL_SNOW_GRASS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
     public static final RegistryObject<Block> TINY_CACTUS = registerBlock("tiny_cactus", () -> new TinyCactusBlock(MobEffects.POISON, 7, BlockBehaviour.Properties.ofFullCopy(Blocks.TORCHFLOWER)));
-    public static final RegistryObject<Block> WARPED_SMALL_FUNGUS_COLONY = registerBlock("warped_small_fungus_colony", () -> new SmallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS)), false);
-    public static final RegistryObject<Block> WARPED_FUNGUS_COLONY = registerBlock("warped_fungus_colony", () -> new DoubleMushroomColonyBlock(MBBlocks.WARPED_SMALL_FUNGUS_COLONY.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS)));
+
+    public static final RegistryObject<Block> WARPED_FUNGUS_COLONY = registerBlock("warped_fungus_colony", () -> new SmallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS)), false);
+    public static final RegistryObject<Block> TALL_WARPED_FUNGUS_COLONY = registerBlock("tall_warped_fungus_colony", () -> new DoubleMushroomColonyBlock(MBBlocks.WARPED_FUNGUS_COLONY.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS)));
     public static final RegistryObject<Block> WARPED_FUNGUS_COLONY_WALL = registerBlock("warped_fungus_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.WARPED_FUNGUS_COLONY.get())), false);
+
     public static final RegistryObject<Block> POTTED_LUMINOUS_FLOWER = createAndRegisterFlowerPotBlock("potted_luminous_flower", MBBlocks.LUMINOUS_FLOWER, 10);
     public static final RegistryObject<Block> POTTED_SNOW_FERN = createAndRegisterFlowerPotBlock("potted_snow_fern", MBBlocks.SNOW_FERN);
     public static final RegistryObject<Block> POTTED_TINY_CACTUS = createAndRegisterFlowerPotBlock("potted_tiny_cactus", MBBlocks.TINY_CACTUS);
@@ -446,10 +457,10 @@ public class MBBlocks {
     public static final RegistryObject<Block> CRACKED_CUT_GOLD = registerBlock("cracked_cut_gold", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
     public static final RegistryObject<Block> GOLD_PILLAR = registerBlock("gold_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
     public static final RegistryObject<Block> REDSTONE_BRICKS = registerBlock("redstone_bricks", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
-    public static final RegistryObject<Block> CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", () -> new CrackedPoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
+    public static final RegistryObject<Block> CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", () -> ((IPoweredBlockMixin) new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(7));
     public static final RegistryObject<Block> CUT_REDSTONE = registerBlock("cut_redstone", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
-    public static final RegistryObject<Block> CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", () -> new CrackedPoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
-    public static final RegistryObject<Block> REDSTONE_PILLAR = registerBlock("redstone_pillar", () -> new PoweredPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
+    public static final RegistryObject<Block> CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", () -> ((IPoweredBlockMixin) new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(7));
+    public static final RegistryObject<Block> REDSTONE_PILLAR = registerBlock("redstone_pillar", () -> new PoweredRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
     public static final RegistryObject<Block> EMERALD_BRICKS = registerBlock("emerald_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> CRACKED_EMERALD_BRICKS = registerBlock("cracked_emerald_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
     public static final RegistryObject<Block> CUT_EMERALD = registerBlock("cut_emerald", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));

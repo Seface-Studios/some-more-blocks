@@ -1,5 +1,7 @@
 {
+  "replace": false,
   "values": [
-    "moreblocks:potted_luminous_flower"
+    "moreblocks:potted_luminous_flower",
+    "moreblocks:potted_snow_fern"
   ]
 }

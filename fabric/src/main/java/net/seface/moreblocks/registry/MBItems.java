@@ -6,32 +6,33 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Blocks;
 import net.seface.moreblocks.MoreBlocks;
 
 public class MBItems {
     // Custom Plants
     public static final Item AZALEA_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.AZALEA_LEAF_LITTER, SoundEvents.AZALEA_LEAVES_PLACE, (new Item.Properties()).stacksTo(1));
     public static final Item BIG_LILY_PAD = new PlaceOnWaterBlockItem(MBBlocks.BIG_LILY_PAD, new Item.Properties());
-    public static final Item BROWN_MUSHROOM_COLONY = new BlockItem(MBBlocks.BROWN_MUSHROOM_COLONY, new Item.Properties());
-    public static final Item BROWN_SMALL_MUSHROOM_COLONY = new StandingAndWallBlockItem(MBBlocks.BROWN_SMALL_MUSHROOM_COLONY, MBBlocks.BROWN_MUSHROOM_COLONY_WALL, new Item.Properties(), Direction.DOWN);
+    public static final Item TALL_BROWN_MUSHROOM_COLONY = new BlockItem(MBBlocks.TALL_BROWN_MUSHROOM_COLONY, new Item.Properties());
+    public static final Item BROWN_MUSHROOM_COLONY = new StandingAndWallBlockItem(MBBlocks.BROWN_MUSHROOM_COLONY, MBBlocks.BROWN_MUSHROOM_COLONY_WALL, new Item.Properties(), Direction.DOWN);
     public static final Item CATTAIL = new BlockItem(MBBlocks.CATTAIL, new Item.Properties());
-    public static final Item CRIMSON_FUNGUS_COLONY = new BlockItem(MBBlocks.CRIMSON_FUNGUS_COLONY, new Item.Properties());
-    public static final Item CRIMSON_SMALL_FUNGUS_COLONY = new StandingAndWallBlockItem(MBBlocks.CRIMSON_SMALL_FUNGUS_COLONY, MBBlocks.CRIMSON_FUNGUS_COLONY_WALL, new Item.Properties(), Direction.DOWN);
+    public static final Item TALL_CRIMSON_FUNGUS_COLONY = new BlockItem(MBBlocks.TALL_CRIMSON_FUNGUS_COLONY, new Item.Properties());
+    public static final Item CRIMSON_FUNGUS_COLONY = new StandingAndWallBlockItem(MBBlocks.CRIMSON_FUNGUS_COLONY, MBBlocks.CRIMSON_FUNGUS_COLONY_WALL, new Item.Properties(), Direction.DOWN);
     public static final Item DUNE_GRASS = new BlockItem(MBBlocks.DUNE_GRASS, new Item.Properties());
     public static final Item FLOWERING_AZALEA_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.FLOWERING_AZALEA_LEAF_LITTER, SoundEvents.AZALEA_LEAVES_PLACE, (new Item.Properties()).stacksTo(1));
     public static final Item FROZEN_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.FROZEN_LEAF_LITTER, SoundEvents.GRASS_PLACE, (new Item.Properties()).stacksTo(1));
     public static final Item LEAVES_BUCKET = new SolidBucketItem(MBBlocks.LEAF_LITTER, SoundEvents.GRASS_PLACE, (new Item.Properties()).stacksTo(1));
     public static final Item LUMINOUS_FLOWER = new BlockItem(MBBlocks.LUMINOUS_FLOWER, new Item.Properties());
-    public static final Item RED_MUSHROOM_COLONY = new BlockItem(MBBlocks.RED_MUSHROOM_COLONY, new Item.Properties());
-    public static final Item RED_SMALL_MUSHROOM_COLONY = new StandingAndWallBlockItem(MBBlocks.RED_SMALL_MUSHROOM_COLONY, MBBlocks.RED_MUSHROOM_COLONY_WALL, new Item.Properties(), Direction.DOWN);
+    public static final Item TALL_RED_MUSHROOM_COLONY = new BlockItem(MBBlocks.TALL_RED_MUSHROOM_COLONY, new Item.Properties());
+    public static final Item RED_MUSHROOM_COLONY = new StandingAndWallBlockItem(MBBlocks.RED_MUSHROOM_COLONY, MBBlocks.RED_MUSHROOM_COLONY_WALL, new Item.Properties(), Direction.DOWN);
     public static final Item SMALL_LILY_PADS = new PlaceOnWaterBlockItem(MBBlocks.SMALL_LILY_PADS, new Item.Properties());
     public static final Item SNOW_FERN = new BlockItem(MBBlocks.SNOW_FERN, new Item.Properties());
     public static final Item SNOW_GRASS = new BlockItem(MBBlocks.SNOW_GRASS, new Item.Properties());
     public static final Item TALL_DUNE_GRASS = new BlockItem(MBBlocks.TALL_DUNE_GRASS, new Item.Properties());
     public static final Item TALL_SNOW_FERN = new BlockItem(MBBlocks.TALL_SNOW_FERN, new Item.Properties());
     public static final Item TALL_SNOW_GRASS = new BlockItem(MBBlocks.TALL_SNOW_GRASS, new Item.Properties());
-    public static final Item WARPED_FUNGUS_COLONY = new BlockItem(MBBlocks.WARPED_FUNGUS_COLONY, new Item.Properties());
-    public static final Item WARPED_SMALL_FUNGUS_COLONY = new StandingAndWallBlockItem(MBBlocks.WARPED_SMALL_FUNGUS_COLONY, MBBlocks.WARPED_FUNGUS_COLONY_WALL, new Item.Properties(), Direction.DOWN);
+    public static final Item TALL_WARPED_FUNGUS_COLONY = new BlockItem(MBBlocks.TALL_WARPED_FUNGUS_COLONY, new Item.Properties());
+    public static final Item WARPED_FUNGUS_COLONY = new StandingAndWallBlockItem(MBBlocks.WARPED_FUNGUS_COLONY, MBBlocks.WARPED_FUNGUS_COLONY_WALL, new Item.Properties(), Direction.DOWN);
     public static final Item TINY_CACTUS = new BlockItem(MBBlocks.TINY_CACTUS, new Item.Properties());
 
     // Custom Generic Blocks
@@ -586,13 +587,13 @@ public class MBItems {
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "frozen_leaves_bucket"), FROZEN_LEAVES_BUCKET);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "leaves_bucket"), LEAVES_BUCKET);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "brown_mushroom_colony"), BROWN_MUSHROOM_COLONY);
-        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "brown_small_mushroom_colony"), BROWN_SMALL_MUSHROOM_COLONY);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tall_brown_mushroom_colony"), TALL_BROWN_MUSHROOM_COLONY);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "red_mushroom_colony"), RED_MUSHROOM_COLONY);
-        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "red_small_mushroom_colony"), RED_SMALL_MUSHROOM_COLONY);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tall_red_mushroom_colony"), TALL_RED_MUSHROOM_COLONY);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "warped_fungus_colony"), WARPED_FUNGUS_COLONY);
-        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "warped_small_fungus_colony"), WARPED_SMALL_FUNGUS_COLONY);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tall_warped_fungus_colony"), TALL_WARPED_FUNGUS_COLONY);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "crimson_fungus_colony"), CRIMSON_FUNGUS_COLONY);
-        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "crimson_small_fungus_colony"), CRIMSON_SMALL_FUNGUS_COLONY);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tall_crimson_fungus_colony"), TALL_CRIMSON_FUNGUS_COLONY);
 
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "ochre_redstone_froglight"), OCHRE_REDSTONE_FROGLIGHT);
         Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "pearlescent_redstone_froglight"), PEARLESCENT_REDSTONE_FROGLIGHT);

@@ -29,13 +29,23 @@ public class MoreBlocksForge {
         eventBus.addListener(this::commonSetup);
     }
 
+
+
     private void commonSetup(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.LUMINOUS_FLOWER.getId(), MBBlocks.POTTED_LUMINOUS_FLOWER);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.SNOW_FERN.getId(), MBBlocks.POTTED_SNOW_FERN);
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.TINY_CACTUS.getId(), MBBlocks.POTTED_TINY_CACTUS);
+            registerSnowyVariations();
         });
     }
+
+  private static void registerSnowyVariations() {
+    SnowyVariationsManager.register(Blocks.SHORT_GRASS, MBBlocks.SNOW_GRASS.get());
+    SnowyVariationsManager.register(Blocks.FERN, MBBlocks.SNOW_FERN.get());
+    SnowyVariationsManager.register(Blocks.TALL_GRASS, MBBlocks.TALL_SNOW_GRASS.get(), true);
+    SnowyVariationsManager.register(Blocks.LARGE_FERN, MBBlocks.TALL_SNOW_FERN.get(), true);
+  }
 
     private void clientSetup(final FMLClientSetupEvent event) {
         this.registerBlockRenders();
@@ -78,18 +88,18 @@ public class MoreBlocksForge {
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get(), RenderType.cutoutMipped());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.LEAF_LITTER.get(), RenderType.cutoutMipped());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.BIG_LILY_PAD.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(MBBlocks.BROWN_MUSHROOM_COLONY.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(MBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(MBBlocks.BROWN_SMALL_MUSHROOM_COLONY.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(MBBlocks.RED_MUSHROOM_COLONY.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(MBBlocks.BROWN_MUSHROOM_COLONY.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(MBBlocks.TALL_RED_MUSHROOM_COLONY.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.RED_MUSHROOM_COLONY_WALL.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(MBBlocks.RED_SMALL_MUSHROOM_COLONY.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(MBBlocks.WARPED_FUNGUS_COLONY.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(MBBlocks.RED_MUSHROOM_COLONY.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(MBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.WARPED_FUNGUS_COLONY_WALL.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(MBBlocks.WARPED_SMALL_FUNGUS_COLONY.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(MBBlocks.CRIMSON_FUNGUS_COLONY.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(MBBlocks.WARPED_FUNGUS_COLONY.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(MBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.CRIMSON_FUNGUS_COLONY_WALL.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(MBBlocks.CRIMSON_SMALL_FUNGUS_COLONY.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(MBBlocks.CRIMSON_FUNGUS_COLONY.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.POTTED_LUMINOUS_FLOWER.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.POTTED_TINY_CACTUS.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.POTTED_SNOW_FERN.get(), RenderType.cutout());

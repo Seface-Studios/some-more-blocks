@@ -3,7 +3,6 @@ package net.seface.moreblocks.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -13,11 +12,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -37,18 +33,8 @@ public class DoubleMushroomColonyBlock extends DoublePlantBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter block, BlockPos pos) {
-        return state.is(MBBlockTags.MUSHROOM_COLONY_PLACEABLE);
+        return state.is(MBBlockTags.TINY_CACTUS_PLACEABLE);
     }
-
-    /*@Override
-    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
-            return super.canSurvive(state, level, pos);
-        } else {
-            BlockState blockBelow = level.getBlockState(pos.below());
-            return (blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER) || blockBelow.is(this.test);
-        }
-    }*/
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {

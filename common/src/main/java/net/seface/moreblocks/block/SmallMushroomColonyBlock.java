@@ -18,7 +18,7 @@ public class SmallMushroomColonyBlock extends BushBlock {
     private final TagKey<Block> tagKey;
 
     public SmallMushroomColonyBlock(BlockBehaviour.Properties properties) {
-        this(MBBlockTags.MUSHROOM_COLONY_PLACEABLE, properties);
+        this(MBBlockTags.TINY_CACTUS_PLACEABLE, properties);
     }
 
     public SmallMushroomColonyBlock(TagKey<Block> tagKey, BlockBehaviour.Properties properties) {

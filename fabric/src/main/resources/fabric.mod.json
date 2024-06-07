@@ -8,8 +8,18 @@
         "${mod_author}"
     ],
     "contact": {
-        "homepage": "https://www.curseforge.com/minecraft/mc-mods/some-more-blocks",
-        "sources": "https://github.com/Seface-Blocks/more-blocks-mod"
+      "homepage": "https://sefacestudios.net",
+      "sources": "https://github.com/Seface-Studios/more-blocks-mod",
+      "issues": "https://github.com/Seface-Studios/more-blocks-mod/issues"
+    },
+    "custom": {
+      "modmenu": {
+        "links": {
+          "modmenu.discord": "https://www.curseforge.com/minecraft/mc-mods/some-more-blocks",
+          "modmenu.modrinth": "https://modrinth.com/project/some-more-blocks",
+          "modmenu.curseforge": "https://discord.gg/RMQF9U5JwY"
+        }
+      }
     },
     "license": "${license}",
     "icon": "assets/${mod_id}/icon.png",
@@ -36,4 +46,3 @@
         "another-mod": "*"
     }
 }
-  

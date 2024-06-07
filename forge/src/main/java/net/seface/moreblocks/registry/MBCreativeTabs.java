@@ -3,6 +3,7 @@ package net.seface.moreblocks.registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -326,11 +327,6 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.GOLD_PILLAR.get());
               entry.accept(MBBlocks.CUT_GOLD.get());
               entry.accept(MBBlocks.CRACKED_CUT_GOLD.get());
-              entry.accept(MBBlocks.REDSTONE_BRICKS.get());
-              entry.accept(MBBlocks.CRACKED_REDSTONE_BRICKS.get());
-              entry.accept(MBBlocks.REDSTONE_PILLAR.get());
-              entry.accept(MBBlocks.CUT_REDSTONE.get());
-              entry.accept(MBBlocks.CRACKED_CUT_REDSTONE.get());
               entry.accept(MBBlocks.EMERALD_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_EMERALD_BRICKS.get());
               entry.accept(MBBlocks.EMERALD_PILLAR.get());
@@ -538,7 +534,7 @@ public class MBCreativeTabs {
             }).build());
 
     private static final RegistryObject<CreativeModeTab> MORE_NATURAL_BLOCKS = CREATIVE_MODE_TABS.register("more_natural_blocks", () -> CreativeModeTab.builder()
-            .icon(() -> MBBlocks.WARPED_SMALL_FUNGUS_COLONY.get().asItem().getDefaultInstance())
+            .icon(() -> MBBlocks.WARPED_FUNGUS_COLONY.get().asItem().getDefaultInstance())
             .title(Component.translatable("itemGroup.moreblocks.naturalBlocks"))
             .displayItems((ctx, entry) -> {
               entry.accept(MBBlocks.TINY_CACTUS.get());
@@ -556,18 +552,29 @@ public class MBCreativeTabs {
               entry.accept(MBItems.BIG_LILY_PAD.get());
               entry.accept(MBItems.SMALL_LILY_PADS.get());
               entry.accept(MBBlocks.LUMINOUS_FLOWER.get());
-              entry.accept(MBItems.BROWN_SMALL_MUSHROOM_COLONY.get());
-              entry.accept(MBBlocks.BROWN_MUSHROOM_COLONY.get());
-              entry.accept(MBItems.RED_SMALL_MUSHROOM_COLONY.get());
-              entry.accept(MBBlocks.RED_MUSHROOM_COLONY.get());
-              entry.accept(MBItems.CRIMSON_SMALL_FUNGUS_COLONY.get());
-              entry.accept(MBBlocks.CRIMSON_FUNGUS_COLONY.get());
-              entry.accept(MBItems.WARPED_SMALL_FUNGUS_COLONY.get());
-              entry.accept(MBBlocks.WARPED_FUNGUS_COLONY.get());
-              entry.accept(MBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
-              entry.accept(MBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
-              entry.accept(MBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
+              entry.accept(MBItems.BROWN_MUSHROOM_COLONY.get());
+              entry.accept(MBBlocks.TALL_BROWN_MUSHROOM_COLONY.get());
+              entry.accept(MBItems.RED_MUSHROOM_COLONY.get());
+              entry.accept(MBBlocks.TALL_RED_MUSHROOM_COLONY.get());
+              entry.accept(MBItems.CRIMSON_FUNGUS_COLONY.get());
+              entry.accept(MBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get());
+              entry.accept(MBItems.WARPED_FUNGUS_COLONY.get());
+              entry.accept(MBBlocks.TALL_WARPED_FUNGUS_COLONY.get());
             }).build());
+
+  private static final RegistryObject<CreativeModeTab> MORE_REDSTONE_BLOCKS = CREATIVE_MODE_TABS.register("more_redstone_blocks", () -> CreativeModeTab.builder()
+    .icon(() -> MBBlocks.OCHRE_REDSTONE_FROGLIGHT.get().asItem().getDefaultInstance())
+    .title(Component.translatable("itemGroup.moreblocks.redstoneBlocks"))
+    .displayItems((ctx, entry) -> {
+      entry.accept(MBBlocks.REDSTONE_BRICKS.get());
+      entry.accept(MBBlocks.CRACKED_REDSTONE_BRICKS.get());
+      entry.accept(MBBlocks.REDSTONE_PILLAR.get());
+      entry.accept(MBBlocks.CUT_REDSTONE.get());
+      entry.accept(MBBlocks.CRACKED_CUT_REDSTONE.get());
+      entry.accept(MBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
+      entry.accept(MBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
+      entry.accept(MBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
+    }).build());
 
     public static void register(IEventBus event) {
         CREATIVE_MODE_TABS.register(event);

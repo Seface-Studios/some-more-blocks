@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "moreblocks:white_stained_tiled_glass",
+    "moreblocks:light_gray_stained_tiled_glass",
+    "moreblocks:gray_stained_tiled_glass",
+    "moreblocks:black_stained_tiled_glass",
+    "moreblocks:brown_stained_tiled_glass",
+    "moreblocks:red_stained_tiled_glass",
+    "moreblocks:orange_stained_tiled_glass",
+    "moreblocks:yellow_stained_tiled_glass",
+    "moreblocks:lime_stained_tiled_glass",
+    "moreblocks:green_stained_tiled_glass",
+    "moreblocks:cyan_stained_tiled_glass",
+    "moreblocks:light_blue_stained_tiled_glass",
+    "moreblocks:blue_stained_tiled_glass",
+    "moreblocks:purple_stained_tiled_glass",
+    "moreblocks:magenta_stained_tiled_glass",
+    "moreblocks:pink_stained_tiled_glass"
+  ]
+}
