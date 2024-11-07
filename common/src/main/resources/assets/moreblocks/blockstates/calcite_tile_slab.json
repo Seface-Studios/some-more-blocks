@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moreblocks:block/calcite_tile_slab"
+    },
+    "type=double": {
+      "model": "moreblocks:block/calcite_tiles"
+    },
+    "type=top": {
+      "model": "moreblocks:block/calcite_tile_slab_top"
+    }
+  }
+}

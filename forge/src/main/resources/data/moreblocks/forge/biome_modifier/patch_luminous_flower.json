@@ -1,0 +1,6 @@
+{
+  "type": "moreblocks:patch_luminous_flower",
+  "biomes": "#minecraft:generates_cattail",
+  "feature": "moreblocks:patch_luminous_flower",
+  "step": "underground_decoration"
+}

@@ -17,7 +17,9 @@
           "offsetY": 1,
           "predicate": {
             "block": {
-              "blocks": ["moreblocks:tall_brown_mushroom_colony"],
+              "blocks": [
+                "moreblocks:tall_brown_mushroom_colony"
+              ],
               "state": {
                 "half": "upper"
               }
@@ -40,7 +42,6 @@
                   }
                 }
               ],
-
               "name": "minecraft:brown_mushroom"
             }
           ]
@@ -63,7 +64,9 @@
           "offsetY": -1,
           "predicate": {
             "block": {
-              "blocks": ["moreblocks:tall_brown_mushroom_colony"],
+              "blocks": [
+                "moreblocks:tall_brown_mushroom_colony"
+              ],
               "state": {
                 "half": "lower"
               }
@@ -86,7 +89,6 @@
                   }
                 }
               ],
-
               "name": "minecraft:brown_mushroom"
             }
           ]

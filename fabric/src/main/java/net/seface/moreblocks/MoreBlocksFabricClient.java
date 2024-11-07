@@ -46,7 +46,8 @@ public class MoreBlocksFabricClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.TALL_SNOW_FERN, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.CATTAIL, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.SMALL_LILY_PADS, RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.FROZEN_LEAF_LITTER, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.SPRUCE_LEAF_LITTER, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.BIRCH_LEAF_LITTER, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.AZALEA_LEAF_LITTER, RenderType.cutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.FLOWERING_AZALEA_LEAF_LITTER, RenderType.cutoutMipped());
         BlockRenderLayerMap.INSTANCE.putBlock(MBBlocks.LEAF_LITTER, RenderType.cutoutMipped());

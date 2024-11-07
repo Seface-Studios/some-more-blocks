@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "moreblocks:bone_block_bricks"
-  },
-  "result": "moreblocks:bone_block_bricks_slab"
-}

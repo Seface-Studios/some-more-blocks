@@ -9,14 +9,14 @@
     "moreblocks:polished_snow_slab",
     "moreblocks:snow_bricks",
     "moreblocks:cracked_snow_bricks",
-    "moreblocks:snow_bricks_stairs",
-    "moreblocks:snow_bricks_slab",
-    "moreblocks:snow_bricks_wall",
+    "moreblocks:snow_brick_stairs",
+    "moreblocks:snow_brick_slab",
+    "moreblocks:snow_brick_wall",
     "moreblocks:snow_pillar",
     "moreblocks:snow_tiles",
     "moreblocks:cracked_snow_tiles",
-    "moreblocks:snow_tiles_stairs",
-    "moreblocks:snow_tiles_slab",
-    "moreblocks:snow_tiles_wall"
+    "moreblocks:snow_tile_stairs",
+    "moreblocks:snow_tile_slab",
+    "moreblocks:snow_tile_wall"
   ]
 }

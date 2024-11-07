@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moreblocks:block/bone_block_brick_slab"
+    },
+    "type=double": {
+      "model": "moreblocks:block/bone_block_bricks"
+    },
+    "type=top": {
+      "model": "moreblocks:block/bone_block_brick_slab_top"
+    }
+  }
+}

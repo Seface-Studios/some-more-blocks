@@ -21,7 +21,6 @@
                   }
                 }
               ],
-
               "name": "moreblocks:snow_fern"
             },
             {
@@ -45,7 +44,6 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-
               "name": "minecraft:wheat_seeds"
             }
           ]

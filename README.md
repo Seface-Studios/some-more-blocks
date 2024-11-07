@@ -1,5 +1,4 @@
-<!-- # More Blocks Mod · <img height="22" width="50.1875" title="Forge and Fabric Mod Loaders" src="https://raw.githubusercontent.com/Seface-Blocks/more-blocks-mod/main/.github/assets/mod_loaders.png"> -->
-# More Blocks Mod · <img height="22" width="50.1875" title="Forge and Fabric Mod Loaders" src="https://cdn.discordapp.com/attachments/944781849513852949/1216868586006773890/mod_loaders.png?ex=6601f42f&is=65ef7f2f&hm=b00352c3099dd8e1204881adefb6acdbf70a18e6ff1e879d2f5c09321f24b111&">
+# More Blocks Mod · <img height="22" width="50.1875" title="Forge and Fabric Mod Loaders" src="https://raw.githubusercontent.com/Seface-Studios/.github/main/assets/images/projects/mod_loaders_small.png">
 ![Latest Release](https://img.shields.io/github/v/release/seface-studios/more-blocks-mod?logo=github&logoColor=959da5&labelColor=353c43&color=0091c2&Current&label=Latest%20Release) ![CurseForge](https://img.shields.io/badge/Available%20on%20CurseForge-test?logo=CurseForge&logoColor=fff&color=EB622B&link=https%3A%2F%2Fwww.curseforge.com%2Fminecraft%2Fmc-mods%2Fsome-more-blocks) ![Modrinth](https://img.shields.io/badge/Available%20on%20Modrinth-Download?logo=Modrinth&logoColor=fff&color=02b63a&link=https%3A%2F%2Fmodrinth.com%2Fmod%2Fsome-more-blocks)
 
 More Blocks is a vanilla-like project which will add blocks that should exist and that the community has been asking for years to be added to the base game.
@@ -15,13 +14,18 @@ The mod adds over 500 new blocks such as bricks, tiles, mossy bricks, wood mosai
     - [Modrinth](https://modrinth.com/mod/some-more-blocks)
 
 ![Screenshot](.github/assets/banner.png)
-See more In-Game screenshots [here](https://www.curseforge.com/minecraft/mc-mods/some-more-blocks/screenshots).
+See more In-Game screenshots [here](https://modrinth.com/project/few-more-blocks/gallery).
 
 ### Roadmap
+- [ ] Backport to older versions.
+  - You can vote on you favorite old version(s) [here](https://strawpoll.com/1MnwOxKX0n7).
+> Backport versions will not be constantly updated with new content. It will be exclusive to the latest versions of Minecraft.
 - [ ] Add more unique blocks.
-- [ ] Add more flowers and plants type (Nether and End content 🤔).
-- [ ] Add **simple** structures generation.
+- [ ] Add more flowers and plants type.
 - [ ] Custom sounds for some blocks.
+
+### Become a Translator
+Be free to help us to increase the languages available for the mod on the [Crowdin](https://crowdin.com/project/minecraft-more-blocks-mod) page. All the translators have their names on mod credits as thanks.
 
 > [!NOTE]
 > Have you found any bug or inconsistency in the new blocks? Please open an [issue](https://github.com/Seface-Blocks/more-blocks-mod/issues) for us to review and correct in future versions.

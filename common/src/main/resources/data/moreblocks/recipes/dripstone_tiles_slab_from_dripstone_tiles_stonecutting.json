@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "moreblocks:dripstone_tiles"
-  },
-  "result": "moreblocks:dripstone_tiles_slab"
-}

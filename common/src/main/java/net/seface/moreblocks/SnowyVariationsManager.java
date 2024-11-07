@@ -44,11 +44,11 @@ public class SnowyVariationsManager {
   }
 
   @Nullable
-  public static BlockState getSnowyVariationFrom(BlockState normal) {
+  public static BlockState getSnowyVariationFrom(BlockState normalVariation) {
     for (Variation variation : variations) {
-      if (variation.normal.equals(normal.getBlock())) {
+      if (variation.normal.equals(normalVariation.getBlock())) {
         if (variation.isDoublePlant) {
-          if (normal.getValue(DoublePlantBlock.HALF).equals(DoubleBlockHalf.UPPER)) return null;
+          if (normalVariation.getValue(DoublePlantBlock.HALF).equals(DoubleBlockHalf.UPPER)) return null;
 
           return variation.snowy
             .defaultBlockState()
@@ -63,11 +63,11 @@ public class SnowyVariationsManager {
   }
 
   @Nullable
-  public static BlockState getNormalVariationFrom(BlockState snowy) {
+  public static BlockState getNormalVariationFrom(BlockState snowyVariation) {
     for (Variation variation : variations) {
-      if (variation.snowy.equals(snowy.getBlock())) {
+      if (variation.snowy.equals(snowyVariation.getBlock())) {
         if (variation.isDoublePlant) {
-          if (snowy.getValue(DoublePlantBlock.HALF).equals(DoubleBlockHalf.UPPER)) return null;
+          if (snowyVariation.getValue(DoublePlantBlock.HALF).equals(DoubleBlockHalf.UPPER)) return null;
 
           return variation.normal
             .defaultBlockState()

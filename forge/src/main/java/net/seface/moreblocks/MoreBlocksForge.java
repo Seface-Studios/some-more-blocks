@@ -13,6 +13,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.seface.moreblocks.registry.MBBlocks;
 import net.seface.moreblocks.registry.MBCreativeTabs;
 import net.seface.moreblocks.registry.MBItems;
+import net.seface.moreblocks.worldgen.MBBiomeModifier;
+import net.seface.moreblocks.worldgen.MBFeatures;
 
 @Mod(MoreBlocks.ID)
 public class MoreBlocksForge {
@@ -23,6 +25,8 @@ public class MoreBlocksForge {
         MBBlocks.register(eventBus);
         MBItems.register(eventBus);
         MBCreativeTabs.register(eventBus);
+        MBFeatures.register(eventBus);
+        MBBiomeModifier.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::registerColorProviders);
@@ -83,7 +87,8 @@ public class MoreBlocksForge {
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.TALL_SNOW_FERN.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.CATTAIL.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.SMALL_LILY_PADS.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(MBBlocks.FROZEN_LEAF_LITTER.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(MBBlocks.SPRUCE_LEAF_LITTER.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(MBBlocks.BIRCH_LEAF_LITTER.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.AZALEA_LEAF_LITTER.get(), RenderType.cutoutMipped());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get(), RenderType.cutoutMipped());
       ItemBlockRenderTypes.setRenderLayer(MBBlocks.LEAF_LITTER.get(), RenderType.cutoutMipped());

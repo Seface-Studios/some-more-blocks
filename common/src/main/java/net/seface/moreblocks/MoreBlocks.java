@@ -10,6 +10,6 @@ public class MoreBlocks {
 
     public static void init() {
       LOGGER.info("More Blocks mod initialized!");
-      LOGGER.info("Access: www.sefacestudios.net");
+      LOGGER.info("Our Links: https://sefacestudios.net/links");
     }
 }

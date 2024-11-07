@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moreblocks:mud_tiles"
+  },
+  "result": "moreblocks:mud_tile_wall"
+}

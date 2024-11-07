@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moreblocks:calcite_bricks"
+  },
+  "result": "moreblocks:calcite_brick_wall"
+}

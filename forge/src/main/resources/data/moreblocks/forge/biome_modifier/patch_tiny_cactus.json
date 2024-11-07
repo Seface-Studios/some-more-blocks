@@ -1,0 +1,6 @@
+{
+  "type": "moreblocks:patch_tiny_cactus",
+  "biomes": "#moreblocks:generates_tiny_cactus",
+  "feature": "moreblocks:patch_tiny_cactus_forest",
+  "step": "vegetal_decoration"
+}

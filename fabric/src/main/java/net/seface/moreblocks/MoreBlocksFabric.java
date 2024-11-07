@@ -1,22 +1,22 @@
 package net.seface.moreblocks;
 
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
 import net.seface.moreblocks.registry.*;
-import net.seface.moreblocks.world.WorldGeneration;
+import net.seface.moreblocks.worldgen.MBFeatures;
+import net.seface.moreblocks.worldgen.MBBiomeModifiers;
 
 public class MoreBlocksFabric implements ModInitializer {
-
     @Override
     public void onInitialize() {
-        MoreBlocks.init();
-        MBItems.register();
-        MBBlocks.register();
-        MBItemGroups.register();
-        WorldGeneration.register();
+      MoreBlocks.init();
+      MBItems.register();
+      MBBlocks.register();
+      MBItemGroups.register();
+      MBFeatures.register();
+      MBBiomeModifiers.register();
 
-        registerSnowyVariations();
+      registerSnowyVariations();
     }
 
     private static void registerSnowyVariations() {

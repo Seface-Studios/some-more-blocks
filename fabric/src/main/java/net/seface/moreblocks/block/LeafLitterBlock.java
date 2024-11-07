@@ -1,17 +1,14 @@
 package net.seface.moreblocks.block;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.client.Minecraft;
+import lombok.Getter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.SolidBucketItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -27,32 +24,32 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.seface.moreblocks.interfaces.ILeafLitterBlock;
 import net.seface.moreblocks.registry.MBBlocks;
 import net.seface.moreblocks.registry.MBItems;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
+public class LeafLitterBlock extends TransparentBlock implements BucketPickup, ILeafLitterBlock {
     public static final MapCodec<LeafLitterBlock> CODEC = simpleCodec(LeafLitterBlock::new);
     protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
     protected static final VoxelShape SHAPE_LOWER = Block.box(0.0, -1.0, 0.0, 16.0, 1.0, 16.0);
     public static final BooleanProperty LOWER = BooleanProperty.create("lower");
 
-    private SolidBucketItem bucket;
+    @Getter
+    private final float chance;
 
     public LeafLitterBlock(Properties properties) {
-        super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(LOWER, false));
+      this(properties, 100.0F);
     }
 
-    /*public LeafLitterBlock(SolidBucketItem bucket, Properties properties) {
+    public LeafLitterBlock(Properties properties, float chance) {
         super(properties);
 
-        this.bucket = bucket;
+        this.chance = chance;
         this.registerDefaultState(this.defaultBlockState().setValue(LOWER, false));
-    }*/
+    }
 
     @Override
     protected MapCodec<? extends TransparentBlock> codec() {
@@ -110,7 +107,8 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
         }
 
         if (state.is(MBBlocks.LEAF_LITTER)) { return new ItemStack(MBItems.LEAVES_BUCKET); }
-        if (state.is(MBBlocks.FROZEN_LEAF_LITTER)) { return new ItemStack(MBItems.FROZEN_LEAVES_BUCKET); }
+        if (state.is(MBBlocks.BIRCH_LEAF_LITTER)) { return new ItemStack(MBItems.BIRCH_LEAVES_BUCKET); }
+        if (state.is(MBBlocks.SPRUCE_LEAF_LITTER)) { return new ItemStack(MBItems.SPRUCE_LEAVES_BUCKET); }
         if (state.is(MBBlocks.AZALEA_LEAF_LITTER)) { return new ItemStack(MBItems.AZALEA_LEAVES_BUCKET); }
         if (state.is(MBBlocks.FLOWERING_AZALEA_LEAF_LITTER)) { return new ItemStack(MBItems.FLOWERING_AZALEA_LEAVES_BUCKET); }
 

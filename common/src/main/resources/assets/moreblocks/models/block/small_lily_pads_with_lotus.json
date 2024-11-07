@@ -1,46 +1,143 @@
 {
-	"credit": "Made with Blockbench",
-	"ambientocclusion": false,
-	"textures": {
-		"particle": "moreblocks:block/small_lily_pads",
-		"texture": "moreblocks:block/small_lily_pads",
-		"texture_lotus": "moreblocks:block/small_lily_pads_lotus"
-	},
-	"elements": [
-		{
-			"from": [0, 0.25, 0],
-			"to": [16, 0.25, 16],
-			"faces": {
-				"up": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0},
-				"down": {"uv": [0, 16, 16, 0], "texture": "#texture", "tintindex": 0}
-			}
-		},
-		{
-			"from": [-3, 0.25, 12],
-			"to": [13, 16.25, 12],
-			"rotation": {"angle": 45, "axis": "y", "origin": [5, 0.25, 12]},
-			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#texture_lotus"},
-				"south": {"uv": [16, 0, 0, 16], "texture": "#texture_lotus"}
-			}
-		},
-		{
-			"from": [-4, 0.25, 12],
-			"to": [12, 16.25, 12],
-			"rotation": {"angle": -45, "axis": "y", "origin": [4, 0.25, 12]},
-			"faces": {
-				"north": {"uv": [16, 0, 0, 16], "texture": "#texture_lotus"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#texture_lotus"}
-			}
-		}
-	],
-	"groups": [
-		0,
-		{
-			"name": "lotus",
-			"origin": [8, 8, 8],
-			"color": 0,
-			"children": [1, 2]
-		}
-	]
+  "credit": "Made with Blockbench",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "moreblocks:block/small_lily_pads",
+    "texture": "moreblocks:block/small_lily_pads",
+    "texture_lotus": "moreblocks:block/small_lily_pads_lotus"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0.25,
+        0
+      ],
+      "to": [
+        16,
+        0.25,
+        16
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#texture",
+          "tintindex": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            16,
+            16,
+            0
+          ],
+          "texture": "#texture",
+          "tintindex": 0
+        }
+      }
+    },
+    {
+      "from": [
+        -3,
+        0.25,
+        12
+      ],
+      "to": [
+        13,
+        16.25,
+        12
+      ],
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          5,
+          0.25,
+          12
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#texture_lotus"
+        },
+        "south": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#texture_lotus"
+        }
+      }
+    },
+    {
+      "from": [
+        -4,
+        0.25,
+        12
+      ],
+      "to": [
+        12,
+        16.25,
+        12
+      ],
+      "rotation": {
+        "angle": -45,
+        "axis": "y",
+        "origin": [
+          4,
+          0.25,
+          12
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#texture_lotus"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#texture_lotus"
+        }
+      }
+    }
+  ],
+  "groups": [
+    0,
+    {
+      "name": "lotus",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "children": [
+        1,
+        2
+      ]
+    }
+  ]
 }

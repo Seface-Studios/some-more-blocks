@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moreblocks:purpur_tiles"
+  },
+  "result": "moreblocks:purpur_tile_wall"
+}

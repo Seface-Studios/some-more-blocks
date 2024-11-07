@@ -1,48 +1,51 @@
 {
-    "schemaVersion": 1,
-    "id": "${mod_id}",
-    "version": "${version}",
-    "name": "${mod_name}",
-    "description": "${description}",
-    "authors": [
-        "${mod_author}"
-    ],
-    "contact": {
-      "homepage": "https://sefacestudios.net",
-      "sources": "https://github.com/Seface-Studios/more-blocks-mod",
-      "issues": "https://github.com/Seface-Studios/more-blocks-mod/issues"
-    },
-    "custom": {
-      "modmenu": {
-        "links": {
-          "modmenu.discord": "https://www.curseforge.com/minecraft/mc-mods/some-more-blocks",
-          "modmenu.modrinth": "https://modrinth.com/project/some-more-blocks",
-          "modmenu.curseforge": "https://discord.gg/RMQF9U5JwY"
-        }
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": ["${mod_author}"],
+  "contributors": [
+    "Translators (PT-BR):",
+    "  _TonyBuilds",
+    "  sufflowers",
+    "\n"
+  ],
+
+  "contact": {
+    "homepage": "https://sefacestudios.net",
+    "sources": "https://github.com/Seface-Studios/more-blocks-mod",
+    "issues": "https://github.com/Seface-Studios/more-blocks-mod/issues"
+  },
+
+  "custom": {
+    "modmenu": {
+      "links": {
+        "moreblocks.become_a_translator": "https://crowdin.com/project/minecraft-more-blocks-mod",
+        "modmenu.discord": "https://sefacestudios.net/discord"
       }
-    },
-    "license": "${license}",
-    "icon": "assets/${mod_id}/icon.png",
-    "environment": "*",
-    "entrypoints": {
-        "main": [
-            "net.seface.moreblocks.MoreBlocksFabric"
-        ],
-        "client": [
-            "net.seface.moreblocks.MoreBlocksFabricClient"
-        ]
-    },
-    "mixins": [
-        "${mod_id}.mixins.json",
-        "${mod_id}.fabric.mixins.json"
-    ],
-    "depends": {
-        "fabricloader": ">=${fabric_loader_version}",
-        "fabric-api": "*",
-        "minecraft": "${minecraft_version}",
-        "java": ">=17"
-    },
-    "suggests": {
-        "another-mod": "*"
     }
+  },
+
+  "license": "${license}",
+  "icon": "assets/${mod_id}/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["net.seface.moreblocks.MoreBlocksFabric"],
+    "client": ["net.seface.moreblocks.MoreBlocksFabricClient"]
+  },
+
+  "mixins": [
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": ">=${fabric_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=17"
+  },
+
+  "suggests": {}
 }

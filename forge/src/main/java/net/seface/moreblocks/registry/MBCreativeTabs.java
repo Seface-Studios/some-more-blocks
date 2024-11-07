@@ -2,17 +2,19 @@ package net.seface.moreblocks.registry;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.moreblocks.MoreBlocks;
+import net.seface.moreblocks.utils.MBUtils;
 
 public class MBCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MoreBlocks.ID);
 
-    private static final RegistryObject<CreativeModeTab> MORE_BUILDING_BLOCKS = CREATIVE_MODE_TABS.register("more_building_blocks", () -> CreativeModeTab.builder()
+    private static final RegistryObject<CreativeModeTab> MORE_BUILDING_BLOCKS = CREATIVE_MODE_TABS.register("more_building_blocks", () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
             .icon(() -> MBBlocks.MOSSY_BRICK_BLOCK.get().asItem().getDefaultInstance())
             .title(Component.translatable("itemGroup.moreblocks.buildingBlocks"))
             .displayItems((ctx, entry) -> {
@@ -73,61 +75,61 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.STONE_PILLAR.get());
               entry.accept(MBBlocks.STONE_TILES.get());
               entry.accept(MBBlocks.CRACKED_STONE_TILES.get());
-              entry.accept(MBBlocks.STONE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.STONE_TILES_SLAB.get());
-              entry.accept(MBBlocks.STONE_TILES_WALL.get());
+              entry.accept(MBBlocks.STONE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.STONE_TILE_SLAB.get());
+              entry.accept(MBBlocks.STONE_TILE_WALL.get());
               entry.accept(MBBlocks.CHISELED_GRANITE_BRICKS.get());
               entry.accept(MBBlocks.GRANITE_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_GRANITE_BRICKS.get());
-              entry.accept(MBBlocks.GRANITE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.GRANITE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.GRANITE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.GRANITE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.GRANITE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.GRANITE_BRICK_WALL.get());
               entry.accept(MBBlocks.GRANITE_PILLAR.get());
               entry.accept(MBBlocks.GRANITE_TILES.get());
               entry.accept(MBBlocks.CRACKED_GRANITE_TILES.get());
-              entry.accept(MBBlocks.GRANITE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.GRANITE_TILES_SLAB.get());
-              entry.accept(MBBlocks.GRANITE_TILES_WALL.get());
+              entry.accept(MBBlocks.GRANITE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.GRANITE_TILE_SLAB.get());
+              entry.accept(MBBlocks.GRANITE_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_GRANITE_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_GRANITE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_GRANITE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.MOSSY_GRANITE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.MOSSY_GRANITE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.MOSSY_GRANITE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.MOSSY_GRANITE_BRICK_WALL.get());
               entry.accept(MBBlocks.SMOOTH_GRANITE.get());
               entry.accept(MBBlocks.SMOOTH_GRANITE_SLAB.get());
               entry.accept(MBBlocks.CHISELED_DIORITE_BRICKS.get());
               entry.accept(MBBlocks.DIORITE_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_DIORITE_BRICKS.get());
-              entry.accept(MBBlocks.DIORITE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.DIORITE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.DIORITE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.DIORITE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.DIORITE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.DIORITE_BRICK_WALL.get());
               entry.accept(MBBlocks.DIORITE_PILLAR.get());
               entry.accept(MBBlocks.DIORITE_TILES.get());
               entry.accept(MBBlocks.CRACKED_DIORITE_TILES.get());
-              entry.accept(MBBlocks.DIORITE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.DIORITE_TILES_SLAB.get());
-              entry.accept(MBBlocks.DIORITE_TILES_WALL.get());
+              entry.accept(MBBlocks.DIORITE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.DIORITE_TILE_SLAB.get());
+              entry.accept(MBBlocks.DIORITE_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_DIORITE_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_DIORITE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_DIORITE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.MOSSY_DIORITE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.MOSSY_DIORITE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.MOSSY_DIORITE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.MOSSY_DIORITE_BRICK_WALL.get());
               entry.accept(MBBlocks.SMOOTH_DIORITE.get());
               entry.accept(MBBlocks.SMOOTH_DIORITE_SLAB.get());
               entry.accept(MBBlocks.CHISELED_ANDESITE_BRICKS.get());
               entry.accept(MBBlocks.ANDESITE_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_ANDESITE_BRICKS.get());
-              entry.accept(MBBlocks.ANDESITE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.ANDESITE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.ANDESITE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.ANDESITE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.ANDESITE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.ANDESITE_BRICK_WALL.get());
               entry.accept(MBBlocks.ANDESITE_PILLAR.get());
               entry.accept(MBBlocks.ANDESITE_TILES.get());
               entry.accept(MBBlocks.CRACKED_ANDESITE_TILES.get());
-              entry.accept(MBBlocks.ANDESITE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.ANDESITE_TILES_SLAB.get());
-              entry.accept(MBBlocks.ANDESITE_TILES_WALL.get());
+              entry.accept(MBBlocks.ANDESITE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.ANDESITE_TILE_SLAB.get());
+              entry.accept(MBBlocks.ANDESITE_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_ANDESITE_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_ANDESITE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_ANDESITE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.MOSSY_ANDESITE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.MOSSY_ANDESITE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.MOSSY_ANDESITE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.MOSSY_ANDESITE_BRICK_WALL.get());
               entry.accept(MBBlocks.SMOOTH_ANDESITE.get());
               entry.accept(MBBlocks.SMOOTH_ANDESITE_SLAB.get());
               entry.accept(MBBlocks.DEEPSLATE_PILLAR.get());
@@ -137,40 +139,40 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.CHISELED_CALCITE.get());
               entry.accept(MBBlocks.CALCITE_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_CALCITE_BRICKS.get());
-              entry.accept(MBBlocks.CALCITE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.CALCITE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.CALCITE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.CALCITE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.CALCITE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.CALCITE_BRICK_WALL.get());
               entry.accept(MBBlocks.CALCITE_PILLAR.get());
               entry.accept(MBBlocks.CALCITE_TILES.get());
               entry.accept(MBBlocks.CRACKED_CALCITE_TILES.get());
-              entry.accept(MBBlocks.CALCITE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.CALCITE_TILES_SLAB.get());
-              entry.accept(MBBlocks.CALCITE_TILES_WALL.get());
+              entry.accept(MBBlocks.CALCITE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.CALCITE_TILE_SLAB.get());
+              entry.accept(MBBlocks.CALCITE_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_CALCITE_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_CALCITE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_CALCITE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.MOSSY_CALCITE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.MOSSY_CALCITE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.MOSSY_CALCITE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.MOSSY_CALCITE_BRICK_WALL.get());
               entry.accept(MBBlocks.SMOOTH_CALCITE.get());
               entry.accept(MBBlocks.SMOOTH_CALCITE_SLAB.get());
-              //entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.TUFF_BRICKS);
+              MBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBBlocks.TUFF_BRICKS.get().asItem());
               entry.accept(MBBlocks.CRACKED_TUFF_BRICKS.get());
-              //entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.TUFF_BRICKS_SLAB);
-              //entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.TUFF_BRICKS_STAIRS);
-              //entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.TUFF_BRICKS_WALL);
-              //entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.CHISELED_TUFF);
-              //entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.POLISHED_TUFF);
-              //entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.POLISHED_TUFF_SLAB);
-              //entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBItems.POLISHED_TUFF_STAIRS);
+              MBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBBlocks.TUFF_BRICK_SLAB.get().asItem());
+              MBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBBlocks.TUFF_BRICK_STAIRS.get().asItem());
+              MBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBBlocks.TUFF_BRICK_WALL.get().asItem());
+              MBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBBlocks.CHISELED_TUFF.get().asItem());
+              MBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBBlocks.POLISHED_TUFF.get().asItem());
+              MBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBBlocks.POLISHED_TUFF_SLAB.get().asItem());
+              MBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, MBBlocks.POLISHED_TUFF_STAIRS.get().asItem());
               entry.accept(MBBlocks.TUFF_PILLAR.get());
               entry.accept(MBBlocks.TUFF_TILES.get());
               entry.accept(MBBlocks.CRACKED_TUFF_TILES.get());
-              entry.accept(MBBlocks.TUFF_TILES_STAIRS.get());
-              entry.accept(MBBlocks.TUFF_TILES_SLAB.get());
-              entry.accept(MBBlocks.TUFF_TILES_WALL.get());
+              entry.accept(MBBlocks.TUFF_TILE_STAIRS.get());
+              entry.accept(MBBlocks.TUFF_TILE_SLAB.get());
+              entry.accept(MBBlocks.TUFF_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_TUFF_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_TUFF_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_TUFF_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.MOSSY_TUFF_BRICKS_WALL.get());
+              entry.accept(MBBlocks.MOSSY_TUFF_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.MOSSY_TUFF_BRICK_SLAB.get());
+              entry.accept(MBBlocks.MOSSY_TUFF_BRICK_WALL.get());
               entry.accept(MBBlocks.SMOOTH_TUFF.get());
               entry.accept(MBBlocks.SMOOTH_TUFF_SLAB.get());
               entry.accept(MBBlocks.POLISHED_DRIPSTONE.get());
@@ -179,19 +181,19 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.CHISELED_DRIPSTONE.get());
               entry.accept(MBBlocks.DRIPSTONE_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_DRIPSTONE_BRICKS.get());
-              entry.accept(MBBlocks.DRIPSTONE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.DRIPSTONE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.DRIPSTONE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.DRIPSTONE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.DRIPSTONE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.DRIPSTONE_BRICK_WALL.get());
               entry.accept(MBBlocks.DRIPSTONE_PILLAR.get());
               entry.accept(MBBlocks.DRIPSTONE_TILES.get());
               entry.accept(MBBlocks.CRACKED_DRIPSTONE_TILES.get());
-              entry.accept(MBBlocks.DRIPSTONE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.DRIPSTONE_TILES_SLAB.get());
-              entry.accept(MBBlocks.DRIPSTONE_TILES_WALL.get());
+              entry.accept(MBBlocks.DRIPSTONE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.DRIPSTONE_TILE_SLAB.get());
+              entry.accept(MBBlocks.DRIPSTONE_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_DRIPSTONE_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_DRIPSTONE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_DRIPSTONE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.MOSSY_DRIPSTONE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.MOSSY_DRIPSTONE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.MOSSY_DRIPSTONE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.MOSSY_DRIPSTONE_BRICK_WALL.get());
               entry.accept(MBBlocks.SMOOTH_DRIPSTONE.get());
               entry.accept(MBBlocks.SMOOTH_DRIPSTONE_SLAB.get());
               entry.accept(MBBlocks.CRACKED_BRICK_BLOCK.get());
@@ -207,45 +209,45 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.MUD_PILLAR.get());
               entry.accept(MBBlocks.MUD_TILES.get());
               entry.accept(MBBlocks.CRACKED_MUD_TILES.get());
-              entry.accept(MBBlocks.MUD_TILES_STAIRS.get());
-              entry.accept(MBBlocks.MUD_TILES_SLAB.get());
-              entry.accept(MBBlocks.MUD_TILES_WALL.get());
+              entry.accept(MBBlocks.MUD_TILE_STAIRS.get());
+              entry.accept(MBBlocks.MUD_TILE_SLAB.get());
+              entry.accept(MBBlocks.MUD_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_MUD_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_MUD_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_MUD_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.MOSSY_MUD_BRICKS_WALL.get());
+              entry.accept(MBBlocks.MOSSY_MUD_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.MOSSY_MUD_BRICK_SLAB.get());
+              entry.accept(MBBlocks.MOSSY_MUD_BRICK_WALL.get());
               entry.accept(MBBlocks.SMOOTH_MUD.get());
               entry.accept(MBBlocks.SMOOTH_MUD_SLAB.get());
               entry.accept(MBBlocks.SANDSTONE_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_SANDSTONE_BRICKS.get());
-              entry.accept(MBBlocks.SANDSTONE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.SANDSTONE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.SANDSTONE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.SANDSTONE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.SANDSTONE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.SANDSTONE_BRICK_WALL.get());
               entry.accept(MBBlocks.SANDSTONE_PILLAR.get());
               entry.accept(MBBlocks.SANDSTONE_TILES.get());
               entry.accept(MBBlocks.CRACKED_SANDSTONE_TILES.get());
-              entry.accept(MBBlocks.SANDSTONE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.SANDSTONE_TILES_SLAB.get());
-              entry.accept(MBBlocks.SANDSTONE_TILES_WALL.get());
+              entry.accept(MBBlocks.SANDSTONE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.SANDSTONE_TILE_SLAB.get());
+              entry.accept(MBBlocks.SANDSTONE_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_SANDSTONE_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_SANDSTONE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_SANDSTONE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.MOSSY_SANDSTONE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.MOSSY_SANDSTONE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.MOSSY_SANDSTONE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.MOSSY_SANDSTONE_BRICK_WALL.get());
               entry.accept(MBBlocks.RED_SANDSTONE_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS.get());
-              entry.accept(MBBlocks.RED_SANDSTONE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.RED_SANDSTONE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.RED_SANDSTONE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.RED_SANDSTONE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.RED_SANDSTONE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.RED_SANDSTONE_BRICK_WALL.get());
               entry.accept(MBBlocks.RED_SANDSTONE_PILLAR.get());
               entry.accept(MBBlocks.RED_SANDSTONE_TILES.get());
               entry.accept(MBBlocks.CRACKED_RED_SANDSTONE_TILES.get());
-              entry.accept(MBBlocks.RED_SANDSTONE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.RED_SANDSTONE_TILES_SLAB.get());
-              entry.accept(MBBlocks.RED_SANDSTONE_TILES_WALL.get());
+              entry.accept(MBBlocks.RED_SANDSTONE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.RED_SANDSTONE_TILE_SLAB.get());
+              entry.accept(MBBlocks.RED_SANDSTONE_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_RED_SANDSTONE_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_RED_SANDSTONE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_RED_SANDSTONE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.MOSSY_RED_SANDSTONE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.MOSSY_RED_SANDSTONE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.MOSSY_RED_SANDSTONE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.MOSSY_RED_SANDSTONE_BRICK_WALL.get());
               entry.accept(MBBlocks.POLISHED_PRISMARINE.get());
               entry.accept(MBBlocks.POLISHED_PRISMARINE_STAIRS.get());
               entry.accept(MBBlocks.POLISHED_PRISMARINE_SLAB.get());
@@ -254,13 +256,13 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.PRISMARINE_PILLAR.get());
               entry.accept(MBBlocks.PRISMARINE_TILES.get());
               entry.accept(MBBlocks.CRACKED_PRISMARINE_TILES.get());
-              entry.accept(MBBlocks.PRISMARINE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.PRISMARINE_TILES_SLAB.get());
-              entry.accept(MBBlocks.PRISMARINE_TILES_WALL.get());
+              entry.accept(MBBlocks.PRISMARINE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.PRISMARINE_TILE_SLAB.get());
+              entry.accept(MBBlocks.PRISMARINE_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_PRISMARINE_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_PRISMARINE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_PRISMARINE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.MOSSY_PRISMARINE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.MOSSY_PRISMARINE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.MOSSY_PRISMARINE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.MOSSY_PRISMARINE_BRICK_WALL.get());
               entry.accept(MBBlocks.SMOOTH_PRISMARINE.get());
               entry.accept(MBBlocks.SMOOTH_PRISMARINE_SLAB.get());
               entry.accept(MBBlocks.NETHER_BRICKS_PILLAR.get());
@@ -270,13 +272,13 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.BLACKSTONE_PILLAR.get());
               entry.accept(MBBlocks.POLISHED_BLACKSTONE_TILES.get());
               entry.accept(MBBlocks.CRACKED_POLISHED_BLACKSTONE_TILES.get());
-              entry.accept(MBBlocks.POLISHED_BLACKSTONE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.POLISHED_BLACKSTONE_TILES_SLAB.get());
-              entry.accept(MBBlocks.POLISHED_BLACKSTONE_TILES_WALL.get());
+              entry.accept(MBBlocks.POLISHED_BLACKSTONE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.POLISHED_BLACKSTONE_TILE_SLAB.get());
+              entry.accept(MBBlocks.POLISHED_BLACKSTONE_TILE_WALL.get());
               entry.accept(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get());
-              entry.accept(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_WALL.get());
               entry.accept(MBBlocks.SMOOTH_BLACKSTONE.get());
               entry.accept(MBBlocks.POLISHED_END_STONE.get());
               entry.accept(MBBlocks.POLISHED_END_STONE_STAIRS.get());
@@ -286,13 +288,13 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.END_STONE_PILLAR.get());
               entry.accept(MBBlocks.END_STONE_TILES.get());
               entry.accept(MBBlocks.CRACKED_END_STONE_TILES.get());
-              entry.accept(MBBlocks.END_STONE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.END_STONE_TILES_SLAB.get());
-              entry.accept(MBBlocks.END_STONE_TILES_WALL.get());
+              entry.accept(MBBlocks.END_STONE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.END_STONE_TILE_SLAB.get());
+              entry.accept(MBBlocks.END_STONE_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_END_STONE_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_END_STONE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_END_STONE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.MOSSY_END_STONE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.MOSSY_END_STONE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.MOSSY_END_STONE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.MOSSY_END_STONE_BRICK_WALL.get());
               entry.accept(MBBlocks.SMOOTH_END_STONE.get());
               entry.accept(MBBlocks.SMOOTH_END_STONE_SLAB.get());
               entry.accept(MBBlocks.POLISHED_PURPUR.get());
@@ -302,9 +304,9 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.CRACKED_PURPUR_BLOCK.get());
               entry.accept(MBBlocks.PURPUR_TILES.get());
               entry.accept(MBBlocks.CRACKED_PURPUR_TILES.get());
-              entry.accept(MBBlocks.PURPUR_TILES_STAIRS.get());
-              entry.accept(MBBlocks.PURPUR_TILES_SLAB.get());
-              entry.accept(MBBlocks.PURPUR_TILES_WALL.get());
+              entry.accept(MBBlocks.PURPUR_TILE_STAIRS.get());
+              entry.accept(MBBlocks.PURPUR_TILE_SLAB.get());
+              entry.accept(MBBlocks.PURPUR_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_PURPUR_BLOCK.get());
               entry.accept(MBBlocks.MOSSY_PURPUR_BLOCK_STAIRS.get());
               entry.accept(MBBlocks.MOSSY_PURPUR_BLOCK_SLAB.get());
@@ -321,7 +323,11 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.IRON_PILLAR.get());
               entry.accept(MBBlocks.CUT_IRON.get());
               entry.accept(MBBlocks.CRACKED_CUT_IRON.get());
-              entry.accept(MBBlocks.IRON_GRATE.get());
+
+              if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
+                entry.accept(MBBlocks.IRON_GRATE.get());
+              }
+
               entry.accept(MBBlocks.GOLD_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_GOLD_BRICKS.get());
               entry.accept(MBBlocks.GOLD_PILLAR.get());
@@ -342,19 +348,24 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.DIAMOND_PILLAR.get());
               entry.accept(MBBlocks.CUT_DIAMOND.get());
               entry.accept(MBBlocks.CRACKED_CUT_DIAMOND.get());
-              entry.accept(MBBlocks.DIAMOND_GRATE.get());
+
+              if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
+                entry.accept(MBBlocks.DIAMOND_GRATE.get());
+              }
+
               entry.accept(MBBlocks.NETHERITE_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_NETHERITE_BRICKS.get());
               entry.accept(MBBlocks.NETHERITE_PILLAR.get());
               entry.accept(MBBlocks.CUT_NETHERITE.get());
               entry.accept(MBBlocks.CRACKED_CUT_NETHERITE.get());
-              entry.accept(MBBlocks.NETHERITE_GRATE.get());
+
+              if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
+                entry.accept(MBBlocks.NETHERITE_GRATE.get());
+              }
+
               entry.accept(MBBlocks.CRACKED_QUARTZ_BRICKS.get());
               entry.accept(MBBlocks.CUT_QUARTZ.get());
               entry.accept(MBBlocks.CRACKED_CUT_QUARTZ.get());
-              entry.accept(MBBlocks.MOSSY_QUARTZ_BRICKS.get());
-              entry.accept(MBBlocks.MOSSY_QUARTZ_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.MOSSY_QUARTZ_BRICKS_SLAB.get());
               entry.accept(MBBlocks.AMETHYST_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_AMETHYST_BRICKS.get());
               entry.accept(MBBlocks.AMETHYST_PILLAR.get());
@@ -362,14 +373,14 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.CRACKED_CUT_AMETHYST.get());
               entry.accept(MBBlocks.BONE_BLOCK_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_BONE_BLOCK_BRICKS.get());
-              entry.accept(MBBlocks.BONE_BLOCK_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.BONE_BLOCK_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.BONE_BLOCK_BRICKS_WALL.get());
+              entry.accept(MBBlocks.BONE_BLOCK_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.BONE_BLOCK_BRICK_SLAB.get());
+              entry.accept(MBBlocks.BONE_BLOCK_BRICK_WALL.get());
               entry.accept(MBBlocks.BONE_BLOCK_TILES.get());
               entry.accept(MBBlocks.CRACKED_BONE_BLOCK_TILES.get());
-              entry.accept(MBBlocks.BONE_BLOCK_TILES_STAIRS.get());
-              entry.accept(MBBlocks.BONE_BLOCK_TILES_SLAB.get());
-              entry.accept(MBBlocks.BONE_BLOCK_TILES_WALL.get());
+              entry.accept(MBBlocks.BONE_BLOCK_TILE_STAIRS.get());
+              entry.accept(MBBlocks.BONE_BLOCK_TILE_SLAB.get());
+              entry.accept(MBBlocks.BONE_BLOCK_TILE_WALL.get());
               entry.accept(MBBlocks.SOUL_SANDSTONE.get());
               entry.accept(MBBlocks.SOUL_SANDSTONE_STAIRS.get());
               entry.accept(MBBlocks.SOUL_SANDSTONE_SLAB.get());
@@ -377,15 +388,15 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.CHISELED_SOUL_SANDSTONE.get());
               entry.accept(MBBlocks.SOUL_SANDSTONE_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_SOUL_SANDSTONE_BRICKS.get());
-              entry.accept(MBBlocks.SOUL_SANDSTONE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.SOUL_SANDSTONE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.SOUL_SANDSTONE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.SOUL_SANDSTONE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.SOUL_SANDSTONE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.SOUL_SANDSTONE_BRICK_WALL.get());
               entry.accept(MBBlocks.SOUL_SANDSTONE_PILLAR.get());
               entry.accept(MBBlocks.SOUL_SANDSTONE_TILES.get());
               entry.accept(MBBlocks.CRACKED_SOUL_SANDSTONE_TILES.get());
-              entry.accept(MBBlocks.SOUL_SANDSTONE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.SOUL_SANDSTONE_TILES_SLAB.get());
-              entry.accept(MBBlocks.SOUL_SANDSTONE_TILES_WALL.get());
+              entry.accept(MBBlocks.SOUL_SANDSTONE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.SOUL_SANDSTONE_TILE_SLAB.get());
+              entry.accept(MBBlocks.SOUL_SANDSTONE_TILE_WALL.get());
               entry.accept(MBBlocks.MOSSY_SOUL_SANDSTONE_BRICKS.get());
               entry.accept(MBBlocks.SMOOTH_SOUL_SANDSTONE.get());
               entry.accept(MBBlocks.SMOOTH_SOUL_SANDSTONE_SLAB.get());
@@ -400,33 +411,33 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.POLISHED_SNOW_SLAB.get());
               entry.accept(MBBlocks.SNOW_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_SNOW_BRICKS.get());
-              entry.accept(MBBlocks.SNOW_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.SNOW_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.SNOW_BRICKS_WALL.get());
+              entry.accept(MBBlocks.SNOW_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.SNOW_BRICK_SLAB.get());
+              entry.accept(MBBlocks.SNOW_BRICK_WALL.get());
               entry.accept(MBBlocks.SNOW_PILLAR.get());
               entry.accept(MBBlocks.SNOW_TILES.get());
               entry.accept(MBBlocks.CRACKED_SNOW_TILES.get());
-              entry.accept(MBBlocks.SNOW_TILES_STAIRS.get());
-              entry.accept(MBBlocks.SNOW_TILES_SLAB.get());
-              entry.accept(MBBlocks.SNOW_TILES_WALL.get());
+              entry.accept(MBBlocks.SNOW_TILE_STAIRS.get());
+              entry.accept(MBBlocks.SNOW_TILE_SLAB.get());
+              entry.accept(MBBlocks.SNOW_TILE_WALL.get());
               entry.accept(MBBlocks.POLISHED_ICE.get());
               entry.accept(MBBlocks.POLISHED_ICE_STAIRS.get());
               entry.accept(MBBlocks.POLISHED_ICE_SLAB.get());
               entry.accept(MBBlocks.ICE_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_ICE_BRICKS.get());
-              entry.accept(MBBlocks.ICE_BRICKS_STAIRS.get());
-              entry.accept(MBBlocks.ICE_BRICKS_SLAB.get());
-              entry.accept(MBBlocks.ICE_BRICKS_WALL.get());
+              entry.accept(MBBlocks.ICE_BRICK_STAIRS.get());
+              entry.accept(MBBlocks.ICE_BRICK_SLAB.get());
+              entry.accept(MBBlocks.ICE_BRICK_WALL.get());
               entry.accept(MBBlocks.ICE_PILLAR.get());
               entry.accept(MBBlocks.ICE_TILES.get());
               entry.accept(MBBlocks.CRACKED_ICE_TILES.get());
-              entry.accept(MBBlocks.ICE_TILES_STAIRS.get());
-              entry.accept(MBBlocks.ICE_TILES_SLAB.get());
-              entry.accept(MBBlocks.ICE_TILES_WALL.get());
+              entry.accept(MBBlocks.ICE_TILE_STAIRS.get());
+              entry.accept(MBBlocks.ICE_TILE_SLAB.get());
+              entry.accept(MBBlocks.ICE_TILE_WALL.get());
 
             }).build());
 
-    private static final RegistryObject<CreativeModeTab> MORE_COLORED_BLOCKS = CREATIVE_MODE_TABS.register("more_colored_blocks", () -> CreativeModeTab.builder()
+    private static final RegistryObject<CreativeModeTab> MORE_COLORED_BLOCKS = CREATIVE_MODE_TABS.register("more_colored_blocks", () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 1)
             .icon(() -> MBBlocks.MAGENTA_SHINGLES.get().asItem().getDefaultInstance())
             .title(Component.translatable("itemGroup.moreblocks.coloredBlocks"))
             .displayItems((ctx, entry) -> {
@@ -533,7 +544,7 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.PINK_CONCRETE_TILES.get());
             }).build());
 
-    private static final RegistryObject<CreativeModeTab> MORE_NATURAL_BLOCKS = CREATIVE_MODE_TABS.register("more_natural_blocks", () -> CreativeModeTab.builder()
+    private static final RegistryObject<CreativeModeTab> MORE_NATURAL_BLOCKS = CREATIVE_MODE_TABS.register("more_natural_blocks", () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 2)
             .icon(() -> MBBlocks.WARPED_FUNGUS_COLONY.get().asItem().getDefaultInstance())
             .title(Component.translatable("itemGroup.moreblocks.naturalBlocks"))
             .displayItems((ctx, entry) -> {
@@ -546,7 +557,8 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.TALL_SNOW_FERN.get());
               entry.accept(MBBlocks.CATTAIL.get());
               entry.accept(MBItems.LEAVES_BUCKET.get());
-              entry.accept(MBItems.FROZEN_LEAVES_BUCKET.get());
+              entry.accept(MBItems.BIRCH_LEAVES_BUCKET.get());
+              entry.accept(MBItems.SPRUCE_LEAVES_BUCKET.get());
               entry.accept(MBItems.AZALEA_LEAVES_BUCKET.get());
               entry.accept(MBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
               entry.accept(MBItems.BIG_LILY_PAD.get());
@@ -562,7 +574,7 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.TALL_WARPED_FUNGUS_COLONY.get());
             }).build());
 
-  private static final RegistryObject<CreativeModeTab> MORE_REDSTONE_BLOCKS = CREATIVE_MODE_TABS.register("more_redstone_blocks", () -> CreativeModeTab.builder()
+  private static final RegistryObject<CreativeModeTab> MORE_REDSTONE_BLOCKS = CREATIVE_MODE_TABS.register("more_redstone_blocks", () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 3)
     .icon(() -> MBBlocks.OCHRE_REDSTONE_FROGLIGHT.get().asItem().getDefaultInstance())
     .title(Component.translatable("itemGroup.moreblocks.redstoneBlocks"))
     .displayItems((ctx, entry) -> {
@@ -574,6 +586,22 @@ public class MBCreativeTabs {
       entry.accept(MBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
       entry.accept(MBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
       entry.accept(MBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
+    }).build());
+
+  private static final RegistryObject<CreativeModeTab> UNUSED_BLOCKS = CREATIVE_MODE_TABS.register("unused_blocks", () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 4)
+    .icon(() -> MBBlocks.RUBY_BLOCK.get().asItem().getDefaultInstance())
+    .title(Component.translatable("itemGroup.moreblocks.unusedBlocks"))
+    .displayItems((ctx, entry) -> {
+      if (ctx.hasPermissions()) {
+        entry.accept(MBBlocks.RUBY_ORE.get());
+        entry.accept(MBBlocks.DEEPSLATE_RUBY_ORE.get());
+        entry.accept(MBBlocks.RUBY_BLOCK.get());
+        entry.accept(MBBlocks.RUBY_BRICKS.get());
+        entry.accept(MBBlocks.CRACKED_RUBY_BRICKS.get());
+        entry.accept(MBBlocks.RUBY_PILLAR.get());
+        entry.accept(MBBlocks.CUT_RUBY.get());
+        entry.accept(MBBlocks.CRACKED_CUT_RUBY.get());
+      }
     }).build());
 
     public static void register(IEventBus event) {

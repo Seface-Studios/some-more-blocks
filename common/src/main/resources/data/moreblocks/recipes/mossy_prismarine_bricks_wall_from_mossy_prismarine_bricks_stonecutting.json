@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "moreblocks:mossy_prismarine_bricks"
-  },
-  "result": "moreblocks:mossy_prismarine_bricks_wall"
-}
