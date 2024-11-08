@@ -43,10 +43,10 @@ public class LeavesBucketItem extends SolidBucketItem {
     FabricModelPredicateProviderRegistry.register(
       item, new ResourceLocation(MoreBlocks.ID, BUCKET_VOLUME), (stack, world, entity, seed) -> {
         if (stack.hasTag() && stack.getTag().contains(BUCKET_VOLUME)) {
-          return (stack.getTag().getInt(BUCKET_VOLUME) / 100.0f);
+          return (float) stack.getTag().getInt(BUCKET_VOLUME) / 100.0F;
         }
 
-        return 0.0F;
+        return 0.01F;
       }
     );
   }

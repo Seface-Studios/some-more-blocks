@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
@@ -62,14 +61,6 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup, I
     public VoxelShape getShape(BlockState state, BlockGetter block, BlockPos pos, CollisionContext collisionCtx) {
         return SHAPE;
     }
-
-    /*@Override
-    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity livingEntity, ItemStack item) {
-        BlockState blockBellow = level.getBlockState(pos.below());
-        boolean isLower = blockBellow.is(Blocks.FARMLAND) || blockBellow.is(Blocks.DIRT_PATH);
-
-        level.setBlock(pos, state.setValue(LOWER, isLower), 0);
-    }*/
 
     public BlockState updateShape(BlockState state, Direction direction, BlockState state2, LevelAccessor levelAccessor, BlockPos pos, BlockPos pos2) {
         return !state.canSurvive(levelAccessor, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, state2, levelAccessor, pos, pos2);

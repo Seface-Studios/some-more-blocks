@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_shingles",
+  "key": {
+    "#": {
+      "item": "moreblocks:shingles"
+    },
+    "X": {
+      "item": "minecraft:light_blue_dye"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "moreblocks:light_blue_shingles"
+  }
+}

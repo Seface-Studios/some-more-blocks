@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_terracotta_tiles_from_terracotta_bricks",
+  "key": {
+    "#": {
+      "item": "moreblocks:orange_terracotta_bricks"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "item": "moreblocks:orange_terracotta_tiles"
+  }
+}

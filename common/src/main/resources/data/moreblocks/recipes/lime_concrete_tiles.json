@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_concrete_tiles",
+  "key": {
+    "#": {
+      "item": "moreblocks:lime_concrete_bricks"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "item": "moreblocks:lime_concrete_tiles"
+  }
+}
