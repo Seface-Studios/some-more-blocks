@@ -1,6 +1,6 @@
 {
   "variants": {
-    "lower=false": [
+    "": [
       {
         "model": "moreblocks:block/spruce_leaf_litter_0"
       },
@@ -44,53 +44,6 @@
       },
       {
         "model": "moreblocks:block/spruce_leaf_litter_2",
-        "y": 270
-      }
-    ],
-    "lower=true": [
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_0_lower"
-      },
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_1_lower"
-      },
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_2_lower"
-      },
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_0_lower",
-        "y": 90
-      },
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_1_lower",
-        "y": 90
-      },
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_2_lower",
-        "y": 90
-      },
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_0_lower",
-        "y": 180
-      },
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_1_lower",
-        "y": 180
-      },
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_2_lower",
-        "y": 180
-      },
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_0_lower",
-        "y": 270
-      },
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_1_lower",
-        "y": 270
-      },
-      {
-        "model": "moreblocks:block/spruce_leaf_litter_2_lower",
         "y": 270
       }
     ]

@@ -36,8 +36,6 @@ import java.util.Optional;
 public class LeafLitterBlock extends TransparentBlock implements BucketPickup, ILeafLitterBlock {
     public static final MapCodec<LeafLitterBlock> CODEC = simpleCodec(LeafLitterBlock::new);
     protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
-    protected static final VoxelShape SHAPE_LOWER = Block.box(0.0, -1.0, 0.0, 16.0, 1.0, 16.0);
-    public static final BooleanProperty LOWER = BooleanProperty.create("lower");
 
     @Getter
     private final float chance;
@@ -50,7 +48,6 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup, I
         super(properties);
 
         this.chance = chance;
-        this.registerDefaultState(this.defaultBlockState().setValue(LOWER, false));
     }
 
     @Override
@@ -69,24 +66,16 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup, I
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter block, BlockPos pos, CollisionContext collisionCtx) {
-        return state.getValue(LOWER) ? SHAPE_LOWER : SHAPE;
+        return SHAPE;
     }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> property) {
-        property.add(LOWER);
-    }
-
-    public BlockState getStateForPlacement(BlockPlaceContext block) {
-        return this.defaultBlockState().setValue(LOWER, false);
-    }
-
-    @Override
+    /*@Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity livingEntity, ItemStack item) {
         BlockState blockBellow = level.getBlockState(pos.below());
         boolean isLower = blockBellow.is(Blocks.FARMLAND) || blockBellow.is(Blocks.DIRT_PATH);
 
         level.setBlock(pos, state.setValue(LOWER, isLower), 0);
-    }
+    }*/
 
     public BlockState updateShape(BlockState state, Direction direction, BlockState state2, LevelAccessor levelAccessor, BlockPos pos, BlockPos pos2) {
         return !state.canSurvive(levelAccessor, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, state2, levelAccessor, pos, pos2);
@@ -94,11 +83,6 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup, I
 
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         BlockState blockBellow = level.getBlockState(pos.below());
-
-        if (state.getValue(LOWER)) {
-            return blockBellow.is(Blocks.FARMLAND) || blockBellow.is(Blocks.DIRT_PATH);
-        }
-
         return blockBellow.isSolid();
     }
 
