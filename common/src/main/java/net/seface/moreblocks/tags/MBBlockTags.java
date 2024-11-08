@@ -19,7 +19,6 @@ public final class MBBlockTags extends MoreBlocksDataDriven {
   public static final TagKey<Block> TERRACOTTA_BRICKS = create(Registries.BLOCK, "terracotta_bricks");
   public static final TagKey<Block> TERRACOTTA_TILES = create(Registries.BLOCK, "terracotta_tiles");
   public static final TagKey<Block> TINY_CACTUS_PLACEABLE = create(Registries.BLOCK, "tiny_cactus_placeable");
-  public static final TagKey<Block> UNUSED_BLOCKS = create(Registries.BLOCK, "unused_blocks");
 
   private MBBlockTags() {}
 }

@@ -7,11 +7,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
 import net.seface.moreblocks.MoreBlocks;
+import net.seface.moreblocks.item.LeavesBucketItem;
 
 public class MBItems {
   // Custom Plants
-  public static final Item AZALEA_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.AZALEA_LEAF_LITTER, SoundEvents.AZALEA_LEAVES_PLACE, (new Item.Properties()).stacksTo(1));
-  public static final Item BIRCH_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.BIRCH_LEAF_LITTER, SoundEvents.GRASS_PLACE, (new Item.Properties()).stacksTo(1));
+  public static final Item AZALEA_LEAVES_BUCKET = new LeavesBucketItem(MBBlocks.AZALEA_LEAF_LITTER, SoundEvents.AZALEA_LEAVES_PLACE, (new Item.Properties()).stacksTo(1));
+
+  public static final Item BIRCH_LEAVES_BUCKET = new LeavesBucketItem(MBBlocks.BIRCH_LEAF_LITTER, SoundEvents.GRASS_PLACE, (new Item.Properties()).stacksTo(1));
   public static final Item BIG_LILY_PAD = new PlaceOnWaterBlockItem(MBBlocks.BIG_LILY_PAD, new Item.Properties());
   public static final Item TALL_BROWN_MUSHROOM_COLONY = new BlockItem(MBBlocks.TALL_BROWN_MUSHROOM_COLONY, new Item.Properties());
   public static final Item BROWN_MUSHROOM_COLONY = new StandingAndWallBlockItem(MBBlocks.BROWN_MUSHROOM_COLONY, MBBlocks.BROWN_MUSHROOM_COLONY_WALL, new Item.Properties(), Direction.DOWN);
@@ -19,9 +21,9 @@ public class MBItems {
   public static final Item TALL_CRIMSON_FUNGUS_COLONY = new BlockItem(MBBlocks.TALL_CRIMSON_FUNGUS_COLONY, new Item.Properties());
   public static final Item CRIMSON_FUNGUS_COLONY = new StandingAndWallBlockItem(MBBlocks.CRIMSON_FUNGUS_COLONY, MBBlocks.CRIMSON_FUNGUS_COLONY_WALL, new Item.Properties(), Direction.DOWN);
   public static final Item DUNE_GRASS = new BlockItem(MBBlocks.DUNE_GRASS, new Item.Properties());
-  public static final Item FLOWERING_AZALEA_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.FLOWERING_AZALEA_LEAF_LITTER, SoundEvents.AZALEA_LEAVES_PLACE, (new Item.Properties()).stacksTo(1));
-  public static final Item SPRUCE_LEAVES_BUCKET = new SolidBucketItem(MBBlocks.SPRUCE_LEAF_LITTER, SoundEvents.GRASS_PLACE, (new Item.Properties()).stacksTo(1));
-  public static final Item LEAVES_BUCKET = new SolidBucketItem(MBBlocks.LEAF_LITTER, SoundEvents.GRASS_PLACE, (new Item.Properties()).stacksTo(1));
+  public static final Item FLOWERING_AZALEA_LEAVES_BUCKET = new LeavesBucketItem(MBBlocks.FLOWERING_AZALEA_LEAF_LITTER, SoundEvents.AZALEA_LEAVES_PLACE, (new Item.Properties()).stacksTo(1));
+  public static final Item SPRUCE_LEAVES_BUCKET = new LeavesBucketItem(MBBlocks.SPRUCE_LEAF_LITTER, SoundEvents.GRASS_PLACE, (new Item.Properties()).stacksTo(1));
+  public static final Item LEAVES_BUCKET = new LeavesBucketItem(MBBlocks.LEAF_LITTER, SoundEvents.GRASS_PLACE, (new Item.Properties()).stacksTo(1));
   public static final Item LUMINOUS_FLOWER = new BlockItem(MBBlocks.LUMINOUS_FLOWER, new Item.Properties());
   public static final Item TALL_RED_MUSHROOM_COLONY = new BlockItem(MBBlocks.TALL_RED_MUSHROOM_COLONY, new Item.Properties());
   public static final Item RED_MUSHROOM_COLONY = new StandingAndWallBlockItem(MBBlocks.RED_MUSHROOM_COLONY, MBBlocks.RED_MUSHROOM_COLONY_WALL, new Item.Properties(), Direction.DOWN);
@@ -150,7 +152,6 @@ public class MBItems {
   public static final Item CRACKED_CUT_NETHERITE = new BlockItem(MBBlocks.CRACKED_CUT_NETHERITE, new Item.Properties());
   public static final Item CRACKED_CUT_QUARTZ = new BlockItem(MBBlocks.CRACKED_CUT_QUARTZ, new Item.Properties());
   public static final Item CRACKED_CUT_REDSTONE = new BlockItem(MBBlocks.CRACKED_CUT_REDSTONE, new Item.Properties());
-  public static final Item CRACKED_CUT_RUBY = new BlockItem(MBBlocks.CRACKED_CUT_RUBY, new Item.Properties());
   public static final Item CRACKED_DIAMOND_BRICKS = new BlockItem(MBBlocks.CRACKED_DIAMOND_BRICKS, new Item.Properties());
   public static final Item CRACKED_DIORITE_BRICKS = new BlockItem(MBBlocks.CRACKED_DIORITE_BRICKS, new Item.Properties());
   public static final Item CRACKED_DIORITE_TILES = new BlockItem(MBBlocks.CRACKED_DIORITE_TILES, new Item.Properties());
@@ -179,7 +180,6 @@ public class MBItems {
   public static final Item CRACKED_RED_SANDSTONE_BRICKS = new BlockItem(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS, new Item.Properties());
   public static final Item CRACKED_RED_SANDSTONE_TILES = new BlockItem(MBBlocks.CRACKED_RED_SANDSTONE_TILES, new Item.Properties());
   public static final Item CRACKED_REDSTONE_BRICKS = new BlockItem(MBBlocks.CRACKED_REDSTONE_BRICKS, new Item.Properties());
-  public static final Item CRACKED_RUBY_BRICKS = new BlockItem(MBBlocks.CRACKED_RUBY_BRICKS, new Item.Properties());
   public static final Item CRACKED_SANDSTONE_BRICKS = new BlockItem(MBBlocks.CRACKED_SANDSTONE_BRICKS, new Item.Properties());
   public static final Item CRACKED_SANDSTONE_TILES = new BlockItem(MBBlocks.CRACKED_SANDSTONE_TILES, new Item.Properties());
   public static final Item CRACKED_SNOW_BRICKS = new BlockItem(MBBlocks.CRACKED_SNOW_BRICKS, new Item.Properties());
@@ -202,7 +202,6 @@ public class MBItems {
   public static final Item CUT_NETHERITE = new BlockItem(MBBlocks.CUT_NETHERITE, new Item.Properties());
   public static final Item CUT_QUARTZ = new BlockItem(MBBlocks.CUT_QUARTZ, new Item.Properties());
   public static final Item CUT_REDSTONE = new BlockItem(MBBlocks.CUT_REDSTONE, new Item.Properties());
-  public static final Item CUT_RUBY = new BlockItem(MBBlocks.CUT_RUBY, new Item.Properties());
   public static final Item CUT_SOUL_SANDSTONE = new BlockItem(MBBlocks.CUT_SOUL_SANDSTONE, new Item.Properties());
   public static final Item CUT_SOUL_SANDSTONE_SLAB = new BlockItem(MBBlocks.CUT_SOUL_SANDSTONE_SLAB, new Item.Properties());
   public static final Item CYAN_CONCRETE_BRICKS = new BlockItem(MBBlocks.CYAN_CONCRETE_BRICKS, new Item.Properties());
@@ -215,7 +214,6 @@ public class MBItems {
   public static final Item DARK_OAK_MOSAIC_SLAB = new BlockItem(MBBlocks.DARK_OAK_MOSAIC_SLAB, new Item.Properties());
   public static final Item DARK_OAK_MOSAIC_STAIRS = new BlockItem(MBBlocks.DARK_OAK_MOSAIC_STAIRS, new Item.Properties());
   public static final Item DEEPSLATE_PILLAR = new BlockItem(MBBlocks.DEEPSLATE_PILLAR, new Item.Properties());
-  public static final Item DEEPSLATE_RUBY_ORE = new BlockItem(MBBlocks.DEEPSLATE_RUBY_ORE, new Item.Properties());
   public static final Item DIAMOND_BRICKS = new BlockItem(MBBlocks.DIAMOND_BRICKS, new Item.Properties());
   public static final Item DIAMOND_GRATE = new BlockItem(MBBlocks.DIAMOND_GRATE, new Item.Properties());
   public static final Item DIAMOND_PILLAR = new BlockItem(MBBlocks.DIAMOND_PILLAR, new Item.Properties());
@@ -467,10 +465,6 @@ public class MBItems {
   public static final Item RED_TERRACOTTA_TILES = new BlockItem(MBBlocks.RED_TERRACOTTA_TILES, new Item.Properties());
   public static final Item REDSTONE_BRICKS = new BlockItem(MBBlocks.REDSTONE_BRICKS, new Item.Properties());
   public static final Item REDSTONE_PILLAR = new BlockItem(MBBlocks.REDSTONE_PILLAR, new Item.Properties());
-  public static final Item RUBY_BLOCK = new BlockItem(MBBlocks.RUBY_BLOCK, new Item.Properties());
-  public static final Item RUBY_BRICKS = new BlockItem(MBBlocks.RUBY_BRICKS, new Item.Properties());
-  public static final Item RUBY_ORE = new BlockItem(MBBlocks.RUBY_ORE, new Item.Properties());
-  public static final Item RUBY_PILLAR = new BlockItem(MBBlocks.RUBY_PILLAR, new Item.Properties());
   public static final Item SANDSTONE_BRICKS = new BlockItem(MBBlocks.SANDSTONE_BRICKS, new Item.Properties());
   public static final Item SANDSTONE_BRICK_SLAB = new BlockItem(MBBlocks.SANDSTONE_BRICK_SLAB, new Item.Properties());
   public static final Item SANDSTONE_BRICK_STAIRS = new BlockItem(MBBlocks.SANDSTONE_BRICK_STAIRS, new Item.Properties());
@@ -999,14 +993,6 @@ public class MBItems {
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cut_emerald"), CUT_EMERALD);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cracked_cut_emerald"), CRACKED_CUT_EMERALD);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "emerald_pillar"), EMERALD_PILLAR);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "ruby_ore"), RUBY_ORE);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "deepslate_ruby_ore"), DEEPSLATE_RUBY_ORE);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "ruby_block"), RUBY_BLOCK);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "ruby_bricks"), RUBY_BRICKS);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cracked_ruby_bricks"), CRACKED_RUBY_BRICKS);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cut_ruby"), CUT_RUBY);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cracked_cut_ruby"), CRACKED_CUT_RUBY);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "ruby_pillar"), RUBY_PILLAR);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "lapis_lazuli_bricks"), LAPIS_LAZULI_BRICKS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cracked_lapis_lazuli_bricks"), CRACKED_LAPIS_LAZULI_BRICKS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cut_lapis_lazuli"), CUT_LAPIS_LAZULI);

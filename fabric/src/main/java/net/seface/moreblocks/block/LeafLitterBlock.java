@@ -7,8 +7,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -24,7 +24,9 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.seface.moreblocks.MoreBlocks;
 import net.seface.moreblocks.interfaces.ILeafLitterBlock;
+import net.seface.moreblocks.item.LeavesBucketItem;
 import net.seface.moreblocks.registry.MBBlocks;
 import net.seface.moreblocks.registry.MBItems;
 import org.jetbrains.annotations.Nullable;
@@ -100,19 +102,33 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup, I
         return blockBellow.isSolid();
     }
 
-    public ItemStack pickupBlock(@Nullable Player player, LevelAccessor level, BlockPos pos, BlockState state) {
+  @Override
+  public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+      ItemStack stack = super.getCloneItemStack(level, pos, state);
+      ((LeavesBucketItem) stack.getItem()).setCustomData(stack, 16);
+
+      return stack;
+  }
+
+  @Override
+  public ItemStack pickupBlock(@Nullable Player player, LevelAccessor level, BlockPos pos, BlockState state) {
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), 11);
         if (!level.isClientSide()) {
             level.levelEvent(2001, pos, Block.getId(state));
         }
 
-        if (state.is(MBBlocks.LEAF_LITTER)) { return new ItemStack(MBItems.LEAVES_BUCKET); }
-        if (state.is(MBBlocks.BIRCH_LEAF_LITTER)) { return new ItemStack(MBItems.BIRCH_LEAVES_BUCKET); }
-        if (state.is(MBBlocks.SPRUCE_LEAF_LITTER)) { return new ItemStack(MBItems.SPRUCE_LEAVES_BUCKET); }
-        if (state.is(MBBlocks.AZALEA_LEAF_LITTER)) { return new ItemStack(MBItems.AZALEA_LEAVES_BUCKET); }
-        if (state.is(MBBlocks.FLOWERING_AZALEA_LEAF_LITTER)) { return new ItemStack(MBItems.FLOWERING_AZALEA_LEAVES_BUCKET); }
+        ItemStack stack = null;
 
-        return new ItemStack(Items.AIR);
+        if (state.is(MBBlocks.LEAF_LITTER)) { stack = MBItems.LEAVES_BUCKET.getDefaultInstance(); }
+        if (state.is(MBBlocks.BIRCH_LEAF_LITTER)) { stack = MBItems.BIRCH_LEAVES_BUCKET.getDefaultInstance(); }
+        if (state.is(MBBlocks.SPRUCE_LEAF_LITTER)) { stack = MBItems.SPRUCE_LEAVES_BUCKET.getDefaultInstance(); }
+        if (state.is(MBBlocks.AZALEA_LEAF_LITTER)) { stack = MBItems.AZALEA_LEAVES_BUCKET.getDefaultInstance(); }
+        if (state.is(MBBlocks.FLOWERING_AZALEA_LEAF_LITTER)) { stack = MBItems.FLOWERING_AZALEA_LEAVES_BUCKET.getDefaultInstance(); }
+
+        LeavesBucketItem bucketItem = ((LeavesBucketItem) stack.getItem());
+        bucketItem.setCustomData(stack, 1);
+
+        return stack;
     }
 
     public Optional<SoundEvent> getPickupSound() {

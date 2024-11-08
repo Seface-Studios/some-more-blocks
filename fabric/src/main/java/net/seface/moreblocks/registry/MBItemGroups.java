@@ -9,6 +9,7 @@ import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.*;
 import net.seface.moreblocks.MoreBlocks;
+import net.seface.moreblocks.item.LeavesBucketItem;
 import net.seface.moreblocks.utils.MBUtils;
 
 public class MBItemGroups {
@@ -553,11 +554,11 @@ public class MBItemGroups {
               entry.accept(MBItems.SNOW_FERN);
               entry.accept(MBItems.TALL_SNOW_FERN);
               entry.accept(MBItems.CATTAIL);
-              entry.accept(MBItems.LEAVES_BUCKET);
-              entry.accept(MBItems.BIRCH_LEAVES_BUCKET);
-              entry.accept(MBItems.SPRUCE_LEAVES_BUCKET);
-              entry.accept(MBItems.AZALEA_LEAVES_BUCKET);
-              entry.accept(MBItems.FLOWERING_AZALEA_LEAVES_BUCKET);
+              entry.accept(((LeavesBucketItem) MBItems.LEAVES_BUCKET).getCreativeInventoryInstance());
+              entry.accept(((LeavesBucketItem) MBItems.BIRCH_LEAVES_BUCKET).getCreativeInventoryInstance());
+              entry.accept(((LeavesBucketItem) MBItems.SPRUCE_LEAVES_BUCKET).getCreativeInventoryInstance());
+              entry.accept(((LeavesBucketItem) MBItems.AZALEA_LEAVES_BUCKET).getCreativeInventoryInstance());
+              entry.accept(((LeavesBucketItem) MBItems.FLOWERING_AZALEA_LEAVES_BUCKET).getCreativeInventoryInstance());
               entry.accept(MBItems.BIG_LILY_PAD);
               entry.accept(MBItems.SMALL_LILY_PADS);
               entry.accept(MBItems.LUMINOUS_FLOWER);
@@ -586,27 +587,10 @@ public class MBItemGroups {
         entry.accept(MBItems.PEARLESCENT_REDSTONE_FROGLIGHT);
       }).build();
 
-    private static final CreativeModeTab UNUSED_BLOCKS = FabricItemGroup.builder()
-      .icon(() -> new ItemStack(MBItems.RUBY_BLOCK))
-      .title(Component.translatable("itemGroup.moreblocks.unusedBlocks"))
-      .displayItems((ctx, entry) -> {
-        if (ctx.hasPermissions()) {
-          entry.accept(MBItems.RUBY_ORE);
-          entry.accept(MBItems.DEEPSLATE_RUBY_ORE);
-          entry.accept(MBItems.RUBY_BLOCK);
-          entry.accept(MBItems.RUBY_BRICKS);
-          entry.accept(MBItems.CRACKED_RUBY_BRICKS);
-          entry.accept(MBItems.RUBY_PILLAR);
-          entry.accept(MBItems.CUT_RUBY);
-          entry.accept(MBItems.CRACKED_CUT_RUBY);
-        }
-      }).build();
-
     public static void register() {
       Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "0_more_building_blocks"), MORE_BUILDING_BLOCKS);
       Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "1_more_colored_blocks"), MORE_COLORED_BLOCKS);
       Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "2_more_natural_blocks"), MORE_NATURAL_BLOCKS);
       Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "3_more_redstone_blocks"), MORE_REDSTONE_BLOCKS);
-      Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "4_unused_blocks"), UNUSED_BLOCKS);
     }
 }
