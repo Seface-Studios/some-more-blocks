@@ -57,7 +57,7 @@
     "moreblocks:soul_sandstone_brick_stairs",
     "moreblocks:soul_sandstone_tile_stairs",
     "moreblocks:mossy_brick_block_stairs",
-    "moreblocks:bone_block_brick_stairs",
-    "moreblocks:bone_block_tile_stairs"
+    "moreblocks:bone_brick_stairs",
+    "moreblocks:bone_tile_stairs"
   ]
 }

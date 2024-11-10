@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "moreblocks:bone_block_tiles"
-  },
-  "result": "moreblocks:bone_block_tile_stairs"
-}

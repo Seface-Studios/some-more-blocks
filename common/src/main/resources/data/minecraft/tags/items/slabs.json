@@ -70,7 +70,7 @@
     "moreblocks:soul_sandstone_brick_slab",
     "moreblocks:soul_sandstone_tile_slab",
     "moreblocks:mossy_brick_block_slab",
-    "moreblocks:bone_block_brick_slab",
-    "moreblocks:bone_block_tile_slab"
+    "moreblocks:bone_brick_slab",
+    "moreblocks:bone_tile_slab"
   ]
 }

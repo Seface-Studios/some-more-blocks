@@ -156,7 +156,7 @@ public class MBBlocks {
     public static final Block POLISHED_END_STONE_STAIRS = new StairBlock(POLISHED_END_STONE.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.POLISHED_END_STONE));
     public static final Block SMOOTH_END_STONE = new Block(FabricBlockSettings.copyOf(Blocks.END_STONE));
     public static final Block SMOOTH_END_STONE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_END_STONE));
-    public static final Block CHISELED_END_STONE = new Block(FabricBlockSettings.copyOf(Blocks.END_STONE));
+    public static final Block CHISELED_END_STONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.END_STONE));
     public static final Block CRACKED_END_STONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS));
     public static final Block MOSSY_END_STONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.END_STONE_BRICKS));
     public static final Block MOSSY_END_STONE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_END_STONE_BRICKS));
@@ -172,7 +172,7 @@ public class MBBlocks {
     public static final Block TUFF_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
     public static final Block TUFF_BRICK_STAIRS = new StairBlock(TUFF_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
     public static final Block TUFF_BRICK_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
-    public static final Block CHISELED_TUFF = new Block(FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
+    public static final Block CHISELED_TUFF_BRICKS = new Block(FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
     public static final Block POLISHED_TUFF = new Block(FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
     public static final Block POLISHED_TUFF_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
     public static final Block POLISHED_TUFF_STAIRS = new StairBlock(POLISHED_TUFF.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.TUFF_BRICKS));
@@ -209,7 +209,7 @@ public class MBBlocks {
     public static final Block POLISHED_CALCITE_STAIRS = new StairBlock(POLISHED_CALCITE.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.POLISHED_CALCITE));
     public static final Block SMOOTH_CALCITE = new Block(FabricBlockSettings.copyOf(Blocks.CALCITE));
     public static final Block SMOOTH_CALCITE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_CALCITE));
-    public static final Block CHISELED_CALCITE = new Block(FabricBlockSettings.copyOf(Blocks.CALCITE));
+    public static final Block CHISELED_CALCITE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.CALCITE));
     public static final Block CALCITE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.CALCITE));
     public static final Block CALCITE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.CALCITE_BRICKS));
     public static final Block CALCITE_BRICK_STAIRS = new StairBlock(CALCITE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.CALCITE_BRICKS));
@@ -230,7 +230,7 @@ public class MBBlocks {
     public static final Block POLISHED_DRIPSTONE_STAIRS = new StairBlock(POLISHED_DRIPSTONE.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.POLISHED_DRIPSTONE));
     public static final Block SMOOTH_DRIPSTONE = new Block(FabricBlockSettings.copyOf(Blocks.DRIPSTONE_BLOCK));
     public static final Block SMOOTH_DRIPSTONE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_DRIPSTONE));
-    public static final Block CHISELED_DRIPSTONE = new Block(FabricBlockSettings.copyOf(Blocks.DRIPSTONE_BLOCK));
+    public static final Block CHISELED_DRIPSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.DRIPSTONE_BLOCK));
     public static final Block DRIPSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.DRIPSTONE_BLOCK));
     public static final Block DRIPSTONE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.DRIPSTONE_BRICKS));
     public static final Block DRIPSTONE_BRICK_STAIRS = new StairBlock(DRIPSTONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.DRIPSTONE_BRICKS));
@@ -251,7 +251,7 @@ public class MBBlocks {
     public static final Block POLISHED_PRISMARINE_STAIRS = new StairBlock(POLISHED_PRISMARINE.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.POLISHED_PRISMARINE));
     public static final Block SMOOTH_PRISMARINE = new Block(FabricBlockSettings.copyOf(Blocks.PRISMARINE));
     public static final Block SMOOTH_PRISMARINE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_PRISMARINE));
-    public static final Block CHISELED_PRISMARINE = new Block(FabricBlockSettings.copyOf(Blocks.PRISMARINE));
+    public static final Block CHISELED_PRISMARINE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.PRISMARINE));
     public static final Block CRACKED_PRISMARINE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.PRISMARINE_BRICKS));
     public static final Block MOSSY_PRISMARINE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.PRISMARINE_BRICKS));
     public static final Block MOSSY_PRISMARINE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_PRISMARINE_BRICKS));
@@ -287,7 +287,7 @@ public class MBBlocks {
     public static final Block POLISHED_MUD_STAIRS = new StairBlock(POLISHED_MUD.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.POLISHED_MUD));
     public static final Block SMOOTH_MUD = new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS));
     public static final Block SMOOTH_MUD_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_MUD));
-    public static final Block CHISELED_MUD = new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS));
+    public static final Block CHISELED_MUD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS));
     public static final Block CRACKED_MUD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS));
     public static final Block MOSSY_MUD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS));
     public static final Block MOSSY_MUD_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_MUD_BRICKS));
@@ -575,16 +575,16 @@ public class MBBlocks {
     public static final Block PURPLE_STAINED_TILED_GLASS = new StainedGlassBlock(DyeColor.PURPLE, FabricBlockSettings.copyOf(Blocks.PURPLE_STAINED_GLASS));
     public static final Block MAGENTA_STAINED_TILED_GLASS = new StainedGlassBlock(DyeColor.MAGENTA, FabricBlockSettings.copyOf(Blocks.MAGENTA_STAINED_GLASS));
     public static final Block PINK_STAINED_TILED_GLASS = new StainedGlassBlock(DyeColor.PINK, FabricBlockSettings.copyOf(Blocks.PINK_STAINED_GLASS));
-    public static final Block BONE_BLOCK_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
-    public static final Block BONE_BLOCK_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.BONE_BLOCK_BRICKS));
-    public static final Block BONE_BLOCK_BRICK_STAIRS = new StairBlock(BONE_BLOCK_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.BONE_BLOCK_BRICKS));
-    public static final Block BONE_BLOCK_BRICK_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.BONE_BLOCK_BRICKS).solid());
-    public static final Block CRACKED_BONE_BLOCK_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
-    public static final Block BONE_BLOCK_TILES = new Block(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
-    public static final Block BONE_BLOCK_TILE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.BONE_BLOCK_TILES));
-    public static final Block BONE_BLOCK_TILE_STAIRS = new StairBlock(BONE_BLOCK_TILES.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.BONE_BLOCK_TILES));
-    public static final Block BONE_BLOCK_TILE_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.BONE_BLOCK_TILES).solid());
-    public static final Block CRACKED_BONE_BLOCK_TILES = new Block(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
+    public static final Block BONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
+    public static final Block BONE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.BONE_BRICKS));
+    public static final Block BONE_BRICK_STAIRS = new StairBlock(BONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.BONE_BRICKS));
+    public static final Block BONE_BRICK_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.BONE_BRICKS).solid());
+    public static final Block CRACKED_BONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
+    public static final Block BONE_TILES = new Block(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
+    public static final Block BONE_TILE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.BONE_TILES));
+    public static final Block BONE_TILE_STAIRS = new StairBlock(BONE_TILES.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.BONE_TILES));
+    public static final Block BONE_TILE_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.BONE_TILES).solid());
+    public static final Block CRACKED_BONE_TILES = new Block(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
 
     public static void register() {
         // Custom Plants & Flower Pots
@@ -716,7 +716,7 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_end_stone_stairs"), POLISHED_END_STONE_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_end_stone"), SMOOTH_END_STONE);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_end_stone_slab"), SMOOTH_END_STONE_SLAB);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_end_stone"), CHISELED_END_STONE);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_end_stone_bricks"), CHISELED_END_STONE_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_end_stone_bricks"), CRACKED_END_STONE_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_end_stone_bricks"), MOSSY_END_STONE_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_end_stone_brick_slab"), MOSSY_END_STONE_BRICK_SLAB);
@@ -732,7 +732,7 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tuff_brick_slab"), TUFF_BRICK_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tuff_brick_stairs"), TUFF_BRICK_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "tuff_brick_wall"), TUFF_BRICK_WALL);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_tuff"), CHISELED_TUFF);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_tuff_bricks"), CHISELED_TUFF_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_tuff"), POLISHED_TUFF);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_tuff_slab"), POLISHED_TUFF_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_tuff_stairs"), POLISHED_TUFF_STAIRS);
@@ -769,7 +769,7 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_calcite_stairs"), POLISHED_CALCITE_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_calcite"), SMOOTH_CALCITE);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_calcite_slab"), SMOOTH_CALCITE_SLAB);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_calcite"), CHISELED_CALCITE);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_calcite_bricks"), CHISELED_CALCITE_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "calcite_bricks"), CALCITE_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "calcite_brick_slab"), CALCITE_BRICK_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "calcite_brick_stairs"), CALCITE_BRICK_STAIRS);
@@ -790,7 +790,7 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_dripstone_stairs"), POLISHED_DRIPSTONE_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_dripstone"), SMOOTH_DRIPSTONE);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_dripstone_slab"), SMOOTH_DRIPSTONE_SLAB);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_dripstone"), CHISELED_DRIPSTONE);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_dripstone_bricks"), CHISELED_DRIPSTONE_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dripstone_bricks"), DRIPSTONE_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dripstone_brick_slab"), DRIPSTONE_BRICK_SLAB);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "dripstone_brick_stairs"), DRIPSTONE_BRICK_STAIRS);
@@ -811,7 +811,7 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_prismarine_stairs"), POLISHED_PRISMARINE_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_prismarine"), SMOOTH_PRISMARINE);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_prismarine_slab"), SMOOTH_PRISMARINE_SLAB);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_prismarine"), CHISELED_PRISMARINE);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_prismarine_bricks"), CHISELED_PRISMARINE_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_prismarine_bricks"), CRACKED_PRISMARINE_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_prismarine_bricks"), MOSSY_PRISMARINE_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_prismarine_brick_slab"), MOSSY_PRISMARINE_BRICK_SLAB);
@@ -847,7 +847,7 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_mud_stairs"), POLISHED_MUD_STAIRS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_mud"), SMOOTH_MUD);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "smooth_mud_slab"), SMOOTH_MUD_SLAB);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_mud"), CHISELED_MUD);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "chiseled_mud_bricks"), CHISELED_MUD_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_mud_bricks"), CRACKED_MUD_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_mud_bricks"), MOSSY_MUD_BRICKS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_mud_brick_slab"), MOSSY_MUD_BRICK_SLAB);
@@ -1135,16 +1135,16 @@ public class MBBlocks {
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "purple_stained_tiled_glass"), PURPLE_STAINED_TILED_GLASS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "magenta_stained_tiled_glass"), MAGENTA_STAINED_TILED_GLASS);
         Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "pink_stained_tiled_glass"), PINK_STAINED_TILED_GLASS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_bricks"), BONE_BLOCK_BRICKS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_brick_slab"), BONE_BLOCK_BRICK_SLAB);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_brick_stairs"), BONE_BLOCK_BRICK_STAIRS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_brick_wall"), BONE_BLOCK_BRICK_WALL);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_bone_block_bricks"), CRACKED_BONE_BLOCK_BRICKS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_tiles"), BONE_BLOCK_TILES);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_tile_slab"), BONE_BLOCK_TILE_SLAB);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_tile_stairs"), BONE_BLOCK_TILE_STAIRS);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_block_tile_wall"), BONE_BLOCK_TILE_WALL);
-        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_bone_block_tiles"), CRACKED_BONE_BLOCK_TILES);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_bricks"), BONE_BRICKS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_brick_slab"), BONE_BRICK_SLAB);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_brick_stairs"), BONE_BRICK_STAIRS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_brick_wall"), BONE_BRICK_WALL);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_bone_bricks"), CRACKED_BONE_BRICKS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_tiles"), BONE_TILES);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_tile_slab"), BONE_TILE_SLAB);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_tile_stairs"), BONE_TILE_STAIRS);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "bone_tile_wall"), BONE_TILE_WALL);
+        Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_bone_tiles"), CRACKED_BONE_TILES);
     }
 
     private static Block createFlowerPotBlock(Block block) {

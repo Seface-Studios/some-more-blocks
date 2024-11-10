@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moreblocks:polished_prismarine"
+  },
+  "result": "moreblocks:prismarine_tile_wall"
+}
