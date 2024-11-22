@@ -20,6 +20,6 @@ public record PatchTallDuneGrassBiomeModifier(HolderSet<Biome> biomes, Holder<Pl
 
   @Override
   public Codec<? extends BiomeModifier> codec() {
-    return MBBiomeModifier.PATCH_TALL_DUNE_GRASS_CODEC.get();
+    return MBBiomeModifier.PATCH_TALL_DUNE_GRASS.get();
   }
 }

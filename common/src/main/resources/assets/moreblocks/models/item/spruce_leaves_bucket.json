@@ -1,6 +1,20 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moreblocks:item/spruce_leaves_bucket"
-  }
+    "layer0": "moreblocks:item/spruce_leaves_bucket_0"
+  },
+  "overrides": [
+    {
+      "predicate": { "moreblocks:bucket_volume": 0.05 },
+      "model": "moreblocks:item/overrides/spruce_leaves_bucket_1"
+    },
+    {
+      "predicate": { "moreblocks:bucket_volume": 0.09 },
+      "model": "moreblocks:item/overrides/spruce_leaves_bucket_2"
+    },
+    {
+      "predicate": { "moreblocks:bucket_volume": 0.13 },
+      "model": "moreblocks:item/overrides/spruce_leaves_bucket_3"
+    }
+  ]
 }

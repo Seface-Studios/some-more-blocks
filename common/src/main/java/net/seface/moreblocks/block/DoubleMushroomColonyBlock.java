@@ -20,43 +20,47 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import net.seface.moreblocks.tags.MBBlockTags;
+import net.seface.moreblocks.data.MBBlockTags;
+import org.jetbrains.annotations.NotNull;
 
+// TODO: Update placeholder values!
+@SuppressWarnings("deprecation")
 public class DoubleMushroomColonyBlock extends DoublePlantBlock {
-    private final Block test;
+  private final Block test;
 
-    public DoubleMushroomColonyBlock(Block test, BlockBehaviour.Properties properties) {
-        super(properties);
+  public DoubleMushroomColonyBlock(Block test, BlockBehaviour.Properties properties) {
+    super(properties);
 
-        this.test = test;
-    }
+    this.test = test;
+  }
 
-    @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter block, BlockPos pos) {
-        return state.is(MBBlockTags.TINY_CACTUS_PLACEABLE);
-    }
+  @Override
+  protected boolean mayPlaceOn(BlockState state, BlockGetter block, BlockPos pos) {
+    return state.is(MBBlockTags.TINY_CACTUS_PLACEABLE);
+  }
 
-    @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        ItemStack itemStack = player.getItemInHand(hand);
+  @NotNull
+  @Override
+  public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+    ItemStack itemStack = player.getItemInHand(hand);
 
-        if (!itemStack.is(Items.SHEARS)) return super.use(state, level, pos, player, hand, result);
+    if (!itemStack.is(Items.SHEARS)) return super.use(state, level, pos, player, hand, result);
 
-        BlockPos blockPosition = state.getValue(HALF).equals(DoubleBlockHalf.UPPER) ? pos.below() : pos;
-        ItemEntity item = EntityType.ITEM.create(level);
+    BlockPos blockPosition = state.getValue(HALF).equals(DoubleBlockHalf.UPPER) ? pos.below() : pos;
+    ItemEntity item = EntityType.ITEM.create(level);
 
-        int var = RandomSource.create().nextInt(3) + 1;
+    int var = RandomSource.create().nextInt(3) + 1;
 
-        item.setItem(new ItemStack(Items.NETHERITE_HOE, var));
-        item.moveTo(pos.getCenter());
+    item.setItem(new ItemStack(Items.NETHERITE_HOE, var));
+    item.moveTo(pos.getCenter());
 
-        level.addFreshEntity(item);
+    level.addFreshEntity(item);
 
-        level.removeBlock(pos, true);
-        level.setBlock(blockPosition, this.test.defaultBlockState(), 3);
+    level.removeBlock(pos, true);
+    level.setBlock(blockPosition, this.test.defaultBlockState(), 3);
 
-        level.playLocalSound(pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0f, 1.0f, true);
-        level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
-        return InteractionResult.sidedSuccess(level.isClientSide);
-    }
+    level.playLocalSound(pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0f, 1.0f, true);
+    level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
+    return InteractionResult.sidedSuccess(level.isClientSide);
+  }
 }

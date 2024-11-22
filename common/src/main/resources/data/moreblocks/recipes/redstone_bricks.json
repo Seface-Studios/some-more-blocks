@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "minecraft:redstone_block"
+      "item": "moreblocks:cut_redstone"
     }
   },
   "pattern": [

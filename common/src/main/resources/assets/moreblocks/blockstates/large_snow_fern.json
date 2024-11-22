@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "moreblocks:block/large_snow_fern_bottom"
+    },
+    "half=upper": {
+      "model": "moreblocks:block/large_snow_fern_top"
+    }
+  }
+}

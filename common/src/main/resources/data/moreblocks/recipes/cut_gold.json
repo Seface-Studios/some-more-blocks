@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "moreblocks:gold_bricks"
+      "item": "minecraft:gold_block"
     }
   },
   "pattern": [

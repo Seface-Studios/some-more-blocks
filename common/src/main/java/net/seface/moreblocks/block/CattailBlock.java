@@ -12,15 +12,17 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.seface.moreblocks.tags.MBBlockTags;
+import net.seface.moreblocks.data.MBBlockTags;
+import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("deprecation")
 public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
-    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+  public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public CattailBlock(Properties properties) {
-        super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
-    }
+  public CattailBlock(Properties properties) {
+    super(properties);
+    this.registerDefaultState(this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
+  }
 
   @Override
   public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
@@ -33,21 +35,23 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
     return blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER;
   }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
-        stateBuilder.add(HALF, WATERLOGGED);
-    }
+  @Override
+  protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
+    stateBuilder.add(HALF, WATERLOGGED);
+  }
 
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
-        Level level = ctx.getLevel();
-        BlockPos pos = ctx.getClickedPos();
-        FluidState fluidState = level.getFluidState(pos);
+  @Override
+  public BlockState getStateForPlacement(BlockPlaceContext context) {
+    Level level = context.getLevel();
+    BlockPos pos = context.getClickedPos();
+    FluidState fluidState = level.getFluidState(pos);
 
-        return super.getStateForPlacement(ctx).setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER);
-    }
+    return super.getStateForPlacement(context).setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER);
+  }
 
-    @Override
-    public FluidState getFluidState(BlockState state) {
-        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
-    }
+  @NotNull
+  @Override
+  public FluidState getFluidState(BlockState state) {
+    return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+  }
 }

@@ -9,18 +9,18 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.seface.moreblocks.data.MBPlacedFeature;
-import net.seface.moreblocks.tags.MBBiomeTags;
+import net.seface.moreblocks.data.MBBiomeTags;
 
 public class MBBiomeModifiers {
-    public static void register() {
-      registerVegetalDecoration(MBBiomeTags.GENERATES_CATTAIL, MBPlacedFeature.PATCH_CATTAIL); // OK
-      registerUndergroundDecoration(MBBiomeTags.GENERATES_LUMINOUS_FLOWER, MBPlacedFeature.PATCH_LUMINOUS_FLOWER); // ok
-      registerVegetalDecoration(MBBiomeTags.GENERATES_SMALL_LILY_PADS, MBPlacedFeature.PATCH_SMALL_LILY_PADS); // ok
-      registerVegetalDecoration(MBBiomeTags.GENERATES_TINY_CACTUS, MBPlacedFeature.PATCH_TINY_CACTUS); //
-      registerDuneGrassDecoration(MBPlacedFeature.PATCH_DUNE_GRASS); // ok
-      registerDuneGrassDecoration(MBPlacedFeature.PATCH_TALL_DUNE_GRASS); // ok
-      registerLeafLitterDecoration(MBPlacedFeature.NONE_LEAF_LITTER); // OK
-    }
+  public static void register() {
+    registerVegetalDecoration(MBBiomeTags.GENERATES_CATTAIL, MBPlacedFeature.PATCH_CATTAIL);
+    registerUndergroundDecoration(MBBiomeTags.GENERATES_LUMINOUS_FLOWER, MBPlacedFeature.PATCH_LUMINOUS_FLOWER);
+    registerVegetalDecoration(MBBiomeTags.GENERATES_SMALL_LILY_PADS, MBPlacedFeature.PATCH_SMALL_LILY_PADS);
+    registerTinyCactusDecoration(MBPlacedFeature.PATCH_TINY_CACTUS);
+    registerDuneGrassDecoration(MBPlacedFeature.PATCH_DUNE_GRASS);
+    registerDuneGrassDecoration(MBPlacedFeature.PATCH_TALL_DUNE_GRASS);
+    registerLeafLitterDecoration(MBPlacedFeature.NONE_LEAF_LITTER);
+  }
 
   private static void registerVegetalDecoration(TagKey<Biome> biomeTag, ResourceKey<PlacedFeature> feature) {
     registerDecoration(biomeTag, GenerationStep.Decoration.VEGETAL_DECORATION, feature);
@@ -32,7 +32,15 @@ public class MBBiomeModifiers {
 
   private static void registerDecoration(TagKey<Biome> biomeTag, GenerationStep.Decoration step, ResourceKey<PlacedFeature> feature) {
     BiomeModifications.addFeature(
-      (ctx) -> BiomeSelectors.tag(biomeTag).test(ctx),  step, feature
+      (ctx) -> BiomeSelectors.tag(biomeTag).test(ctx), step, feature
+    );
+  }
+
+  private static void registerTinyCactusDecoration(ResourceKey<PlacedFeature> feature) {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(MBBiomeTags.GENERATES_TINY_CACTUS).test(ctx) && ctx.getBiome().getBaseTemperature() >= 0.3F,
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      feature
     );
   }
 

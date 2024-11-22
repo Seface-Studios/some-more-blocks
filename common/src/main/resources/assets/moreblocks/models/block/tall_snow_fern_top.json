@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/tinted_cross",
-  "textures": {
-    "cross": "moreblocks:block/tall_snow_fern_top"
-  }
-}

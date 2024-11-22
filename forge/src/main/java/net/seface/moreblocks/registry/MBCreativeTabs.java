@@ -4,11 +4,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.moreblocks.MoreBlocks;
+import net.seface.moreblocks.item.LeavesBucketItem;
 import net.seface.moreblocks.utils.MBUtils;
 
 public class MBCreativeTabs {
@@ -280,6 +280,7 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_SLAB.get());
               entry.accept(MBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_WALL.get());
               entry.accept(MBBlocks.SMOOTH_BLACKSTONE.get());
+              entry.accept(MBBlocks.SMOOTH_BLACKSTONE_SLAB.get());
               entry.accept(MBBlocks.POLISHED_END_STONE.get());
               entry.accept(MBBlocks.POLISHED_END_STONE_STAIRS.get());
               entry.accept(MBBlocks.POLISHED_END_STONE_SLAB.get());
@@ -333,6 +334,11 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.GOLD_PILLAR.get());
               entry.accept(MBBlocks.CUT_GOLD.get());
               entry.accept(MBBlocks.CRACKED_CUT_GOLD.get());
+              entry.accept(MBBlocks.REDSTONE_BRICKS.get());
+              entry.accept(MBBlocks.CRACKED_REDSTONE_BRICKS.get());
+              entry.accept(MBBlocks.REDSTONE_PILLAR.get());
+              entry.accept(MBBlocks.CUT_REDSTONE.get());
+              entry.accept(MBBlocks.CRACKED_CUT_REDSTONE.get());
               entry.accept(MBBlocks.EMERALD_BRICKS.get());
               entry.accept(MBBlocks.CRACKED_EMERALD_BRICKS.get());
               entry.accept(MBBlocks.EMERALD_PILLAR.get());
@@ -551,16 +557,16 @@ public class MBCreativeTabs {
               entry.accept(MBBlocks.TINY_CACTUS.get());
               entry.accept(MBBlocks.DUNE_GRASS.get());
               entry.accept(MBBlocks.TALL_DUNE_GRASS.get());
-              entry.accept(MBBlocks.SNOW_GRASS.get());
+              entry.accept(MBBlocks.SHORT_SNOW_GRASS.get());
               entry.accept(MBBlocks.TALL_SNOW_GRASS.get());
               entry.accept(MBBlocks.SNOW_FERN.get());
-              entry.accept(MBBlocks.TALL_SNOW_FERN.get());
+              entry.accept(MBBlocks.LARGE_SNOW_FERN.get());
               entry.accept(MBBlocks.CATTAIL.get());
-              entry.accept(MBItems.LEAVES_BUCKET.get());
-              entry.accept(MBItems.BIRCH_LEAVES_BUCKET.get());
-              entry.accept(MBItems.SPRUCE_LEAVES_BUCKET.get());
-              entry.accept(MBItems.AZALEA_LEAVES_BUCKET.get());
-              entry.accept(MBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
+              entry.accept(((LeavesBucketItem) MBItems.LEAVES_BUCKET.get()).getCreativeInventoryInstance());
+              entry.accept(((LeavesBucketItem) MBItems.BIRCH_LEAVES_BUCKET.get()).getCreativeInventoryInstance());
+              entry.accept(((LeavesBucketItem) MBItems.SPRUCE_LEAVES_BUCKET.get()).getCreativeInventoryInstance());
+              entry.accept(((LeavesBucketItem) MBItems.AZALEA_LEAVES_BUCKET.get()).getCreativeInventoryInstance());
+              entry.accept(((LeavesBucketItem) MBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get()).getCreativeInventoryInstance());
               entry.accept(MBItems.BIG_LILY_PAD.get());
               entry.accept(MBItems.SMALL_LILY_PADS.get());
               entry.accept(MBBlocks.LUMINOUS_FLOWER.get());

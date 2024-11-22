@@ -50,7 +50,7 @@
                   "function": "minecraft:set_count"
                 }
               ],
-              "name": "moreblocks:snow_grass"
+              "name": "moreblocks:short_snow_grass"
             },
             {
               "type": "minecraft:item",
@@ -118,7 +118,7 @@
                   "function": "minecraft:set_count"
                 }
               ],
-              "name": "moreblocks:snow_grass"
+              "name": "moreblocks:short_snow_grass"
             },
             {
               "type": "minecraft:item",

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "moreblocks:blocks/waxed_oxidized_cracked_cut_copper",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "moreblocks:waxed_oxidized_cracked_cut_copper"
+        }
+      ]
+    }
+  ]
+}

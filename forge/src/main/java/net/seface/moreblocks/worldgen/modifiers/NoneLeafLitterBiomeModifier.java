@@ -20,6 +20,6 @@ public record NoneLeafLitterBiomeModifier(HolderSet<Biome> biomes, Holder<Placed
 
   @Override
   public Codec<? extends BiomeModifier> codec() {
-    return MBBiomeModifier.NONE_LEAF_LITTER_CODEC.get();
+    return MBBiomeModifier.NONE_LEAF_LITTER.get();
   }
 }

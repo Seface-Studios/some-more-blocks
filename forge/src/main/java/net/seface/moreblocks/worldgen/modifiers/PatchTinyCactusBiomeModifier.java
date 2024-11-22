@@ -20,6 +20,6 @@ public record PatchTinyCactusBiomeModifier(HolderSet<Biome> biomes, Holder<Place
 
   @Override
   public Codec<? extends BiomeModifier> codec() {
-    return MBBiomeModifier.PATCH_TINY_CACTUS_CODEC.get();
+    return MBBiomeModifier.PATCH_TINY_CACTUS.get();
   }
 }

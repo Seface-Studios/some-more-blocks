@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_needed_items": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moreblocks:soul_sandstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "moreblocks:soul_sandstone_pillar_from_soul_sandstone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_needed_items",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "moreblocks:soul_sandstone_pillar_from_soul_sandstone_stonecutting"
+    ]
+  }
+}

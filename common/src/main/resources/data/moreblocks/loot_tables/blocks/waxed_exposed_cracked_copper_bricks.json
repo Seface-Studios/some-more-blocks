@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "moreblocks:blocks/waxed_exposed_cracked_copper_bricks",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "moreblocks:waxed_exposed_cracked_copper_bricks"
+        }
+      ]
+    }
+  ]
+}

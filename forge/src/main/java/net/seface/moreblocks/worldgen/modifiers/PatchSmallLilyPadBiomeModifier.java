@@ -20,6 +20,6 @@ public record PatchSmallLilyPadBiomeModifier(HolderSet<Biome> biomes, Holder<Pla
 
   @Override
   public Codec<? extends BiomeModifier> codec() {
-    return MBBiomeModifier.PATCH_SMALL_LILY_PADS_CODEC.get();
+    return MBBiomeModifier.PATCH_SMALL_LILY_PADS.get();
   }
 }

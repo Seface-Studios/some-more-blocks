@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "moreblocks:iron_bricks"
+      "item": "minecraft:iron_block"
     }
   },
   "pattern": [

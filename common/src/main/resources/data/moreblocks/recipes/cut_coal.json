@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "moreblocks:coal_bricks"
+      "item": "minecraft:coal_block"
     }
   },
   "pattern": [

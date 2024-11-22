@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "moreblocks:redstone_bricks"
+      "item": "minecraft:redstone_block"
     }
   },
   "pattern": [

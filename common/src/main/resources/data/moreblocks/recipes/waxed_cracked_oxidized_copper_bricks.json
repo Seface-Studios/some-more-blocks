@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "moreblocks:waxed_oxidized_copper_bricks"
+  },
+  "result": "moreblocks:waxed_cracked_oxidized_copper_bricks"
+}

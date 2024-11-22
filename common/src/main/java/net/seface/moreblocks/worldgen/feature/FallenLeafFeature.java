@@ -1,69 +1,84 @@
 package net.seface.moreblocks.worldgen.feature;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.renderer.entity.DisplayRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Display;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.seface.moreblocks.interfaces.ILeafLitterBlock;
+import net.seface.moreblocks.block.LeafLitterBlock;
+import net.seface.moreblocks.data.MBBlockTags;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class FallenLeafFeature extends Feature<NoneFeatureConfiguration> {
-  private Map<TagKey<Block>, Block> leafBlocks = new HashMap<>();
+  private static final int CHUNK_SIZE = 16;
+  private final Map<TagKey<Block>, Block> leafBlocks = new HashMap<>();
 
   public FallenLeafFeature(Codec<NoneFeatureConfiguration> codec) {
     super(codec);
   }
 
-  public FallenLeafFeature addLeafBlock(TagKey<Block> tag, Block leafBlock) {
+  public FallenLeafFeature addLeafLitterBlock(TagKey<Block> tag, Block leafBlock) {
     this.leafBlocks.put(tag, leafBlock);
     return this;
   }
 
   @Override
   public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> ctx) {
-    BlockPos blockPos = ctx.origin();
+    BlockPos pos = ctx.origin();
     WorldGenLevel level = ctx.level();
-    BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
+    RandomSource random = ctx.random();
+    BlockPos.MutableBlockPos mPos = new BlockPos.MutableBlockPos();
 
-    for (int xIndex = 0; xIndex < 16; xIndex++) {
-      for (int zIndex = 0; zIndex < 16; zIndex++) {
-        int x = blockPos.getX() + xIndex;
-        int z = blockPos.getZ() + zIndex;
+    if (this.leafBlocks.isEmpty()) return false;
 
-        mutablePos.set(x, level.getHeight(Heightmap.Types.MOTION_BLOCKING, x, z) - 1, z);
+    for (int xIndex = 0; xIndex < CHUNK_SIZE; xIndex++) {
+      for (int zIndex = 0; zIndex < CHUNK_SIZE; zIndex++) {
+        int x = pos.getX() + xIndex;
+        int z = pos.getZ() + zIndex;
+
+        mPos.set(x, level.getHeight(Heightmap.Types.MOTION_BLOCKING, x, z) - 1, z);
 
         for (TagKey<Block> tag : this.leafBlocks.keySet()) {
-          if (level.getBlockState(mutablePos).is(tag)) {
-            Vec3i pos = new Vec3i(x, level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z), z);
-            mutablePos.setWithOffset(pos, new Vec3i(0, -1, 0));
+          if (level.getBlockState(mPos).is(tag)) {
+            Vec3i v3Pos = new Vec3i(x, level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z), z);
+            Vec3i offset = new Vec3i(random.nextInt(6) - 3, 0, random.nextInt(6) - 3); // XZ offset between -2 and 2
+            mPos.setWithOffset(v3Pos, offset);
 
-            BlockState stateBelow = level.getBlockState(mutablePos);
+            BlockState stateBelow = level.getBlockState(mPos.below());
 
-            if (stateBelow.isSolid()) {
-              ILeafLitterBlock leafLitter = (ILeafLitterBlock) this.leafBlocks.get(tag);
+            if (Block.isFaceFull(stateBelow.getCollisionShape(level, mPos.below()), Direction.UP) || stateBelow.is(MBBlockTags.LEAF_LITTERS_PLACEABLE)) {
+              LeafLitterBlock leafLitter = (LeafLitterBlock) this.leafBlocks.get(tag);
 
               if (leafLitter.getChance() < 0.0F || leafLitter.getChance() > 100.0F) {
                 throw new IllegalArgumentException("The percentage chance of " + leafLitter.getName() + " is not between 0-100.");
               }
 
-              RandomSource random = ctx.random();
-              float randomValue = random.nextFloat() * 100;
+              float chance = random.nextFloat() * 100;
 
-              mutablePos.move(Direction.UP);
-              if (randomValue <= leafLitter.getChance()) {
-                if (level.getBlockState(mutablePos).isAir()) {
-                  level.setBlock(mutablePos, this.leafBlocks.get(tag).defaultBlockState(), 2);
+              if (chance <= leafLitter.getChance()) {
+                BlockState state2 = level.getBlockState(mPos);
+
+                if (state2.isAir() || state2.is(MBBlockTags.LEAF_LITTER_REPLACEABLE)) {
+                  level.setBlock(mPos, this.leafBlocks.get(tag).defaultBlockState(), 2);
                 }
               }
             }

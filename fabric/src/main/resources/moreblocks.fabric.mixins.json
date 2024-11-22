@@ -4,15 +4,10 @@
   "package": "net.seface.moreblocks.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_17",
-  "mixins": [
-    "AxeItemMixin",
-    "ChunkMapInvoker",
-    "ComposterBlockMixin"
-  ],
+  "mixins": ["AxeItemMixin"],
   "client": [],
   "server": [],
   "injectors": {
     "defaultRequire": 1
   }
-  }
-
+}

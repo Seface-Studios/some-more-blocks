@@ -31,6 +31,7 @@
   "icon": "assets/${mod_id}/icon.png",
   "environment": "*",
   "entrypoints": {
+    "fabric-datagen": ["net.seface.moreblocks.datagen.MoreBlocksDataGenerator"],
     "main": ["net.seface.moreblocks.MoreBlocksFabric"],
     "client": ["net.seface.moreblocks.MoreBlocksFabricClient"]
   },

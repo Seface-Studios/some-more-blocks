@@ -9,40 +9,41 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.levelgen.feature.BlockColumnFeature;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class BigLilyPadBlock extends WaterlilyBlock {
-    protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
-    public static final IntegerProperty TEXTURE = IntegerProperty.create("texture", 0, 3);
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+  protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
+  public static final IntegerProperty TEXTURE = IntegerProperty.create("texture", 0, 3);
+  public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public BigLilyPadBlock(Properties properties) {
-        super(properties);
+  public BigLilyPadBlock(Properties properties) {
+    super(properties);
 
-        this.registerDefaultState(
-          (this.stateDefinition.any())
-            .setValue(TEXTURE, 0)
-            .setValue(FACING, Direction.NORTH));
-    }
+    this.registerDefaultState(
+      (this.stateDefinition.any())
+        .setValue(TEXTURE, 0)
+        .setValue(FACING, Direction.NORTH));
+  }
 
-    public VoxelShape getShape(BlockState state, BlockGetter block, BlockPos pos, CollisionContext collisionCtx) {
-        return SHAPE;
-    }
+  @NotNull
+  @Override
+  public VoxelShape getShape(BlockState state, BlockGetter block, BlockPos pos, CollisionContext context) {
+    return SHAPE;
+  }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> property) {
-        property.add(TEXTURE, FACING);
-    }
+  @Override
+  protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> property) {
+    property.add(TEXTURE, FACING);
+  }
 
   @Override
   protected boolean mayPlaceOn(BlockState state, BlockGetter blockGetter, BlockPos pos) {
@@ -52,29 +53,23 @@ public class BigLilyPadBlock extends WaterlilyBlock {
     return (fluidState.getType() == Fluids.WATER || state.getBlock() instanceof IceBlock) && fluidState2.getType() == Fluids.EMPTY;
   }
 
-  @Nullable
   @Override
-  public BlockState getStateForPlacement(BlockPlaceContext ctx) {
-    BlockPos pos = ctx.getClickedPos();
-    Level level = ctx.getLevel();
+  public BlockState getStateForPlacement(BlockPlaceContext context) {
+    BlockPos pos = context.getClickedPos();
+    Level level = context.getLevel();
 
-    Direction facing = ctx.getHorizontalDirection();
+    Direction facing = context.getHorizontalDirection();
 
     BlockPos sidePos = BigLilyPadChildOffsets.getSidePos(pos, facing, 0);
     BlockPos sideTopPos = BigLilyPadChildOffsets.getSideTopPos(pos, facing, 0);
     BlockPos topPos = BigLilyPadChildOffsets.getTopPos(pos, facing, 0);
 
-    return (level.getBlockState(pos).canBeReplaced(ctx) && level.getFluidState(pos.below()).isSource()) &&
-           (level.getBlockState(sidePos).canBeReplaced(ctx) && level.getFluidState(sidePos.below()).isSource()) &&
-           (level.getBlockState(sideTopPos).canBeReplaced(ctx) && level.getFluidState(sideTopPos.below()).isSource()) &&
-           (level.getBlockState(topPos).canBeReplaced(ctx) && level.getFluidState(topPos.below()).isSource())
-      ? super.getStateForPlacement(ctx) : null;
+    return (level.getBlockState(pos).canBeReplaced(context) && level.getFluidState(pos.below()).isSource()) &&
+      (level.getBlockState(sidePos).canBeReplaced(context) && level.getFluidState(sidePos.below()).isSource()) &&
+      (level.getBlockState(sideTopPos).canBeReplaced(context) && level.getFluidState(sideTopPos.below()).isSource()) &&
+      (level.getBlockState(topPos).canBeReplaced(context) && level.getFluidState(topPos.below()).isSource())
+      ? super.getStateForPlacement(context) : null;
   }
-
-  /*@Override
-  public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-    return super.canSurvive(state, level, pos);
-  }*/
 
   @Override
   public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity player, ItemStack item) {
@@ -84,12 +79,13 @@ public class BigLilyPadBlock extends WaterlilyBlock {
     BlockPos rightTopPos = pos.offset(facing.getClockWise().getNormal().offset(facing.getNormal()));
     BlockPos topPos = pos.offset(facing.getNormal());
 
-    level.setBlock(pos, buildState(state, facing, 0), 3);
-    level.setBlock(rightPos, buildState(state, facing, 1), 3);
-    level.setBlock(rightTopPos, buildState(state, facing, 2), 3);
-    level.setBlock(topPos, buildState(state, facing, 3), 3);
+    level.setBlock(pos, createBlockState(state, facing, 0), 3);
+    level.setBlock(rightPos, createBlockState(state, facing, 1), 3);
+    level.setBlock(rightTopPos, createBlockState(state, facing, 2), 3);
+    level.setBlock(topPos, createBlockState(state, facing, 3), 3);
   }
 
+  @NotNull
   @Override
   public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
     if (level.isClientSide) return super.playerWillDestroy(level, pos, state, player);
@@ -104,15 +100,16 @@ public class BigLilyPadBlock extends WaterlilyBlock {
     return super.playerWillDestroy(level, pos, state, player);
   }
 
-  protected static BlockState buildState(BlockState state, Direction facing, int texture) {
+  private static BlockState createBlockState(BlockState state, Direction facing, int texture) {
     return state.setValue(FACING, facing).setValue(TEXTURE, texture);
   }
 
-  protected boolean destroyBlockIfSameType(Level level, BlockPos pos) {
-      if (!level.getBlockState(pos).is(this)) return false;
-      return level.destroyBlock(pos, true);
+  private void destroyBlockIfSameType(Level level, BlockPos pos) {
+    if (!level.getBlockState(pos).is(this)) return;
+    level.destroyBlock(pos, true);
   }
 
+  /* NEED REWORK */
   protected enum BigLilyPadChildOffsets {
     DESTROYED_FROM_TEXTURE_0(0,
       new Rotation[]{Rotation.CLOCKWISE_90},

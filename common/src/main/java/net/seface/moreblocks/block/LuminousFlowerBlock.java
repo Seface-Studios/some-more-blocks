@@ -16,18 +16,18 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+@SuppressWarnings("deprecation")
 public class LuminousFlowerBlock extends FlowerBlock {
-    public LuminousFlowerBlock(Properties properties) {
-        super(MobEffects.GLOWING, 7, properties);
-    }
+  public LuminousFlowerBlock(Properties properties) {
+    super(MobEffects.GLOWING, 7, properties);
+  }
 
-    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        if (level.isClientSide) return;
+  @Override
+  public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+    if (level.isClientSide) return;
 
-        if (entity instanceof LivingEntity affectedEntity) {
-            affectedEntity.addEffect(
-                    new MobEffectInstance(MobEffects.GLOWING, 60)
-            );
-        }
+    if (entity instanceof LivingEntity affectedEntity) {
+      affectedEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 60));
     }
+  }
 }

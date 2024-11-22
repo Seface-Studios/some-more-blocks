@@ -20,6 +20,6 @@ public record PatchCattailBiomeModifier(HolderSet<Biome> biomes, Holder<PlacedFe
 
   @Override
   public Codec<? extends BiomeModifier> codec() {
-    return MBBiomeModifier.PATCH_CATTAIL_CODEC.get();
+    return MBBiomeModifier.PATCH_CATTAIL.get();
   }
 }
