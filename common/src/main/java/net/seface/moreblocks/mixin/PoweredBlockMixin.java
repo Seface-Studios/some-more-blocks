@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PoweredBlock.class)
-public class PoweredBlockMixin extends Block implements IPoweredBlockMixin {
+public abstract class PoweredBlockMixin extends Block implements IPoweredBlockMixin {
   @Unique protected int MB$signal = 15;
 
   public PoweredBlockMixin(BlockBehaviour.Properties properties) {

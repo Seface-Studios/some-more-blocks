@@ -23,7 +23,7 @@ import java.util.Optional;
 
 @SuppressWarnings("deprecation")
 @Mixin(BushBlock.class)
-public class BushBlockMixin extends Block implements IBushBlock {
+public abstract class BushBlockMixin extends Block implements IBushBlock {
 
   public BushBlockMixin(Properties properties) {
     super(properties);
@@ -45,26 +45,6 @@ public class BushBlockMixin extends Block implements IBushBlock {
     this.MB$turnIntoSnowVariation(state, level, pos);
   }
 
-  /*@Override
-  public BlockState updateShape(BlockState state, Direction direction, BlockState state2, LevelAccessor level, BlockPos pos, BlockPos pos2) {
-    boolean isDoublePlant = state.hasProperty(DoublePlantBlock.HALF);
-    if (!isDoublePlant) return super.updateShape(state, direction, state2, level, pos, pos2);
-
-    DoubleBlockHalf half = state.getValue(DoublePlantBlock.HALF);
-
-    if (direction.getAxis() == Direction.Axis.Y && half == DoubleBlockHalf.LOWER == (direction == Direction.UP) && (!state2.is(this) || state2.getValue(DoublePlantBlock.HALF) == half)) {
-      if (IBushBlock.hasSnowVariation(state2.getBlock()) && half == DoubleBlockHalf.LOWER) {
-        return IBushBlock.getSnowVariation(state2.getBlock()).get().withPropertiesOf(state2);
-      } else if (IBushBlock.hasNormalVariation(state2.getBlock()) && half == DoubleBlockHalf.LOWER) {
-        return IBushBlock.getNormalVariation(state2.getBlock()).get().withPropertiesOf(state2);
-      }
-    }
-
-    return half == DoubleBlockHalf.LOWER && direction == Direction.DOWN && !state.canSurvive(level, pos) ?
-      Blocks.AIR.defaultBlockState() :
-      super.updateShape(state, direction, state2, level, pos, pos2);
-  }*/
-
   @Unique
   private void MB$turnIntoSnowVariation(BlockState state, Level level, BlockPos pos) {
     boolean isDoublePlant = state.hasProperty(DoublePlantBlock.HALF);
@@ -74,7 +54,7 @@ public class BushBlockMixin extends Block implements IBushBlock {
     if (blockVariation.isEmpty()) return;
     if (!isSnowing || level.getBrightness(LightLayer.BLOCK, pos) > 11) return;
 
-    // !
+    // ??
     if (isDoublePlant) {
       if (state.getValue(DoublePlantBlock.HALF).equals(DoubleBlockHalf.UPPER)) return;
 

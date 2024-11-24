@@ -2,9 +2,7 @@ package net.seface.moreblocks;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.seface.moreblocks.core.SnowyVariationsManager;
 import net.seface.moreblocks.registry.*;
 import net.seface.moreblocks.utils.MBUtils;
 import net.seface.moreblocks.registry.MBFeatures;
@@ -21,19 +19,11 @@ public class MoreBlocksFabric implements ModInitializer {
     MBFeatures.register();
     MBBiomeModifiers.register();
 
-    registerSnowyVariations();
     registerCompostableItems();
     registerWeatheringCopperBlocks();
     registerWaxableCopperBlocks();
     registerFuels();
     registerSnowyBlocks();
-  }
-
-  private static void registerSnowyVariations() {
-    SnowyVariationsManager.register(Blocks.SHORT_GRASS, MBBlocks.SHORT_SNOW_GRASS);
-    SnowyVariationsManager.register(Blocks.FERN, MBBlocks.SNOW_FERN);
-    SnowyVariationsManager.register(Blocks.TALL_GRASS, MBBlocks.TALL_SNOW_GRASS, true);
-    SnowyVariationsManager.register(Blocks.LARGE_FERN, MBBlocks.LARGE_SNOW_FERN, true);
   }
 
   /** Register new compostable items into Composter block. */
@@ -56,6 +46,11 @@ public class MoreBlocksFabric implements ModInitializer {
     MBUtils.registerCompostableItem(1.0F, MBItems.TALL_CRIMSON_FUNGUS_COLONY);
     MBUtils.registerCompostableItem(0.85F, MBItems.WARPED_FUNGUS_COLONY);
     MBUtils.registerCompostableItem(1.0F, MBItems.TALL_WARPED_FUNGUS_COLONY);
+    MBUtils.registerCompostableItem(1.0F, MBItems.LEAVES_BUCKET);
+    MBUtils.registerCompostableItem(1.0F, MBItems.AZALEA_LEAVES_BUCKET);
+    MBUtils.registerCompostableItem(1.0F, MBItems.BIRCH_LEAVES_BUCKET);
+    MBUtils.registerCompostableItem(1.0F, MBItems.FLOWERING_AZALEA_LEAVES_BUCKET);
+    MBUtils.registerCompostableItem(1.0F, MBItems.SPRUCE_LEAVES_BUCKET);
   }
 
   private static void registerWeatheringCopperBlocks() {

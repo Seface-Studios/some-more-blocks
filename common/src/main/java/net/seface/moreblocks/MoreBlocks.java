@@ -11,7 +11,7 @@ public class MoreBlocks {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
     public static void init() {
-      LOGGER.info("More Blocks mod initialized!");
+      LOGGER.info(MOD_NAME + " mod initialized!");
       LOGGER.info("Our Links: https://sefacestudios.net/links");
     }
 }
