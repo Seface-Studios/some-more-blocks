@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.seface.moreblocks.data.MBBlockTags;
 import org.jetbrains.annotations.NotNull;
 
@@ -46,18 +47,18 @@ public class DoubleMushroomColonyBlock extends DoublePlantBlock {
 
     if (!itemStack.is(Items.SHEARS)) return super.use(state, level, pos, player, hand, result);
 
-    BlockPos blockPosition = state.getValue(HALF).equals(DoubleBlockHalf.UPPER) ? pos.below() : pos;
-    ItemEntity item = EntityType.ITEM.create(level);
+    BlockPos blockPos = state.getValue(HALF).equals(DoubleBlockHalf.UPPER) ? pos.below() : pos;
 
-    int var = RandomSource.create().nextInt(3) + 1;
+    int count = RandomSource.create().nextInt(3) + 1;
+    Vec3 mushPos = Vec3.atLowerCornerWithOffset(blockPos, 0.5, 0.5, 0.5).offsetRandom(level.random, 0.5F);
 
-    item.setItem(new ItemStack(Items.NETHERITE_HOE, var));
-    item.moveTo(pos.getCenter());
+    ItemEntity item = new ItemEntity(level, mushPos.x(), mushPos.y(), mushPos.z(), new ItemStack(Items.WARPED_FUNGUS, count));
+    item.setDefaultPickUpDelay();
 
     level.addFreshEntity(item);
 
     level.removeBlock(pos, true);
-    level.setBlock(blockPosition, this.test.defaultBlockState(), 3);
+    level.setBlock(blockPos, this.test.defaultBlockState(), 3);
 
     level.playLocalSound(pos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0f, 1.0f, true);
     level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
