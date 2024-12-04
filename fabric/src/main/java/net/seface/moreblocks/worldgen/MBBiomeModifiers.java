@@ -20,6 +20,8 @@ public class MBBiomeModifiers {
     registerDuneGrassDecoration(MBPlacedFeature.PATCH_DUNE_GRASS);
     registerDuneGrassDecoration(MBPlacedFeature.PATCH_TALL_DUNE_GRASS);
     registerLeafLitterDecoration(MBPlacedFeature.NONE_LEAF_LITTER);
+
+    //registerVegetalDecoration(BiomeTags.IS_OVERWORLD, MBPlacedFeature.PATCH_RED_MUSHROOM_COLONY_WALL);
   }
 
   private static void registerVegetalDecoration(TagKey<Biome> biomeTag, ResourceKey<PlacedFeature> feature) {

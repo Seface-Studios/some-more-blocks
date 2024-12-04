@@ -1,43 +1,163 @@
 {
-  "type": "minecraft:random_patch",
+  "type": "minecraft:random_selector",
   "config": {
-    "tries": 24,
-    "xz_spread": 10,
-    "y_spread": 3,
-    "feature": {
-      "feature": {
-        "type": "minecraft:simple_block",
-        "config": {
-          "to_place": {
-            "type": "minecraft:rotated_block_provider",
-            "state": {
-              "Name": "moreblocks:red_mushroom_colony_wall",
-              "Properties": {
-                "facing": "north"
+    "features": [
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": {
+            "config": {
+              "to_place": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "moreblocks:red_mushroom_colony_wall",
+                  "Properties": {
+                    "facing": "north"
+                  }
+                }
               }
-            }
-          }
-        }
-      },
-      "placement": [
-        {
-          "type": "minecraft:block_predicate_filter",
-          "predicate": {
-            "type": "minecraft:all_of",
-            "predicates": [
-              {
+            },
+            "type": "minecraft:simple_block"
+          },
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
                 "type": "minecraft:matching_blocks",
-                "offset": [
-                  0,
-                  0,
-                  0
-                ],
+                "offset": [0, 0, 0],
                 "blocks": "minecraft:air"
               }
-            ]
-          }
+            },
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_block_tag",
+                "offset": [0, 0, 1],
+                "tag": "moreblocks:mushroom_colony_placeable"
+              }
+            }
+          ]
         }
-      ]
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": {
+            "config": {
+              "to_place": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "moreblocks:red_mushroom_colony_wall",
+                  "Properties": {
+                    "facing": "south"
+                  }
+                }
+              }
+            },
+            "type": "minecraft:simple_block"
+          },
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [0, 0, 0],
+                "blocks": "minecraft:air"
+              }
+            },
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_block_tag",
+                "offset": [0, 0, -1],
+                "tag": "moreblocks:mushroom_colony_placeable"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": {
+            "config": {
+              "to_place": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "moreblocks:red_mushroom_colony_wall",
+                  "Properties": {
+                    "facing": "east"
+                  }
+                }
+              }
+            },
+            "type": "minecraft:simple_block"
+          },
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [0, 0, 0],
+                "blocks": "minecraft:air"
+              }
+            },
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_block_tag",
+                "offset": [-1, 0, 0],
+                "tag": "moreblocks:mushroom_colony_placeable"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": {
+            "config": {
+              "to_place": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "moreblocks:red_mushroom_colony_wall",
+                  "Properties": {
+                    "facing": "west"
+                  }
+                }
+              }
+            },
+            "type": "minecraft:simple_block"
+          },
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_blocks",
+                "offset": [0, 0, 0],
+                "blocks": "minecraft:air"
+              }
+            },
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_block_tag",
+                "offset": [1, 0, 0],
+                "tag": "moreblocks:mushroom_colony_placeable"
+              }
+            }
+          ]
+        }
+      }
+    ],
+
+    "default": {
+      "feature": {
+        "config": {},
+        "type": "minecraft:no_op"
+      },
+      "placement": []
     }
   }
 }

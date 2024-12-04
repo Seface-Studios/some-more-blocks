@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "tries": 6,
+    "xz_spread": 5,
+    "y_spread": 5,
+    "feature": {
+      "feature": "moreblocks:red_mushroom_colony_wall",
+      "placement": []
+    }
+  }
+}
