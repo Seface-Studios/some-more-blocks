@@ -1,17 +1,24 @@
 package net.seface.moreblocks;
 
+import net.minecraft.network.chat.TextColor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Text;
 
 import java.util.Collection;
 
 public class MoreBlocks {
-    public static final String ID = "moreblocks";
-    public static final String MOD_NAME = "More Blocks";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
+  public static final String ID = "moreblocks";
+  public static final String MOD_NAME = "More Blocks";
+  public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
-    public static void init() {
-      LOGGER.info(MOD_NAME + " mod initialized!");
-      LOGGER.info("Our Links: https://sefacestudios.net/links");
-    }
+  // Seface Studios brand color palettes.
+  public static final int AMESFACE_COLOR = 8418303;
+  public static final int GREENFUL_COLOR = 13959034;
+  public static final int BLUENIVERS_COLOR = 4666;
+
+  public static void init() {
+    LOGGER.info(MOD_NAME + " mod initialized!");
+    LOGGER.info("Our Links: https://sefacestudios.net/links");
+  }
 }

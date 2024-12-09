@@ -1,7 +1,10 @@
 {
   "moreblocks.become_a_translator": "Become a Translator",
   "modmenu.descriptionTranslation.moreblocks": "\"More Blocks\" is a vanilla-like project which will add blocks that should exist and that the community has been asking for years to be added to the base game.",
-
+  "moreblocks.resourcepack.update_1_21.name": "Experimental: Update 1.21",
+  "moreblocks.resourcepack.update_1_21.enabled": "The Experimental 1.21 Resource Pack was automatically enabled in this world.",
+  "moreblocks.resourcepack.update_1_21.read_more": "Read More",
+  "moreblocks.resourcepack.update_1_21.read_more.hover": "Click here to read more about the \nexperimental Resource Pack",
 
   "block.moreblocks.copper_bricks": "Copper Bricks",
   "block.moreblocks.exposed_copper_bricks": "Exposed Copper Bricks",
