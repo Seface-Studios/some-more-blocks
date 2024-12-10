@@ -171,7 +171,7 @@ public class MBBlocks {
   public static final Block SMOOTH_TUFF = new Block(FabricBlockSettings.copyOf(Blocks.TUFF));
   public static final Block SMOOTH_TUFF_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.SMOOTH_TUFF));
   public static final Block CRACKED_TUFF_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
-  public static final Block MOSSY_TUFF_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS).lightLevel(state -> 7));
+  public static final Block MOSSY_TUFF_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.TUFF_BRICKS));
   public static final Block MOSSY_TUFF_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
   public static final Block MOSSY_TUFF_BRICK_STAIRS = new StairBlock(MOSSY_TUFF_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
   public static final Block MOSSY_TUFF_BRICK_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_TUFF_BRICKS));
