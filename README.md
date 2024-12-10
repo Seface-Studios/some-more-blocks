@@ -1,7 +1,7 @@
-# More Blocks Mod · <img height="22" width="50.1875" title="Forge and Fabric Mod Loaders" src="https://raw.githubusercontent.com/Seface-Studios/.github/main/assets/images/projects/mod_loaders_small.png">
+# Some More Blocks · <img height="22" width="50.1875" title="Forge and Fabric Mod Loaders" src="https://raw.githubusercontent.com/Seface-Studios/.github/main/assets/images/projects/mod_loaders_small.png">
 ![Latest Release](https://img.shields.io/github/v/release/seface-studios/more-blocks-mod?logo=github&logoColor=959da5&labelColor=353c43&color=0091c2&Current&label=Latest%20Release) ![CurseForge](https://img.shields.io/badge/Available%20on%20CurseForge-test?logo=CurseForge&logoColor=fff&color=EB622B&link=https%3A%2F%2Fwww.curseforge.com%2Fminecraft%2Fmc-mods%2Fsome-more-blocks) ![Modrinth](https://img.shields.io/badge/Available%20on%20Modrinth-Download?logo=Modrinth&logoColor=fff&color=02b63a&link=https%3A%2F%2Fmodrinth.com%2Fmod%2Fsome-more-blocks)
 
-More Blocks is a vanilla-like project which will add blocks that should exist and that the community has been asking for years to be added to the base game.
+Some More Blocks is a vanilla-like project which will add blocks that should exist and that the community has been asking for years to be added to the base game.
 
 The mod adds over 500 new blocks such as bricks, tiles, mossy bricks, wood mosaics and more
 
