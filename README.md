@@ -30,6 +30,9 @@ Be free to help us to increase the languages available for the mod on the [Crowd
 > [!NOTE]
 > Have you found any bug or inconsistency in the new blocks? Please open an [issue](https://github.com/Seface-Blocks/more-blocks-mod/issues) for us to review and correct in future versions.
 
+#### In loving memory of Nicolle Gama ⭐
+In the midst of questions and despair I heard the following phrase: _In a garden, the most beautiful flowers are chosen first._ I dream of the day when I can finally meet her again. - Leonardo "_Fyat" Gava, your fiancé.
+
 ---
 <div>
   <!-- <img align="right" height="64" width="64" src="https://raw.githubusercontent.com/Seface-Blocks/more-blocks-mod/main/.github/assets/icon_64.gif" title="More Blocks Icon"> -->

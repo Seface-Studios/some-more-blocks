@@ -1,25 +1,16 @@
 package net.seface.moreblocks;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.*;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Blocks;
 import net.seface.moreblocks.registry.*;
@@ -149,7 +140,7 @@ public class MoreBlocksFabric implements ModInitializer {
   }
 
   /**
-   * Enabled/Disable Experimental 1.21 Resource PAck.
+   * Enabled/Disable Experimental 1.21 Resource Pack.
    * Since the introduction of new Tuff blocks, a new texture with new Vanilla color palette was created.
    * This method should be able to identify worlds with this experimental data pack enabled and apply the Resource Pack.
    */
@@ -166,15 +157,12 @@ public class MoreBlocksFabric implements ModInitializer {
 
     ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
       ServerPlayer player = handler.getPlayer();
-      boolean featureEnabled = server.getWorldData().enabledFeatures().contains(FeatureFlags.UPDATE_1_21);
-      boolean rpAlreadyEnabled = ResourcePackManager.resourcePackIsEnabled(EXPERIMENTAL_1_21_RP);
+      if (!server.getWorldData().enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) return;
 
-      if (!featureEnabled && rpAlreadyEnabled) {
-          ResourcePackManager.disableResourcePack(EXPERIMENTAL_1_21_RP);
-          return;
-      } else if (!featureEnabled) return;
-
+      String tagID = new ResourceLocation(MoreBlocks.ID, "hide_update_1_21_message").toString();
       ResourcePackManager.enableResourcePack(EXPERIMENTAL_1_21_RP);
+
+      if (player.getTags().contains(tagID)) return;
 
       MutableComponent prefix = Component.literal(MoreBlocks.MOD_NAME).withColor(MoreBlocks.AMESFACE_COLOR)
         .append(Component.literal(" › ").withStyle(ChatFormatting.GRAY));
@@ -192,15 +180,16 @@ public class MoreBlocksFabric implements ModInitializer {
           .withStyle(style ->
             style.withHoverEvent(readMoreHover)
                  .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, readMoreURL))
-                 .withUnderlined(true)
-          )
-        );
+                 .withUnderlined(true)));
 
       message = prefix.append(message);
       player.sendSystemMessage(message);
+      player.getTags().add(tagID);
     });
 
-    ServerPlayConnectionEvents.DISCONNECT.register((handler, server) ->
-      ResourcePackManager.disableResourcePack(EXPERIMENTAL_1_21_RP));
+    ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
+      if (!server.getWorldData().enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) return;
+      ResourcePackManager.disableResourcePack(EXPERIMENTAL_1_21_RP);
+    });
   }
 }

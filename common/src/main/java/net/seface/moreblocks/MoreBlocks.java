@@ -1,11 +1,7 @@
 package net.seface.moreblocks;
 
-import net.minecraft.network.chat.TextColor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Text;
-
-import java.util.Collection;
 
 public class MoreBlocks {
   public static final String ID = "moreblocks";
