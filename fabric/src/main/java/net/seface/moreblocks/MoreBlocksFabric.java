@@ -167,7 +167,7 @@ public class MoreBlocksFabric implements ModInitializer {
       MutableComponent prefix = Component.literal(MoreBlocks.MOD_NAME).withColor(MoreBlocks.AMESFACE_COLOR)
         .append(Component.literal(" › ").withStyle(ChatFormatting.GRAY));
 
-      String readMoreURL = "https://sefacestudios.net";
+      String readMoreURL = "https://github.com/Seface-Studios/more-blocks-mod/tree/main/common/src/main/resources/resourcepacks";
       HoverEvent readMoreHover = new HoverEvent(
         HoverEvent.Action.SHOW_TEXT,
         Component.translatable("moreblocks.resourcepack.update_1_21.read_more.hover"));
