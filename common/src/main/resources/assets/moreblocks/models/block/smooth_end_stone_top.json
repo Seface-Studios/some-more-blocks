@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "moreblocks:block/smooth_end_stone",
-    "side": "moreblocks:block/smooth_end_stone",
-    "top": "moreblocks:block/smooth_end_stone"
-  }
-}

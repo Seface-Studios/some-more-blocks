@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/corrupted_polished_blackstone_brick_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/corrupted_polished_blackstone_bricks"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/corrupted_polished_blackstone_brick_slab_top"
+    }
+  }
+}

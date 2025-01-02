@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/polished_mud_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/polished_mud"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/polished_mud_slab_top"
+    }
+  }
+}

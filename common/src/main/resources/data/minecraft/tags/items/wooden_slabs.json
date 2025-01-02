@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "moreblocks:oak_mosaic_slab",
-    "moreblocks:spruce_mosaic_slab",
-    "moreblocks:birch_mosaic_slab",
-    "moreblocks:jungle_mosaic_slab",
-    "moreblocks:acacia_mosaic_slab",
-    "moreblocks:dark_oak_mosaic_slab",
-    "moreblocks:mangrove_mosaic_slab",
-    "moreblocks:crimson_mosaic_slab",
-    "moreblocks:warped_mosaic_slab",
-    "moreblocks:cherry_mosaic_slab"
+    "somemoreblocks:oak_mosaic_slab",
+    "somemoreblocks:spruce_mosaic_slab",
+    "somemoreblocks:birch_mosaic_slab",
+    "somemoreblocks:jungle_mosaic_slab",
+    "somemoreblocks:acacia_mosaic_slab",
+    "somemoreblocks:dark_oak_mosaic_slab",
+    "somemoreblocks:mangrove_mosaic_slab",
+    "somemoreblocks:crimson_mosaic_slab",
+    "somemoreblocks:warped_mosaic_slab",
+    "somemoreblocks:cherry_mosaic_slab"
   ]
 }

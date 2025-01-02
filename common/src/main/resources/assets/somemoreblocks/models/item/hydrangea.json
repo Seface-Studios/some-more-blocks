@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "somemoreblocks:block/hy/hydrangea",
+    "layer1": "somemoreblocks:block/hy/hydrangea_flower"
+  }
+}

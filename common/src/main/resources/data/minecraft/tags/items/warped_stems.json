@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "moreblocks:carved_warped_stem",
-    "moreblocks:carved_warped_hyphae"
+    "somemoreblocks:carved_warped_stem",
+    "somemoreblocks:carved_warped_hyphae"
   ]
 }

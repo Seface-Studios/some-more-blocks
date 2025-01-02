@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "somemoreblocks:blocks/purple_terracotta_bricks",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "somemoreblocks:purple_terracotta_bricks"
+        }
+      ]
+    }
+  ]
+}

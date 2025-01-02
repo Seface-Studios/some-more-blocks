@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "somemoreblocks:smooth_purpur"
+  },
+  "result": "somemoreblocks:smooth_purpur_slab"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "green_dye",
+  "ingredients": [
+    {
+      "item": "somemoreblocks:tiny_cactus"
+    }
+  ],
+  "result": {
+    "item": "minecraft:green_dye"
+  }
+}

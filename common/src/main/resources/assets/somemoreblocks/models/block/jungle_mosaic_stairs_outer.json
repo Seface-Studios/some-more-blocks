@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "somemoreblocks:block/jungle_mosaic",
+    "side": "somemoreblocks:block/jungle_mosaic",
+    "top": "somemoreblocks:block/jungle_mosaic"
+  }
+}

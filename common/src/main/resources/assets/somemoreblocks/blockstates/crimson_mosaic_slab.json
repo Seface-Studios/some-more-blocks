@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/crimson_mosaic_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/crimson_mosaic"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/crimson_mosaic_slab_top"
+    }
+  }
+}

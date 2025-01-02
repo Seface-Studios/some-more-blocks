@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/soul_sandstone_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/soul_sandstone"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/soul_sandstone_slab_top"
+    }
+  }
+}

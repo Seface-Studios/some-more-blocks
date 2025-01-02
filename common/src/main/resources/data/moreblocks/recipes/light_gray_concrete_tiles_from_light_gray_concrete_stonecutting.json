@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:light_gray_concrete"
-  },
-  "result": "moreblocks:light_gray_concrete_tiles"
-}

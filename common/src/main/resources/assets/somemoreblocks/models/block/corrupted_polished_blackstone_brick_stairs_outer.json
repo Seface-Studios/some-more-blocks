@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "somemoreblocks:block/corrupted_polished_blackstone_bricks",
+    "side": "somemoreblocks:block/corrupted_polished_blackstone_bricks",
+    "top": "somemoreblocks:block/corrupted_polished_blackstone_bricks"
+  }
+}

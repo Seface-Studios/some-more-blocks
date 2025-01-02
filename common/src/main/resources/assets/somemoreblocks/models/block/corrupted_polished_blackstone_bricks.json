@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "somemoreblocks:block/corrupted_polished_blackstone_bricks"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/snow_tile_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/snow_tiles"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/snow_tile_slab_top"
+    }
+  }
+}

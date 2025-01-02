@@ -1,18 +1,18 @@
 {
   "replace": false,
   "values": [
-    "moreblocks:tiny_cactus",
-    "moreblocks:dune_grass",
-    "moreblocks:tall_dune_grass",
-    "moreblocks:short_snow_grass",
-    "moreblocks:tall_snow_grass",
-    "moreblocks:snow_fern",
-    "moreblocks:large_snow_fern",
-    "moreblocks:cattail",
-    "moreblocks:leaf_litter",
-    "moreblocks:birch_leaf_litter",
-    "moreblocks:spruce_leaf_litter",
-    "moreblocks:azalea_leaf_litter",
-    "moreblocks:flowering_azalea_leaf_litter"
+    "somemoreblocks:tiny_cactus",
+    "somemoreblocks:dune_grass",
+    "somemoreblocks:tall_dune_grass",
+    "somemoreblocks:short_snow_grass",
+    "somemoreblocks:tall_snow_grass",
+    "somemoreblocks:snow_fern",
+    "somemoreblocks:large_snow_fern",
+    "somemoreblocks:cattail",
+    "somemoreblocks:leaf_litter",
+    "somemoreblocks:birch_leaf_litter",
+    "somemoreblocks:spruce_leaf_litter",
+    "somemoreblocks:azalea_leaf_litter",
+    "somemoreblocks:flowering_azalea_leaf_litter"
   ]
 }

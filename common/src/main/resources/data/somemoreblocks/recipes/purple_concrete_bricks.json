@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_concrete_bricks",
+  "key": {
+    "#": {
+      "item": "minecraft:purple_concrete"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "item": "somemoreblocks:purple_concrete_bricks"
+  }
+}

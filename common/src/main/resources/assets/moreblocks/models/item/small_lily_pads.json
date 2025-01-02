@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "moreblocks:block/small_lily_pads"
-  }
-}

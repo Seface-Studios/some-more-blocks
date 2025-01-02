@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "somemoreblocks:blocks/nether_bricks_pillar",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "somemoreblocks:nether_bricks_pillar"
+        }
+      ]
+    }
+  ]
+}

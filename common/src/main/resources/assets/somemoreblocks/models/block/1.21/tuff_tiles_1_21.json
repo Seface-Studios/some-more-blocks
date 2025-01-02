@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "somemoreblocks:block/1.21/tuff_tiles"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "moreblocks:block/polished_ice",
-    "side": "moreblocks:block/polished_ice",
-    "top": "moreblocks:block/polished_ice"
-  }
-}

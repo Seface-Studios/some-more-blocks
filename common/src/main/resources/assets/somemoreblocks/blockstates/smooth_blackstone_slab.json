@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/smooth_blackstone_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/smooth_blackstone"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/smooth_blackstone_slab_top"
+    }
+  }
+}

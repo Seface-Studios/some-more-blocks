@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "somemoreblocks:blocks/chiseled_red_nether_bricks",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "somemoreblocks:chiseled_red_nether_bricks"
+        }
+      ]
+    }
+  ]
+}

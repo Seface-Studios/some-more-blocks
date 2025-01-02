@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "somemoreblocks:weathered_copper_bricks"
+  },
+  "result": "somemoreblocks:cracked_weathered_copper_bricks"
+}

@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "somemoreblocks:item/flowering_azalea_leaves_bucket_0"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "somemoreblocks:bucket_volume": 0.05
+      },
+      "model": "somemoreblocks:item/overrides/flowering_azalea_leaves_bucket_1"
+    },
+    {
+      "predicate": {
+        "somemoreblocks:bucket_volume": 0.09
+      },
+      "model": "somemoreblocks:item/overrides/flowering_azalea_leaves_bucket_2"
+    },
+    {
+      "predicate": {
+        "somemoreblocks:bucket_volume": 0.13
+      },
+      "model": "somemoreblocks:item/overrides/flowering_azalea_leaves_bucket_3"
+    }
+  ]
+}

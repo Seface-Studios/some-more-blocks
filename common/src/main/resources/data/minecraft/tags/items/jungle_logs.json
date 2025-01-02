@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "moreblocks:carved_jungle_log",
-    "moreblocks:carved_jungle_wood"
+    "somemoreblocks:carved_jungle_log",
+    "somemoreblocks:carved_jungle_wood"
   ]
 }

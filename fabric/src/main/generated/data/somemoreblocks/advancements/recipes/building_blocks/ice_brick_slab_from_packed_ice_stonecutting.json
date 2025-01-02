@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_needed_items": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:packed_ice"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "somemoreblocks:ice_brick_slab_from_packed_ice_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_needed_items",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "somemoreblocks:ice_brick_slab_from_packed_ice_stonecutting"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/mossy_mud_brick_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/mossy_mud_bricks"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/mossy_mud_brick_slab_top"
+    }
+  }
+}

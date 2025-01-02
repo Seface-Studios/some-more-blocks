@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "moreblocks:block/mossy_prismarine_bricks",
-    "side": "moreblocks:block/mossy_prismarine_bricks",
-    "top": "moreblocks:block/mossy_prismarine_bricks"
-  }
-}

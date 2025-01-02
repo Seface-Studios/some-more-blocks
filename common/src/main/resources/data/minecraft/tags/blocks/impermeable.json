@@ -1,21 +1,21 @@
 {
   "replace": false,
   "values": [
-    "moreblocks:white_stained_tiled_glass",
-    "moreblocks:light_gray_stained_tiled_glass",
-    "moreblocks:gray_stained_tiled_glass",
-    "moreblocks:black_stained_tiled_glass",
-    "moreblocks:brown_stained_tiled_glass",
-    "moreblocks:red_stained_tiled_glass",
-    "moreblocks:orange_stained_tiled_glass",
-    "moreblocks:yellow_stained_tiled_glass",
-    "moreblocks:lime_stained_tiled_glass",
-    "moreblocks:green_stained_tiled_glass",
-    "moreblocks:cyan_stained_tiled_glass",
-    "moreblocks:light_blue_stained_tiled_glass",
-    "moreblocks:blue_stained_tiled_glass",
-    "moreblocks:purple_stained_tiled_glass",
-    "moreblocks:magenta_stained_tiled_glass",
-    "moreblocks:pink_stained_tiled_glass"
+    "somemoreblocks:white_stained_tiled_glass",
+    "somemoreblocks:light_gray_stained_tiled_glass",
+    "somemoreblocks:gray_stained_tiled_glass",
+    "somemoreblocks:black_stained_tiled_glass",
+    "somemoreblocks:brown_stained_tiled_glass",
+    "somemoreblocks:red_stained_tiled_glass",
+    "somemoreblocks:orange_stained_tiled_glass",
+    "somemoreblocks:yellow_stained_tiled_glass",
+    "somemoreblocks:lime_stained_tiled_glass",
+    "somemoreblocks:green_stained_tiled_glass",
+    "somemoreblocks:cyan_stained_tiled_glass",
+    "somemoreblocks:light_blue_stained_tiled_glass",
+    "somemoreblocks:blue_stained_tiled_glass",
+    "somemoreblocks:purple_stained_tiled_glass",
+    "somemoreblocks:magenta_stained_tiled_glass",
+    "somemoreblocks:pink_stained_tiled_glass"
   ]
 }

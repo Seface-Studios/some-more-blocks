@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "moreblocks:polished_tuff"
-  },
-  "result": "moreblocks:tuff_tile_stairs"
-}

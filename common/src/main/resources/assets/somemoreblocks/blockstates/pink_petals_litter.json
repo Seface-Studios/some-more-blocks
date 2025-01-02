@@ -1,0 +1,98 @@
+{
+  "variants": {
+    "lower=false": [
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_0"
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_1"
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_2"
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_0",
+        "y": 90
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_1",
+        "y": 90
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_2",
+        "y": 90
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_0",
+        "y": 180
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_1",
+        "y": 180
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_2",
+        "y": 180
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_0",
+        "y": 270
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_1",
+        "y": 270
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_2",
+        "y": 270
+      }
+    ],
+    "lower=true": [
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_0_lower"
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_1_lower"
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_2_lower"
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_0_lower",
+        "y": 90
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_1_lower",
+        "y": 90
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_2_lower",
+        "y": 90
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_0_lower",
+        "y": 180
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_1_lower",
+        "y": 180
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_2_lower",
+        "y": 180
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_0_lower",
+        "y": 270
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_1_lower",
+        "y": 270
+      },
+      {
+        "model": "somemoreblocks:block/pink_petals_litter_2_lower",
+        "y": 270
+      }
+    ]
+  }
+}

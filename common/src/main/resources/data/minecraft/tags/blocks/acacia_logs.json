@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "moreblocks:carved_acacia_log",
-    "moreblocks:carved_acacia_wood"
+    "somemoreblocks:carved_acacia_log",
+    "somemoreblocks:carved_acacia_wood"
   ]
 }

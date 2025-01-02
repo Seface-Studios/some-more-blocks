@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "moreblocks:block/prismarine_pillar_top",
-    "side": "moreblocks:block/prismarine_pillar"
-  }
-}

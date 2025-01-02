@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "somemoreblocks:block/pearlescent_redstone_froglight"
+    },
+    "lit=true": {
+      "model": "somemoreblocks:block/pearlescent_redstone_froglight_on"
+    }
+  }
+}

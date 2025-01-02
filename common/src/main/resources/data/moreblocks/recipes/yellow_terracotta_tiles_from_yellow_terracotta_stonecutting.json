@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:yellow_terracotta"
-  },
-  "result": "moreblocks:yellow_terracotta_tiles"
-}
