@@ -6,7 +6,7 @@
   "description": "${description}",
   "authors": ["${mod_author}"],
   "contributors": [
-    "Translators (PT-BR):",
+    "Translators §8(PT-BR)§r",
     "  _TonyBuilds",
     "  sufflowers",
     "\n"
@@ -31,9 +31,9 @@
   "icon": "assets/${mod_id}/icon.png",
   "environment": "*",
   "entrypoints": {
-    "fabric-datagen": ["net.seface.moreblocks.datagen.MoreBlocksDataGenerator"],
-    "main": ["net.seface.moreblocks.MoreBlocksFabric"],
-    "client": ["net.seface.moreblocks.MoreBlocksFabricClient"]
+    "fabric-datagen": ["net.seface.${mod_id}.datagen.MoreBlocksDataGenerator"],
+    "main": ["net.seface.${mod_id}.MoreBlocksFabric"],
+    "client": ["net.seface.${mod_id}.MoreBlocksFabricClient"]
   },
 
   "mixins": [

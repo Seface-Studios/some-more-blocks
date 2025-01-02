@@ -13,5 +13,5 @@ public class MBPlacedFeature extends MBData {
   public static final ResourceKey<PlacedFeature> PATCH_TINY_CACTUS = createResourceKey(Registries.PLACED_FEATURE, "patch_tiny_cactus_forest");
   public static final ResourceKey<PlacedFeature> NONE_LEAF_LITTER = createResourceKey(Registries.PLACED_FEATURE, "none_leaf_litter");
 
-  public static final ResourceKey<PlacedFeature> PATCH_RED_MUSHROOM_COLONY_WALL = createResourceKey(Registries.PLACED_FEATURE, "patch_red_mushroom_colony_wall");
+  //public static final ResourceKey<PlacedFeature> PATCH_RED_MUSHROOM_COLONY_WALL = createResourceKey(Registries.PLACED_FEATURE, "experimental/patch_red_mushroom_colony_wall");
 }

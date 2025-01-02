@@ -46,6 +46,7 @@ public class RecipeAdvancementBatch implements IRecipeAdvancement<RecipeAdvancem
     if (!instances.isEmpty()) {
       instances.get(instances.size() - 1).setMainCraftableItem(item);
     }
+
     return this;
   }
 
@@ -54,6 +55,7 @@ public class RecipeAdvancementBatch implements IRecipeAdvancement<RecipeAdvancem
     if (!instances.isEmpty()) {
       instances.get(instances.size() - 1).craftableFrom(items);
     }
+
     return this;
   }
 

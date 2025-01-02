@@ -9,6 +9,7 @@ public class MoreBlocksDataGenerator implements DataGeneratorEntrypoint {
   public void onInitializeDataGenerator(FabricDataGenerator gen) {
     FabricDataGenerator.Pack pack = gen.createPack();
 
+    // In the future, the Recipe Advancement and Recipe providers should work together
     pack.addProvider(RecipeAdvancementProvider::new);
   }
 }

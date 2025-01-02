@@ -1,6 +1,7 @@
 package net.seface.moreblocks.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -584,7 +585,7 @@ public class MBItemGroups {
     }).build();
 
   private static final CreativeModeTab MORE_NATURAL_BLOCKS = FabricItemGroup.builder()
-    .icon(() -> new ItemStack(MBItems.WARPED_FUNGUS_COLONY))
+    .icon(() -> new ItemStack(MBItems.TINY_CACTUS))
     .title(Component.translatable("itemGroup.moreblocks.naturalBlocks"))
     .displayItems((ctx, entry) -> {
       entry.accept(MBItems.TINY_CACTUS);
@@ -600,19 +601,9 @@ public class MBItemGroups {
       entry.accept(((LeavesBucketItem) MBItems.SPRUCE_LEAVES_BUCKET).getCreativeInventoryInstance());
       entry.accept(((LeavesBucketItem) MBItems.AZALEA_LEAVES_BUCKET).getCreativeInventoryInstance());
       entry.accept(((LeavesBucketItem) MBItems.FLOWERING_AZALEA_LEAVES_BUCKET).getCreativeInventoryInstance());
-      entry.accept(MBItems.BIG_LILY_PAD);
       entry.accept(MBItems.SMALL_LILY_PADS);
       entry.accept(MBItems.LUMINOUS_FLOWER);
-      entry.accept(MBItems.BROWN_MUSHROOM_COLONY);
-      entry.accept(MBItems.TALL_BROWN_MUSHROOM_COLONY);
-      entry.accept(MBItems.RED_MUSHROOM_COLONY);
-      entry.accept(MBItems.TALL_RED_MUSHROOM_COLONY);
-      entry.accept(MBItems.CRIMSON_FUNGUS_COLONY);
-      entry.accept(MBItems.TALL_CRIMSON_FUNGUS_COLONY);
-      entry.accept(MBItems.WARPED_FUNGUS_COLONY);
-      entry.accept(MBItems.TALL_WARPED_FUNGUS_COLONY);
     }).build();
-
 
   private static final CreativeModeTab MORE_REDSTONE_BLOCKS = FabricItemGroup.builder()
     .icon(() -> new ItemStack(MBItems.OCHRE_REDSTONE_FROGLIGHT))
@@ -633,5 +624,17 @@ public class MBItemGroups {
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "1_more_colored_blocks"), MORE_COLORED_BLOCKS);
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "2_more_natural_blocks"), MORE_NATURAL_BLOCKS);
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(MoreBlocks.ID, "3_more_redstone_blocks"), MORE_REDSTONE_BLOCKS);
+
+    ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.OP_BLOCKS).register((entry) -> {
+      entry.accept(MBItems.BIG_LILY_PAD);
+      entry.accept(MBItems.BROWN_MUSHROOM_COLONY);
+      entry.accept(MBItems.TALL_BROWN_MUSHROOM_COLONY);
+      entry.accept(MBItems.RED_MUSHROOM_COLONY);
+      entry.accept(MBItems.TALL_RED_MUSHROOM_COLONY);
+      entry.accept(MBItems.CRIMSON_FUNGUS_COLONY);
+      entry.accept(MBItems.TALL_CRIMSON_FUNGUS_COLONY);
+      entry.accept(MBItems.WARPED_FUNGUS_COLONY);
+      entry.accept(MBItems.TALL_WARPED_FUNGUS_COLONY);
+    });
   }
 }

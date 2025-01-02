@@ -3,6 +3,7 @@ package net.seface.moreblocks;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.LandPathNodeTypesRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -11,8 +12,14 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
+import net.minecraft.world.entity.animal.Pig;
+import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathFinder;
 import net.seface.moreblocks.registry.*;
 import net.seface.moreblocks.utils.MBUtils;
 import net.seface.moreblocks.registry.MBFeatures;
@@ -33,6 +40,8 @@ public class MoreBlocksFabric implements ModInitializer {
     MBItemGroups.register();
     MBFeatures.register();
     MBBiomeModifiers.register();
+
+    LandPathNodeTypesRegistry.register(MBBlocks.TINY_CACTUS, (state, neighbor) -> BlockPathTypes.DAMAGE_OTHER);
 
     enableOrDisableExperimentalResourcePack();
 
