@@ -23,6 +23,8 @@ See more In-Game screenshots [here](https://modrinth.com/project/few-more-blocks
 - [ ] Add more unique blocks.
 - [ ] Add more flowers and plants type.
 - [ ] Custom sounds for some blocks.
+- [ ] Convert the Data/Assets to (Fabric?) Data Generation
+  - In the early stages of development we had our own that generated for both versions of Minecraft (Java & Bedrock), it was discontinued after a certain period.
 
 ### Become a Translator
 Be free to help us to increase the languages available for the mod on the [Crowdin](https://crowdin.com/project/minecraft-more-blocks-mod) page. All the translators have their names on mod credits as thanks.

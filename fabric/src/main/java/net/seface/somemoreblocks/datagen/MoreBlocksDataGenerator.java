@@ -9,7 +9,17 @@ public class MoreBlocksDataGenerator implements DataGeneratorEntrypoint {
   public void onInitializeDataGenerator(FabricDataGenerator gen) {
     FabricDataGenerator.Pack pack = gen.createPack();
 
-    // In the future, the Recipe Advancement and Recipe providers should work together
+    pack.addProvider(ModelProvider::new);
+    pack.addProvider(RecipeProvider::new);
+
+    /*
+      In the future, the Recipe Advancement and Recipe providers should work together with only Recipe Provider!
+      Why this custom provider exists?
+
+      In the initial development stage we used to have our own data generation, tha generates
+      data/assets for both Minecraft version;
+      When we decided to abandon that system, we still need to generate the recipe advancements.
+    */
     pack.addProvider(RecipeAdvancementProvider::new);
   }
 }

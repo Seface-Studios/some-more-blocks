@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_glass_pane_noside",
+  "textures": {
+    "pane": "somemoreblocks:block/black_stained_tiled_glass"
+  }
+}

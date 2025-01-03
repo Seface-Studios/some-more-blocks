@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "stained_tiled_glass_pane",
+  "key": {
+    "#": {
+      "item": "minecraft:lime_stained_glass_pane"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "item": "somemoreblocks:lime_stained_tiled_glass_pane"
+  }
+}

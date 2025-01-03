@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
+  "group": "stained_tiled_glass",
   "key": {
     "#": {
       "item": "minecraft:magenta_stained_glass"

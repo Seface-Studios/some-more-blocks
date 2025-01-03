@@ -563,6 +563,24 @@ public class MBItems {
   public static final Item YELLOW_TERRACOTTA_TILES = new BlockItem(MBBlocks.YELLOW_TERRACOTTA_TILES, new Item.Properties());
   public static final Item OCHRE_REDSTONE_FROGLIGHT = new BlockItem(MBBlocks.OCHRE_REDSTONE_FROGLIGHT, new Item.Properties());
 
+  public static final Item BLACK_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.BLACK_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item BLUE_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.BLUE_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item BROWN_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.BROWN_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item CYAN_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.CYAN_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item GRAY_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.GRAY_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item GREEN_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.GREEN_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item LIGHT_BLUE_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item LIGHT_GRAY_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item LIME_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.LIME_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item MAGENTA_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item ORANGE_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.ORANGE_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item PINK_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.PINK_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item PURPLE_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.PURPLE_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item RED_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.RED_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item TILED_GLASS_PANE = new BlockItem(MBBlocks.TILED_GLASS_PANE, new Item.Properties());
+  public static final Item WHITE_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.WHITE_STAINED_TILED_GLASS_PANE, new Item.Properties());
+  public static final Item YELLOW_STAINED_TILED_GLASS_PANE = new BlockItem(MBBlocks.YELLOW_STAINED_TILED_GLASS_PANE, new Item.Properties());
+
   public static final Item COPPER_BRICKS = new BlockItem(MBBlocks.COPPER_BRICKS, new Item.Properties());
   public static final Item EXPOSED_COPPER_BRICKS = new BlockItem(MBBlocks.EXPOSED_COPPER_BRICKS, new Item.Properties());
   public static final Item WEATHERED_COPPER_BRICKS = new BlockItem(MBBlocks.WEATHERED_COPPER_BRICKS, new Item.Properties());
@@ -1172,6 +1190,25 @@ public class MBItems {
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "purple_stained_tiled_glass"), PURPLE_STAINED_TILED_GLASS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "magenta_stained_tiled_glass"), MAGENTA_STAINED_TILED_GLASS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "pink_stained_tiled_glass"), PINK_STAINED_TILED_GLASS);
+
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "tiled_glass_pane"), TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "white_stained_tiled_glass_pane"), WHITE_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "light_gray_stained_tiled_glass_pane"), LIGHT_GRAY_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "gray_stained_tiled_glass_pane"), GRAY_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "black_stained_tiled_glass_pane"), BLACK_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "brown_stained_tiled_glass_pane"), BROWN_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "red_stained_tiled_glass_pane"), RED_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "orange_stained_tiled_glass_pane"), ORANGE_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "yellow_stained_tiled_glass_pane"), YELLOW_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "lime_stained_tiled_glass_pane"), LIME_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "green_stained_tiled_glass_pane"), GREEN_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "cyan_stained_tiled_glass_pane"), CYAN_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "light_blue_stained_tiled_glass_pane"), LIGHT_BLUE_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "blue_stained_tiled_glass_pane"), BLUE_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "purple_stained_tiled_glass_pane"), PURPLE_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "magenta_stained_tiled_glass_pane"), MAGENTA_STAINED_TILED_GLASS_PANE);
+    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "pink_stained_tiled_glass_pane"), PINK_STAINED_TILED_GLASS_PANE);
+
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "bone_bricks"), BONE_BRICKS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "bone_brick_slab"), BONE_BRICK_SLAB);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "bone_brick_stairs"), BONE_BRICK_STAIRS);

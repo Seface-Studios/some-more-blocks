@@ -499,6 +499,25 @@ public class MBItemGroups {
       entry.accept(MBItems.PURPLE_STAINED_TILED_GLASS);
       entry.accept(MBItems.MAGENTA_STAINED_TILED_GLASS);
       entry.accept(MBItems.PINK_STAINED_TILED_GLASS);
+
+      entry.accept(MBItems.TILED_GLASS_PANE);
+      entry.accept(MBItems.WHITE_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.LIGHT_GRAY_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.GRAY_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.BLACK_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.BROWN_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.RED_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.ORANGE_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.YELLOW_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.LIME_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.GREEN_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.CYAN_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.LIGHT_BLUE_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.BLUE_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.PURPLE_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.MAGENTA_STAINED_TILED_GLASS_PANE);
+      entry.accept(MBItems.PINK_STAINED_TILED_GLASS_PANE);
+
       entry.accept(MBItems.SHINGLES);
       entry.accept(MBItems.WHITE_SHINGLES);
       entry.accept(MBItems.LIGHT_GRAY_SHINGLES);
