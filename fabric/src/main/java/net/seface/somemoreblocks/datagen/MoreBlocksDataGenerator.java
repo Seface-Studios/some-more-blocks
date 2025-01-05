@@ -13,7 +13,6 @@ public class MoreBlocksDataGenerator implements DataGeneratorEntrypoint {
     pack.addProvider(RecipeProvider::new);
 
     /*
-      In the future, the Recipe Advancement and Recipe providers should work together with only Recipe Provider!
       Why this custom provider exists?
 
       In the initial development stage we used to have our own data generation, tha generates

@@ -1,10 +1,12 @@
 package net.seface.somemoreblocks.registry;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -24,18 +26,18 @@ public class MBBlocks {
   public static final Block BIRCH_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 12.5F);
   public static final Block BIG_LILY_PAD = new BigLilyPadBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).pushReaction(PushReaction.BLOCK));
   public static final Block BROWN_MUSHROOM_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
-  public static final Block TALL_BROWN_MUSHROOM_COLONY = new DoubleMushroomColonyBlock(MBBlocks.BROWN_MUSHROOM_COLONY, FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
+  public static final Block TALL_BROWN_MUSHROOM_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
   public static final Block BROWN_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.BROWN_MUSHROOM_COLONY).dropsLike(MBBlocks.BROWN_MUSHROOM_COLONY));
   public static final Block CATTAIL = new CattailBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).noOcclusion());
   public static final Block CRIMSON_FUNGUS_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.CRIMSON_FUNGUS));
-  public static final Block TALL_CRIMSON_FUNGUS_COLONY = new DoubleMushroomColonyBlock(MBBlocks.CRIMSON_FUNGUS_COLONY, FabricBlockSettings.copyOf(Blocks.CRIMSON_FUNGUS));
+  public static final Block TALL_CRIMSON_FUNGUS_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.CRIMSON_FUNGUS));
   public static final Block CRIMSON_FUNGUS_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.CRIMSON_FUNGUS_COLONY).dropsLike(MBBlocks.CRIMSON_FUNGUS_COLONY));
   public static final Block FLOWERING_AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.FLOWERING_AZALEA_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 10.0F);
   public static final Block SPRUCE_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 12.5F);
   public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 12.5F);
   public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((state) -> 10));
   public static final Block RED_MUSHROOM_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
-  public static final Block TALL_RED_MUSHROOM_COLONY = new DoubleMushroomColonyBlock(MBBlocks.RED_MUSHROOM_COLONY, FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
+  public static final Block TALL_RED_MUSHROOM_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
   public static final Block RED_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.RED_MUSHROOM_COLONY).dropsLike(MBBlocks.RED_MUSHROOM_COLONY));
   public static final Block SMALL_LILY_PADS = new WaterlilyBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).noCollision());
   public static final Block TALL_DUNE_GRASS = new TallDuneGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
@@ -46,7 +48,7 @@ public class MBBlocks {
   public static final Block SHORT_SNOW_GRASS = new GenericBonemealableBushBlock(MBBlocks.TALL_SNOW_GRASS, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
   public static final Block TINY_CACTUS = new TinyCactusBlock(MobEffects.POISON, 7, FabricBlockSettings.copyOf(Blocks.TORCHFLOWER));
   public static final Block WARPED_FUNGUS_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS));
-  public static final Block TALL_WARPED_FUNGUS_COLONY = new DoubleMushroomColonyBlock(MBBlocks.WARPED_FUNGUS_COLONY, FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS));
+  public static final Block TALL_WARPED_FUNGUS_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS));
   public static final Block WARPED_FUNGUS_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.WARPED_FUNGUS_COLONY).dropsLike(MBBlocks.WARPED_FUNGUS_COLONY));
   public static final Block POTTED_LUMINOUS_FLOWER = createFlowerPotBlock(LUMINOUS_FLOWER, 10);
   public static final Block POTTED_SNOW_FERN = createFlowerPotBlock(SNOW_FERN);
@@ -912,10 +914,6 @@ public class MBBlocks {
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_polished_blackstone_tiles"), CRACKED_POLISHED_BLACKSTONE_TILES);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_blackstone_pillar"), POLISHED_BLACKSTONE_PILLAR);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_quartz_bricks"), CRACKED_QUARTZ_BRICKS);
-    //Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_quartz_bricks"), MOSSY_QUARTZ_BRICKS);
-    //Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_quartz_brick_slab"), MOSSY_QUARTZ_BRICK_SLAB);
-    //Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_quartz_brick_stairs"), MOSSY_QUARTZ_BRICK_STAIRS);
-    //Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "mossy_quartz_brick_wall"), MOSSY_QUARTZ_BRICK_WALL);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cut_quartz"), CUT_QUARTZ);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "cracked_cut_quartz"), CRACKED_CUT_QUARTZ);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(MoreBlocks.ID, "polished_mud"), POLISHED_MUD);

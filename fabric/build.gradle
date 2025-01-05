@@ -19,7 +19,9 @@ dependencies {
 }
 
 fabricApi {
-  configureDataGeneration()
+  configureDataGeneration((settings) -> {
+    settings.getOutputDirectory().set(project(":common").file("src/main/generated"))
+  })
 }
 
 loom {

@@ -3,14 +3,16 @@ package net.seface.somemoreblocks;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.seface.somemoreblocks.core.SnowyVariationsManager;
 import net.seface.somemoreblocks.registry.MBBlocks;
 import net.seface.somemoreblocks.registry.MBCreativeTabs;
 import net.seface.somemoreblocks.registry.MBItems;
@@ -33,6 +35,7 @@ public class MoreBlocksForge {
     eventBus.addListener(this::clientSetup);
     eventBus.addListener(this::commonSetup);
     eventBus.addListener(this::registerColorProviders);
+    eventBus.addListener(MBCreativeTabs::buildContents);
   }
 
   private void clientSetup(final FMLClientSetupEvent event) {
@@ -45,16 +48,9 @@ public class MoreBlocksForge {
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.SNOW_FERN.getId(), MBBlocks.POTTED_SNOW_FERN);
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.TINY_CACTUS.getId(), MBBlocks.POTTED_TINY_CACTUS);
 
-      registerSnowyVariations();
+      registerSnowyBlocks();
       registerCompostableItems();
     });
-  }
-
-  private static void registerSnowyVariations() {
-    SnowyVariationsManager.register(Blocks.SHORT_GRASS, MBBlocks.SHORT_SNOW_GRASS.get());
-    SnowyVariationsManager.register(Blocks.FERN, MBBlocks.SNOW_FERN.get());
-    SnowyVariationsManager.register(Blocks.TALL_GRASS, MBBlocks.TALL_SNOW_GRASS.get(), true);
-    SnowyVariationsManager.register(Blocks.LARGE_FERN, MBBlocks.LARGE_SNOW_FERN.get(), true);
   }
 
   /**
@@ -79,6 +75,58 @@ public class MoreBlocksForge {
     MBUtils.registerCompostableItem(1.0F, MBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get().asItem());
     MBUtils.registerCompostableItem(0.85F, MBBlocks.WARPED_FUNGUS_COLONY.get().asItem());
     MBUtils.registerCompostableItem(1.0F, MBBlocks.TALL_WARPED_FUNGUS_COLONY.get().asItem());
+    MBUtils.registerCompostableItem(1.0F, MBItems.LEAVES_BUCKET.get());
+    MBUtils.registerCompostableItem(1.0F, MBItems.AZALEA_LEAVES_BUCKET.get());
+    MBUtils.registerCompostableItem(1.0F, MBItems.BIRCH_LEAVES_BUCKET.get());
+    MBUtils.registerCompostableItem(1.0F, MBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
+    MBUtils.registerCompostableItem(1.0F, MBItems.SPRUCE_LEAVES_BUCKET.get());
+  }
+
+  /**
+   * Register new weathering copper blocks.
+   */
+  /*private static void registerWeatheringCopperBlocks() {
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.COPPER_BRICKS.get(), MBBlocks.EXPOSED_COPPER_BRICKS.get());
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.EXPOSED_COPPER_BRICKS.get(), MBBlocks.WEATHERED_COPPER_BRICKS.get());
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.WEATHERED_COPPER_BRICKS.get(), MBBlocks.OXIDIZED_COPPER_BRICKS.get());
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.CRACKED_COPPER_BRICKS.get(), MBBlocks.EXPOSED_CRACKED_COPPER_BRICKS.get());
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.EXPOSED_CRACKED_COPPER_BRICKS.get(), MBBlocks.WEATHERED_CRACKED_COPPER_BRICKS.get());
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.WEATHERED_CRACKED_COPPER_BRICKS.get(), MBBlocks.OXIDIZED_CRACKED_COPPER_BRICKS.get());
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.CRACKED_CUT_COPPER.get(), MBBlocks.EXPOSED_CRACKED_CUT_COPPER.get());
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.EXPOSED_CRACKED_CUT_COPPER.get(), MBBlocks.WEATHERED_CRACKED_CUT_COPPER.get());
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.WEATHERED_CRACKED_CUT_COPPER.get(), MBBlocks.OXIDIZED_CRACKED_CUT_COPPER.get());
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.COPPER_PILLAR.get(), MBBlocks.EXPOSED_COPPER_PILLAR.get());
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.EXPOSED_COPPER_PILLAR.get(), MBBlocks.WEATHERED_COPPER_PILLAR.get());
+    MBUtils.registerWeatheringCopperBlock(MBBlocks.WEATHERED_COPPER_PILLAR.get(), MBBlocks.OXIDIZED_COPPER_PILLAR.get());
+  }*/
+
+  /**
+   * Register new waxable copper blocks.
+   */
+  /*private static void registerWaxableCopperBlocks() {
+    MBUtils.registerWaxableCopperBlock(MBBlocks.COPPER_BRICKS.get(), MBBlocks.WAXED_COPPER_BRICKS.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.EXPOSED_COPPER_BRICKS.get(), MBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.WEATHERED_COPPER_BRICKS.get(), MBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.OXIDIZED_COPPER_BRICKS.get(), MBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.CRACKED_COPPER_BRICKS.get(), MBBlocks.WAXED_CRACKED_COPPER_BRICKS.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.EXPOSED_CRACKED_COPPER_BRICKS.get(), MBBlocks.WAXED_EXPOSED_CRACKED_COPPER_BRICKS.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.WEATHERED_CRACKED_COPPER_BRICKS.get(), MBBlocks.WAXED_WEATHERED_CRACKED_COPPER_BRICKS.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.OXIDIZED_CRACKED_COPPER_BRICKS.get(), MBBlocks.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.CRACKED_CUT_COPPER.get(), MBBlocks.WAXED_CRACKED_CUT_COPPER.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.EXPOSED_CRACKED_CUT_COPPER.get(), MBBlocks.WAXED_EXPOSED_CRACKED_CUT_COPPER.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.WEATHERED_CRACKED_CUT_COPPER.get(), MBBlocks.WAXED_WEATHERED_CRACKED_CUT_COPPER.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.OXIDIZED_CRACKED_CUT_COPPER.get(), MBBlocks.WAXED_OXIDIZED_CRACKED_CUT_COPPER.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.COPPER_PILLAR.get(), MBBlocks.WAXED_COPPER_PILLAR.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.EXPOSED_COPPER_PILLAR.get(), MBBlocks.WAXED_EXPOSED_COPPER_PILLAR.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.WEATHERED_COPPER_PILLAR.get(), MBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get());
+    MBUtils.registerWaxableCopperBlock(MBBlocks.OXIDIZED_COPPER_PILLAR.get(), MBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get());
+  }*/
+
+  private static void registerSnowyBlocks() {
+    MBUtils.registerSnowVariationBlock(Blocks.SHORT_GRASS, MBBlocks.SHORT_SNOW_GRASS.get());
+    MBUtils.registerSnowVariationBlock(Blocks.FERN, MBBlocks.SNOW_FERN.get());
+    MBUtils.registerSnowVariationBlock(Blocks.TALL_GRASS, MBBlocks.TALL_SNOW_GRASS.get());
+    MBUtils.registerSnowVariationBlock(Blocks.LARGE_FERN, MBBlocks.LARGE_SNOW_FERN.get());
   }
 
   private void registerBlockRenders() {
@@ -100,6 +148,24 @@ public class MoreBlocksForge {
     ItemBlockRenderTypes.setRenderLayer(MBBlocks.PURPLE_STAINED_TILED_GLASS.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(MBBlocks.MAGENTA_STAINED_TILED_GLASS.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(MBBlocks.PINK_STAINED_TILED_GLASS.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.GRAY_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.BLACK_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.BROWN_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.RED_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.LIME_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.GREEN_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.CYAN_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.BLUE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.PURPLE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    ItemBlockRenderTypes.setRenderLayer(MBBlocks.PINK_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+
     ItemBlockRenderTypes.setRenderLayer(MBBlocks.IRON_GRATE.get(), RenderType.cutout());
     ItemBlockRenderTypes.setRenderLayer(MBBlocks.DIAMOND_GRATE.get(), RenderType.cutout());
     ItemBlockRenderTypes.setRenderLayer(MBBlocks.NETHERITE_GRATE.get(), RenderType.cutout());

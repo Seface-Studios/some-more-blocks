@@ -1,6 +1,0 @@
-{
-  "type": "moreblocks:patch_cattail",
-  "biomes": "#moreblocks:generates_cattail",
-  "feature": "moreblocks:patch_cattail",
-  "step": "vegetal_decoration"
-}
