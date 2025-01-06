@@ -629,13 +629,13 @@ public class MBCreativeTabs {
       if (ctx.hasPermissions()) {
         entry.accept(MBItems.BIG_LILY_PAD.get());
         entry.accept(MBItems.BROWN_MUSHROOM_COLONY.get());
-        entry.accept(MBBlocks.TALL_BROWN_MUSHROOM_COLONY.get());
+        entry.accept(MBItems.TALL_BROWN_MUSHROOM_COLONY.get());
         entry.accept(MBItems.RED_MUSHROOM_COLONY.get());
-        entry.accept(MBBlocks.TALL_RED_MUSHROOM_COLONY.get());
+        entry.accept(MBItems.TALL_RED_MUSHROOM_COLONY.get());
         entry.accept(MBItems.CRIMSON_FUNGUS_COLONY.get());
-        entry.accept(MBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get());
+        entry.accept(MBItems.TALL_CRIMSON_FUNGUS_COLONY.get());
         entry.accept(MBItems.WARPED_FUNGUS_COLONY.get());
-        entry.accept(MBBlocks.TALL_WARPED_FUNGUS_COLONY.get());
+        entry.accept(MBItems.TALL_WARPED_FUNGUS_COLONY.get());
       }
     }).build());
 
@@ -662,13 +662,13 @@ public class MBCreativeTabs {
     if (event.getTabKey() == CreativeModeTabs.OP_BLOCKS && event.hasPermissions()) {
       event.accept(MBItems.BIG_LILY_PAD.get());
       event.accept(MBItems.BROWN_MUSHROOM_COLONY.get());
-      event.accept(MBBlocks.TALL_BROWN_MUSHROOM_COLONY.get());
+      event.accept(MBItems.TALL_BROWN_MUSHROOM_COLONY.get());
       event.accept(MBItems.RED_MUSHROOM_COLONY.get());
-      event.accept(MBBlocks.TALL_RED_MUSHROOM_COLONY.get());
+      event.accept(MBItems.TALL_RED_MUSHROOM_COLONY.get());
       event.accept(MBItems.CRIMSON_FUNGUS_COLONY.get());
-      event.accept(MBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get());
+      event.accept(MBItems.TALL_CRIMSON_FUNGUS_COLONY.get());
       event.accept(MBItems.WARPED_FUNGUS_COLONY.get());
-      event.accept(MBBlocks.TALL_WARPED_FUNGUS_COLONY.get());
+      event.accept(MBItems.TALL_WARPED_FUNGUS_COLONY.get());
     }
   }
 }
