@@ -15,6 +15,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.seface.somemoreblocks.event.OnPlayerJoinOrLeaveWorld;
 import net.seface.somemoreblocks.registry.*;
 import net.seface.somemoreblocks.utils.MBUtils;
 import net.seface.somemoreblocks.registry.MBFeatures;
@@ -25,7 +26,6 @@ import java.util.Optional;
 
 public class MoreBlocksFabric implements ModInitializer {
   private static final Optional<ModContainer> MOD_CONTAINER = FabricLoader.getInstance().getModContainer(MoreBlocks.ID);
-  private static final ResourceLocation EXPERIMENTAL_1_21_RP = new ResourceLocation(MoreBlocks.ID, "update_1_21");
 
   @Override
   public void onInitialize() {
@@ -147,47 +147,13 @@ public class MoreBlocksFabric implements ModInitializer {
 
     // Register as built-in Resource Pack.
     ResourceManagerHelper.registerBuiltinResourcePack(
-      EXPERIMENTAL_1_21_RP,
+      OnPlayerJoinOrLeaveWorld.EXPERIMENTAL_1_21_RP,
       MOD_CONTAINER.get(),
       Component.translatable("somemoreblocks.resourcepack.update_1_21.name"),
       ResourcePackActivationType.NORMAL
     );
 
-    ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
-      ServerPlayer player = handler.getPlayer();
-      if (!server.getWorldData().enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) return;
-
-      String tagID = new ResourceLocation(MoreBlocks.ID, "hide_update_1_21_message").toString();
-      ResourcePackManager.enableResourcePack(EXPERIMENTAL_1_21_RP);
-
-      if (player.getTags().contains(tagID)) return;
-
-      MutableComponent prefix = Component.literal(MoreBlocks.MOD_NAME).withColor(MoreBlocks.AMESFACE_COLOR)
-        .append(Component.literal(" › ").withStyle(ChatFormatting.GRAY));
-
-      String readMoreURL = "https://github.com/Seface-Studios/more-blocks-mod/tree/main/common/src/main/resources/resourcepacks";
-      HoverEvent readMoreHover = new HoverEvent(
-        HoverEvent.Action.SHOW_TEXT,
-        Component.translatable("somemoreblocks.resourcepack.update_1_21.read_more.hover"));
-
-      MutableComponent message = Component.translatable("somemoreblocks.resourcepack.update_1_21.enabled")
-        .withStyle(style -> style.withColor(ChatFormatting.GRAY))
-        .append(" ")
-        .append(Component.translatable("somemoreblocks.resourcepack.update_1_21.read_more")
-          .withColor(MoreBlocks.GREENFUL_COLOR)
-          .withStyle(style ->
-            style.withHoverEvent(readMoreHover)
-                 .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, readMoreURL))
-                 .withUnderlined(true)));
-
-      message = prefix.append(message);
-      player.sendSystemMessage(message);
-      player.getTags().add(tagID);
-    });
-
-    ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
-      if (!server.getWorldData().enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) return;
-      ResourcePackManager.disableResourcePack(EXPERIMENTAL_1_21_RP);
-    });
+    ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> OnPlayerJoinOrLeaveWorld.enableResourcePackOnPlayerJoinWorld(handler.getPlayer()));
+    ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> OnPlayerJoinOrLeaveWorld.disableResourcePackOnPlayerLeaveWorld(handler.getPlayer()));
   }
 }

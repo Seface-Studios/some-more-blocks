@@ -3,22 +3,31 @@ package net.seface.somemoreblocks;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.PathPackResources;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.seface.somemoreblocks.event.OnPlayerJoinOrLeaveWorld;
+import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.registry.MBBlocks;
 import net.seface.somemoreblocks.registry.MBCreativeTabs;
 import net.seface.somemoreblocks.registry.MBItems;
 import net.seface.somemoreblocks.utils.MBUtils;
+import net.seface.somemoreblocks.utils.ModelPredicate;
 import net.seface.somemoreblocks.worldgen.MBBiomeModifier;
 import net.seface.somemoreblocks.worldgen.MBFeatures;
+
+import java.nio.file.Path;
 
 @Mod(MoreBlocks.ID)
 public class MoreBlocksForge {
@@ -36,17 +45,49 @@ public class MoreBlocksForge {
     eventBus.addListener(this::commonSetup);
     eventBus.addListener(this::registerColorProviders);
     eventBus.addListener(MBCreativeTabs::buildContents);
+    eventBus.addListener(this::addPackFinders);
   }
 
   private void clientSetup(final FMLClientSetupEvent event) {
     this.registerBlockRenders();
   }
 
+  public void addPackFinders(AddPackFindersEvent event) {
+    if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+      Path resourcePackPath = ModList.get().getModFileById(MoreBlocks.ID).getFile().findResource("resourcepacks/update_1_21");
+      Pack pack = Pack.readMetaAndCreate(
+        OnPlayerJoinOrLeaveWorld.EXPERIMENTAL_1_21_RP.toString(),
+        Component.translatable("somemoreblocks.resourcepack.update_1_21.name"),
+        false,
+        new PathPackResources.PathResourcesSupplier(resourcePackPath, false),
+        PackType.CLIENT_RESOURCES,
+        Pack.Position.BOTTOM,
+        PackSource.BUILT_IN);
+
+      event.addRepositorySource((consumer) -> consumer.accept(pack));
+    }
+  }
+
+
+
+
+
+
+
+
+
+
   private void commonSetup(final FMLClientSetupEvent event) {
     event.enqueueWork(() -> {
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.LUMINOUS_FLOWER.getId(), MBBlocks.POTTED_LUMINOUS_FLOWER);
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.SNOW_FERN.getId(), MBBlocks.POTTED_SNOW_FERN);
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.TINY_CACTUS.getId(), MBBlocks.POTTED_TINY_CACTUS);
+
+      ModelPredicate.register(MBItems.LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+      ModelPredicate.register(MBItems.SPRUCE_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+      ModelPredicate.register(MBItems.BIRCH_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+      ModelPredicate.register(MBItems.AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+      ModelPredicate.register(MBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
 
       registerSnowyBlocks();
       registerCompostableItems();
