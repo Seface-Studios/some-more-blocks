@@ -35,12 +35,14 @@ Be free to help us to increase the languages available for the mod on the [Crowd
 ### Want to create a Resource Pack?
 In [this repository](https://github.com/Seface-Studios/some-more-blocks-rp) you can find multiple Resource Packs template with the mod textures.
 
+---
+
 #### In loving memory of Nicolle Gama ⭐
 In the midst of questions and despair I heard the following sentence: _In a garden, the most beautiful flowers are chosen first._ I dream of the day when I can finally meet her again. - Leonardo "_Fyat" Gava, your fiancé.
 
 ---
 <div>
-  <img align="right" height="64" width="64" src="https://raw.githubusercontent.com/Seface-Blocks/some-more-blocks/main/.github/assets/icon_64.gif" title="Some More Blocks Icon">
+  <img align="right" height="64" width="64" src="https://raw.githubusercontent.com/Seface-Blocks/some-more-blocks/main/.github/assets/icon_64.gif" title="Some More Blocks Icon" />
   
   <h3>Seface Studios</h3>
   <p><a href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> · <a title="X (FKA Twitter)" href="https://x.com/SefaceStudios">@SefaceStudios</a></p>
