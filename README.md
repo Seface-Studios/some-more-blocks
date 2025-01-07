@@ -32,14 +32,16 @@ Be free to help us to increase the languages available for the mod on the [Crowd
 > [!NOTE]
 > Have you found any bug or inconsistency in the new blocks? Please open an [issue](https://github.com/Seface-Blocks/more-blocks-mod/issues) for us to review and correct in future versions.
 
+### Want to create a Resource Pack?
+In [this repository](https://github.com/Seface-Studios/some-more-blocks-rp) you can find multiple Resource Packs template with the mod textures.
+
 #### In loving memory of Nicolle Gama ⭐
 In the midst of questions and despair I heard the following sentence: _In a garden, the most beautiful flowers are chosen first._ I dream of the day when I can finally meet her again. - Leonardo "_Fyat" Gava, your fiancé.
 
 ---
 <div>
-  <!-- <img align="right" height="64" width="64" src="https://raw.githubusercontent.com/Seface-Blocks/more-blocks-mod/main/.github/assets/icon_64.gif" title="More Blocks Icon"> -->
-  <img align="right" height="64" width="64" src="https://media.discordapp.net/attachments/1214009345419776050/1214985059153608756/Thumb_Mine_2024.gif?ex=65fb1a03&is=65e8a503&hm=77fc44086e8207785832a0802d2fe81d3ee1e05edb6f5c1c8fb3e3d78ae55586&" title="More Blocks Icon">
+  <img align="right" height="64" width="64" src="https://raw.githubusercontent.com/Seface-Blocks/some-more-blocks/main/.github/assets/icon_64.gif" title="Some More Blocks Icon">
   
   <h3>Seface Studios</h3>
-  <p><a href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> · <a title="X/Twitter" href="https://x.com/SefaceStudios">@SefaceStudios</a></p>
+  <p><a href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> · <a title="X (FKA Twitter)" href="https://x.com/SefaceStudios">@SefaceStudios</a></p>
 </div>

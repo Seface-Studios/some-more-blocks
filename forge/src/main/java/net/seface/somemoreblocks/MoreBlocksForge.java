@@ -68,15 +68,6 @@ public class MoreBlocksForge {
     }
   }
 
-
-
-
-
-
-
-
-
-
   private void commonSetup(final FMLClientSetupEvent event) {
     event.enqueueWork(() -> {
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.LUMINOUS_FLOWER.getId(), MBBlocks.POTTED_LUMINOUS_FLOWER);
