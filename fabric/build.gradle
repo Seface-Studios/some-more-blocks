@@ -6,16 +6,16 @@ plugins {
 }
 
 base {
-    archivesName = "${mod_name.replaceAll(' ', '')}@fabric-${minecraft_version}"
+  archivesName = "${mod_name.replaceAll(' ', '')}@fabric-${minecraft_version}"
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
-    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
-    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
-    compileOnly project(":common")
+  minecraft "com.mojang:minecraft:${minecraft_version}"
+  mappings loom.officialMojangMappings()
+  modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+  modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+  implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+  compileOnly project(":common")
 }
 
 fabricApi {
@@ -25,57 +25,57 @@ fabricApi {
 }
 
 loom {
-    if (project(":common").file("src/main/resources/${mod_id}.accesswidener").exists()) {
-        accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))
+  if (project(":common").file("src/main/resources/${mod_id}.accesswidener").exists()) {
+    accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))
+  }
+
+  mixin {
+    defaultRefmapName.set("${mod_id}.refmap.json")
+  }
+
+  runs {
+    client {
+      client()
+      setConfigName("Fabric Client")
+      ideConfigGenerated(true)
+      runDir("run")
     }
 
-    mixin {
-        defaultRefmapName.set("${mod_id}.refmap.json")
+    server {
+      server()
+      setConfigName("Fabric Server")
+      ideConfigGenerated(true)
+      runDir("run")
     }
-
-    runs {
-        client {
-            client()
-            setConfigName("Fabric Client")
-            ideConfigGenerated(true)
-            runDir("run")
-        }
-
-        server {
-            server()
-            setConfigName("Fabric Server")
-            ideConfigGenerated(true)
-            runDir("run")
-        }
-    }
+  }
 }
 
 tasks.withType(JavaCompile).configureEach {
-    source(project(":common").sourceSets.main.allSource)
+  source(project(":common").sourceSets.main.allSource)
 }
 
 tasks.withType(Javadoc).configureEach {
-    source(project(":common").sourceSets.main.allJava)
+  source(project(":common").sourceSets.main.allJava)
 }
 
 tasks.named("sourcesJar", Jar) {
-    from(project(":common").sourceSets.main.allSource)
+  from(project(":common").sourceSets.main.allSource)
 }
 
 processResources {
-    from project(":common").sourceSets.main.resources
+  from project(":common").sourceSets.main.resources
 }
 
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifactId this.base.archivesName.get()
-            from this.components.java
-        }
+  publications {
+    mavenJava(MavenPublication) {
+      artifactId this.base.archivesName.get()
+      from this.components.java
     }
+  }
 
-    repositories {
-        mavenCentral()
-        maven { url "file://" + System.getenv("local_maven") }
-    }
+  repositories {
+    mavenCentral()
+    maven { url "file://" + System.getenv("local_maven") }
+  }
 }
