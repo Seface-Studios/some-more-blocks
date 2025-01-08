@@ -9,18 +9,15 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.*;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.seface.somemoreblocks.event.OnPlayerJoinOrLeaveWorld;
-import net.seface.somemoreblocks.registry.*;
-import net.seface.somemoreblocks.utils.MBUtils;
+import net.seface.somemoreblocks.registry.MBBlocks;
 import net.seface.somemoreblocks.registry.MBFeatures;
-import net.seface.somemoreblocks.utils.ResourcePackManager;
+import net.seface.somemoreblocks.registry.MBItemGroups;
+import net.seface.somemoreblocks.registry.MBItems;
+import net.seface.somemoreblocks.utils.MBUtils;
 import net.seface.somemoreblocks.worldgen.MBBiomeModifiers;
 
 import java.util.Optional;
@@ -155,11 +152,11 @@ public class MoreBlocksFabric implements ModInitializer {
    * Register new fuels.
    */
   private static void registerFuels() {
-    FuelRegistry.INSTANCE.add(MBItems.COAL_BRICKS, FuelRegistry.INSTANCE.get(Blocks.COAL_BLOCK) * 2);
-    FuelRegistry.INSTANCE.add(MBItems.CRACKED_COAL_BRICKS, FuelRegistry.INSTANCE.get(Blocks.COAL_BLOCK) + 3200);
-    FuelRegistry.INSTANCE.add(MBItems.COAL_PILLAR, FuelRegistry.INSTANCE.get(Blocks.COAL_BLOCK));
-    FuelRegistry.INSTANCE.add(MBItems.CUT_COAL, FuelRegistry.INSTANCE.get(Blocks.COAL_BLOCK) * 3);
-    FuelRegistry.INSTANCE.add(MBItems.CRACKED_CUT_COAL, FuelRegistry.INSTANCE.get(Blocks.COAL_BLOCK) + 3200);
+    FuelRegistry.INSTANCE.add(MBItems.COAL_BRICKS, Constants.COAL_BRICKS_FUEL);
+    FuelRegistry.INSTANCE.add(MBItems.CRACKED_COAL_BRICKS, Constants.CRACKED_COAL_BRICKS_FUEL);
+    FuelRegistry.INSTANCE.add(MBItems.COAL_PILLAR, Constants.COAL_PILLAR_FUEL);
+    FuelRegistry.INSTANCE.add(MBItems.CUT_COAL, Constants.CUT_COAL_FUEL);
+    FuelRegistry.INSTANCE.add(MBItems.CRACKED_CUT_COAL, Constants.CRACKED_CUT_COAL_FUEL);
   }
 
   /**

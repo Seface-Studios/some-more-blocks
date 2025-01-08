@@ -47,7 +47,7 @@ public class RecipeProvider extends FabricRecipeProvider {
     String group = tiledGlassPane instanceof StainedGlassPaneBlock ? "stained_tiled_glass_pane" : "tiled_glass_pane";
 
     // With Dye in the center
-    if (group.equals("stained_tiled_glass_pane")) {
+    if (tiledGlassPane instanceof StainedGlassPaneBlock) {
       DyeItem dye = DyeItem.byColor(((StainedGlassPaneBlock) tiledGlassPane).getColor());
 
       ResourceLocation fromTiledGlassPane = BuiltInRegistries.ITEM.getKey(tiledGlassPane.asItem())

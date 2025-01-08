@@ -2,7 +2,7 @@ package net.seface.somemoreblocks.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
-import net.minecraft.advancements.*;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.seface.somemoreblocks.datagen.core.RecipeAdvancement;

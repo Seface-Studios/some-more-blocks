@@ -8,8 +8,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.seface.somemoreblocks.data.MBPlacedFeature;
 import net.seface.somemoreblocks.data.MBBiomeTags;
+import net.seface.somemoreblocks.data.MBPlacedFeature;
 
 public class MBBiomeModifiers {
   public static void register() {

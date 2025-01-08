@@ -1,22 +1,19 @@
 package net.seface.somemoreblocks.registry;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.MoreBlocks;
-import net.seface.somemoreblocks.block.*;
-import net.seface.somemoreblocks.block.BigLilyPadBlock;
-import net.seface.somemoreblocks.block.GenericBonemealableBushBlock;
 import net.seface.somemoreblocks.api.IPoweredBlockMixin;
+import net.seface.somemoreblocks.block.*;
 import net.seface.somemoreblocks.data.MBBlockTags;
 
 public class MBBlocks {
@@ -35,7 +32,7 @@ public class MBBlocks {
   public static final Block FLOWERING_AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.FLOWERING_AZALEA_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 10.0F);
   public static final Block SPRUCE_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 12.5F);
   public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 12.5F);
-  public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((state) -> 10));
+  public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((state) -> Constants.LUMINOUS_FLOWER_LIGHT_LEVEL));
   public static final Block RED_MUSHROOM_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
   public static final Block TALL_RED_MUSHROOM_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
   public static final Block RED_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.RED_MUSHROOM_COLONY).dropsLike(MBBlocks.RED_MUSHROOM_COLONY));
@@ -50,7 +47,7 @@ public class MBBlocks {
   public static final Block WARPED_FUNGUS_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS));
   public static final Block TALL_WARPED_FUNGUS_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS));
   public static final Block WARPED_FUNGUS_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.WARPED_FUNGUS_COLONY).dropsLike(MBBlocks.WARPED_FUNGUS_COLONY));
-  public static final Block POTTED_LUMINOUS_FLOWER = createFlowerPotBlock(LUMINOUS_FLOWER, 10);
+  public static final Block POTTED_LUMINOUS_FLOWER = createFlowerPotBlock(LUMINOUS_FLOWER, Constants.POTTED_LUMINOUS_FLOWER_LIGHT_LEVEL);
   public static final Block POTTED_SNOW_FERN = createFlowerPotBlock(SNOW_FERN);
   public static final Block POTTED_TINY_CACTUS = createFlowerPotBlock(TINY_CACTUS);
 
@@ -447,9 +444,9 @@ public class MBBlocks {
   public static final Block CRACKED_CUT_GOLD = new Block(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK));
   public static final Block GOLD_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK));
   public static final Block REDSTONE_BRICKS = new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
-  public static final Block CRACKED_REDSTONE_BRICKS = ((IPoweredBlockMixin) new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(7);
+  public static final Block CRACKED_REDSTONE_BRICKS = ((IPoweredBlockMixin) new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(Constants.CRACKED_REDSTONE_BRICKS_SIGNAL_LEVEL);
   public static final Block CUT_REDSTONE = new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
-  public static final Block CRACKED_CUT_REDSTONE = ((IPoweredBlockMixin) new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(7);
+  public static final Block CRACKED_CUT_REDSTONE = ((IPoweredBlockMixin) new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(Constants.CRACKED_CUT_REDSTONE_SIGNAL_LEVEL);
   public static final Block REDSTONE_PILLAR = new PoweredRotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
   public static final Block EMERALD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK));
   public static final Block CRACKED_EMERALD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK));
@@ -478,23 +475,23 @@ public class MBBlocks {
   public static final Block CUT_AMETHYST = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK));
   public static final Block CRACKED_CUT_AMETHYST = new Block(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK));
   public static final Block AMETHYST_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.AMETHYST_BLOCK));
-  public static final Block SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_BROWN).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block WHITE_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_WHITE).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block LIGHT_GRAY_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block GRAY_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block BLACK_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_BLACK).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block BROWN_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_BROWN).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block RED_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_RED).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block ORANGE_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block YELLOW_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_YELLOW).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block LIME_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_LIGHT_GREEN).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block GREEN_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block CYAN_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_CYAN).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block LIGHT_BLUE_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block BLUE_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_BLUE).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block PURPLE_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_PURPLE).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block MAGENTA_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_MAGENTA).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
-  public static final Block PINK_SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_PINK).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(1.25F, 4.2F).sounds(SoundType.DEEPSLATE_TILES));
+  public static final Block SHINGLES = new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_BROWN).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(Constants.SHINGLES_DESTROY_TIME, Constants.SHINGLES_EXPLOSION_RESISTANCE).sounds(SoundType.DEEPSLATE_TILES));
+  public static final Block WHITE_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_WHITE));
+  public static final Block LIGHT_GRAY_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY));
+  public static final Block GRAY_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_GRAY));
+  public static final Block BLACK_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_BLACK));
+  public static final Block BROWN_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_BROWN));
+  public static final Block RED_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_RED));
+  public static final Block ORANGE_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_ORANGE));
+  public static final Block YELLOW_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_YELLOW));
+  public static final Block LIME_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_LIGHT_GREEN));
+  public static final Block GREEN_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_GREEN));
+  public static final Block CYAN_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_CYAN));
+  public static final Block LIGHT_BLUE_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_LIGHT_BLUE));
+  public static final Block BLUE_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_BLUE));
+  public static final Block PURPLE_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_PURPLE));
+  public static final Block MAGENTA_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_MAGENTA));
+  public static final Block PINK_SHINGLES = new Block(FabricBlockSettings.copyOf(MBBlocks.SHINGLES).mapColor(MapColor.TERRACOTTA_PINK));
   public static final Block OAK_MOSAIC = new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS));
   public static final Block OAK_MOSAIC_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.OAK_MOSAIC));
   public static final Block OAK_MOSAIC_STAIRS = new StairBlock(OAK_MOSAIC.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.OAK_MOSAIC));

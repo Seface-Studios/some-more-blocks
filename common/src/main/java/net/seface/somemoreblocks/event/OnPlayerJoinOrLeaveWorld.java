@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.WorldData;
+import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.MoreBlocks;
 import net.seface.somemoreblocks.utils.ResourcePackManager;
 
@@ -32,7 +33,7 @@ public class OnPlayerJoinOrLeaveWorld {
 
     if (player.getTags().contains(tagID)) return;
 
-    MutableComponent prefix = Component.literal(MoreBlocks.MOD_NAME).withColor(MoreBlocks.AMESFACE_COLOR)
+    MutableComponent prefix = Component.literal(MoreBlocks.MOD_NAME).withColor(Constants.AMESFACE_COLOR)
       .append(Component.literal(" › ").withStyle(ChatFormatting.GRAY));
 
     String readMoreURL = "https://github.com/Seface-Studios/some-more-blocks/tree/main/common/src/main/resources/resourcepacks";
@@ -44,7 +45,7 @@ public class OnPlayerJoinOrLeaveWorld {
       .withStyle(style -> style.withColor(ChatFormatting.GRAY))
       .append(" ")
       .append(Component.translatable("somemoreblocks.resourcepack.update_1_21.read_more")
-        .withColor(MoreBlocks.GREENFUL_COLOR)
+        .withColor(Constants.GREENFUL_COLOR)
         .withStyle(style ->
           style.withHoverEvent(readMoreHover)
             .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, readMoreURL))

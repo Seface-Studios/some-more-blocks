@@ -7,8 +7,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.MoreBlocks;
-import net.seface.somemoreblocks.registry.MBBlocks;
 import net.seface.somemoreblocks.data.MBBlockTags;
+import net.seface.somemoreblocks.registry.MBBlocks;
 import net.seface.somemoreblocks.worldgen.feature.FallenLeafFeature;
 
 import java.util.function.Supplier;

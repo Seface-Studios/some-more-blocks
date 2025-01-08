@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /*
-  Why not use "getToolModifiedState" method in a new class?
+  Why not use "getToolModifiedState" method in a new block class?
 
   Since we are not adding new log type, but using the existent stripped logs/woods, we need to mixin on forge edition.
   Thanks Fabric for making this easily by adding just a method.
@@ -35,7 +35,7 @@ public abstract class AxeItemMixin {
   private void getStrippedMixin(BlockState state, CallbackInfoReturnable<Optional<BlockState>> cir) {
     Block carvedVariation = CarvedBlockRegistry.getCarvedBlocks().get(state.getBlock());
 
-    // Used to avoid the override of default getStripped return
+    // Used to avoid the override of default getStripped return.
     if (carvedVariation != null) {
       cir.setReturnValue(
         Optional.of(carvedVariation).map(

@@ -13,10 +13,10 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.MoreBlocks;
-import net.seface.somemoreblocks.block.*;
-import net.seface.somemoreblocks.block.GenericBonemealableBushBlock;
 import net.seface.somemoreblocks.api.IPoweredBlockMixin;
+import net.seface.somemoreblocks.block.*;
 import net.seface.somemoreblocks.data.MBBlockTags;
 import net.seface.somemoreblocks.item.FuelItem;
 import org.jetbrains.annotations.Nullable;
@@ -44,7 +44,7 @@ public class MBBlocks {
   public static final RegistryObject<Block> FLOWERING_AZALEA_LEAF_LITTER = registerBlock("flowering_azalea_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWERING_AZALEA_LEAVES).replaceable().noCollission().instabreak(), 20.0F), false);
   public static final RegistryObject<Block> SPRUCE_LEAF_LITTER = registerBlock("spruce_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_LEAVES).replaceable().noCollission().instabreak(), 25.0F), false);
   public static final RegistryObject<Block> LEAF_LITTER = registerBlock("leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).replaceable().noCollission().instabreak(), 25.0F), false);
-  public static final RegistryObject<Block> LUMINOUS_FLOWER = registerBlock("luminous_flower", () -> new LuminousFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION).lightLevel((blockStatex) -> 10)));
+  public static final RegistryObject<Block> LUMINOUS_FLOWER = registerBlock("luminous_flower", () -> new LuminousFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION).lightLevel((blockStatex) -> Constants.LUMINOUS_FLOWER_LIGHT_LEVEL)));
 
   public static final RegistryObject<Block> RED_MUSHROOM_COLONY = registerBlock("red_mushroom_colony", () -> new SmallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)), false);
   public static final RegistryObject<Block> TALL_RED_MUSHROOM_COLONY = registerBlock("tall_red_mushroom_colony", () -> new DoubleMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)), false);
@@ -63,7 +63,7 @@ public class MBBlocks {
   public static final RegistryObject<Block> TALL_WARPED_FUNGUS_COLONY = registerBlock("tall_warped_fungus_colony", () -> new DoubleMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS)), false);
   public static final RegistryObject<Block> WARPED_FUNGUS_COLONY_WALL = registerBlock("warped_fungus_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.WARPED_FUNGUS_COLONY.get())), false);
 
-  public static final RegistryObject<Block> POTTED_LUMINOUS_FLOWER = createAndRegisterFlowerPotBlock("potted_luminous_flower", MBBlocks.LUMINOUS_FLOWER, 10);
+  public static final RegistryObject<Block> POTTED_LUMINOUS_FLOWER = createAndRegisterFlowerPotBlock("potted_luminous_flower", MBBlocks.LUMINOUS_FLOWER, Constants.POTTED_LUMINOUS_FLOWER_LIGHT_LEVEL);
   public static final RegistryObject<Block> POTTED_SNOW_FERN = createAndRegisterFlowerPotBlock("potted_snow_fern", MBBlocks.SNOW_FERN);
   public static final RegistryObject<Block> POTTED_TINY_CACTUS = createAndRegisterFlowerPotBlock("potted_tiny_cactus", MBBlocks.TINY_CACTUS);
 
@@ -439,11 +439,11 @@ public class MBBlocks {
   public static final RegistryObject<Block> SOUL_SANDSTONE_TILE_WALL = registerBlock("soul_sandstone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SOUL_SANDSTONE_TILES.get()).forceSolidOn()));
   public static final RegistryObject<Block> CRACKED_SOUL_SANDSTONE_TILES = registerBlock("cracked_soul_sandstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
   public static final RegistryObject<Block> SOUL_SANDSTONE_PILLAR = registerBlock("soul_sandstone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
-  public static final RegistryObject<Block> COAL_BRICKS = registerBlock("coal_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)));
-  public static final RegistryObject<Block> CRACKED_COAL_BRICKS = registerBlock("cracked_coal_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)));
-  public static final RegistryObject<Block> CUT_COAL = registerBlock("cut_coal", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)));
-  public static final RegistryObject<Block> CRACKED_CUT_COAL = registerBlock("cracked_cut_coal", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)));
-  public static final RegistryObject<Block> COAL_PILLAR = registerBlock("coal_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)));
+  public static final RegistryObject<Block> COAL_BRICKS = registerBlock("coal_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)), Constants.COAL_BRICKS_FUEL);
+  public static final RegistryObject<Block> CRACKED_COAL_BRICKS = registerBlock("cracked_coal_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)), Constants.CRACKED_COAL_BRICKS_FUEL);
+  public static final RegistryObject<Block> CUT_COAL = registerBlock("cut_coal", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)), Constants.CUT_COAL_FUEL);
+  public static final RegistryObject<Block> CRACKED_CUT_COAL = registerBlock("cracked_cut_coal", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)), Constants.CRACKED_CUT_COAL_FUEL);
+  public static final RegistryObject<Block> COAL_PILLAR = registerBlock("coal_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK)), Constants.COAL_PILLAR_FUEL);
   public static final RegistryObject<Block> IRON_BRICKS = registerBlock("iron_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
   public static final RegistryObject<Block> CRACKED_IRON_BRICKS = registerBlock("cracked_iron_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
   public static final RegistryObject<Block> CUT_IRON = registerBlock("cut_iron", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
@@ -456,9 +456,9 @@ public class MBBlocks {
   public static final RegistryObject<Block> CRACKED_CUT_GOLD = registerBlock("cracked_cut_gold", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
   public static final RegistryObject<Block> GOLD_PILLAR = registerBlock("gold_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
   public static final RegistryObject<Block> REDSTONE_BRICKS = registerBlock("redstone_bricks", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
-  public static final RegistryObject<Block> CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", () -> ((IPoweredBlockMixin) new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(7));
+  public static final RegistryObject<Block> CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", () -> ((IPoweredBlockMixin) new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(Constants.CRACKED_REDSTONE_BRICKS_SIGNAL_LEVEL));
   public static final RegistryObject<Block> CUT_REDSTONE = registerBlock("cut_redstone", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
-  public static final RegistryObject<Block> CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", () -> ((IPoweredBlockMixin) new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(7));
+  public static final RegistryObject<Block> CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", () -> ((IPoweredBlockMixin) new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(Constants.CRACKED_CUT_REDSTONE_SIGNAL_LEVEL));
   public static final RegistryObject<Block> REDSTONE_PILLAR = registerBlock("redstone_pillar", () -> new PoweredRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
   public static final RegistryObject<Block> EMERALD_BRICKS = registerBlock("emerald_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
   public static final RegistryObject<Block> CRACKED_EMERALD_BRICKS = registerBlock("cracked_emerald_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
@@ -487,23 +487,25 @@ public class MBBlocks {
   public static final RegistryObject<Block> CUT_AMETHYST = registerBlock("cut_amethyst", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)));
   public static final RegistryObject<Block> CRACKED_CUT_AMETHYST = registerBlock("cracked_cut_amethyst", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)));
   public static final RegistryObject<Block> AMETHYST_PILLAR = registerBlock("amethyst_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)));
-  public static final RegistryObject<Block> SHINGLES = registerBlock("shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> WHITE_SHINGLES = registerBlock("white_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> LIGHT_GRAY_SHINGLES = registerBlock("light_gray_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> GRAY_SHINGLES = registerBlock("gray_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> BLACK_SHINGLES = registerBlock("black_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLACK).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> BROWN_SHINGLES = registerBlock("brown_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> RED_SHINGLES = registerBlock("red_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> ORANGE_SHINGLES = registerBlock("orange_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> YELLOW_SHINGLES = registerBlock("yellow_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> LIME_SHINGLES = registerBlock("lime_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_GREEN).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> GREEN_SHINGLES = registerBlock("green_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GREEN).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> CYAN_SHINGLES = registerBlock("cyan_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> LIGHT_BLUE_SHINGLES = registerBlock("light_blue_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> BLUE_SHINGLES = registerBlock("blue_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> PURPLE_SHINGLES = registerBlock("purple_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> MAGENTA_SHINGLES = registerBlock("magenta_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_MAGENTA).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
-  public static final RegistryObject<Block> PINK_SHINGLES = registerBlock("pink_shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PINK).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.25F, 4.2F).sound(SoundType.DEEPSLATE_TILES)));
+
+  public static final RegistryObject<Block> SHINGLES = registerBlock("shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(Constants.SHINGLES_DESTROY_TIME, Constants.SHINGLES_EXPLOSION_RESISTANCE).sound(SoundType.DEEPSLATE_TILES)));
+  public static final RegistryObject<Block> WHITE_SHINGLES = registerBlock("white_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(MBBlocks.SHINGLES.get()).mapColor(MapColor.TERRACOTTA_WHITE)));
+  public static final RegistryObject<Block> LIGHT_GRAY_SHINGLES = registerBlock("light_gray_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY)));
+  public static final RegistryObject<Block> GRAY_SHINGLES = registerBlock("gray_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_GRAY)));
+  public static final RegistryObject<Block> BLACK_SHINGLES = registerBlock("black_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_BLACK)));
+  public static final RegistryObject<Block> BROWN_SHINGLES = registerBlock("brown_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_BROWN)));
+  public static final RegistryObject<Block> RED_SHINGLES = registerBlock("red_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_RED)));
+  public static final RegistryObject<Block> ORANGE_SHINGLES = registerBlock("orange_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_ORANGE)));
+  public static final RegistryObject<Block> YELLOW_SHINGLES = registerBlock("yellow_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_YELLOW)));
+  public static final RegistryObject<Block> LIME_SHINGLES = registerBlock("lime_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_LIGHT_GREEN)));
+  public static final RegistryObject<Block> GREEN_SHINGLES = registerBlock("green_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_GREEN)));
+  public static final RegistryObject<Block> CYAN_SHINGLES = registerBlock("cyan_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_CYAN)));
+  public static final RegistryObject<Block> LIGHT_BLUE_SHINGLES = registerBlock("light_blue_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_LIGHT_BLUE)));
+  public static final RegistryObject<Block> BLUE_SHINGLES = registerBlock("blue_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_BLUE)));
+  public static final RegistryObject<Block> PURPLE_SHINGLES = registerBlock("purple_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
+  public static final RegistryObject<Block> MAGENTA_SHINGLES = registerBlock("magenta_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_MAGENTA)));
+  public static final RegistryObject<Block> PINK_SHINGLES = registerBlock("pink_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_PINK)));
+
   public static final RegistryObject<Block> OAK_MOSAIC = registerBlock("oak_mosaic", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
   public static final RegistryObject<Block> OAK_MOSAIC_SLAB = registerBlock("oak_mosaic_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MBBlocks.OAK_MOSAIC.get())));
   public static final RegistryObject<Block> OAK_MOSAIC_STAIRS = registerBlock("oak_mosaic_stairs", () -> new StairBlock(OAK_MOSAIC.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MBBlocks.OAK_MOSAIC.get())));
@@ -669,6 +671,10 @@ public class MBBlocks {
 
   private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, boolean registerItemBlock) {
     return registerBlock(name, block, registerItemBlock, null);
+  }
+
+  private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, Integer fuel) {
+    return registerBlock(name, block, true, fuel);
   }
 
   private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, boolean registerItemBlock, @Nullable Integer fuel) {
