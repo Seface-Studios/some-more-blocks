@@ -1,5 +1,6 @@
 package net.seface.somemoreblocks;
 
+import com.google.common.collect.ImmutableMap;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -9,6 +10,7 @@ import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
@@ -17,12 +19,14 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.seface.somemoreblocks.event.OnPlayerJoinOrLeaveWorld;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.registry.MBBlocks;
 import net.seface.somemoreblocks.registry.MBCreativeTabs;
 import net.seface.somemoreblocks.registry.MBItems;
+import net.seface.somemoreblocks.utils.CarvedBlockRegistry;
 import net.seface.somemoreblocks.utils.MBUtils;
 import net.seface.somemoreblocks.utils.ModelPredicate;
 import net.seface.somemoreblocks.worldgen.MBBiomeModifier;
@@ -43,14 +47,9 @@ public class MoreBlocksForge {
     MBBiomeModifier.register(eventBus);
 
     eventBus.addListener(this::clientSetup);
-    eventBus.addListener(this::commonSetup);
     eventBus.addListener(this::registerColorProviders);
     eventBus.addListener(MBCreativeTabs::buildContents);
     eventBus.addListener(this::addPackFinders);
-  }
-
-  private void clientSetup(final FMLClientSetupEvent event) {
-    this.registerBlockRenders();
   }
 
   public void addPackFinders(AddPackFindersEvent event) {
@@ -69,7 +68,7 @@ public class MoreBlocksForge {
     }
   }
 
-  private void commonSetup(final FMLClientSetupEvent event) {
+  private void clientSetup(final FMLClientSetupEvent event) {
     event.enqueueWork(() -> {
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.LUMINOUS_FLOWER.getId(), MBBlocks.POTTED_LUMINOUS_FLOWER);
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(MBBlocks.SNOW_FERN.getId(), MBBlocks.POTTED_SNOW_FERN);
@@ -81,9 +80,35 @@ public class MoreBlocksForge {
       ModelPredicate.register(MBItems.AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
       ModelPredicate.register(MBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
 
+      registerCarvedBlocks();
+      registerBlockRenders();
       registerSnowyBlocks();
       registerCompostableItems();
     });
+  }
+
+  private static void registerCarvedBlocks() {
+    CarvedBlockRegistry.register(Blocks.STRIPPED_OAK_WOOD, MBBlocks.CARVED_OAK_WOOD.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_OAK_LOG, MBBlocks.CARVED_OAK_LOG.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_DARK_OAK_WOOD, MBBlocks.CARVED_DARK_OAK_WOOD.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_DARK_OAK_LOG, MBBlocks.CARVED_DARK_OAK_LOG.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_ACACIA_WOOD, MBBlocks.CARVED_ACACIA_WOOD.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_ACACIA_LOG, MBBlocks.CARVED_ACACIA_LOG.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_CHERRY_WOOD, MBBlocks.CARVED_CHERRY_WOOD.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_CHERRY_LOG, MBBlocks.CARVED_CHERRY_LOG.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_BIRCH_WOOD, MBBlocks.CARVED_BIRCH_WOOD.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_BIRCH_LOG, MBBlocks.CARVED_BIRCH_LOG.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_JUNGLE_WOOD, MBBlocks.CARVED_JUNGLE_WOOD.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_JUNGLE_LOG, MBBlocks.CARVED_JUNGLE_LOG.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_SPRUCE_WOOD, MBBlocks.CARVED_SPRUCE_WOOD.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_SPRUCE_LOG, MBBlocks.CARVED_SPRUCE_LOG.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_WARPED_STEM, MBBlocks.CARVED_WARPED_STEM.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_WARPED_HYPHAE, MBBlocks.CARVED_WARPED_HYPHAE.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_CRIMSON_STEM, MBBlocks.CARVED_CRIMSON_STEM.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_CRIMSON_HYPHAE, MBBlocks.CARVED_CRIMSON_HYPHAE.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_MANGROVE_WOOD, MBBlocks.CARVED_MANGROVE_WOOD.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_MANGROVE_LOG, MBBlocks.CARVED_MANGROVE_LOG.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_BAMBOO_BLOCK, MBBlocks.CARVED_BAMBOO_BLOCK.get());
   }
 
   /**
@@ -162,7 +187,7 @@ public class MoreBlocksForge {
     MBUtils.registerSnowVariationBlock(Blocks.LARGE_FERN, MBBlocks.LARGE_SNOW_FERN.get());
   }
 
-  private void registerBlockRenders() {
+  private static void registerBlockRenders() {
     ItemBlockRenderTypes.setRenderLayer(MBBlocks.TILED_GLASS.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(MBBlocks.TILED_TINTED_GLASS.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(MBBlocks.WHITE_STAINED_TILED_GLASS.get(), RenderType.translucent());

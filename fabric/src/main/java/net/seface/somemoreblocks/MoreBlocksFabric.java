@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.LandPathNodeTypesRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -45,6 +46,7 @@ public class MoreBlocksFabric implements ModInitializer {
     registerWaxableCopperBlocks();
     registerFuels();
     registerSnowyBlocks();
+    registerStrippableBlocks();
   }
 
   /**
@@ -123,7 +125,30 @@ public class MoreBlocksFabric implements ModInitializer {
     MBUtils.registerSnowVariationBlock(Blocks.SHORT_GRASS, MBBlocks.SHORT_SNOW_GRASS);
     MBUtils.registerSnowVariationBlock(Blocks.TALL_GRASS, MBBlocks.TALL_SNOW_GRASS);
     MBUtils.registerSnowVariationBlock(Blocks.FERN, MBBlocks.SNOW_FERN);
-    MBUtils.registerSnowVariationBlock(Blocks.LARGE_FERN, MBBlocks.LARGE_SNOW_FERN);
+  }
+
+  private static void registerStrippableBlocks() {
+    StrippableBlockRegistry.register(Blocks.STRIPPED_OAK_WOOD, MBBlocks.CARVED_OAK_WOOD);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_OAK_LOG, MBBlocks.CARVED_OAK_LOG);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_DARK_OAK_WOOD, MBBlocks.CARVED_DARK_OAK_WOOD);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_DARK_OAK_LOG, MBBlocks.CARVED_DARK_OAK_LOG);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_ACACIA_WOOD, MBBlocks.CARVED_ACACIA_WOOD);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_ACACIA_LOG, MBBlocks.CARVED_ACACIA_LOG);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_CHERRY_WOOD, MBBlocks.CARVED_CHERRY_WOOD);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_CHERRY_LOG, MBBlocks.CARVED_CHERRY_LOG);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_BIRCH_WOOD, MBBlocks.CARVED_BIRCH_WOOD);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_BIRCH_LOG, MBBlocks.CARVED_BIRCH_LOG);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_JUNGLE_WOOD, MBBlocks.CARVED_JUNGLE_WOOD);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_JUNGLE_LOG, MBBlocks.CARVED_JUNGLE_LOG);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_SPRUCE_WOOD, MBBlocks.CARVED_SPRUCE_WOOD);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_SPRUCE_LOG, MBBlocks.CARVED_SPRUCE_LOG);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_WARPED_STEM, MBBlocks.CARVED_WARPED_STEM);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_WARPED_HYPHAE, MBBlocks.CARVED_WARPED_HYPHAE);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_CRIMSON_STEM, MBBlocks.CARVED_CRIMSON_STEM);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_CRIMSON_HYPHAE, MBBlocks.CARVED_CRIMSON_HYPHAE);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_MANGROVE_WOOD, MBBlocks.CARVED_MANGROVE_WOOD);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_MANGROVE_LOG, MBBlocks.CARVED_MANGROVE_LOG);
+    StrippableBlockRegistry.register(Blocks.STRIPPED_BAMBOO_BLOCK, MBBlocks.CARVED_BAMBOO_BLOCK);
   }
 
   /**

@@ -23,5 +23,8 @@ public final class MBBlockTags extends MBData {
   public static final TagKey<Block> LEAF_LITTERS = createTagKey(Registries.BLOCK, "leaf_litters");
   public static final TagKey<Block> LEAF_LITTERS_PLACEABLE = createTagKey(Registries.BLOCK, "leaf_litters_placeable");
 
+  public static final TagKey<Block> CARVED_LOGS = createTagKey(Registries.BLOCK, "carved_logs");
+  public static final TagKey<Block> CARVED_STEMS = createTagKey(Registries.BLOCK, "carved_stems");
+
   private MBBlockTags() {}
 }

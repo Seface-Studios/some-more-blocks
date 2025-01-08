@@ -18,9 +18,7 @@ minecraft {
   mappings channel: 'official', version: minecraft_version
   copyIdeResources = true
 
-  if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-  }
+  accessTransformer = project(":forge").file('src/main/resources/META-INF/accesstransformer.cfg')
 
   runs {
     client {
