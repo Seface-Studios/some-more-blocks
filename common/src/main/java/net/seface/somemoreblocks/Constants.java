@@ -13,13 +13,13 @@ public abstract class Constants {
 
   /*
    * Fuel Values
-   *  - The "16000" represents the fuel value for the vanilla "Block of Coal".
    * */
+  private static final int $COAL_BLOCK_FUEL = 16000;
   private static final int $MAX_FUEL = 32767;
-  public static final int COAL_BRICKS_FUEL = 16000 * 2;
-  public static final int COAL_PILLAR_FUEL = 16000;
-  public static final int CRACKED_COAL_BRICKS_FUEL = 16000 + 3200;
-  public static final int CRACKED_CUT_COAL_FUEL = 16000 + 3800;
+  public static final int COAL_BRICKS_FUEL = $COAL_BLOCK_FUEL * 2;
+  public static final int COAL_PILLAR_FUEL = $COAL_BLOCK_FUEL;
+  public static final int CRACKED_COAL_BRICKS_FUEL = $COAL_BLOCK_FUEL + 3200;
+  public static final int CRACKED_CUT_COAL_FUEL = $COAL_BLOCK_FUEL + 3800;
   public static final int CUT_COAL_FUEL = $MAX_FUEL;
 
   /*
