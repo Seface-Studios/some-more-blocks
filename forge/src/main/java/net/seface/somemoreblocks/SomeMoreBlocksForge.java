@@ -20,16 +20,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.seface.somemoreblocks.event.OnPlayerJoinOrLeaveWorld;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
-import net.seface.somemoreblocks.registries.CarvedBlockRegistry;
-import net.seface.somemoreblocks.registries.SnowyBushRegistry;
-import net.seface.somemoreblocks.registries.WaxableCopperBlockRegistry;
-import net.seface.somemoreblocks.registries.WeatheringCopperBlockRegistry;
-import net.seface.somemoreblocks.registries.SMBBlocks;
-import net.seface.somemoreblocks.registries.SMBCreativeTabs;
-import net.seface.somemoreblocks.registries.SMBItems;
+import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.utils.*;
-import net.seface.somemoreblocks.registries.SMBBiomeModifiers;
-import net.seface.somemoreblocks.registries.SMBFeatures;
 
 import java.nio.file.Path;
 
@@ -272,11 +264,11 @@ public class SomeMoreBlocksForge {
    * Registers values related to ModelPredicate.
    */
   private static void registerModelPredicateProviders() {
-    ModelPredicate.register(SMBItems.LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicate.register(SMBItems.SPRUCE_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicate.register(SMBItems.BIRCH_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicate.register(SMBItems.AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicate.register(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+    ModelPredicateRegistry.register(SMBItems.LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+    ModelPredicateRegistry.register(SMBItems.SPRUCE_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+    ModelPredicateRegistry.register(SMBItems.BIRCH_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+    ModelPredicateRegistry.register(SMBItems.AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+    ModelPredicateRegistry.register(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
   }
 
   public void addPackFinders(AddPackFindersEvent event) {

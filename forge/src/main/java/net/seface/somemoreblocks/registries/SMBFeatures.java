@@ -24,8 +24,13 @@ public class SMBFeatures {
       .addLeafLitterBlock(SMBBlockTags.FLOWERING_AZALEA_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get())
   );
 
-  private static <T extends Feature<?>> RegistryObject<T> registerFeature(String name, Supplier<T> feature) {
-      return FEATURES.register(name, feature);
+  /**
+   * Create and register a generic feature.
+   * @param identifier The Feature identifier.
+   * @param feature The feature instance.
+   */
+  private static <T extends Feature<?>> RegistryObject<T> registerFeature(String identifier, Supplier<T> feature) {
+      return FEATURES.register(identifier, feature);
   }
 
   public static void register(IEventBus event) {

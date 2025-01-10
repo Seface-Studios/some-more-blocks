@@ -31,8 +31,13 @@ public class SMBItems {
   public static final RegistryObject<Item> WARPED_FUNGUS_COLONY = registerItem("warped_fungus_colony", () -> new StandingAndWallBlockItem(SMBBlocks.WARPED_FUNGUS_COLONY.get(), SMBBlocks.WARPED_FUNGUS_COLONY_WALL.get(), new Item.Properties().rarity(Rarity.EPIC), Direction.DOWN));
   public static final RegistryObject<Item> SMALL_LILY_PADS = registerItem("small_lily_pads", () -> new PlaceOnWaterBlockItem(SMBBlocks.SMALL_LILY_PADS.get(), new Item.Properties()));
 
-  public static <T extends Item> RegistryObject<T> registerItem(String name, Supplier<T> item) {
-      return SMBItems.ITEMS.register(name, item);
+  /**
+   * Create and register a generic item.
+   * @param identifier The Item identifier.
+   * @param item The item instance.
+   */
+  public static <T extends Item> RegistryObject<T> registerItem(String identifier, Supplier<T> item) {
+      return SMBItems.ITEMS.register(identifier, item);
   }
 
   public static void register(IEventBus event) {

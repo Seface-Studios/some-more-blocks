@@ -17,8 +17,6 @@ import net.seface.somemoreblocks.block.*;
 import net.seface.somemoreblocks.data.SMBBlockTags;
 
 public class SMBBlocks {
-
-  // Custom Plants & Flower Pots
   public static final Block AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.AZALEA_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.AZALEA_LEAF_LITTER_CHANCE);
   public static final Block BIRCH_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.BIRCH_LEAF_LITTER_CHANCE);
   public static final Block BIG_LILY_PAD = new BigLilyPadBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).pushReaction(PushReaction.BLOCK));
@@ -50,8 +48,6 @@ public class SMBBlocks {
   public static final Block POTTED_LUMINOUS_FLOWER = createFlowerPotBlock(LUMINOUS_FLOWER, Constants.POTTED_LUMINOUS_FLOWER_LIGHT_LEVEL);
   public static final Block POTTED_SNOW_FERN = createFlowerPotBlock(SNOW_FERN);
   public static final Block POTTED_TINY_CACTUS = createFlowerPotBlock(TINY_CACTUS);
-
-  // Custom Generic Blocks
   public static final Block OCHRE_REDSTONE_FROGLIGHT = new RedstoneLampBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_LAMP).sounds(SoundType.FROGLIGHT));
   public static final Block PEARLESCENT_REDSTONE_FROGLIGHT = new RedstoneLampBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_LAMP).sounds(SoundType.FROGLIGHT));
   public static final Block VERDANT_REDSTONE_FROGLIGHT = new RedstoneLampBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_LAMP).sounds(SoundType.FROGLIGHT));
@@ -267,10 +263,6 @@ public class SMBBlocks {
   public static final Block CRACKED_POLISHED_BLACKSTONE_TILES = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BLACKSTONE_BRICKS));
   public static final Block POLISHED_BLACKSTONE_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.POLISHED_BLACKSTONE_BRICKS));
   public static final Block CRACKED_QUARTZ_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BRICKS));
-  //public static final Block MOSSY_QUARTZ_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BRICKS));
-  //public static final Block MOSSY_QUARTZ_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_QUARTZ_BRICKS));
-  //public static final Block MOSSY_QUARTZ_BRICK_STAIRS = new StairBlock(MOSSY_QUARTZ_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(MBBlocks.MOSSY_QUARTZ_BRICKS));
-  //public static final Block MOSSY_QUARTZ_BRICK_WALL = new WallBlock(FabricBlockSettings.copyOf(MBBlocks.MOSSY_QUARTZ_BRICKS).solid());
   public static final Block CUT_QUARTZ = new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BRICKS));
   public static final Block CRACKED_CUT_QUARTZ = new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BRICKS));
   public static final Block POLISHED_MUD = new Block(FabricBlockSettings.copyOf(Blocks.MUD_BRICKS));
@@ -566,7 +558,6 @@ public class SMBBlocks {
   public static final Block PURPLE_STAINED_TILED_GLASS = new StainedGlassBlock(DyeColor.PURPLE, FabricBlockSettings.copyOf(Blocks.PURPLE_STAINED_GLASS));
   public static final Block MAGENTA_STAINED_TILED_GLASS = new StainedGlassBlock(DyeColor.MAGENTA, FabricBlockSettings.copyOf(Blocks.MAGENTA_STAINED_GLASS));
   public static final Block PINK_STAINED_TILED_GLASS = new StainedGlassBlock(DyeColor.PINK, FabricBlockSettings.copyOf(Blocks.PINK_STAINED_GLASS));
-
   public static final Block TILED_GLASS_PANE = new IronBarsBlock(FabricBlockSettings.copyOf(Blocks.GLASS_PANE));
   public static final Block WHITE_STAINED_TILED_GLASS_PANE = new StainedGlassPaneBlock(DyeColor.WHITE, FabricBlockSettings.copyOf(Blocks.WHITE_STAINED_GLASS_PANE));
   public static final Block LIGHT_GRAY_STAINED_TILED_GLASS_PANE = new StainedGlassPaneBlock(DyeColor.LIGHT_GRAY, FabricBlockSettings.copyOf(Blocks.LIGHT_GRAY_STAINED_GLASS_PANE));
@@ -584,7 +575,6 @@ public class SMBBlocks {
   public static final Block PURPLE_STAINED_TILED_GLASS_PANE = new StainedGlassPaneBlock(DyeColor.PURPLE, FabricBlockSettings.copyOf(Blocks.PURPLE_STAINED_GLASS_PANE));
   public static final Block MAGENTA_STAINED_TILED_GLASS_PANE = new StainedGlassPaneBlock(DyeColor.MAGENTA, FabricBlockSettings.copyOf(Blocks.MAGENTA_STAINED_GLASS_PANE));
   public static final Block PINK_STAINED_TILED_GLASS_PANE = new StainedGlassPaneBlock(DyeColor.PINK, FabricBlockSettings.copyOf(Blocks.PINK_STAINED_GLASS_PANE));
-
   public static final Block BONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK));
   public static final Block BONE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(SMBBlocks.BONE_BRICKS));
   public static final Block BONE_BRICK_STAIRS = new StairBlock(BONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(SMBBlocks.BONE_BRICKS));
@@ -661,8 +651,6 @@ public class SMBBlocks {
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "waxed_exposed_copper_pillar"), WAXED_EXPOSED_COPPER_PILLAR);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "waxed_weathered_copper_pillar"), WAXED_WEATHERED_COPPER_PILLAR);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "waxed_oxidized_copper_pillar"), WAXED_OXIDIZED_COPPER_PILLAR);
-
-    // Custom Plants & Flower Pots
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "tiny_cactus"), TINY_CACTUS);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "potted_tiny_cactus"), POTTED_TINY_CACTUS);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "dune_grass"), DUNE_GRASS);
@@ -697,8 +685,6 @@ public class SMBBlocks {
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "ochre_redstone_froglight"), OCHRE_REDSTONE_FROGLIGHT);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "pearlescent_redstone_froglight"), PEARLESCENT_REDSTONE_FROGLIGHT);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "verdant_redstone_froglight"), VERDANT_REDSTONE_FROGLIGHT);
-
-    // Custom Blocks
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "packed_snow"), PACKED_SNOW);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "packed_snow_slab"), PACKED_SNOW_SLAB);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "packed_snow_stairs"), PACKED_SNOW_STAIRS);
@@ -1206,7 +1192,6 @@ public class SMBBlocks {
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "purple_stained_tiled_glass"), PURPLE_STAINED_TILED_GLASS);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "magenta_stained_tiled_glass"), MAGENTA_STAINED_TILED_GLASS);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "pink_stained_tiled_glass"), PINK_STAINED_TILED_GLASS);
-
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "tiled_glass_pane"), TILED_GLASS_PANE);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "white_stained_tiled_glass_pane"), WHITE_STAINED_TILED_GLASS_PANE);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "light_gray_stained_tiled_glass_pane"), LIGHT_GRAY_STAINED_TILED_GLASS_PANE);
@@ -1224,7 +1209,6 @@ public class SMBBlocks {
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "purple_stained_tiled_glass_pane"), PURPLE_STAINED_TILED_GLASS_PANE);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "magenta_stained_tiled_glass_pane"), MAGENTA_STAINED_TILED_GLASS_PANE);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "pink_stained_tiled_glass_pane"), PINK_STAINED_TILED_GLASS_PANE);
-
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "bone_bricks"), BONE_BRICKS);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "bone_brick_slab"), BONE_BRICK_SLAB);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "bone_brick_stairs"), BONE_BRICK_STAIRS);
@@ -1237,11 +1221,22 @@ public class SMBBlocks {
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "cracked_bone_tiles"), CRACKED_BONE_TILES);
   }
 
-  private static Block createFlowerPotBlock(Block block) {
-    return createFlowerPotBlock(block, 0);
+  /**
+   * Create and register a generic flower pot.
+   * @param plant The Plant-like block instance.
+   * @return The registered potted flower block.
+   */
+  private static Block createFlowerPotBlock(Block plant) {
+    return createFlowerPotBlock(plant, 0);
   }
 
-  private static Block createFlowerPotBlock(Block block, int lightLevel) {
-    return new FlowerPotBlock(block, FabricBlockSettings.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY).lightLevel((state) -> lightLevel));
+  /**
+   * Create and register a generic flower pot with light level.
+   * @param plant The Plant-like block instance.
+   * @param lightLevel The light level.
+   * @return The registered potted flower block.
+   */
+  private static Block createFlowerPotBlock(Block plant, int lightLevel) {
+    return new FlowerPotBlock(plant, FabricBlockSettings.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY).lightLevel((state) -> lightLevel));
   }
 }

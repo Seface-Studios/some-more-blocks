@@ -6,9 +6,9 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
+import net.seface.somemoreblocks.registries.ModelPredicateRegistry;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.registries.SMBItems;
-import net.seface.somemoreblocks.utils.ModelPredicateRegistry;
 
 public class SomeMoreBlocksFabricClient implements ClientModInitializer {
 

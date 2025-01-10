@@ -26,30 +26,23 @@ import java.util.function.Supplier;
 public class SMBBlocks {
   public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SomeMoreBlocks.ID);
 
-  // Custom Plants & Flower Pots
   public static final RegistryObject<Block> AZALEA_LEAF_LITTER = registerBlock("azalea_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA_LEAVES).replaceable().noCollission().instabreak(), Constants.AZALEA_LEAF_LITTER_CHANCE), false);
   public static final RegistryObject<Block> BIRCH_LEAF_LITTER = registerBlock("birch_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_LEAVES).replaceable().noCollission().instabreak(), Constants.BIRCH_LEAF_LITTER_CHANCE), false);
   public static final RegistryObject<Block> BIG_LILY_PAD = registerBlock("big_lily_pad", () -> new BigLilyPadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).pushReaction(PushReaction.BLOCK)), false);
-
   public static final RegistryObject<Block> BROWN_MUSHROOM_COLONY = registerBlock("brown_mushroom_colony", () -> new MushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)), false);
   public static final RegistryObject<Block> TALL_BROWN_MUSHROOM_COLONY = registerBlock("tall_brown_mushroom_colony", () -> new DoubleMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)), false);
   public static final RegistryObject<Block> BROWN_MUSHROOM_COLONY_WALL = registerBlock("brown_mushroom_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.BROWN_MUSHROOM_COLONY.get())), false);
-
   public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new CattailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS).noCollission()));
-
   public static final RegistryObject<Block> CRIMSON_FUNGUS_COLONY = registerBlock("crimson_fungus_colony", () -> new MushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_FUNGUS)), false);
   public static final RegistryObject<Block> TALL_CRIMSON_FUNGUS_COLONY = registerBlock("tall_crimson_fungus_colony", () -> new DoubleMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_FUNGUS)), false);
   public static final RegistryObject<Block> CRIMSON_FUNGUS_COLONY_WALL = registerBlock("crimson_fungus_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.CRIMSON_FUNGUS_COLONY.get())), false);
-
   public static final RegistryObject<Block> FLOWERING_AZALEA_LEAF_LITTER = registerBlock("flowering_azalea_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWERING_AZALEA_LEAVES).replaceable().noCollission().instabreak(), Constants.FLOWERING_AZALEA_LEAF_LITTER_CHANCE), false);
   public static final RegistryObject<Block> SPRUCE_LEAF_LITTER = registerBlock("spruce_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_LEAVES).replaceable().noCollission().instabreak(), Constants.SPRUCE_LEAF_LITTER_CHANCE), false);
   public static final RegistryObject<Block> LEAF_LITTER = registerBlock("leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).replaceable().noCollission().instabreak(), Constants.LEAF_LITTER_CHANCE), false);
   public static final RegistryObject<Block> LUMINOUS_FLOWER = registerBlock("luminous_flower", () -> new LuminousFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION).lightLevel((blockStatex) -> Constants.LUMINOUS_FLOWER_LIGHT_LEVEL)));
-
   public static final RegistryObject<Block> RED_MUSHROOM_COLONY = registerBlock("red_mushroom_colony", () -> new MushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)), false);
   public static final RegistryObject<Block> TALL_RED_MUSHROOM_COLONY = registerBlock("tall_red_mushroom_colony", () -> new DoubleMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_MUSHROOM)), false);
   public static final RegistryObject<Block> RED_MUSHROOM_COLONY_WALL = registerBlock("red_mushroom_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RED_MUSHROOM_COLONY.get())), false);
-
   public static final RegistryObject<Block> SMALL_LILY_PADS = registerBlock("small_lily_pads", () -> new WaterlilyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).noCollission()), false);
   public static final RegistryObject<Block> TALL_DUNE_GRASS = registerBlock("tall_dune_grass", () -> new DoubleDuneGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
   public static final RegistryObject<Block> DUNE_GRASS = registerBlock("dune_grass", () -> new GenericBonemealableBushBlock(SMBBlocks.TALL_DUNE_GRASS.get(), SMBBlockTags.DUNE_GRASS_PLACEABLE, BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
@@ -58,16 +51,12 @@ public class SMBBlocks {
   public static final RegistryObject<Block> TALL_SNOW_GRASS = registerBlock("tall_snow_grass", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
   public static final RegistryObject<Block> SHORT_SNOW_GRASS = registerBlock("short_snow_grass", () -> new GenericBonemealableBushBlock(SMBBlocks.TALL_SNOW_GRASS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
   public static final RegistryObject<Block> TINY_CACTUS = registerBlock("tiny_cactus", () -> new TinyCactusBlock(MobEffects.POISON, 7, BlockBehaviour.Properties.ofFullCopy(Blocks.TORCHFLOWER)));
-
   public static final RegistryObject<Block> WARPED_FUNGUS_COLONY = registerBlock("warped_fungus_colony", () -> new MushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS)), false);
   public static final RegistryObject<Block> TALL_WARPED_FUNGUS_COLONY = registerBlock("tall_warped_fungus_colony", () -> new DoubleMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS)), false);
   public static final RegistryObject<Block> WARPED_FUNGUS_COLONY_WALL = registerBlock("warped_fungus_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.WARPED_FUNGUS_COLONY.get())), false);
-
   public static final RegistryObject<Block> POTTED_LUMINOUS_FLOWER = createAndRegisterFlowerPotBlock("potted_luminous_flower", SMBBlocks.LUMINOUS_FLOWER, Constants.POTTED_LUMINOUS_FLOWER_LIGHT_LEVEL);
   public static final RegistryObject<Block> POTTED_SNOW_FERN = createAndRegisterFlowerPotBlock("potted_snow_fern", SMBBlocks.SNOW_FERN);
   public static final RegistryObject<Block> POTTED_TINY_CACTUS = createAndRegisterFlowerPotBlock("potted_tiny_cactus", SMBBlocks.TINY_CACTUS);
-
-  // Custom Generic Blocks
   public static final RegistryObject<Block> OCHRE_REDSTONE_FROGLIGHT = registerBlock("ochre_redstone_froglight", () -> new RedstoneLampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_LAMP).sound(SoundType.FROGLIGHT)));
   public static final RegistryObject<Block> PEARLESCENT_REDSTONE_FROGLIGHT = registerBlock("pearlescent_redstone_froglight", () -> new RedstoneLampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_LAMP).sound(SoundType.FROGLIGHT)));
   public static final RegistryObject<Block> VERDANT_REDSTONE_FROGLIGHT = registerBlock("verdant_redstone_froglight", () -> new RedstoneLampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_LAMP).sound(SoundType.FROGLIGHT)));
@@ -487,7 +476,6 @@ public class SMBBlocks {
   public static final RegistryObject<Block> CUT_AMETHYST = registerBlock("cut_amethyst", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)));
   public static final RegistryObject<Block> CRACKED_CUT_AMETHYST = registerBlock("cracked_cut_amethyst", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)));
   public static final RegistryObject<Block> AMETHYST_PILLAR = registerBlock("amethyst_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)));
-
   public static final RegistryObject<Block> SHINGLES = registerBlock("shingles", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(Constants.SHINGLES_DESTROY_TIME, Constants.SHINGLES_EXPLOSION_RESISTANCE).sound(SoundType.DEEPSLATE_TILES)));
   public static final RegistryObject<Block> WHITE_SHINGLES = registerBlock("white_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.SHINGLES.get()).mapColor(MapColor.TERRACOTTA_WHITE)));
   public static final RegistryObject<Block> LIGHT_GRAY_SHINGLES = registerBlock("light_gray_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY)));
@@ -505,7 +493,6 @@ public class SMBBlocks {
   public static final RegistryObject<Block> PURPLE_SHINGLES = registerBlock("purple_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
   public static final RegistryObject<Block> MAGENTA_SHINGLES = registerBlock("magenta_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_MAGENTA)));
   public static final RegistryObject<Block> PINK_SHINGLES = registerBlock("pink_shingles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_PINK)));
-
   public static final RegistryObject<Block> OAK_MOSAIC = registerBlock("oak_mosaic", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)));
   public static final RegistryObject<Block> OAK_MOSAIC_SLAB = registerBlock("oak_mosaic_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.OAK_MOSAIC.get())));
   public static final RegistryObject<Block> OAK_MOSAIC_STAIRS = registerBlock("oak_mosaic_stairs", () -> new StairBlock(OAK_MOSAIC.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.OAK_MOSAIC.get())));
@@ -580,7 +567,6 @@ public class SMBBlocks {
   public static final RegistryObject<Block> PURPLE_STAINED_TILED_GLASS = registerBlock("purple_stained_tiled_glass", () -> new StainedGlassBlock(DyeColor.PURPLE, BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_STAINED_GLASS)));
   public static final RegistryObject<Block> MAGENTA_STAINED_TILED_GLASS = registerBlock("magenta_stained_tiled_glass", () -> new StainedGlassBlock(DyeColor.MAGENTA, BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_STAINED_GLASS)));
   public static final RegistryObject<Block> PINK_STAINED_TILED_GLASS = registerBlock("pink_stained_tiled_glass", () -> new StainedGlassBlock(DyeColor.PINK, BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_STAINED_GLASS)));
-
   public static final RegistryObject<Block> TILED_GLASS_PANE = registerBlock("tiled_glass_pane", () -> new IronBarsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS_PANE)));
   public static final RegistryObject<Block> WHITE_STAINED_TILED_GLASS_PANE = registerBlock("white_stained_tiled_glass_pane", () -> new StainedGlassPaneBlock(DyeColor.WHITE, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_STAINED_GLASS_PANE)));
   public static final RegistryObject<Block> LIGHT_GRAY_STAINED_TILED_GLASS_PANE = registerBlock("light_gray_stained_tiled_glass_pane", () -> new StainedGlassPaneBlock(DyeColor.LIGHT_GRAY, BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_STAINED_GLASS_PANE)));
@@ -598,7 +584,6 @@ public class SMBBlocks {
   public static final RegistryObject<Block> PURPLE_STAINED_TILED_GLASS_PANE = registerBlock("purple_stained_tiled_glass_pane", () -> new StainedGlassPaneBlock(DyeColor.PURPLE, BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_STAINED_GLASS_PANE)));
   public static final RegistryObject<Block> MAGENTA_STAINED_TILED_GLASS_PANE = registerBlock("magenta_stained_tiled_glass_pane", () -> new StainedGlassPaneBlock(DyeColor.MAGENTA, BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_STAINED_GLASS_PANE)));
   public static final RegistryObject<Block> PINK_STAINED_TILED_GLASS_PANE = registerBlock("pink_stained_tiled_glass_pane", () -> new StainedGlassPaneBlock(DyeColor.PINK, BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_STAINED_GLASS_PANE)));
-
   public static final RegistryObject<Block> BONE_BRICKS = registerBlock("bone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BONE_BLOCK)));
   public static final RegistryObject<Block> BONE_BRICK_SLAB = registerBlock("bone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.BONE_BRICKS.get())));
   public static final RegistryObject<Block> BONE_BRICK_STAIRS = registerBlock("bone_brick_stairs", () -> new StairBlock(BONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.BONE_BRICKS.get())));
@@ -609,7 +594,6 @@ public class SMBBlocks {
   public static final RegistryObject<Block> BONE_TILE_STAIRS = registerBlock("bone_tile_stairs", () -> new StairBlock(BONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.BONE_TILES.get())));
   public static final RegistryObject<Block> BONE_TILE_WALL = registerBlock("bone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.BONE_TILES.get()).forceSolidOn()));
   public static final RegistryObject<Block> CRACKED_BONE_TILES = registerBlock("cracked_bone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BONE_BLOCK)));
-
   public static final RegistryObject<Block> COPPER_BRICKS = registerBlock("copper_bricks", () -> new WeatheringCopperFullBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK)));
   public static final RegistryObject<Block> EXPOSED_COPPER_BRICKS = registerBlock("exposed_copper_bricks", () -> new WeatheringCopperFullBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.ofFullCopy(Blocks.EXPOSED_COPPER)));
   public static final RegistryObject<Block> WEATHERED_COPPER_BRICKS = registerBlock("weathered_copper_bricks", () -> new WeatheringCopperFullBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.ofFullCopy(Blocks.WEATHERED_COPPER)));
@@ -643,8 +627,14 @@ public class SMBBlocks {
   public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_PILLAR = registerBlock("waxed_weathered_copper_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.WEATHERED_COPPER_PILLAR.get())));
   public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_PILLAR = registerBlock("waxed_oxidized_copper_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.OXIDIZED_COPPER_PILLAR.get())));
 
-  private static RegistryObject<Block> createAndRegisterFlowerPotBlock(String name, Supplier<Block> plant) {
-    return registerBlock(name,
+  /**
+   * Create and register a generic flower pot.
+   * @param identifier The Block identifier.
+   * @param plant The Plant-like block instance.
+   * @return The registered potted flower block.
+   */
+  private static RegistryObject<Block> createAndRegisterFlowerPotBlock(String identifier, Supplier<Block> plant) {
+    return registerBlock(identifier,
       () -> new FlowerPotBlock(() ->
         ((FlowerPotBlock) Blocks.FLOWER_POT),
         plant,
@@ -654,8 +644,15 @@ public class SMBBlocks {
     );
   }
 
-  private static RegistryObject<Block> createAndRegisterFlowerPotBlock(String name, Supplier<Block> plant, int lightLevel) {
-    return registerBlock(name,
+  /**
+   * Create and register a generic flower pot with light level.
+   * @param identifier The Block identifier.
+   * @param plant The Plant-like block instance.
+   * @param lightLevel The light level.
+   * @return The registered potted flower block.
+   */
+  private static RegistryObject<Block> createAndRegisterFlowerPotBlock(String identifier, Supplier<Block> plant, int lightLevel) {
+    return registerBlock(identifier,
       () -> new FlowerPotBlock(() ->
         ((FlowerPotBlock) Blocks.FLOWER_POT),
         plant,
@@ -665,36 +662,75 @@ public class SMBBlocks {
     );
   }
 
-  private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
-    return registerBlock(name, block, true, null);
+  /**
+   * Create and register a generic block.
+   * @param identifier The Block identifier.
+   * @param block The block instance.
+   * @return The registered block.
+   */
+  private static <T extends Block> RegistryObject<T> registerBlock(String identifier, Supplier<T> block) {
+    return registerBlock(identifier, block, true, null);
   }
 
-  private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, boolean registerItemBlock) {
-    return registerBlock(name, block, registerItemBlock, null);
+  /**
+   * Create and register a generic block.
+   * @param identifier The Block identifier.
+   * @param block The block instance.
+   * @param registerItemBlock If true, auto-register the BlockItem instance.
+   * @return The registered block.
+   */
+  private static <T extends Block> RegistryObject<T> registerBlock(String identifier, Supplier<T> block, boolean registerItemBlock) {
+    return registerBlock(identifier, block, registerItemBlock, null);
   }
 
-  private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, Integer fuel) {
-    return registerBlock(name, block, true, fuel);
+  /**
+   * Create and register a generic block.
+   * @param identifier The Block identifier.
+   * @param block The block instance.
+   * @param fuel The fuel values for the block. Like the "Block of Coal".
+   * @return The registered block.
+   */
+  private static <T extends Block> RegistryObject<T> registerBlock(String identifier, Supplier<T> block, Integer fuel) {
+    return registerBlock(identifier, block, true, fuel);
   }
 
-  private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, boolean registerItemBlock, @Nullable Integer fuel) {
-    RegistryObject<T> blockInstance = BLOCKS.register(name, block);
+  /**
+   * Create and register a generic block.
+   * @param identifier The Block identifier.
+   * @param block The block instance.
+   * @param registerItemBlock If true, auto-register the BlockItem instance.
+   * @param fuel The fuel values for the block. Like the "Block of Coal".
+   * @return The registered block.
+   */
+  private static <T extends Block> RegistryObject<T> registerBlock(String identifier, Supplier<T> block, boolean registerItemBlock, @Nullable Integer fuel) {
+    RegistryObject<T> blockInstance = BLOCKS.register(identifier, block);
 
     if (registerItemBlock && fuel == null) {
-      registerBlockItem(name, blockInstance);
+      registerBlockItem(identifier, blockInstance);
     } else if (fuel != null) {
-      registerBlockItemWithFuel(name, blockInstance, fuel);
+      registerBlockItemWithFuel(identifier, blockInstance, fuel);
     }
 
     return blockInstance;
   }
 
-  private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-    return SMBItems.registerItem(name, () -> new BlockItem(block.get(), new Item.Properties()));
+  /**
+   * Create and register a generic block.
+   * @param identifier The Block identifier.
+   * @param block The block instance.
+   */
+  private static <T extends Block> void registerBlockItem(String identifier, RegistryObject<T> block) {
+    SMBItems.registerItem(identifier, () -> new BlockItem(block.get(), new Item.Properties()));
   }
 
-  private static <T extends Block> RegistryObject<Item> registerBlockItemWithFuel(String name, RegistryObject<T> block, int fuel) {
-    return SMBItems.registerItem(name, () -> new FuelItem(block.get(), new Item.Properties(), fuel));
+  /**
+   * Create and register a generic block.
+   * @param identifier The Block identifier.
+   * @param block The block instance.
+   * @param fuel The fuel values for the block. Like the "Block of Coal".
+   */
+  private static <T extends Block> void registerBlockItemWithFuel(String identifier, RegistryObject<T> block, int fuel) {
+    SMBItems.registerItem(identifier, () -> new FuelItem(block.get(), new Item.Properties(), fuel));
   }
 
   public static void register(IEventBus event) {

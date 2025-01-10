@@ -10,9 +10,7 @@ import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 
 public class SMBItems {
-  // Custom Plants
   public static final Item AZALEA_LEAVES_BUCKET = new LeavesBucketItem(SMBBlocks.AZALEA_LEAF_LITTER, SoundEvents.AZALEA_LEAVES_PLACE, (new Item.Properties()).stacksTo(1));
-
   public static final Item BIRCH_LEAVES_BUCKET = new LeavesBucketItem(SMBBlocks.BIRCH_LEAF_LITTER, SoundEvents.GRASS_PLACE, (new Item.Properties()).stacksTo(1));
   public static final Item BIG_LILY_PAD = new PlaceOnWaterBlockItem(SMBBlocks.BIG_LILY_PAD, new Item.Properties().rarity(Rarity.EPIC));
   public static final Item TALL_BROWN_MUSHROOM_COLONY = new BlockItem(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY, new Item.Properties().rarity(Rarity.EPIC));
@@ -36,8 +34,6 @@ public class SMBItems {
   public static final Item TALL_WARPED_FUNGUS_COLONY = new BlockItem(SMBBlocks.TALL_WARPED_FUNGUS_COLONY, new Item.Properties().rarity(Rarity.EPIC));
   public static final Item WARPED_FUNGUS_COLONY = new StandingAndWallBlockItem(SMBBlocks.WARPED_FUNGUS_COLONY, SMBBlocks.WARPED_FUNGUS_COLONY_WALL, new Item.Properties().rarity(Rarity.EPIC), Direction.DOWN);
   public static final Item TINY_CACTUS = new BlockItem(SMBBlocks.TINY_CACTUS, new Item.Properties());
-
-  // Custom Generic Blocks
   public static final Item ACACIA_MOSAIC = new BlockItem(SMBBlocks.ACACIA_MOSAIC, new Item.Properties());
   public static final Item ACACIA_MOSAIC_SLAB = new BlockItem(SMBBlocks.ACACIA_MOSAIC_SLAB, new Item.Properties());
   public static final Item ACACIA_MOSAIC_STAIRS = new BlockItem(SMBBlocks.ACACIA_MOSAIC_STAIRS, new Item.Properties());
@@ -353,10 +349,6 @@ public class SMBItems {
   public static final Item MOSSY_PURPUR_BLOCK_SLAB = new BlockItem(SMBBlocks.MOSSY_PURPUR_BLOCK_SLAB, new Item.Properties());
   public static final Item MOSSY_PURPUR_BLOCK_STAIRS = new BlockItem(SMBBlocks.MOSSY_PURPUR_BLOCK_STAIRS, new Item.Properties());
   public static final Item MOSSY_PURPUR_BLOCK_WALL = new BlockItem(SMBBlocks.MOSSY_PURPUR_BLOCK_WALL, new Item.Properties());
-  //public static final Item MOSSY_QUARTZ_BRICKS = new BlockItem(MBBlocks.MOSSY_QUARTZ_BRICKS, new Item.Properties());
-  //public static final Item MOSSY_QUARTZ_BRICK_SLAB = new BlockItem(MBBlocks.MOSSY_QUARTZ_BRICK_SLAB, new Item.Properties());
-  //public static final Item MOSSY_QUARTZ_BRICK_STAIRS = new BlockItem(MBBlocks.MOSSY_QUARTZ_BRICK_STAIRS, new Item.Properties());
-  //public static final Item MOSSY_QUARTZ_BRICK_WALL = new BlockItem(MBBlocks.MOSSY_QUARTZ_BRICK_WALL, new Item.Properties());
   public static final Item MOSSY_RED_SANDSTONE_BRICKS = new BlockItem(SMBBlocks.MOSSY_RED_SANDSTONE_BRICKS, new Item.Properties());
   public static final Item MOSSY_RED_SANDSTONE_BRICK_SLAB = new BlockItem(SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_SLAB, new Item.Properties());
   public static final Item MOSSY_RED_SANDSTONE_BRICK_STAIRS = new BlockItem(SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_STAIRS, new Item.Properties());
@@ -562,7 +554,6 @@ public class SMBItems {
   public static final Item YELLOW_TERRACOTTA_BRICKS = new BlockItem(SMBBlocks.YELLOW_TERRACOTTA_BRICKS, new Item.Properties());
   public static final Item YELLOW_TERRACOTTA_TILES = new BlockItem(SMBBlocks.YELLOW_TERRACOTTA_TILES, new Item.Properties());
   public static final Item OCHRE_REDSTONE_FROGLIGHT = new BlockItem(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT, new Item.Properties());
-
   public static final Item BLACK_STAINED_TILED_GLASS_PANE = new BlockItem(SMBBlocks.BLACK_STAINED_TILED_GLASS_PANE, new Item.Properties());
   public static final Item BLUE_STAINED_TILED_GLASS_PANE = new BlockItem(SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE, new Item.Properties());
   public static final Item BROWN_STAINED_TILED_GLASS_PANE = new BlockItem(SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE, new Item.Properties());
@@ -580,7 +571,6 @@ public class SMBItems {
   public static final Item TILED_GLASS_PANE = new BlockItem(SMBBlocks.TILED_GLASS_PANE, new Item.Properties());
   public static final Item WHITE_STAINED_TILED_GLASS_PANE = new BlockItem(SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE, new Item.Properties());
   public static final Item YELLOW_STAINED_TILED_GLASS_PANE = new BlockItem(SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE, new Item.Properties());
-
   public static final Item COPPER_BRICKS = new BlockItem(SMBBlocks.COPPER_BRICKS, new Item.Properties());
   public static final Item EXPOSED_COPPER_BRICKS = new BlockItem(SMBBlocks.EXPOSED_COPPER_BRICKS, new Item.Properties());
   public static final Item WEATHERED_COPPER_BRICKS = new BlockItem(SMBBlocks.WEATHERED_COPPER_BRICKS, new Item.Properties());
@@ -647,8 +637,6 @@ public class SMBItems {
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "waxed_exposed_copper_pillar"), WAXED_EXPOSED_COPPER_PILLAR);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "waxed_weathered_copper_pillar"), WAXED_WEATHERED_COPPER_PILLAR);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "waxed_oxidized_copper_pillar"), WAXED_OXIDIZED_COPPER_PILLAR);
-
-    // Plants
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "tiny_cactus"), TINY_CACTUS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "dune_grass"), DUNE_GRASS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "tall_dune_grass"), TALL_DUNE_GRASS);
@@ -673,12 +661,9 @@ public class SMBItems {
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "tall_warped_fungus_colony"), TALL_WARPED_FUNGUS_COLONY);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "crimson_fungus_colony"), CRIMSON_FUNGUS_COLONY);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "tall_crimson_fungus_colony"), TALL_CRIMSON_FUNGUS_COLONY);
-
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "ochre_redstone_froglight"), OCHRE_REDSTONE_FROGLIGHT);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "pearlescent_redstone_froglight"), PEARLESCENT_REDSTONE_FROGLIGHT);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "verdant_redstone_froglight"), VERDANT_REDSTONE_FROGLIGHT);
-
-    // Custom Blocks
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "packed_snow"), PACKED_SNOW);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "packed_snow_slab"), PACKED_SNOW_SLAB);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "packed_snow_stairs"), PACKED_SNOW_STAIRS);
@@ -891,10 +876,6 @@ public class SMBItems {
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cracked_polished_blackstone_tiles"), CRACKED_POLISHED_BLACKSTONE_TILES);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "polished_blackstone_pillar"), POLISHED_BLACKSTONE_PILLAR);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cracked_quartz_bricks"), CRACKED_QUARTZ_BRICKS);
-    //Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "mossy_quartz_bricks"), MOSSY_QUARTZ_BRICKS);
-    //Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "mossy_quartz_brick_slab"), MOSSY_QUARTZ_BRICK_SLAB);
-    //Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "mossy_quartz_brick_stairs"), MOSSY_QUARTZ_BRICK_STAIRS);
-    //Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MoreBlocks.ID, "mossy_quartz_brick_wall"), MOSSY_QUARTZ_BRICK_WALL);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cut_quartz"), CUT_QUARTZ);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cracked_cut_quartz"), CRACKED_CUT_QUARTZ);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "polished_mud"), POLISHED_MUD);
@@ -1190,7 +1171,6 @@ public class SMBItems {
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "purple_stained_tiled_glass"), PURPLE_STAINED_TILED_GLASS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "magenta_stained_tiled_glass"), MAGENTA_STAINED_TILED_GLASS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "pink_stained_tiled_glass"), PINK_STAINED_TILED_GLASS);
-
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "tiled_glass_pane"), TILED_GLASS_PANE);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "white_stained_tiled_glass_pane"), WHITE_STAINED_TILED_GLASS_PANE);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "light_gray_stained_tiled_glass_pane"), LIGHT_GRAY_STAINED_TILED_GLASS_PANE);
@@ -1208,7 +1188,6 @@ public class SMBItems {
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "purple_stained_tiled_glass_pane"), PURPLE_STAINED_TILED_GLASS_PANE);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "magenta_stained_tiled_glass_pane"), MAGENTA_STAINED_TILED_GLASS_PANE);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "pink_stained_tiled_glass_pane"), PINK_STAINED_TILED_GLASS_PANE);
-
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "bone_bricks"), BONE_BRICKS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "bone_brick_slab"), BONE_BRICK_SLAB);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "bone_brick_stairs"), BONE_BRICK_STAIRS);
