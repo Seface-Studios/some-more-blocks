@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.registry;
+package net.seface.somemoreblocks.registries;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
@@ -12,7 +12,7 @@ import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.utils.SMBUtils;
 
-public class SMBItemGroups {
+public class SMBCreativeTabs {
   private static final CreativeModeTab MORE_BUILDING_BLOCKS = FabricItemGroup.builder()
     .icon(() -> new ItemStack(SMBItems.MOSSY_BRICKS))
     .title(Component.translatable("itemGroup.somemoreblocks.buildingBlocks"))

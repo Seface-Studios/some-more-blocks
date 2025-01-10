@@ -16,7 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.seface.somemoreblocks.registry.SMBBlocks;
+import net.seface.somemoreblocks.registries.SMBBlocks;
 
 public class ModelProvider extends FabricModelProvider {
   private BlockModelGenerators blockModelGenerator;

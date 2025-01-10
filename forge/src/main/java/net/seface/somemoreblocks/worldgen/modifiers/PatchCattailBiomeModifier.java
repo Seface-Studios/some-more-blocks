@@ -8,7 +8,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
-import net.seface.somemoreblocks.worldgen.MBBiomeModifier;
+import net.seface.somemoreblocks.registries.SMBBiomeModifiers;
 
 public record PatchCattailBiomeModifier(HolderSet<Biome> biomes, Holder<PlacedFeature> feature) implements BiomeModifier {
   @Override
@@ -20,6 +20,6 @@ public record PatchCattailBiomeModifier(HolderSet<Biome> biomes, Holder<PlacedFe
 
   @Override
   public Codec<? extends BiomeModifier> codec() {
-    return MBBiomeModifier.PATCH_CATTAIL.get();
+    return SMBBiomeModifiers.PATCH_CATTAIL.get();
   }
 }

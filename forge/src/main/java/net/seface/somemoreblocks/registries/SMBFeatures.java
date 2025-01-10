@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.worldgen;
+package net.seface.somemoreblocks.registries;
 
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -8,12 +8,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.data.SMBBlockTags;
-import net.seface.somemoreblocks.registry.SMBBlocks;
 import net.seface.somemoreblocks.worldgen.feature.FallenLeafFeature;
 
 import java.util.function.Supplier;
 
-public class MBFeatures {
+public class SMBFeatures {
   private static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, SomeMoreBlocks.ID);
 
   public static final RegistryObject<FallenLeafFeature> LEAF_LITTER_FEATURE = registerFeature("none_leaf_litter",

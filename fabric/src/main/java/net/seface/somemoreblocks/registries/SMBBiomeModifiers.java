@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.worldgen;
+package net.seface.somemoreblocks.registries;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.seface.somemoreblocks.data.SMBBiomeTags;
 import net.seface.somemoreblocks.data.SMBPlacedFeature;
 
-public class MBBiomeModifiers {
+public class SMBBiomeModifiers {
   public static void register() {
     registerVegetalDecoration(SMBBiomeTags.GENERATES_CATTAIL, SMBPlacedFeature.PATCH_CATTAIL);
     registerUndergroundDecoration(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER, SMBPlacedFeature.PATCH_LUMINOUS_FLOWER);

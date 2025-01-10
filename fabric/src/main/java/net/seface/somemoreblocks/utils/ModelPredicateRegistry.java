@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 
-public record ModelPredicate() {
+public record ModelPredicateRegistry() {
 
   /**
    * Register a new Override predicate to be used on item model.

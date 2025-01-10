@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.registry;
+package net.seface.somemoreblocks.registries;
 
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;

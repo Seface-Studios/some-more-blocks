@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.registry;
+package net.seface.somemoreblocks.registries;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.Registry;

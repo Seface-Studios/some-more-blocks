@@ -7,7 +7,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.seface.somemoreblocks.datagen.core.RecipeAdvancement;
 import net.seface.somemoreblocks.datagen.core.RecipeAdvancementGroupType;
-import net.seface.somemoreblocks.registry.SMBItems;
+import net.seface.somemoreblocks.registries.SMBItems;
 
 import java.util.function.Consumer;
 

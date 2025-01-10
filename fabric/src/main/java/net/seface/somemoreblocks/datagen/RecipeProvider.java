@@ -11,7 +11,7 @@ import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StainedGlassPaneBlock;
-import net.seface.somemoreblocks.registry.SMBBlocks;
+import net.seface.somemoreblocks.registries.SMBBlocks;
 
 public class RecipeProvider extends FabricRecipeProvider {
   private RecipeOutput exporter;

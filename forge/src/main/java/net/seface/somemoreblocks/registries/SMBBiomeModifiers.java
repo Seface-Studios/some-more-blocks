@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.worldgen;
+package net.seface.somemoreblocks.registries;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -21,7 +21,7 @@ interface IBiomeModifier {
   Holder<PlacedFeature> feature(BiomeModifier biomeModifier);
 }
 
-public class MBBiomeModifier {
+public class SMBBiomeModifiers {
   private static final DeferredRegister<Codec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, SomeMoreBlocks.ID);
 
   public static RegistryObject<Codec<PatchCattailBiomeModifier>> PATCH_CATTAIL = createCodec("patch_cattail", PatchCattailBiomeModifier::new);

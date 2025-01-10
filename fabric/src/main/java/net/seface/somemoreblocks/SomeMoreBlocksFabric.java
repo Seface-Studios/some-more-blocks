@@ -4,7 +4,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.LandPathNodeTypesRegistry;
-import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -13,15 +12,16 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.seface.somemoreblocks.event.OnPlayerJoinOrLeaveWorld;
+import net.seface.somemoreblocks.registries.CarvedBlockRegistry;
 import net.seface.somemoreblocks.registries.SnowyBushRegistry;
-import net.seface.somemoreblocks.registry.SMBBlocks;
-import net.seface.somemoreblocks.registry.SMBFeatures;
-import net.seface.somemoreblocks.registry.SMBItemGroups;
-import net.seface.somemoreblocks.registry.SMBItems;
+import net.seface.somemoreblocks.registries.SMBBlocks;
+import net.seface.somemoreblocks.registries.SMBFeatures;
+import net.seface.somemoreblocks.registries.SMBCreativeTabs;
+import net.seface.somemoreblocks.registries.SMBItems;
 import net.seface.somemoreblocks.utils.SMBUtils;
 import net.seface.somemoreblocks.registries.WaxableCopperBlockRegistry;
 import net.seface.somemoreblocks.registries.WeatheringCopperBlockRegistry;
-import net.seface.somemoreblocks.worldgen.MBBiomeModifiers;
+import net.seface.somemoreblocks.registries.SMBBiomeModifiers;
 
 import java.util.Optional;
 
@@ -31,26 +31,26 @@ public class SomeMoreBlocksFabric implements ModInitializer {
   @Override
   public void onInitialize() {
     SomeMoreBlocks.init();
-    SMBItems.register();
     SMBBlocks.register();
-    SMBItemGroups.register();
+    SMBItems.register();
+    SMBCreativeTabs.register();
     SMBFeatures.register();
-    MBBiomeModifiers.register();
+    SMBBiomeModifiers.register();
 
     LandPathNodeTypesRegistry.register(SMBBlocks.TINY_CACTUS, (state, neighbor) -> BlockPathTypes.DAMAGE_OTHER);
 
     enableOrDisableExperimentalResourcePack();
 
+    registerCarvedBlocks();
     registerCompostableItems();
-    registerWeatheringCopperBlocks();
-    registerWaxableCopperBlocks();
     registerFuels();
     registerSnowyBlocks();
-    registerStrippableBlocks();
+    registerWaxableCopperBlocks();
+    registerWeatheringCopperBlocks();
   }
 
   /**
-   * Register new compostable items into composter block.
+   * Registers values related to Compostable items.
    */
   private static void registerCompostableItems() {
     SMBUtils.GenericRegistry.compostableItem(0.3F, SMBItems.TINY_CACTUS);
@@ -79,7 +79,7 @@ public class SomeMoreBlocksFabric implements ModInitializer {
   }
 
   /**
-   * Register new weathering copper blocks.
+   * Registers values related to Weathering-like blocks.
    */
   private static void registerWeatheringCopperBlocks() {
     WeatheringCopperBlockRegistry.register(SMBBlocks.COPPER_BRICKS, SMBBlocks.EXPOSED_COPPER_BRICKS);
@@ -97,7 +97,7 @@ public class SomeMoreBlocksFabric implements ModInitializer {
   }
 
   /**
-   * Register new waxable copper blocks.
+   * Registers values related to Waxable-like blocks.
    */
   private static void registerWaxableCopperBlocks() {
     WaxableCopperBlockRegistry.register(SMBBlocks.COPPER_BRICKS, SMBBlocks.WAXED_COPPER_BRICKS);
@@ -119,7 +119,7 @@ public class SomeMoreBlocksFabric implements ModInitializer {
   }
 
   /**
-   * Register new snow variation of some plants.
+   * Registers values related to Snowy-like blocks.
    */
   private static void registerSnowyBlocks() {
     SnowyBushRegistry.register(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS);
@@ -128,32 +128,41 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     SnowyBushRegistry.register(Blocks.LARGE_FERN, SMBBlocks.LARGE_SNOW_FERN);
   }
 
-  private static void registerStrippableBlocks() {
-    StrippableBlockRegistry.register(Blocks.STRIPPED_OAK_WOOD, SMBBlocks.CARVED_OAK_WOOD);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_OAK_LOG, SMBBlocks.CARVED_OAK_LOG);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_DARK_OAK_WOOD, SMBBlocks.CARVED_DARK_OAK_WOOD);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_DARK_OAK_LOG, SMBBlocks.CARVED_DARK_OAK_LOG);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_ACACIA_WOOD, SMBBlocks.CARVED_ACACIA_WOOD);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_ACACIA_LOG, SMBBlocks.CARVED_ACACIA_LOG);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_CHERRY_WOOD, SMBBlocks.CARVED_CHERRY_WOOD);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_CHERRY_LOG, SMBBlocks.CARVED_CHERRY_LOG);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_BIRCH_WOOD, SMBBlocks.CARVED_BIRCH_WOOD);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_BIRCH_LOG, SMBBlocks.CARVED_BIRCH_LOG);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_JUNGLE_WOOD, SMBBlocks.CARVED_JUNGLE_WOOD);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_JUNGLE_LOG, SMBBlocks.CARVED_JUNGLE_LOG);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_SPRUCE_WOOD, SMBBlocks.CARVED_SPRUCE_WOOD);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_SPRUCE_LOG, SMBBlocks.CARVED_SPRUCE_LOG);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_WARPED_STEM, SMBBlocks.CARVED_WARPED_STEM);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_WARPED_HYPHAE, SMBBlocks.CARVED_WARPED_HYPHAE);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_CRIMSON_STEM, SMBBlocks.CARVED_CRIMSON_STEM);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_CRIMSON_HYPHAE, SMBBlocks.CARVED_CRIMSON_HYPHAE);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_MANGROVE_WOOD, SMBBlocks.CARVED_MANGROVE_WOOD);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_MANGROVE_LOG, SMBBlocks.CARVED_MANGROVE_LOG);
-    StrippableBlockRegistry.register(Blocks.STRIPPED_BAMBOO_BLOCK, SMBBlocks.CARVED_BAMBOO_BLOCK);
+  /**
+   * Registers values related to Carved-like blocks.
+   */
+  private static void registerCarvedBlocks() {
+    /*
+     * "SeNiOr" dev: Why don't you use "StrippableBlockRegistry" from Fabric here?!!
+     *  - We want to encompass functionality between the two versions and avoid the specific modifications for them.
+     *    This makes more sense on 1.21.4 for example where the "Carved Pale Oak" has special functionality.
+     * */
+
+    CarvedBlockRegistry.register(Blocks.STRIPPED_OAK_WOOD, SMBBlocks.CARVED_OAK_WOOD);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_OAK_LOG, SMBBlocks.CARVED_OAK_LOG);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_DARK_OAK_WOOD, SMBBlocks.CARVED_DARK_OAK_WOOD);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_DARK_OAK_LOG, SMBBlocks.CARVED_DARK_OAK_LOG);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_ACACIA_WOOD, SMBBlocks.CARVED_ACACIA_WOOD);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_ACACIA_LOG, SMBBlocks.CARVED_ACACIA_LOG);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_CHERRY_WOOD, SMBBlocks.CARVED_CHERRY_WOOD);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_CHERRY_LOG, SMBBlocks.CARVED_CHERRY_LOG);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_BIRCH_WOOD, SMBBlocks.CARVED_BIRCH_WOOD);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_BIRCH_LOG, SMBBlocks.CARVED_BIRCH_LOG);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_JUNGLE_WOOD, SMBBlocks.CARVED_JUNGLE_WOOD);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_JUNGLE_LOG, SMBBlocks.CARVED_JUNGLE_LOG);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_SPRUCE_WOOD, SMBBlocks.CARVED_SPRUCE_WOOD);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_SPRUCE_LOG, SMBBlocks.CARVED_SPRUCE_LOG);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_WARPED_STEM, SMBBlocks.CARVED_WARPED_STEM);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_WARPED_HYPHAE, SMBBlocks.CARVED_WARPED_HYPHAE);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_CRIMSON_STEM, SMBBlocks.CARVED_CRIMSON_STEM);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_CRIMSON_HYPHAE, SMBBlocks.CARVED_CRIMSON_HYPHAE);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_MANGROVE_WOOD, SMBBlocks.CARVED_MANGROVE_WOOD);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_MANGROVE_LOG, SMBBlocks.CARVED_MANGROVE_LOG);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_BAMBOO_BLOCK, SMBBlocks.CARVED_BAMBOO_BLOCK);
   }
 
   /**
-   * Register new fuels.
+   * Registers Fuel values.
    */
   private static void registerFuels() {
     FuelRegistry.INSTANCE.add(SMBItems.COAL_BRICKS, Constants.COAL_BRICKS_FUEL);

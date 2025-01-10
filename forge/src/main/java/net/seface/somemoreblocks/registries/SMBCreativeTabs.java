@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.registry;
+package net.seface.somemoreblocks.registries;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
