@@ -25,6 +25,11 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * This block class does not represent the final version.
+ * @deprecated Marked as deprecated until is done.
+ */
+@Deprecated
 public class BigLilyPadBlock extends WaterlilyBlock {
   protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
   public static final IntegerProperty TEXTURE = IntegerProperty.create("texture", 0, 3);

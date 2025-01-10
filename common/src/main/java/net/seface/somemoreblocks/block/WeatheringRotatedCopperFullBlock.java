@@ -21,13 +21,14 @@ public class WeatheringRotatedCopperFullBlock extends RotatedPillarBlock impleme
   }
 
   @Override
-  public @NotNull Optional<BlockState> getNext(BlockState inputBlock) {
-    if (WeatheringCopperBlockRegistry.isPresentNext(inputBlock.getBlock())) {
-      return Optional.of(
-        WeatheringCopperBlockRegistry.getNextBlockMap().get(inputBlock.getBlock()).withPropertiesOf(inputBlock));
+  public @NotNull Optional<BlockState> getNext(BlockState state) {
+    Optional<BlockState> weathering = WeatheringCopperBlockRegistry.getNext(state);
+
+    if (weathering.isPresent()) {
+      return weathering;
     }
 
-    return Optional.of(WeatheringCopper.getNext(inputBlock.getBlock()).get().withPropertiesOf(inputBlock));
+    return Optional.of(WeatheringCopper.getNext(state.getBlock()).get().withPropertiesOf(state));
   }
 
   @Override
@@ -37,7 +38,7 @@ public class WeatheringRotatedCopperFullBlock extends RotatedPillarBlock impleme
 
   @Override
   public boolean isRandomlyTicking(BlockState state) {
-    return WeatheringCopperBlockRegistry.isPresentNext(state.getBlock()) || WeatheringCopper.getNext(state.getBlock()).isPresent();
+    return WeatheringCopperBlockRegistry.getNext(state).isPresent() || WeatheringCopper.getNext(state.getBlock()).isPresent();
   }
 
   @NotNull

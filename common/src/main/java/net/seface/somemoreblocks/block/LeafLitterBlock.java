@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.seface.somemoreblocks.data.MBBlockTags;
+import net.seface.somemoreblocks.data.SMBBlockTags;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -81,7 +81,7 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
   public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
     BlockState stateBelow = level.getBlockState(pos.below());
     return Block.isFaceFull(stateBelow.getCollisionShape(level, pos.below()), Direction.UP)
-      || stateBelow.is(MBBlockTags.LEAF_LITTERS_PLACEABLE);
+      || stateBelow.is(SMBBlockTags.LEAF_LITTERS_PLACEABLE);
   }
 
   @NotNull

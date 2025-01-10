@@ -6,7 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 
-public abstract class MBData {
+public abstract class SMBAbstractData {
   protected static <T> ResourceKey<T> createResourceKey(ResourceKey<Registry<T>> registryType, String identifier) {
     return ResourceKey.create(registryType, new ResourceLocation(SomeMoreBlocks.ID, identifier));
   }

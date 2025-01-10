@@ -10,28 +10,28 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.seface.somemoreblocks.data.MBBlockTags;
+import net.seface.somemoreblocks.data.SMBBlockTags;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
-public class SmallMushroomColonyBlock extends BushBlock {
-  public static final MapCodec<SmallMushroomColonyBlock> CODEC = simpleCodec(SmallMushroomColonyBlock::new);
+public class MushroomColonyBlock extends BushBlock {
+  public static final MapCodec<MushroomColonyBlock> CODEC = simpleCodec(MushroomColonyBlock::new);
   protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0);
 
   private final TagKey<Block> tagKey;
 
-  public SmallMushroomColonyBlock(BlockBehaviour.Properties properties) {
-    this(MBBlockTags.TINY_CACTUS_PLACEABLE, properties);
+  public MushroomColonyBlock(BlockBehaviour.Properties properties) {
+    this(SMBBlockTags.MUSHROOM_COLONY_PLACEABLE, properties);
   }
 
-  public SmallMushroomColonyBlock(TagKey<Block> tagKey, BlockBehaviour.Properties properties) {
+  public MushroomColonyBlock(TagKey<Block> tagKey, BlockBehaviour.Properties properties) {
     super(properties);
     this.tagKey = tagKey;
   }
 
   @NotNull
   @Override
-  public MapCodec<SmallMushroomColonyBlock> codec() {
+  public MapCodec<MushroomColonyBlock> codec() {
     return CODEC;
   }
 

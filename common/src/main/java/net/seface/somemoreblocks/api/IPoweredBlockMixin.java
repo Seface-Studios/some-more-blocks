@@ -9,5 +9,5 @@ public interface IPoweredBlockMixin {
    * @param value The Redstone power signal (in blocks).
    * @return The instance of PoweredBlock.
    */
-  Block MB$setSignalLevel(int value);
+  Block SMB$setSignalLevel(int value);
 }

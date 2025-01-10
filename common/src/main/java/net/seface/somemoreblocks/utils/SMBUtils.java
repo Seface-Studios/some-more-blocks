@@ -6,10 +6,17 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ComposterBlock;
-import net.seface.somemoreblocks.api.IBushBlock;
+import net.seface.somemoreblocks.registries.SnowyBushRegistry;
 
 public class SMBUtils {
 
+  /**
+   * Insert the item into specific Creative Tab only if a specific Feature is disabled.
+   * @param context The Creative Tab context.
+   * @param entry The Creative Tab entries.
+   * @param featureFlag The NOT wanted Feature Flag.
+   * @param item The item instance.
+   */
   public static void entryWithoutFeatureFlag(CreativeModeTab.ItemDisplayParameters context, CreativeModeTab.Output entry,
                                              FeatureFlag featureFlag, Item item) {
     if (!context.enabledFeatures().contains(featureFlag)) {
@@ -17,11 +24,15 @@ public class SMBUtils {
     }
   }
 
-  public static void registerCompostableItem(float chance, ItemLike item) {
-    ComposterBlock.COMPOSTABLES.put(item, chance);
-  }
+  public static class GenericRegistry {
 
-  public static void registerSnowVariationBlock(Block block, Block snowy) {
-    IBushBlock.SNOW_VARIATIONS.put(block, snowy);
+    /**
+     * Registry an Item to be compostable on {@link ComposterBlock}.
+     * @param chance The chance between 0-1 of being compostable
+     * @param item The item instance.
+     */
+    public static void compostableItem(float chance, ItemLike item) {
+      ComposterBlock.COMPOSTABLES.put(item, chance);
+    }
   }
 }

@@ -20,19 +20,19 @@ public abstract class WeatheringCopperFullBlockMixin extends Block implements We
   }
 
   @Override
-  public @NotNull Optional<BlockState> getNext(BlockState inputBlock) {
-    if (WeatheringCopperBlockRegistry.isPresentNext(inputBlock.getBlock())) {
-      return Optional.of(
-        WeatheringCopperBlockRegistry.getNextBlockMap().get(inputBlock.getBlock()).defaultBlockState());
+  public @NotNull Optional<BlockState> getNext(BlockState state) {
+    Optional<BlockState> weathering = WeatheringCopperBlockRegistry.getNext(state);
+
+    if (weathering.isPresent()) {
+      return weathering;
     }
 
-    return Optional.of(WeatheringCopper.getNext(inputBlock.getBlock()).get().defaultBlockState());
+    return Optional.of(WeatheringCopper.getNext(state.getBlock()).get().defaultBlockState());
   }
 
   @Inject(method = "isRandomlyTicking", at = @At(value = "HEAD"), cancellable = true)
   private void isRandomlyTickingMixin(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-    if (WeatheringCopperBlockRegistry.isPresentNext(state.getBlock())) {
-      cir.setReturnValue(true);
-    }
+    WeatheringCopperBlockRegistry.getNext(state)
+      .ifPresent(blockState -> cir.setReturnValue(true));
   }
 }

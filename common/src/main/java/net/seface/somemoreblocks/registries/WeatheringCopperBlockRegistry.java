@@ -1,64 +1,42 @@
 package net.seface.somemoreblocks.registries;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 
 public class WeatheringCopperBlockRegistry {
-  private static final Map<Block, Block> NEXT_BY_BLOCK = new HashMap<>();
+  private static final BiMap<Block, Block> NEXT_BLOCK = HashBiMap.create();
+  private static final BiMap<Block, Block> PREVIOUS_BLOCK = NEXT_BLOCK.inverse();
 
   /**
-   * TBD
+   * Registry new Weathering-like Block
+   * @param input The Weathering block.
+   * @param output The next block to be turned into.
    */
-  public static void register(Block input, Block nextBlock) {
-    NEXT_BY_BLOCK.put(input, nextBlock);
+  public static void register(Block input, Block output) {
+    NEXT_BLOCK.put(input, output);
   }
 
   /**
-   * TBD
-   * @return TBD
+   * Get (if present) the next block state from the current block state.
+   * @param state The current block state.
+   * @return The next block state.
    */
-
-  /**
-   * TBD
-   * @return TBD
-   */
-  public static Map<Block, Block> getNextBlockMap() {
-    return Objects.requireNonNull(NEXT_BY_BLOCK);
+  public static Optional<BlockState> getNext(BlockState state) {
+    return Optional.ofNullable(
+      NEXT_BLOCK.get(state.getBlock())).map((block) -> block.withPropertiesOf(state));
   }
 
   /**
-   * The same thing as {@link Optional#isPresent()} method but passing block parameter.
-   * @param block The block to be checked if exists in the "NEXT_BY_BLOCK" map.
-   * @return If the block is present.
+   * Get (if present) the previous block state from the current block state.
+   * @param state The current block state.
+   * @return The previous block state.
    */
-  public static boolean isPresentNext(Block block) {
-    return NEXT_BY_BLOCK.containsKey(block);
-  }
-
-  /**
-   * TBD
-   * @return TBD
-   */
-  public static Map<Block, Block> getPreviousBlockMap() {
-    Map<Block, Block> previousMap = new HashMap<>();
-
-    for (Map.Entry<Block, Block> entry : NEXT_BY_BLOCK.entrySet()) {
-      previousMap.put(entry.getValue(), entry.getKey());
-    }
-
-    return previousMap;
-  }
-
-  /**
-   * The same thing as {@link Optional#isPresent()} method but passing block parameter.
-   * @param block The block to be checked if exists in the "PREVIOUS_BY_BLOCK" map.
-   * @return If the block is present.
-   */
-  public static boolean isPresentPrevious(Block block) {
-    return getPreviousBlockMap().containsKey(block);
+  public static Optional<BlockState> getPrevious(BlockState state) {
+    return Optional.ofNullable(
+      PREVIOUS_BLOCK.get(state.getBlock())).map((block) -> block.withPropertiesOf(state));
   }
 }

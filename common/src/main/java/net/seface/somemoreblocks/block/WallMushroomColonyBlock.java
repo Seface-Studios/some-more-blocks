@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.seface.somemoreblocks.data.MBBlockTags;
+import net.seface.somemoreblocks.data.SMBBlockTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -86,6 +86,6 @@ public class WallMushroomColonyBlock extends BushBlock {
     BlockPos relativePos = pos.relative(direction.getOpposite());
     BlockState block = level.getBlockState(relativePos);
 
-    return block.is(MBBlockTags.MUSHROOM_COLONY_PLACEABLE);
+    return block.is(SMBBlockTags.MUSHROOM_COLONY_PLACEABLE);
   }
 }

@@ -13,11 +13,6 @@ public class ResourcePackManager {
   private static final Minecraft client = Minecraft.getInstance();
   private static final PackRepository repo = client.getResourcePackRepository();
 
-  public static boolean resourcePackIsEnabled(ResourceLocation resourceLocation) {
-    Pack pack = repo.getPack(resourceLocation.toString());
-    return pack != null && repo.getSelectedPacks().contains(pack);
-  }
-
   /**
    * Enable specific Resource Pack.
    * @param identifier The Resource Pack identifier.
@@ -37,6 +32,10 @@ public class ResourcePackManager {
     client.reloadResourcePacks();
   }
 
+  /**
+   * Disable specific Resource Pack.
+   * @param identifier The Resource Pack identifier.
+   */
   public static void disableResourcePack(ResourceLocation identifier) {
     String stringifiedId = identifier.toString();
     Pack pack = repo.getPack(stringifiedId);
@@ -52,6 +51,10 @@ public class ResourcePackManager {
     client.reloadResourcePacks();
   }
 
+  /**
+   * Update the client-side Resource Pack selected list.
+   * @param list The client-side Resource Pack selected list.
+   */
   private static void updateSelectedList(List<Pack> list) {
     repo.setSelected(list.stream().map(Pack::getId).collect(ImmutableList.toImmutableList()));
     repo.reload();

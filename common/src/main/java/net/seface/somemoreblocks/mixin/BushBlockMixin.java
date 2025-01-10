@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.seface.somemoreblocks.api.IBushBlock;
+import net.seface.somemoreblocks.registries.SnowyBushRegistry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,7 +23,7 @@ import java.util.Optional;
 
 @SuppressWarnings("deprecation")
 @Mixin(BushBlock.class)
-public abstract class BushBlockMixin extends Block implements IBushBlock {
+public abstract class BushBlockMixin extends Block {
 
   public BushBlockMixin(Properties properties) {
     super(properties);
@@ -36,7 +36,7 @@ public abstract class BushBlockMixin extends Block implements IBushBlock {
 
   @Override
   public boolean isRandomlyTicking(BlockState state) {
-    return IBushBlock.hasSnowVariation(state.getBlock()) || IBushBlock.hasNormalVariation(state.getBlock());
+    return SnowyBushRegistry.getSnowyVariation(state).isPresent() || SnowyBushRegistry.getNormalVariation(state).isPresent();
   }
 
   @Override
@@ -45,43 +45,57 @@ public abstract class BushBlockMixin extends Block implements IBushBlock {
     this.MB$turnIntoSnowVariation(state, level, pos);
   }
 
+  /**
+   * Update the BlockState to the snowy variation. The parsed BlockState should be a valid Snowy variation!
+   * Use {@link SnowyBushRegistry#register(Block, Block)} to registry new variations.
+   * @param state The current BlockState.
+   * @param level The affected world.
+   * @param pos The current block position.
+   */
   @Unique
   private void MB$turnIntoSnowVariation(BlockState state, Level level, BlockPos pos) {
     boolean isDoublePlant = state.hasProperty(DoublePlantBlock.HALF);
     boolean isSnowing = level.getBiome(pos).value().getPrecipitationAt(pos).equals(Biome.Precipitation.SNOW) && level.isRaining() && level.canSeeSky(pos);
-    Optional<Block> blockVariation = IBushBlock.getSnowVariation(state.getBlock());
+    Optional<BlockState> snowyVariation = SnowyBushRegistry.getSnowyVariation(state);
 
-    if (blockVariation.isEmpty()) return;
+    if (snowyVariation.isEmpty()) return;
     if (!isSnowing || level.getBrightness(LightLayer.BLOCK, pos) > 11) return;
 
-    // ??
+    // Investigate some possible issues that can occur here.
     if (isDoublePlant) {
       if (state.getValue(DoublePlantBlock.HALF).equals(DoubleBlockHalf.UPPER)) return;
 
       level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), Block.UPDATE_NONE);
-      DoublePlantBlock.placeAt(level, blockVariation.get().withPropertiesOf(state), pos, Block.UPDATE_ALL);
+      DoublePlantBlock.placeAt(level, snowyVariation.get(), pos, Block.UPDATE_ALL);
       return;
     }
 
-    level.setBlock(pos, blockVariation.get().defaultBlockState(), Block.UPDATE_ALL);
+    level.setBlock(pos, snowyVariation.get(), Block.UPDATE_ALL);
   }
 
+  /**
+   * Update the BlockState to the normal variation. The parsed BlockState should be a valid Snowy variation!
+   * Use {@link SnowyBushRegistry#register(Block, Block)} to registry new variations.
+   * @param state The current BlockState.
+   * @param level The affected world.
+   * @param pos The current block position.
+   */
   @Unique
   private void MB$turnIntoNormalVariation(BlockState state, Level level, BlockPos pos) {
     boolean isDoublePlant = state.hasProperty(DoublePlantBlock.HALF);
     if (level.getBrightness(LightLayer.BLOCK, pos) > 11) {
-      Optional<Block> blockVariation = IBushBlock.getNormalVariation(state.getBlock());
+      Optional<BlockState> normalVariation = SnowyBushRegistry.getNormalVariation(state);
 
-      if (blockVariation.isEmpty()) return;
+      if (normalVariation.isEmpty()) return;
       if (isDoublePlant) {
         if (state.getValue(DoublePlantBlock.HALF).equals(DoubleBlockHalf.UPPER)) return;
 
         level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), Block.UPDATE_NONE);
-        DoublePlantBlock.placeAt(level, blockVariation.get().withPropertiesOf(state), pos, Block.UPDATE_ALL);
+        DoublePlantBlock.placeAt(level, normalVariation.get(), pos, Block.UPDATE_ALL);
         return;
       }
 
-      level.setBlock(pos, blockVariation.get().defaultBlockState(), Block.UPDATE_ALL);
+      level.setBlock(pos, normalVariation.get(), Block.UPDATE_ALL);
     }
   }
 }

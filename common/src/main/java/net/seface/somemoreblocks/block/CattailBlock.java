@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.seface.somemoreblocks.data.MBBlockTags;
+import net.seface.somemoreblocks.data.SMBBlockTags;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
@@ -31,7 +31,7 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
     BlockState blockBelow = level.getBlockState(pos.below());
 
     if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
-      return blockBelow.is(MBBlockTags.CATTAIL_PLACEABLE) && !level.getBlockState(pos.above()).liquid();
+      return blockBelow.is(SMBBlockTags.CATTAIL_PLACEABLE) && !level.getBlockState(pos.above()).liquid();
     }
 
     return blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER;

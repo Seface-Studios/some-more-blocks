@@ -14,7 +14,7 @@ import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.api.IPoweredBlockMixin;
 import net.seface.somemoreblocks.block.*;
-import net.seface.somemoreblocks.data.MBBlockTags;
+import net.seface.somemoreblocks.data.SMBBlockTags;
 
 public class SMBBlocks {
 
@@ -22,29 +22,29 @@ public class SMBBlocks {
   public static final Block AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.AZALEA_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.AZALEA_LEAF_LITTER_CHANCE);
   public static final Block BIRCH_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.BIRCH_LEAF_LITTER_CHANCE);
   public static final Block BIG_LILY_PAD = new BigLilyPadBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).pushReaction(PushReaction.BLOCK));
-  public static final Block BROWN_MUSHROOM_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
+  public static final Block BROWN_MUSHROOM_COLONY = new MushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
   public static final Block TALL_BROWN_MUSHROOM_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
   public static final Block BROWN_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(SMBBlocks.BROWN_MUSHROOM_COLONY).dropsLike(SMBBlocks.BROWN_MUSHROOM_COLONY));
   public static final Block CATTAIL = new CattailBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS).noOcclusion());
-  public static final Block CRIMSON_FUNGUS_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.CRIMSON_FUNGUS));
+  public static final Block CRIMSON_FUNGUS_COLONY = new MushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.CRIMSON_FUNGUS));
   public static final Block TALL_CRIMSON_FUNGUS_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.CRIMSON_FUNGUS));
   public static final Block CRIMSON_FUNGUS_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(SMBBlocks.CRIMSON_FUNGUS_COLONY).dropsLike(SMBBlocks.CRIMSON_FUNGUS_COLONY));
   public static final Block FLOWERING_AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.FLOWERING_AZALEA_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.FLOWERING_AZALEA_LEAF_LITTER_CHANCE);
   public static final Block SPRUCE_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.SPRUCE_LEAF_LITTER_CHANCE);
   public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.LEAF_LITTER_CHANCE);
   public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((state) -> Constants.LUMINOUS_FLOWER_LIGHT_LEVEL));
-  public static final Block RED_MUSHROOM_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
+  public static final Block RED_MUSHROOM_COLONY = new MushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
   public static final Block TALL_RED_MUSHROOM_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
   public static final Block RED_MUSHROOM_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(SMBBlocks.RED_MUSHROOM_COLONY).dropsLike(SMBBlocks.RED_MUSHROOM_COLONY));
   public static final Block SMALL_LILY_PADS = new WaterlilyBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).noCollision());
-  public static final Block TALL_DUNE_GRASS = new TallDuneGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
-  public static final Block DUNE_GRASS = new GenericBonemealableBushBlock(SMBBlocks.TALL_DUNE_GRASS, MBBlockTags.DUNE_GRASS_PLACEABLE, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
+  public static final Block TALL_DUNE_GRASS = new DoubleDuneGrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
+  public static final Block DUNE_GRASS = new GenericBonemealableBushBlock(SMBBlocks.TALL_DUNE_GRASS, SMBBlockTags.DUNE_GRASS_PLACEABLE, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
   public static final Block LARGE_SNOW_FERN = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.LARGE_FERN));
   public static final Block SNOW_FERN = new GenericBonemealableBushBlock(SMBBlocks.LARGE_SNOW_FERN, FabricBlockSettings.copyOf(Blocks.FERN));
   public static final Block TALL_SNOW_GRASS = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
   public static final Block SHORT_SNOW_GRASS = new GenericBonemealableBushBlock(SMBBlocks.TALL_SNOW_GRASS, FabricBlockSettings.copyOf(Blocks.SHORT_GRASS));
   public static final Block TINY_CACTUS = new TinyCactusBlock(MobEffects.POISON, 7, FabricBlockSettings.copyOf(Blocks.TORCHFLOWER));
-  public static final Block WARPED_FUNGUS_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS));
+  public static final Block WARPED_FUNGUS_COLONY = new MushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS));
   public static final Block TALL_WARPED_FUNGUS_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS));
   public static final Block WARPED_FUNGUS_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(SMBBlocks.WARPED_FUNGUS_COLONY).dropsLike(SMBBlocks.WARPED_FUNGUS_COLONY));
   public static final Block POTTED_LUMINOUS_FLOWER = createFlowerPotBlock(LUMINOUS_FLOWER, Constants.POTTED_LUMINOUS_FLOWER_LIGHT_LEVEL);
@@ -444,9 +444,9 @@ public class SMBBlocks {
   public static final Block CRACKED_CUT_GOLD = new Block(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK));
   public static final Block GOLD_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK));
   public static final Block REDSTONE_BRICKS = new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
-  public static final Block CRACKED_REDSTONE_BRICKS = ((IPoweredBlockMixin) new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(Constants.CRACKED_REDSTONE_BRICKS_SIGNAL_LEVEL);
+  public static final Block CRACKED_REDSTONE_BRICKS = ((IPoweredBlockMixin) new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK))).SMB$setSignalLevel(Constants.CRACKED_REDSTONE_BRICKS_SIGNAL_LEVEL);
   public static final Block CUT_REDSTONE = new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
-  public static final Block CRACKED_CUT_REDSTONE = ((IPoweredBlockMixin) new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK))).MB$setSignalLevel(Constants.CRACKED_CUT_REDSTONE_SIGNAL_LEVEL);
+  public static final Block CRACKED_CUT_REDSTONE = ((IPoweredBlockMixin) new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK))).SMB$setSignalLevel(Constants.CRACKED_CUT_REDSTONE_SIGNAL_LEVEL);
   public static final Block REDSTONE_PILLAR = new PoweredRotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
   public static final Block EMERALD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK));
   public static final Block CRACKED_EMERALD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK));

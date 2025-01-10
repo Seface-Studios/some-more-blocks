@@ -14,7 +14,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.seface.somemoreblocks.block.LeafLitterBlock;
-import net.seface.somemoreblocks.data.MBBlockTags;
+import net.seface.somemoreblocks.data.SMBBlockTags;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -56,7 +56,7 @@ public class FallenLeafFeature extends Feature<NoneFeatureConfiguration> {
 
             BlockState stateBelow = level.getBlockState(mPos.below());
 
-            if (Block.isFaceFull(stateBelow.getCollisionShape(level, mPos.below()), Direction.UP) || stateBelow.is(MBBlockTags.LEAF_LITTERS_PLACEABLE)) {
+            if (Block.isFaceFull(stateBelow.getCollisionShape(level, mPos.below()), Direction.UP) || stateBelow.is(SMBBlockTags.LEAF_LITTERS_PLACEABLE)) {
               LeafLitterBlock leafLitter = (LeafLitterBlock) this.leafBlocks.get(tag);
 
               if (leafLitter.getChance() < 0.0F || leafLitter.getChance() > 100.0F) {
@@ -68,7 +68,7 @@ public class FallenLeafFeature extends Feature<NoneFeatureConfiguration> {
               if (chance <= leafLitter.getChance()) {
                 BlockState state2 = level.getBlockState(mPos);
 
-                if (state2.isAir() || state2.is(MBBlockTags.LEAF_LITTER_REPLACEABLE)) {
+                if (state2.isAir() || state2.is(SMBBlockTags.LEAF_LITTER_REPLACEABLE)) {
                   level.setBlock(mPos, this.leafBlocks.get(tag).defaultBlockState(), 2);
                 }
               }

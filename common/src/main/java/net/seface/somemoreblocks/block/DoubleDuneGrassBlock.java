@@ -5,10 +5,10 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.seface.somemoreblocks.data.MBBlockTags;
+import net.seface.somemoreblocks.data.SMBBlockTags;
 
-public class TallDuneGrassBlock extends DoublePlantBlock {
-  public TallDuneGrassBlock(Properties properties) {
+public class DoubleDuneGrassBlock extends DoublePlantBlock {
+  public DoubleDuneGrassBlock(Properties properties) {
     super(properties);
   }
 
@@ -17,7 +17,7 @@ public class TallDuneGrassBlock extends DoublePlantBlock {
     BlockState blockBelow = level.getBlockState(pos.below());
 
     if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
-      return blockBelow.is(MBBlockTags.DUNE_GRASS_PLACEABLE) && !level.getBlockState(pos.above()).liquid();
+      return blockBelow.is(SMBBlockTags.DUNE_GRASS_PLACEABLE) && !level.getBlockState(pos.above()).liquid();
     }
 
     return blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER;

@@ -23,7 +23,7 @@ public abstract class PoweredBlockMixin extends Block implements IPoweredBlockMi
   }
 
   @Unique
-  public Block MB$setSignalLevel(int value) {
+  public Block SMB$setSignalLevel(int value) {
     this.MB$signal = value;
     return this;
   }

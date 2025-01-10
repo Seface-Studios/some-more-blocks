@@ -1,5 +1,5 @@
 {
-  // Used only for Fabric version.
+  // Mod Menu compatibility
   "modmenu.becomeATranslator.somemoreblocks": "Become a Translator",
   "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} is a vanilla-like project which adds new blocks variations to the game. \\n\\nIn loving memory of <underline><color #8442db>Nicolle Gama</color></underline> \\u2b50",
   "modmenu.summaryTranslation.somemoreblocks": "${mod_name} is a vanilla-like project which adds new blocks variations to the game.",

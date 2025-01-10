@@ -19,14 +19,7 @@ public abstract class HoneycombItemMixin {
 
   @Inject(method = "getWaxed", at = @At(value = "HEAD"), cancellable = true)
   private static void getWaxedMixin(BlockState state, CallbackInfoReturnable<Optional<BlockState>> cir) {
-    Block carvedVariation = WaxableCopperBlockRegistry.getWaxables().get(state.getBlock());
-
-    // Used to avoid the override of default getStripped return.
-    if (carvedVariation != null) {
-      cir.setReturnValue(
-        Optional.of(carvedVariation).map(
-          (block -> block.withPropertiesOf(state)))
-      );
-    }
+    WaxableCopperBlockRegistry.getWaxableOn(state)
+      .ifPresent(blockState -> cir.setReturnValue(Optional.of(blockState)));
   }
 }

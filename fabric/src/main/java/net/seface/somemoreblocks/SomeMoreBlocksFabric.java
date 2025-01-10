@@ -13,6 +13,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.seface.somemoreblocks.event.OnPlayerJoinOrLeaveWorld;
+import net.seface.somemoreblocks.registries.SnowyBushRegistry;
 import net.seface.somemoreblocks.registry.SMBBlocks;
 import net.seface.somemoreblocks.registry.SMBFeatures;
 import net.seface.somemoreblocks.registry.SMBItemGroups;
@@ -52,29 +53,29 @@ public class SomeMoreBlocksFabric implements ModInitializer {
    * Register new compostable items into composter block.
    */
   private static void registerCompostableItems() {
-    SMBUtils.registerCompostableItem(0.3F, SMBItems.TINY_CACTUS);
-    SMBUtils.registerCompostableItem(0.3F, SMBItems.DUNE_GRASS);
-    SMBUtils.registerCompostableItem(0.5F, SMBItems.TALL_DUNE_GRASS);
-    SMBUtils.registerCompostableItem(0.5F, SMBItems.TALL_DUNE_GRASS);
-    SMBUtils.registerCompostableItem(0.3F, SMBItems.SHORT_SNOW_GRASS);
-    SMBUtils.registerCompostableItem(0.65F, SMBItems.TALL_SNOW_GRASS);
-    SMBUtils.registerCompostableItem(0.65F, SMBItems.SNOW_FERN);
-    SMBUtils.registerCompostableItem(0.65F, SMBItems.LARGE_SNOW_FERN);
-    SMBUtils.registerCompostableItem(0.65F, SMBItems.CATTAIL);
-    SMBUtils.registerCompostableItem(0.65F, SMBItems.LUMINOUS_FLOWER);
-    SMBUtils.registerCompostableItem(0.85F, SMBItems.BROWN_MUSHROOM_COLONY);
-    SMBUtils.registerCompostableItem(1.0F, SMBItems.TALL_BROWN_MUSHROOM_COLONY);
-    SMBUtils.registerCompostableItem(0.85F, SMBItems.RED_MUSHROOM_COLONY);
-    SMBUtils.registerCompostableItem(1.0F, SMBItems.TALL_RED_MUSHROOM_COLONY);
-    SMBUtils.registerCompostableItem(0.85F, SMBItems.CRIMSON_FUNGUS_COLONY);
-    SMBUtils.registerCompostableItem(1.0F, SMBItems.TALL_CRIMSON_FUNGUS_COLONY);
-    SMBUtils.registerCompostableItem(0.85F, SMBItems.WARPED_FUNGUS_COLONY);
-    SMBUtils.registerCompostableItem(1.0F, SMBItems.TALL_WARPED_FUNGUS_COLONY);
-    SMBUtils.registerCompostableItem(1.0F, SMBItems.LEAVES_BUCKET);
-    SMBUtils.registerCompostableItem(1.0F, SMBItems.AZALEA_LEAVES_BUCKET);
-    SMBUtils.registerCompostableItem(1.0F, SMBItems.BIRCH_LEAVES_BUCKET);
-    SMBUtils.registerCompostableItem(1.0F, SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET);
-    SMBUtils.registerCompostableItem(1.0F, SMBItems.SPRUCE_LEAVES_BUCKET);
+    SMBUtils.GenericRegistry.compostableItem(0.3F, SMBItems.TINY_CACTUS);
+    SMBUtils.GenericRegistry.compostableItem(0.3F, SMBItems.DUNE_GRASS);
+    SMBUtils.GenericRegistry.compostableItem(0.5F, SMBItems.TALL_DUNE_GRASS);
+    SMBUtils.GenericRegistry.compostableItem(0.5F, SMBItems.TALL_DUNE_GRASS);
+    SMBUtils.GenericRegistry.compostableItem(0.3F, SMBItems.SHORT_SNOW_GRASS);
+    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBItems.TALL_SNOW_GRASS);
+    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBItems.SNOW_FERN);
+    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBItems.LARGE_SNOW_FERN);
+    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBItems.CATTAIL);
+    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBItems.LUMINOUS_FLOWER);
+    SMBUtils.GenericRegistry.compostableItem(0.85F, SMBItems.BROWN_MUSHROOM_COLONY);
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.TALL_BROWN_MUSHROOM_COLONY);
+    SMBUtils.GenericRegistry.compostableItem(0.85F, SMBItems.RED_MUSHROOM_COLONY);
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.TALL_RED_MUSHROOM_COLONY);
+    SMBUtils.GenericRegistry.compostableItem(0.85F, SMBItems.CRIMSON_FUNGUS_COLONY);
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.TALL_CRIMSON_FUNGUS_COLONY);
+    SMBUtils.GenericRegistry.compostableItem(0.85F, SMBItems.WARPED_FUNGUS_COLONY);
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.TALL_WARPED_FUNGUS_COLONY);
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.LEAVES_BUCKET);
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.AZALEA_LEAVES_BUCKET);
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.BIRCH_LEAVES_BUCKET);
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET);
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.SPRUCE_LEAVES_BUCKET);
   }
 
   /**
@@ -121,9 +122,10 @@ public class SomeMoreBlocksFabric implements ModInitializer {
    * Register new snow variation of some plants.
    */
   private static void registerSnowyBlocks() {
-    SMBUtils.registerSnowVariationBlock(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS);
-    SMBUtils.registerSnowVariationBlock(Blocks.TALL_GRASS, SMBBlocks.TALL_SNOW_GRASS);
-    SMBUtils.registerSnowVariationBlock(Blocks.FERN, SMBBlocks.SNOW_FERN);
+    SnowyBushRegistry.register(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS);
+    SnowyBushRegistry.register(Blocks.TALL_GRASS, SMBBlocks.TALL_SNOW_GRASS);
+    SnowyBushRegistry.register(Blocks.FERN, SMBBlocks.SNOW_FERN);
+    SnowyBushRegistry.register(Blocks.LARGE_FERN, SMBBlocks.LARGE_SNOW_FERN);
   }
 
   private static void registerStrippableBlocks() {

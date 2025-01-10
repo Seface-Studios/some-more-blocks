@@ -4,7 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
-public final class MBBlockTags extends MBData {
+public final class SMBBlockTags extends SMBAbstractData {
   public static final TagKey<Block> AZALEA_LEAF_LITTER_PARENT_LEAVES = createTagKey(Registries.BLOCK, "azalea_leaf_litter_parent_leaves");
   public static final TagKey<Block> BIRCH_LEAF_LITTER_PARENT_LEAVES = createTagKey(Registries.BLOCK, "birch_leaf_litter_parent_leaves");
   public static final TagKey<Block> CATTAIL_PLACEABLE = createTagKey(Registries.BLOCK, "cattail_placeable");
@@ -26,5 +26,5 @@ public final class MBBlockTags extends MBData {
   public static final TagKey<Block> CARVED_LOGS = createTagKey(Registries.BLOCK, "carved_logs");
   public static final TagKey<Block> CARVED_STEMS = createTagKey(Registries.BLOCK, "carved_stems");
 
-  private MBBlockTags() {}
+  private SMBBlockTags() {}
 }

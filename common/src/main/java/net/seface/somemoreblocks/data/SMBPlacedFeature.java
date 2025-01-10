@@ -4,7 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
-public class MBPlacedFeature extends MBData {
+public class SMBPlacedFeature extends SMBAbstractData {
   public static final ResourceKey<PlacedFeature> PATCH_CATTAIL = createResourceKey(Registries.PLACED_FEATURE, "patch_cattail");
   public static final ResourceKey<PlacedFeature> PATCH_DUNE_GRASS = createResourceKey(Registries.PLACED_FEATURE, "patch_dune_grass");
   public static final ResourceKey<PlacedFeature> PATCH_LUMINOUS_FLOWER = createResourceKey(Registries.PLACED_FEATURE, "patch_luminous_flower");

@@ -8,18 +8,18 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.seface.somemoreblocks.data.MBBiomeTags;
-import net.seface.somemoreblocks.data.MBPlacedFeature;
+import net.seface.somemoreblocks.data.SMBBiomeTags;
+import net.seface.somemoreblocks.data.SMBPlacedFeature;
 
 public class MBBiomeModifiers {
   public static void register() {
-    registerVegetalDecoration(MBBiomeTags.GENERATES_CATTAIL, MBPlacedFeature.PATCH_CATTAIL);
-    registerUndergroundDecoration(MBBiomeTags.GENERATES_LUMINOUS_FLOWER, MBPlacedFeature.PATCH_LUMINOUS_FLOWER);
-    registerVegetalDecoration(MBBiomeTags.GENERATES_SMALL_LILY_PADS, MBPlacedFeature.PATCH_SMALL_LILY_PADS);
-    registerTinyCactusDecoration(MBPlacedFeature.PATCH_TINY_CACTUS);
-    registerDuneGrassDecoration(MBPlacedFeature.PATCH_DUNE_GRASS);
-    registerDuneGrassDecoration(MBPlacedFeature.PATCH_TALL_DUNE_GRASS);
-    registerLeafLitterDecoration(MBPlacedFeature.NONE_LEAF_LITTER);
+    registerVegetalDecoration(SMBBiomeTags.GENERATES_CATTAIL, SMBPlacedFeature.PATCH_CATTAIL);
+    registerUndergroundDecoration(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER, SMBPlacedFeature.PATCH_LUMINOUS_FLOWER);
+    registerVegetalDecoration(SMBBiomeTags.GENERATES_SMALL_LILY_PADS, SMBPlacedFeature.PATCH_SMALL_LILY_PADS);
+    registerTinyCactusDecoration(SMBPlacedFeature.PATCH_TINY_CACTUS);
+    registerDuneGrassDecoration(SMBPlacedFeature.PATCH_DUNE_GRASS);
+    registerDuneGrassDecoration(SMBPlacedFeature.PATCH_TALL_DUNE_GRASS);
+    registerLeafLitterDecoration(SMBPlacedFeature.NONE_LEAF_LITTER);
   }
 
   private static void registerVegetalDecoration(TagKey<Biome> biomeTag, ResourceKey<PlacedFeature> feature) {
@@ -38,7 +38,7 @@ public class MBBiomeModifiers {
 
   private static void registerTinyCactusDecoration(ResourceKey<PlacedFeature> feature) {
     BiomeModifications.addFeature(
-      (ctx) -> BiomeSelectors.tag(MBBiomeTags.GENERATES_TINY_CACTUS).test(ctx) && ctx.getBiome().getBaseTemperature() >= 0.3F,
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_TINY_CACTUS).test(ctx) && ctx.getBiome().getBaseTemperature() >= 0.3F,
       GenerationStep.Decoration.VEGETAL_DECORATION,
       feature
     );

@@ -9,7 +9,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -24,26 +23,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
 
-/*
-  Why not use "getToolModifiedState" method in a new block class?
-
-  Since we are not adding new log type, but using the existent stripped logs/woods, we need to mixin on forge edition.
-  Thanks Fabric for making this easily by adding just a method.
-*/
 @Mixin(AxeItem.class)
 public abstract class AxeItemMixin {
 
   @Inject(method = "getStripped", at = @At(value = "HEAD"), cancellable = true)
   private void getStrippedMixin(BlockState state, CallbackInfoReturnable<Optional<BlockState>> cir) {
-    Block carvedVariation = CarvedBlockRegistry.getCarvedBlocks().get(state.getBlock());
-
-    // Used to avoid the override of default getStripped return.
-    if (carvedVariation != null) {
-      cir.setReturnValue(
-        Optional.of(carvedVariation).map(
-          (block -> block.withPropertiesOf(state)))
-      );
-    }
+    CarvedBlockRegistry.getCarvedBlock(state)
+      .ifPresent(blockState -> cir.setReturnValue(Optional.of(blockState)));
   }
 
   @Inject(method = "useOn", at = @At(value = "HEAD"), cancellable = true)
@@ -51,23 +37,29 @@ public abstract class AxeItemMixin {
     Level level = ctx.getLevel();
     BlockPos pos = ctx.getClickedPos();
     BlockState state = level.getBlockState(pos);
-    Block block = state.getBlock();
 
-    if (WeatheringCopperBlockRegistry.isPresentPrevious(block)) {
-      BlockState scrapedBlock = WeatheringCopperBlockRegistry.getPreviousBlockMap().get(block).withPropertiesOf(state);
-      this.SMB$evaluateNewBlockState(ctx, level, scrapedBlock, SoundEvents.AXE_SCRAPE, LevelEvent.PARTICLES_SCRAPE);
+    Optional<BlockState> weatheringOff = WeatheringCopperBlockRegistry.getPrevious(state);
+    Optional<BlockState> waxableOff = WaxableCopperBlockRegistry.getWaxableOff(state);
 
+    if (weatheringOff.isPresent()) {
+      this.SMB$evaluateNewBlockState(ctx, level, weatheringOff.get(), SoundEvents.AXE_SCRAPE, LevelEvent.PARTICLES_SCRAPE);
       cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide));
     }
 
-    if (WaxableCopperBlockRegistry.isPresentPrevious(block)) {
-      BlockState nonWaxedBlock = WaxableCopperBlockRegistry.getInvertedWaxables().get(block).withPropertiesOf(state);
-      this.SMB$evaluateNewBlockState(ctx, level, nonWaxedBlock, SoundEvents.AXE_WAX_OFF, LevelEvent.PARTICLES_WAX_OFF);
-
+    if (waxableOff.isPresent()) {
+      this.SMB$evaluateNewBlockState(ctx, level, waxableOff.get(), SoundEvents.AXE_WAX_OFF, LevelEvent.PARTICLES_WAX_OFF);
       cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide));
     }
   }
 
+  /**
+   * Place and apply all the effects for the new {@link BlockState}.
+   * @param ctx The "useOn" event context.
+   * @param level The affected world.
+   * @param newState The new BlockState.
+   * @param soundEvent The sound event to be played.
+   * @param levelEvent The level event to be triggered.
+   */
   @Unique
   private void SMB$evaluateNewBlockState(UseOnContext ctx, Level level, BlockState newState,
                                          SoundEvent soundEvent, int levelEvent) {
