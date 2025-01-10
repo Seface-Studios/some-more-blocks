@@ -21,7 +21,7 @@
   "custom": {
     "modmenu": {
       "links": {
-        "somemoreblocks.become_a_translator": "${crowdin_url}",
+        "modmenu.becomeATranslator.somemoreblocks": "${crowdin_url}",
         "modmenu.discord": "${discord_url}"
       }
     }
@@ -31,9 +31,9 @@
   "icon": "assets/${mod_id}/icon.png",
   "environment": "*",
   "entrypoints": {
-    "fabric-datagen": ["net.seface.${mod_id}.datagen.MoreBlocksDataGenerator"],
-    "main": ["net.seface.${mod_id}.MoreBlocksFabric"],
-    "client": ["net.seface.${mod_id}.MoreBlocksFabricClient"]
+    "fabric-datagen": ["net.seface.${mod_id}.datagen.Main"],
+    "main": ["net.seface.${mod_id}.SomeMoreBlocksFabric"],
+    "client": ["net.seface.${mod_id}.SomeMoreBlocksFabricClient"]
   },
 
   "mixins": [

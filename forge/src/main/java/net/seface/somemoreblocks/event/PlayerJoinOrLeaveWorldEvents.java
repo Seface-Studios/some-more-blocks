@@ -5,9 +5,9 @@ import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.seface.somemoreblocks.MoreBlocks;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 
-@Mod.EventBusSubscriber(modid = MoreBlocks.ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = SomeMoreBlocks.ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class PlayerJoinOrLeaveWorldEvents {
 
   @SubscribeEvent

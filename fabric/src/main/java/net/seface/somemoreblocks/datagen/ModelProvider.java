@@ -16,7 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.seface.somemoreblocks.registry.MBBlocks;
+import net.seface.somemoreblocks.registry.SMBBlocks;
 
 public class ModelProvider extends FabricModelProvider {
   private BlockModelGenerators blockModelGenerator;
@@ -29,23 +29,23 @@ public class ModelProvider extends FabricModelProvider {
   public void generateBlockStateModels(BlockModelGenerators gen) {
     this.blockModelGenerator = gen;
 
-    this.createGlassBlocksWithVanillaTop(MBBlocks.TILED_GLASS, MBBlocks.TILED_GLASS_PANE, Blocks.GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.BLACK_STAINED_TILED_GLASS, MBBlocks.BLACK_STAINED_TILED_GLASS_PANE, Blocks.BLACK_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.BLUE_STAINED_TILED_GLASS, MBBlocks.BLUE_STAINED_TILED_GLASS_PANE, Blocks.BLUE_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.BROWN_STAINED_TILED_GLASS, MBBlocks.BROWN_STAINED_TILED_GLASS_PANE, Blocks.BROWN_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.CYAN_STAINED_TILED_GLASS, MBBlocks.CYAN_STAINED_TILED_GLASS_PANE, Blocks.CYAN_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.GRAY_STAINED_TILED_GLASS, MBBlocks.GRAY_STAINED_TILED_GLASS_PANE, Blocks.GRAY_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.GREEN_STAINED_TILED_GLASS, MBBlocks.GREEN_STAINED_TILED_GLASS_PANE, Blocks.GREEN_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS, MBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE, Blocks.LIGHT_BLUE_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS, MBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE, Blocks.LIGHT_GRAY_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.LIME_STAINED_TILED_GLASS, MBBlocks.LIME_STAINED_TILED_GLASS_PANE, Blocks.LIME_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.MAGENTA_STAINED_TILED_GLASS, MBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE, Blocks.MAGENTA_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.ORANGE_STAINED_TILED_GLASS, MBBlocks.ORANGE_STAINED_TILED_GLASS_PANE, Blocks.ORANGE_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.PINK_STAINED_TILED_GLASS, MBBlocks.PINK_STAINED_TILED_GLASS_PANE, Blocks.PINK_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.PURPLE_STAINED_TILED_GLASS, MBBlocks.PURPLE_STAINED_TILED_GLASS_PANE, Blocks.PURPLE_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.RED_STAINED_TILED_GLASS, MBBlocks.RED_STAINED_TILED_GLASS_PANE, Blocks.RED_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.WHITE_STAINED_TILED_GLASS, MBBlocks.WHITE_STAINED_TILED_GLASS_PANE, Blocks.WHITE_STAINED_GLASS_PANE);
-    this.createGlassBlocksWithVanillaTop(MBBlocks.YELLOW_STAINED_TILED_GLASS, MBBlocks.YELLOW_STAINED_TILED_GLASS_PANE, Blocks.YELLOW_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.TILED_GLASS, SMBBlocks.TILED_GLASS_PANE, Blocks.GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.BLACK_STAINED_TILED_GLASS, SMBBlocks.BLACK_STAINED_TILED_GLASS_PANE, Blocks.BLACK_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.BLUE_STAINED_TILED_GLASS, SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE, Blocks.BLUE_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.BROWN_STAINED_TILED_GLASS, SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE, Blocks.BROWN_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.CYAN_STAINED_TILED_GLASS, SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE, Blocks.CYAN_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.GRAY_STAINED_TILED_GLASS, SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE, Blocks.GRAY_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.GREEN_STAINED_TILED_GLASS, SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE, Blocks.GREEN_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS, SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE, Blocks.LIGHT_BLUE_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS, SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE, Blocks.LIGHT_GRAY_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.LIME_STAINED_TILED_GLASS, SMBBlocks.LIME_STAINED_TILED_GLASS_PANE, Blocks.LIME_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.MAGENTA_STAINED_TILED_GLASS, SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE, Blocks.MAGENTA_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.ORANGE_STAINED_TILED_GLASS, SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE, Blocks.ORANGE_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.PINK_STAINED_TILED_GLASS, SMBBlocks.PINK_STAINED_TILED_GLASS_PANE, Blocks.PINK_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.PURPLE_STAINED_TILED_GLASS, SMBBlocks.PURPLE_STAINED_TILED_GLASS_PANE, Blocks.PURPLE_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.RED_STAINED_TILED_GLASS, SMBBlocks.RED_STAINED_TILED_GLASS_PANE, Blocks.RED_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.WHITE_STAINED_TILED_GLASS, SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE, Blocks.WHITE_STAINED_GLASS_PANE);
+    this.createGlassBlocksWithVanillaTop(SMBBlocks.YELLOW_STAINED_TILED_GLASS, SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE, Blocks.YELLOW_STAINED_GLASS_PANE);
   }
 
   @Override

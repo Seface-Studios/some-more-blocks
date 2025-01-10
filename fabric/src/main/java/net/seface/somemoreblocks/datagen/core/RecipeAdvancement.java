@@ -10,7 +10,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
-import net.seface.somemoreblocks.MoreBlocks;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -88,7 +88,7 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
 
     if (!this.craftableWith.contains(item)) {
       String itemName = item.asItem().getDefaultInstance().getDisplayName().getString();
-      MoreBlocks.LOGGER.warn("Could not find main item \"" + itemName + "\" in \"craftableFrom\" method. Adding automatically.");
+      SomeMoreBlocks.LOGGER.warn("Could not find main item \"" + itemName + "\" in \"craftableFrom\" method. Adding automatically.");
       this.craftableWith.add(item);
     }
     return this;
@@ -127,7 +127,7 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
         suffix = "_from_" + requiredItemPath;
       }
 
-      ResourceLocation resourceLocation = new ResourceLocation(MoreBlocks.ID, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
+      ResourceLocation resourceLocation = new ResourceLocation(SomeMoreBlocks.ID, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
       String name = resourceLocation.getPath();
 
       consumer.accept(
@@ -137,7 +137,7 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
           .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
           .rewards(AdvancementRewards.Builder.recipe(resourceLocation))
           .requirements(AdvancementRequirements.anyOf(List.of("has_needed_items", "has_the_recipe")))
-          .build(new ResourceLocation(MoreBlocks.ID, "recipes/" + group + name))
+          .build(new ResourceLocation(SomeMoreBlocks.ID, "recipes/" + group + name))
       );
     }
   }
@@ -151,7 +151,7 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
       String requiredItemPath = requiredItem.asItem().builtInRegistryHolder().key().location().getPath();
       String suffix = "_from_" + requiredItemPath + "_stonecutting";
 
-      ResourceLocation resourceLocation = new ResourceLocation(MoreBlocks.ID, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
+      ResourceLocation resourceLocation = new ResourceLocation(SomeMoreBlocks.ID, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
       String name = resourceLocation.getPath();
 
       consumer.accept(
@@ -161,7 +161,7 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
           .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
           .rewards(AdvancementRewards.Builder.recipe(resourceLocation))
           .requirements(AdvancementRequirements.anyOf(List.of("has_needed_items", "has_the_recipe")))
-          .build(new ResourceLocation(MoreBlocks.ID, "recipes/" + group + name))
+          .build(new ResourceLocation(SomeMoreBlocks.ID, "recipes/" + group + name))
       );
     }
   }

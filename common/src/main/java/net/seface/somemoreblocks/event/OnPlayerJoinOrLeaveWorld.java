@@ -12,11 +12,11 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.WorldData;
 import net.seface.somemoreblocks.Constants;
-import net.seface.somemoreblocks.MoreBlocks;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.utils.ResourcePackManager;
 
 public class OnPlayerJoinOrLeaveWorld {
-  public static final ResourceLocation EXPERIMENTAL_1_21_RP = new ResourceLocation(MoreBlocks.ID, "update_1_21");
+  public static final ResourceLocation EXPERIMENTAL_1_21_RP = new ResourceLocation(SomeMoreBlocks.ID, "update_1_21");
 
   public static void enableResourcePackOnPlayerJoinWorld(Player player) {
     if (!Minecraft.getInstance().getGameProfile().equals(player.getGameProfile())) return;
@@ -28,12 +28,12 @@ public class OnPlayerJoinOrLeaveWorld {
 
     if (!worldData.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) return;
 
-    String tagID = new ResourceLocation(MoreBlocks.ID, "hide_update_1_21_message").toString();
+    String tagID = new ResourceLocation(SomeMoreBlocks.ID, "hide_update_1_21_message").toString();
     ResourcePackManager.enableResourcePack(EXPERIMENTAL_1_21_RP);
 
     if (player.getTags().contains(tagID)) return;
 
-    MutableComponent prefix = Component.literal(MoreBlocks.MOD_NAME).withColor(Constants.AMESFACE_COLOR)
+    MutableComponent prefix = Component.literal(SomeMoreBlocks.MOD_NAME).withColor(Constants.AMESFACE_COLOR)
       .append(Component.literal(" › ").withStyle(ChatFormatting.GRAY));
 
     String readMoreURL = "https://github.com/Seface-Studios/some-more-blocks/tree/main/common/src/main/resources/resourcepacks";

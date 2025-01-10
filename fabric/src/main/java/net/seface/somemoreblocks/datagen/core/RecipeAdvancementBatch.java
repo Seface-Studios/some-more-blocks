@@ -1,7 +1,7 @@
 package net.seface.somemoreblocks.datagen.core;
 
 import net.minecraft.world.level.ItemLike;
-import net.seface.somemoreblocks.MoreBlocks;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,10 +69,10 @@ public class RecipeAdvancementBatch implements IRecipeAdvancement<RecipeAdvancem
 
   @Override
   public void build() {
-    MoreBlocks.LOGGER.info("Generating recipe advancements for the group \"" + this.name + "\". (" + this.instances.size() + " entries)");
+    SomeMoreBlocks.LOGGER.info("Generating recipe advancements for the group \"" + this.name + "\". (" + this.instances.size() + " entries)");
 
     if (this.instances.size() < this.expectedEntries) {
-      MoreBlocks.LOGGER.warn(" - The entries size for the group \"" + this.name + "\" is not what is expected! (Expected: " + this.expectedEntries + " | Have: " + this.instances.size() + ")");
+      SomeMoreBlocks.LOGGER.warn(" - The entries size for the group \"" + this.name + "\" is not what is expected! (Expected: " + this.expectedEntries + " | Have: " + this.instances.size() + ")");
     }
 
     instances.forEach(RecipeAdvancement::build);

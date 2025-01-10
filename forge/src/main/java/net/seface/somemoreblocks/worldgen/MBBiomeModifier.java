@@ -11,7 +11,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.seface.somemoreblocks.MoreBlocks;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.worldgen.modifiers.*;
 
 import java.util.function.BiFunction;
@@ -22,7 +22,7 @@ interface IBiomeModifier {
 }
 
 public class MBBiomeModifier {
-  private static final DeferredRegister<Codec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, MoreBlocks.ID);
+  private static final DeferredRegister<Codec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, SomeMoreBlocks.ID);
 
   public static RegistryObject<Codec<PatchCattailBiomeModifier>> PATCH_CATTAIL = createCodec("patch_cattail", PatchCattailBiomeModifier::new);
   public static RegistryObject<Codec<PatchLuminousFlowerBiomeModifier>> PATCH_LUMINOUS_FLOWER = createCodec("patch_luminous_flower", PatchLuminousFlowerBiomeModifier::new);

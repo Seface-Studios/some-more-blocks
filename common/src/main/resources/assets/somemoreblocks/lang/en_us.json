@@ -1,12 +1,13 @@
 {
-  "somemoreblocks.become_a_translator": "Become a Translator",
-  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} is a vanilla-like project which adds new blocks variations to the game. \n\nIn loving memory of <underline><color #8442db>Nicolle Gama</color></underline> \u2b50",
+  // Used only for Fabric version.
+  "modmenu.becomeATranslator.somemoreblocks": "Become a Translator",
+  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} is a vanilla-like project which adds new blocks variations to the game. \\n\\nIn loving memory of <underline><color #8442db>Nicolle Gama</color></underline> \\u2b50",
   "modmenu.summaryTranslation.somemoreblocks": "${mod_name} is a vanilla-like project which adds new blocks variations to the game.",
+
   "somemoreblocks.resourcepack.update_1_21.name": "Experimental: Update 1.21",
   "somemoreblocks.resourcepack.update_1_21.enabled": "The Experimental 1.21 Resource Pack was automatically enabled in this world.",
   "somemoreblocks.resourcepack.update_1_21.read_more": "Read More",
-  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "Click here to read more about the\nexperimental Resource Pack",
-
+  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "Click here to read more about the \\nexperimental Resource Pack",
   "block.somemoreblocks.tiled_glass_pane": "Tiled Glass Pane",
   "block.somemoreblocks.black_stained_tiled_glass_pane": "Black Stained Tiled Glass Pane",
   "block.somemoreblocks.blue_stained_tiled_glass_pane": "Blue Stained Tiled Glass Pane",
