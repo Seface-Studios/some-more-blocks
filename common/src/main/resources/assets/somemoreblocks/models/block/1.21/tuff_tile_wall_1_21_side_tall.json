@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_wall_side_tall",
-  "textures": {
-    "wall": "somemoreblocks:block/1.21/tuff_tiles"
-  }
-}

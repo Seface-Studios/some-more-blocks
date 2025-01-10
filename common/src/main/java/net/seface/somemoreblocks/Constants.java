@@ -12,14 +12,15 @@ public abstract class Constants {
   public static final int BLUENIVERS_COLOR = 4666;   // #00123A
 
   /*
-  * Fuel Values
-  *  - The "16000" represents the fuel value for the vanilla "Block of Coal".
-  * */
+   * Fuel Values
+   *  - The "16000" represents the fuel value for the vanilla "Block of Coal".
+   * */
+  private static final int $MAX_FUEL = 32767;
   public static final int COAL_BRICKS_FUEL = 16000 * 2;
   public static final int COAL_PILLAR_FUEL = 16000;
   public static final int CRACKED_COAL_BRICKS_FUEL = 16000 + 3200;
   public static final int CRACKED_CUT_COAL_FUEL = 16000 + 3800;
-  public static final int CUT_COAL_FUEL = 16000 * 3;
+  public static final int CUT_COAL_FUEL = $MAX_FUEL;
 
   /*
    * Signal Level
