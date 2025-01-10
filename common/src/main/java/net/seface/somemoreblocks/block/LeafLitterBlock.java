@@ -38,12 +38,12 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
   private final float chance;
 
   public LeafLitterBlock(Properties properties) {
-    this(properties, 100.0F);
+    this(properties, 25.0F);
   }
 
   public LeafLitterBlock(Properties properties, float chance) {
     super(properties);
-    this.chance = chance == 100.0F ? chance : (chance / 1.1F);
+    this.chance = chance;
   }
 
   @NotNull

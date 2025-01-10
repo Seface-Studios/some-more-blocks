@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.utils;
+package net.seface.somemoreblocks.registries;
 
 import net.minecraft.world.level.block.Block;
 

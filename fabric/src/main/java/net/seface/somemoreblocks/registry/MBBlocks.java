@@ -19,8 +19,8 @@ import net.seface.somemoreblocks.data.MBBlockTags;
 public class MBBlocks {
 
   // Custom Plants & Flower Pots
-  public static final Block AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.AZALEA_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 15.0F);
-  public static final Block BIRCH_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 12.5F);
+  public static final Block AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.AZALEA_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.AZALEA_LEAF_LITTER_CHANCE);
+  public static final Block BIRCH_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.BIRCH_LEAF_LITTER_CHANCE);
   public static final Block BIG_LILY_PAD = new BigLilyPadBlock(FabricBlockSettings.copyOf(Blocks.LILY_PAD).pushReaction(PushReaction.BLOCK));
   public static final Block BROWN_MUSHROOM_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
   public static final Block TALL_BROWN_MUSHROOM_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.BROWN_MUSHROOM));
@@ -29,9 +29,9 @@ public class MBBlocks {
   public static final Block CRIMSON_FUNGUS_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.CRIMSON_FUNGUS));
   public static final Block TALL_CRIMSON_FUNGUS_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.CRIMSON_FUNGUS));
   public static final Block CRIMSON_FUNGUS_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(MBBlocks.CRIMSON_FUNGUS_COLONY).dropsLike(MBBlocks.CRIMSON_FUNGUS_COLONY));
-  public static final Block FLOWERING_AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.FLOWERING_AZALEA_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 10.0F);
-  public static final Block SPRUCE_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 12.5F);
-  public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), 12.5F);
+  public static final Block FLOWERING_AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.FLOWERING_AZALEA_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.FLOWERING_AZALEA_LEAF_LITTER_CHANCE);
+  public static final Block SPRUCE_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.SPRUCE_LEAF_LITTER_CHANCE);
+  public static final Block LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.LEAF_LITTER_CHANCE);
   public static final Block LUMINOUS_FLOWER = new LuminousFlowerBlock(FabricBlockSettings.copyOf(Blocks.DANDELION).lightLevel((state) -> Constants.LUMINOUS_FLOWER_LIGHT_LEVEL));
   public static final Block RED_MUSHROOM_COLONY = new SmallMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));
   public static final Block TALL_RED_MUSHROOM_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.RED_MUSHROOM));

@@ -2,18 +2,21 @@ modLoader = "javafml" #mandatory
 loaderVersion = "${forge_loader_version_range}"
 
 license = "${license}" # Review your options at https://choosealicense.com/.
-issueTrackerURL="https://github.com/Seface-Blocks/more-blocks-mod/issues"
+issueTrackerURL="${issues_tracker_url}"
 showAsResourcePack=false
 
 [[mods]] #mandatory
     modId = "${mod_id}"
     version = "${version}"
     displayName = "${mod_name}"
-    displayURL="https://github.com/seface-blocks/more-blocks-mod"
+    displayURL="${main_url}"
     logoFile = "assets/${mod_id}/icon_512.png"
     credits = "${credits}"
     authors = "${mod_author}"
-    description = '''${description}'''
+    description = '''
+    ${description}
+    In loving memory of §dNicolle Gama§f.
+    '''
 
 [[dependencies.${mod_id}]]
     modId="forge"

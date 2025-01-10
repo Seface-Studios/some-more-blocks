@@ -13,16 +13,16 @@
   ],
 
   "contact": {
-    "homepage": "https://sefacestudios.net",
-    "sources": "https://github.com/Seface-Studios/more-blocks-mod",
-    "issues": "https://github.com/Seface-Studios/more-blocks-mod/issues"
+    "homepage": "${main_url}",
+    "sources": "${source_url}",
+    "issues": "${issues_tracker_url}"
   },
 
   "custom": {
     "modmenu": {
       "links": {
-        "moreblocks.become_a_translator": "https://crowdin.com/project/minecraft-more-blocks-mod",
-        "modmenu.discord": "https://sefacestudios.net/discord"
+        "somemoreblocks.become_a_translator": "${crowdin_url}",
+        "modmenu.discord": "${discord_url}"
       }
     }
   },

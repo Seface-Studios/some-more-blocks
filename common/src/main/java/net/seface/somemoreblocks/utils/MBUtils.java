@@ -23,14 +23,6 @@ public class MBUtils {
     ComposterBlock.COMPOSTABLES.put(item, chance);
   }
 
-  public static void registerWeatheringCopperBlock(Block block, Block nextBlock) {
-    WeatheringCopper.NEXT_BY_BLOCK.get().put(block, nextBlock);
-  }
-
-  public static void registerWaxableCopperBlock(Block block, Block waxedBlock) {
-    HoneycombItem.WAXABLES.get().put(block, waxedBlock);
-  }
-
   public static void registerSnowVariationBlock(Block block, Block snowy) {
     IBushBlock.SNOW_VARIATIONS.put(block, snowy);
   }

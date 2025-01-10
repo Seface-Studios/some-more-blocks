@@ -80,7 +80,12 @@ subprojects {
       "mod_id"                    : mod_id,
       "license"                   : license,
       "description"               : project.description,
-      "credits"                   : credits
+      "credits"                   : credits,
+      "main_url"                  : main_url,
+      "source_url"                : source_url,
+      "issues_tracker_url"        : source_url.concat("/issues"),
+      "crowdin_url"               : crowdin_url,
+      "discord_url"               : discord_url
     ]
 
     filesMatching([

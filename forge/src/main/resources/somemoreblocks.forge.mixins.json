@@ -4,7 +4,7 @@
   "package": "net.seface.somemoreblocks.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_17",
-  "mixins": ["AxeItemMixin"],
+  "mixins": ["TinyCactusBlockMixin"],
   "client": [],
   "server": [],
   "injectors": {

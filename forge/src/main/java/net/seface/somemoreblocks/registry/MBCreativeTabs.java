@@ -656,19 +656,4 @@ public class MBCreativeTabs {
   public static void register(IEventBus event) {
     CREATIVE_MODE_TABS.register(event);
   }
-
-  @SubscribeEvent
-  public static void buildContents(BuildCreativeModeTabContentsEvent event) {
-    if (event.getTabKey() == CreativeModeTabs.OP_BLOCKS && event.hasPermissions()) {
-      event.accept(MBItems.BIG_LILY_PAD.get());
-      event.accept(MBItems.BROWN_MUSHROOM_COLONY.get());
-      event.accept(MBItems.TALL_BROWN_MUSHROOM_COLONY.get());
-      event.accept(MBItems.RED_MUSHROOM_COLONY.get());
-      event.accept(MBItems.TALL_RED_MUSHROOM_COLONY.get());
-      event.accept(MBItems.CRIMSON_FUNGUS_COLONY.get());
-      event.accept(MBItems.TALL_CRIMSON_FUNGUS_COLONY.get());
-      event.accept(MBItems.WARPED_FUNGUS_COLONY.get());
-      event.accept(MBItems.TALL_WARPED_FUNGUS_COLONY.get());
-    }
-  }
 }
