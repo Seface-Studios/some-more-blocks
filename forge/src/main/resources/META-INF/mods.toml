@@ -13,7 +13,7 @@ showAsResourcePack = false
     logoFile = "assets/${mod_id}/icon_512.png"
     credits = "${credits}"
     authors = "${mod_author}"
-updateJSONURL = "${source_url}/blob/main/.github/forge-update.png"
+    updateJSONURL = "${source_url}/raw/refs/heads/main/.github/forge-update.json"
     description = '''
     ${description}
     In loving memory of §dNicolle Gama§f.
