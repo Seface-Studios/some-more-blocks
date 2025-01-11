@@ -24,13 +24,12 @@ See more In-Game screenshots [here](https://modrinth.com/project/few-more-blocks
 - [ ] Add more flowers and plants type.
 - [ ] Custom sounds for some blocks.
 - [ ] Convert the Data/Assets to (Fabric?) Data Generation
-  - In the early stages of development we had our own that generated for both versions of Minecraft (Java & Bedrock), it was discontinued after a certain period.
 
 ### Become a Translator
-Be free to help us to increase the languages available for the mod on the [Crowdin](https://crowdin.com/project/minecraft-more-blocks-mod) page. All the translators have their names on mod credits as thanks.
+Be free to help us to increase the languages available for the mod on the [Crowdin](https://crowdin.com/project/minecraft-some-more-blocks) page. All the translators have their names on mod credits as thanks.
 
 > [!NOTE]
-> Have you found any bug or inconsistency in the new blocks? Please open an [issue](https://github.com/Seface-Blocks/more-blocks-mod/issues) for us to review and correct in future versions.
+> Have you found any bug or inconsistency in the new blocks? Please open an [issue](https://github.com/Seface-Blocks/some-more-blocks/issues) for us to review and correct in future versions.
 
 ### Want to create a Resource Pack?
 In [this repository](https://github.com/Seface-Studios/some-more-blocks-rp) you can find multiple Resource Packs template with the mod textures.
