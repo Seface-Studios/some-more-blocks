@@ -20,6 +20,7 @@
 
   "custom": {
     "modmenu": {
+      "update_checker": true,
       "links": {
         "modmenu.becomeATranslator.somemoreblocks": "${crowdin_url}",
         "modmenu.discord": "${discord_url}"
