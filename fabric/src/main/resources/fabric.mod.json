@@ -29,7 +29,7 @@
   },
 
   "license": "${license}",
-  "icon": "assets/${mod_id}/icon.png",
+  "icon": "assets/${mod_id}/icon_64.png",
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": ["net.seface.${mod_id}.datagen.Main"],

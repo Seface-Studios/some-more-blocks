@@ -1,7 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "${forge_loader_version_range}"
 
-license = "${license}" # Review your options at https://choosealicense.com/.
+license = "${license}"
 issueTrackerURL = "${issues_tracker_url}"
 showAsResourcePack = false
 
