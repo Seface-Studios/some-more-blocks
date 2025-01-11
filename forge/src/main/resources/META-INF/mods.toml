@@ -1,11 +1,11 @@
-modLoader = "javafml" # Mandatory
+modLoader = "javafml"
 loaderVersion = "${forge_loader_version_range}"
 
 license = "${license}" # Review your options at https://choosealicense.com/.
 issueTrackerURL = "${issues_tracker_url}"
 showAsResourcePack = false
 
-[[mods]] # Mandatory
+[[mods]]
     modId = "${mod_id}"
     version = "${version}"
     displayName = "${mod_name}"
@@ -13,11 +13,11 @@ showAsResourcePack = false
     logoFile = "assets/${mod_id}/icon_512.png"
     credits = "${credits}"
     authors = "${mod_author}"
+updateJSONURL = "${source_url}/blob/main/.github/forge-update.png"
     description = '''
     ${description}
     In loving memory of §dNicolle Gama§f.
     '''
-    updateJSONURL = "${source_url}/blob/main/.github/forge-update.png"
 
 [[dependencies.${mod_id}]]
     modId = "forge"
