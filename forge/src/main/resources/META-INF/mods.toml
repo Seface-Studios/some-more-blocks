@@ -1,15 +1,15 @@
-modLoader = "javafml" #mandatory
+modLoader = "javafml" # Mandatory
 loaderVersion = "${forge_loader_version_range}"
 
 license = "${license}" # Review your options at https://choosealicense.com/.
-issueTrackerURL="${issues_tracker_url}"
-showAsResourcePack=false
+issueTrackerURL = "${issues_tracker_url}"
+showAsResourcePack = false
 
-[[mods]] #mandatory
+[[mods]] # Mandatory
     modId = "${mod_id}"
     version = "${version}"
     displayName = "${mod_name}"
-    displayURL="${main_url}"
+    displayURL= "${main_url}"
     logoFile = "assets/${mod_id}/icon_512.png"
     credits = "${credits}"
     authors = "${mod_author}"
@@ -17,17 +17,18 @@ showAsResourcePack=false
     ${description}
     In loving memory of §dNicolle Gama§f.
     '''
+    updateJSONURL = "${source_url}/blob/main/.github/forge-update.png"
 
 [[dependencies.${mod_id}]]
-    modId="forge"
-    mandatory=true
-    versionRange="${forge_version_range}"
-    ordering="NONE"
-    side="BOTH"
+    modId = "forge"
+    mandatory = true
+    versionRange = "${forge_version_range}"
+    ordering = "NONE"
+    side = "BOTH"
 
 [[dependencies.${mod_id}]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="${minecraft_version_range}"
-    ordering="NONE"
-    side="BOTH"
+    modId= "minecraft"
+    mandatory = true
+    versionRange = "${minecraft_version_range}"
+    ordering = "NONE"
+    side = "BOTH"
