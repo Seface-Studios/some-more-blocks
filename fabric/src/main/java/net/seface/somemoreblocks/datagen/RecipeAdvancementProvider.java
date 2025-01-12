@@ -3,21 +3,23 @@ package net.seface.somemoreblocks.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.seface.somemoreblocks.datagen.core.RecipeAdvancement;
 import net.seface.somemoreblocks.datagen.core.RecipeAdvancementGroupType;
 import net.seface.somemoreblocks.registries.SMBItems;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class RecipeAdvancementProvider extends FabricAdvancementProvider {
-  protected RecipeAdvancementProvider(FabricDataOutput output) {
-    super(output);
+  protected RecipeAdvancementProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+    super(output, lookup);
   }
 
   @Override
-  public void generateAdvancement(Consumer<AdvancementHolder> consumer) {
+  public void generateAdvancement(HolderLookup.Provider lookup, Consumer<AdvancementHolder> consumer) {
     RecipeAdvancement.setConsumer(consumer);
 
     RecipeAdvancement.create(Items.GREEN_DYE, RecipeAdvancementGroupType.MISC).craftableFrom(SMBItems.TINY_CACTUS).build();
@@ -176,21 +178,13 @@ public class RecipeAdvancementProvider extends FabricAdvancementProvider {
 
     RecipeAdvancement
       .group("Tuff Variations", (instance) -> instance
-        .create(SMBItems.POLISHED_TUFF).cuttableFrom(Blocks.TUFF)
-        .create(SMBItems.POLISHED_TUFF_STAIRS).craftableFrom(SMBItems.POLISHED_TUFF).cuttableFrom(Blocks.TUFF, SMBItems.POLISHED_TUFF)
-        .create(SMBItems.POLISHED_TUFF_SLAB).craftableFrom(SMBItems.POLISHED_TUFF).cuttableFrom(Blocks.TUFF, SMBItems.POLISHED_TUFF)
-        .create(SMBItems.CHISELED_TUFF_BRICKS).craftableFrom(SMBItems.TUFF_BRICK_SLAB).cuttableFrom(Blocks.TUFF, SMBItems.TUFF_BRICKS)
-        .create(SMBItems.TUFF_BRICKS).craftableFrom(Blocks.TUFF).cuttableFrom(Blocks.TUFF, SMBItems.POLISHED_TUFF)
-        .create(SMBItems.CRACKED_TUFF_BRICKS).craftableFrom(SMBItems.TUFF_BRICKS)
-        .create(SMBItems.TUFF_BRICK_STAIRS).craftableFrom(SMBItems.TUFF_BRICKS).cuttableFrom(Blocks.TUFF, SMBItems.POLISHED_TUFF, SMBItems.TUFF_BRICKS)
-        .create(SMBItems.TUFF_BRICK_SLAB).craftableFrom(SMBItems.TUFF_BRICKS).cuttableFrom(Blocks.TUFF, SMBItems.POLISHED_TUFF, SMBItems.TUFF_BRICKS)
-        .create(SMBItems.TUFF_BRICK_WALL).craftableFrom(SMBItems.TUFF_BRICKS).cuttableFrom(Blocks.TUFF, SMBItems.POLISHED_TUFF, SMBItems.TUFF_BRICKS)
-        .create(SMBItems.TUFF_PILLAR).craftableFrom(SMBItems.TUFF_BRICKS).cuttableFrom(Blocks.TUFF)
-        .create(SMBItems.TUFF_TILES).craftableFrom(SMBItems.TUFF_BRICKS).cuttableFrom(Blocks.TUFF, SMBItems.POLISHED_TUFF, SMBItems.TUFF_BRICKS)
+        .create(SMBItems.CRACKED_TUFF_BRICKS).craftableFrom(Blocks.TUFF_BRICKS)
+        .create(SMBItems.TUFF_PILLAR).craftableFrom(Blocks.TUFF_BRICKS).cuttableFrom(Blocks.TUFF)
+        .create(SMBItems.TUFF_TILES).craftableFrom(Blocks.TUFF_BRICKS).cuttableFrom(Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS)
         .create(SMBItems.CRACKED_TUFF_TILES).craftableFrom(SMBItems.TUFF_TILES)
-        .create(SMBItems.TUFF_TILE_STAIRS).craftableFrom(SMBItems.TUFF_TILES).cuttableFrom(Blocks.TUFF, SMBItems.POLISHED_TUFF, SMBItems.TUFF_BRICKS, SMBItems.TUFF_TILES)
-        .create(SMBItems.TUFF_TILE_SLAB).craftableFrom(SMBItems.TUFF_TILES).cuttableFrom(Blocks.TUFF, SMBItems.POLISHED_TUFF, SMBItems.TUFF_BRICKS, SMBItems.TUFF_TILES)
-        .create(SMBItems.TUFF_TILE_WALL).craftableFrom(SMBItems.TUFF_TILES).cuttableFrom(Blocks.TUFF, SMBItems.POLISHED_TUFF, SMBItems.TUFF_BRICKS, SMBItems.TUFF_TILES)
+        .create(SMBItems.TUFF_TILE_STAIRS).craftableFrom(SMBItems.TUFF_TILES).cuttableFrom(Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS, SMBItems.TUFF_TILES)
+        .create(SMBItems.TUFF_TILE_SLAB).craftableFrom(SMBItems.TUFF_TILES).cuttableFrom(Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS, SMBItems.TUFF_TILES)
+        .create(SMBItems.TUFF_TILE_WALL).craftableFrom(SMBItems.TUFF_TILES).cuttableFrom(Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS, SMBItems.TUFF_TILES)
         .create(SMBItems.MOSSY_TUFF_BRICKS).craftableFrom(Blocks.VINE, Blocks.MOSS_BLOCK)
         .create(SMBItems.MOSSY_TUFF_BRICK_STAIRS).craftableFrom(SMBItems.MOSSY_TUFF_BRICKS).cuttableFrom(SMBItems.MOSSY_TUFF_BRICKS)
         .create(SMBItems.MOSSY_TUFF_BRICK_SLAB).craftableFrom(SMBItems.MOSSY_TUFF_BRICKS).cuttableFrom(SMBItems.MOSSY_TUFF_BRICKS)
@@ -531,28 +525,28 @@ public class RecipeAdvancementProvider extends FabricAdvancementProvider {
 
     RecipeAdvancement
       .group("Bone Block Variations", (instance) -> instance
-        .create(SMBItems.SOUL_SANDSTONE).craftableFrom(Blocks.SOUL_SAND, Blocks.SOUL_SOIL)
-        .create(SMBItems.SOUL_SANDSTONE_STAIRS).craftableFrom(SMBItems.SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE)
-        .create(SMBItems.SOUL_SANDSTONE_SLAB).craftableFrom(SMBItems.SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE)
-        .create(SMBItems.SOUL_SANDSTONE_WALL).craftableFrom(SMBItems.SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE)
-        .create(SMBItems.CHISELED_SOUL_SANDSTONE).craftableFrom(SMBItems.SOUL_SANDSTONE_SLAB).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS)
-        .create(SMBItems.SOUL_SANDSTONE_BRICKS).craftableFrom(SMBItems.SMOOTH_SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE)
-        .create(SMBItems.CRACKED_SOUL_SANDSTONE_BRICKS).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS)
-        .create(SMBItems.SOUL_SANDSTONE_BRICK_STAIRS).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS)
-        .create(SMBItems.SOUL_SANDSTONE_BRICK_SLAB).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS)
-        .create(SMBItems.SOUL_SANDSTONE_BRICK_WALL).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS)
-        .create(SMBItems.SOUL_SANDSTONE_PILLAR).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS).cuttableFrom(SMBItems.SOUL_SANDSTONE)
-        .create(SMBItems.SOUL_SANDSTONE_TILES).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS)
-        .create(SMBItems.CRACKED_SOUL_SANDSTONE_TILES).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS)
-        .create(SMBItems.SOUL_SANDSTONE_TILE_STAIRS).craftableFrom(SMBItems.SOUL_SANDSTONE_TILES).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS, SMBItems.SOUL_SANDSTONE_TILES)
-        .create(SMBItems.SOUL_SANDSTONE_TILE_SLAB).craftableFrom(SMBItems.SOUL_SANDSTONE_TILES).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS, SMBItems.SOUL_SANDSTONE_TILES)
-        .create(SMBItems.SOUL_SANDSTONE_TILE_WALL).craftableFrom(SMBItems.SOUL_SANDSTONE_TILES).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS, SMBItems.SOUL_SANDSTONE_TILES)
-        .create(SMBItems.SMOOTH_SOUL_SANDSTONE).craftableFrom(SMBItems.SOUL_SANDSTONE)
-        .create(SMBItems.SMOOTH_SOUL_SANDSTONE_SLAB).craftableFrom(SMBItems.SMOOTH_SOUL_SANDSTONE).cuttableFrom(SMBItems.SMOOTH_SOUL_SANDSTONE)
-        .create(SMBItems.SMOOTH_SOUL_SANDSTONE_STAIRS).craftableFrom(SMBItems.SMOOTH_SOUL_SANDSTONE).cuttableFrom(SMBItems.SMOOTH_SOUL_SANDSTONE)
+          .create(SMBItems.SOUL_SANDSTONE).craftableFrom(Blocks.SOUL_SAND, Blocks.SOUL_SOIL)
+          .create(SMBItems.SOUL_SANDSTONE_STAIRS).craftableFrom(SMBItems.SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE)
+          .create(SMBItems.SOUL_SANDSTONE_SLAB).craftableFrom(SMBItems.SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE)
+          .create(SMBItems.SOUL_SANDSTONE_WALL).craftableFrom(SMBItems.SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE)
+          .create(SMBItems.CHISELED_SOUL_SANDSTONE).craftableFrom(SMBItems.SOUL_SANDSTONE_SLAB).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS)
+          .create(SMBItems.SOUL_SANDSTONE_BRICKS).craftableFrom(SMBItems.SMOOTH_SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE)
+          .create(SMBItems.CRACKED_SOUL_SANDSTONE_BRICKS).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS)
+          .create(SMBItems.SOUL_SANDSTONE_BRICK_STAIRS).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS)
+          .create(SMBItems.SOUL_SANDSTONE_BRICK_SLAB).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS)
+          .create(SMBItems.SOUL_SANDSTONE_BRICK_WALL).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS)
+          .create(SMBItems.SOUL_SANDSTONE_PILLAR).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS).cuttableFrom(SMBItems.SOUL_SANDSTONE)
+          .create(SMBItems.SOUL_SANDSTONE_TILES).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS)
+          .create(SMBItems.CRACKED_SOUL_SANDSTONE_TILES).craftableFrom(SMBItems.SOUL_SANDSTONE_BRICKS)
+          .create(SMBItems.SOUL_SANDSTONE_TILE_STAIRS).craftableFrom(SMBItems.SOUL_SANDSTONE_TILES).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS, SMBItems.SOUL_SANDSTONE_TILES)
+          .create(SMBItems.SOUL_SANDSTONE_TILE_SLAB).craftableFrom(SMBItems.SOUL_SANDSTONE_TILES).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS, SMBItems.SOUL_SANDSTONE_TILES)
+          .create(SMBItems.SOUL_SANDSTONE_TILE_WALL).craftableFrom(SMBItems.SOUL_SANDSTONE_TILES).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.SOUL_SANDSTONE_BRICKS, SMBItems.SOUL_SANDSTONE_TILES)
+          .create(SMBItems.SMOOTH_SOUL_SANDSTONE).craftableFrom(SMBItems.SOUL_SANDSTONE)
+          .create(SMBItems.SMOOTH_SOUL_SANDSTONE_SLAB).craftableFrom(SMBItems.SMOOTH_SOUL_SANDSTONE).cuttableFrom(SMBItems.SMOOTH_SOUL_SANDSTONE)
+          .create(SMBItems.SMOOTH_SOUL_SANDSTONE_STAIRS).craftableFrom(SMBItems.SMOOTH_SOUL_SANDSTONE).cuttableFrom(SMBItems.SMOOTH_SOUL_SANDSTONE)
 
-        .create(SMBItems.CUT_SOUL_SANDSTONE).craftableFrom(SMBItems.SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE)
-        .create(SMBItems.CUT_SOUL_SANDSTONE_SLAB).craftableFrom(SMBItems.CUT_SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.CUT_SOUL_SANDSTONE)
+          .create(SMBItems.CUT_SOUL_SANDSTONE).craftableFrom(SMBItems.SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE)
+          .create(SMBItems.CUT_SOUL_SANDSTONE_SLAB).craftableFrom(SMBItems.CUT_SOUL_SANDSTONE).cuttableFrom(SMBItems.SOUL_SANDSTONE, SMBItems.CUT_SOUL_SANDSTONE)
         /*.create(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).craftableFrom(Blocks.VINE, Blocks.MOSS_BLOCK)
         .create(MBItems.MOSSY_SOUL_SANDSTONE_BRICK_STAIRS).craftableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).cuttableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS)
         .create(MBItems.MOSSY_SOUL_SANDSTONE_BRICK_SLAB).craftableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).cuttableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS)

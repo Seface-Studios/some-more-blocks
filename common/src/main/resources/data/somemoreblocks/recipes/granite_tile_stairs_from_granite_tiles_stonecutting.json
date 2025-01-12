@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "somemoreblocks:granite_tiles"
-  },
-  "result": "somemoreblocks:granite_tile_stairs"
-}

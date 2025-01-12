@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:polished_granite"
+  },
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:granite_brick_wall"
+  }
+}

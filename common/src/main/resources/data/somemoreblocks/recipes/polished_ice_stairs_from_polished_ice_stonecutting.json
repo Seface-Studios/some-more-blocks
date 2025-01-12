@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "somemoreblocks:polished_ice"
-  },
-  "result": "somemoreblocks:polished_ice_stairs"
-}

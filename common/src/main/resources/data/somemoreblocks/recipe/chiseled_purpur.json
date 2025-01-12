@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:purpur_block"
+    },
+    "E": {
+      "item": "minecraft:end_rod"
+    },
+    "S": {
+      "item": "minecraft:shulker_shell"
+    }
+  },
+  "pattern": [
+    "E#E",
+    "#S#",
+    "E#E"
+  ],
+  "result": {
+    "count": 4,
+    "id": "somemoreblocks:chiseled_purpur"
+  }
+}

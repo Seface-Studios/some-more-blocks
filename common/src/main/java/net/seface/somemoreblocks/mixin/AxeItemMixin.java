@@ -5,6 +5,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.context.UseOnContext;
@@ -72,7 +73,7 @@ public abstract class AxeItemMixin {
     level.levelEvent(player, levelEvent, pos, 0);
 
     if (player != null) {
-      ctx.getItemInHand().hurtAndBreak(1, player, (_player) -> _player.broadcastBreakEvent(ctx.getHand()));
+      ctx.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(ctx.getHand()));
     }
   }
 }

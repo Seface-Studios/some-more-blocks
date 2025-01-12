@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "waxed_oxidized_cracked_cut_copper",
+  "ingredients": [
+    {
+      "item": "somemoreblocks:oxidized_cracked_cut_copper"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "id": "somemoreblocks:waxed_oxidized_cracked_cut_copper"
+  }
+}

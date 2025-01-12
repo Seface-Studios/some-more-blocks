@@ -26,5 +26,5 @@ public final class SMBBlockTags extends SMBAbstractData {
   public static final TagKey<Block> CARVED_LOGS = createTagKey(Registries.BLOCK, "carved_logs");
   public static final TagKey<Block> CARVED_STEMS = createTagKey(Registries.BLOCK, "carved_stems");
 
-  private SMBBlockTags() {}
+  public static void init() {}
 }

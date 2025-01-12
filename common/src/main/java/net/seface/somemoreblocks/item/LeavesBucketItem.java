@@ -2,7 +2,6 @@ package net.seface.somemoreblocks.item;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
@@ -17,6 +16,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.seface.somemoreblocks.block.LeafLitterBlock;
+import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -25,7 +25,7 @@ import java.util.List;
 public class LeavesBucketItem extends SolidBucketItem {
   public static final String BUCKET_VOLUME = "bucket_volume";
   public static final int MAX_VOLUME = 16;
-  public static final int DEFAULT_VOLUME = 1;
+  public static final int MIN_VOLUME = 1;
   private static final int BAR_COLOR = Mth.color(0.502F, 0.451F, 1.0F);
 
   public LeavesBucketItem(Block block, SoundEvent soundEvent, Properties properties) {
@@ -34,31 +34,31 @@ public class LeavesBucketItem extends SolidBucketItem {
     ((LeafLitterBlock) block).setBucketItem(this);
   }
 
-  public void setCustomData(ItemStack stack, int data) {
-    CompoundTag nbt = stack.getOrCreateTag();
-    nbt.putInt(BUCKET_VOLUME, data);
-  }
-
-  public int getCustomData(ItemStack itemStack) {
-    if (itemStack.hasTag() && itemStack.getTag().contains(BUCKET_VOLUME)) {
-      return itemStack.getTag().getInt(BUCKET_VOLUME);
-    }
-
-    return DEFAULT_VOLUME;
+  /**
+   * TBD
+   * @param stack
+   * @return
+   */
+  public int getBucketVolume(ItemStack stack) {
+    return stack.getComponents().getOrDefault(SMBDataComponentTypes.BUCKET_VOLUME, MIN_VOLUME);
   }
 
   @NotNull
   @Override
   public ItemStack getDefaultInstance() {
     ItemStack stack = new ItemStack(this);
-    ((LeavesBucketItem) stack.getItem()).setCustomData(stack, 1);
+    stack.set(SMBDataComponentTypes.BUCKET_VOLUME, 1);
 
     return stack;
   }
 
-  public ItemStack getCreativeInventoryInstance() {
+  /**
+   * TBD
+   * @return
+   */
+  public ItemStack getFullInstance() {
     ItemStack stack = new ItemStack(this);
-    ((LeavesBucketItem) stack.getItem()).setCustomData(stack, 16);
+    stack.set(SMBDataComponentTypes.BUCKET_VOLUME, MAX_VOLUME);
 
     return stack;
   }
@@ -74,7 +74,7 @@ public class LeavesBucketItem extends SolidBucketItem {
 
     // When collect leaves with bucket
     if ((state.getBlock().getDescriptionId().equals(this.getBlock().getDescriptionId()))) {
-      if (this.getCustomData(stack) == 16 && !player.isCreative()) {
+      if (this.getBucketVolume(stack) == 16 && !player.isCreative()) {
         return super.useOn(ctx);
       }
 
@@ -83,12 +83,12 @@ public class LeavesBucketItem extends SolidBucketItem {
         level.levelEvent(2001, pos, Block.getId(state));
       }
 
-      this.increaseBucketVolume(stack, player);
+      this.increaseBucketVolume(stack);
       return InteractionResult.SUCCESS;
     }
 
     // When place the leaves from the bucket on the ground.
-    if (this.getCustomData(stack) > 1 && !player.isCreative()) {
+    if (this.getBucketVolume(stack) > 1 && !player.isCreative()) {
       ItemStack stackCopy = stack.copy();
 
       InteractionResult interactionResult = super.useOn(ctx);
@@ -105,12 +105,12 @@ public class LeavesBucketItem extends SolidBucketItem {
 
   @Override
   public boolean isBarVisible(ItemStack stack) {
-    return this.getCustomData(stack) < 16;
+    return this.getBucketVolume(stack) < 16;
   }
 
   @Override
   public int getBarWidth(ItemStack stack) {
-    return Math.min(13 * this.getCustomData(stack) / 16, 16);
+    return Math.min(13 * this.getBucketVolume(stack) / 16, 16);
   }
 
   @Override
@@ -118,41 +118,29 @@ public class LeavesBucketItem extends SolidBucketItem {
     return BAR_COLOR;
   }
 
-  @Override
-  public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag tooltipFlag) {
-    if (stack.hasTag()) {
-      super.appendHoverText(stack, level, tooltip, tooltipFlag);
 
-      tooltip.add(1,
-        Component.translatable("item.somemoreblocks.leaves_bucket.volume_description", this.getCustomData(stack), MAX_VOLUME)
-          .withStyle(ChatFormatting.GRAY)
-      );
-    }
+  @Override
+  public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> tooltip, TooltipFlag tooltipFlag) {
+    super.appendHoverText(stack, ctx, tooltip, tooltipFlag);
+    tooltip.add(1,
+      Component.translatable("item.somemoreblocks.leaves_bucket.volume_description", this.getBucketVolume(stack), MAX_VOLUME)
+        .withStyle(ChatFormatting.GRAY)
+    );
   }
 
   private void decreaseBucketVolume(ItemStack stack, @Nullable Player player) {
-    LeavesBucketItem item = (LeavesBucketItem) stack.getItem();
-    int currentBucketVolume = item.getCustomData(stack);
+    int currentBucketVolume = this.getBucketVolume(stack);
 
-    item.setCustomData(stack, currentBucketVolume > 1 ? currentBucketVolume - 1 : 0);
+    stack.set(
+      SMBDataComponentTypes.BUCKET_VOLUME,
+      this.getBucketVolume(stack) > 1 ? currentBucketVolume - 1 : 0);
   }
 
-  private void increaseBucketVolume(ItemStack stack, @Nullable Player player) {
-    LeavesBucketItem item = (LeavesBucketItem) stack.getItem();
-    int currentBucketVolume = item.getCustomData(stack);
+  private void increaseBucketVolume(ItemStack stack) {
+    int currentBucketVolume = this.getBucketVolume(stack);
 
-    item.setCustomData(stack, currentBucketVolume < MAX_VOLUME ? currentBucketVolume + 1 : MAX_VOLUME);
+    stack.set(
+      SMBDataComponentTypes.BUCKET_VOLUME,
+      currentBucketVolume < MAX_VOLUME ? currentBucketVolume + 1 : MAX_VOLUME);
   }
-
-  /*public static void registerModelPredicateProviderFor(Item item) {
-    FabricModelPredicateProviderRegistry.register(
-            item, new ResourceLocation(MoreBlocks.ID, BUCKET_VOLUME), (stack, world, entity, seed) -> {
-              if (stack.hasTag() && stack.getTag().contains(BUCKET_VOLUME)) {
-                return (float) stack.getTag().getInt(BUCKET_VOLUME) / 100.0F;
-              }
-
-              return 0.01F;
-            }
-    );
-  }*/
 }

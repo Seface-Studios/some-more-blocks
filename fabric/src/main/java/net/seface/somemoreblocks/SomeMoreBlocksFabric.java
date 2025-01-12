@@ -1,18 +1,12 @@
 package net.seface.somemoreblocks;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.LandPathNodeTypesRegistry;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.seface.somemoreblocks.utils.EventResourcePackManager;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.seface.somemoreblocks.registries.CarvedBlockRegistry;
 import net.seface.somemoreblocks.registries.SnowyBushRegistry;
 import net.seface.somemoreblocks.registries.SMBBlocks;
@@ -38,9 +32,7 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     SMBFeatures.register();
     SMBBiomeModifiers.register();
 
-    LandPathNodeTypesRegistry.register(SMBBlocks.TINY_CACTUS, (state, neighbor) -> BlockPathTypes.DAMAGE_OTHER);
-
-    enableOrDisableExperimentalResourcePack();
+    LandPathNodeTypesRegistry.register(SMBBlocks.TINY_CACTUS, (state, neighbor) -> PathType.DAMAGE_OTHER);
 
     registerCarvedBlocks();
     registerCompostableItems();
@@ -171,25 +163,5 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     FuelRegistry.INSTANCE.add(SMBItems.COAL_PILLAR, Constants.COAL_PILLAR_FUEL);
     FuelRegistry.INSTANCE.add(SMBItems.CUT_COAL, Constants.CUT_COAL_FUEL);
     FuelRegistry.INSTANCE.add(SMBItems.CRACKED_CUT_COAL, Constants.CRACKED_CUT_COAL_FUEL);
-  }
-
-  /**
-   * Enabled/Disable Experimental 1.21 Resource Pack.
-   * Since the introduction of new Tuff blocks, a new texture with new Vanilla color palette was created.
-   * This method should be able to identify worlds with this experimental data pack enabled and apply the Resource Pack.
-   */
-  private static void enableOrDisableExperimentalResourcePack() {
-    if (MOD_CONTAINER.isEmpty()) return;
-
-    // Register as built-in Resource Pack.
-    ResourceManagerHelper.registerBuiltinResourcePack(
-      EventResourcePackManager.EXPERIMENTAL_1_21_RP,
-      MOD_CONTAINER.get(),
-      Component.translatable("somemoreblocks.resourcepack.update_1_21.name"),
-      ResourcePackActivationType.NORMAL
-    );
-
-    ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> EventResourcePackManager.onPlayerJoinEnableResourcePack(handler.getPlayer(), FeatureFlags.UPDATE_1_21));
-    ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> EventResourcePackManager.onPlayerLeaveDisableResourcePack(handler.getPlayer(), FeatureFlags.UPDATE_1_21));
   }
 }

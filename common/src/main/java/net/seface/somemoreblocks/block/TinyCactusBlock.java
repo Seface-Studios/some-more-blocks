@@ -1,6 +1,7 @@
 package net.seface.somemoreblocks.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -13,7 +14,7 @@ import net.seface.somemoreblocks.data.SMBBlockTags;
 
 @SuppressWarnings("deprecation")
 public class TinyCactusBlock extends FlowerBlock {
-  public TinyCactusBlock(MobEffect mobEffect, int i, Properties properties) {
+  public TinyCactusBlock(Holder<MobEffect> mobEffect, int i, Properties properties) {
     super(mobEffect, i, properties);
   }
 

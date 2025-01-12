@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:light_gray_terracotta"
+  },
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:light_gray_shingles"
+  }
+}

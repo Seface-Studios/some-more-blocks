@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:blue_concrete"
-  },
-  "result": "somemoreblocks:blue_concrete_tiles"
-}

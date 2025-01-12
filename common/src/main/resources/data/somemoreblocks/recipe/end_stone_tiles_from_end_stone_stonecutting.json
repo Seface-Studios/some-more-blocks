@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:end_stone"
+  },
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:end_stone_tiles"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_concrete_bricks",
+  "key": {
+    "#": {
+      "item": "minecraft:light_gray_concrete"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "id": "somemoreblocks:light_gray_concrete_bricks"
+  }
+}

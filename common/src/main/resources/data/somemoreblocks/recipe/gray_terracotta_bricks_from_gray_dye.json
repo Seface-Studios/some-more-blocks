@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_terracotta_bricks",
+  "key": {
+    "#": {
+      "item": "somemoreblocks:terracotta_bricks"
+    },
+    "X": {
+      "item": "minecraft:gray_dye"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "somemoreblocks:gray_terracotta_bricks"
+  }
+}

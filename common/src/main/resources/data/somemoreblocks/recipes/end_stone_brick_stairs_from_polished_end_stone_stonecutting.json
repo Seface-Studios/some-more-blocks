@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "somemoreblocks:polished_end_stone"
-  },
-  "result": "minecraft:end_stone_brick_stairs"
-}

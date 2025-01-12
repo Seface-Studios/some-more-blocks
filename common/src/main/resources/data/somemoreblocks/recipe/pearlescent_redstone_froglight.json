@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:pearlescent_froglight"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    " R ",
+    "R#R",
+    " R "
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:pearlescent_redstone_froglight"
+  }
+}

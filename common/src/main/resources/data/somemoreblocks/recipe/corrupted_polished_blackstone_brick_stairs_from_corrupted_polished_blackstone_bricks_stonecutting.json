@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:corrupted_polished_blackstone_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:corrupted_polished_blackstone_brick_stairs"
+  }
+}

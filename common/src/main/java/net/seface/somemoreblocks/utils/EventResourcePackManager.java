@@ -16,8 +16,13 @@ import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * This manager is not being used on Mod's version 1.21.
+ */
+@Deprecated
 public class EventResourcePackManager {
-  public static final ResourceLocation EXPERIMENTAL_1_21_RP = new ResourceLocation(SomeMoreBlocks.ID, "update_1_21");
+
+  public static final ResourceLocation EXPERIMENTAL_1_21_RP = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "update_1_21");
 
   /**
    * Should be triggered with the Player/Entity join world/server event.
@@ -36,7 +41,7 @@ public class EventResourcePackManager {
 
     if (!worldData.enabledFeatures().contains(featureFlag)) return;
 
-    String tagID = new ResourceLocation(SomeMoreBlocks.ID, "hide_update_1_21_message").toString();
+    String tagID = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "hide_update_1_21_message").toString();
     ClientResourcePackManager.enableResourcePack(EXPERIMENTAL_1_21_RP);
 
     if (player.getTags().contains(tagID)) return;

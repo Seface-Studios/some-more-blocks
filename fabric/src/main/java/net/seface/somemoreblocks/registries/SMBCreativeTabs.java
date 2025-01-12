@@ -5,12 +5,10 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
-import net.seface.somemoreblocks.utils.SMBUtils;
 
 public class SMBCreativeTabs {
   private static final CreativeModeTab MORE_BUILDING_BLOCKS = FabricItemGroup.builder()
@@ -153,15 +151,7 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.MOSSY_CALCITE_BRICK_WALL);
       entry.accept(SMBItems.SMOOTH_CALCITE);
       entry.accept(SMBItems.SMOOTH_CALCITE_SLAB);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.TUFF_BRICKS);
       entry.accept(SMBItems.CRACKED_TUFF_BRICKS);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.TUFF_BRICK_SLAB);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.TUFF_BRICK_STAIRS);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.TUFF_BRICK_WALL);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.CHISELED_TUFF_BRICKS);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.POLISHED_TUFF);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.POLISHED_TUFF_SLAB);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.POLISHED_TUFF_STAIRS);
       entry.accept(SMBItems.TUFF_PILLAR);
       entry.accept(SMBItems.TUFF_TILES);
       entry.accept(SMBItems.CRACKED_TUFF_TILES);
@@ -323,11 +313,7 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.IRON_PILLAR);
       entry.accept(SMBItems.CUT_IRON);
       entry.accept(SMBItems.CRACKED_CUT_IRON);
-
-      if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
-        entry.accept(SMBItems.IRON_GRATE);
-      }
-
+      entry.accept(SMBItems.IRON_GRATE);
       entry.accept(SMBItems.GOLD_BRICKS);
       entry.accept(SMBItems.CRACKED_GOLD_BRICKS);
       entry.accept(SMBItems.GOLD_PILLAR);
@@ -353,21 +339,13 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.DIAMOND_PILLAR);
       entry.accept(SMBItems.CUT_DIAMOND);
       entry.accept(SMBItems.CRACKED_CUT_DIAMOND);
-
-      if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
-        entry.accept(SMBItems.DIAMOND_GRATE);
-      }
-
+      entry.accept(SMBItems.DIAMOND_GRATE);
       entry.accept(SMBItems.NETHERITE_BRICKS);
       entry.accept(SMBItems.CRACKED_NETHERITE_BRICKS);
       entry.accept(SMBItems.NETHERITE_PILLAR);
       entry.accept(SMBItems.CUT_NETHERITE);
       entry.accept(SMBItems.CRACKED_CUT_NETHERITE);
-
-      if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
-        entry.accept(SMBItems.NETHERITE_GRATE);
-      }
-
+      entry.accept(SMBItems.NETHERITE_GRATE);
       entry.accept(SMBItems.CRACKED_QUARTZ_BRICKS);
       entry.accept(SMBItems.CUT_QUARTZ);
       entry.accept(SMBItems.CRACKED_CUT_QUARTZ);
@@ -376,8 +354,6 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.AMETHYST_PILLAR);
       entry.accept(SMBItems.CUT_AMETHYST);
       entry.accept(SMBItems.CRACKED_CUT_AMETHYST);
-
-      /* COPPER BLOCKS */
       entry.accept(SMBItems.COPPER_BRICKS);
       entry.accept(SMBItems.CRACKED_COPPER_BRICKS);
       entry.accept(SMBItems.COPPER_PILLAR);
@@ -410,8 +386,6 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS);
       entry.accept(SMBItems.WAXED_OXIDIZED_COPPER_PILLAR);
       entry.accept(SMBItems.WAXED_OXIDIZED_CRACKED_CUT_COPPER);
-      /* === */
-
       entry.accept(SMBItems.BONE_BRICKS);
       entry.accept(SMBItems.CRACKED_BONE_BRICKS);
       entry.accept(SMBItems.BONE_BRICK_STAIRS);
@@ -499,7 +473,6 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.PURPLE_STAINED_TILED_GLASS);
       entry.accept(SMBItems.MAGENTA_STAINED_TILED_GLASS);
       entry.accept(SMBItems.PINK_STAINED_TILED_GLASS);
-
       entry.accept(SMBItems.TILED_GLASS_PANE);
       entry.accept(SMBItems.WHITE_STAINED_TILED_GLASS_PANE);
       entry.accept(SMBItems.LIGHT_GRAY_STAINED_TILED_GLASS_PANE);
@@ -517,7 +490,6 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.PURPLE_STAINED_TILED_GLASS_PANE);
       entry.accept(SMBItems.MAGENTA_STAINED_TILED_GLASS_PANE);
       entry.accept(SMBItems.PINK_STAINED_TILED_GLASS_PANE);
-
       entry.accept(SMBItems.SHINGLES);
       entry.accept(SMBItems.WHITE_SHINGLES);
       entry.accept(SMBItems.LIGHT_GRAY_SHINGLES);
@@ -615,11 +587,11 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.SNOW_FERN);
       entry.accept(SMBItems.LARGE_SNOW_FERN);
       entry.accept(SMBItems.CATTAIL);
-      entry.accept(((LeavesBucketItem) SMBItems.LEAVES_BUCKET).getCreativeInventoryInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.BIRCH_LEAVES_BUCKET).getCreativeInventoryInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.SPRUCE_LEAVES_BUCKET).getCreativeInventoryInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.AZALEA_LEAVES_BUCKET).getCreativeInventoryInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET).getCreativeInventoryInstance());
+      entry.accept(((LeavesBucketItem) SMBItems.LEAVES_BUCKET).getFullInstance());
+      entry.accept(((LeavesBucketItem) SMBItems.BIRCH_LEAVES_BUCKET).getFullInstance());
+      entry.accept(((LeavesBucketItem) SMBItems.SPRUCE_LEAVES_BUCKET).getFullInstance());
+      entry.accept(((LeavesBucketItem) SMBItems.AZALEA_LEAVES_BUCKET).getFullInstance());
+      entry.accept(((LeavesBucketItem) SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET).getFullInstance());
       entry.accept(SMBItems.SMALL_LILY_PADS);
       entry.accept(SMBItems.LUMINOUS_FLOWER);
 
@@ -651,9 +623,9 @@ public class SMBCreativeTabs {
     }).build();
 
   public static void register() {
-    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(SomeMoreBlocks.ID, "0_more_building_blocks"), MORE_BUILDING_BLOCKS);
-    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(SomeMoreBlocks.ID, "1_more_colored_blocks"), MORE_COLORED_BLOCKS);
-    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(SomeMoreBlocks.ID, "2_more_natural_blocks"), MORE_NATURAL_BLOCKS);
-    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, new ResourceLocation(SomeMoreBlocks.ID, "3_more_redstone_blocks"), MORE_REDSTONE_BLOCKS);
+    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "0_more_building_blocks"), MORE_BUILDING_BLOCKS);
+    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "1_more_colored_blocks"), MORE_COLORED_BLOCKS);
+    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "2_more_natural_blocks"), MORE_NATURAL_BLOCKS);
+    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "3_more_redstone_blocks"), MORE_REDSTONE_BLOCKS);
   }
 }

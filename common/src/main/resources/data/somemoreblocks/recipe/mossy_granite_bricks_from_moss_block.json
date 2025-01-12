@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mossy_granite_bricks",
+  "ingredients": [
+    {
+      "item": "somemoreblocks:granite_bricks"
+    },
+    {
+      "item": "minecraft:moss_block"
+    }
+  ],
+  "result": {
+    "id": "somemoreblocks:mossy_granite_bricks"
+  }
+}

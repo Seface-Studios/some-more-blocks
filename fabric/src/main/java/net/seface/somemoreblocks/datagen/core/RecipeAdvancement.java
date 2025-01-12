@@ -127,17 +127,17 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
         suffix = "_from_" + requiredItemPath;
       }
 
-      ResourceLocation resourceLocation = new ResourceLocation(SomeMoreBlocks.ID, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
+      ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
       String name = resourceLocation.getPath();
 
       consumer.accept(
         Advancement.Builder.recipeAdvancement()
-          .parent(Advancement.Builder.recipeAdvancement().build(new ResourceLocation(ResourceLocation.DEFAULT_NAMESPACE, "recipes/root")))
+          .parent(Advancement.Builder.recipeAdvancement().build(ResourceLocation.fromNamespaceAndPath(ResourceLocation.DEFAULT_NAMESPACE, "recipes/root")))
           .addCriterion("has_needed_items", InventoryChangeTrigger.TriggerInstance.hasItems(requiredItem))
           .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
           .rewards(AdvancementRewards.Builder.recipe(resourceLocation))
           .requirements(AdvancementRequirements.anyOf(List.of("has_needed_items", "has_the_recipe")))
-          .build(new ResourceLocation(SomeMoreBlocks.ID, "recipes/" + group + name))
+          .build(ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "recipes/" + group + name))
       );
     }
   }
@@ -151,17 +151,17 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
       String requiredItemPath = requiredItem.asItem().builtInRegistryHolder().key().location().getPath();
       String suffix = "_from_" + requiredItemPath + "_stonecutting";
 
-      ResourceLocation resourceLocation = new ResourceLocation(SomeMoreBlocks.ID, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
+      ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
       String name = resourceLocation.getPath();
 
       consumer.accept(
         Advancement.Builder.recipeAdvancement()
-          .parent(Advancement.Builder.recipeAdvancement().build(new ResourceLocation(ResourceLocation.DEFAULT_NAMESPACE, "recipes/root")))
+          .parent(Advancement.Builder.recipeAdvancement().build(ResourceLocation.fromNamespaceAndPath(ResourceLocation.DEFAULT_NAMESPACE, "recipes/root")))
           .addCriterion("has_needed_items", InventoryChangeTrigger.TriggerInstance.hasItems(requiredItem))
           .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
           .rewards(AdvancementRewards.Builder.recipe(resourceLocation))
           .requirements(AdvancementRequirements.anyOf(List.of("has_needed_items", "has_the_recipe")))
-          .build(new ResourceLocation(SomeMoreBlocks.ID, "recipes/" + group + name))
+          .build(ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "recipes/" + group + name))
       );
     }
   }

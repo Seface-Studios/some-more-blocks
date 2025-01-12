@@ -3,6 +3,7 @@ package net.seface.somemoreblocks.mixin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.WorldlyContainerHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
+import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,13 +29,12 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
     super(properties);
   }
 
-  @Inject(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;awardStat(Lnet/minecraft/stats/Stat;)V"), cancellable = true)
-  private void useMixin(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result, CallbackInfoReturnable<InteractionResult> cir) {
-    ItemStack stack = player.getItemInHand(hand);
+  @Inject(method = "useItemOn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;awardStat(Lnet/minecraft/stats/Stat;)V"), cancellable = true)
+  private void useMixin(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult, CallbackInfoReturnable<ItemInteractionResult> cir) {
 
     if (stack.getItem() instanceof LeavesBucketItem) {
       int levelState = state.getValue(ComposterBlock.LEVEL);
-      int bucketVolume = stack.getTag().getInt(LeavesBucketItem.BUCKET_VOLUME);
+      int bucketVolume = stack.getComponents().getOrDefault(SMBDataComponentTypes.BUCKET_VOLUME, LeavesBucketItem.MIN_VOLUME);
       int missingLevels = ComposterBlock.MAX_LEVEL - levelState;
 
       bucketVolume -= Math.min(missingLevels, bucketVolume);
@@ -42,11 +43,11 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
         if (bucketVolume == 0) {
           player.setItemInHand(hand, Items.BUCKET.getDefaultInstance());
         } else {
-          stack.getTag().putInt(LeavesBucketItem.BUCKET_VOLUME, bucketVolume);
+          stack.set(SMBDataComponentTypes.BUCKET_VOLUME, bucketVolume);
         }
       }
 
-      cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide));
+      cir.setReturnValue(ItemInteractionResult.sidedSuccess(level.isClientSide));
     }
   }
 
@@ -54,7 +55,7 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
   private static void addItemMixin(Entity entity, BlockState state, LevelAccessor level, BlockPos pos, ItemStack stack, CallbackInfoReturnable<BlockState> cir) {
     if (stack.getItem() instanceof LeavesBucketItem) {
       int levelState = state.getValue(ComposterBlock.LEVEL);
-      int bucketVolume = stack.getTag().getInt(LeavesBucketItem.BUCKET_VOLUME);
+      int bucketVolume = stack.getComponents().getOrDefault(SMBDataComponentTypes.BUCKET_VOLUME, LeavesBucketItem.MIN_VOLUME);
       int missingLevels = ComposterBlock.MAX_LEVEL - levelState;
 
       levelState += Math.min(missingLevels, bucketVolume);

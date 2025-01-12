@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_concrete_tiles",
+  "key": {
+    "#": {
+      "item": "somemoreblocks:pink_concrete_bricks"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "id": "somemoreblocks:pink_concrete_tiles"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_tiled_glass",
+  "key": {
+    "#": {
+      "item": "somemoreblocks:tiled_glass"
+    },
+    "D": {
+      "item": "minecraft:white_dye"
+    }
+  },
+  "pattern": [
+    "###",
+    "#D#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "somemoreblocks:white_stained_tiled_glass"
+  }
+}

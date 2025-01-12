@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 import net.seface.somemoreblocks.data.SMBBlockTags;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 import org.jetbrains.annotations.NotNull;
@@ -88,15 +89,10 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
   @Override
   public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
     ItemStack stack = super.getCloneItemStack(level, pos, state);
-    ((LeavesBucketItem) stack.getItem()).setCustomData(stack, 16);
+    stack.set(SMBDataComponentTypes.BUCKET_VOLUME, LeavesBucketItem.MAX_VOLUME);
 
     return stack;
   }
-
-  /*@Override
-  public boolean canBeReplaced(BlockState state, Fluid fluid) {
-    return true;
-  }*/
 
   @Override
   public @NotNull ItemStack pickupBlock(@Nullable Player player, LevelAccessor level, BlockPos pos, BlockState state) {

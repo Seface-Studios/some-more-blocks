@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "somemoreblocks:ice_bricks"
-  },
-  "result": "somemoreblocks:ice_brick_slab"
-}

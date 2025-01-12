@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stained_tiled_glass",
+  "key": {
+    "#": {
+      "item": "minecraft:orange_stained_glass"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "id": "somemoreblocks:orange_stained_tiled_glass"
+  }
+}
