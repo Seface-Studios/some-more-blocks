@@ -79,7 +79,7 @@ public class EventResourcePackManager {
 
     WorldData worldData = world.getServer().getWorldData();
 
-    if (!worldData.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) return;
+    if (!worldData.enabledFeatures().contains(featureFlag)) return;
     ClientResourcePackManager.disableResourcePack(EXPERIMENTAL_1_21_RP);
   }
 }
