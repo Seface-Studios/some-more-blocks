@@ -9,7 +9,6 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.flag.FeatureFlag;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.WorldData;
 import net.seface.somemoreblocks.Constants;
@@ -18,11 +17,15 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * This manager is not being used on Mod's version 1.21.
+ *   - Resource Pack Name Translation key: "somemoreblocks.resourcepack.[rp_path].name"
+ *   - Resource Pack Enabled Translation key: "somemoreblocks.resourcepack.[rp_path].enabled"
+ *   - Resource Pack "Read More" Translation key: "somemoreblocks.resourcepack.[rp_path].read_more"
+ *   - Resource Pack "Read More" tooltip Translation key: "somemoreblocks.resourcepack.[rp_path].read_more.hover"
  */
 @Deprecated
 public class EventResourcePackManager {
 
-  public static final ResourceLocation EXPERIMENTAL_1_21_RP = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "update_1_21");
+  public static final ResourceLocation NONE = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "none");
 
   /**
    * Should be triggered with the Player/Entity join world/server event.
@@ -41,8 +44,8 @@ public class EventResourcePackManager {
 
     if (!worldData.enabledFeatures().contains(featureFlag)) return;
 
-    String tagID = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "hide_update_1_21_message").toString();
-    ClientResourcePackManager.enableResourcePack(EXPERIMENTAL_1_21_RP);
+    String tagID = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "hide_" + NONE.getPath() + "_message").toString();
+    ClientResourcePackManager.enableResourcePack(NONE);
 
     if (player.getTags().contains(tagID)) return;
 
@@ -52,12 +55,12 @@ public class EventResourcePackManager {
     String readMoreURL = "https://github.com/Seface-Studios/some-more-blocks/tree/main/common/src/main/resources/resourcepacks";
     HoverEvent readMoreHover = new HoverEvent(
       HoverEvent.Action.SHOW_TEXT,
-      Component.translatable("somemoreblocks.resourcepack.update_1_21.read_more.hover"));
+      Component.translatable("somemoreblocks.resourcepack." + NONE.getPath() + ".read_more.hover"));
 
-    MutableComponent message = Component.translatable("somemoreblocks.resourcepack.update_1_21.enabled")
+    MutableComponent message = Component.translatable("somemoreblocks.resourcepack." + NONE.getPath() + ".enabled")
       .withStyle(style -> style.withColor(ChatFormatting.GRAY))
       .append(" ")
-      .append(Component.translatable("somemoreblocks.resourcepack.update_1_21.read_more")
+      .append(Component.translatable("somemoreblocks.resourcepack." + NONE.getPath() + ".read_more")
         .withColor(Constants.GREENFUL_COLOR)
         .withStyle(style ->
           style.withHoverEvent(readMoreHover)
@@ -85,6 +88,6 @@ public class EventResourcePackManager {
     WorldData worldData = world.getServer().getWorldData();
 
     if (!worldData.enabledFeatures().contains(featureFlag)) return;
-    ClientResourcePackManager.disableResourcePack(EXPERIMENTAL_1_21_RP);
+    ClientResourcePackManager.disableResourcePack(NONE);
   }
 }

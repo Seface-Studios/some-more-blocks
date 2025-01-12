@@ -275,7 +275,7 @@ public class SomeMoreBlocksForge {
     if (event.getPackType() == PackType.CLIENT_RESOURCES) {
       Path resourcePackPath = ModList.get().getModFileById(SomeMoreBlocks.ID).getFile().findResource("resourcepacks/update_1_21");
       Pack pack = Pack.readMetaAndCreate(
-        EventResourcePackManager.EXPERIMENTAL_1_21_RP.toString(),
+        EventResourcePackManager.NONE.toString(),
         Component.translatable("somemoreblocks.resourcepack.update_1_21.name"),
         false,
         new PathPackResources.PathResourcesSupplier(resourcePackPath, false),
