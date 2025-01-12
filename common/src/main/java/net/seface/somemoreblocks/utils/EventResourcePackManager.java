@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.event;
+package net.seface.somemoreblocks.utils;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -8,28 +8,36 @@ import net.minecraft.network.chat.HoverEvent;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.WorldData;
 import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.utils.ResourcePackManager;
+import org.jetbrains.annotations.Nullable;
 
-public class OnPlayerJoinOrLeaveWorld {
+public class EventResourcePackManager {
   public static final ResourceLocation EXPERIMENTAL_1_21_RP = new ResourceLocation(SomeMoreBlocks.ID, "update_1_21");
 
-  public static void enableResourcePackOnPlayerJoinWorld(Player player) {
+  /**
+   * Should be triggered with the Player/Entity join world/server event.
+   * Will depend on how ModLoader handles this event.
+   * @param player The affected player.
+   * @param featureFlag The feature flag to filter valid worlds.
+   */
+  public static void onPlayerJoinEnableResourcePack(Player player, @Nullable FeatureFlag featureFlag) {
     if (!Minecraft.getInstance().getGameProfile().equals(player.getGameProfile())) return;
+    if (featureFlag == null) return;
 
     Level world = player.level();
     if (world.isClientSide()) return;
 
     WorldData worldData = world.getServer().getWorldData();
 
-    if (!worldData.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) return;
+    if (!worldData.enabledFeatures().contains(featureFlag)) return;
 
     String tagID = new ResourceLocation(SomeMoreBlocks.ID, "hide_update_1_21_message").toString();
-    ResourcePackManager.enableResourcePack(EXPERIMENTAL_1_21_RP);
+    ClientResourcePackManager.enableResourcePack(EXPERIMENTAL_1_21_RP);
 
     if (player.getTags().contains(tagID)) return;
 
@@ -56,8 +64,15 @@ public class OnPlayerJoinOrLeaveWorld {
     player.getTags().add(tagID);
   }
 
-  public static void disableResourcePackOnPlayerLeaveWorld(Player player) {
+  /**
+   * Should be triggered with the Player/Entity leave world/server event.
+   * Will depend on how ModLoader handles this event.
+   * @param player The affected player.
+   * @param featureFlag The feature flag to filter valid worlds.
+   */
+  public static void onPlayerLeaveDisableResourcePack(Player player, @Nullable FeatureFlag featureFlag) {
     if (!Minecraft.getInstance().getGameProfile().equals(player.getGameProfile())) return;
+    if (featureFlag == null) return;
 
     Level world = player.level();
     if (world.isClientSide()) return;
@@ -65,6 +80,6 @@ public class OnPlayerJoinOrLeaveWorld {
     WorldData worldData = world.getServer().getWorldData();
 
     if (!worldData.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) return;
-    ResourcePackManager.disableResourcePack(EXPERIMENTAL_1_21_RP);
+    ClientResourcePackManager.disableResourcePack(EXPERIMENTAL_1_21_RP);
   }
 }

@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.seface.somemoreblocks.event.OnPlayerJoinOrLeaveWorld;
+import net.seface.somemoreblocks.utils.EventResourcePackManager;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.utils.*;
@@ -275,7 +275,7 @@ public class SomeMoreBlocksForge {
     if (event.getPackType() == PackType.CLIENT_RESOURCES) {
       Path resourcePackPath = ModList.get().getModFileById(SomeMoreBlocks.ID).getFile().findResource("resourcepacks/update_1_21");
       Pack pack = Pack.readMetaAndCreate(
-        OnPlayerJoinOrLeaveWorld.EXPERIMENTAL_1_21_RP.toString(),
+        EventResourcePackManager.EXPERIMENTAL_1_21_RP.toString(),
         Component.translatable("somemoreblocks.resourcepack.update_1_21.name"),
         false,
         new PathPackResources.PathResourcesSupplier(resourcePackPath, false),

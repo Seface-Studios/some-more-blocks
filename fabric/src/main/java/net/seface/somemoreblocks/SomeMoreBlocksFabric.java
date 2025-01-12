@@ -9,9 +9,10 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.seface.somemoreblocks.event.OnPlayerJoinOrLeaveWorld;
+import net.seface.somemoreblocks.utils.EventResourcePackManager;
 import net.seface.somemoreblocks.registries.CarvedBlockRegistry;
 import net.seface.somemoreblocks.registries.SnowyBushRegistry;
 import net.seface.somemoreblocks.registries.SMBBlocks;
@@ -182,13 +183,13 @@ public class SomeMoreBlocksFabric implements ModInitializer {
 
     // Register as built-in Resource Pack.
     ResourceManagerHelper.registerBuiltinResourcePack(
-      OnPlayerJoinOrLeaveWorld.EXPERIMENTAL_1_21_RP,
+      EventResourcePackManager.EXPERIMENTAL_1_21_RP,
       MOD_CONTAINER.get(),
       Component.translatable("somemoreblocks.resourcepack.update_1_21.name"),
       ResourcePackActivationType.NORMAL
     );
 
-    ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> OnPlayerJoinOrLeaveWorld.enableResourcePackOnPlayerJoinWorld(handler.getPlayer()));
-    ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> OnPlayerJoinOrLeaveWorld.disableResourcePackOnPlayerLeaveWorld(handler.getPlayer()));
+    ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> EventResourcePackManager.onPlayerJoinEnableResourcePack(handler.getPlayer(), FeatureFlags.UPDATE_1_21));
+    ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> EventResourcePackManager.onPlayerLeaveDisableResourcePack(handler.getPlayer(), FeatureFlags.UPDATE_1_21));
   }
 }

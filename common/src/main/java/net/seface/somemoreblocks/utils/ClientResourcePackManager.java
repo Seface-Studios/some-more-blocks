@@ -9,7 +9,7 @@ import net.minecraft.server.packs.repository.PackRepository;
 
 import java.util.List;
 
-public class ResourcePackManager {
+public class ClientResourcePackManager {
   private static final Minecraft client = Minecraft.getInstance();
   private static final PackRepository repo = client.getResourcePackRepository();
 
