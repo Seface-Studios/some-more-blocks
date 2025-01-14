@@ -2,14 +2,11 @@ package net.seface.somemoreblocks.registries;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.item.LeavesBucketItem;
-import net.seface.somemoreblocks.utils.SMBUtils;
 
 public class SMBCreativeTabs {
   public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SomeMoreBlocks.ID);
@@ -591,11 +588,11 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.SNOW_FERN.get());
       entry.accept(SMBBlocks.LARGE_SNOW_FERN.get());
       entry.accept(SMBBlocks.CATTAIL.get());
-      entry.accept(SMBItems.LEAVES_BUCKET.get());
-      entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get());
-      entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.get());
-      entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get());
-      entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
+      entry.accept(SMBItems.LEAVES_BUCKET.get().getDefaultInstance());
+      entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get().getDefaultInstance());
+      entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.get().getDefaultInstance());
+      entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get().getDefaultInstance());
+      entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get().getDefaultInstance());
       entry.accept(SMBItems.SMALL_LILY_PADS.get());
       entry.accept(SMBBlocks.LUMINOUS_FLOWER.get());
 

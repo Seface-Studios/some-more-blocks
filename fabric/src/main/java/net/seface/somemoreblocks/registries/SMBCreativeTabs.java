@@ -8,7 +8,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.item.LeavesBucketItem;
 
 public class SMBCreativeTabs {
   private static final CreativeModeTab MORE_BUILDING_BLOCKS = FabricItemGroup.builder()
@@ -587,11 +586,11 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.SNOW_FERN);
       entry.accept(SMBItems.LARGE_SNOW_FERN);
       entry.accept(SMBItems.CATTAIL);
-      entry.accept(SMBItems.LEAVES_BUCKET);
-      entry.accept(SMBItems.BIRCH_LEAVES_BUCKET);
-      entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET);
-      entry.accept(SMBItems.AZALEA_LEAVES_BUCKET);
-      entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET);
+      entry.accept(SMBItems.LEAVES_BUCKET.getDefaultInstance());
+      entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.getDefaultInstance());
+      entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.getDefaultInstance());
+      entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.getDefaultInstance());
+      entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.getDefaultInstance());
       entry.accept(SMBItems.SMALL_LILY_PADS);
       entry.accept(SMBItems.LUMINOUS_FLOWER);
 

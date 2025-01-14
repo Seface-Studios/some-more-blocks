@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.block.LeafLitterBlock;
 import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 import org.jetbrains.annotations.NotNull;
@@ -30,7 +31,7 @@ import java.util.List;
 public class LeavesBucketItem extends SolidBucketItem {
   public static final int MAX_VOLUME = 16;
   public static final int MIN_VOLUME = 1;
-  private static final int BAR_COLOR = Mth.color(0.502F, 0.451F, 1.0F);
+  private static final int BAR_COLOR = Constants.AMESFACE_COLOR;
 
   private final BlockState leafLitterState;
 
@@ -44,7 +45,7 @@ public class LeavesBucketItem extends SolidBucketItem {
   @NotNull
   @Override
   public ItemStack getDefaultInstance() {
-    ItemStack stack = new ItemStack(this);
+    ItemStack stack = super.getDefaultInstance();
     stack.set(SMBDataComponentTypes.BUCKET_VOLUME, MAX_VOLUME);
 
     return stack;
@@ -113,7 +114,7 @@ public class LeavesBucketItem extends SolidBucketItem {
 
   @Override
   public boolean isBarVisible(ItemStack stack) {
-    return stack.getComponents().getOrDefault(SMBDataComponentTypes.BUCKET_VOLUME, 1) < 16;
+    return stack.getComponents().getOrDefault(SMBDataComponentTypes.BUCKET_VOLUME, 1) < MAX_VOLUME;
   }
 
   @Override
