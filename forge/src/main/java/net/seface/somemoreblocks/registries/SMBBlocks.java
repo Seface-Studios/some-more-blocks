@@ -18,7 +18,7 @@ import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.api.IPoweredBlockMixin;
 import net.seface.somemoreblocks.block.*;
 import net.seface.somemoreblocks.data.SMBBlockTags;
-import net.seface.somemoreblocks.item.FuelItem;
+import net.seface.somemoreblocks.item.BlockFuelItem;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
@@ -730,7 +730,7 @@ public class SMBBlocks {
    * @param fuel The fuel values for the block. Like the "Block of Coal".
    */
   private static <T extends Block> void registerBlockItemWithFuel(String identifier, RegistryObject<T> block, int fuel) {
-    SMBItems.registerItem(identifier, () -> new FuelItem(block.get(), new Item.Properties(), fuel));
+    SMBItems.registerItem(identifier, () -> new BlockFuelItem(block.get(), new Item.Properties(), fuel));
   }
 
   public static void register(IEventBus event) {

@@ -6,10 +6,10 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 
-public class FuelItem extends BlockItem {
+public class BlockFuelItem extends BlockItem {
   private int burnTime = 0;
 
-  public FuelItem(Block block, Properties properties, int burnTime) {
+  public BlockFuelItem(Block block, Properties properties, int burnTime) {
     super(block, properties);
     this.burnTime = burnTime;
   }

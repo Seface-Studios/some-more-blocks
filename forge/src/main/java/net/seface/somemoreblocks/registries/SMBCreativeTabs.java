@@ -615,11 +615,11 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.SNOW_FERN.get());
       entry.accept(SMBBlocks.LARGE_SNOW_FERN.get());
       entry.accept(SMBBlocks.CATTAIL.get());
-      entry.accept(((LeavesBucketItem) SMBItems.LEAVES_BUCKET.get()).getCreativeInventoryInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.BIRCH_LEAVES_BUCKET.get()).getCreativeInventoryInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.SPRUCE_LEAVES_BUCKET.get()).getCreativeInventoryInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.AZALEA_LEAVES_BUCKET.get()).getCreativeInventoryInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get()).getCreativeInventoryInstance());
+      entry.accept(SMBItems.LEAVES_BUCKET.get().getDefaultInstance());
+      entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get().getDefaultInstance());
+      entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.get().getDefaultInstance());
+      entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get().getDefaultInstance());
+      entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get().getDefaultInstance());
       entry.accept(SMBItems.SMALL_LILY_PADS.get());
       entry.accept(SMBBlocks.LUMINOUS_FLOWER.get());
 

@@ -88,15 +88,10 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
   @Override
   public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
     ItemStack stack = super.getCloneItemStack(level, pos, state);
-    ((LeavesBucketItem) stack.getItem()).setCustomData(stack, 16);
+    ((LeavesBucketItem) stack.getItem()).setBucketVolume(stack, 16);
 
     return stack;
   }
-
-  /*@Override
-  public boolean canBeReplaced(BlockState state, Fluid fluid) {
-    return true;
-  }*/
 
   @Override
   public @NotNull ItemStack pickupBlock(@Nullable Player player, LevelAccessor level, BlockPos pos, BlockState state) {
@@ -105,7 +100,10 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
       level.levelEvent(2001, pos, Block.getId(state));
     }
 
-    return this.bucketItem.getDefaultInstance();
+    ItemStack stack = this.bucketItem.getDefaultInstance();
+    LeavesBucketItem.setBucketVolume(stack, LeavesBucketItem.MIN_VOLUME);
+
+    return stack;
   }
 
   @NotNull
