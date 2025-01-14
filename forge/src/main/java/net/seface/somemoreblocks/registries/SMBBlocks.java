@@ -18,7 +18,7 @@ import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.api.IPoweredBlockMixin;
 import net.seface.somemoreblocks.block.*;
 import net.seface.somemoreblocks.data.SMBBlockTags;
-import net.seface.somemoreblocks.item.FuelItem;
+import net.seface.somemoreblocks.item.FuelBlockItem;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
@@ -164,14 +164,6 @@ public class SMBBlocks {
   public static final RegistryObject<Block> END_STONE_TILE_WALL = registerBlock("end_stone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.END_STONE_TILES.get()).forceSolidOn()));
   public static final RegistryObject<Block> CRACKED_END_STONE_TILES = registerBlock("cracked_end_stone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE_BRICKS)));
   public static final RegistryObject<Block> END_STONE_PILLAR = registerBlock("end_stone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE_BRICKS)));
-  public static final RegistryObject<Block> TUFF_BRICKS = registerBlock("tuff_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF)));
-  public static final RegistryObject<Block> TUFF_BRICK_SLAB = registerBlock("tuff_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TUFF_BRICKS.get())));
-  public static final RegistryObject<Block> TUFF_BRICK_STAIRS = registerBlock("tuff_brick_stairs", () -> new StairBlock(TUFF_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TUFF_BRICKS.get())));
-  public static final RegistryObject<Block> TUFF_BRICK_WALL = registerBlock("tuff_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TUFF_BRICKS.get())));
-  public static final RegistryObject<Block> CHISELED_TUFF_BRICKS = registerBlock("chiseled_tuff_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TUFF_BRICKS.get())));
-  public static final RegistryObject<Block> POLISHED_TUFF = registerBlock("polished_tuff", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TUFF_BRICKS.get())));
-  public static final RegistryObject<Block> POLISHED_TUFF_SLAB = registerBlock("polished_tuff_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TUFF_BRICKS.get())));
-  public static final RegistryObject<Block> POLISHED_TUFF_STAIRS = registerBlock("polished_tuff_stairs", () -> new StairBlock(POLISHED_TUFF.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TUFF_BRICKS.get())));
   public static final RegistryObject<Block> SMOOTH_TUFF = registerBlock("smooth_tuff", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF)));
   public static final RegistryObject<Block> SMOOTH_TUFF_SLAB = registerBlock("smooth_tuff_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.SMOOTH_TUFF.get())));
   public static final RegistryObject<Block> CRACKED_TUFF_BRICKS = registerBlock("cracked_tuff_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS)));
@@ -730,7 +722,7 @@ public class SMBBlocks {
    * @param fuel The fuel values for the block. Like the "Block of Coal".
    */
   private static <T extends Block> void registerBlockItemWithFuel(String identifier, RegistryObject<T> block, int fuel) {
-    SMBItems.registerItem(identifier, () -> new FuelItem(block.get(), new Item.Properties(), fuel));
+    SMBItems.registerItem(identifier, () -> new FuelBlockItem(block.get(), new Item.Properties(), fuel));
   }
 
   public static void register(IEventBus event) {

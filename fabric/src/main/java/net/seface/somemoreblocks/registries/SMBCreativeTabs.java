@@ -587,11 +587,11 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.SNOW_FERN);
       entry.accept(SMBItems.LARGE_SNOW_FERN);
       entry.accept(SMBItems.CATTAIL);
-      entry.accept(((LeavesBucketItem) SMBItems.LEAVES_BUCKET).getFullInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.BIRCH_LEAVES_BUCKET).getFullInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.SPRUCE_LEAVES_BUCKET).getFullInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.AZALEA_LEAVES_BUCKET).getFullInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET).getFullInstance());
+      entry.accept(SMBItems.LEAVES_BUCKET);
+      entry.accept(SMBItems.BIRCH_LEAVES_BUCKET);
+      entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET);
+      entry.accept(SMBItems.AZALEA_LEAVES_BUCKET);
+      entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET);
       entry.accept(SMBItems.SMALL_LILY_PADS);
       entry.accept(SMBItems.LUMINOUS_FLOWER);
 

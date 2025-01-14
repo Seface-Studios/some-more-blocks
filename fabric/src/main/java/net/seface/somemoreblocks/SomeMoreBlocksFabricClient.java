@@ -106,10 +106,10 @@ public class SomeMoreBlocksFabricClient implements ClientModInitializer {
    * Registers values related to ModelPredicate.
    */
   private static void registerModelPredicateProviders() {
-    ModelPredicateRegistry.register(SMBItems.LEAVES_BUCKET, LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicateRegistry.register(SMBItems.SPRUCE_LEAVES_BUCKET, LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicateRegistry.register(SMBItems.BIRCH_LEAVES_BUCKET, LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicateRegistry.register(SMBItems.AZALEA_LEAVES_BUCKET, LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicateRegistry.register(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET, LeavesBucketItem.BUCKET_VOLUME);
+    ModelPredicateRegistry.register(SMBItems.LEAVES_BUCKET, "bucket_volume");
+    ModelPredicateRegistry.register(SMBItems.SPRUCE_LEAVES_BUCKET, "bucket_volume");
+    ModelPredicateRegistry.register(SMBItems.BIRCH_LEAVES_BUCKET, "bucket_volume");
+    ModelPredicateRegistry.register(SMBItems.AZALEA_LEAVES_BUCKET, "bucket_volume");
+    ModelPredicateRegistry.register(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET, "bucket_volume");
   }
 }

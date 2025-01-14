@@ -3,13 +3,18 @@ package net.seface.somemoreblocks.block;
 import com.mojang.serialization.MapCodec;
 import lombok.Getter;
 import lombok.Setter;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -17,6 +22,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BucketPickup;
 import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -97,11 +103,15 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
   @Override
   public @NotNull ItemStack pickupBlock(@Nullable Player player, LevelAccessor level, BlockPos pos, BlockState state) {
     level.setBlock(pos, Blocks.AIR.defaultBlockState(), 11);
+
     if (!level.isClientSide()) {
       level.levelEvent(2001, pos, Block.getId(state));
     }
 
-    return this.bucketItem.getDefaultInstance();
+    ItemStack stack = this.bucketItem.getDefaultInstance();
+    stack.set(SMBDataComponentTypes.BUCKET_VOLUME, LeavesBucketItem.MIN_VOLUME);
+
+    return stack;
   }
 
   @NotNull

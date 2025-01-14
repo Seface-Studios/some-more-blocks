@@ -12,7 +12,7 @@ import java.util.function.UnaryOperator;
 
 public class SMBDataComponentTypes {
   public static final DataComponentType<Integer> BUCKET_VOLUME =
-    register("bucket_volume", builder -> builder.persistent(ExtraCodecs.intRange(1, 16)).networkSynchronized(ByteBufCodecs.VAR_INT));
+    register("bucket_volume", builder -> builder.persistent(ExtraCodecs.intRange(0, 16)).networkSynchronized(ByteBufCodecs.VAR_INT));
 
   private static <T>DataComponentType<T> register(String identifier, UnaryOperator<DataComponentType.Builder<T>> builder) {
     return Registry.register(

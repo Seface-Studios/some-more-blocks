@@ -155,15 +155,7 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.MOSSY_CALCITE_BRICK_WALL.get());
       entry.accept(SMBBlocks.SMOOTH_CALCITE.get());
       entry.accept(SMBBlocks.SMOOTH_CALCITE_SLAB.get());
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.TUFF_BRICKS.get().asItem());
       entry.accept(SMBBlocks.CRACKED_TUFF_BRICKS.get());
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.TUFF_BRICK_SLAB.get().asItem());
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.TUFF_BRICK_STAIRS.get().asItem());
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.TUFF_BRICK_WALL.get().asItem());
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.CHISELED_TUFF_BRICKS.get().asItem());
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.POLISHED_TUFF.get().asItem());
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.POLISHED_TUFF_SLAB.get().asItem());
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.POLISHED_TUFF_STAIRS.get().asItem());
       entry.accept(SMBBlocks.TUFF_PILLAR.get());
       entry.accept(SMBBlocks.TUFF_TILES.get());
       entry.accept(SMBBlocks.CRACKED_TUFF_TILES.get());
@@ -325,11 +317,7 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.IRON_PILLAR.get());
       entry.accept(SMBBlocks.CUT_IRON.get());
       entry.accept(SMBBlocks.CRACKED_CUT_IRON.get());
-
-      if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
-        entry.accept(SMBBlocks.IRON_GRATE.get());
-      }
-
+      entry.accept(SMBBlocks.IRON_GRATE.get());
       entry.accept(SMBBlocks.GOLD_BRICKS.get());
       entry.accept(SMBBlocks.CRACKED_GOLD_BRICKS.get());
       entry.accept(SMBBlocks.GOLD_PILLAR.get());
@@ -355,21 +343,13 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.DIAMOND_PILLAR.get());
       entry.accept(SMBBlocks.CUT_DIAMOND.get());
       entry.accept(SMBBlocks.CRACKED_CUT_DIAMOND.get());
-
-      if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
-        entry.accept(SMBBlocks.DIAMOND_GRATE.get());
-      }
-
+      entry.accept(SMBBlocks.DIAMOND_GRATE.get());
       entry.accept(SMBBlocks.NETHERITE_BRICKS.get());
       entry.accept(SMBBlocks.CRACKED_NETHERITE_BRICKS.get());
       entry.accept(SMBBlocks.NETHERITE_PILLAR.get());
       entry.accept(SMBBlocks.CUT_NETHERITE.get());
       entry.accept(SMBBlocks.CRACKED_CUT_NETHERITE.get());
-
-      if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
-        entry.accept(SMBBlocks.NETHERITE_GRATE.get());
-      }
-
+      entry.accept(SMBBlocks.NETHERITE_GRATE.get());
       entry.accept(SMBBlocks.CRACKED_QUARTZ_BRICKS.get());
       entry.accept(SMBBlocks.CUT_QUARTZ.get());
       entry.accept(SMBBlocks.CRACKED_CUT_QUARTZ.get());
@@ -378,8 +358,6 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.AMETHYST_PILLAR.get());
       entry.accept(SMBBlocks.CUT_AMETHYST.get());
       entry.accept(SMBBlocks.CRACKED_CUT_AMETHYST.get());
-
-      /* COPPER BLOCKS */
       entry.accept(SMBBlocks.COPPER_BRICKS.get());
       entry.accept(SMBBlocks.CRACKED_COPPER_BRICKS.get());
       entry.accept(SMBBlocks.COPPER_PILLAR.get());
@@ -412,8 +390,6 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS.get());
       entry.accept(SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get());
       entry.accept(SMBBlocks.WAXED_OXIDIZED_CRACKED_CUT_COPPER.get());
-      /* === */
-
       entry.accept(SMBBlocks.BONE_BRICKS.get());
       entry.accept(SMBBlocks.CRACKED_BONE_BRICKS.get());
       entry.accept(SMBBlocks.BONE_BRICK_STAIRS.get());
@@ -615,11 +591,11 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.SNOW_FERN.get());
       entry.accept(SMBBlocks.LARGE_SNOW_FERN.get());
       entry.accept(SMBBlocks.CATTAIL.get());
-      entry.accept(((LeavesBucketItem) SMBItems.LEAVES_BUCKET.get()).getFullInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.BIRCH_LEAVES_BUCKET.get()).getFullInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.SPRUCE_LEAVES_BUCKET.get()).getFullInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.AZALEA_LEAVES_BUCKET.get()).getFullInstance());
-      entry.accept(((LeavesBucketItem) SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get()).getFullInstance());
+      entry.accept(SMBItems.LEAVES_BUCKET.get());
+      entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get());
+      entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.get());
+      entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get());
+      entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
       entry.accept(SMBItems.SMALL_LILY_PADS.get());
       entry.accept(SMBBlocks.LUMINOUS_FLOWER.get());
 

@@ -3,50 +3,34 @@ package net.seface.somemoreblocks;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.PathPackResources;
-import net.minecraft.server.packs.repository.Pack;
-import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.seface.somemoreblocks.utils.EventResourcePackManager;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.utils.*;
 
-import java.nio.file.Path;
-
 @Mod(SomeMoreBlocks.ID)
 public class SomeMoreBlocksForge {
   public SomeMoreBlocksForge() {
-    IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-    SomeMoreBlocks.init();
-    SMBBlocks.register(eventBus);
-    SMBItems.register(eventBus);
-    SMBCreativeTabs.register(eventBus);
-    SMBFeatures.register(eventBus);
-    SMBBiomeModifiers.register(eventBus);
+    SMBBlocks.register(bus);
+    SMBItems.register(bus);
+    SMBCreativeTabs.register(bus);
+    SMBFeatures.register(bus);
+    SMBBiomeModifiers.register(bus);
 
-    eventBus.addListener(this::clientSetup);
-    eventBus.addListener(this::commonSetup);
-    eventBus.addListener(this::addPackFinders);
-    eventBus.addListener(this::registerColorProviders);
+    bus.addListener(this::clientSetup);
+    bus.addListener(this::commonSetup);
+    bus.addListener(this::registerColorProviders);
   }
 
-  /**
-   * TBD
-   * @param event
-   */
   private void clientSetup(final FMLClientSetupEvent event) {
     event.enqueueWork(() -> {
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(SMBBlocks.LUMINOUS_FLOWER.getId(), SMBBlocks.POTTED_LUMINOUS_FLOWER);
@@ -58,12 +42,10 @@ public class SomeMoreBlocksForge {
     });
   }
 
-  /**
-   * TBD
-   * @param event
-   */
   private void commonSetup(final FMLCommonSetupEvent event) {
     event.enqueueWork(() -> {
+      SomeMoreBlocks.init();
+
       registerCarvedBlocks();
       registerCompostableItems();
       registerSnowyBlocks();
@@ -264,26 +246,10 @@ public class SomeMoreBlocksForge {
    * Registers values related to ModelPredicate.
    */
   private static void registerModelPredicateProviders() {
-    ModelPredicateRegistry.register(SMBItems.LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicateRegistry.register(SMBItems.SPRUCE_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicateRegistry.register(SMBItems.BIRCH_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicateRegistry.register(SMBItems.AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
-    ModelPredicateRegistry.register(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
-  }
-
-  public void addPackFinders(AddPackFindersEvent event) {
-    if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-      Path resourcePackPath = ModList.get().getModFileById(SomeMoreBlocks.ID).getFile().findResource("resourcepacks/update_1_21");
-      Pack pack = Pack.readMetaAndCreate(
-        EventResourcePackManager.NONE.toString(),
-        Component.translatable("somemoreblocks.resourcepack.update_1_21.name"),
-        false,
-        new PathPackResources.PathResourcesSupplier(resourcePackPath, false),
-        PackType.CLIENT_RESOURCES,
-        Pack.Position.BOTTOM,
-        PackSource.BUILT_IN);
-
-      event.addRepositorySource((consumer) -> consumer.accept(pack));
-    }
+    ModelPredicateRegistry.register(SMBItems.LEAVES_BUCKET.get(), "bucket_volume");
+    ModelPredicateRegistry.register(SMBItems.SPRUCE_LEAVES_BUCKET.get(), "bucket_volume");
+    ModelPredicateRegistry.register(SMBItems.BIRCH_LEAVES_BUCKET.get(), "bucket_volume");
+    ModelPredicateRegistry.register(SMBItems.AZALEA_LEAVES_BUCKET.get(), "bucket_volume");
+    ModelPredicateRegistry.register(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), "bucket_volume");
   }
 }
