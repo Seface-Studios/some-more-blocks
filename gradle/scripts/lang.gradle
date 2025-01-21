@@ -1,19 +1,87 @@
 import groovy.json.JsonGenerator
 import groovy.json.JsonSlurper
 
+/**
+ * Checks if the current version can have deprecated strings at current lang files.
+ * @param version The affected version.
+ */
+boolean containsDeprecatedStrings(String version) {
+  String[] splitVersion = version.split("\\.")
+  String[] splitMCVersion = minecraft_version.split("\\.")
+
+  int minLeng = splitMCVersion.length
+  int maxLeng = Math.max(minLeng, splitMCVersion.length)
+
+  for (int i = 0; i < maxLeng; i++) {
+    int min = (i < minLeng) ? Integer.parseInt(splitVersion[i]) : 0
+    int mcVersion = (i < splitMCVersion.length) ? Integer.parseInt(splitMCVersion[i]) : 0
+
+    if (mcVersion > min) {
+      return true
+    } else if (mcVersion < min) {
+      return false
+    }
+  }
+
+  return false
+}
+
+/**
+ * Remove all deprecated string from the lang files at current mod version
+ */
+def removeDeprecatedStrings() {
+  def JSON = new JsonSlurper()
+
+  def langDir = project(":common").file("src/main/resources/assets/${mod_id}/lang")
+  def deprecatedStringsFile =  new File(langDir, "deprecated_strings.json")
+
+  def data = JSON.parse(deprecatedStringsFile)
+
+  def files = fileTree(langDir).include("*.json")
+
+  data.each { key, values ->
+    if (containsDeprecatedStrings(key)) {
+      println("Found deprecated strings since version '${key}' in current version '${minecraft_version}'.")
+
+      files.eachWithIndex { file, i ->
+        if (file.name == "deprecated_strings.json") return
+
+        def langFile = new File(langDir, file.name)
+        def langData = JSON.parse(langFile)
+
+        values.each { value ->
+          langData.remove(value)
+        }
+
+        def generator = new JsonGenerator.Options()
+          .excludeNulls()
+          .disableUnicodeEscaping()
+          .build()
+
+        langFile.withWriter("UTF-8") { writer ->
+          writer.write(generator.toJson(langData))
+        }
+      }
+
+      println("Deprecated strings removed.")
+    }
+  }
+}
+
+/* ============ Tasks ============ */
 tasks.register("buildLangFiles") {
   def JSON = new JsonSlurper()
-  def mainLangDir = project(":common").file("src/main/resources/assets/${mod_id}/lang")
-  def langDirs = mainLangDir.listFiles().findAll { it.isDirectory() }
+  def langDir = project(":common").file("src/main/resources/assets/${mod_id}/lang")
+  def langDirs = langDir.listFiles().findAll { it.isDirectory() }
 
   langDirs.each { lang ->
-    def output = new File(mainLangDir, "${lang.name}.json")
-    def langDir = new File(mainLangDir, lang.name)
-    def files = fileTree(langDir).include("**/*.json")
+    def output = new File(langDir, "${lang.name}.json")
+    def langFilesDir = new File(langDir, lang.name)
+    def files = fileTree(langFilesDir).include("**/*.json")
 
     def fullContent = [:]
     files.eachWithIndex { file, i ->
-      def jsonFile = new File(langDir, file.name).getText('UTF-8')
+      def jsonFile = new File(langFilesDir, file.name).getText('UTF-8')
 
       if (i == 0) {
         fullContent = JSON.parseText(jsonFile)
@@ -32,4 +100,6 @@ tasks.register("buildLangFiles") {
       writer.write(generator.toJson(fullContent))
     }
   }
+
+  removeDeprecatedStrings()
 }
