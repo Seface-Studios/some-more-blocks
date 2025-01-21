@@ -1,0 +1,35 @@
+import groovy.json.JsonGenerator
+import groovy.json.JsonSlurper
+
+tasks.register("buildLangFiles") {
+  def JSON = new JsonSlurper()
+  def mainLangDir = project(":common").file("src/main/resources/assets/${mod_id}/lang")
+  def langDirs = mainLangDir.listFiles().findAll { it.isDirectory() }
+
+  langDirs.each { lang ->
+    def output = new File(mainLangDir, "${lang.name}.json")
+    def langDir = new File(mainLangDir, lang.name)
+    def files = fileTree(langDir).include("**/*.json")
+
+    def fullContent = [:]
+    files.eachWithIndex { file, i ->
+      def jsonFile = new File(langDir, file.name).getText('UTF-8')
+
+      if (i == 0) {
+        fullContent = JSON.parseText(jsonFile)
+      }
+
+      def currentContent = JSON.parseText(jsonFile)
+      fullContent += currentContent
+    }
+
+    def generator = new JsonGenerator.Options()
+      .excludeNulls()
+      .disableUnicodeEscaping()
+      .build()
+
+    output.withWriter("UTF-8") { writer ->
+      writer.write(generator.toJson(fullContent))
+    }
+  }
+}

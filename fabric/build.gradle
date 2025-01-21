@@ -5,6 +5,8 @@ plugins {
   id 'maven-publish'
 }
 
+apply from: "${rootDir}/gradle/scripts/lang.gradle"
+
 base {
   archivesName = "${mod_name.replaceAll(' ', '')}@${project.name}-${minecraft_version}"
 }
@@ -64,7 +66,7 @@ tasks.named("sourcesJar", Jar) {
 }
 
 tasks.named("runDatagen") {
-  dependsOn "mergeLangFiles"
+  dependsOn "buildLangFiles"
 }
 
 processResources {
