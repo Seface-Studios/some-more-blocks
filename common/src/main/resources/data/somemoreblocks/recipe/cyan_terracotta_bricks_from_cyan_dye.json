@@ -3,12 +3,8 @@
   "category": "building",
   "group": "stained_terracotta_bricks",
   "key": {
-    "#": {
-      "item": "somemoreblocks:terracotta_bricks"
-    },
-    "X": {
-      "item": "minecraft:cyan_dye"
-    }
+    "#": "somemoreblocks:terracotta_bricks",
+    "X": "minecraft:cyan_dye"
   },
   "pattern": [
     "###",

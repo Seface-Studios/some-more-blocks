@@ -55,7 +55,7 @@ public abstract class BushBlockMixin extends Block {
   @Unique
   private void MB$turnIntoSnowVariation(BlockState state, Level level, BlockPos pos) {
     boolean isDoublePlant = state.hasProperty(DoublePlantBlock.HALF);
-    boolean isSnowing = level.getBiome(pos).value().getPrecipitationAt(pos).equals(Biome.Precipitation.SNOW) && level.isRaining() && level.canSeeSky(pos);
+    boolean isSnowing = level.getBiome(pos).value().getPrecipitationAt(pos, 0).equals(Biome.Precipitation.SNOW) && level.isRaining() && level.canSeeSky(pos);
     Optional<BlockState> snowyVariation = SnowyBushRegistry.getSnowyVariation(state);
 
     if (snowyVariation.isEmpty()) return;

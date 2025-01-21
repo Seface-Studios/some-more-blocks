@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "somemoreblocks:oxidized_copper_bricks"
-  },
+  "ingredient": "somemoreblocks:oxidized_copper_bricks",
   "result": {
     "id": "somemoreblocks:oxidized_cracked_copper_bricks"
   }

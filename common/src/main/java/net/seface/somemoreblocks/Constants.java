@@ -49,4 +49,10 @@ public abstract class Constants {
   public static final float FLOWERING_AZALEA_LEAF_LITTER_CHANCE = 10.0F;
   public static final float SPRUCE_LEAF_LITTER_CHANCE = 12.5F;
   public static final float LEAF_LITTER_CHANCE = 12.5F;
+  public static final float PALE_OAK_LEAF_LITTER_CHANCE = 12.5F;
+
+  /*
+   * Chiseled Purpur Light Level
+   * */
+  public static final int CHISELED_PURPUR_LIGHT_LEVEL = 14;
 }

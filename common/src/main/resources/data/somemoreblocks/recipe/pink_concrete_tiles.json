@@ -3,9 +3,7 @@
   "category": "building",
   "group": "stained_concrete_tiles",
   "key": {
-    "#": {
-      "item": "somemoreblocks:pink_concrete_bricks"
-    }
+    "#": "somemoreblocks:pink_concrete_bricks"
   },
   "pattern": [
     "##",

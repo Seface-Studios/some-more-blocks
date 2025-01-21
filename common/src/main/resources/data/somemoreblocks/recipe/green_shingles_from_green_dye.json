@@ -3,12 +3,8 @@
   "category": "building",
   "group": "stained_shingles",
   "key": {
-    "#": {
-      "item": "somemoreblocks:shingles"
-    },
-    "X": {
-      "item": "minecraft:green_dye"
-    }
+    "#": "somemoreblocks:shingles",
+    "X": "minecraft:green_dye"
   },
   "pattern": [
     "###",

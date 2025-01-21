@@ -7,18 +7,32 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
 import net.seface.somemoreblocks.SomeMoreBlocks;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.UnaryOperator;
 
 public class SMBDataComponentTypes {
-  public static final DataComponentType<Integer> BUCKET_VOLUME =
-    register("bucket_volume", builder -> builder.persistent(ExtraCodecs.intRange(0, 16)).networkSynchronized(ByteBufCodecs.VAR_INT));
+  public static final DataComponentType<Integer> BUCKET_VOLUME = register("bucket_volume", (builder) -> builder.persistent(ExtraCodecs.intRange(0, 16)).networkSynchronized(ByteBufCodecs.VAR_INT));
+  public static final DataComponentType<Integer> MOON_PHASE = register("moon_phase", (builder) -> builder.persistent(ExtraCodecs.intRange(0, 7)).networkSynchronized(ByteBufCodecs.VAR_INT));
 
-  private static <T>DataComponentType<T> register(String identifier, UnaryOperator<DataComponentType.Builder<T>> builder) {
-    return Registry.register(
+  /**
+   * Create a new instance of custom Data Component.
+   * @param path The Identifier path.
+   * @param builder The Data Component builder.
+   * @return The Data Component instance.
+   */
+  private static <T> DataComponentType<T> register(String path, UnaryOperator<DataComponentType.Builder<T>> builder) {
+    ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, path);
+
+    DataComponentType<T> instance = Registry.register(
       BuiltInRegistries.DATA_COMPONENT_TYPE,
-      ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, identifier),
-      builder.apply(DataComponentType.builder()).build());
+      identifier,
+      builder.apply(DataComponentType.builder()).build()
+    );
+
+    return instance;
   }
 
   public static void init() {}

@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "somemoreblocks:polished_mud"
-  },
+  "ingredient": "somemoreblocks:polished_mud",
   "result": {
     "count": 1,
     "id": "somemoreblocks:polished_mud_stairs"

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "somemoreblocks:corrupted_polished_blackstone_bricks"
-    }
+    "#": "somemoreblocks:corrupted_polished_blackstone_bricks"
   },
   "pattern": [
     "###",

@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
 import net.seface.somemoreblocks.registries.CarvedBlockRegistry;
 import net.seface.somemoreblocks.registries.WaxableCopperBlockRegistry;
 import net.seface.somemoreblocks.registries.WeatheringCopperBlockRegistry;
@@ -27,10 +28,23 @@ import java.util.Optional;
 @Mixin(AxeItem.class)
 public abstract class AxeItemMixin {
 
+  @Unique
+  private Level SMB$level = null;
+
   @Inject(method = "getStripped", at = @At(value = "HEAD"), cancellable = true)
   private void getStrippedMixin(BlockState state, CallbackInfoReturnable<Optional<BlockState>> cir) {
     CarvedBlockRegistry.getCarvedBlock(state)
-      .ifPresent(blockState -> cir.setReturnValue(Optional.of(blockState)));
+      .ifPresent(blockState -> {
+        if (blockState.getBlock() instanceof RotatedCarvedPaleOakBlock) {
+          cir.setReturnValue(Optional.of(
+            blockState.setValue(RotatedCarvedPaleOakBlock.MOON_PHASE, this.SMB$level.getMoonPhase())
+          ));
+
+          return;
+        }
+
+        cir.setReturnValue(Optional.of(blockState));
+      });
   }
 
   @Inject(method = "useOn", at = @At(value = "HEAD"), cancellable = true)
@@ -39,17 +53,21 @@ public abstract class AxeItemMixin {
     BlockPos pos = ctx.getClickedPos();
     BlockState state = level.getBlockState(pos);
 
+    if (this.SMB$level == null) {
+      this.SMB$level = level;
+    }
+
     Optional<BlockState> weatheringOff = WeatheringCopperBlockRegistry.getPrevious(state);
     Optional<BlockState> waxableOff = WaxableCopperBlockRegistry.getWaxableOff(state);
 
     if (weatheringOff.isPresent()) {
       this.SMB$evaluateNewBlockState(ctx, level, weatheringOff.get(), SoundEvents.AXE_SCRAPE, LevelEvent.PARTICLES_SCRAPE);
-      cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide));
+      cir.setReturnValue(InteractionResult.SUCCESS);
     }
 
     if (waxableOff.isPresent()) {
       this.SMB$evaluateNewBlockState(ctx, level, waxableOff.get(), SoundEvents.AXE_WAX_OFF, LevelEvent.PARTICLES_WAX_OFF);
-      cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide));
+      cir.setReturnValue(InteractionResult.SUCCESS);
     }
   }
 

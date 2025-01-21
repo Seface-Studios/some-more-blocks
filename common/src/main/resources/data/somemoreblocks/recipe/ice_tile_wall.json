@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "somemoreblocks:ice_tiles"
-    }
+    "#": "somemoreblocks:ice_tiles"
   },
   "pattern": [
     "###",

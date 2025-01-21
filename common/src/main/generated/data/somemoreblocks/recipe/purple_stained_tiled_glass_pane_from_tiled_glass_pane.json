@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "stained_tiled_glass_pane",
+  "key": {
+    "#": "somemoreblocks:tiled_glass_pane",
+    "$": "minecraft:purple_dye"
+  },
+  "pattern": [
+    "###",
+    "#$#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:purple_stained_tiled_glass_pane"
+  }
+}

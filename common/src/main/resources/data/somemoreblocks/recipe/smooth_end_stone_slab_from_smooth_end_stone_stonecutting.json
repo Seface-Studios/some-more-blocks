@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "somemoreblocks:smooth_end_stone"
-  },
+  "ingredient": "somemoreblocks:smooth_end_stone",
   "result": {
     "count": 2,
     "id": "somemoreblocks:smooth_end_stone_slab"

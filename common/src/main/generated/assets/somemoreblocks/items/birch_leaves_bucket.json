@@ -1,0 +1,40 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "entries": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "somemoreblocks:item/birch_leaves_bucket"
+        },
+        "threshold": 0.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "somemoreblocks:item/overrides/birch_leaves_bucket_0"
+        },
+        "threshold": 5.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "somemoreblocks:item/overrides/birch_leaves_bucket_1"
+        },
+        "threshold": 9.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "somemoreblocks:item/overrides/birch_leaves_bucket_2"
+        },
+        "threshold": 13.0
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "somemoreblocks:item/overrides/birch_leaves_bucket_2"
+    },
+    "property": "somemoreblocks:bucket_volume"
+  }
+}

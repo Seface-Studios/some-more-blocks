@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "somemoreblocks:smooth_dripstone"
-    }
+    "#": "somemoreblocks:smooth_dripstone"
   },
   "pattern": [
     "###"

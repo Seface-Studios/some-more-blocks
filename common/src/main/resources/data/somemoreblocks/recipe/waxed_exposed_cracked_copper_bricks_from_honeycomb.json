@@ -3,12 +3,8 @@
   "category": "building",
   "group": "waxed_exposed_cracked_copper_bricks",
   "ingredients": [
-    {
-      "item": "somemoreblocks:exposed_cracked_copper_bricks"
-    },
-    {
-      "item": "minecraft:honeycomb"
-    }
+    "somemoreblocks:exposed_cracked_copper_bricks",
+    "minecraft:honeycomb"
   ],
   "result": {
     "id": "somemoreblocks:waxed_exposed_cracked_copper_bricks"

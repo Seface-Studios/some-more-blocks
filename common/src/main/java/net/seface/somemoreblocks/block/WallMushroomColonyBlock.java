@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.seface.somemoreblocks.data.SMBBlockTags;
@@ -32,7 +32,7 @@ public class WallMushroomColonyBlock extends BushBlock {
     Direction.EAST, Block.box(0.0, 0.0, 0.0, 6.0, 16.0, 16.0)
   ));
 
-  public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+  public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
 
   public WallMushroomColonyBlock(Properties properties) {
     super(properties);

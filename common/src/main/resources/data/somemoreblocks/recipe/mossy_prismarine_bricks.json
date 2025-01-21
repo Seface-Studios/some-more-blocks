@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "minecraft:prismarine_bricks"
-    },
-    "K": {
-      "item": "minecraft:kelp"
-    }
+    "#": "minecraft:prismarine_bricks",
+    "K": "minecraft:kelp"
   },
   "pattern": [
     " K ",

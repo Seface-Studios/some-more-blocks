@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "somemoreblocks:mud_tiles"
-    }
+    "#": "somemoreblocks:mud_tiles"
   },
   "pattern": [
     "#  ",

@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:diorite"
-  },
+  "ingredient": "minecraft:diorite",
   "result": {
     "count": 1,
     "id": "somemoreblocks:diorite_tile_stairs"

@@ -3,9 +3,7 @@
   "category": "building",
   "group": "stained_concrete_bricks",
   "key": {
-    "#": {
-      "item": "minecraft:light_gray_concrete"
-    }
+    "#": "minecraft:light_gray_concrete"
   },
   "pattern": [
     "##",

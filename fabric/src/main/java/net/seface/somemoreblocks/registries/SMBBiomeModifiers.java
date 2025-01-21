@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.seface.somemoreblocks.data.SMBBiomeTags;
@@ -58,7 +59,10 @@ public class SMBBiomeModifiers {
    */
   private static void registerTinyCactusDecoration(ResourceKey<PlacedFeature> feature) {
     BiomeModifications.addFeature(
-      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_TINY_CACTUS).test(ctx) && ctx.getBiome().getBaseTemperature() >= 0.3F,
+      (ctx) ->
+        BiomeSelectors.tag(SMBBiomeTags.GENERATES_TINY_CACTUS).test(ctx) &&
+        !BiomeSelectors.includeByKey(Biomes.PALE_GARDEN).test(ctx) &&
+        ctx.getBiome().getBaseTemperature() >= 0.3F,
       GenerationStep.Decoration.VEGETAL_DECORATION,
       feature
     );

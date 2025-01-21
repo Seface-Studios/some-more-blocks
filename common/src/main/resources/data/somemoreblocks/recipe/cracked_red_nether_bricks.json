@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "minecraft:red_nether_bricks"
-  },
+  "ingredient": "minecraft:red_nether_bricks",
   "result": {
     "id": "somemoreblocks:cracked_red_nether_bricks"
   }

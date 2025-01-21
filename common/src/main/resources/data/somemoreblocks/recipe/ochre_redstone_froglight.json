@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "minecraft:ochre_froglight"
-    },
-    "R": {
-      "item": "minecraft:redstone"
-    }
+    "#": "minecraft:ochre_froglight",
+    "R": "minecraft:redstone"
   },
   "pattern": [
     " R ",

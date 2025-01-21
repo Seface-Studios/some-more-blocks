@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "somemoreblocks:tuff_tiles"
-  },
+  "ingredient": "somemoreblocks:tuff_tiles",
   "result": {
     "id": "somemoreblocks:cracked_tuff_tiles"
   }

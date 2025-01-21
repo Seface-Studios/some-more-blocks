@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "somemoreblocks:emerald_bricks"
-  },
+  "ingredient": "somemoreblocks:emerald_bricks",
   "result": {
     "id": "somemoreblocks:cracked_emerald_bricks"
   }

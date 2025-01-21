@@ -3,7 +3,6 @@ package net.seface.somemoreblocks.mixin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.WorldlyContainerHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -30,7 +29,7 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
   }
 
   @Inject(method = "useItemOn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;awardStat(Lnet/minecraft/stats/Stat;)V"), cancellable = true)
-  private void useMixin(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult, CallbackInfoReturnable<ItemInteractionResult> cir) {
+  private void useMixin(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult, CallbackInfoReturnable<InteractionResult> cir) {
 
     if (stack.getItem() instanceof LeavesBucketItem) {
       int levelState = state.getValue(ComposterBlock.LEVEL);
@@ -47,7 +46,8 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
         }
       }
 
-      cir.setReturnValue(ItemInteractionResult.sidedSuccess(level.isClientSide));
+      // CHECK
+      cir.setReturnValue(new InteractionResult.Success(InteractionResult.SwingSource.CLIENT, new InteractionResult.ItemContext(false, stack)));
     }
   }
 

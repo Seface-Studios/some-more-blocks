@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "somemoreblocks:granite_bricks"
-    }
+    "#": "somemoreblocks:granite_bricks"
   },
   "pattern": [
     "###",

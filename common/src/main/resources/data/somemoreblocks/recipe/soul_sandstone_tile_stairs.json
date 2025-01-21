@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "somemoreblocks:soul_sandstone_tiles"
-    }
+    "#": "somemoreblocks:soul_sandstone_tiles"
   },
   "pattern": [
     "#  ",

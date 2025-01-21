@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "somemoreblocks:block/carved_pale_oak_log_7",
+    "side": "somemoreblocks:block/carved_pale_oak_log_7"
+  }
+}

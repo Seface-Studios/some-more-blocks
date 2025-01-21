@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "glowstone_dust",
   "ingredients": [
-    {
-      "item": "somemoreblocks:luminous_flower"
-    }
+    "somemoreblocks:luminous_flower"
   ],
   "result": {
     "count": 2,

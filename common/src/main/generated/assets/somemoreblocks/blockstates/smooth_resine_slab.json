@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/smooth_resine_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/smooth_resine"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/smooth_resine_slab_top"
+    }
+  }
+}

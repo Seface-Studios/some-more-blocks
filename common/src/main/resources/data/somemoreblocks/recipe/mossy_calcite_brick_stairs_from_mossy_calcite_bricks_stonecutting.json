@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "somemoreblocks:mossy_calcite_bricks"
-  },
+  "ingredient": "somemoreblocks:mossy_calcite_bricks",
   "result": {
     "count": 1,
     "id": "somemoreblocks:mossy_calcite_brick_stairs"

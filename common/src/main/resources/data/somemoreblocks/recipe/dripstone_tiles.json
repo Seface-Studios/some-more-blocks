@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "somemoreblocks:dripstone_bricks"
-    }
+    "#": "somemoreblocks:dripstone_bricks"
   },
   "pattern": [
     "##",

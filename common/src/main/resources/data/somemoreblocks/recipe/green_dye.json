@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "green_dye",
   "ingredients": [
-    {
-      "item": "somemoreblocks:tiny_cactus"
-    }
+    "somemoreblocks:tiny_cactus"
   ],
   "result": {
     "id": "minecraft:green_dye"

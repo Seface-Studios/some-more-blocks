@@ -11,16 +11,17 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.utils.*;
 
+@SuppressWarnings("removal")
 @Mod(SomeMoreBlocks.ID)
 public class SomeMoreBlocksForge {
   public SomeMoreBlocksForge() {
     IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
     SMBBlocks.register(bus);
+    SMBForgedDataComponentTypes.register(bus);
     SMBItems.register(bus);
     SMBCreativeTabs.register(bus);
     SMBFeatures.register(bus);
@@ -38,13 +39,12 @@ public class SomeMoreBlocksForge {
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(SMBBlocks.TINY_CACTUS.getId(), SMBBlocks.POTTED_TINY_CACTUS);
 
       registerBlockRenders();
-      registerModelPredicateProviders();
     });
   }
 
   private void commonSetup(final FMLCommonSetupEvent event) {
     event.enqueueWork(() -> {
-      SomeMoreBlocks.init();
+      SomeMoreBlocks.init(false);
 
       registerCarvedBlocks();
       registerCompostableItems();
@@ -158,98 +158,99 @@ public class SomeMoreBlocksForge {
     CarvedBlockRegistry.register(Blocks.STRIPPED_MANGROVE_WOOD, SMBBlocks.CARVED_MANGROVE_WOOD.get());
     CarvedBlockRegistry.register(Blocks.STRIPPED_MANGROVE_LOG, SMBBlocks.CARVED_MANGROVE_LOG.get());
     CarvedBlockRegistry.register(Blocks.STRIPPED_BAMBOO_BLOCK, SMBBlocks.CARVED_BAMBOO_BLOCK.get());
+
+    /* 1.21.4 */
+    CarvedBlockRegistry.register(Blocks.STRIPPED_PALE_OAK_LOG, SMBBlocks.CARVED_PALE_OAK_LOG.get());
+    CarvedBlockRegistry.register(Blocks.STRIPPED_PALE_OAK_WOOD, SMBBlocks.CARVED_PALE_OAK_WOOD.get());
   }
 
   /**
    * Registers values related to BlockRender.
    */
   private static void registerBlockRenders() {
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.AZALEA_LEAF_LITTER.get(), RenderType.cutoutMipped());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BIG_LILY_PAD.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BIRCH_LEAF_LITTER.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BLACK_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BLACK_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BLUE_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BROWN_MUSHROOM_COLONY.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BROWN_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CATTAIL.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CRIMSON_FUNGUS_COLONY_WALL.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CYAN_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.DIAMOND_GRATE.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.DUNE_GRASS.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get(), RenderType.cutoutMipped());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GRAY_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GREEN_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.IRON_GRATE.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LARGE_SNOW_FERN.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LEAF_LITTER.get(), RenderType.cutoutMipped());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIME_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIME_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LUMINOUS_FLOWER.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.NETHERITE_GRATE.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.ORANGE_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PINK_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PINK_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.POTTED_LUMINOUS_FLOWER.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.POTTED_SNOW_FERN.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.POTTED_TINY_CACTUS.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PURPLE_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PURPLE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.RED_MUSHROOM_COLONY.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.RED_MUSHROOM_COLONY_WALL.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.RED_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.RED_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.SHORT_SNOW_GRASS.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.SMALL_LILY_PADS.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.SNOW_FERN.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.SPRUCE_LEAF_LITTER.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_DUNE_GRASS.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_SNOW_GRASS.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TILED_TINTED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TINY_CACTUS.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.WARPED_FUNGUS_COLONY.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.WARPED_FUNGUS_COLONY_WALL.get(), RenderType.cutout());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.WHITE_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
+    RenderType cutout = RenderType.cutout();
+    RenderType cutoutMipped = RenderType.cutoutMipped();
+    RenderType translucent = RenderType.translucent();
+
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.AZALEA_LEAF_LITTER.get(), cutoutMipped);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BIG_LILY_PAD.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BIRCH_LEAF_LITTER.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BLACK_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BLACK_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BLUE_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BROWN_MUSHROOM_COLONY.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BROWN_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CATTAIL.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CRIMSON_FUNGUS_COLONY_WALL.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CYAN_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.DIAMOND_GRATE.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.DUNE_GRASS.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get(), cutoutMipped);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GRAY_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GREEN_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.IRON_GRATE.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LARGE_SNOW_FERN.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LEAF_LITTER.get(), cutoutMipped);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIME_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIME_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LUMINOUS_FLOWER.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.NETHERITE_GRATE.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.ORANGE_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PINK_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PINK_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.POTTED_LUMINOUS_FLOWER.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.POTTED_SNOW_FERN.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.POTTED_TINY_CACTUS.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PURPLE_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PURPLE_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.RED_MUSHROOM_COLONY.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.RED_MUSHROOM_COLONY_WALL.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.RED_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.RED_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.SHORT_SNOW_GRASS.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.SMALL_LILY_PADS.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.SNOW_FERN.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.SPRUCE_LEAF_LITTER.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_DUNE_GRASS.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_SNOW_GRASS.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TILED_TINTED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.TINY_CACTUS.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.WARPED_FUNGUS_COLONY.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.WARPED_FUNGUS_COLONY_WALL.get(), cutout);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.WHITE_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(), translucent);
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), translucent);
+
+    /* 1.21.4 */
+    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), cutout);
   }
 
   /**
    * Registers values related to ColorProvider.
    */
   private void registerColorProviders(RegisterColorHandlersEvent.Block event) {
-    event.register((blockState, tint, pos, i) -> BiomeColors.getAverageFoliageColor(tint, pos), SMBBlocks.LEAF_LITTER.get());
-  }
-
-  /**
-   * Registers values related to ModelPredicate.
-   */
-  private static void registerModelPredicateProviders() {
-    ModelPredicateRegistry.register(SMBItems.LEAVES_BUCKET.get(), "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.SPRUCE_LEAVES_BUCKET.get(), "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.BIRCH_LEAVES_BUCKET.get(), "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.AZALEA_LEAVES_BUCKET.get(), "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), "bucket_volume");
+    event.register(
+      (blockState, tint, pos, i) -> BiomeColors.getAverageFoliageColor(tint, pos), SMBBlocks.LEAF_LITTER.get());
   }
 }

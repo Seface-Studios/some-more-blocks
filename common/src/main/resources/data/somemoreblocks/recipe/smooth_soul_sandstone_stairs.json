@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "somemoreblocks:smooth_soul_sandstone"
-    }
+    "#": "somemoreblocks:smooth_soul_sandstone"
   },
   "pattern": [
     "#  ",

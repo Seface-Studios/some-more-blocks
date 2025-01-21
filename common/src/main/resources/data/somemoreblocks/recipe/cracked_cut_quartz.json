@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "somemoreblocks:cut_quartz"
-  },
+  "ingredient": "somemoreblocks:cut_quartz",
   "result": {
     "id": "somemoreblocks:cracked_cut_quartz"
   }

@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:packed_mud"
-  },
+  "ingredient": "minecraft:packed_mud",
   "result": {
     "count": 1,
     "id": "somemoreblocks:mud_pillar"

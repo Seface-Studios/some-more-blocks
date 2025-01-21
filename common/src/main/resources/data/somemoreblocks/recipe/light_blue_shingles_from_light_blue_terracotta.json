@@ -3,9 +3,7 @@
   "category": "building",
   "group": "stained_shingles_from_terracotta",
   "key": {
-    "#": {
-      "item": "minecraft:light_blue_terracotta"
-    }
+    "#": "minecraft:light_blue_terracotta"
   },
   "pattern": [
     "#",

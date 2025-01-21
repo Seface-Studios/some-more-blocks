@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:prismarine"
-  },
+  "ingredient": "minecraft:prismarine",
   "result": {
     "count": 1,
     "id": "somemoreblocks:prismarine_tile_stairs"

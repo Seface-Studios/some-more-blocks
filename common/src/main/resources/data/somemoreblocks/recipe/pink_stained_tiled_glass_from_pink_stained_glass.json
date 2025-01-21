@@ -3,9 +3,7 @@
   "category": "building",
   "group": "stained_tiled_glass",
   "key": {
-    "#": {
-      "item": "minecraft:pink_stained_glass"
-    }
+    "#": "minecraft:pink_stained_glass"
   },
   "pattern": [
     "##",

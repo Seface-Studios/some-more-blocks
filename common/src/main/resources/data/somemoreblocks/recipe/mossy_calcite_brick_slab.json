@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "somemoreblocks:mossy_calcite_bricks"
-    }
+    "#": "somemoreblocks:mossy_calcite_bricks"
   },
   "pattern": [
     "###"

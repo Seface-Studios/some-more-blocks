@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "somemoreblocks:bone_tiles"
-  },
+  "ingredient": "somemoreblocks:bone_tiles",
   "result": {
     "id": "somemoreblocks:cracked_bone_tiles"
   }

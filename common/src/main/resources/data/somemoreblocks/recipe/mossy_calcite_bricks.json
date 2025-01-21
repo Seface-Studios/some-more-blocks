@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "somemoreblocks:calcite_bricks"
-    },
-    {
-      "item": "minecraft:glow_lichen"
-    }
+    "somemoreblocks:calcite_bricks",
+    "minecraft:glow_lichen"
   ],
   "result": {
     "id": "somemoreblocks:mossy_calcite_bricks"

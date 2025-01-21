@@ -9,8 +9,8 @@ public class Main implements DataGeneratorEntrypoint {
   public void onInitializeDataGenerator(FabricDataGenerator gen) {
     FabricDataGenerator.Pack pack = gen.createPack();
 
-    pack.addProvider(ModelProvider::new);
-    pack.addProvider(RecipeProvider::new);
+    pack.addProvider(SMBModelProvider::new);
+    pack.addProvider(NotVanillaRecipeProvider::new);
 
     /*
       Why this custom provider exists?

@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "somemoreblocks:coal_bricks"
-  },
+  "ingredient": "somemoreblocks:coal_bricks",
   "result": {
     "id": "somemoreblocks:cracked_coal_bricks"
   }

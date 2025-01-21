@@ -6,7 +6,7 @@ plugins {
 }
 
 base {
-  archivesName = "${mod_name.replaceAll(' ', '')}@common-${minecraft_version}"
+  archivesName = "${mod_name.replaceAll(' ', '')}@${project.name}-${minecraft_version}"
 }
 
 minecraft {
@@ -20,6 +20,7 @@ dependencies {
   compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
   implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
 }
+
 
 publishing {
   publications {

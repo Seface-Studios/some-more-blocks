@@ -3,12 +3,8 @@
   "category": "building",
   "group": "mossy_diorite_bricks",
   "ingredients": [
-    {
-      "item": "somemoreblocks:diorite_bricks"
-    },
-    {
-      "item": "minecraft:vine"
-    }
+    "somemoreblocks:diorite_bricks",
+    "minecraft:vine"
   ],
   "result": {
     "id": "somemoreblocks:mossy_diorite_bricks"

@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "somemoreblocks:calcite_bricks"
-  },
+  "ingredient": "somemoreblocks:calcite_bricks",
   "result": {
     "id": "somemoreblocks:cracked_calcite_bricks"
   }

@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "minecraft:verdant_froglight"
-    },
-    "R": {
-      "item": "minecraft:redstone"
-    }
+    "#": "minecraft:verdant_froglight",
+    "R": "minecraft:redstone"
   },
   "pattern": [
     " R ",

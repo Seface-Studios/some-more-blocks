@@ -1,10 +1,13 @@
 package net.seface.somemoreblocks;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.LandPathNodeTypesRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import net.minecraft.client.renderer.item.properties.select.SelectItemModelProperty;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.component.CustomModelData;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.seface.somemoreblocks.registries.CarvedBlockRegistry;
@@ -26,8 +29,8 @@ public class SomeMoreBlocksFabric implements ModInitializer {
   @Override
   public void onInitialize() {
     SomeMoreBlocks.init();
-    SMBBlocks.register();
-    SMBItems.register();
+    SMBBlocks.init();
+    SMBItems.init();
     SMBCreativeTabs.register();
     SMBFeatures.register();
     SMBBiomeModifiers.register();
@@ -46,16 +49,16 @@ public class SomeMoreBlocksFabric implements ModInitializer {
    * Registers values related to Compostable items.
    */
   private static void registerCompostableItems() {
-    SMBUtils.GenericRegistry.compostableItem(0.3F, SMBItems.TINY_CACTUS);
-    SMBUtils.GenericRegistry.compostableItem(0.3F, SMBItems.DUNE_GRASS);
-    SMBUtils.GenericRegistry.compostableItem(0.5F, SMBItems.TALL_DUNE_GRASS);
-    SMBUtils.GenericRegistry.compostableItem(0.5F, SMBItems.TALL_DUNE_GRASS);
-    SMBUtils.GenericRegistry.compostableItem(0.3F, SMBItems.SHORT_SNOW_GRASS);
-    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBItems.TALL_SNOW_GRASS);
-    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBItems.SNOW_FERN);
-    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBItems.LARGE_SNOW_FERN);
-    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBItems.CATTAIL);
-    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBItems.LUMINOUS_FLOWER);
+    SMBUtils.GenericRegistry.compostableItem(0.3F, SMBBlocks.TINY_CACTUS);
+    SMBUtils.GenericRegistry.compostableItem(0.3F, SMBBlocks.DUNE_GRASS);
+    SMBUtils.GenericRegistry.compostableItem(0.5F, SMBBlocks.TALL_DUNE_GRASS);
+    SMBUtils.GenericRegistry.compostableItem(0.5F, SMBBlocks.TALL_DUNE_GRASS);
+    SMBUtils.GenericRegistry.compostableItem(0.3F, SMBBlocks.SHORT_SNOW_GRASS);
+    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBBlocks.TALL_SNOW_GRASS);
+    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBBlocks.SNOW_FERN);
+    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBBlocks.LARGE_SNOW_FERN);
+    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBBlocks.CATTAIL);
+    SMBUtils.GenericRegistry.compostableItem(0.65F, SMBBlocks.LUMINOUS_FLOWER);
     SMBUtils.GenericRegistry.compostableItem(0.85F, SMBItems.BROWN_MUSHROOM_COLONY);
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.TALL_BROWN_MUSHROOM_COLONY);
     SMBUtils.GenericRegistry.compostableItem(0.85F, SMBItems.RED_MUSHROOM_COLONY);
@@ -69,6 +72,7 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.BIRCH_LEAVES_BUCKET);
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET);
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.SPRUCE_LEAVES_BUCKET);
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.PALE_OAK_LEAVES_BUCKET);
   }
 
   /**
@@ -152,16 +156,22 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     CarvedBlockRegistry.register(Blocks.STRIPPED_MANGROVE_WOOD, SMBBlocks.CARVED_MANGROVE_WOOD);
     CarvedBlockRegistry.register(Blocks.STRIPPED_MANGROVE_LOG, SMBBlocks.CARVED_MANGROVE_LOG);
     CarvedBlockRegistry.register(Blocks.STRIPPED_BAMBOO_BLOCK, SMBBlocks.CARVED_BAMBOO_BLOCK);
+
+    /* 1.21.4 */
+    CarvedBlockRegistry.register(Blocks.STRIPPED_PALE_OAK_LOG, SMBBlocks.CARVED_PALE_OAK_LOG);
+    CarvedBlockRegistry.register(Blocks.STRIPPED_PALE_OAK_WOOD, SMBBlocks.CARVED_PALE_OAK_WOOD);
   }
 
   /**
    * Registers Fuel values.
    */
   private static void registerFuels() {
-    FuelRegistry.INSTANCE.add(SMBItems.COAL_BRICKS, Constants.COAL_BRICKS_FUEL);
-    FuelRegistry.INSTANCE.add(SMBItems.CRACKED_COAL_BRICKS, Constants.CRACKED_COAL_BRICKS_FUEL);
-    FuelRegistry.INSTANCE.add(SMBItems.COAL_PILLAR, Constants.COAL_PILLAR_FUEL);
-    FuelRegistry.INSTANCE.add(SMBItems.CUT_COAL, Constants.CUT_COAL_FUEL);
-    FuelRegistry.INSTANCE.add(SMBItems.CRACKED_CUT_COAL, Constants.CRACKED_CUT_COAL_FUEL);
+    FuelRegistryEvents.BUILD.register((builder, ctx) -> {
+      builder.add(SMBBlocks.COAL_BRICKS, Constants.COAL_BRICKS_FUEL);
+      builder.add(SMBBlocks.CRACKED_COAL_BRICKS, Constants.CRACKED_COAL_BRICKS_FUEL);
+      builder.add(SMBBlocks.COAL_PILLAR, Constants.COAL_PILLAR_FUEL);
+      builder.add(SMBBlocks.CUT_COAL, Constants.CUT_COAL_FUEL);
+      builder.add(SMBBlocks.CRACKED_CUT_COAL, Constants.CRACKED_CUT_COAL_FUEL);
+    });
   }
 }

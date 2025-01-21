@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "somemoreblocks:bone_bricks"
-  },
+  "ingredient": "somemoreblocks:bone_bricks",
   "result": {
     "count": 1,
     "id": "somemoreblocks:bone_tiles"

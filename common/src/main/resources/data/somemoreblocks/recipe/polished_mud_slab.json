@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "somemoreblocks:polished_mud"
-    }
+    "#": "somemoreblocks:polished_mud"
   },
   "pattern": [
     "###"

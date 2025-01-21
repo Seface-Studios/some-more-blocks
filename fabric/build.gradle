@@ -1,7 +1,7 @@
 plugins {
   id 'java'
   id 'idea'
-  id 'fabric-loom' version '1.6-SNAPSHOT'
+  id 'fabric-loom' version '1.9-SNAPSHOT'
   id 'maven-publish'
 }
 
@@ -20,6 +20,7 @@ dependencies {
 
 fabricApi {
   configureDataGeneration((settings) -> {
+    settings.client = true
     settings.getOutputDirectory().set(project(":common").file("src/main/generated"))
   })
 }

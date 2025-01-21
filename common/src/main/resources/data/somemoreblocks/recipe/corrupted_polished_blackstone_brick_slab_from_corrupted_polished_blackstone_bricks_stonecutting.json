@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "somemoreblocks:corrupted_polished_blackstone_bricks"
-  },
+  "ingredient": "somemoreblocks:corrupted_polished_blackstone_bricks",
   "result": {
     "count": 2,
     "id": "somemoreblocks:corrupted_polished_blackstone_brick_slab"

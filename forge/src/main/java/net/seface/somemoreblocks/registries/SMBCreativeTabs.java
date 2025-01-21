@@ -3,10 +3,12 @@ package net.seface.somemoreblocks.registries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.SomeMoreBlocks;
+import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 
 public class SMBCreativeTabs {
   public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SomeMoreBlocks.ID);
@@ -66,6 +68,32 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.CHERRY_MOSAIC.get());
       entry.accept(SMBBlocks.CHERRY_MOSAIC_STAIRS.get());
       entry.accept(SMBBlocks.CHERRY_MOSAIC_SLAB.get());
+
+      /* 1.21.4 */
+      entry.accept(SMBItems.CARVED_PALE_OAK_LOG.get());
+      if (ctx.hasPermissions()) {
+        for (int i = 1; i <= 7; i++) {
+          ItemStack stack = SMBItems.CARVED_PALE_OAK_LOG.get().getDefaultInstance();
+          stack.set(SMBForgedDataComponentTypes.MOON_PHASE.get(), i);
+
+          entry.accept(stack);
+        }
+      }
+
+      entry.accept(SMBItems.CARVED_PALE_OAK_WOOD.get());
+      if (ctx.hasPermissions()) {
+        for (int i = 1; i <= 7; i++) {
+          ItemStack stack = SMBItems.CARVED_PALE_OAK_WOOD.get().getDefaultInstance();
+          stack.set(SMBForgedDataComponentTypes.MOON_PHASE.get(), i);
+
+          entry.accept(stack);
+        }
+      }
+
+      entry.accept(SMBBlocks.PALE_OAK_MOSAIC.get());
+      entry.accept(SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get());
+      entry.accept(SMBBlocks.PALE_OAK_MOSAIC_SLAB.get());
+
       entry.accept(SMBBlocks.CARVED_BAMBOO_BLOCK.get());
       entry.accept(SMBBlocks.POLISHED_STONE.get());
       entry.accept(SMBBlocks.POLISHED_STONE_STAIRS.get());
@@ -131,6 +159,12 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.SMOOTH_ANDESITE.get());
       entry.accept(SMBBlocks.SMOOTH_ANDESITE_SLAB.get());
       entry.accept(SMBBlocks.DEEPSLATE_PILLAR.get());
+      entry.accept(SMBBlocks.MOSSY_DEEPSLATE_BRICKS.get());
+      entry.accept(SMBBlocks.MOSSY_DEEPSLATE_BRICK_STAIRS.get());
+      entry.accept(SMBBlocks.MOSSY_DEEPSLATE_BRICK_SLAB.get());
+      entry.accept(SMBBlocks.MOSSY_DEEPSLATE_BRICK_WALL.get());
+      entry.accept(SMBBlocks.SMOOTH_DEEPSLATE.get());
+      entry.accept(SMBBlocks.SMOOTH_DEEPSLATE_SLAB.get());
       entry.accept(SMBBlocks.POLISHED_CALCITE.get());
       entry.accept(SMBBlocks.POLISHED_CALCITE_STAIRS.get());
       entry.accept(SMBBlocks.POLISHED_CALCITE_SLAB.get());
@@ -186,7 +220,7 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.MOSSY_DRIPSTONE_BRICK_WALL.get());
       entry.accept(SMBBlocks.SMOOTH_DRIPSTONE.get());
       entry.accept(SMBBlocks.SMOOTH_DRIPSTONE_SLAB.get());
-      entry.accept(SMBBlocks.CRACKED_BRICKS_BLOCK.get());
+      entry.accept(SMBBlocks.CRACKED_BRICKS.get());
       entry.accept(SMBBlocks.MOSSY_BRICKS.get());
       entry.accept(SMBBlocks.MOSSY_BRICK_STAIRS.get());
       entry.accept(SMBBlocks.MOSSY_BRICK_SLAB.get());
@@ -208,6 +242,21 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.MOSSY_MUD_BRICK_WALL.get());
       entry.accept(SMBBlocks.SMOOTH_MUD.get());
       entry.accept(SMBBlocks.SMOOTH_MUD_SLAB.get());
+
+      /* 1.21.4 */
+      entry.accept(SMBBlocks.POLISHED_RESINE.get());
+      entry.accept(SMBBlocks.POLISHED_RESINE_STAIRS.get());
+      entry.accept(SMBBlocks.POLISHED_RESINE_SLAB.get());
+      entry.accept(SMBBlocks.CRACKED_RESINE_BRICKS.get());
+      entry.accept(SMBBlocks.RESINE_PILLAR.get());
+      entry.accept(SMBBlocks.RESINE_TILES.get());
+      entry.accept(SMBBlocks.CRACKED_RESINE_TILES.get());
+      entry.accept(SMBBlocks.RESINE_TILE_STAIRS.get());
+      entry.accept(SMBBlocks.RESINE_TILE_SLAB.get());
+      entry.accept(SMBBlocks.RESINE_TILE_WALL.get());
+      entry.accept(SMBBlocks.SMOOTH_RESINE.get());
+      entry.accept(SMBBlocks.SMOOTH_RESINE_SLAB.get());
+
       entry.accept(SMBBlocks.SANDSTONE_BRICKS.get());
       entry.accept(SMBBlocks.CRACKED_SANDSTONE_BRICKS.get());
       entry.accept(SMBBlocks.SANDSTONE_BRICK_STAIRS.get());
@@ -413,7 +462,6 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.SOUL_SANDSTONE_TILE_STAIRS.get());
       entry.accept(SMBBlocks.SOUL_SANDSTONE_TILE_SLAB.get());
       entry.accept(SMBBlocks.SOUL_SANDSTONE_TILE_WALL.get());
-      entry.accept(SMBBlocks.MOSSY_SOUL_SANDSTONE_BRICKS.get());
       entry.accept(SMBBlocks.SMOOTH_SOUL_SANDSTONE.get());
       entry.accept(SMBBlocks.SMOOTH_SOUL_SANDSTONE_SLAB.get());
       entry.accept(SMBBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS.get());
@@ -591,6 +639,7 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.LEAVES_BUCKET.get().getDefaultInstance());
       entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get().getDefaultInstance());
       entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.get().getDefaultInstance());
+      entry.accept(SMBItems.PALE_OAK_LEAVES_BUCKET.get().getDefaultInstance());
       entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get().getDefaultInstance());
       entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get().getDefaultInstance());
       entry.accept(SMBItems.SMALL_LILY_PADS.get());

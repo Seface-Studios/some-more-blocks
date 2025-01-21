@@ -68,7 +68,7 @@ public class EventResourcePackManager {
             .withUnderlined(true)));
 
     message = prefix.append(message);
-    player.sendSystemMessage(message);
+    player.displayClientMessage(message, false);
     player.getTags().add(tagID);
   }
 

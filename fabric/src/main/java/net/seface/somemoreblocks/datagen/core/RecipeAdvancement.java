@@ -8,9 +8,14 @@ import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
 import net.seface.somemoreblocks.SomeMoreBlocks;
+import net.seface.somemoreblocks.data.SMBAbstractData;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -127,15 +132,15 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
         suffix = "_from_" + requiredItemPath;
       }
 
-      ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
-      String name = resourceLocation.getPath();
+      ResourceKey<Recipe<?>> resourceKey = SMBAbstractData.createResourceKey(Registries.RECIPE, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
+      String name = resourceKey.location().getPath();
 
       consumer.accept(
         Advancement.Builder.recipeAdvancement()
           .parent(Advancement.Builder.recipeAdvancement().build(ResourceLocation.fromNamespaceAndPath(ResourceLocation.DEFAULT_NAMESPACE, "recipes/root")))
           .addCriterion("has_needed_items", InventoryChangeTrigger.TriggerInstance.hasItems(requiredItem))
-          .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
-          .rewards(AdvancementRewards.Builder.recipe(resourceLocation))
+          .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey))
+          .rewards(AdvancementRewards.Builder.recipe(resourceKey))
           .requirements(AdvancementRequirements.anyOf(List.of("has_needed_items", "has_the_recipe")))
           .build(ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "recipes/" + group + name))
       );
@@ -151,15 +156,15 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
       String requiredItemPath = requiredItem.asItem().builtInRegistryHolder().key().location().getPath();
       String suffix = "_from_" + requiredItemPath + "_stonecutting";
 
-      ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
-      String name = resourceLocation.getPath();
+      ResourceKey<Recipe<?>> resourceKey = SMBAbstractData.createResourceKey(Registries.RECIPE, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
+      String name = resourceKey.location().getPath();
 
       consumer.accept(
         Advancement.Builder.recipeAdvancement()
           .parent(Advancement.Builder.recipeAdvancement().build(ResourceLocation.fromNamespaceAndPath(ResourceLocation.DEFAULT_NAMESPACE, "recipes/root")))
           .addCriterion("has_needed_items", InventoryChangeTrigger.TriggerInstance.hasItems(requiredItem))
-          .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
-          .rewards(AdvancementRewards.Builder.recipe(resourceLocation))
+          .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey))
+          .rewards(AdvancementRewards.Builder.recipe(resourceKey))
           .requirements(AdvancementRequirements.anyOf(List.of("has_needed_items", "has_the_recipe")))
           .build(ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "recipes/" + group + name))
       );

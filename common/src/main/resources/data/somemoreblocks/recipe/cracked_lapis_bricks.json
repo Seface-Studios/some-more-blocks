@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "somemoreblocks:lapis_bricks"
-  },
+  "ingredient": "somemoreblocks:lapis_bricks",
   "result": {
     "id": "somemoreblocks:cracked_lapis_bricks"
   }

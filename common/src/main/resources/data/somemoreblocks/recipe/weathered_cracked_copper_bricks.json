@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "somemoreblocks:weathered_copper_bricks"
-  },
+  "ingredient": "somemoreblocks:weathered_copper_bricks",
   "result": {
     "id": "somemoreblocks:weathered_cracked_copper_bricks"
   }

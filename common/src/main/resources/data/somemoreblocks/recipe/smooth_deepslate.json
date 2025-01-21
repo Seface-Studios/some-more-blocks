@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "minecraft:deepslate"
-  },
+  "ingredient": "minecraft:deepslate",
   "result": {
     "id": "somemoreblocks:smooth_deepslate"
   }

@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "somemoreblocks:dripstone_bricks"
-  },
+  "ingredient": "somemoreblocks:dripstone_bricks",
   "result": {
     "count": 1,
     "id": "somemoreblocks:chiseled_dripstone_bricks"

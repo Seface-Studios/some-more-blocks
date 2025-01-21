@@ -3,30 +3,22 @@ package net.seface.somemoreblocks.block;
 import com.mojang.serialization.MapCodec;
 import lombok.Getter;
 import lombok.Setter;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BucketPickup;
 import net.minecraft.world.level.block.TransparentBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 import net.seface.somemoreblocks.data.SMBBlockTags;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 import org.jetbrains.annotations.NotNull;
@@ -66,7 +58,7 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
 
   @NotNull
   @Override
-  public VoxelShape getOcclusionShape(BlockState state, BlockGetter block, BlockPos pos) {
+  protected VoxelShape getOcclusionShape(BlockState state) {
     return Shapes.empty();
   }
 
@@ -78,10 +70,10 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
 
   @NotNull
   @Override
-  public BlockState updateShape(BlockState state1, Direction direction, BlockState state2, LevelAccessor level, BlockPos pos1, BlockPos pos2) {
+  protected BlockState updateShape(BlockState state1, LevelReader level, ScheduledTickAccess tick, BlockPos pos1, Direction direction, BlockPos pos2, BlockState state2, RandomSource random) {
     return !state1.canSurvive(level, pos1) ?
       Blocks.AIR.defaultBlockState() :
-      super.updateShape(state1, direction, state2, level, pos1, pos2);
+      super.updateShape(state1, level, tick, pos1, direction, pos2, state2, random);
   }
 
   @Override
@@ -93,9 +85,9 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
 
   @NotNull
   @Override
-  public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
-    ItemStack stack = super.getCloneItemStack(level, pos, state);
-    stack.set(SMBDataComponentTypes.BUCKET_VOLUME, LeavesBucketItem.MAX_VOLUME);
+  protected ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean b) {
+    ItemStack stack = super.getCloneItemStack(level, pos, state, b);
+    stack.set(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType(), LeavesBucketItem.MAX_VOLUME);
 
     return stack;
   }
@@ -109,7 +101,7 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
     }
 
     ItemStack stack = this.bucketItem.getDefaultInstance();
-    stack.set(SMBDataComponentTypes.BUCKET_VOLUME, LeavesBucketItem.MIN_VOLUME);
+    stack.set(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType(), LeavesBucketItem.MIN_VOLUME);
 
     return stack;
   }

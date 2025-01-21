@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "somemoreblocks:mossy_end_stone_bricks"
-    }
+    "#": "somemoreblocks:mossy_end_stone_bricks"
   },
   "pattern": [
     "###",

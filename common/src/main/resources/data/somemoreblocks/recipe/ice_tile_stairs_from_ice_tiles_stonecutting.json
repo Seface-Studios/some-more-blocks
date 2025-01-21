@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "somemoreblocks:ice_tiles"
-  },
+  "ingredient": "somemoreblocks:ice_tiles",
   "result": {
     "count": 1,
     "id": "somemoreblocks:ice_tile_stairs"

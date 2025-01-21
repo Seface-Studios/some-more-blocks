@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "somemoreblocks:polished_blackstone_tiles"
-    }
+    "#": "somemoreblocks:polished_blackstone_tiles"
   },
   "pattern": [
     "###",

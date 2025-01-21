@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "minecraft:purpur_block"
-    },
-    "E": {
-      "item": "minecraft:end_rod"
-    },
-    "S": {
-      "item": "minecraft:shulker_shell"
-    }
+    "#": "minecraft:purpur_block",
+    "E": "minecraft:end_rod",
+    "S": "minecraft:shulker_shell"
   },
   "pattern": [
     "E#E",

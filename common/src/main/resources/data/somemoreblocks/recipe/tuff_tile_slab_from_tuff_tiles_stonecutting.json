@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "somemoreblocks:tuff_tiles"
-  },
+  "ingredient": "somemoreblocks:tuff_tiles",
   "result": {
     "count": 2,
     "id": "somemoreblocks:tuff_tile_slab"

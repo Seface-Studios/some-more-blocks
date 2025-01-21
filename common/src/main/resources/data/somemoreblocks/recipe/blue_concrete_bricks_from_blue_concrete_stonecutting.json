@@ -1,9 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:blue_concrete"
-  },
+  "ingredient": "minecraft:blue_concrete",
   "result": {
     "count": 1,
     "id": "somemoreblocks:blue_concrete_bricks"

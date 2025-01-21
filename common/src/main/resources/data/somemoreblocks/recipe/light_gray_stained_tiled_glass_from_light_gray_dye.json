@@ -3,12 +3,8 @@
   "category": "building",
   "group": "stained_tiled_glass",
   "key": {
-    "#": {
-      "item": "somemoreblocks:tiled_glass"
-    },
-    "D": {
-      "item": "minecraft:light_gray_dye"
-    }
+    "#": "somemoreblocks:tiled_glass",
+    "D": "minecraft:light_gray_dye"
   },
   "pattern": [
     "###",

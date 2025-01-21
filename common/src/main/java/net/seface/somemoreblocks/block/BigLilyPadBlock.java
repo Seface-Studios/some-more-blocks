@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.WaterlilyBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -33,7 +33,7 @@ import org.jetbrains.annotations.Nullable;
 public class BigLilyPadBlock extends WaterlilyBlock {
   protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
   public static final IntegerProperty TEXTURE = IntegerProperty.create("texture", 0, 3);
-  public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+  public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
 
   public BigLilyPadBlock(Properties properties) {
     super(properties);
@@ -85,9 +85,9 @@ public class BigLilyPadBlock extends WaterlilyBlock {
   public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity player, ItemStack item) {
     Direction facing = player != null ? player.getDirection() : Direction.getRandom(RandomSource.create());
 
-    BlockPos rightPos = pos.offset(facing.getClockWise().getNormal());
-    BlockPos rightTopPos = pos.offset(facing.getClockWise().getNormal().offset(facing.getNormal()));
-    BlockPos topPos = pos.offset(facing.getNormal());
+    BlockPos rightPos = pos.offset(facing.getClockWise().getUnitVec3i());
+    BlockPos rightTopPos = pos.offset(facing.getClockWise().getUnitVec3i().offset(facing.getUnitVec3i()));
+    BlockPos topPos = pos.offset(facing.getUnitVec3i());
 
     level.setBlock(pos, createBlockState(state, facing, 0), 3);
     level.setBlock(rightPos, createBlockState(state, facing, 1), 3);
@@ -169,7 +169,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
 
       BlockPos savedPos = pos;
       for (Rotation rotation : appendTo.sidePosRotations) {
-        savedPos = savedPos.offset(rotation.rotate(facing).getNormal());
+        savedPos = savedPos.offset(rotation.rotate(facing).getUnitVec3i());
       }
 
       return savedPos;
@@ -182,7 +182,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
 
       BlockPos savedPos = pos;
       for (Rotation rotation : appendTo.sideTopPosRotations) {
-        savedPos = savedPos.offset(rotation.rotate(facing).getNormal());
+        savedPos = savedPos.offset(rotation.rotate(facing).getUnitVec3i());
       }
 
       return savedPos;
@@ -195,7 +195,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
 
       BlockPos savedPos = pos;
       for (Rotation rotation : appendTo.topPosRotations) {
-        savedPos = savedPos.offset(rotation.rotate(facing).getNormal());
+        savedPos = savedPos.offset(rotation.rotate(facing).getUnitVec3i());
       }
 
       return savedPos;

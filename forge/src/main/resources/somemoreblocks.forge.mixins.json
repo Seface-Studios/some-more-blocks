@@ -4,7 +4,12 @@
   "package": "net.seface.somemoreblocks.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_17",
-  "mixins": ["TinyCactusBlockMixin"],
+  "mixins": [
+    "TinyCactusBlockMixin",
+    "LeavesBucketItemMixin",
+    "CarvedPaleOakBlockItemMixin",
+    "RangeSelectItemModelPropertiesMixin"
+  ],
   "client": [],
   "server": [],
   "injectors": {

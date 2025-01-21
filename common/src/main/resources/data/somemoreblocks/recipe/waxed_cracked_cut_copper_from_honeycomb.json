@@ -3,12 +3,8 @@
   "category": "building",
   "group": "waxed_cracked_cut_copper",
   "ingredients": [
-    {
-      "item": "somemoreblocks:cracked_cut_copper"
-    },
-    {
-      "item": "minecraft:honeycomb"
-    }
+    "somemoreblocks:cracked_cut_copper",
+    "minecraft:honeycomb"
   ],
   "result": {
     "id": "somemoreblocks:waxed_cracked_cut_copper"

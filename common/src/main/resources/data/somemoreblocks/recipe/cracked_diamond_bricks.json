@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "somemoreblocks:diamond_bricks"
-  },
+  "ingredient": "somemoreblocks:diamond_bricks",
   "result": {
     "id": "somemoreblocks:cracked_diamond_bricks"
   }

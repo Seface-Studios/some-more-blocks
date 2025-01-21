@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "somemoreblocks:crimson_mosaic"
-    }
+    "#": "somemoreblocks:crimson_mosaic"
   },
   "pattern": [
     "#  ",

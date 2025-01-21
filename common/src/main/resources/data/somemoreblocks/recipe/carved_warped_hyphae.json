@@ -3,9 +3,7 @@
   "category": "building",
   "group": "carved_wood",
   "key": {
-    "#": {
-      "item": "somemoreblocks:carved_warped_stem"
-    }
+    "#": "somemoreblocks:carved_warped_stem"
   },
   "pattern": [
     "##",

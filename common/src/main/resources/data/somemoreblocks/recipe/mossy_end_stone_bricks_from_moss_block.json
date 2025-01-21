@@ -3,12 +3,8 @@
   "category": "building",
   "group": "mossy_end_stone_bricks",
   "ingredients": [
-    {
-      "item": "minecraft:end_stone_bricks"
-    },
-    {
-      "item": "minecraft:moss_block"
-    }
+    "minecraft:end_stone_bricks",
+    "minecraft:moss_block"
   ],
   "result": {
     "id": "somemoreblocks:mossy_end_stone_bricks"

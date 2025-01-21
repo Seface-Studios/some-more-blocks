@@ -1,12 +1,12 @@
 package net.seface.somemoreblocks.utils;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ComposterBlock;
-import net.seface.somemoreblocks.registries.SnowyBushRegistry;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 
 public class SMBUtils {
 

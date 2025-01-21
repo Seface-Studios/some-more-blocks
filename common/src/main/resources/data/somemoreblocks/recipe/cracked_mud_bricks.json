@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "minecraft:mud_bricks"
-  },
+  "ingredient": "minecraft:mud_bricks",
   "result": {
     "id": "somemoreblocks:cracked_mud_bricks"
   }

@@ -3,9 +3,7 @@
   "category": "building",
   "group": "stained_terracotta_tiles_from_terracotta_bricks",
   "key": {
-    "#": {
-      "item": "somemoreblocks:light_gray_terracotta_bricks"
-    }
+    "#": "somemoreblocks:light_gray_terracotta_bricks"
   },
   "pattern": [
     "##",

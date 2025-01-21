@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "minecraft:oak_slab"
-    }
+    "#": "minecraft:oak_slab"
   },
   "pattern": [
     "#",

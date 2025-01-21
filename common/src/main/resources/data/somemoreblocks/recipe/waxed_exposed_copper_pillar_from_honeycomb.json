@@ -3,12 +3,8 @@
   "category": "building",
   "group": "waxed_exposed_copper_pillar",
   "ingredients": [
-    {
-      "item": "somemoreblocks:exposed_copper_pillar"
-    },
-    {
-      "item": "minecraft:honeycomb"
-    }
+    "somemoreblocks:exposed_copper_pillar",
+    "minecraft:honeycomb"
   ],
   "result": {
     "id": "somemoreblocks:waxed_exposed_copper_pillar"

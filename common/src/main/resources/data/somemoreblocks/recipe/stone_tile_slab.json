@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "somemoreblocks:stone_tiles"
-    }
+    "#": "somemoreblocks:stone_tiles"
   },
   "pattern": [
     "###"

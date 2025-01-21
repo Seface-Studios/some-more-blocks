@@ -11,10 +11,17 @@ public class SomeMoreBlocks {
   public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
   public static void init() {
+    init(true);
+  }
+
+  public static void init(boolean vanillaDataComponents) {
     LOGGER.info(MOD_NAME + " mod initialized!");
     LOGGER.info("Our Links: https://sefacestudios.net/links");
 
-    SMBDataComponentTypes.init();
+    if (vanillaDataComponents) {
+      SMBDataComponentTypes.init();
+    }
+
     SMBBlockTags.init();
   }
 }

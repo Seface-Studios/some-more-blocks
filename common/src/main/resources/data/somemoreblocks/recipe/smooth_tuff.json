@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "minecraft:tuff"
-  },
+  "ingredient": "minecraft:tuff",
   "result": {
     "id": "somemoreblocks:smooth_tuff"
   }
