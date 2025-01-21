@@ -16,5 +16,14 @@
   "block.somemoreblocks.resine_tiles": "Resine Tiles",
   "block.somemoreblocks.smooth_resine": "Smooth Resine",
   "block.somemoreblocks.smooth_resine_slab": "Smooth Resine Slab",
-  "item.somemoreblocks.pale_oak_leaves_bucket": "Bucket of Pale Oak Leaves"
+  "item.somemoreblocks.carved_pale_oak_logs.moon_phase_description": "Moon Phase: %s",
+  "item.somemoreblocks.pale_oak_leaves_bucket": "Bucket of Pale Oak Leaves",
+  "utilities.somemoreblocks.moon_phase.name.0": "Full Moon",
+  "utilities.somemoreblocks.moon_phase.name.1": "Waxing Gibbous",
+  "utilities.somemoreblocks.moon_phase.name.2": "First Quarter",
+  "utilities.somemoreblocks.moon_phase.name.3": "Waxing Crescent",
+  "utilities.somemoreblocks.moon_phase.name.4": "New Moon",
+  "utilities.somemoreblocks.moon_phase.name.5": "Waning Crescent",
+  "utilities.somemoreblocks.moon_phase.name.6": "Third Quarter",
+  "utilities.somemoreblocks.moon_phase.name.7": "Waning Gibbous"
 }

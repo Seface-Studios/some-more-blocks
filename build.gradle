@@ -13,7 +13,7 @@ subprojects {
   def w = new Date().format("yy")
   def a =  String.format("%02d", Calendar.getInstance().get(Calendar.WEEK_OF_YEAR))
 
-  version = !is_snapshot.toBoolean() ? version : "${w}w${a}a"
+  version = !is_snapshot.toBoolean() ? version : "${w}w${a}${snapshot_week_suffix}"
 
   java.toolchain.languageVersion = JavaLanguageVersion.of(21)
   java.withSourcesJar()

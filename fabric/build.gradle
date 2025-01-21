@@ -63,6 +63,10 @@ tasks.named("sourcesJar", Jar) {
   from(project(":common").sourceSets.main.allSource)
 }
 
+tasks.named("runDatagen") {
+  dependsOn "mergeLangFiles"
+}
+
 processResources {
   from project(":common").sourceSets.main.resources
 }

@@ -1,14 +1,21 @@
 package net.seface.somemoreblocks.registries;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.component.ItemLore;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.component.SMBDataComponentTypes;
+
+import java.util.List;
 
 public class SMBCreativeTabs {
   public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SomeMoreBlocks.ID);
@@ -70,24 +77,46 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.CHERRY_MOSAIC_SLAB.get());
 
       /* 1.21.4 */
-      entry.accept(SMBItems.CARVED_PALE_OAK_LOG.get());
       if (ctx.hasPermissions()) {
-        for (int i = 1; i <= 7; i++) {
+        for (int i = 0; i <= 7; i++) {
           ItemStack stack = SMBItems.CARVED_PALE_OAK_LOG.get().getDefaultInstance();
           stack.set(SMBForgedDataComponentTypes.MOON_PHASE.get(), i);
+          stack.set(DataComponents.RARITY, Rarity.EPIC);
+
+          MutableComponent moonPhase = Component.translatable("utilities.somemoreblocks.moon_phase.name." + i)
+            .withStyle(ChatFormatting.WHITE)
+            .append(" (" + i + ")");
+
+          MutableComponent lore = Component.translatable("item.somemoreblocks.carved_pale_oak_logs.moon_phase_description", moonPhase)
+            .withStyle(style -> style.withItalic(false).withColor(ChatFormatting.YELLOW));
+
+          stack.set(DataComponents.LORE, new ItemLore(List.of(lore)));
 
           entry.accept(stack);
         }
+      } else {
+        entry.accept(SMBItems.CARVED_PALE_OAK_LOG.get());
       }
 
-      entry.accept(SMBItems.CARVED_PALE_OAK_WOOD.get());
       if (ctx.hasPermissions()) {
-        for (int i = 1; i <= 7; i++) {
+        for (int i = 0; i <= 7; i++) {
           ItemStack stack = SMBItems.CARVED_PALE_OAK_WOOD.get().getDefaultInstance();
           stack.set(SMBForgedDataComponentTypes.MOON_PHASE.get(), i);
+          stack.set(DataComponents.RARITY, Rarity.EPIC);
+
+          MutableComponent moonPhase = Component.translatable("utilities.somemoreblocks.moon_phase.name." + i)
+            .withStyle(ChatFormatting.WHITE)
+            .append(" (" + i + ")");
+
+          MutableComponent lore = Component.translatable("item.somemoreblocks.carved_pale_oak_logs.moon_phase_description", moonPhase)
+            .withStyle(style -> style.withItalic(false).withColor(ChatFormatting.YELLOW));
+
+          stack.set(DataComponents.LORE, new ItemLore(List.of(lore)));
 
           entry.accept(stack);
         }
+      } else {
+        entry.accept(SMBItems.CARVED_PALE_OAK_WOOD.get());
       }
 
       entry.accept(SMBBlocks.PALE_OAK_MOSAIC.get());

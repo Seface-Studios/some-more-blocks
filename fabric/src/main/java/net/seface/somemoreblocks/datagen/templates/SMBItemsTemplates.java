@@ -1,15 +1,13 @@
 package net.seface.somemoreblocks.datagen.templates;
 
-import net.minecraft.client.data.models.blockstates.BlockStateGenerator;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.seface.somemoreblocks.datagen.SMBModelProvider;
+import net.seface.somemoreblocks.datagen.providers.SMBModelProvider;
 import net.seface.somemoreblocks.properties.BucketVolumeProperty;
 import net.seface.somemoreblocks.properties.MoonPhaseProperty;
 

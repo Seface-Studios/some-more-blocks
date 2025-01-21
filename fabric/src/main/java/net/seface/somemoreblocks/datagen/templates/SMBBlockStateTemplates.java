@@ -9,17 +9,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.*;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
-import net.seface.somemoreblocks.datagen.SMBModelProvider;
+import net.seface.somemoreblocks.datagen.providers.SMBModelProvider;
 import net.seface.somemoreblocks.datagen.utils.SMBUtils;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class SMBBlockStateTemplates {
 
