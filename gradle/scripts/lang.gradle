@@ -2,12 +2,23 @@ import groovy.json.JsonGenerator
 import groovy.json.JsonSlurper
 
 /**
+ * Normalize the version to the pattern MAJOR.MINOR.PATCH
+ * @param version The affected version.
+ */
+private static String normalizeVersion(String version) {
+  while (version.split("\\.").length < 3) {
+    version += ".0"
+  }
+  return version
+}
+
+/**
  * Checks if the current version can have deprecated strings at current lang files.
  * @param version The affected version.
  */
-boolean containsDeprecatedStrings(String version) {
-  String[] splitVersion = version.split("\\.")
-  String[] splitMCVersion = minecraft_version.split("\\.")
+private boolean containsDeprecatedStrings(String version) {
+  String[] splitVersion = normalizeVersion(version).split("\\.")
+  String[] splitMCVersion = normalizeVersion(minecraft_version).split("\\.")
 
   int minLeng = splitMCVersion.length
   int maxLeng = Math.max(minLeng, splitMCVersion.length)
@@ -29,7 +40,7 @@ boolean containsDeprecatedStrings(String version) {
 /**
  * Remove all deprecated string from the lang files at current mod version
  */
-def removeDeprecatedStrings() {
+void removeDeprecatedStrings() {
   def JSON = new JsonSlurper()
 
   def langDir = project(":common").file("src/main/resources/assets/${mod_id}/lang")
