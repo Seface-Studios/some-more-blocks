@@ -1,6 +1,5 @@
 package net.seface.somemoreblocks.block;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
@@ -12,11 +11,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.seface.somemoreblocks.item.CarvedPaleOakBlockItem;
-import net.seface.somemoreblocks.item.LeavesBucketItem;
 import org.jetbrains.annotations.NotNull;
 
 public class RotatedCarvedPaleOakBlock extends RotatedPillarBlock {
-  public static final IntegerProperty MOON_PHASE = IntegerProperty.create("moon_phase", 0, 7);
+  public static final int MIN_MOON_PHASE = 0;
+  public static final int MAX_MOON_PHASE = 7;
+  public static final IntegerProperty MOON_PHASE = IntegerProperty.create("moon_phase", MIN_MOON_PHASE, MAX_MOON_PHASE);
 
   public RotatedCarvedPaleOakBlock(Properties properties) {
     super(properties);
@@ -24,7 +24,7 @@ public class RotatedCarvedPaleOakBlock extends RotatedPillarBlock {
     this.registerDefaultState(
         (this.stateDefinition.any())
           .setValue(AXIS, Direction.Axis.Y)
-          .setValue(MOON_PHASE, 0)
+          .setValue(MOON_PHASE, MIN_MOON_PHASE)
       );
   }
 

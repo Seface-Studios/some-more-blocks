@@ -49,7 +49,7 @@ public class SMBLootTableProvider extends FabricBlockLootTableProvider {
   private void addCarvedPaleLogBlock(Block block) {
     LootPoolSingletonContainer.Builder<?> lootItem = LootItem.lootTableItem(block);
 
-    for (int i = 0; i <= 7 ; i++) {
+    for (int i = 0; i <= RotatedCarvedPaleOakBlock.MAX_MOON_PHASE ; i++) {
       lootItem.apply(
         SetComponentsFunction.setComponent(SMBDataComponentTypes.MOON_PHASE, i)
           .when(
