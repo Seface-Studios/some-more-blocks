@@ -10,9 +10,6 @@ import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
 import org.jetbrains.annotations.NotNull;
 
 public class CarvedPaleOakBlockItem extends BlockItem implements ICarvedPaleOakBlockItem {
-  public static final int MAX_MOON_PHASE = 7;
-  public static final int MIN_MOON_PHASE = 0;
-
   public CarvedPaleOakBlockItem(Block block, Properties properties) {
     super(block, properties);
   }
@@ -21,7 +18,7 @@ public class CarvedPaleOakBlockItem extends BlockItem implements ICarvedPaleOakB
   @Override
   public ItemStack getDefaultInstance() {
     ItemStack stack = super.getDefaultInstance();
-    stack.set(this.getMoonPhaseComponentType(), MIN_MOON_PHASE);
+    stack.set(this.getMoonPhaseComponentType(), RotatedCarvedPaleOakBlock.MIN_MOON_PHASE);
 
     return stack;
   }
@@ -29,7 +26,7 @@ public class CarvedPaleOakBlockItem extends BlockItem implements ICarvedPaleOakB
   @Override
   protected boolean placeBlock(BlockPlaceContext ctx, BlockState state) {
     ItemStack stack = ctx.getItemInHand();
-    int moonPhase = stack.getComponents().getOrDefault(this.getMoonPhaseComponentType(), MIN_MOON_PHASE);
+    int moonPhase = stack.getComponents().getOrDefault(this.getMoonPhaseComponentType(), RotatedCarvedPaleOakBlock.MIN_MOON_PHASE);
 
     return super.placeBlock(ctx, state.setValue(RotatedCarvedPaleOakBlock.MOON_PHASE, moonPhase));
   }
