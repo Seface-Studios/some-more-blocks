@@ -68,8 +68,6 @@ public class SMBBlockStateTemplates {
       for (int i = 0; i <= 7; i++) {
         String suffix = "_" + i;
 
-        SomeMoreBlocks.LOGGER.info(String.valueOf(i));
-
         ModelTemplates.CUBE_COLUMN.create(
           ModelLocationUtils.getModelLocation(block).withSuffix(suffix),
           TextureMapping.column(block)

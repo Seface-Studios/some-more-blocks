@@ -15,7 +15,7 @@ subprojects {
   java.withJavadocJar()
 
   jar {
-    exclude(".cache/**", "**/*/README.md", "**/*/.gitkeep", "**/*/lang/deprecated_strings.json")
+    exclude(".cache/**", "**/*/README.md", "**/*/.gitkeep", "**/*/lang/*/*.json", "**/*/lang/deprecated_strings.json")
 
     from(rootProject.file("LICENSE")) {
       rename { "${it}-${mod_name.replaceAll(' ', '')}" }

@@ -14,6 +14,7 @@ public class Main implements DataGeneratorEntrypoint {
     pack.addProvider(SMBCustomRecipeProvider::new);
     pack.addProvider(SMBBlockTagProvider::new);
     pack.addProvider(SMBWorldGenTagProvider::new);
+    pack.addProvider(SMBLootTableProvider::new);
 
     /*
       Why this custom provider exists?
