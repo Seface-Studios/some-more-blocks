@@ -6,11 +6,14 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
@@ -26,26 +29,78 @@ public class SMBLootTableProvider extends FabricBlockLootTableProvider {
 
   @Override
   public void generate() {
+    addSilkTouchOnly(SMBBlocks.POLISHED_ICE);
+    addSilkTouchOnly(SMBBlocks.POLISHED_ICE_STAIRS);
+    addSilkTouchOnly(SMBBlocks.POLISHED_ICE_SLAB);
+    addSilkTouchOnly(SMBBlocks.ICE_BRICKS);
+    addSilkTouchOnly(SMBBlocks.CRACKED_ICE_BRICKS);
+    addSilkTouchOnly(SMBBlocks.ICE_BRICK_STAIRS);
+    addSilkTouchAsSlab(SMBBlocks.ICE_BRICK_SLAB);
+    addSilkTouchOnly(SMBBlocks.ICE_BRICK_WALL);
+    addSilkTouchOnly(SMBBlocks.ICE_PILLAR);
+    addSilkTouchOnly(SMBBlocks.ICE_TILES);
+    addSilkTouchOnly(SMBBlocks.CRACKED_ICE_TILES);
+    addSilkTouchOnly(SMBBlocks.ICE_TILE_STAIRS);
+    addSilkTouchAsSlab(SMBBlocks.ICE_TILE_SLAB);
+    addSilkTouchOnly(SMBBlocks.ICE_TILE_WALL);
+    addSilkTouchOnly(SMBBlocks.TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.TILED_TINTED_GLASS);
+    addSilkTouchOnly(SMBBlocks.WHITE_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.GRAY_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.BLACK_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.BROWN_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.RED_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.ORANGE_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.YELLOW_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.LIME_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.GREEN_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.CYAN_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.BLUE_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.MAGENTA_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.PINK_STAINED_TILED_GLASS);
+    addSilkTouchOnly(SMBBlocks.TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.BLACK_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.RED_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.LIME_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE);
+    addSilkTouchOnly(SMBBlocks.PINK_STAINED_TILED_GLASS_PANE);
+
     /* 1.21.4 */
     addGenericBlock(SMBBlocks.PALE_OAK_MOSAIC);
     addGenericBlock(SMBBlocks.PALE_OAK_MOSAIC_STAIRS);
     addGenericSlab(SMBBlocks.PALE_OAK_MOSAIC_SLAB);
-    addGenericBlock(SMBBlocks.POLISHED_RESINE);
-    addGenericBlock(SMBBlocks.POLISHED_RESINE_STAIRS);
-    addGenericSlab(SMBBlocks.POLISHED_RESINE_SLAB);
-    addGenericBlock(SMBBlocks.CRACKED_RESINE_BRICKS);
+    addGenericBlock(SMBBlocks.POLISHED_RESIN);
+    addGenericBlock(SMBBlocks.POLISHED_RESIN_STAIRS);
+    addGenericSlab(SMBBlocks.POLISHED_RESIN_SLAB);
+    addGenericBlock(SMBBlocks.CRACKED_RESIN_BRICKS);
     addGenericBlock(SMBBlocks.RESINE_PILLAR);
-    addGenericBlock(SMBBlocks.RESINE_TILES);
-    addGenericBlock(SMBBlocks.CRACKED_RESINE_TILES);
-    addGenericBlock(SMBBlocks.RESINE_TILE_STAIRS);
-    addGenericSlab(SMBBlocks.RESINE_TILE_SLAB);
-    addGenericBlock(SMBBlocks.RESINE_TILE_WALL);
-    addGenericBlock(SMBBlocks.SMOOTH_RESINE);
-    addGenericSlab(SMBBlocks.SMOOTH_RESINE_SLAB);
+    addGenericBlock(SMBBlocks.RESIN_TILES);
+    addGenericBlock(SMBBlocks.CRACKED_RESIN_TILES);
+    addGenericBlock(SMBBlocks.RESIN_TILE_STAIRS);
+    addGenericSlab(SMBBlocks.RESIN_TILE_SLAB);
+    addGenericBlock(SMBBlocks.RESIN_TILE_WALL);
+    addGenericBlock(SMBBlocks.SMOOTH_RESIN);
+    addGenericSlab(SMBBlocks.SMOOTH_RESIN_SLAB);
     addCarvedPaleLogBlock(SMBBlocks.CARVED_PALE_OAK_LOG);
     addCarvedPaleLogBlock(SMBBlocks.CARVED_PALE_OAK_WOOD);
   }
 
+  /**
+   * Specific to Carved Pale Log/Wood loot table where drops the correct item by the
+   * moon_phase block state.
+   */
   private void addCarvedPaleLogBlock(Block block) {
     LootPoolSingletonContainer.Builder<?> lootItem = LootItem.lootTableItem(block);
 
@@ -69,15 +124,41 @@ public class SMBLootTableProvider extends FabricBlockLootTableProvider {
   }
 
   /**
+   * Generic Slab + Silk Touch loot tables.
+   */
+  private void addSilkTouchAsSlab(Block block) {
+    add(block,
+      LootTable.lootTable()
+        .withPool(LootPool.lootPool()
+          .setRolls(ConstantValue.exactly(1.0F))
+          .add(
+            this.applyExplosionDecay(block, LootItem.lootTableItem(block)
+              .when(this.hasSilkTouch())
+              .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
+                .when(
+                  LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SlabBlock.TYPE, SlabType.DOUBLE))))))
+        ));
+  }
+
+  /**
+   * Generic block where only drops if silk touch enchantment are applied to the tool.
+   */
+  private void addSilkTouchOnly(Block block) {
+    add(block, createSilkTouchOnlyTable(block).setRandomSequence(ModelLocationUtils.getModelLocation(block)));
+  }
+
+  /**
    * Create a generic loot table.
-   * This can be also applied for: Stairs
-   *
-   * @param block The to-be generated block.
+   * This can be also used for: Stairs & Walls
    */
   private void addGenericBlock(Block block) {
     add(block, createSingleItemTable(block).setRandomSequence(ModelLocationUtils.getModelLocation(block)));
   }
 
+  /**
+   * Generic slab loot table where drops 2 instead of one when block state type is double.
+   */
   private void addGenericSlab(Block block) {
     add(block, createSlabItemTable(block).setRandomSequence(ModelLocationUtils.getModelLocation(block)));
   }

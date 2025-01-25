@@ -8,8 +8,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.seface.somemoreblocks.datagen.providers.SMBModelProvider;
-import net.seface.somemoreblocks.properties.BucketVolumeProperty;
-import net.seface.somemoreblocks.properties.MoonPhaseProperty;
+import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
+import net.seface.somemoreblocks.item.properties.numeric.MoonPhaseProperty;
 
 /**
  * Every utilities class for JSON files generated at somemoreblocks/items

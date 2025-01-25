@@ -27,10 +27,8 @@ private boolean containsDeprecatedStrings(String version) {
     int min = (i < minLeng) ? Integer.parseInt(splitVersion[i]) : 0
     int mcVersion = (i < splitMCVersion.length) ? Integer.parseInt(splitMCVersion[i]) : 0
 
-    if (mcVersion > min) {
+    if (mcVersion >= min) {
       return true
-    } else if (mcVersion < min) {
-      return false
     }
   }
 
@@ -44,37 +42,31 @@ void removeDeprecatedStrings() {
   def JSON = new JsonSlurper()
 
   def langDir = project(":common").file("src/main/resources/assets/${mod_id}/lang")
-  def deprecatedStringsFile =  new File(langDir, "deprecated_strings.json")
+  def deprecatedStringsFile = new File(langDir, "deprecated_strings.json")
 
   def data = JSON.parse(deprecatedStringsFile)
 
   def files = fileTree(langDir).include("*.json")
 
   data.each { key, values ->
-    if (containsDeprecatedStrings(key)) {
-      println("Found deprecated strings since version '${key}' in current version '${minecraft_version}'.")
+    files.eachWithIndex { file, i ->
+      if (file.name == "deprecated_strings.json") return
 
-      files.eachWithIndex { file, i ->
-        if (file.name == "deprecated_strings.json") return
+      def langFile = new File(langDir, file.name)
+      def langData = JSON.parse(langFile)
 
-        def langFile = new File(langDir, file.name)
-        def langData = JSON.parse(langFile)
-
-        values.each { value ->
-          langData.remove(value)
-        }
-
-        def generator = new JsonGenerator.Options()
-          .excludeNulls()
-          .disableUnicodeEscaping()
-          .build()
-
-        langFile.withWriter("UTF-8") { writer ->
-          writer.write(generator.toJson(langData))
-        }
+      values.each { value ->
+        langData.remove(value)
       }
 
-      println("Deprecated strings removed.")
+      def generator = new JsonGenerator.Options()
+        .excludeNulls()
+        .disableUnicodeEscaping()
+        .build()
+
+      langFile.withWriter("UTF-8") { writer ->
+        writer.write(generator.toJson(langData))
+      }
     }
   }
 }

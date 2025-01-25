@@ -3,9 +3,12 @@ package net.seface.somemoreblocks;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.entity.Display;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraftforge.client.ChunkRenderTypeSet;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.client.event.RegisterNamedRenderTypesEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -20,8 +23,8 @@ public class SomeMoreBlocksForge {
   public SomeMoreBlocksForge() {
     IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-    SMBBlocks.register(bus);
     SMBForgedDataComponentTypes.register(bus);
+    SMBBlocks.register(bus);
     SMBItems.register(bus);
     SMBCreativeTabs.register(bus);
     SMBFeatures.register(bus);
@@ -81,6 +84,9 @@ public class SomeMoreBlocksForge {
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.BIRCH_LEAVES_BUCKET.get());
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.SPRUCE_LEAVES_BUCKET.get());
+
+    /* 1.21.4 */
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.PALE_OAK_LEAVES_BUCKET.get());
   }
 
   /**

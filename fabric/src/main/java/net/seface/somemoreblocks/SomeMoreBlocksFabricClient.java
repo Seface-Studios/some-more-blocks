@@ -8,8 +8,8 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.properties.numeric.RangeSelectItemModelProperties;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.seface.somemoreblocks.component.SMBDataComponentTypes;
-import net.seface.somemoreblocks.properties.BucketVolumeProperty;
-import net.seface.somemoreblocks.properties.MoonPhaseProperty;
+import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
+import net.seface.somemoreblocks.item.properties.numeric.MoonPhaseProperty;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 
 public class SomeMoreBlocksFabricClient implements ClientModInitializer {

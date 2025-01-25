@@ -15,16 +15,16 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.api.IPoweredBlockMixin;
 import net.seface.somemoreblocks.block.*;
-import net.seface.somemoreblocks.data.SMBBlockTags;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
+import net.seface.somemoreblocks.item.FuelBlockItem;
 
 import java.util.function.Supplier;
 
 public class SMBBlocks {
   public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SomeMoreBlocks.ID);
 
-  public static final RegistryObject<Block> AZALEA_LEAF_LITTER = registerBlock("azalea_leaf_litter", () -> new LeafLitterBlock(Block.Properties.ofFullCopy(Blocks.AZALEA_LEAVES).replaceable().noCollission().instabreak().setId(BLOCKS.key("azalea_leaf_litter")), Constants.AZALEA_LEAF_LITTER_CHANCE), false);
+  public static final RegistryObject<Block> AZALEA_LEAF_LITTER = registerBlock("azalea_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA_LEAVES).replaceable().noCollission().instabreak().setId(BLOCKS.key("azalea_leaf_litter")), Constants.AZALEA_LEAF_LITTER_CHANCE), false);
   public static final RegistryObject<Block> BIRCH_LEAF_LITTER = registerBlock("birch_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_LEAVES).replaceable().noCollission().instabreak().setId(BLOCKS.key("birch_leaf_litter")), Constants.BIRCH_LEAF_LITTER_CHANCE), false);
   public static final RegistryObject<Block> BIG_LILY_PAD = registerBlock("big_lily_pad", () -> new BigLilyPadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LILY_PAD).pushReaction(PushReaction.BLOCK).setId(BLOCKS.key("big_lily_pad"))), false);
   public static final RegistryObject<Block> BROWN_MUSHROOM_COLONY = registerBlock("brown_mushroom_colony", () -> new MushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM).setId(BLOCKS.key("brown_mushroom_colony"))), false);
@@ -52,9 +52,9 @@ public class SMBBlocks {
   public static final RegistryObject<Block> WARPED_FUNGUS_COLONY = registerBlock("warped_fungus_colony", () -> new MushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS).setId(BLOCKS.key("warped_fungus_colony"))), false);
   public static final RegistryObject<Block> TALL_WARPED_FUNGUS_COLONY = registerBlock("tall_warped_fungus_colony", () -> new DoubleMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS).setId(BLOCKS.key("tall_warped_fungus_colony"))), false);
   public static final RegistryObject<Block> WARPED_FUNGUS_COLONY_WALL = registerBlock("warped_fungus_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.WARPED_FUNGUS_COLONY.get()).setId(BLOCKS.key("warped_fungus_colony_wall"))), false);
-  public static final RegistryObject<Block> POTTED_LUMINOUS_FLOWER = registerFlowerPotBlock(SMBBlocks.LUMINOUS_FLOWER, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY).lightLevel(value -> Constants.POTTED_LUMINOUS_FLOWER_LIGHT_LEVEL));
-  public static final RegistryObject<Block> POTTED_SNOW_FERN = registerFlowerPotBlock(SMBBlocks.SNOW_FERN);
-  public static final RegistryObject<Block> POTTED_TINY_CACTUS = registerFlowerPotBlock(SMBBlocks.TINY_CACTUS);
+  public static final RegistryObject<Block> POTTED_LUMINOUS_FLOWER = registerBlock("potted_luminous_flower", () -> new FlowerPotBlock(SMBBlocks.LUMINOUS_FLOWER.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY).lightLevel(value -> Constants.POTTED_LUMINOUS_FLOWER_LIGHT_LEVEL).setId(BLOCKS.key("potted_luminous_flower"))));
+  public static final RegistryObject<Block> POTTED_SNOW_FERN = registerBlock("potted_snow_fern", () -> new FlowerPotBlock(SMBBlocks.LUMINOUS_FLOWER.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY).setId(BLOCKS.key("potted_snow_fern"))));
+  public static final RegistryObject<Block> POTTED_TINY_CACTUS = registerBlock("potted_tiny_cactus", () -> new FlowerPotBlock(SMBBlocks.LUMINOUS_FLOWER.get(), BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY).setId(BLOCKS.key("potted_tiny_cactus"))));
   public static final RegistryObject<Block> OCHRE_REDSTONE_FROGLIGHT = registerBlock("ochre_redstone_froglight", () -> new RedstoneLampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_LAMP).sound(SoundType.FROGLIGHT).setId(BLOCKS.key("ochre_redstone_froglight"))));
   public static final RegistryObject<Block> PEARLESCENT_REDSTONE_FROGLIGHT = registerBlock("pearlescent_redstone_froglight", () -> new RedstoneLampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_LAMP).sound(SoundType.FROGLIGHT).setId(BLOCKS.key("pearlescent_redstone_froglight"))));
   public static final RegistryObject<Block> VERDANT_REDSTONE_FROGLIGHT = registerBlock("verdant_redstone_froglight", () -> new RedstoneLampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_LAMP).sound(SoundType.FROGLIGHT).setId(BLOCKS.key("verdant_redstone_froglight"))));
@@ -417,11 +417,11 @@ public class SMBBlocks {
   public static final RegistryObject<Block> SOUL_SANDSTONE_TILE_WALL = registerBlock("soul_sandstone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.SOUL_SANDSTONE_TILES.get()).forceSolidOn().setId(BLOCKS.key("soul_sandstone_tile_wall"))));
   public static final RegistryObject<Block> CRACKED_SOUL_SANDSTONE_TILES = registerBlock("cracked_soul_sandstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).setId(BLOCKS.key("cracked_soul_sandstone_tiles"))));
   public static final RegistryObject<Block> SOUL_SANDSTONE_PILLAR = registerBlock("soul_sandstone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE).setId(BLOCKS.key("soul_sandstone_pillar"))));
-  public static final RegistryObject<Block> COAL_BRICKS = registerBlock("coal_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK).setId(BLOCKS.key("coal_bricks"))));
-  public static final RegistryObject<Block> CRACKED_COAL_BRICKS = registerBlock("cracked_coal_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK).setId(BLOCKS.key("cracked_coal_bricks"))));
-  public static final RegistryObject<Block> CUT_COAL = registerBlock("cut_coal", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK).setId(BLOCKS.key("cut_coal"))));
-  public static final RegistryObject<Block> CRACKED_CUT_COAL = registerBlock("cracked_cut_coal", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK).setId(BLOCKS.key("cracked_cut_coal"))));
-  public static final RegistryObject<Block> COAL_PILLAR = registerBlock("coal_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK).setId(BLOCKS.key("coal_pillar"))));
+  public static final RegistryObject<Block> COAL_BRICKS = registerCoalBlock("coal_bricks", false, Constants.COAL_BRICKS_FUEL);
+  public static final RegistryObject<Block> CRACKED_COAL_BRICKS = registerCoalBlock("cracked_coal_bricks", false, Constants.CRACKED_COAL_BRICKS_FUEL);
+  public static final RegistryObject<Block> CUT_COAL = registerCoalBlock("cut_coal", false, Constants.CUT_COAL_FUEL);
+  public static final RegistryObject<Block> CRACKED_CUT_COAL = registerCoalBlock("cracked_cut_coal", false, Constants.CRACKED_CUT_COAL_FUEL);
+  public static final RegistryObject<Block> COAL_PILLAR = registerCoalBlock("coal_pillar", true, Constants.COAL_PILLAR_FUEL);
   public static final RegistryObject<Block> IRON_BRICKS = registerBlock("iron_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).setId(BLOCKS.key("iron_bricks"))));
   public static final RegistryObject<Block> CRACKED_IRON_BRICKS = registerBlock("cracked_iron_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).setId(BLOCKS.key("cracked_iron_bricks"))));
   public static final RegistryObject<Block> CUT_IRON = registerBlock("cut_iron", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).setId(BLOCKS.key("cut_iron"))));
@@ -434,9 +434,9 @@ public class SMBBlocks {
   public static final RegistryObject<Block> CRACKED_CUT_GOLD = registerBlock("cracked_cut_gold", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK).setId(BLOCKS.key("cracked_cut_gold"))));
   public static final RegistryObject<Block> GOLD_PILLAR = registerBlock("gold_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK).setId(BLOCKS.key("gold_pillar"))));
   public static final RegistryObject<Block> REDSTONE_BRICKS = registerBlock("redstone_bricks", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK).setId(BLOCKS.key("redstone_bricks"))));
-  public static final RegistryObject<Block> CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", () -> (((IPoweredBlockMixin) new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK).setId(BLOCKS.key("cracked_redstone_bricks")))).SMB$setSignalLevel(Constants.CRACKED_REDSTONE_BRICKS_SIGNAL_LEVEL)));
+  public static final RegistryObject<Block> CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", () -> new CrackedPoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK).setId(BLOCKS.key("cracked_redstone_bricks"))));
   public static final RegistryObject<Block> CUT_REDSTONE = registerBlock("cut_redstone", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK).setId(BLOCKS.key("cut_redstone"))));
-  public static final RegistryObject<Block> CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", () -> (((IPoweredBlockMixin) new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK).setId(BLOCKS.key("cracked_cut_redstone")))).SMB$setSignalLevel(Constants.CRACKED_CUT_REDSTONE_SIGNAL_LEVEL)));
+  public static final RegistryObject<Block> CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", () -> new CrackedPoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK).setId(BLOCKS.key("cracked_cut_redstone"))));
   public static final RegistryObject<Block> REDSTONE_PILLAR = registerBlock("redstone_pillar", () -> new PoweredRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK).setId(BLOCKS.key("redstone_pillar"))));
   public static final RegistryObject<Block> EMERALD_BRICKS = registerBlock("emerald_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK).setId(BLOCKS.key("emerald_bricks"))));
   public static final RegistryObject<Block> CRACKED_EMERALD_BRICKS = registerBlock("cracked_emerald_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK).setId(BLOCKS.key("cracked_emerald_bricks"))));
@@ -623,31 +623,28 @@ public class SMBBlocks {
   public static final RegistryObject<Block> PALE_OAK_MOSAIC = registerBlock("pale_oak_mosaic", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.PALE_OAK_PLANKS).setId(BLOCKS.key("pale_oak_mosaic"))));
   public static final RegistryObject<Block> PALE_OAK_MOSAIC_STAIRS = registerBlock("pale_oak_mosaic_stairs", () -> new StairBlock(SMBBlocks.PALE_OAK_MOSAIC.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.PALE_OAK_PLANKS).setId(BLOCKS.key("pale_oak_mosaic_stairs"))));
   public static final RegistryObject<Block> PALE_OAK_MOSAIC_SLAB = registerBlock("pale_oak_mosaic_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PALE_OAK_PLANKS).setId(BLOCKS.key("pale_oak_mosaic_slab"))));
-  public static final RegistryObject<Block> POLISHED_RESINE = registerBlock("polished_resine", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("polished_resine"))));
-  public static final RegistryObject<Block> POLISHED_RESINE_STAIRS = registerBlock("polished_resine_stairs", () -> new StairBlock(SMBBlocks.POLISHED_RESINE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.POLISHED_RESINE.get()).setId(BLOCKS.key("polished_resine_stairs"))));
-  public static final RegistryObject<Block> POLISHED_RESINE_SLAB = registerBlock("polished_resine_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.POLISHED_RESINE.get()).setId(BLOCKS.key("polished_resine_slab"))));
-  public static final RegistryObject<Block> RESINE_PILLAR = registerBlock("resine_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("resine_pillar"))));
-  public static final RegistryObject<Block> CRACKED_RESINE_BRICKS = registerBlock("cracked_resine_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("cracked_resine_bricks"))));
-  public static final RegistryObject<Block> RESINE_TILES = registerBlock("resine_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("resine_tiles"))));
-  public static final RegistryObject<Block> RESINE_TILE_STAIRS = registerBlock("resine_tile_stairs", () -> new StairBlock(SMBBlocks.RESINE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESINE_TILES.get()).setId(BLOCKS.key("resine_tile_stairs"))));
-  public static final RegistryObject<Block> RESINE_TILE_SLAB = registerBlock("resine_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESINE_TILES.get()).setId(BLOCKS.key("resine_tile_slab"))));
-  public static final RegistryObject<Block> RESINE_TILE_WALL = registerBlock("resine_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESINE_TILES.get()).setId(BLOCKS.key("resine_tile_wall"))));
-  public static final RegistryObject<Block> CRACKED_RESINE_TILES = registerBlock("cracked_resine_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESINE_TILES.get()).setId(BLOCKS.key("cracked_resine_tiles"))));
-  public static final RegistryObject<Block> SMOOTH_RESINE = registerBlock("smooth_resine", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("smooth_resine"))));
-  public static final RegistryObject<Block> SMOOTH_RESINE_SLAB = registerBlock("smooth_resine_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("smooth_resine_slab"))));
+  public static final RegistryObject<Block> POLISHED_RESIN = registerBlock("polished_resin", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("polished_resin"))));
+  public static final RegistryObject<Block> POLISHED_RESIN_STAIRS = registerBlock("polished_resin_stairs", () -> new StairBlock(SMBBlocks.POLISHED_RESIN.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.POLISHED_RESIN.get()).setId(BLOCKS.key("polished_resin_stairs"))));
+  public static final RegistryObject<Block> POLISHED_RESIN_SLAB = registerBlock("polished_resin_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.POLISHED_RESIN.get()).setId(BLOCKS.key("polished_resin_slab"))));
+  public static final RegistryObject<Block> RESIN_PILLAR = registerBlock("resin_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("resin_pillar"))));
+  public static final RegistryObject<Block> CRACKED_RESIN_BRICKS = registerBlock("cracked_resin_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("cracked_resin_bricks"))));
+  public static final RegistryObject<Block> RESIN_TILES = registerBlock("resin_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("resin_tiles"))));
+  public static final RegistryObject<Block> RESIN_TILE_STAIRS = registerBlock("resin_tile_stairs", () -> new StairBlock(SMBBlocks.RESIN_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESIN_TILES.get()).setId(BLOCKS.key("resin_tile_stairs"))));
+  public static final RegistryObject<Block> RESIN_TILE_SLAB = registerBlock("resin_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESIN_TILES.get()).setId(BLOCKS.key("resin_tile_slab"))));
+  public static final RegistryObject<Block> RESIN_TILE_WALL = registerBlock("resin_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESIN_TILES.get()).setId(BLOCKS.key("resin_tile_wall"))));
+  public static final RegistryObject<Block> CRACKED_RESIN_TILES = registerBlock("cracked_resin_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESIN_TILES.get()).setId(BLOCKS.key("cracked_resin_tiles"))));
+  public static final RegistryObject<Block> SMOOTH_RESIN = registerBlock("smooth_resin", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("smooth_resin"))));
+  public static final RegistryObject<Block> SMOOTH_RESIN_SLAB = registerBlock("smooth_resin_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(BLOCKS.key("smooth_resin_slab"))));
 
-  private static RegistryObject<Block> registerFlowerPotBlock(RegistryObject<Block> plant) {
-    return registerFlowerPotBlock(plant, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY));
-  }
+  private static RegistryObject<Block> registerCoalBlock(String path, boolean pillarLike, int burnTime) {
+    Supplier<Block> supplier = () -> pillarLike ?
+      new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK).setId(BLOCKS.key(path))) :
+      new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_BLOCK).setId(BLOCKS.key(path)));
 
-  private static RegistryObject<Block> registerFlowerPotBlock(RegistryObject<Block> plant, BlockBehaviour.Properties properties) {
-    String parsedIdentifier = "potted_" + plant.getId().getPath();
+    RegistryObject<Block> instance = registerBlock(path, supplier, false);
+    SMBItems.registerItem(path, () -> new FuelBlockItem(instance.get(), new Item.Properties().useBlockDescriptionPrefix().setId(SMBItems.ITEMS.key(path)), burnTime));
 
-    return registerBlock(
-      parsedIdentifier,
-      () -> new FlowerPotBlock(plant.get(), properties.setId(BLOCKS.key(parsedIdentifier))),
-      false
-    );
+    return instance;
   }
 
   private static RegistryObject<Block> registerBlock(String path, Supplier<Block> supplier) {

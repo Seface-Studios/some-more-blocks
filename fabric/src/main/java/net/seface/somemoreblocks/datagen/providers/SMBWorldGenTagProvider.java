@@ -7,7 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
-import net.seface.somemoreblocks.data.SMBBiomeTags;
+import net.seface.somemoreblocks.tags.SMBBiomeTags;
 
 import java.util.concurrent.CompletableFuture;
 

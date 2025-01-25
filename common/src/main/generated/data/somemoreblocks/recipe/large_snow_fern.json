@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:large_fern",
+    "minecraft:snowball"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:large_snow_fern"
+  }
+}

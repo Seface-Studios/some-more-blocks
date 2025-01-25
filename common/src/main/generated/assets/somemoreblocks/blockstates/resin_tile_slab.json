@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/resin_tile_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/resin_tiles"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/resin_tile_slab_top"
+    }
+  }
+}

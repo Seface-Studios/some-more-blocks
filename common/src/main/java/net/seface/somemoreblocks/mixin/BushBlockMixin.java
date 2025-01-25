@@ -5,7 +5,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
@@ -24,7 +23,6 @@ import java.util.Optional;
 @SuppressWarnings("deprecation")
 @Mixin(BushBlock.class)
 public abstract class BushBlockMixin extends Block {
-
   public BushBlockMixin(Properties properties) {
     super(properties);
   }
@@ -36,7 +34,7 @@ public abstract class BushBlockMixin extends Block {
 
   @Override
   public boolean isRandomlyTicking(BlockState state) {
-    return SnowyBushRegistry.getSnowyVariation(state).isPresent() || SnowyBushRegistry.getNormalVariation(state).isPresent();
+    return true;
   }
 
   @Override
@@ -54,8 +52,9 @@ public abstract class BushBlockMixin extends Block {
    */
   @Unique
   private void MB$turnIntoSnowVariation(BlockState state, Level level, BlockPos pos) {
+
     boolean isDoublePlant = state.hasProperty(DoublePlantBlock.HALF);
-    boolean isSnowing = level.getBiome(pos).value().getPrecipitationAt(pos, 0).equals(Biome.Precipitation.SNOW) && level.isRaining() && level.canSeeSky(pos);
+    boolean isSnowing = level.getBiome(pos).value().coldEnoughToSnow(pos, level.getSeaLevel()) && level.isRaining() && level.canSeeSky(pos);
     Optional<BlockState> snowyVariation = SnowyBushRegistry.getSnowyVariation(state);
 
     if (snowyVariation.isEmpty()) return;

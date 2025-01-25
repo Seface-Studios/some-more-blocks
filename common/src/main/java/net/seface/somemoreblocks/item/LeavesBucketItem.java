@@ -40,14 +40,14 @@ public class LeavesBucketItem extends SolidBucketItem implements ILeavesBucketIt
     this.leafLitterState = block.defaultBlockState();
   }
 
-  @NotNull
+  /*@NotNull
   @Override
   public ItemStack getDefaultInstance() {
     ItemStack stack = super.getDefaultInstance();
     stack.set(this.getBucketVolumeComponentType(), MAX_VOLUME);
 
     return stack;
-  }
+  }*/
 
   @NotNull
   @Override

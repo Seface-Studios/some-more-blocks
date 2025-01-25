@@ -1,7 +1,11 @@
 package net.seface.somemoreblocks;
 
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.CactusBlock;
+import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.seface.somemoreblocks.component.SMBDataComponentTypes;
-import net.seface.somemoreblocks.data.SMBBlockTags;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,9 +23,18 @@ public class SomeMoreBlocks {
     LOGGER.info("Our Links: https://sefacestudios.net/links");
 
     if (vanillaDataComponents) {
-      SMBDataComponentTypes.init();
+      SMBDataComponentTypes.register();
     }
 
-    SMBBlockTags.init();
+    SMBBlockTags.register();
+  }
+
+  /**
+   * Create a generic identifier with Mod ID and custom path.<br />
+   * <i>Some day we start to use this method. - _Fyat</i>
+   * @param path The identifier path.
+   */
+  public static ResourceLocation id(String path) {
+    return ResourceLocation.fromNamespaceAndPath(ID, path);
   }
 }

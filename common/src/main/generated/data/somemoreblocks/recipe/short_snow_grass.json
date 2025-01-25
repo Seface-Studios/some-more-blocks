@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:short_grass",
+    "minecraft:snowball"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:short_snow_grass"
+  }
+}

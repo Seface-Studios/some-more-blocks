@@ -7,7 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.seface.somemoreblocks.data.SMBBlockTags;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 
 import java.util.concurrent.CompletableFuture;
@@ -246,24 +246,18 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.BONE_TILE_SLAB,
 
         /* 1.21.4 */
-        SMBBlocks.POLISHED_RESINE_SLAB, SMBBlocks.RESINE_TILE_SLAB,
-        SMBBlocks.SMOOTH_RESINE_SLAB
+        SMBBlocks.POLISHED_RESIN_SLAB, SMBBlocks.RESIN_TILE_SLAB,
+        SMBBlocks.SMOOTH_RESIN_SLAB
       );
 
     getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS).setReplace(false).add(SMBBlocks.LUMINOUS_FLOWER);
 
     getOrCreateTagBuilder(BlockTags.SNOW).setReplace(false)
       .add(
-        SMBBlocks.PACKED_SNOW, SMBBlocks.PACKED_SNOW_STAIRS,
-        SMBBlocks.PACKED_SNOW_SLAB, SMBBlocks.POLISHED_SNOW,
-        SMBBlocks.POLISHED_SNOW_STAIRS, SMBBlocks.POLISHED_SNOW_SLAB,
+        SMBBlocks.PACKED_SNOW, SMBBlocks.POLISHED_SNOW,
         SMBBlocks.SNOW_BRICKS, SMBBlocks.CRACKED_SNOW_BRICKS,
-        SMBBlocks.SNOW_BRICK_STAIRS, SMBBlocks.SNOW_BRICK_SLAB,
-        SMBBlocks.SNOW_BRICK_WALL, SMBBlocks.SNOW_PILLAR,
-        SMBBlocks.SNOW_TILES, SMBBlocks.CRACKED_SNOW_TILES,
-        SMBBlocks.SNOW_TILE_STAIRS, SMBBlocks.SNOW_TILE_SLAB,
-        SMBBlocks.SNOW_TILE_WALL
-      );
+        SMBBlocks.SNOW_PILLAR, SMBBlocks.SNOW_TILES,
+        SMBBlocks.CRACKED_SNOW_TILES);
 
     getOrCreateTagBuilder(BlockTags.SPRUCE_LOGS).setReplace(false)
       .add(SMBBlocks.CARVED_SPRUCE_LOG, SMBBlocks.CARVED_SPRUCE_WOOD);
@@ -300,7 +294,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.BONE_BRICK_STAIRS, SMBBlocks.BONE_TILE_STAIRS,
 
         /* 1.21.4 */
-        SMBBlocks.POLISHED_RESINE_STAIRS, SMBBlocks.RESINE_TILE_STAIRS
+        SMBBlocks.POLISHED_RESIN_STAIRS, SMBBlocks.RESIN_TILE_STAIRS
       );
 
     getOrCreateTagBuilder(BlockTags.TERRACOTTA).setReplace(false)
@@ -334,7 +328,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.BONE_TILE_WALL,
 
         /* 1.21.4 */
-        SMBBlocks.RESINE_TILE_WALL
+        SMBBlocks.RESIN_TILE_WALL
       );
 
     getOrCreateTagBuilder(BlockTags.WARPED_STEMS).setReplace(false)
@@ -552,10 +546,57 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR,
 
         /* 1.21.4 */
-        SMBBlocks.POLISHED_RESINE, SMBBlocks.POLISHED_RESINE_STAIRS, SMBBlocks.POLISHED_RESINE_SLAB,
-        SMBBlocks.CRACKED_RESINE_BRICKS, SMBBlocks.RESINE_PILLAR, SMBBlocks.RESINE_TILES,
-        SMBBlocks.CRACKED_RESINE_TILES, SMBBlocks.RESINE_TILE_STAIRS, SMBBlocks.RESINE_TILE_SLAB,
-        SMBBlocks.RESINE_TILE_WALL, SMBBlocks.SMOOTH_RESINE, SMBBlocks.SMOOTH_RESINE_SLAB
+        SMBBlocks.POLISHED_RESIN, SMBBlocks.POLISHED_RESIN_STAIRS, SMBBlocks.POLISHED_RESIN_SLAB,
+        SMBBlocks.CRACKED_RESIN_BRICKS, SMBBlocks.RESINE_PILLAR, SMBBlocks.RESIN_TILES,
+        SMBBlocks.CRACKED_RESIN_TILES, SMBBlocks.RESIN_TILE_STAIRS, SMBBlocks.RESIN_TILE_SLAB,
+        SMBBlocks.RESIN_TILE_WALL, SMBBlocks.SMOOTH_RESIN, SMBBlocks.SMOOTH_RESIN_SLAB
       );
+
+    getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_SHOVEL).setReplace(false)
+        .add(
+          SMBBlocks.PACKED_SNOW, SMBBlocks.PACKED_SNOW_STAIRS, SMBBlocks.PACKED_SNOW_SLAB,
+          SMBBlocks.POLISHED_SNOW, SMBBlocks.POLISHED_SNOW_STAIRS, SMBBlocks.POLISHED_SNOW_SLAB,
+          SMBBlocks.SNOW_BRICKS, SMBBlocks.CRACKED_SNOW_BRICKS, SMBBlocks.SNOW_BRICK_STAIRS,
+          SMBBlocks.SNOW_BRICK_SLAB, SMBBlocks.SNOW_BRICK_WALL, SMBBlocks.SNOW_PILLAR,
+          SMBBlocks.SNOW_TILES, SMBBlocks.CRACKED_SNOW_TILES, SMBBlocks.SNOW_TILE_STAIRS,
+          SMBBlocks.SNOW_TILE_SLAB, SMBBlocks.SNOW_TILE_WALL
+        );
+
+
+    getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).setReplace(false)
+        .add(
+          SMBBlocks.IRON_BRICKS, SMBBlocks.CRACKED_SNOW_BRICKS, SMBBlocks.IRON_PILLAR,
+          SMBBlocks.CUT_IRON, SMBBlocks.CRACKED_CUT_IRON, SMBBlocks.IRON_GRATE,
+          SMBBlocks.LAPIS_BRICKS, SMBBlocks.CRACKED_LAPIS_BRICKS, SMBBlocks.LAPIS_PILLAR,
+          SMBBlocks.CUT_LAPIS, SMBBlocks.CRACKED_CUT_LAPIS,
+          SMBBlocks.COPPER_BRICKS, SMBBlocks.CRACKED_COPPER_BRICKS, SMBBlocks.COPPER_PILLAR, SMBBlocks.CRACKED_CUT_COPPER,
+          SMBBlocks.EXPOSED_COPPER_BRICKS, SMBBlocks.EXPOSED_CRACKED_COPPER_BRICKS, SMBBlocks.EXPOSED_COPPER_PILLAR, SMBBlocks.EXPOSED_CRACKED_CUT_COPPER,
+          SMBBlocks.WEATHERED_COPPER_BRICKS, SMBBlocks.WEATHERED_CRACKED_COPPER_BRICKS, SMBBlocks.WEATHERED_COPPER_PILLAR, SMBBlocks.WEATHERED_CRACKED_CUT_COPPER,
+          SMBBlocks.OXIDIZED_COPPER_BRICKS, SMBBlocks.OXIDIZED_CRACKED_COPPER_BRICKS, SMBBlocks.OXIDIZED_COPPER_PILLAR, SMBBlocks.OXIDIZED_CRACKED_CUT_COPPER,
+          SMBBlocks.WAXED_COPPER_BRICKS, SMBBlocks.WAXED_CRACKED_COPPER_BRICKS, SMBBlocks.WAXED_COPPER_PILLAR, SMBBlocks.WAXED_CRACKED_CUT_COPPER,
+          SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS, SMBBlocks.WAXED_EXPOSED_CRACKED_COPPER_BRICKS, SMBBlocks.WAXED_EXPOSED_COPPER_PILLAR, SMBBlocks.WAXED_EXPOSED_CRACKED_CUT_COPPER,
+          SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS, SMBBlocks.WAXED_WEATHERED_CRACKED_COPPER_BRICKS, SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR, SMBBlocks.WAXED_WEATHERED_CRACKED_CUT_COPPER,
+          SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS, SMBBlocks.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS, SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR, SMBBlocks.WAXED_OXIDIZED_CRACKED_CUT_COPPER
+        );
+
+    getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).setReplace(false)
+      .add(
+        SMBBlocks.GOLD_BRICKS, SMBBlocks.CRACKED_GOLD_BRICKS, SMBBlocks.GOLD_PILLAR,
+        SMBBlocks.CUT_GOLD, SMBBlocks.CRACKED_CUT_GOLD,
+        SMBBlocks.EMERALD_BRICKS, SMBBlocks.CRACKED_EMERALD_BRICKS, SMBBlocks.EMERALD_PILLAR,
+        SMBBlocks.CUT_EMERALD, SMBBlocks.CRACKED_CUT_EMERALD,
+        SMBBlocks.DIAMOND_BRICKS, SMBBlocks.CRACKED_DIAMOND_BRICKS, SMBBlocks.DIAMOND_PILLAR,
+        SMBBlocks.CUT_DIAMOND, SMBBlocks.CRACKED_CUT_DIAMOND, SMBBlocks.DIAMOND_GRATE
+      );
+
+    getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).setReplace(false)
+      .add(
+        SMBBlocks.NETHERITE_BRICKS, SMBBlocks.CRACKED_NETHERITE_BRICKS, SMBBlocks.NETHERITE_PILLAR,
+        SMBBlocks.CUT_NETHERITE, SMBBlocks.CRACKED_CUT_NETHERITE, SMBBlocks.NETHERITE_GRATE
+      );
+
+    /* 1.21.4 */
+    getOrCreateTagBuilder(BlockTags.PALE_OAK_LOGS).setReplace(false)
+      .add(SMBBlocks.CARVED_PALE_OAK_LOG, SMBBlocks.CARVED_PALE_OAK_WOOD);
   }
 }

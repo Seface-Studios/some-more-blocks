@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,7 +32,7 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
 
     if (stack.getItem() instanceof LeavesBucketItem) {
       int levelState = state.getValue(ComposterBlock.LEVEL);
-      int bucketVolume = stack.getComponents().getOrDefault(SMBDataComponentTypes.BUCKET_VOLUME, LeavesBucketItem.MIN_VOLUME);
+      int bucketVolume = stack.get(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType());
       int missingLevels = ComposterBlock.MAX_LEVEL - levelState;
 
       bucketVolume -= Math.min(missingLevels, bucketVolume);
@@ -42,11 +41,10 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
         if (bucketVolume == 0) {
           player.setItemInHand(hand, Items.BUCKET.getDefaultInstance());
         } else {
-          stack.set(SMBDataComponentTypes.BUCKET_VOLUME, bucketVolume);
+          stack.set(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType(), bucketVolume);
         }
       }
 
-      // CHECK
       cir.setReturnValue(new InteractionResult.Success(InteractionResult.SwingSource.CLIENT, new InteractionResult.ItemContext(false, stack)));
     }
   }
@@ -55,7 +53,7 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
   private static void addItemMixin(Entity entity, BlockState state, LevelAccessor level, BlockPos pos, ItemStack stack, CallbackInfoReturnable<BlockState> cir) {
     if (stack.getItem() instanceof LeavesBucketItem) {
       int levelState = state.getValue(ComposterBlock.LEVEL);
-      int bucketVolume = stack.getComponents().getOrDefault(SMBDataComponentTypes.BUCKET_VOLUME, LeavesBucketItem.MIN_VOLUME);
+      int bucketVolume = stack.get(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType());
       int missingLevels = ComposterBlock.MAX_LEVEL - levelState;
 
       levelState += Math.min(missingLevels, bucketVolume);

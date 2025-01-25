@@ -22,7 +22,7 @@ subprojects {
     }
 
     manifest {
-      attributes([
+      attributes(
         'Specification-Title'     : mod_name,
         'Specification-Vendor'    : mod_author,
         'Specification-Version'   : project.jar.archiveVersion,
@@ -33,7 +33,7 @@ subprojects {
         'Timestamp'               : System.currentTimeMillis(),
         'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
         'Built-On-Minecraft'      : minecraft_version
-      ])
+      )
     }
   }
 

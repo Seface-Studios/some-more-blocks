@@ -45,22 +45,21 @@ public class SMBModelProvider extends FabricModelProvider {
 
     /* 1.21.4 */
     SMBBlockStateTemplates.createCarvedPaleOakBlock(SMBBlocks.CARVED_PALE_OAK_LOG, Blocks.STRIPPED_PALE_OAK_LOG);
-    /*SMBBlockStateTemplates.createCarvedLogAndWoodBlocks(SMBBlocks.CARVED_PALE_OAK_LOG, Blocks.STRIPPED_PALE_OAK_LOG);*/
     SMBBlockStateTemplates.createGenericBlock(SMBBlocks.PALE_OAK_MOSAIC);
     SMBBlockStateTemplates.createStairsBlock(SMBBlocks.PALE_OAK_MOSAIC_STAIRS, SMBBlocks.PALE_OAK_MOSAIC);
     SMBBlockStateTemplates.createSlabBlock(SMBBlocks.PALE_OAK_MOSAIC_SLAB, SMBBlocks.PALE_OAK_MOSAIC);
     SMBBlockStateTemplates.createRotatedPillarBlock(SMBBlocks.RESINE_PILLAR);
-    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.CRACKED_RESINE_BRICKS);
-    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.CRACKED_RESINE_TILES);
-    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.POLISHED_RESINE);
-    SMBBlockStateTemplates.createStairsBlock(SMBBlocks.POLISHED_RESINE_STAIRS, SMBBlocks.POLISHED_RESINE);
-    SMBBlockStateTemplates.createSlabBlock(SMBBlocks.POLISHED_RESINE_SLAB, SMBBlocks.POLISHED_RESINE);
-    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.RESINE_TILES);
-    SMBBlockStateTemplates.createStairsBlock(SMBBlocks.RESINE_TILE_STAIRS, SMBBlocks.RESINE_TILES);
-    SMBBlockStateTemplates.createSlabBlock(SMBBlocks.RESINE_TILE_SLAB, SMBBlocks.RESINE_TILES);
-    SMBBlockStateTemplates.createWallBlock(SMBBlocks.RESINE_TILE_WALL, SMBBlocks.RESINE_TILES);
-    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.SMOOTH_RESINE);
-    SMBBlockStateTemplates.createSlabBlock(SMBBlocks.SMOOTH_RESINE_SLAB, SMBBlocks.SMOOTH_RESINE);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.CRACKED_RESIN_BRICKS);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.CRACKED_RESIN_TILES);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.POLISHED_RESIN);
+    SMBBlockStateTemplates.createStairsBlock(SMBBlocks.POLISHED_RESIN_STAIRS, SMBBlocks.POLISHED_RESIN);
+    SMBBlockStateTemplates.createSlabBlock(SMBBlocks.POLISHED_RESIN_SLAB, SMBBlocks.POLISHED_RESIN);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.RESIN_TILES);
+    SMBBlockStateTemplates.createStairsBlock(SMBBlocks.RESIN_TILE_STAIRS, SMBBlocks.RESIN_TILES);
+    SMBBlockStateTemplates.createSlabBlock(SMBBlocks.RESIN_TILE_SLAB, SMBBlocks.RESIN_TILES);
+    SMBBlockStateTemplates.createWallBlock(SMBBlocks.RESIN_TILE_WALL, SMBBlocks.RESIN_TILES);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.SMOOTH_RESIN);
+    SMBBlockStateTemplates.createSlabBlock(SMBBlocks.SMOOTH_RESIN_SLAB, SMBBlocks.SMOOTH_RESIN);
   }
 
   @Override
@@ -113,7 +112,7 @@ public class SMBModelProvider extends FabricModelProvider {
     SMBItemsTemplates.createWallBlockItemModel(SMBBlocks.SNOW_TILE_WALL);
     SMBItemsTemplates.createWallBlockItemModel(SMBBlocks.ICE_BRICK_WALL);
     SMBItemsTemplates.createWallBlockItemModel(SMBBlocks.ICE_TILE_WALL);
-    SMBItemsTemplates.createWallBlockItemModel(SMBBlocks.RESINE_TILE_WALL);
+    SMBItemsTemplates.createWallBlockItemModel(SMBBlocks.RESIN_TILE_WALL);
     SMBItemsTemplates.createWaxeableBlockItemModel(SMBBlocks.COPPER_BRICKS);
     SMBItemsTemplates.createWaxeableBlockItemModel(SMBBlocks.CRACKED_COPPER_BRICKS);
     SMBItemsTemplates.createWaxeableBlockItemModel(SMBBlocks.COPPER_PILLAR);
@@ -177,6 +176,7 @@ public class SMBModelProvider extends FabricModelProvider {
     SMBItemsTemplates.createGenericItemModel(SMBBlocks.WARPED_FUNGUS_COLONY);
     SMBItemsTemplates.createGenericItemModel(SMBBlocks.TALL_WARPED_FUNGUS_COLONY);
 
+    /* 1.21.4 */
     SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_LOG);
     SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_WOOD);
   }

@@ -7,10 +7,7 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.function.UnaryOperator;
 
 public class SMBDataComponentTypes {
@@ -35,5 +32,5 @@ public class SMBDataComponentTypes {
     return instance;
   }
 
-  public static void init() {}
+  public static void register() {}
 }

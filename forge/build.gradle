@@ -1,4 +1,5 @@
 plugins {
+  id 'eclipse'
   id 'idea'
   id 'maven-publish'
   id 'net.minecraftforge.gradle' version '[6.0.24,6.2)'
@@ -18,6 +19,7 @@ mixin {
 
 minecraft {
   mappings channel: 'official', version: minecraft_version
+  reobf = false
   copyIdeResources = true
 
   if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
@@ -62,8 +64,8 @@ sourceSets.main.resources {
 
 dependencies {
   minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+  annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
   compileOnly project(":common")
-
 
   /*
     Hack fix for now, force jopt-simple to be exactly 5.0.4 because Mojang ships that version,
@@ -72,8 +74,6 @@ dependencies {
   implementation("net.sf.jopt-simple:jopt-simple:${forge_jopt_version}") {
     version { strictly "${forge_jopt_version}" }
   }
-
-  annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -89,8 +89,6 @@ tasks.named("sourcesJar", Jar) {
 processResources {
   from project(":common").sourceSets.main.resources
 }
-
-jar.finalizedBy('reobfJar')
 
 publishing {
   publications {

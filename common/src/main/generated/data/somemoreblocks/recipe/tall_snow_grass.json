@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:tall_grass",
+    "minecraft:snowball"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:tall_snow_grass"
+  }
+}

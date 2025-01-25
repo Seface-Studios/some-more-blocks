@@ -14,9 +14,8 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.api.IPoweredBlockMixin;
 import net.seface.somemoreblocks.block.*;
-import net.seface.somemoreblocks.data.SMBBlockTags;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 
 import java.util.function.Function;
 
@@ -432,9 +431,9 @@ public class SMBBlocks {
   public static final Block CRACKED_CUT_GOLD = registerBlock("cracked_cut_gold", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK));
   public static final Block GOLD_PILLAR = registerBlock("gold_pillar", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK));
   public static final Block REDSTONE_BRICKS = registerBlock("redstone_bricks", PoweredBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK));
-  public static final Block CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", (properties) -> (((IPoweredBlockMixin) new PoweredBlock(properties)).SMB$setSignalLevel(Constants.CRACKED_REDSTONE_BRICKS_SIGNAL_LEVEL)), BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK));
+  public static final Block CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", CrackedPoweredBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK));
   public static final Block CUT_REDSTONE = registerBlock("cut_redstone", PoweredBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK));
-  public static final Block CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", (properties) -> (((IPoweredBlockMixin) new PoweredBlock(properties)).SMB$setSignalLevel(Constants.CRACKED_CUT_REDSTONE_SIGNAL_LEVEL)), BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK));
+  public static final Block CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", CrackedPoweredBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK));
   public static final Block REDSTONE_PILLAR = registerBlock("redstone_pillar", PoweredRotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK));
   public static final Block EMERALD_BRICKS = registerBlock("emerald_bricks", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK));
   public static final Block CRACKED_EMERALD_BRICKS = registerBlock("cracked_emerald_bricks", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK));
@@ -621,20 +620,20 @@ public class SMBBlocks {
   public static final Block PALE_OAK_MOSAIC = registerBlock("pale_oak_mosaic", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.PALE_OAK_PLANKS));
   public static final Block PALE_OAK_MOSAIC_STAIRS = registerBlock("pale_oak_mosaic_stairs", (properties) -> new StairBlock(SMBBlocks.PALE_OAK_MOSAIC.defaultBlockState(), properties), BlockBehaviour.Properties.ofFullCopy(Blocks.PALE_OAK_PLANKS));
   public static final Block PALE_OAK_MOSAIC_SLAB = registerBlock("pale_oak_mosaic_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.PALE_OAK_PLANKS));
-  public static final Block POLISHED_RESINE = registerBlock("polished_resine", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
-  public static final Block POLISHED_RESINE_STAIRS = registerBlock("polished_resine_stairs", (properties) -> new StairBlock(SMBBlocks.POLISHED_RESINE.defaultBlockState(), properties), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.POLISHED_RESINE));
-  public static final Block POLISHED_RESINE_SLAB = registerBlock("polished_resine_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(SMBBlocks.POLISHED_RESINE));
-  public static final Block RESINE_PILLAR = registerBlock("resine_pillar", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
-  public static final Block CRACKED_RESINE_BRICKS = registerBlock("cracked_resine_bricks", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
-  public static final Block RESINE_TILES = registerBlock("resine_tiles", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
-  public static final Block RESINE_TILE_STAIRS = registerBlock("resine_tile_stairs", (properties) -> new StairBlock(SMBBlocks.RESINE_TILES.defaultBlockState(), properties), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESINE_TILES));
-  public static final Block RESINE_TILE_SLAB = registerBlock("resine_tile_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESINE_TILES));
-  public static final Block RESINE_TILE_WALL = registerBlock("resine_tile_wall", WallBlock::new, BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESINE_TILES));
-  public static final Block CRACKED_RESINE_TILES = registerBlock("cracked_resine_tiles", Block::new, BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESINE_TILES));
-  public static final Block SMOOTH_RESINE = registerBlock("smooth_resine", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
-  public static final Block SMOOTH_RESINE_SLAB = registerBlock("smooth_resine_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
+  public static final Block POLISHED_RESIN = registerBlock("polished_resin", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
+  public static final Block POLISHED_RESIN_STAIRS = registerBlock("polished_resin_stairs", (properties) -> new StairBlock(SMBBlocks.POLISHED_RESIN.defaultBlockState(), properties), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.POLISHED_RESIN));
+  public static final Block POLISHED_RESIN_SLAB = registerBlock("polished_resin_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(SMBBlocks.POLISHED_RESIN));
+  public static final Block RESINE_PILLAR = registerBlock("resin_pillar", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
+  public static final Block CRACKED_RESIN_BRICKS = registerBlock("cracked_resin_bricks", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
+  public static final Block RESIN_TILES = registerBlock("resin_tiles", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
+  public static final Block RESIN_TILE_STAIRS = registerBlock("resin_tile_stairs", (properties) -> new StairBlock(SMBBlocks.RESIN_TILES.defaultBlockState(), properties), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESIN_TILES));
+  public static final Block RESIN_TILE_SLAB = registerBlock("resin_tile_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESIN_TILES));
+  public static final Block RESIN_TILE_WALL = registerBlock("resin_tile_wall", WallBlock::new, BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESIN_TILES));
+  public static final Block CRACKED_RESIN_TILES = registerBlock("cracked_resin_tiles", Block::new, BlockBehaviour.Properties.ofFullCopy(SMBBlocks.RESIN_TILES));
+  public static final Block SMOOTH_RESIN = registerBlock("smooth_resin", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
+  public static final Block SMOOTH_RESIN_SLAB = registerBlock("smooth_resin_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
 
-  public static void init() {}
+  public static void register() {}
 
   private static Block registerFlowerPotBlock(Block plant) {
     return registerFlowerPotBlock(plant, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY));

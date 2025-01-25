@@ -13,7 +13,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 
 import java.util.List;
 
@@ -273,18 +272,18 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.SMOOTH_MUD_SLAB.get());
 
       /* 1.21.4 */
-      entry.accept(SMBBlocks.POLISHED_RESINE.get());
-      entry.accept(SMBBlocks.POLISHED_RESINE_STAIRS.get());
-      entry.accept(SMBBlocks.POLISHED_RESINE_SLAB.get());
-      entry.accept(SMBBlocks.CRACKED_RESINE_BRICKS.get());
-      entry.accept(SMBBlocks.RESINE_PILLAR.get());
-      entry.accept(SMBBlocks.RESINE_TILES.get());
-      entry.accept(SMBBlocks.CRACKED_RESINE_TILES.get());
-      entry.accept(SMBBlocks.RESINE_TILE_STAIRS.get());
-      entry.accept(SMBBlocks.RESINE_TILE_SLAB.get());
-      entry.accept(SMBBlocks.RESINE_TILE_WALL.get());
-      entry.accept(SMBBlocks.SMOOTH_RESINE.get());
-      entry.accept(SMBBlocks.SMOOTH_RESINE_SLAB.get());
+      entry.accept(SMBBlocks.POLISHED_RESIN.get());
+      entry.accept(SMBBlocks.POLISHED_RESIN_STAIRS.get());
+      entry.accept(SMBBlocks.POLISHED_RESIN_SLAB.get());
+      entry.accept(SMBBlocks.CRACKED_RESIN_BRICKS.get());
+      entry.accept(SMBBlocks.RESIN_PILLAR.get());
+      entry.accept(SMBBlocks.RESIN_TILES.get());
+      entry.accept(SMBBlocks.CRACKED_RESIN_TILES.get());
+      entry.accept(SMBBlocks.RESIN_TILE_STAIRS.get());
+      entry.accept(SMBBlocks.RESIN_TILE_SLAB.get());
+      entry.accept(SMBBlocks.RESIN_TILE_WALL.get());
+      entry.accept(SMBBlocks.SMOOTH_RESIN.get());
+      entry.accept(SMBBlocks.SMOOTH_RESIN_SLAB.get());
 
       entry.accept(SMBBlocks.SANDSTONE_BRICKS.get());
       entry.accept(SMBBlocks.CRACKED_SANDSTONE_BRICKS.get());
@@ -665,12 +664,12 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.SNOW_FERN.get());
       entry.accept(SMBBlocks.LARGE_SNOW_FERN.get());
       entry.accept(SMBBlocks.CATTAIL.get());
-      entry.accept(SMBItems.LEAVES_BUCKET.get().getDefaultInstance());
-      entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get().getDefaultInstance());
-      entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.get().getDefaultInstance());
-      entry.accept(SMBItems.PALE_OAK_LEAVES_BUCKET.get().getDefaultInstance());
-      entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get().getDefaultInstance());
-      entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get().getDefaultInstance());
+      entry.accept(SMBItems.LEAVES_BUCKET.get());
+      entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get());
+      entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.get());
+      entry.accept(SMBItems.PALE_OAK_LEAVES_BUCKET.get());
+      entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get());
+      entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
       entry.accept(SMBItems.SMALL_LILY_PADS.get());
       entry.accept(SMBBlocks.LUMINOUS_FLOWER.get());
 

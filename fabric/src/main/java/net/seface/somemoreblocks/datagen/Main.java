@@ -11,8 +11,9 @@ public class Main implements DataGeneratorEntrypoint {
     FabricDataGenerator.Pack pack = gen.createPack();
 
     pack.addProvider(SMBModelProvider::new);
-    pack.addProvider(SMBCustomRecipeProvider::new);
+    pack.addProvider(SMBRecipeProvider::new);
     pack.addProvider(SMBBlockTagProvider::new);
+    pack.addProvider(SMBItemTagProvider::new);
     pack.addProvider(SMBWorldGenTagProvider::new);
     pack.addProvider(SMBLootTableProvider::new);
 

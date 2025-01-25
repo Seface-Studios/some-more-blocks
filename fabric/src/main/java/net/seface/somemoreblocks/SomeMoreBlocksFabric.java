@@ -1,13 +1,12 @@
 package net.seface.somemoreblocks;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.LandPathNodeTypesRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.client.renderer.item.properties.select.SelectItemModelProperty;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.world.item.component.CustomModelData;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.seface.somemoreblocks.registries.CarvedBlockRegistry;
@@ -29,8 +28,8 @@ public class SomeMoreBlocksFabric implements ModInitializer {
   @Override
   public void onInitialize() {
     SomeMoreBlocks.init();
-    SMBBlocks.init();
-    SMBItems.init();
+    SMBBlocks.register();
+    SMBItems.register();
     SMBCreativeTabs.register();
     SMBFeatures.register();
     SMBBiomeModifiers.register();
@@ -72,6 +71,9 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.BIRCH_LEAVES_BUCKET);
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET);
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.SPRUCE_LEAVES_BUCKET);
+    SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.PALE_OAK_LEAVES_BUCKET);
+
+    /* 1.21.4 */
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.PALE_OAK_LEAVES_BUCKET);
   }
 

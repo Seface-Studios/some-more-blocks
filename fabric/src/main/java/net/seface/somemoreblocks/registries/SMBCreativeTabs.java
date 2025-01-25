@@ -1,24 +1,18 @@
 package net.seface.somemoreblocks.registries;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemLore;
-import net.minecraft.world.level.storage.loot.functions.ToggleTooltips;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
 import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SMBCreativeTabs {
@@ -274,18 +268,18 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.SMOOTH_MUD_SLAB);
 
       /* 1.21.4 */
-      entry.accept(SMBBlocks.POLISHED_RESINE);
-      entry.accept(SMBBlocks.POLISHED_RESINE_STAIRS);
-      entry.accept(SMBBlocks.POLISHED_RESINE_SLAB);
-      entry.accept(SMBBlocks.CRACKED_RESINE_BRICKS);
+      entry.accept(SMBBlocks.POLISHED_RESIN);
+      entry.accept(SMBBlocks.POLISHED_RESIN_STAIRS);
+      entry.accept(SMBBlocks.POLISHED_RESIN_SLAB);
+      entry.accept(SMBBlocks.CRACKED_RESIN_BRICKS);
       entry.accept(SMBBlocks.RESINE_PILLAR);
-      entry.accept(SMBBlocks.RESINE_TILES);
-      entry.accept(SMBBlocks.CRACKED_RESINE_TILES);
-      entry.accept(SMBBlocks.RESINE_TILE_STAIRS);
-      entry.accept(SMBBlocks.RESINE_TILE_SLAB);
-      entry.accept(SMBBlocks.RESINE_TILE_WALL);
-      entry.accept(SMBBlocks.SMOOTH_RESINE);
-      entry.accept(SMBBlocks.SMOOTH_RESINE_SLAB);
+      entry.accept(SMBBlocks.RESIN_TILES);
+      entry.accept(SMBBlocks.CRACKED_RESIN_TILES);
+      entry.accept(SMBBlocks.RESIN_TILE_STAIRS);
+      entry.accept(SMBBlocks.RESIN_TILE_SLAB);
+      entry.accept(SMBBlocks.RESIN_TILE_WALL);
+      entry.accept(SMBBlocks.SMOOTH_RESIN);
+      entry.accept(SMBBlocks.SMOOTH_RESIN_SLAB);
 
       entry.accept(SMBBlocks.SANDSTONE_BRICKS);
       entry.accept(SMBBlocks.CRACKED_SANDSTONE_BRICKS);

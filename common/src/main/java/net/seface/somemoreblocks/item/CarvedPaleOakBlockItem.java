@@ -14,15 +14,6 @@ public class CarvedPaleOakBlockItem extends BlockItem implements ICarvedPaleOakB
     super(block, properties);
   }
 
-  @NotNull
-  @Override
-  public ItemStack getDefaultInstance() {
-    ItemStack stack = super.getDefaultInstance();
-    stack.set(this.getMoonPhaseComponentType(), RotatedCarvedPaleOakBlock.MIN_MOON_PHASE);
-
-    return stack;
-  }
-
   @Override
   protected boolean placeBlock(BlockPlaceContext ctx, BlockState state) {
     ItemStack stack = ctx.getItemInHand();

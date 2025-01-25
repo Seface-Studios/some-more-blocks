@@ -5,8 +5,8 @@ import net.minecraft.client.renderer.item.properties.numeric.RangeSelectItemMode
 import net.minecraft.client.renderer.item.properties.numeric.RangeSelectItemModelProperty;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
-import net.seface.somemoreblocks.properties.BucketVolumeProperty;
-import net.seface.somemoreblocks.properties.MoonPhaseProperty;
+import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
+import net.seface.somemoreblocks.item.properties.numeric.MoonPhaseProperty;
 import net.seface.somemoreblocks.registries.SMBForgedDataComponentTypes;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
