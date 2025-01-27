@@ -16,6 +16,7 @@ public class WaxableCopperBlockRegistry {
 
   /**
    * Registry new Waxable-like Block
+   *
    * @param input The Non-Waxable block.
    * @param output The Waxable block.
    */
@@ -25,6 +26,7 @@ public class WaxableCopperBlockRegistry {
 
   /**
    * Get (if present) the Waxable block from the Non-Waxable block state.
+   *
    * @param nonWaxable The Non-Waxable block state.
    * @return The Waxable block state.
    */
@@ -35,6 +37,7 @@ public class WaxableCopperBlockRegistry {
 
   /**
    * Get (if present) the Non-Waxable block from the Waxable block state.
+   *
    * @param waxable The Waxable block state.
    * @return The Non-Waxable block state.
    */

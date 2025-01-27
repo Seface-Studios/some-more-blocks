@@ -24,11 +24,6 @@ public abstract class BushBlockMixin extends Block {
     super(properties);
   }
 
-  /*@Inject(method = "<init>", at = @At("RETURN"))
-  public void init(Properties properties, CallbackInfo ci) {
-    super.properties.randomTicks();
-  }*/
-
   @Override
   public boolean isRandomlyTicking(BlockState state) {
     return SnowyBushRegistry.getSnowyVariation(state).isPresent() || SnowyBushRegistry.getNormalVariation(state).isPresent();
@@ -43,6 +38,7 @@ public abstract class BushBlockMixin extends Block {
   /**
    * Update the BlockState to the snowy variation. The parsed BlockState should be a valid Snowy variation!
    * Use {@link SnowyBushRegistry#register(Block, Block)} to registry new variations.
+   *
    * @param state The current BlockState.
    * @param level The affected world.
    * @param pos The current block position.
@@ -62,7 +58,7 @@ public abstract class BushBlockMixin extends Block {
       if (state.getValue(DoublePlantBlock.HALF).equals(DoubleBlockHalf.UPPER)) return;
 
       level.setBlock(pos.above(), Blocks.AIR.defaultBlockState(), Block.UPDATE_NONE);
-      DoublePlantBlock.placeAt(level, snowyVariation.get(), pos, Block.UPDATE_ALL);
+      DoublePlantBlock.placeAt(level, snowyVariation.get(), pos, Block.UPDATE_CLIENTS);
       return;
     }
 
@@ -72,6 +68,7 @@ public abstract class BushBlockMixin extends Block {
   /**
    * Update the BlockState to the normal variation. The parsed BlockState should be a valid Snowy variation!
    * Use {@link SnowyBushRegistry#register(Block, Block)} to registry new variations.
+   *
    * @param state The current BlockState.
    * @param level The affected world.
    * @param pos The current block position.

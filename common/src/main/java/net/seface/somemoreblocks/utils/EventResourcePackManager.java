@@ -16,7 +16,7 @@ import net.seface.somemoreblocks.SomeMoreBlocks;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * This manager is not being used on Mod's version 1.21.
+ * This manager is not being used on Mod's version 1.21.x.
  *   - Resource Pack Name Translation key: "somemoreblocks.resourcepack.[rp_path].name"
  *   - Resource Pack Enabled Translation key: "somemoreblocks.resourcepack.[rp_path].enabled"
  *   - Resource Pack "Read More" Translation key: "somemoreblocks.resourcepack.[rp_path].read_more"
@@ -30,6 +30,7 @@ public class EventResourcePackManager {
   /**
    * Should be triggered with the Player/Entity join world/server event.
    * Will depend on how ModLoader handles this event.
+   *
    * @param player The affected player.
    * @param featureFlag The feature flag to filter valid worlds.
    */
@@ -75,6 +76,7 @@ public class EventResourcePackManager {
   /**
    * Should be triggered with the Player/Entity leave world/server event.
    * Will depend on how ModLoader handles this event.
+   *
    * @param player The affected player.
    * @param featureFlag The feature flag to filter valid worlds.
    */

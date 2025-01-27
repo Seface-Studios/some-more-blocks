@@ -14,6 +14,7 @@ public class SnowyBushRegistry {
 
   /**
    * Registry new Snowy-like Block
+   *
    * @param normal The normal bush block.
    * @param snowy The snowy bush block.
    */
@@ -23,6 +24,7 @@ public class SnowyBushRegistry {
 
   /**
    * Get (if present) the Snowy Bush from the normal block state.
+   *
    * @param normal The Normal Bush block state.
    * @return The Snowy Bush block state.
    */
@@ -33,6 +35,7 @@ public class SnowyBushRegistry {
 
   /**
    * Get (if present) the Normal Bush from the snowy block state.
+   *
    * @param snowy The Snowy Bush block state.
    * @return The Normal Bush block state.
    */

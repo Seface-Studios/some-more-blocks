@@ -73,6 +73,7 @@ public abstract class AxeItemMixin {
 
   /**
    * Place and apply all the effects for the new {@link BlockState}.
+   *
    * @param ctx The "useOn" event context.
    * @param level The affected world.
    * @param newState The new BlockState.

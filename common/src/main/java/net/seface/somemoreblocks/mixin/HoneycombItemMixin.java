@@ -11,9 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
 
-/*
-
-*/
 @Mixin(HoneycombItem.class)
 public abstract class HoneycombItemMixin {
 

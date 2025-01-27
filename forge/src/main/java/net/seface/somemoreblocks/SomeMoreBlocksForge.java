@@ -15,7 +15,7 @@ import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.util.SMBForgeUtils;
 import net.seface.somemoreblocks.utils.*;
 
-@SuppressWarnings("removal")
+@SuppressWarnings({"removal", "deprecation"})
 @Mod(SomeMoreBlocks.ID)
 public class SomeMoreBlocksForge {
   public SomeMoreBlocksForge() {

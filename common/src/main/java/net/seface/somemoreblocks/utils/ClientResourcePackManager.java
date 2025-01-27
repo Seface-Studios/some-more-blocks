@@ -15,6 +15,7 @@ public class ClientResourcePackManager {
 
   /**
    * Enable specific Resource Pack.
+   *
    * @param identifier The Resource Pack identifier.
    */
   public static void enableResourcePack(ResourceLocation identifier) {
@@ -34,6 +35,7 @@ public class ClientResourcePackManager {
 
   /**
    * Disable specific Resource Pack.
+   *
    * @param identifier The Resource Pack identifier.
    */
   public static void disableResourcePack(ResourceLocation identifier) {
@@ -53,6 +55,7 @@ public class ClientResourcePackManager {
 
   /**
    * Update the client-side Resource Pack selected list.
+   *
    * @param list The client-side Resource Pack selected list.
    */
   private static void updateSelectedList(List<Pack> list) {

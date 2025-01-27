@@ -12,6 +12,7 @@ public class CarvedBlockRegistry {
 
   /**
    * Registry new Carved-like Block
+   *
    * @param stripped The Stripped Log/Wood block.
    * @param carved The Carved Log/Wood block.
    */
@@ -21,6 +22,7 @@ public class CarvedBlockRegistry {
 
   /**
    * Get (if present) the Carved Log/Wood from the stripped block state.
+   *
    * @param stripped The Stripped Log/Wood block state.
    * @return The Carved Log/Wood block state.
    */

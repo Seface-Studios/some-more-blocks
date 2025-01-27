@@ -13,6 +13,7 @@ public class WeatheringCopperBlockRegistry {
 
   /**
    * Registry new Weathering-like Block
+   *
    * @param input The Weathering block.
    * @param output The next block to be turned into.
    */
@@ -22,6 +23,7 @@ public class WeatheringCopperBlockRegistry {
 
   /**
    * Get (if present) the next block state from the current block state.
+   *
    * @param state The current block state.
    * @return The next block state.
    */
@@ -32,6 +34,7 @@ public class WeatheringCopperBlockRegistry {
 
   /**
    * Get (if present) the previous block state from the current block state.
+   *
    * @param state The current block state.
    * @return The previous block state.
    */
