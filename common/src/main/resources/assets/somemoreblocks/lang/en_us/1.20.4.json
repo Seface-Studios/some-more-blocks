@@ -1,6 +1,6 @@
 {
   "modmenu.becomeATranslator.somemoreblocks": "Become a Translator",
-  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} is a vanilla-like project which adds new blocks variations to the game. \\n\\nIn loving memory of <underline><color #8442db>Nicolle Gama</color></underline> \\u2b50",
+  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} is a vanilla-like project which adds new blocks variations to the game. \\n\\nIn loving memory of <underline><color #8442db>${ng_name}</color></underline> \\u2b50",
   "modmenu.summaryTranslation.somemoreblocks": "${mod_name} is a vanilla-like project which adds new blocks variations to the game.",
   "somemoreblocks.resourcepack.update_1_21.name": "Experimental: Update 1.21",
   "somemoreblocks.resourcepack.update_1_21.enabled": "The Experimental 1.21 Resource Pack was automatically enabled in this world.",

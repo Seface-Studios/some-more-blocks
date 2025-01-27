@@ -661,7 +661,7 @@ public class SMBBlocks {
     return instance;
   }
 
-  public static void register(IEventBus event) {
+  public static void init(IEventBus event) {
     BLOCKS.register(event);
   }
 }

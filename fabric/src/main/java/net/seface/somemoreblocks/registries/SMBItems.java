@@ -37,7 +37,7 @@ public class SMBItems {
   public static final Item CARVED_PALE_OAK_LOG = registerItem("carved_pale_oak_log", (properties -> new CarvedPaleOakBlockItem(SMBBlocks.CARVED_PALE_OAK_LOG, properties)), new Item.Properties().component(SMBDataComponentTypes.MOON_PHASE, RotatedCarvedPaleOakBlock.MIN_MOON_PHASE).useBlockDescriptionPrefix());
   public static final Item CARVED_PALE_OAK_WOOD = registerItem("carved_pale_oak_wood", (properties -> new CarvedPaleOakBlockItem(SMBBlocks.CARVED_PALE_OAK_WOOD, properties)), new Item.Properties().component(SMBDataComponentTypes.MOON_PHASE, RotatedCarvedPaleOakBlock.MIN_MOON_PHASE).useBlockDescriptionPrefix());
 
-  public static void register() {}
+  public static void init() {}
 
   public static Item registerItem(String path, Function<Item.Properties, Item> factory, Item.Properties properties) {
     ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, path);

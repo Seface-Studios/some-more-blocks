@@ -16,7 +16,7 @@ public class SMBFeatures {
     .addLeafLitterBlock(SMBBlockTags.FLOWERING_AZALEA_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER)
     .addLeafLitterBlock(SMBBlockTags.PALE_OAK_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.PALE_OAK_LEAF_LITTER);
 
-  public static void register() {
+  public static void init() {
     Registry.register(BuiltInRegistries.FEATURE, SMBPlacedFeature.NONE_LEAF_LITTER.location(), LEAF_LITTER_FEATURE);
   }
 }

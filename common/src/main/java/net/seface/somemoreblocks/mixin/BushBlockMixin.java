@@ -14,9 +14,6 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.seface.somemoreblocks.registries.SnowyBushRegistry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Optional;
 
@@ -27,14 +24,14 @@ public abstract class BushBlockMixin extends Block {
     super(properties);
   }
 
-  @Inject(method = "<init>", at = @At("RETURN"))
+  /*@Inject(method = "<init>", at = @At("RETURN"))
   public void init(Properties properties, CallbackInfo ci) {
     super.properties.randomTicks();
-  }
+  }*/
 
   @Override
   public boolean isRandomlyTicking(BlockState state) {
-    return true;
+    return SnowyBushRegistry.getSnowyVariation(state).isPresent() || SnowyBushRegistry.getNormalVariation(state).isPresent();
   }
 
   @Override

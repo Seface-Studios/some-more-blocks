@@ -21,7 +21,7 @@ public class SMBForgedDataComponentTypes {
     return DATA_COMPONENT_TYPES.register(path, () -> builder.apply(DataComponentType.builder()).build());
   }
 
-  public static void register(IEventBus bus) {
+  public static void init(IEventBus bus) {
     DATA_COMPONENT_TYPES.register(bus);
   }
 }

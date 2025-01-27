@@ -13,7 +13,7 @@ import net.seface.somemoreblocks.tags.SMBBiomeTags;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 
 public class SMBBiomeModifiers {
-  public static void register() {
+  public static void init() {
     registerDuneGrassDecoration(SMBPlacedFeature.PATCH_DUNE_GRASS);
     registerDuneGrassDecoration(SMBPlacedFeature.PATCH_TALL_DUNE_GRASS);
     registerLeafLitterDecoration(SMBPlacedFeature.NONE_LEAF_LITTER);

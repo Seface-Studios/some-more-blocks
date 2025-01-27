@@ -1,8 +1,6 @@
 package net.seface.somemoreblocks;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.LandPathNodeTypesRegistry;
 import net.fabricmc.loader.api.FabricLoader;
@@ -28,11 +26,12 @@ public class SomeMoreBlocksFabric implements ModInitializer {
   @Override
   public void onInitialize() {
     SomeMoreBlocks.init();
-    SMBBlocks.register();
-    SMBItems.register();
-    SMBCreativeTabs.register();
-    SMBFeatures.register();
-    SMBBiomeModifiers.register();
+
+    SMBBlocks.init();
+    SMBItems.init();
+    SMBCreativeTabs.init();
+    SMBFeatures.init();
+    SMBBiomeModifiers.init();
 
     LandPathNodeTypesRegistry.register(SMBBlocks.TINY_CACTUS, (state, neighbor) -> PathType.DAMAGE_OTHER);
 

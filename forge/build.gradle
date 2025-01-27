@@ -10,11 +10,12 @@ base {
   archivesName = "${mod_name.replaceAll(' ', '')}@${project.name}-${minecraft_version}"
 }
 
-mixin {
-  add(sourceSets.main, "${mod_id}.refmap.json")
-
-  config("${mod_id}.mixins.json")
-  config("${mod_id}.forge.mixins.json")
+jar {
+  manifest {
+    attributes(
+      'MixinConfigs'            : "${mod_id}.mixins.json,${mod_id}.forge.mixins.json"
+    )
+  }
 }
 
 minecraft {
@@ -64,8 +65,9 @@ sourceSets.main.resources {
 
 dependencies {
   minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-  annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
   compileOnly project(":common")
+
+  annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 
   /*
     Hack fix for now, force jopt-simple to be exactly 5.0.4 because Mojang ships that version,
@@ -74,6 +76,13 @@ dependencies {
   implementation("net.sf.jopt-simple:jopt-simple:${forge_jopt_version}") {
     version { strictly "${forge_jopt_version}" }
   }
+}
+
+mixin {
+  add(sourceSets.main, "${mod_id}.refmap.json")
+
+  config("${mod_id}.mixins.json")
+  config("${mod_id}.forge.mixins.json")
 }
 
 tasks.withType(JavaCompile).configureEach {

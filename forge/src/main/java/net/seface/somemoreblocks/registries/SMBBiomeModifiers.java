@@ -41,7 +41,7 @@ public class SMBBiomeModifiers {
     );
   }
 
-  public static void register(IEventBus event) {
+  public static void init(IEventBus event) {
     BIOME_MODIFIERS.register(event);
   }
 }

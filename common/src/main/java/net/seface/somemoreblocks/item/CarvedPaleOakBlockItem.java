@@ -1,5 +1,7 @@
 package net.seface.somemoreblocks.item;
 
+import lombok.Getter;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -7,9 +9,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.seface.somemoreblocks.api.ICarvedPaleOakBlockItem;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
-import org.jetbrains.annotations.NotNull;
+import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 
 public class CarvedPaleOakBlockItem extends BlockItem implements ICarvedPaleOakBlockItem {
+
   public CarvedPaleOakBlockItem(Block block, Properties properties) {
     super(block, properties);
   }

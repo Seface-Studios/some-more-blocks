@@ -9,7 +9,10 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SolidBucketItem;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -39,16 +42,6 @@ public class LeavesBucketItem extends SolidBucketItem implements ILeavesBucketIt
     ((LeafLitterBlock) block).setBucketItem(this);
     this.leafLitterState = block.defaultBlockState();
   }
-
-  /*@NotNull
-  @Override
-  public ItemStack getDefaultInstance() {
-    ItemStack stack = super.getDefaultInstance();
-    stack.set(this.getBucketVolumeComponentType(), MAX_VOLUME);
-
-    return stack;
-  }*/
-
   @NotNull
   @Override
   public InteractionResult useOn(UseOnContext ctx) {

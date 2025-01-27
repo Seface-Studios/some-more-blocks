@@ -633,7 +633,7 @@ public class SMBBlocks {
   public static final Block SMOOTH_RESIN = registerBlock("smooth_resin", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
   public static final Block SMOOTH_RESIN_SLAB = registerBlock("smooth_resin_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
 
-  public static void register() {}
+  public static void init() {}
 
   private static Block registerFlowerPotBlock(Block plant) {
     return registerFlowerPotBlock(plant, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY));

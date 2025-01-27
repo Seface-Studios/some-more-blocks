@@ -696,7 +696,7 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT);
     }).build();
 
-  public static void register() {
+  public static void init() {
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "0_more_building_blocks"), MORE_BUILDING_BLOCKS);
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "1_more_colored_blocks"), MORE_COLORED_BLOCKS);
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "2_more_natural_blocks"), MORE_NATURAL_BLOCKS);
