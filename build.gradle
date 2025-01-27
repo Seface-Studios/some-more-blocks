@@ -88,7 +88,7 @@ subprojects {
       "issues_tracker_url"        : source_url.concat("/issues"),
       "crowdin_url"               : crowdin_url,
       "discord_url"               : discord_url,
-      "ng_name"                   : "Nicolle Gama" // ★ October 31, 2001 - ✟ February 13, 2024
+      "ng_name"                   : "Nicolle Gama" // ★ October 30, 2001 - ✟ February 13, 2024
     ]
 
     filesMatching([
