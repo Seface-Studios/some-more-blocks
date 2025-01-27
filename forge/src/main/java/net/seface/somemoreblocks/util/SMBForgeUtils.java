@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
 
+@SuppressWarnings("deprecation")
 public class SMBForgeUtils {
 
   /**
