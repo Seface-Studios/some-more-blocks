@@ -154,7 +154,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
           ResourceLocation fromTiledGlassPane = BuiltInRegistries.ITEM.getKey(tiledGlassPane.asItem())
             .withSuffix("_from_tiled_glass_pane");
 
-          ShapedRecipeBuilder.shaped(BuiltInRegistries.ITEM, RecipeCategory.MISC, tiledGlassPane.asItem())
+          ShapedRecipeBuilder.shaped(BuiltInRegistries.ITEM, RecipeCategory.MISC, tiledGlassPane.asItem(), 8)
             .define('#', SMBBlocks.TILED_GLASS_PANE)
             .define('$', dye)
             .pattern("###")
@@ -169,7 +169,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         ResourceLocation fromVanillaPane = BuiltInRegistries.ITEM.getKey(tiledGlassPane.asItem())
           .withSuffix("_from_" + BuiltInRegistries.ITEM.getKey(vanillaGlassPane.asItem()).getPath());
 
-        ShapedRecipeBuilder.shaped(BuiltInRegistries.ITEM, RecipeCategory.MISC, tiledGlassPane.asItem())
+        ShapedRecipeBuilder.shaped(BuiltInRegistries.ITEM, RecipeCategory.MISC, tiledGlassPane.asItem(), 4)
           .define('#', vanillaGlassPane)
           .pattern("##")
           .pattern("##")
@@ -177,16 +177,8 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
           .group(group)
           .save(output, ResourceKey.create(Registries.RECIPE, fromVanillaPane));
 
-        /*ShapedRecipeBuilder.shaped(RecipeCategory.MISC, tiledGlassPane, 4)
-          .define('#', vanillaGlassPane)
-          .pattern("##")
-          .pattern("##")
-          .unlockedBy("has_needed_items", FabricRecipeProvider.has(vanillaGlassPane))
-          .group(group)
-          .save(this.exporter, fromVanillaPane);*/
-
         // Default recipe
-        ShapedRecipeBuilder.shaped(BuiltInRegistries.ITEM, RecipeCategory.MISC, tiledGlassPane.asItem())
+        ShapedRecipeBuilder.shaped(BuiltInRegistries.ITEM, RecipeCategory.MISC, tiledGlassPane.asItem(), 16)
           .define('#', tiledGlass)
           .pattern("###")
           .pattern("###")
