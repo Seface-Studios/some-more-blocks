@@ -131,6 +131,10 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.SMOOTH_ANDESITE.get());
       entry.accept(SMBBlocks.SMOOTH_ANDESITE_SLAB.get());
       entry.accept(SMBBlocks.DEEPSLATE_PILLAR.get());
+      entry.accept(SMBBlocks.MOSSY_DEEPSLATE_BRICKS.get());
+      entry.accept(SMBBlocks.MOSSY_DEEPSLATE_BRICK_STAIRS.get());
+      entry.accept(SMBBlocks.MOSSY_DEEPSLATE_BRICK_SLAB.get());
+      entry.accept(SMBBlocks.MOSSY_DEEPSLATE_BRICK_WALL.get());
       entry.accept(SMBBlocks.POLISHED_CALCITE.get());
       entry.accept(SMBBlocks.POLISHED_CALCITE_STAIRS.get());
       entry.accept(SMBBlocks.POLISHED_CALCITE_SLAB.get());
@@ -413,7 +417,6 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.SOUL_SANDSTONE_TILE_STAIRS.get());
       entry.accept(SMBBlocks.SOUL_SANDSTONE_TILE_SLAB.get());
       entry.accept(SMBBlocks.SOUL_SANDSTONE_TILE_WALL.get());
-      entry.accept(SMBBlocks.MOSSY_SOUL_SANDSTONE_BRICKS.get());
       entry.accept(SMBBlocks.SMOOTH_SOUL_SANDSTONE.get());
       entry.accept(SMBBlocks.SMOOTH_SOUL_SANDSTONE_SLAB.get());
       entry.accept(SMBBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS.get());

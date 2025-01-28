@@ -15,10 +15,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.api.IPoweredBlockMixin;
 import net.seface.somemoreblocks.block.*;
-import net.seface.somemoreblocks.data.SMBBlockTags;
 import net.seface.somemoreblocks.item.FuelBlockItem;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
@@ -413,7 +412,6 @@ public class SMBBlocks {
   public static final RegistryObject<Block> SOUL_SANDSTONE_BRICK_STAIRS = registerBlock("soul_sandstone_brick_stairs", () -> new StairBlock(SOUL_SANDSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.SOUL_SANDSTONE_BRICKS.get())));
   public static final RegistryObject<Block> SOUL_SANDSTONE_BRICK_WALL = registerBlock("soul_sandstone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.SOUL_SANDSTONE_BRICKS.get()).forceSolidOn()));
   public static final RegistryObject<Block> CRACKED_SOUL_SANDSTONE_BRICKS = registerBlock("cracked_soul_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
-  public static final RegistryObject<Block> MOSSY_SOUL_SANDSTONE_BRICKS = registerBlock("mossy_soul_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
   public static final RegistryObject<Block> SOUL_SANDSTONE_TILES = registerBlock("soul_sandstone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
   public static final RegistryObject<Block> SOUL_SANDSTONE_TILE_SLAB = registerBlock("soul_sandstone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.SOUL_SANDSTONE_TILES.get())));
   public static final RegistryObject<Block> SOUL_SANDSTONE_TILE_STAIRS = registerBlock("soul_sandstone_tile_stairs", () -> new StairBlock(SOUL_SANDSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.SOUL_SANDSTONE_TILES.get())));
@@ -437,9 +435,9 @@ public class SMBBlocks {
   public static final RegistryObject<Block> CRACKED_CUT_GOLD = registerBlock("cracked_cut_gold", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
   public static final RegistryObject<Block> GOLD_PILLAR = registerBlock("gold_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
   public static final RegistryObject<Block> REDSTONE_BRICKS = registerBlock("redstone_bricks", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
-  public static final RegistryObject<Block> CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", () -> ((IPoweredBlockMixin) new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK))).SMB$setSignalLevel(Constants.CRACKED_REDSTONE_BRICKS_SIGNAL_LEVEL));
+  public static final RegistryObject<Block> CRACKED_REDSTONE_BRICKS = registerBlock("cracked_redstone_bricks", () -> new CrackedPoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
   public static final RegistryObject<Block> CUT_REDSTONE = registerBlock("cut_redstone", () -> new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
-  public static final RegistryObject<Block> CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", () -> ((IPoweredBlockMixin) new PoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK))).SMB$setSignalLevel(Constants.CRACKED_CUT_REDSTONE_SIGNAL_LEVEL));
+  public static final RegistryObject<Block> CRACKED_CUT_REDSTONE = registerBlock("cracked_cut_redstone", () -> new CrackedPoweredBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
   public static final RegistryObject<Block> REDSTONE_PILLAR = registerBlock("redstone_pillar", () -> new PoweredRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK)));
   public static final RegistryObject<Block> EMERALD_BRICKS = registerBlock("emerald_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
   public static final RegistryObject<Block> CRACKED_EMERALD_BRICKS = registerBlock("cracked_emerald_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK)));
@@ -621,6 +619,7 @@ public class SMBBlocks {
 
   /**
    * Create and register a generic flower pot.
+   *
    * @param identifier The Block identifier.
    * @param plant The Plant-like block instance.
    * @return The registered potted flower block.
@@ -638,6 +637,7 @@ public class SMBBlocks {
 
   /**
    * Create and register a generic flower pot with light level.
+   *
    * @param identifier The Block identifier.
    * @param plant The Plant-like block instance.
    * @param lightLevel The light level.
@@ -656,6 +656,7 @@ public class SMBBlocks {
 
   /**
    * Create and register a generic block.
+   *
    * @param identifier The Block identifier.
    * @param block The block instance.
    * @return The registered block.
@@ -666,6 +667,7 @@ public class SMBBlocks {
 
   /**
    * Create and register a generic block.
+   *
    * @param identifier The Block identifier.
    * @param block The block instance.
    * @param registerItemBlock If true, auto-register the BlockItem instance.
@@ -677,6 +679,7 @@ public class SMBBlocks {
 
   /**
    * Create and register a generic block.
+   *
    * @param identifier The Block identifier.
    * @param block The block instance.
    * @param fuel The fuel values for the block. Like the "Block of Coal".
@@ -688,6 +691,7 @@ public class SMBBlocks {
 
   /**
    * Create and register a generic block.
+   *
    * @param identifier The Block identifier.
    * @param block The block instance.
    * @param registerItemBlock If true, auto-register the BlockItem instance.
@@ -708,6 +712,7 @@ public class SMBBlocks {
 
   /**
    * Create and register a generic block.
+   *
    * @param identifier The Block identifier.
    * @param block The block instance.
    */
@@ -717,6 +722,7 @@ public class SMBBlocks {
 
   /**
    * Create and register a generic block.
+   *
    * @param identifier The Block identifier.
    * @param block The block instance.
    * @param fuel The fuel values for the block. Like the "Block of Coal".

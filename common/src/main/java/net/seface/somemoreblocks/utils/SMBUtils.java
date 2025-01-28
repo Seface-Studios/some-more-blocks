@@ -12,6 +12,7 @@ public class SMBUtils {
 
   /**
    * Insert the item into specific Creative Tab only if a specific Feature is disabled.
+   *
    * @param context The Creative Tab context.
    * @param entry The Creative Tab entries.
    * @param featureFlag The NOT wanted Feature Flag.
@@ -28,6 +29,7 @@ public class SMBUtils {
 
     /**
      * Registry an Item to be compostable on {@link ComposterBlock}.
+     *
      * @param chance The chance between 0-1 of being compostable
      * @param item The item instance.
      */

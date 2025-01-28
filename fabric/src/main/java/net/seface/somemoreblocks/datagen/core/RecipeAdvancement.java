@@ -8,9 +8,13 @@ import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
 import net.seface.somemoreblocks.SomeMoreBlocks;
+import net.seface.somemoreblocks.tags.SMBAbstractData;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;

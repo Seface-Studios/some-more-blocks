@@ -7,7 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.data.SMBBlockTags;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 import net.seface.somemoreblocks.worldgen.feature.FallenLeafFeature;
 
 import java.util.function.Supplier;
@@ -26,6 +26,7 @@ public class SMBFeatures {
 
   /**
    * Create and register a generic feature.
+   *
    * @param identifier The Feature identifier.
    * @param feature The feature instance.
    */

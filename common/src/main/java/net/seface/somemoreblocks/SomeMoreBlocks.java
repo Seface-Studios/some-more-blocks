@@ -1,7 +1,7 @@
 package net.seface.somemoreblocks;
 
 import net.seface.somemoreblocks.component.SMBDataComponentTypes;
-import net.seface.somemoreblocks.data.SMBBlockTags;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

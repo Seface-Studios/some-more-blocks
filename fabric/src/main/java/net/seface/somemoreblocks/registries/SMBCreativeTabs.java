@@ -129,6 +129,10 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.SMOOTH_ANDESITE);
       entry.accept(SMBItems.SMOOTH_ANDESITE_SLAB);
       entry.accept(SMBItems.DEEPSLATE_PILLAR);
+      entry.accept(SMBItems.MOSSY_DEEPSLATE_BRICKS);
+      entry.accept(SMBItems.MOSSY_DEEPSLATE_BRICK_STAIRS);
+      entry.accept(SMBItems.MOSSY_DEEPSLATE_BRICK_SLAB);
+      entry.accept(SMBItems.MOSSY_DEEPSLATE_BRICK_WALL);
       entry.accept(SMBItems.POLISHED_CALCITE);
       entry.accept(SMBItems.POLISHED_CALCITE_STAIRS);
       entry.accept(SMBItems.POLISHED_CALCITE_SLAB);
@@ -411,7 +415,6 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.SOUL_SANDSTONE_TILE_STAIRS);
       entry.accept(SMBItems.SOUL_SANDSTONE_TILE_SLAB);
       entry.accept(SMBItems.SOUL_SANDSTONE_TILE_WALL);
-      entry.accept(SMBItems.MOSSY_SOUL_SANDSTONE_BRICKS);
       entry.accept(SMBItems.SMOOTH_SOUL_SANDSTONE);
       entry.accept(SMBItems.SMOOTH_SOUL_SANDSTONE_SLAB);
       entry.accept(SMBItems.SMOOTH_SOUL_SANDSTONE_STAIRS);

@@ -9,16 +9,18 @@ base {
   archivesName = "${mod_name.replaceAll(' ', '')}@${project.name}-${minecraft_version}"
 }
 
-mixin {
-  add(sourceSets.main, "${mod_id}.refmap.json")
-
-  config("${mod_id}.mixins.json")
-  config("${mod_id}.forge.mixins.json")
+jar {
+  manifest {
+    attributes(
+      'MixinConfigs'            : "${mod_id}.mixins.json,${mod_id}.forge.mixins.json"
+    )
+  }
 }
 
 minecraft {
   mappings channel: 'official', version: minecraft_version
   copyIdeResources = true
+  reobf = false
 
   if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -76,6 +78,13 @@ dependencies {
   annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
 }
 
+mixin {
+  add(sourceSets.main, "${mod_id}.refmap.json")
+
+  config("${mod_id}.mixins.json")
+  config("${mod_id}.forge.mixins.json")
+}
+
 tasks.withType(JavaCompile).configureEach {
   source(project(":common").sourceSets.main.allSource)
 }
@@ -89,8 +98,6 @@ tasks.named("sourcesJar", Jar) {
 processResources {
   from project(":common").sourceSets.main.resources
 }
-
-jar.finalizedBy('reobfJar')
 
 publishing {
   publications {

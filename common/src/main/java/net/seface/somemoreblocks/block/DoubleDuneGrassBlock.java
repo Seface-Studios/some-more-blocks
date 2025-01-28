@@ -5,7 +5,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.seface.somemoreblocks.data.SMBBlockTags;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 
 public class DoubleDuneGrassBlock extends DoublePlantBlock {
   public DoubleDuneGrassBlock(Properties properties) {

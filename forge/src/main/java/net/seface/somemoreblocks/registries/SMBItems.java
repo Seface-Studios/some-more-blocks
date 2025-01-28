@@ -33,6 +33,7 @@ public class SMBItems {
 
   /**
    * Create and register a generic item.
+   *
    * @param identifier The Item identifier.
    * @param item The item instance.
    */

@@ -14,7 +14,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.seface.somemoreblocks.block.LeafLitterBlock;
-import net.seface.somemoreblocks.data.SMBBlockTags;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,8 +1,15 @@
 {
   "homepage": "https://github.com/Seface-Studios/some-more-blocks",
   "promos": {
+    "1.21-latest": "1.1.0",
+    "1.21-recommended": "1.1.0",
+
     "1.20.4-latest": "1.0.0",
     "1.20.4-recommended": "1.0.0"
+  },
+
+  "1.21": {
+    "1.1.0": "first release for Minecraft 1.21"
   },
 
   "1.20.4": {
