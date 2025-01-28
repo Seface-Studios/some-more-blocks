@@ -12,9 +12,8 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.api.IPoweredBlockMixin;
 import net.seface.somemoreblocks.block.*;
-import net.seface.somemoreblocks.data.SMBBlockTags;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 
 public class SMBBlocks {
   public static final Block AZALEA_LEAF_LITTER = new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.AZALEA_LEAVES).replaceable().noCollision().isValidSpawn(Blocks::never).instabreak(), Constants.AZALEA_LEAF_LITTER_CHANCE);
@@ -412,7 +411,6 @@ public class SMBBlocks {
   public static final Block SOUL_SANDSTONE_BRICK_STAIRS = new StairBlock(SOUL_SANDSTONE_BRICKS.defaultBlockState(), FabricBlockSettings.copyOf(SMBBlocks.SOUL_SANDSTONE_BRICKS));
   public static final Block SOUL_SANDSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.copyOf(SMBBlocks.SOUL_SANDSTONE_BRICKS).solid());
   public static final Block CRACKED_SOUL_SANDSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE));
-  public static final Block MOSSY_SOUL_SANDSTONE_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE));
   public static final Block SOUL_SANDSTONE_TILES = new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE));
   public static final Block SOUL_SANDSTONE_TILE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(SMBBlocks.SOUL_SANDSTONE_TILES));
   public static final Block SOUL_SANDSTONE_TILE_STAIRS = new StairBlock(SOUL_SANDSTONE_TILES.defaultBlockState(), FabricBlockSettings.copyOf(SMBBlocks.SOUL_SANDSTONE_TILES));
@@ -436,9 +434,9 @@ public class SMBBlocks {
   public static final Block CRACKED_CUT_GOLD = new Block(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK));
   public static final Block GOLD_PILLAR = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.GOLD_BLOCK));
   public static final Block REDSTONE_BRICKS = new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
-  public static final Block CRACKED_REDSTONE_BRICKS = ((IPoweredBlockMixin) new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK))).SMB$setSignalLevel(Constants.CRACKED_REDSTONE_BRICKS_SIGNAL_LEVEL);
+  public static final Block CRACKED_REDSTONE_BRICKS = new CrackedPoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
   public static final Block CUT_REDSTONE = new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
-  public static final Block CRACKED_CUT_REDSTONE = ((IPoweredBlockMixin) new PoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK))).SMB$setSignalLevel(Constants.CRACKED_CUT_REDSTONE_SIGNAL_LEVEL);
+  public static final Block CRACKED_CUT_REDSTONE = new CrackedPoweredBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
   public static final Block REDSTONE_PILLAR = new PoweredRotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
   public static final Block EMERALD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK));
   public static final Block CRACKED_EMERALD_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_BLOCK));
@@ -1046,7 +1044,6 @@ public class SMBBlocks {
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "soul_sandstone_brick_stairs"), SOUL_SANDSTONE_BRICK_STAIRS);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "soul_sandstone_brick_wall"), SOUL_SANDSTONE_BRICK_WALL);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "cracked_soul_sandstone_bricks"), CRACKED_SOUL_SANDSTONE_BRICKS);
-    Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "mossy_soul_sandstone_bricks"), MOSSY_SOUL_SANDSTONE_BRICKS);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "soul_sandstone_tiles"), SOUL_SANDSTONE_TILES);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "soul_sandstone_tile_slab"), SOUL_SANDSTONE_TILE_SLAB);
     Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(SomeMoreBlocks.ID, "soul_sandstone_tile_stairs"), SOUL_SANDSTONE_TILE_STAIRS);

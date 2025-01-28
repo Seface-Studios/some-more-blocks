@@ -357,7 +357,6 @@ public class SMBItems {
   public static final Item MOSSY_SANDSTONE_BRICK_SLAB = new BlockItem(SMBBlocks.MOSSY_SANDSTONE_BRICK_SLAB, new Item.Properties());
   public static final Item MOSSY_SANDSTONE_BRICK_STAIRS = new BlockItem(SMBBlocks.MOSSY_SANDSTONE_BRICK_STAIRS, new Item.Properties());
   public static final Item MOSSY_SANDSTONE_BRICK_WALL = new BlockItem(SMBBlocks.MOSSY_SANDSTONE_BRICK_WALL, new Item.Properties());
-  public static final Item MOSSY_SOUL_SANDSTONE_BRICKS = new BlockItem(SMBBlocks.MOSSY_SOUL_SANDSTONE_BRICKS, new Item.Properties());
   public static final Item MOSSY_TUFF_BRICKS = new BlockItem(SMBBlocks.MOSSY_TUFF_BRICKS, new Item.Properties());
   public static final Item MOSSY_TUFF_BRICK_SLAB = new BlockItem(SMBBlocks.MOSSY_TUFF_BRICK_SLAB, new Item.Properties());
   public static final Item MOSSY_TUFF_BRICK_STAIRS = new BlockItem(SMBBlocks.MOSSY_TUFF_BRICK_STAIRS, new Item.Properties());
@@ -1025,7 +1024,6 @@ public class SMBItems {
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "soul_sandstone_brick_stairs"), SOUL_SANDSTONE_BRICK_STAIRS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "soul_sandstone_brick_wall"), SOUL_SANDSTONE_BRICK_WALL);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cracked_soul_sandstone_bricks"), CRACKED_SOUL_SANDSTONE_BRICKS);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "mossy_soul_sandstone_bricks"), MOSSY_SOUL_SANDSTONE_BRICKS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "soul_sandstone_tiles"), SOUL_SANDSTONE_TILES);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "soul_sandstone_tile_slab"), SOUL_SANDSTONE_TILE_SLAB);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "soul_sandstone_tile_stairs"), SOUL_SANDSTONE_TILE_STAIRS);

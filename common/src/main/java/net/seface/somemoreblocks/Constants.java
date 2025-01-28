@@ -23,13 +23,6 @@ public abstract class Constants {
   public static final int CUT_COAL_FUEL = $MAX_FUEL;
 
   /*
-   * Signal Level
-   * The Cracked Redstone Blocks variations has a different signal value.
-   * */
-  public static final int CRACKED_REDSTONE_BRICKS_SIGNAL_LEVEL = 7;
-  public static final int CRACKED_CUT_REDSTONE_SIGNAL_LEVEL = 7;
-
-  /*
    * Shingles Strength Property
    * */
   public static final float SHINGLES_DESTROY_TIME = 1.25F;

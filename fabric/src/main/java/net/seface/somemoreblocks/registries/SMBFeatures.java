@@ -3,8 +3,8 @@ package net.seface.somemoreblocks.registries;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.seface.somemoreblocks.data.SMBBlockTags;
-import net.seface.somemoreblocks.data.SMBPlacedFeature;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
+import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 import net.seface.somemoreblocks.worldgen.feature.FallenLeafFeature;
 
 public class SMBFeatures {

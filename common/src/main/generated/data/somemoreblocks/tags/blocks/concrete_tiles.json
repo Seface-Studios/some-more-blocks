@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "somemoreblocks:white_concrete_tiles",
+    "somemoreblocks:light_gray_concrete_tiles",
+    "somemoreblocks:gray_concrete_tiles",
+    "somemoreblocks:black_concrete_tiles",
+    "somemoreblocks:brown_concrete_tiles",
+    "somemoreblocks:red_concrete_tiles",
+    "somemoreblocks:orange_concrete_tiles",
+    "somemoreblocks:yellow_concrete_tiles",
+    "somemoreblocks:lime_concrete_tiles",
+    "somemoreblocks:green_concrete_tiles",
+    "somemoreblocks:cyan_concrete_tiles",
+    "somemoreblocks:light_blue_concrete_tiles",
+    "somemoreblocks:blue_concrete_tiles",
+    "somemoreblocks:purple_concrete_tiles",
+    "somemoreblocks:magenta_concrete_tiles",
+    "somemoreblocks:pink_terracotta_tiles"
+  ]
+}

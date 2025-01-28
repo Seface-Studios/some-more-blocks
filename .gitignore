@@ -23,5 +23,8 @@ eclipse
 run
 runs
 
+**/*/lang/*.json
+!**/*/lang/deprecated_strings.json
+
 **/node_modules
 **/yarn.lock

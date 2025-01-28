@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.seface.somemoreblocks.data.SMBBlockTags;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 
 public class DoubleMushroomColonyBlock extends DoublePlantBlock {
   public DoubleMushroomColonyBlock(BlockBehaviour.Properties properties) {

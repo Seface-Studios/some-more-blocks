@@ -2,6 +2,7 @@ package net.seface.somemoreblocks.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.seface.somemoreblocks.datagen.providers.*;
 
 public class Main implements DataGeneratorEntrypoint {
 
@@ -9,8 +10,12 @@ public class Main implements DataGeneratorEntrypoint {
   public void onInitializeDataGenerator(FabricDataGenerator gen) {
     FabricDataGenerator.Pack pack = gen.createPack();
 
-    pack.addProvider(ModelProvider::new);
-    pack.addProvider(RecipeProvider::new);
+    pack.addProvider(SMBModelProvider::new);
+    pack.addProvider(SMBRecipeProvider::new);
+    pack.addProvider(SMBBlockTagProvider::new);
+    pack.addProvider(SMBItemTagProvider::new);
+    pack.addProvider(SMBWorldGenTagProvider::new);
+    pack.addProvider(SMBLootTableProvider::new);
 
     /*
       Why this custom provider exists?
@@ -19,6 +24,6 @@ public class Main implements DataGeneratorEntrypoint {
       data/assets for both Minecraft version;
       When we decided to abandon that system, we still need to generate the recipe advancements.
     */
-    pack.addProvider(RecipeAdvancementProvider::new);
+    pack.addProvider(SMBRecipeAdvancementProvider::new);
   }
 }

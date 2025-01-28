@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "somemoreblocks:shingles",
+    "somemoreblocks:white_shingles",
+    "somemoreblocks:light_gray_shingles",
+    "somemoreblocks:gray_shingles",
+    "somemoreblocks:black_shingles",
+    "somemoreblocks:brown_shingles",
+    "somemoreblocks:red_shingles",
+    "somemoreblocks:orange_shingles",
+    "somemoreblocks:yellow_shingles",
+    "somemoreblocks:lime_shingles",
+    "somemoreblocks:green_shingles",
+    "somemoreblocks:cyan_shingles",
+    "somemoreblocks:light_blue_shingles",
+    "somemoreblocks:blue_shingles",
+    "somemoreblocks:purple_shingles",
+    "somemoreblocks:magenta_shingles",
+    "somemoreblocks:pink_shingles"
+  ]
+}
