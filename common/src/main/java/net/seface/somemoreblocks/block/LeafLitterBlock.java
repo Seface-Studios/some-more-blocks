@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.seface.somemoreblocks.api.ILeavesBucketItem;
 import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
@@ -89,7 +90,7 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
   @Override
   public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
     ItemStack stack = super.getCloneItemStack(level, pos, state);
-    stack.set(SMBDataComponentTypes.BUCKET_VOLUME, LeavesBucketItem.MAX_VOLUME);
+    stack.set(((ILeavesBucketItem) stack.getItem()).getBucketVolumeComponentType(), LeavesBucketItem.MAX_VOLUME);
 
     return stack;
   }
@@ -103,7 +104,7 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
     }
 
     ItemStack stack = this.bucketItem.getDefaultInstance();
-    stack.set(SMBDataComponentTypes.BUCKET_VOLUME, LeavesBucketItem.MIN_VOLUME);
+    stack.set(((ILeavesBucketItem) stack.getItem()).getBucketVolumeComponentType(), LeavesBucketItem.MIN_VOLUME);
 
     return stack;
   }

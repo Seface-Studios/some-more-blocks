@@ -41,7 +41,7 @@ public class SMBItems {
       return SMBItems.ITEMS.register(identifier, item);
   }
 
-  public static void register(IEventBus event) {
+  public static void init(IEventBus event) {
         ITEMS.register(event);
     }
 }

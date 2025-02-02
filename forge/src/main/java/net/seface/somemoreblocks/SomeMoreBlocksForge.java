@@ -11,7 +11,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.utils.*;
 
@@ -20,11 +19,12 @@ public class SomeMoreBlocksForge {
   public SomeMoreBlocksForge() {
     IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-    SMBBlocks.register(bus);
-    SMBItems.register(bus);
-    SMBCreativeTabs.register(bus);
-    SMBFeatures.register(bus);
-    SMBBiomeModifiers.register(bus);
+    SMBForgedDataComponentTypes.init(bus);
+    SMBBlocks.init(bus);
+    SMBItems.init(bus);
+    SMBCreativeTabs.init(bus);
+    SMBFeatures.init(bus);
+    SMBBiomeModifiers.init(bus);
 
     bus.addListener(this::clientSetup);
     bus.addListener(this::commonSetup);
@@ -44,7 +44,7 @@ public class SomeMoreBlocksForge {
 
   private void commonSetup(final FMLCommonSetupEvent event) {
     event.enqueueWork(() -> {
-      SomeMoreBlocks.init();
+      SomeMoreBlocks.init(false);
 
       registerCarvedBlocks();
       registerCompostableItems();
@@ -246,10 +246,10 @@ public class SomeMoreBlocksForge {
    * Registers values related to ModelPredicate.
    */
   private static void registerModelPredicateProviders() {
-    ModelPredicateRegistry.register(SMBItems.LEAVES_BUCKET.get(), "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.SPRUCE_LEAVES_BUCKET.get(), "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.BIRCH_LEAVES_BUCKET.get(), "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.AZALEA_LEAVES_BUCKET.get(), "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), "bucket_volume");
+    ModelPredicateRegistry.registerBucketVolumePredicate(SMBItems.LEAVES_BUCKET.get(), SMBForgedDataComponentTypes.BUCKET_VOLUME.getId().getPath());
+    ModelPredicateRegistry.registerBucketVolumePredicate(SMBItems.SPRUCE_LEAVES_BUCKET.get(), SMBForgedDataComponentTypes.BUCKET_VOLUME.getId().getPath());
+    ModelPredicateRegistry.registerBucketVolumePredicate(SMBItems.BIRCH_LEAVES_BUCKET.get(), SMBForgedDataComponentTypes.BUCKET_VOLUME.getId().getPath());
+    ModelPredicateRegistry.registerBucketVolumePredicate(SMBItems.AZALEA_LEAVES_BUCKET.get(), SMBForgedDataComponentTypes.BUCKET_VOLUME.getId().getPath());
+    ModelPredicateRegistry.registerBucketVolumePredicate(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), SMBForgedDataComponentTypes.BUCKET_VOLUME.getId().getPath());
   }
 }

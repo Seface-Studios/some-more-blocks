@@ -731,7 +731,7 @@ public class SMBBlocks {
     SMBItems.registerItem(identifier, () -> new FuelBlockItem(block.get(), new Item.Properties(), fuel));
   }
 
-  public static void register(IEventBus event) {
+  public static void init(IEventBus event) {
     BLOCKS.register(event);
   }
 }

@@ -626,7 +626,7 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
     }).build());
 
-  public static void register(IEventBus event) {
+  public static void init(IEventBus event) {
     CREATIVE_MODE_TABS.register(event);
   }
 }

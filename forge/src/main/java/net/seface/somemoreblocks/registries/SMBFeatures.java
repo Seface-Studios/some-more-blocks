@@ -34,7 +34,7 @@ public class SMBFeatures {
       return FEATURES.register(identifier, feature);
   }
 
-  public static void register(IEventBus event) {
+  public static void init(IEventBus event) {
     FEATURES.register(event);
   }
 }

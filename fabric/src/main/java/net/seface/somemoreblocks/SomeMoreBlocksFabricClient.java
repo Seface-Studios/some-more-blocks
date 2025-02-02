@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
-import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.registries.ModelPredicateRegistry;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.registries.SMBItems;
@@ -106,10 +105,10 @@ public class SomeMoreBlocksFabricClient implements ClientModInitializer {
    * Registers values related to ModelPredicate.
    */
   private static void registerModelPredicateProviders() {
-    ModelPredicateRegistry.register(SMBItems.LEAVES_BUCKET, "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.SPRUCE_LEAVES_BUCKET, "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.BIRCH_LEAVES_BUCKET, "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.AZALEA_LEAVES_BUCKET, "bucket_volume");
-    ModelPredicateRegistry.register(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET, "bucket_volume");
+    ModelPredicateRegistry.registerBucketVolumePredicate(SMBItems.LEAVES_BUCKET, "bucket_volume");
+    ModelPredicateRegistry.registerBucketVolumePredicate(SMBItems.SPRUCE_LEAVES_BUCKET, "bucket_volume");
+    ModelPredicateRegistry.registerBucketVolumePredicate(SMBItems.BIRCH_LEAVES_BUCKET, "bucket_volume");
+    ModelPredicateRegistry.registerBucketVolumePredicate(SMBItems.AZALEA_LEAVES_BUCKET, "bucket_volume");
+    ModelPredicateRegistry.registerBucketVolumePredicate(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET, "bucket_volume");
   }
 }
