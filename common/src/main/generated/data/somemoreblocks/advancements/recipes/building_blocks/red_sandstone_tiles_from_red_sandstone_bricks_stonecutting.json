@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:red_sandstone_tiles_from_red_sandstone_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

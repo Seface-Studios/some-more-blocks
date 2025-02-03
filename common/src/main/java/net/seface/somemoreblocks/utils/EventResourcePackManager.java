@@ -25,7 +25,7 @@ public class EventResourcePackManager {
    * @param featureFlag The feature flag to filter valid worlds.
    */
   public static void onPlayerJoinEnableResourcePack(Player player, @Nullable FeatureFlag featureFlag) {
-    if (!Minecraft.getInstance().getGameProfile().equals(player.getGameProfile())) return;
+    if (!Minecraft.getInstance().getProfiler().equals(player.getGameProfile())) return;
     if (featureFlag == null) return;
 
     Level world = player.level();
@@ -40,7 +40,7 @@ public class EventResourcePackManager {
 
     if (player.getTags().contains(tagID)) return;
 
-    MutableComponent prefix = Component.literal(SomeMoreBlocks.MOD_NAME).withColor(Constants.AMESFACE_COLOR)
+    MutableComponent prefix = Component.literal(SomeMoreBlocks.MOD_NAME).withStyle(style -> style.withColor(Constants.AMESFACE_COLOR))
       .append(Component.literal(" › ").withStyle(ChatFormatting.GRAY));
 
     String readMoreURL = "https://github.com/Seface-Studios/some-more-blocks/tree/main/common/src/main/resources/resourcepacks";
@@ -52,9 +52,9 @@ public class EventResourcePackManager {
       .withStyle(style -> style.withColor(ChatFormatting.GRAY))
       .append(" ")
       .append(Component.translatable("somemoreblocks.resourcepack.update_1_21.read_more")
-        .withColor(Constants.GREENFUL_COLOR)
         .withStyle(style ->
           style.withHoverEvent(readMoreHover)
+            .withColor(Constants.GREENFUL_COLOR)
             .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, readMoreURL))
             .withUnderlined(true)));
 
@@ -70,7 +70,7 @@ public class EventResourcePackManager {
    * @param featureFlag The feature flag to filter valid worlds.
    */
   public static void onPlayerLeaveDisableResourcePack(Player player, @Nullable FeatureFlag featureFlag) {
-    if (!Minecraft.getInstance().getGameProfile().equals(player.getGameProfile())) return;
+    if (!Minecraft.getInstance().getProfiler().equals(player.getGameProfile())) return;
     if (featureFlag == null) return;
 
     Level world = player.level();

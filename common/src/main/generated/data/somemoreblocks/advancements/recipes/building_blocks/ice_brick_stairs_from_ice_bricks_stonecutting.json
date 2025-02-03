@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:ice_brick_stairs_from_ice_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

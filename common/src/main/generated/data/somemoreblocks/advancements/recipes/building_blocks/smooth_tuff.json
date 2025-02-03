@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:smooth_tuff"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -33,7 +33,7 @@ public class WeatheringRotatedCopperFullBlock extends RotatedPillarBlock impleme
 
   @Override
   public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-    this.changeOverTime(state, level, pos, random);
+    this.applyChangeOverTime(state, level, pos, random);
   }
 
   @Override

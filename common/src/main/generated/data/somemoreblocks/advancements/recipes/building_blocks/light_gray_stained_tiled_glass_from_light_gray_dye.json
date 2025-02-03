@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:light_gray_stained_tiled_glass_from_light_gray_dye"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

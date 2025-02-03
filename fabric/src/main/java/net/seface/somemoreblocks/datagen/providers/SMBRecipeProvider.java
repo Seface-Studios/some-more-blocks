@@ -2,16 +2,12 @@ package net.seface.somemoreblocks.datagen.providers;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -19,20 +15,21 @@ import net.minecraft.world.level.block.StainedGlassPaneBlock;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 public class SMBRecipeProvider extends FabricRecipeProvider {
-  private RecipeOutput recipeOutput;
+  private Consumer<FinishedRecipe> recipeOutput;
 
   public SMBRecipeProvider(FabricDataOutput output) {
     super(output);
   }
 
+
   @Override
-  public void buildRecipes(RecipeOutput output) {
+  public void buildRecipes(Consumer<FinishedRecipe> output) {
     this.recipeOutput = output;
 
-    this.snowyPlant(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS);
+    this.snowyPlant(Blocks.GRASS, SMBBlocks.SHORT_SNOW_GRASS);
     this.snowyPlant(Blocks.FERN, SMBBlocks.SNOW_FERN);
     this.snowyPlant(Blocks.TALL_GRASS, SMBBlocks.TALL_SNOW_GRASS);
     this.snowyPlant(Blocks.LARGE_FERN, SMBBlocks.LARGE_SNOW_FERN);

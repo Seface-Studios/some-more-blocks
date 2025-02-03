@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:pearlescent_redstone_froglight"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

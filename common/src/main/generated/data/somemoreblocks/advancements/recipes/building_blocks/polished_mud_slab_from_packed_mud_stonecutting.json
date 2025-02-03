@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:polished_mud_slab_from_packed_mud_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

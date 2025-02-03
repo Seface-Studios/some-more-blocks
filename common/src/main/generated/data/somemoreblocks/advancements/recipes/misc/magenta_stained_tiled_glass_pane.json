@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_needed_items"
+      "has_needed_items",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:magenta_stained_tiled_glass_pane"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

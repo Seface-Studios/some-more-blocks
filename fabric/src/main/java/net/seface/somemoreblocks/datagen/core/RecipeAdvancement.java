@@ -3,18 +3,13 @@ package net.seface.somemoreblocks.datagen.core;
 import lombok.Setter;
 import lombok.SneakyThrows;
 import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementHolder;
-import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.tags.SMBAbstractData;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -26,7 +21,7 @@ import java.util.function.Consumer;
 public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> {
 
   @Setter
-  private static Consumer<AdvancementHolder> consumer;
+  private static Consumer<Advancement> consumer;
 
   private ItemLike unlockedItem;
   private boolean applyFromSuffix;
@@ -140,7 +135,7 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
           .addCriterion("has_needed_items", InventoryChangeTrigger.TriggerInstance.hasItems(requiredItem))
           .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
           .rewards(AdvancementRewards.Builder.recipe(resourceLocation))
-          .requirements(AdvancementRequirements.anyOf(List.of("has_needed_items", "has_the_recipe")))
+          .requirements(RequirementsStrategy.OR.createRequirements(List.of("has_needed_items", "has_the_recipe")))
           .build(new ResourceLocation(SomeMoreBlocks.ID, "recipes/" + group + name))
       );
     }
@@ -164,7 +159,7 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
           .addCriterion("has_needed_items", InventoryChangeTrigger.TriggerInstance.hasItems(requiredItem))
           .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
           .rewards(AdvancementRewards.Builder.recipe(resourceLocation))
-          .requirements(AdvancementRequirements.anyOf(List.of("has_needed_items", "has_the_recipe")))
+          .requirements(RequirementsStrategy.OR.createRequirements(List.of("has_needed_items", "has_the_recipe")))
           .build(new ResourceLocation(SomeMoreBlocks.ID, "recipes/" + group + name))
       );
     }

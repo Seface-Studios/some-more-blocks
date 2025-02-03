@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:light_blue_shingles_from_light_blue_terracotta_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

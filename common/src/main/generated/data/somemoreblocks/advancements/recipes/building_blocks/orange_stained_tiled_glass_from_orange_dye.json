@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:orange_stained_tiled_glass_from_orange_dye"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

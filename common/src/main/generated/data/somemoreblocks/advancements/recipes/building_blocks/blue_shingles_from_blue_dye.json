@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:blue_shingles_from_blue_dye"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

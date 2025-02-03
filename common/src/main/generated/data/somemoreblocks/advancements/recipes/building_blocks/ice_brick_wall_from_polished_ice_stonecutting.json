@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:ice_brick_wall_from_polished_ice_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

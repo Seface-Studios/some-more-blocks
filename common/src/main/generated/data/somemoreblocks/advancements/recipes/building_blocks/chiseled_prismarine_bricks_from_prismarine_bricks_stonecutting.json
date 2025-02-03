@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:chiseled_prismarine_bricks_from_prismarine_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

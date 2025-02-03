@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:magenta_terracotta_tiles_from_magenta_terracotta_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

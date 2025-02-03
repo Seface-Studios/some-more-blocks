@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:purple_shingles_from_purple_terracotta_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

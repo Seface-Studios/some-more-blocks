@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:smooth_blackstone"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

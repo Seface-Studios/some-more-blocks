@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:calcite_tile_slab_from_calcite_tiles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

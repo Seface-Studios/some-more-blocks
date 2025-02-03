@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:cherry_mosaic"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

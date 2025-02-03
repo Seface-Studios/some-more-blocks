@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:mossy_prismarine_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

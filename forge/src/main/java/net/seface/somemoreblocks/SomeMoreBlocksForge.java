@@ -3,27 +3,18 @@ package net.seface.somemoreblocks;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.PathPackResources;
-import net.minecraft.server.packs.repository.Pack;
-import net.minecraft.server.packs.repository.PackSource;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.seface.somemoreblocks.utils.EventResourcePackManager;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.registries.*;
-import net.seface.somemoreblocks.utils.*;
-
-import java.nio.file.Path;
+import net.seface.somemoreblocks.utils.SMBUtils;
 
 @Mod(SomeMoreBlocks.ID)
 public class SomeMoreBlocksForge {
@@ -39,7 +30,6 @@ public class SomeMoreBlocksForge {
 
     eventBus.addListener(this::clientSetup);
     eventBus.addListener(this::commonSetup);
-    eventBus.addListener(this::addPackFinders);
     eventBus.addListener(this::registerColorProviders);
   }
 
@@ -145,7 +135,7 @@ public class SomeMoreBlocksForge {
    * Registers values related to Snowy-like blocks.
    */
   private static void registerSnowyBlocks() {
-    SnowyBushRegistry.register(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS.get());
+    SnowyBushRegistry.register(Blocks.GRASS, SMBBlocks.SHORT_SNOW_GRASS.get());
     SnowyBushRegistry.register(Blocks.FERN, SMBBlocks.SNOW_FERN.get());
     SnowyBushRegistry.register(Blocks.TALL_GRASS, SMBBlocks.TALL_SNOW_GRASS.get());
     SnowyBushRegistry.register(Blocks.LARGE_FERN, SMBBlocks.LARGE_SNOW_FERN.get());
@@ -198,14 +188,12 @@ public class SomeMoreBlocksForge {
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CRIMSON_FUNGUS_COLONY_WALL.get(), RenderType.cutout());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CYAN_STAINED_TILED_GLASS.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.DIAMOND_GRATE.get(), RenderType.cutout());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.DUNE_GRASS.get(), RenderType.cutout());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get(), RenderType.cutoutMipped());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GRAY_STAINED_TILED_GLASS.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GREEN_STAINED_TILED_GLASS.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.IRON_GRATE.get(), RenderType.cutout());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LARGE_SNOW_FERN.get(), RenderType.cutout());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LEAF_LITTER.get(), RenderType.cutoutMipped());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS.get(), RenderType.translucent());
@@ -217,7 +205,6 @@ public class SomeMoreBlocksForge {
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.LUMINOUS_FLOWER.get(), RenderType.cutout());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-    ItemBlockRenderTypes.setRenderLayer(SMBBlocks.NETHERITE_GRATE.get(), RenderType.cutout());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.ORANGE_STAINED_TILED_GLASS.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PINK_STAINED_TILED_GLASS.get(), RenderType.translucent());
@@ -269,21 +256,5 @@ public class SomeMoreBlocksForge {
     ModelPredicateRegistry.register(SMBItems.BIRCH_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
     ModelPredicateRegistry.register(SMBItems.AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
     ModelPredicateRegistry.register(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
-  }
-
-  public void addPackFinders(AddPackFindersEvent event) {
-    if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-      Path resourcePackPath = ModList.get().getModFileById(SomeMoreBlocks.ID).getFile().findResource("resourcepacks/update_1_21");
-      Pack pack = Pack.readMetaAndCreate(
-        EventResourcePackManager.EXPERIMENTAL_1_21_RP.toString(),
-        Component.translatable("somemoreblocks.resourcepack.update_1_21.name"),
-        false,
-        new PathPackResources.PathResourcesSupplier(resourcePackPath, false),
-        PackType.CLIENT_RESOURCES,
-        Pack.Position.BOTTOM,
-        PackSource.BUILT_IN);
-
-      event.addRepositorySource((consumer) -> consumer.accept(pack));
-    }
   }
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:mossy_calcite_brick_wall_from_mossy_calcite_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:polished_prismarine_slab_from_polished_prismarine_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

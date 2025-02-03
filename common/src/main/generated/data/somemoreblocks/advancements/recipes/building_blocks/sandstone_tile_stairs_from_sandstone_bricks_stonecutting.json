@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:sandstone_tile_stairs_from_sandstone_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

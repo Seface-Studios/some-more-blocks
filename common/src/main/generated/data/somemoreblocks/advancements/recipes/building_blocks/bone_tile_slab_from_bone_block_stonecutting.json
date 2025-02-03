@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:bone_tile_slab_from_bone_block_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

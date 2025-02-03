@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:andesite_tiles_from_andesite_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

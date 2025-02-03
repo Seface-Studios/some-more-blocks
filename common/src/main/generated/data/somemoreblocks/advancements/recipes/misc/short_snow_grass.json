@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_short_grass": {
+    "has_grass": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:short_grass"
+              "minecraft:grass"
             ]
           }
         ]
@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_short_grass"
+      "has_grass",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:short_snow_grass"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

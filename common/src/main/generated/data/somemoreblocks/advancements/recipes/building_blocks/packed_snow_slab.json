@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:packed_snow_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

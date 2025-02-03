@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:orange_terracotta_tiles_from_orange_terracotta_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

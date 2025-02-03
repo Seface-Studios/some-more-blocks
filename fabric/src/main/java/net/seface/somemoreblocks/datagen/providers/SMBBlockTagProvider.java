@@ -40,7 +40,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
     getOrCreateTagBuilder(SMBBlockTags.LEAF_LITTER_REPLACEABLE)
       .add(
         Blocks.DEAD_BUSH, Blocks.FERN,
-        Blocks.SHORT_GRASS, Blocks.VINE,
+        Blocks.GRASS, Blocks.VINE,
         Blocks.MOSS_CARPET,
         SMBBlocks.DUNE_GRASS, SMBBlocks.SNOW_FERN, SMBBlocks.SHORT_SNOW_GRASS);
 
@@ -403,7 +403,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.CUT_QUARTZ, SMBBlocks.CUT_REDSTONE,
         SMBBlocks.CUT_SOUL_SANDSTONE_SLAB, SMBBlocks.CUT_SOUL_SANDSTONE,
         SMBBlocks.DEEPSLATE_PILLAR, SMBBlocks.DIAMOND_BRICKS,
-        SMBBlocks.DIAMOND_GRATE, SMBBlocks.DIAMOND_PILLAR,
+        SMBBlocks.DIAMOND_PILLAR,
         SMBBlocks.DIORITE_BRICK_SLAB, SMBBlocks.DIORITE_BRICK_STAIRS,
         SMBBlocks.DIORITE_BRICK_WALL, SMBBlocks.DIORITE_BRICKS,
         SMBBlocks.DIORITE_PILLAR, SMBBlocks.DIORITE_TILE_SLAB,
@@ -422,7 +422,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.GRANITE_BRICKS, SMBBlocks.GRANITE_PILLAR,
         SMBBlocks.GRANITE_TILE_SLAB, SMBBlocks.GRANITE_TILE_STAIRS,
         SMBBlocks.GRANITE_TILE_WALL, SMBBlocks.GRANITE_TILES,
-        SMBBlocks.IRON_BRICKS, SMBBlocks.IRON_GRATE,
+        SMBBlocks.IRON_BRICKS,
         SMBBlocks.IRON_PILLAR, SMBBlocks.LAPIS_BRICKS,
         SMBBlocks.LAPIS_PILLAR, SMBBlocks.MOSSY_ANDESITE_BRICK_SLAB,
         SMBBlocks.MOSSY_ANDESITE_BRICK_STAIRS, SMBBlocks.MOSSY_ANDESITE_BRICK_WALL,
@@ -460,7 +460,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.MUD_TILE_SLAB, SMBBlocks.MUD_TILE_STAIRS,
         SMBBlocks.MUD_TILE_WALL, SMBBlocks.MUD_TILES,
         SMBBlocks.NETHER_BRICKS_PILLAR, SMBBlocks.NETHERITE_BRICKS,
-        SMBBlocks.NETHERITE_GRATE, SMBBlocks.NETHERITE_PILLAR,
+        SMBBlocks.NETHERITE_PILLAR,
         SMBBlocks.POLISHED_BLACKSTONE_TILE_SLAB, SMBBlocks.POLISHED_BLACKSTONE_TILE_STAIRS,
         SMBBlocks.POLISHED_BLACKSTONE_TILE_WALL, SMBBlocks.POLISHED_BLACKSTONE_TILES,
         SMBBlocks.POLISHED_CALCITE_SLAB, SMBBlocks.POLISHED_CALCITE_STAIRS,
@@ -546,7 +546,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
     getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).setReplace(false)
         .add(
           SMBBlocks.IRON_BRICKS, SMBBlocks.CRACKED_SNOW_BRICKS, SMBBlocks.IRON_PILLAR,
-          SMBBlocks.CUT_IRON, SMBBlocks.CRACKED_CUT_IRON, SMBBlocks.IRON_GRATE,
+          SMBBlocks.CUT_IRON, SMBBlocks.CRACKED_CUT_IRON,
           SMBBlocks.LAPIS_BRICKS, SMBBlocks.CRACKED_LAPIS_BRICKS, SMBBlocks.LAPIS_PILLAR,
           SMBBlocks.CUT_LAPIS, SMBBlocks.CRACKED_CUT_LAPIS,
           SMBBlocks.COPPER_BRICKS, SMBBlocks.CRACKED_COPPER_BRICKS, SMBBlocks.COPPER_PILLAR, SMBBlocks.CRACKED_CUT_COPPER,
@@ -566,13 +566,13 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.EMERALD_BRICKS, SMBBlocks.CRACKED_EMERALD_BRICKS, SMBBlocks.EMERALD_PILLAR,
         SMBBlocks.CUT_EMERALD, SMBBlocks.CRACKED_CUT_EMERALD,
         SMBBlocks.DIAMOND_BRICKS, SMBBlocks.CRACKED_DIAMOND_BRICKS, SMBBlocks.DIAMOND_PILLAR,
-        SMBBlocks.CUT_DIAMOND, SMBBlocks.CRACKED_CUT_DIAMOND, SMBBlocks.DIAMOND_GRATE
+        SMBBlocks.CUT_DIAMOND, SMBBlocks.CRACKED_CUT_DIAMOND
       );
 
     getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).setReplace(false)
       .add(
         SMBBlocks.NETHERITE_BRICKS, SMBBlocks.CRACKED_NETHERITE_BRICKS, SMBBlocks.NETHERITE_PILLAR,
-        SMBBlocks.CUT_NETHERITE, SMBBlocks.CRACKED_CUT_NETHERITE, SMBBlocks.NETHERITE_GRATE
+        SMBBlocks.CUT_NETHERITE, SMBBlocks.CRACKED_CUT_NETHERITE
       );
   }
 }

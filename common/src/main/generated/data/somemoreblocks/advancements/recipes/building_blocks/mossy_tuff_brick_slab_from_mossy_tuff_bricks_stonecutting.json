@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:mossy_tuff_brick_slab_from_mossy_tuff_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

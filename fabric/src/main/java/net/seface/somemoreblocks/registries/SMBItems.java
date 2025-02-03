@@ -211,7 +211,6 @@ public class SMBItems {
   public static final Item DARK_OAK_MOSAIC_STAIRS = new BlockItem(SMBBlocks.DARK_OAK_MOSAIC_STAIRS, new Item.Properties());
   public static final Item DEEPSLATE_PILLAR = new BlockItem(SMBBlocks.DEEPSLATE_PILLAR, new Item.Properties());
   public static final Item DIAMOND_BRICKS = new BlockItem(SMBBlocks.DIAMOND_BRICKS, new Item.Properties());
-  public static final Item DIAMOND_GRATE = new BlockItem(SMBBlocks.DIAMOND_GRATE, new Item.Properties());
   public static final Item DIAMOND_PILLAR = new BlockItem(SMBBlocks.DIAMOND_PILLAR, new Item.Properties());
   public static final Item DIORITE_BRICKS = new BlockItem(SMBBlocks.DIORITE_BRICKS, new Item.Properties());
   public static final Item DIORITE_BRICK_SLAB = new BlockItem(SMBBlocks.DIORITE_BRICK_SLAB, new Item.Properties());
@@ -271,7 +270,6 @@ public class SMBItems {
   public static final Item ICE_TILE_STAIRS = new BlockItem(SMBBlocks.ICE_TILE_STAIRS, new Item.Properties());
   public static final Item ICE_TILE_WALL = new BlockItem(SMBBlocks.ICE_TILE_WALL, new Item.Properties());
   public static final Item IRON_BRICKS = new BlockItem(SMBBlocks.IRON_BRICKS, new Item.Properties());
-  public static final Item IRON_GRATE = new BlockItem(SMBBlocks.IRON_GRATE, new Item.Properties());
   public static final Item IRON_PILLAR = new BlockItem(SMBBlocks.IRON_PILLAR, new Item.Properties());
   public static final Item JUNGLE_MOSAIC = new BlockItem(SMBBlocks.JUNGLE_MOSAIC, new Item.Properties());
   public static final Item JUNGLE_MOSAIC_SLAB = new BlockItem(SMBBlocks.JUNGLE_MOSAIC_SLAB, new Item.Properties());
@@ -368,7 +366,6 @@ public class SMBItems {
   public static final Item MUD_TILE_WALL = new BlockItem(SMBBlocks.MUD_TILE_WALL, new Item.Properties());
   public static final Item NETHER_BRICKS_PILLAR = new BlockItem(SMBBlocks.NETHER_BRICKS_PILLAR, new Item.Properties());
   public static final Item NETHERITE_BRICKS = new BlockItem(SMBBlocks.NETHERITE_BRICKS, new Item.Properties());
-  public static final Item NETHERITE_GRATE = new BlockItem(SMBBlocks.NETHERITE_GRATE, new Item.Properties());
   public static final Item NETHERITE_PILLAR = new BlockItem(SMBBlocks.NETHERITE_PILLAR, new Item.Properties());
   public static final Item OAK_MOSAIC = new BlockItem(SMBBlocks.OAK_MOSAIC, new Item.Properties());
   public static final Item OAK_MOSAIC_SLAB = new BlockItem(SMBBlocks.OAK_MOSAIC_SLAB, new Item.Properties());
@@ -1040,7 +1037,6 @@ public class SMBItems {
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cut_iron"), CUT_IRON);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cracked_cut_iron"), CRACKED_CUT_IRON);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "iron_pillar"), IRON_PILLAR);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "iron_grate"), IRON_GRATE);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "gold_bricks"), GOLD_BRICKS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cracked_gold_bricks"), CRACKED_GOLD_BRICKS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cut_gold"), CUT_GOLD);
@@ -1066,13 +1062,11 @@ public class SMBItems {
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cut_diamond"), CUT_DIAMOND);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cracked_cut_diamond"), CRACKED_CUT_DIAMOND);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "diamond_pillar"), DIAMOND_PILLAR);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "diamond_grate"), DIAMOND_GRATE);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "netherite_bricks"), NETHERITE_BRICKS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cracked_netherite_bricks"), CRACKED_NETHERITE_BRICKS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cut_netherite"), CUT_NETHERITE);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cracked_cut_netherite"), CRACKED_CUT_NETHERITE);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "netherite_pillar"), NETHERITE_PILLAR);
-    Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "netherite_grate"), NETHERITE_GRATE);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "amethyst_bricks"), AMETHYST_BRICKS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cracked_amethyst_bricks"), CRACKED_AMETHYST_BRICKS);
     Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(SomeMoreBlocks.ID, "cut_amethyst"), CUT_AMETHYST);

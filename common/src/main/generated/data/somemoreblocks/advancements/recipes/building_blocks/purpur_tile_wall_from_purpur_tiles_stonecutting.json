@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:purpur_tile_wall_from_purpur_tiles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

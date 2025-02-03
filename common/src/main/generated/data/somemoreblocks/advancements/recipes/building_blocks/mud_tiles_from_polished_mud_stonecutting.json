@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:mud_tiles_from_polished_mud_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

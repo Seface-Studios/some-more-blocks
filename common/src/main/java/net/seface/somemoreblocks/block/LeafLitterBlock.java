@@ -12,10 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BucketPickup;
-import net.minecraft.world.level.block.TransparentBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -29,9 +26,10 @@ import java.util.Optional;
 
 @Getter
 @SuppressWarnings("deprecation")
-public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
-  public static final MapCodec<LeafLitterBlock> CODEC = simpleCodec(LeafLitterBlock::new);
+public class LeafLitterBlock extends HalfTransparentBlock implements BucketPickup {
+  //public static final MapCodec<LeafLitterBlock> CODEC = MapCodec.of(LeafLitterBlock::new);
   protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
+
 
   @Setter
   private Item bucketItem;
@@ -46,11 +44,11 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
     this.chance = chance;
   }
 
-  @NotNull
+  /*@NotNull
   @Override
-  protected MapCodec<? extends TransparentBlock> codec() {
+  protected MapCodec<? extends HalfTransparentBlock> codec() {
     return CODEC;
-  }
+  }*/
 
   @Override
   public boolean skipRendering(BlockState state1, BlockState state2, Direction direction) {
@@ -84,17 +82,16 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
       || stateBelow.is(SMBBlockTags.LEAF_LITTERS_PLACEABLE);
   }
 
-  @NotNull
   @Override
-  public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
-    ItemStack stack = super.getCloneItemStack(level, pos, state);
+  public ItemStack getCloneItemStack(BlockGetter block, BlockPos pos, BlockState state) {
+    ItemStack stack = super.getCloneItemStack(block, pos, state);
     ((LeavesBucketItem) stack.getItem()).setBucketVolume(stack, 16);
 
     return stack;
   }
 
   @Override
-  public @NotNull ItemStack pickupBlock(@Nullable Player player, LevelAccessor level, BlockPos pos, BlockState state) {
+  public @NotNull ItemStack pickupBlock(LevelAccessor level, BlockPos pos, BlockState state) {
     level.setBlock(pos, Blocks.AIR.defaultBlockState(), 11);
     if (!level.isClientSide()) {
       level.levelEvent(2001, pos, Block.getId(state));
@@ -105,6 +102,7 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
 
     return stack;
   }
+
 
   @NotNull
   @Override

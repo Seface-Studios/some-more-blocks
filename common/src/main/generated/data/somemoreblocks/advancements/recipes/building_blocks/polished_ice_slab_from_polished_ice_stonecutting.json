@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:polished_ice_slab_from_polished_ice_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

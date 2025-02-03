@@ -2,15 +2,13 @@ package net.seface.somemoreblocks.datagen.providers;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
-import net.minecraft.advancements.AdvancementHolder;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.seface.somemoreblocks.datagen.core.RecipeAdvancement;
 import net.seface.somemoreblocks.datagen.core.RecipeAdvancementGroupType;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 
-import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 @Deprecated
@@ -20,7 +18,7 @@ public class SMBRecipeAdvancementProvider extends FabricAdvancementProvider {
   }
 
   @Override
-  public void generateAdvancement(Consumer<AdvancementHolder> consumer) {
+  public void generateAdvancement(Consumer<Advancement> consumer) {
     RecipeAdvancement.setConsumer(consumer);
 
     RecipeAdvancement.create(Items.GREEN_DYE, RecipeAdvancementGroupType.MISC).craftableFrom(SMBBlocks.TINY_CACTUS).build();
@@ -179,13 +177,13 @@ public class SMBRecipeAdvancementProvider extends FabricAdvancementProvider {
 
     RecipeAdvancement
       .group("Tuff Variations", (instance) -> instance
-        .create(SMBBlocks.CRACKED_TUFF_BRICKS).craftableFrom(Blocks.TUFF_BRICKS)
-        .create(SMBBlocks.TUFF_PILLAR).craftableFrom(Blocks.TUFF_BRICKS).cuttableFrom(Blocks.TUFF)
-        .create(SMBBlocks.TUFF_TILES).craftableFrom(Blocks.TUFF_BRICKS).cuttableFrom(Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS)
+        .create(SMBBlocks.CRACKED_TUFF_BRICKS).craftableFrom(SMBBlocks.TUFF_BRICKS)
+        .create(SMBBlocks.TUFF_PILLAR).craftableFrom(SMBBlocks.TUFF_BRICKS).cuttableFrom(Blocks.TUFF)
+        .create(SMBBlocks.TUFF_TILES).craftableFrom(SMBBlocks.TUFF_BRICKS).cuttableFrom(Blocks.TUFF, SMBBlocks.POLISHED_TUFF, SMBBlocks.TUFF_BRICKS)
         .create(SMBBlocks.CRACKED_TUFF_TILES).craftableFrom(SMBBlocks.TUFF_TILES)
-        .create(SMBBlocks.TUFF_TILE_STAIRS).craftableFrom(SMBBlocks.TUFF_TILES).cuttableFrom(Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS, SMBBlocks.TUFF_TILES)
-        .create(SMBBlocks.TUFF_TILE_SLAB).craftableFrom(SMBBlocks.TUFF_TILES).cuttableFrom(Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS, SMBBlocks.TUFF_TILES)
-        .create(SMBBlocks.TUFF_TILE_WALL).craftableFrom(SMBBlocks.TUFF_TILES).cuttableFrom(Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS, SMBBlocks.TUFF_TILES)
+        .create(SMBBlocks.TUFF_TILE_STAIRS).craftableFrom(SMBBlocks.TUFF_TILES).cuttableFrom(Blocks.TUFF, SMBBlocks.POLISHED_TUFF, SMBBlocks.TUFF_BRICKS, SMBBlocks.TUFF_TILES)
+        .create(SMBBlocks.TUFF_TILE_SLAB).craftableFrom(SMBBlocks.TUFF_TILES).cuttableFrom(Blocks.TUFF, SMBBlocks.POLISHED_TUFF, SMBBlocks.TUFF_BRICKS, SMBBlocks.TUFF_TILES)
+        .create(SMBBlocks.TUFF_TILE_WALL).craftableFrom(SMBBlocks.TUFF_TILES).cuttableFrom(Blocks.TUFF, SMBBlocks.POLISHED_TUFF, SMBBlocks.TUFF_BRICKS, SMBBlocks.TUFF_TILES)
         .create(SMBBlocks.MOSSY_TUFF_BRICKS).craftableFrom(Blocks.VINE, Blocks.MOSS_BLOCK)
         .create(SMBBlocks.MOSSY_TUFF_BRICK_STAIRS).craftableFrom(SMBBlocks.MOSSY_TUFF_BRICKS).cuttableFrom(SMBBlocks.MOSSY_TUFF_BRICKS)
         .create(SMBBlocks.MOSSY_TUFF_BRICK_SLAB).craftableFrom(SMBBlocks.MOSSY_TUFF_BRICKS).cuttableFrom(SMBBlocks.MOSSY_TUFF_BRICKS)
@@ -393,7 +391,6 @@ public class SMBRecipeAdvancementProvider extends FabricAdvancementProvider {
         .create(SMBBlocks.IRON_PILLAR).craftableFrom(Blocks.IRON_BLOCK)
         .create(SMBBlocks.CUT_IRON).craftableFrom(Blocks.IRON_BLOCK)
         .create(SMBBlocks.CRACKED_CUT_IRON).craftableFrom(SMBBlocks.CUT_IRON)
-        .create(SMBBlocks.IRON_GRATE).craftableFrom(Blocks.IRON_BLOCK)
       ).build();
 
     RecipeAdvancement
@@ -430,7 +427,6 @@ public class SMBRecipeAdvancementProvider extends FabricAdvancementProvider {
         .create(SMBBlocks.DIAMOND_PILLAR).craftableFrom(Blocks.DIAMOND_BLOCK)
         .create(SMBBlocks.CUT_DIAMOND).craftableFrom(Blocks.DIAMOND_BLOCK)
         .create(SMBBlocks.CRACKED_CUT_DIAMOND).craftableFrom(SMBBlocks.CUT_DIAMOND)
-        .create(SMBBlocks.DIAMOND_GRATE).craftableFrom(Blocks.DIAMOND_BLOCK)
       ).build();
 
     RecipeAdvancement
@@ -440,7 +436,6 @@ public class SMBRecipeAdvancementProvider extends FabricAdvancementProvider {
         .create(SMBBlocks.NETHERITE_PILLAR).craftableFrom(Blocks.NETHERITE_BLOCK)
         .create(SMBBlocks.CUT_NETHERITE).craftableFrom(Blocks.NETHERITE_BLOCK)
         .create(SMBBlocks.CRACKED_CUT_NETHERITE).craftableFrom(SMBBlocks.CUT_NETHERITE)
-        .create(SMBBlocks.NETHERITE_GRATE).craftableFrom(Blocks.NETHERITE_BLOCK)
       ).build();
 
     RecipeAdvancement
@@ -548,10 +543,6 @@ public class SMBRecipeAdvancementProvider extends FabricAdvancementProvider {
 
           .create(SMBBlocks.CUT_SOUL_SANDSTONE).craftableFrom(SMBBlocks.SOUL_SANDSTONE).cuttableFrom(SMBBlocks.SOUL_SANDSTONE)
           .create(SMBBlocks.CUT_SOUL_SANDSTONE_SLAB).craftableFrom(SMBBlocks.CUT_SOUL_SANDSTONE).cuttableFrom(SMBBlocks.SOUL_SANDSTONE, SMBBlocks.CUT_SOUL_SANDSTONE)
-        /*.create(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).craftableFrom(Blocks.VINE, Blocks.MOSS_BLOCK)
-        .create(MBItems.MOSSY_SOUL_SANDSTONE_BRICK_STAIRS).craftableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).cuttableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS)
-        .create(MBItems.MOSSY_SOUL_SANDSTONE_BRICK_SLAB).craftableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).cuttableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS)
-        .create(MBItems.MOSSY_SOUL_SANDSTONE_BRICK_WALL).craftableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).cuttableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS)*/
       ).build();
 
     RecipeAdvancement

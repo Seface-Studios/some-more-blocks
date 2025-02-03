@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:soul_sandstone_tile_stairs_from_soul_sandstone_tiles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

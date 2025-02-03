@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:magenta_terracotta_tiles_from_magenta_dye"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

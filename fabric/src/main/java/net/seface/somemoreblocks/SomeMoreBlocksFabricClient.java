@@ -39,14 +39,12 @@ public class SomeMoreBlocksFabricClient implements ClientModInitializer {
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.CRIMSON_FUNGUS_COLONY_WALL, RenderType.cutout());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.CYAN_STAINED_TILED_GLASS, RenderType.translucent());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE, RenderType.translucent());
-    BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.DIAMOND_GRATE, RenderType.cutout());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.DUNE_GRASS, RenderType.cutout());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER, RenderType.cutoutMipped());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.GRAY_STAINED_TILED_GLASS, RenderType.translucent());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE, RenderType.translucent());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.GREEN_STAINED_TILED_GLASS, RenderType.translucent());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE, RenderType.translucent());
-    BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.IRON_GRATE, RenderType.cutout());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.LARGE_SNOW_FERN, RenderType.cutout());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.LEAF_LITTER, RenderType.cutoutMipped());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS, RenderType.translucent());
@@ -58,7 +56,6 @@ public class SomeMoreBlocksFabricClient implements ClientModInitializer {
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.LUMINOUS_FLOWER, RenderType.cutout());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.MAGENTA_STAINED_TILED_GLASS, RenderType.translucent());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE, RenderType.translucent());
-    BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.NETHERITE_GRATE, RenderType.cutout());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.ORANGE_STAINED_TILED_GLASS, RenderType.translucent());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE, RenderType.translucent());
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.PINK_STAINED_TILED_GLASS, RenderType.translucent());

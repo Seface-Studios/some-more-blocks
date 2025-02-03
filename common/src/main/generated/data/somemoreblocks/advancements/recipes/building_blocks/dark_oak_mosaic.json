@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:dark_oak_mosaic"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

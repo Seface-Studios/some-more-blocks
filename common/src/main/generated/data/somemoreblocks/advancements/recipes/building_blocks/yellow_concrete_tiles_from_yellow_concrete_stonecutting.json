@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:yellow_concrete_tiles_from_yellow_concrete_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

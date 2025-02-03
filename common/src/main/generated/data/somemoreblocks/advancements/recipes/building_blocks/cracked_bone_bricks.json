@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:cracked_bone_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

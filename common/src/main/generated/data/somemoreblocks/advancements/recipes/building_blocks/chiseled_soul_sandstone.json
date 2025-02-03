@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:chiseled_soul_sandstone"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:polished_snow_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

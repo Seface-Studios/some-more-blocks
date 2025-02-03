@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:nether_bricks_pillar_from_nether_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

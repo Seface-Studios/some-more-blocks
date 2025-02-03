@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_tall_grass"
+      "has_tall_grass",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:tall_snow_grass"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

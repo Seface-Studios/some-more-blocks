@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:terracotta_tiles_from_terracotta_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

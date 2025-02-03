@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:green_shingles_from_green_terracotta_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

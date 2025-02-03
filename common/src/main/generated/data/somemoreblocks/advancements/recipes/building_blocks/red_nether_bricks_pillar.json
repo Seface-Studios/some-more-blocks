@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:red_nether_bricks_pillar"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

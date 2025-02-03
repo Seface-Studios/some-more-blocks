@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:mossy_diorite_brick_wall_from_mossy_diorite_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

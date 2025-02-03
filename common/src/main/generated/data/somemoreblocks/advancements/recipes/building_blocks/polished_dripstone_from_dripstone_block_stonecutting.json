@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:polished_dripstone_from_dripstone_block_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

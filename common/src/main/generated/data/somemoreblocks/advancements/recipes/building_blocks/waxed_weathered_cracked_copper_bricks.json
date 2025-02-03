@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:waxed_weathered_cracked_copper_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

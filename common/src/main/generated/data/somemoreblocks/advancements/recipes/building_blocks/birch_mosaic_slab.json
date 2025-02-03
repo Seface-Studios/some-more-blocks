@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:birch_mosaic_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

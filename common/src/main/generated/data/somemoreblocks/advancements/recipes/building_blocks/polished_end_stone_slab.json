@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:polished_end_stone_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

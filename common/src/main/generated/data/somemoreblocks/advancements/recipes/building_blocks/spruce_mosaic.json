@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:spruce_mosaic"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

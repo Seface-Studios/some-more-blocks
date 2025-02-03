@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:white_shingles_from_white_terracotta_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

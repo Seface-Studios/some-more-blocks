@@ -95,10 +95,9 @@ public class BigLilyPadBlock extends WaterlilyBlock {
     level.setBlock(topPos, createBlockState(state, facing, 3), 3);
   }
 
-  @NotNull
   @Override
-  public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-    if (level.isClientSide) return super.playerWillDestroy(level, pos, state, player);
+  public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+    if (level.isClientSide) return;
 
     Direction facing = state.getValue(FACING);
     int texture = state.getValue(TEXTURE);
@@ -106,8 +105,6 @@ public class BigLilyPadBlock extends WaterlilyBlock {
     this.destroyBlockIfSameType(level, BigLilyPadChildOffsets.getSidePos(pos, facing, texture));
     this.destroyBlockIfSameType(level, BigLilyPadChildOffsets.getSideTopPos(pos, facing, texture));
     this.destroyBlockIfSameType(level, BigLilyPadChildOffsets.getTopPos(pos, facing, texture));
-
-    return super.playerWillDestroy(level, pos, state, player);
   }
 
   private static BlockState createBlockState(BlockState state, Direction facing, int texture) {

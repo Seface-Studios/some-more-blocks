@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:bone_tiles_from_bone_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

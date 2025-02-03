@@ -1,12 +1,14 @@
 package net.seface.somemoreblocks.registries;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
@@ -157,15 +159,15 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.MOSSY_CALCITE_BRICK_WALL);
       entry.accept(SMBItems.SMOOTH_CALCITE);
       entry.accept(SMBItems.SMOOTH_CALCITE_SLAB);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.TUFF_BRICKS);
+      entry.accept(SMBItems.TUFF_BRICKS);
       entry.accept(SMBItems.CRACKED_TUFF_BRICKS);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.TUFF_BRICK_SLAB);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.TUFF_BRICK_STAIRS);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.TUFF_BRICK_WALL);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.CHISELED_TUFF_BRICKS);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.POLISHED_TUFF);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.POLISHED_TUFF_SLAB);
-      SMBUtils.entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBItems.POLISHED_TUFF_STAIRS);
+      entry.accept(SMBItems.TUFF_BRICK_SLAB);
+      entry.accept(SMBItems.TUFF_BRICK_STAIRS);
+      entry.accept(SMBItems.TUFF_BRICK_WALL);
+      entry.accept(SMBItems.CHISELED_TUFF_BRICKS);
+      entry.accept(SMBItems.POLISHED_TUFF);
+      entry.accept(SMBItems.POLISHED_TUFF_SLAB);
+      entry.accept(SMBItems.POLISHED_TUFF_STAIRS);
       entry.accept(SMBItems.TUFF_PILLAR);
       entry.accept(SMBItems.TUFF_TILES);
       entry.accept(SMBItems.CRACKED_TUFF_TILES);
@@ -327,11 +329,6 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.IRON_PILLAR);
       entry.accept(SMBItems.CUT_IRON);
       entry.accept(SMBItems.CRACKED_CUT_IRON);
-
-      if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
-        entry.accept(SMBItems.IRON_GRATE);
-      }
-
       entry.accept(SMBItems.GOLD_BRICKS);
       entry.accept(SMBItems.CRACKED_GOLD_BRICKS);
       entry.accept(SMBItems.GOLD_PILLAR);
@@ -357,21 +354,11 @@ public class SMBCreativeTabs {
       entry.accept(SMBItems.DIAMOND_PILLAR);
       entry.accept(SMBItems.CUT_DIAMOND);
       entry.accept(SMBItems.CRACKED_CUT_DIAMOND);
-
-      if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
-        entry.accept(SMBItems.DIAMOND_GRATE);
-      }
-
       entry.accept(SMBItems.NETHERITE_BRICKS);
       entry.accept(SMBItems.CRACKED_NETHERITE_BRICKS);
       entry.accept(SMBItems.NETHERITE_PILLAR);
       entry.accept(SMBItems.CUT_NETHERITE);
       entry.accept(SMBItems.CRACKED_CUT_NETHERITE);
-
-      if (ctx.enabledFeatures().contains(FeatureFlags.UPDATE_1_21)) {
-        entry.accept(SMBItems.NETHERITE_GRATE);
-      }
-
       entry.accept(SMBItems.CRACKED_QUARTZ_BRICKS);
       entry.accept(SMBItems.CUT_QUARTZ);
       entry.accept(SMBItems.CRACKED_CUT_QUARTZ);

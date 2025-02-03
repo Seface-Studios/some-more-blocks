@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:smooth_dripstone"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

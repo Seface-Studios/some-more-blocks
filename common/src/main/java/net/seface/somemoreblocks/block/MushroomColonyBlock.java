@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
 public class MushroomColonyBlock extends BushBlock {
-  public static final MapCodec<MushroomColonyBlock> CODEC = simpleCodec(MushroomColonyBlock::new);
   protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0);
 
   private final TagKey<Block> tagKey;
@@ -27,12 +26,6 @@ public class MushroomColonyBlock extends BushBlock {
   public MushroomColonyBlock(TagKey<Block> tagKey, BlockBehaviour.Properties properties) {
     super(properties);
     this.tagKey = tagKey;
-  }
-
-  @NotNull
-  @Override
-  public MapCodec<MushroomColonyBlock> codec() {
-    return CODEC;
   }
 
   @NotNull

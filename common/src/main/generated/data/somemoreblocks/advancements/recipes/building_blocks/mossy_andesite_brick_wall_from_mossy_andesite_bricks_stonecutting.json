@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:mossy_andesite_brick_wall_from_mossy_andesite_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

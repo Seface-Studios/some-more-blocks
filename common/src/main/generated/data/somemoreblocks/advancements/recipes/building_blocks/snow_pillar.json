@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:snow_pillar"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

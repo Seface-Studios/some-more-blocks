@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:ice_tile_wall_from_packed_ice_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

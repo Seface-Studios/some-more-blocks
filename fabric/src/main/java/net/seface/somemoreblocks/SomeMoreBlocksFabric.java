@@ -40,8 +40,6 @@ public class SomeMoreBlocksFabric implements ModInitializer {
 
     LandPathNodeTypesRegistry.register(SMBBlocks.TINY_CACTUS, (state, neighbor) -> BlockPathTypes.DAMAGE_OTHER);
 
-    enableOrDisableExperimentalResourcePack();
-
     registerCarvedBlocks();
     registerCompostableItems();
     registerFuels();
@@ -123,7 +121,7 @@ public class SomeMoreBlocksFabric implements ModInitializer {
    * Registers values related to Snowy-like blocks.
    */
   private static void registerSnowyBlocks() {
-    SnowyBushRegistry.register(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS);
+    SnowyBushRegistry.register(Blocks.GRASS, SMBBlocks.SHORT_SNOW_GRASS);
     SnowyBushRegistry.register(Blocks.TALL_GRASS, SMBBlocks.TALL_SNOW_GRASS);
     SnowyBushRegistry.register(Blocks.FERN, SMBBlocks.SNOW_FERN);
     SnowyBushRegistry.register(Blocks.LARGE_FERN, SMBBlocks.LARGE_SNOW_FERN);
@@ -171,25 +169,5 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     FuelRegistry.INSTANCE.add(SMBItems.COAL_PILLAR, Constants.COAL_PILLAR_FUEL);
     FuelRegistry.INSTANCE.add(SMBItems.CUT_COAL, Constants.CUT_COAL_FUEL);
     FuelRegistry.INSTANCE.add(SMBItems.CRACKED_CUT_COAL, Constants.CRACKED_CUT_COAL_FUEL);
-  }
-
-  /**
-   * Enabled/Disable Experimental 1.21 Resource Pack.
-   * Since the introduction of new Tuff blocks, a new texture with new Vanilla color palette was created.
-   * This method should be able to identify worlds with this experimental data pack enabled and apply the Resource Pack.
-   */
-  private static void enableOrDisableExperimentalResourcePack() {
-    if (MOD_CONTAINER.isEmpty()) return;
-
-    // Register as built-in Resource Pack.
-    ResourceManagerHelper.registerBuiltinResourcePack(
-      EventResourcePackManager.EXPERIMENTAL_1_21_RP,
-      MOD_CONTAINER.get(),
-      Component.translatable("somemoreblocks.resourcepack.update_1_21.name"),
-      ResourcePackActivationType.NORMAL
-    );
-
-    ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> EventResourcePackManager.onPlayerJoinEnableResourcePack(handler.getPlayer(), FeatureFlags.UPDATE_1_21));
-    ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> EventResourcePackManager.onPlayerLeaveDisableResourcePack(handler.getPlayer(), FeatureFlags.UPDATE_1_21));
   }
 }

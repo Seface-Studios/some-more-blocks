@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:light_gray_concrete_tiles"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

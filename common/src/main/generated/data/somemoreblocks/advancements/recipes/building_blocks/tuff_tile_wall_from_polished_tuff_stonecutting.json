@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "minecraft:polished_tuff"
+              "somemoreblocks:polished_tuff"
             ]
           }
         ]
@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:tuff_tile_wall_from_polished_tuff_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -1,5 +1,6 @@
 package net.seface.somemoreblocks.registries;
 
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;

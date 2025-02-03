@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:deepslate_pillar_from_deepslate_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

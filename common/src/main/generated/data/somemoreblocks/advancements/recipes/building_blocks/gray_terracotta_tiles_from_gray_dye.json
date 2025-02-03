@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:gray_terracotta_tiles_from_gray_dye"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

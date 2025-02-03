@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "minecraft:tuff_bricks"
+              "somemoreblocks:tuff_bricks"
             ]
           }
         ]
@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:tuff_pillar"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

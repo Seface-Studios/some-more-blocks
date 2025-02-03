@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:cracked_coal_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

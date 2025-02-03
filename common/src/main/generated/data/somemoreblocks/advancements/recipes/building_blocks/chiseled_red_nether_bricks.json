@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:chiseled_red_nether_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

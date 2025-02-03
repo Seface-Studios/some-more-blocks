@@ -30,5 +30,6 @@
     "recipes": [
       "somemoreblocks:corrupted_polished_blackstone_brick_slab_from_corrupted_polished_blackstone_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }
