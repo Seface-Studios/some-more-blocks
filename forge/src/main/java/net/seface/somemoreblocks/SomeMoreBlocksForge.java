@@ -1,18 +1,16 @@
 package net.seface.somemoreblocks;
 
-import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.seface.somemoreblocks.registries.*;
-import net.seface.somemoreblocks.utils.*;
+import net.seface.somemoreblocks.utils.SMBUtils;
 
 @Mod(SomeMoreBlocks.ID)
 public class SomeMoreBlocksForge {
@@ -28,7 +26,6 @@ public class SomeMoreBlocksForge {
 
     bus.addListener(this::clientSetup);
     bus.addListener(this::commonSetup);
-    bus.addListener(this::registerColorProviders);
   }
 
   private void clientSetup(final FMLClientSetupEvent event) {
@@ -233,13 +230,6 @@ public class SomeMoreBlocksForge {
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(), RenderType.translucent());
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), RenderType.translucent());
-  }
-
-  /**
-   * Registers values related to ColorProvider.
-   */
-  private void registerColorProviders(RegisterColorHandlersEvent.Block event) {
-    event.register((blockState, tint, pos, i) -> BiomeColors.getAverageFoliageColor(tint, pos), SMBBlocks.LEAF_LITTER.get());
   }
 
   /**
