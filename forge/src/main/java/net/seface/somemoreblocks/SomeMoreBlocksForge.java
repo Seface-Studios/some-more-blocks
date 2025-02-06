@@ -30,7 +30,6 @@ public class SomeMoreBlocksForge {
 
     bus.addListener(this::clientSetup);
     bus.addListener(this::commonSetup);
-    bus.addListener(this::registerColorProviders);
   }
 
   private void clientSetup(final FMLClientSetupEvent event) {
@@ -248,13 +247,5 @@ public class SomeMoreBlocksForge {
 
     /* 1.21.4 */
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), cutout);
-  }
-
-  /**
-   * Registers values related to ColorProvider.
-   */
-  private void registerColorProviders(RegisterColorHandlersEvent.Block event) {
-    event.register(
-      (blockState, tint, pos, i) -> BiomeColors.getAverageFoliageColor(tint, pos), SMBBlocks.LEAF_LITTER.get());
   }
 }
