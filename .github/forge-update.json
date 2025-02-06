@@ -4,8 +4,8 @@
     "1.20.4-latest": "1.0.0",
     "1.20.4-recommended": "1.0.0",
 
-    "1.20.1-latest": "1.0.0-bp",
-    "1.20.1-recommended": "1.0.0-bp"
+    "1.20.1-latest": "1.0.1-bp",
+    "1.20.1-recommended": "1.0.1-bp"
   },
 
   "1.20.4": {
@@ -13,6 +13,7 @@
   },
 
   "1.20.1": {
-    "1.0.0-bp": "first release for Minecraft 1.20.1 (Backport from 1.20.4)"
+    "1.0.0-bp": "first release for Minecraft 1.20.1 (Backport from 1.20.4)",
+    "1.0.1-bp": "fixed a crash when starting the server"
   }
 }
