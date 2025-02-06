@@ -1,11 +1,12 @@
 {
   "homepage": "https://github.com/Seface-Studios/some-more-blocks",
   "promos": {
-    "1.20.4-latest": "1.0.0",
-    "1.20.4-recommended": "1.0.0"
+    "1.20.4-latest": "1.0.1",
+    "1.20.4-recommended": "1.0.1"
   },
 
   "1.20.4": {
-    "1.0.0": "first release for Minecraft 1.20.4"
+    "1.0.0": "first release for Minecraft 1.20.4",
+    "1.0.1": "fixed a crash when starting the server"
   }
 }

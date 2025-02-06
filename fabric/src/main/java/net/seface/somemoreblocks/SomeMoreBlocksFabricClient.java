@@ -3,20 +3,33 @@ package net.seface.somemoreblocks;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.flag.FeatureFlags;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.registries.ModelPredicateRegistry;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.registries.SMBItems;
+import net.seface.somemoreblocks.utils.EventResourcePackManager;
+
+import java.util.Optional;
 
 public class SomeMoreBlocksFabricClient implements ClientModInitializer {
+  private static final Optional<ModContainer> MOD_CONTAINER = FabricLoader.getInstance().getModContainer(SomeMoreBlocks.ID);
 
   @Override
   public void onInitializeClient() {
     registerBlockRenders();
     registerColorProviders();
     registerModelPredicateProviders();
+
+    enableOrDisableExperimentalResourcePack();
   }
 
   /**
@@ -111,5 +124,25 @@ public class SomeMoreBlocksFabricClient implements ClientModInitializer {
     ModelPredicateRegistry.register(SMBItems.BIRCH_LEAVES_BUCKET, LeavesBucketItem.BUCKET_VOLUME);
     ModelPredicateRegistry.register(SMBItems.AZALEA_LEAVES_BUCKET, LeavesBucketItem.BUCKET_VOLUME);
     ModelPredicateRegistry.register(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET, LeavesBucketItem.BUCKET_VOLUME);
+  }
+
+  /**
+   * Enabled/Disable Experimental 1.21 Resource Pack.
+   * Since the introduction of new Tuff blocks, a new texture with new Vanilla color palette was created.
+   * This method should be able to identify worlds with this experimental data pack enabled and apply the Resource Pack.
+   */
+  private static void enableOrDisableExperimentalResourcePack() {
+    if (MOD_CONTAINER.isEmpty()) return;
+
+    // Register as built-in Resource Pack.
+    ResourceManagerHelper.registerBuiltinResourcePack(
+      EventResourcePackManager.EXPERIMENTAL_1_21_RP,
+      MOD_CONTAINER.get(),
+      Component.translatable("somemoreblocks.resourcepack.update_1_21.name"),
+      ResourcePackActivationType.NORMAL
+    );
+
+    ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> EventResourcePackManager.onPlayerJoinEnableResourcePack(handler.getPlayer(), FeatureFlags.UPDATE_1_21));
+    ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> EventResourcePackManager.onPlayerLeaveDisableResourcePack(handler.getPlayer(), FeatureFlags.UPDATE_1_21));
   }
 }
