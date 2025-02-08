@@ -36,7 +36,9 @@ public abstract class BushBlockMixin extends Block {
 
   @Override
   public boolean isRandomlyTicking(BlockState state) {
-    return SnowyBushRegistry.getSnowyVariation(state).isPresent() || SnowyBushRegistry.getNormalVariation(state).isPresent();
+    return
+      (SnowyBushRegistry.getSnowyVariation(state).isPresent() || SnowyBushRegistry.getNormalVariation(state).isPresent() && !super.isRandomlyTicking(state)) ||
+      (SnowyBushRegistry.getSnowyVariation(state).isEmpty() || SnowyBushRegistry.getNormalVariation(state).isEmpty() && super.isRandomlyTicking(state));
   }
 
   @Override

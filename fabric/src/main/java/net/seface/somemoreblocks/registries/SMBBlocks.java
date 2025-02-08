@@ -40,7 +40,7 @@ public class SMBBlocks {
   public static final Block SNOW_FERN = new GenericBonemealableBushBlock(SMBBlocks.LARGE_SNOW_FERN, FabricBlockSettings.copyOf(Blocks.FERN));
   public static final Block TALL_SNOW_GRASS = new DoublePlantBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
   public static final Block SHORT_SNOW_GRASS = new GenericBonemealableBushBlock(SMBBlocks.TALL_SNOW_GRASS, FabricBlockSettings.copyOf(Blocks.GRASS));
-  public static final Block TINY_CACTUS = new TinyCactusBlock(MobEffects.POISON, 7, FabricBlockSettings.copyOf(Blocks.TORCHFLOWER));
+  public static final Block TINY_CACTUS = new TinyCactusBlock(MobEffects.POISON, 7, FabricBlockSettings.copyOf(Blocks.ALLIUM));
   public static final Block WARPED_FUNGUS_COLONY = new MushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS));
   public static final Block TALL_WARPED_FUNGUS_COLONY = new DoubleMushroomColonyBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS));
   public static final Block WARPED_FUNGUS_COLONY_WALL = new WallMushroomColonyBlock(FabricBlockSettings.copyOf(SMBBlocks.WARPED_FUNGUS_COLONY).dropsLike(SMBBlocks.WARPED_FUNGUS_COLONY));
