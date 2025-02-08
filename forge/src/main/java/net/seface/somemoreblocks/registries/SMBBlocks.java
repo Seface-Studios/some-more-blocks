@@ -49,7 +49,7 @@ public class SMBBlocks {
   public static final RegistryObject<Block> SNOW_FERN = registerBlock("snow_fern", () -> new GenericBonemealableBushBlock(SMBBlocks.LARGE_SNOW_FERN.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FERN)));
   public static final RegistryObject<Block> TALL_SNOW_GRASS = registerBlock("tall_snow_grass", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
   public static final RegistryObject<Block> SHORT_SNOW_GRASS = registerBlock("short_snow_grass", () -> new GenericBonemealableBushBlock(SMBBlocks.TALL_SNOW_GRASS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS)));
-  public static final RegistryObject<Block> TINY_CACTUS = registerBlock("tiny_cactus", () -> new TinyCactusBlock(MobEffects.POISON, 7, BlockBehaviour.Properties.ofFullCopy(Blocks.TORCHFLOWER)));
+  public static final RegistryObject<Block> TINY_CACTUS = registerBlock("tiny_cactus", () -> new TinyCactusBlock(MobEffects.POISON, 7, BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)));
   public static final RegistryObject<Block> WARPED_FUNGUS_COLONY = registerBlock("warped_fungus_colony", () -> new MushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS)), false);
   public static final RegistryObject<Block> TALL_WARPED_FUNGUS_COLONY = registerBlock("tall_warped_fungus_colony", () -> new DoubleMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS)), false);
   public static final RegistryObject<Block> WARPED_FUNGUS_COLONY_WALL = registerBlock("warped_fungus_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.WARPED_FUNGUS_COLONY.get())), false);

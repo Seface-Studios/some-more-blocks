@@ -15,9 +15,6 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.seface.somemoreblocks.registries.SnowyBushRegistry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Optional;
 
@@ -29,20 +26,17 @@ public abstract class BushBlockMixin extends Block {
     super(properties);
   }
 
-  @Inject(method = "<init>", at = @At("RETURN"))
-  public void init(Properties properties, CallbackInfo ci) {
-    super.properties.randomTicks();
-  }
-
   @Override
   public boolean isRandomlyTicking(BlockState state) {
-    return SnowyBushRegistry.getSnowyVariation(state).isPresent() || SnowyBushRegistry.getNormalVariation(state).isPresent();
+    return
+      (SnowyBushRegistry.getSnowyVariation(state).isPresent() || SnowyBushRegistry.getNormalVariation(state).isPresent() && !super.isRandomlyTicking(state)) ||
+      (SnowyBushRegistry.getSnowyVariation(state).isEmpty() || SnowyBushRegistry.getNormalVariation(state).isEmpty() && super.isRandomlyTicking(state));
   }
 
   @Override
   public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-    this.MB$turnIntoNormalVariation(state, level, pos);
-    this.MB$turnIntoSnowVariation(state, level, pos);
+    this.SMB$turnIntoNormalVariation(state, level, pos);
+    this.SMB$turnIntoSnowVariation(state, level, pos);
   }
 
   /**
@@ -53,7 +47,7 @@ public abstract class BushBlockMixin extends Block {
    * @param pos The current block position.
    */
   @Unique
-  private void MB$turnIntoSnowVariation(BlockState state, Level level, BlockPos pos) {
+  private void SMB$turnIntoSnowVariation(BlockState state, Level level, BlockPos pos) {
     boolean isDoublePlant = state.hasProperty(DoublePlantBlock.HALF);
     boolean isSnowing = level.getBiome(pos).value().getPrecipitationAt(pos).equals(Biome.Precipitation.SNOW) && level.isRaining() && level.canSeeSky(pos);
     Optional<BlockState> snowyVariation = SnowyBushRegistry.getSnowyVariation(state);
@@ -81,7 +75,7 @@ public abstract class BushBlockMixin extends Block {
    * @param pos The current block position.
    */
   @Unique
-  private void MB$turnIntoNormalVariation(BlockState state, Level level, BlockPos pos) {
+  private void SMB$turnIntoNormalVariation(BlockState state, Level level, BlockPos pos) {
     boolean isDoublePlant = state.hasProperty(DoublePlantBlock.HALF);
     if (level.getBrightness(LightLayer.BLOCK, pos) > 11) {
       Optional<BlockState> normalVariation = SnowyBushRegistry.getNormalVariation(state);
