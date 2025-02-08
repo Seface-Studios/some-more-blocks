@@ -45,7 +45,7 @@ public class SMBBlocks {
   public static final Block SNOW_FERN = registerBlock("snow_fern", (properties) -> new GenericBonemealableBushBlock(SMBBlocks.LARGE_SNOW_FERN, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.FERN));
   public static final Block TALL_SNOW_GRASS = registerBlock("tall_snow_grass", DoublePlantBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS));
   public static final Block SHORT_SNOW_GRASS = registerBlock("short_snow_grass", (properties) -> new GenericBonemealableBushBlock(SMBBlocks.TALL_SNOW_GRASS, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS));
-  public static final Block TINY_CACTUS = registerBlock("tiny_cactus", (properties) -> new TinyCactusBlock(MobEffects.POISON, 7, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.TORCHFLOWER));
+  public static final Block TINY_CACTUS = registerBlock("tiny_cactus", (properties) -> new TinyCactusBlock(MobEffects.POISON, 7, properties), BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM));
   public static final Block WARPED_FUNGUS_COLONY = registerBlock("warped_fungus_colony", MushroomColonyBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS), false);
   public static final Block TALL_WARPED_FUNGUS_COLONY = registerBlock("tall_warped_fungus_colony", DoubleMushroomColonyBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_FUNGUS), false);
   public static final Block WARPED_FUNGUS_COLONY_WALL = registerBlock("warped_fungus_colony_wall", WallMushroomColonyBlock::new, BlockBehaviour.Properties.ofFullCopy(SMBBlocks.WARPED_FUNGUS_COLONY), false);
