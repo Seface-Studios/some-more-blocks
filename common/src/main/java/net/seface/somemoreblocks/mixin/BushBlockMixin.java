@@ -36,13 +36,15 @@ public abstract class BushBlockMixin extends Block {
 
   @Override
   public boolean isRandomlyTicking(BlockState state) {
-    return SnowyBushRegistry.getSnowyVariation(state).isPresent() || SnowyBushRegistry.getNormalVariation(state).isPresent();
+    return
+      (SnowyBushRegistry.getSnowyVariation(state).isPresent() || SnowyBushRegistry.getNormalVariation(state).isPresent() && !super.isRandomlyTicking(state)) ||
+      (SnowyBushRegistry.getSnowyVariation(state).isEmpty() || SnowyBushRegistry.getNormalVariation(state).isEmpty() && super.isRandomlyTicking(state));
   }
 
   @Override
   public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-    this.MB$turnIntoNormalVariation(state, level, pos);
-    this.MB$turnIntoSnowVariation(state, level, pos);
+    this.SMB$turnIntoNormalVariation(state, level, pos);
+    this.SMB$turnIntoSnowVariation(state, level, pos);
   }
 
   /**
@@ -53,7 +55,7 @@ public abstract class BushBlockMixin extends Block {
    * @param pos The current block position.
    */
   @Unique
-  private void MB$turnIntoSnowVariation(BlockState state, Level level, BlockPos pos) {
+  private void SMB$turnIntoSnowVariation(BlockState state, Level level, BlockPos pos) {
     boolean isDoublePlant = state.hasProperty(DoublePlantBlock.HALF);
     boolean isSnowing = level.getBiome(pos).value().getPrecipitationAt(pos).equals(Biome.Precipitation.SNOW) && level.isRaining() && level.canSeeSky(pos);
     Optional<BlockState> snowyVariation = SnowyBushRegistry.getSnowyVariation(state);
@@ -81,7 +83,7 @@ public abstract class BushBlockMixin extends Block {
    * @param pos The current block position.
    */
   @Unique
-  private void MB$turnIntoNormalVariation(BlockState state, Level level, BlockPos pos) {
+  private void SMB$turnIntoNormalVariation(BlockState state, Level level, BlockPos pos) {
     boolean isDoublePlant = state.hasProperty(DoublePlantBlock.HALF);
     if (level.getBrightness(LightLayer.BLOCK, pos) > 11) {
       Optional<BlockState> normalVariation = SnowyBushRegistry.getNormalVariation(state);
