@@ -1,0 +1,11 @@
+name: Question
+description: I need to ask some questions about the mod.
+title: "[Question]: "
+body:
+  - type: input
+    id: question
+    attributes:
+      label: Your Question
+      placeholder: "How can I craft a Shingles?"
+    validations:
+      required: true

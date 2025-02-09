@@ -1,0 +1,20 @@
+name: Feature request
+description: I would like to suggest new features or an improvement to some existing ones.
+title: "[Feature Request]: "
+type: "Feature Request"
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        Thank you for taking the time to suggest new features for the mod! All features are important to make the mod more complete with new updates.
+        
+        Remember that suggesting a feature does not necessarily mean that it will be added to the mod.
+
+  - type: textarea
+    id: feature_descriptrion
+    attributes:
+      label: Description
+      description: Important information about what the feature would do.
+      placeholder: More wood variations.
+    validations:
+      required: true
