@@ -25,8 +25,14 @@ public class SMBWorldGenTagProvider extends FabricTagProvider<Biome> {
         Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE);
 
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_TINY_CACTUS)
-      .forceAddTag(BiomeTags.IS_FOREST)
       .forceAddTag(BiomeTags.IS_BADLANDS)
       .add(Biomes.DESERT);
+
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).add(Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST);
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY).add(Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST);
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY).add(Biomes.CRIMSON_FOREST);
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).add(Biomes.WARPED_FOREST);
+
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SNOW_PLANTS).add(Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA);
   }
 }

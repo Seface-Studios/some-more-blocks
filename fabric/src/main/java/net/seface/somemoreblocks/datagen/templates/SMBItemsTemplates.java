@@ -60,14 +60,6 @@ public class SMBItemsTemplates {
         ItemModelUtils.override(fourQuarter, 13)));
   }
 
-  public static void createCarvedPaleOakBlockItemModel(Block block) {
-    ResourceLocation identifier = ModelLocationUtils.getModelLocation(block);
-
-    /*SMBModelProvider.ITEM_MODEL_GENERATOR.itemModelOutput.accept(
-      block.asItem(), ItemModelUtils
-    );*/
-  }
-
   public static void createWaxeableBlockItemModel(Block nonWaxedBlock) {
     ResourceLocation waxedIdentifier = BuiltInRegistries.BLOCK.getKey(nonWaxedBlock).withPrefix("waxed_");
 

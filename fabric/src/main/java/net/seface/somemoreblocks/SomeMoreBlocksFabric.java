@@ -7,16 +7,8 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.PathType;
-import net.seface.somemoreblocks.registries.CarvedBlockRegistry;
-import net.seface.somemoreblocks.registries.SnowyBushRegistry;
-import net.seface.somemoreblocks.registries.SMBBlocks;
-import net.seface.somemoreblocks.registries.SMBFeatures;
-import net.seface.somemoreblocks.registries.SMBCreativeTabs;
-import net.seface.somemoreblocks.registries.SMBItems;
+import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.utils.SMBUtils;
-import net.seface.somemoreblocks.registries.WaxableCopperBlockRegistry;
-import net.seface.somemoreblocks.registries.WeatheringCopperBlockRegistry;
-import net.seface.somemoreblocks.registries.SMBBiomeModifiers;
 
 import java.util.Optional;
 

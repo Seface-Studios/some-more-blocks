@@ -20,6 +20,10 @@ public class SMBBiomeModifiers {
     registerTinyCactusDecoration(SMBPlacedFeature.PATCH_TINY_CACTUS);
     registerUndergroundDecoration(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER, SMBPlacedFeature.PATCH_LUMINOUS_FLOWER);
     registerVegetalDecoration(SMBBiomeTags.GENERATES_CATTAIL, SMBPlacedFeature.PATCH_CATTAIL);
+    registerVegetalDecoration(SMBBiomeTags.GENERATES_SNOW_PLANTS, SMBPlacedFeature.PATCH_SHORT_SNOW_GRASS);
+    registerVegetalDecoration(SMBBiomeTags.GENERATES_SNOW_PLANTS, SMBPlacedFeature.PATCH_SNOW_FERN);
+    registerVegetalDecoration(SMBBiomeTags.GENERATES_SNOW_PLANTS, SMBPlacedFeature.PATCH_TALL_SNOW_GRASS);
+    registerVegetalDecoration(SMBBiomeTags.GENERATES_SNOW_PLANTS, SMBPlacedFeature.PATCH_LARGE_SNOW_FERN);
     registerVegetalDecoration(SMBBiomeTags.GENERATES_SMALL_LILY_PADS, SMBPlacedFeature.PATCH_SMALL_LILY_PADS);
   }
 

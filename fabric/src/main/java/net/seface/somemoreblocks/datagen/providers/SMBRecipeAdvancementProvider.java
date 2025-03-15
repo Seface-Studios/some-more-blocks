@@ -6,8 +6,8 @@ import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
-import net.seface.somemoreblocks.datagen.core.RecipeAdvancement;
-import net.seface.somemoreblocks.datagen.core.RecipeAdvancementGroupType;
+import net.seface.somemoreblocks.datagen._deprecated.core.RecipeAdvancement;
+import net.seface.somemoreblocks.datagen._deprecated.core.RecipeAdvancementGroupType;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 
 import java.util.concurrent.CompletableFuture;
