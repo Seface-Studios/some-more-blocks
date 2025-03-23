@@ -40,7 +40,7 @@ public class SMBFeatureTemplates {
       new RandomPatchConfiguration(32, 2, 2,
         PlacementUtils.filtered(
           Feature.SIMPLE_BLOCK,
-          new SimpleBlockConfiguration(SimpleStateProvider.simple(SMBBlocks.CATTAIL)),
+          new SimpleBlockConfiguration(SimpleStateProvider.simple(SMBBlocks.CATTAIL.get())),
 
           BlockPredicate.anyOf(
             BlockPredicate.allOf(
@@ -48,20 +48,20 @@ public class SMBFeatureTemplates {
               BlockPredicate.anyOf(
                 BlockPredicate.anyOf(
                   BlockPredicate.matchesFluids(new Vec3i(1, -1, 0), Fluids.WATER, Fluids.FLOWING_WATER),
-                  BlockPredicate.matchesBlocks(new Vec3i(1, -1, 0), SMBBlocks.CATTAIL),
-                  BlockPredicate.matchesBlocks(new Vec3i(1, 0, 0), SMBBlocks.CATTAIL)),
+                  BlockPredicate.matchesBlocks(new Vec3i(1, -1, 0), SMBBlocks.CATTAIL.get()),
+                  BlockPredicate.matchesBlocks(new Vec3i(1, 0, 0), SMBBlocks.CATTAIL.get())),
                 BlockPredicate.anyOf(
                   BlockPredicate.matchesFluids(new Vec3i(-1, -1, 0), Fluids.WATER, Fluids.FLOWING_WATER),
-                  BlockPredicate.matchesBlocks(new Vec3i(-1, -1, 0), SMBBlocks.CATTAIL),
-                  BlockPredicate.matchesBlocks(new Vec3i(-1, 0, 0), SMBBlocks.CATTAIL)),
+                  BlockPredicate.matchesBlocks(new Vec3i(-1, -1, 0), SMBBlocks.CATTAIL.get()),
+                  BlockPredicate.matchesBlocks(new Vec3i(-1, 0, 0), SMBBlocks.CATTAIL.get())),
                 BlockPredicate.anyOf(
                   BlockPredicate.matchesFluids(new Vec3i(0, -1, 1), Fluids.WATER, Fluids.FLOWING_WATER),
-                  BlockPredicate.matchesBlocks(new Vec3i(0, -1, 1), SMBBlocks.CATTAIL),
-                  BlockPredicate.matchesBlocks(new Vec3i(0, 0, 1), SMBBlocks.CATTAIL)),
+                  BlockPredicate.matchesBlocks(new Vec3i(0, -1, 1), SMBBlocks.CATTAIL.get()),
+                  BlockPredicate.matchesBlocks(new Vec3i(0, 0, 1), SMBBlocks.CATTAIL.get())),
                 BlockPredicate.anyOf(
                   BlockPredicate.matchesFluids(new Vec3i(0, -1, -1), Fluids.WATER, Fluids.FLOWING_WATER),
-                  BlockPredicate.matchesBlocks(new Vec3i(0, -1, -1), SMBBlocks.CATTAIL),
-                  BlockPredicate.matchesBlocks(new Vec3i(0, 0, -1), SMBBlocks.CATTAIL))
+                  BlockPredicate.matchesBlocks(new Vec3i(0, -1, -1), SMBBlocks.CATTAIL.get()),
+                  BlockPredicate.matchesBlocks(new Vec3i(0, 0, -1), SMBBlocks.CATTAIL.get()))
               )
             ),
 
@@ -113,7 +113,7 @@ public class SMBFeatureTemplates {
       new RandomPatchConfiguration(5, 7, 3,
         PlacementUtils.filtered(
           Feature.SIMPLE_BLOCK,
-          new SimpleBlockConfiguration(SimpleStateProvider.simple(SMBBlocks.SMALL_LILY_PADS)),
+          new SimpleBlockConfiguration(SimpleStateProvider.simple(SMBBlocks.SMALL_LILY_PADS.get())),
           BlockPredicate.allOf(
             BlockPredicate.matchesBlocks(Vec3i.ZERO, Blocks.AIR),
             BlockPredicate.matchesFluids(Vec3i.ZERO.below(), Fluids.WATER)))));

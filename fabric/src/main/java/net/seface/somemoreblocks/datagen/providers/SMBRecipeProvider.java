@@ -36,45 +36,45 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
 
       @Override
       public void buildRecipes() {
-        this.snowyPlant(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS);
-        this.snowyPlant(Blocks.FERN, SMBBlocks.SNOW_FERN);
-        this.snowyPlant(Blocks.TALL_GRASS, SMBBlocks.TALL_SNOW_GRASS);
-        this.snowyPlant(Blocks.LARGE_FERN, SMBBlocks.LARGE_SNOW_FERN);
-        this.createGlassPaneRecipe(SMBBlocks.TILED_GLASS, SMBBlocks.TILED_GLASS_PANE, Blocks.GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.BLACK_STAINED_TILED_GLASS, SMBBlocks.BLACK_STAINED_TILED_GLASS_PANE, Blocks.BLACK_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.BLUE_STAINED_TILED_GLASS, SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE, Blocks.BLUE_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.BROWN_STAINED_TILED_GLASS, SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE, Blocks.BROWN_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.CYAN_STAINED_TILED_GLASS, SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE, Blocks.CYAN_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.GRAY_STAINED_TILED_GLASS, SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE, Blocks.GRAY_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.GREEN_STAINED_TILED_GLASS, SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE, Blocks.GREEN_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS, SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE, Blocks.LIGHT_BLUE_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS, SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE, Blocks.LIGHT_GRAY_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.LIME_STAINED_TILED_GLASS, SMBBlocks.LIME_STAINED_TILED_GLASS_PANE, Blocks.LIME_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.MAGENTA_STAINED_TILED_GLASS, SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE, Blocks.MAGENTA_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.ORANGE_STAINED_TILED_GLASS, SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE, Blocks.ORANGE_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.PINK_STAINED_TILED_GLASS, SMBBlocks.PINK_STAINED_TILED_GLASS_PANE, Blocks.PINK_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.PURPLE_STAINED_TILED_GLASS, SMBBlocks.PURPLE_STAINED_TILED_GLASS_PANE, Blocks.PURPLE_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.RED_STAINED_TILED_GLASS, SMBBlocks.RED_STAINED_TILED_GLASS_PANE, Blocks.RED_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.WHITE_STAINED_TILED_GLASS, SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE, Blocks.WHITE_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.YELLOW_STAINED_TILED_GLASS, SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE, Blocks.YELLOW_STAINED_GLASS_PANE);
+        this.snowyPlant(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS.get());
+        this.snowyPlant(Blocks.FERN, SMBBlocks.SNOW_FERN.get());
+        this.snowyPlant(Blocks.TALL_GRASS, SMBBlocks.TALL_SNOW_GRASS.get());
+        this.snowyPlant(Blocks.LARGE_FERN, SMBBlocks.LARGE_SNOW_FERN.get());
+        this.createGlassPaneRecipe(SMBBlocks.TILED_GLASS.get(), SMBBlocks.TILED_GLASS_PANE.get(), Blocks.GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.BLACK_STAINED_TILED_GLASS.get(), SMBBlocks.BLACK_STAINED_TILED_GLASS_PANE.get(), Blocks.BLACK_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.BLUE_STAINED_TILED_GLASS.get(), SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE.get(), Blocks.BLUE_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.BROWN_STAINED_TILED_GLASS.get(), SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE.get(), Blocks.BROWN_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.CYAN_STAINED_TILED_GLASS.get(), SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE.get(), Blocks.CYAN_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.GRAY_STAINED_TILED_GLASS.get(), SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE.get(), Blocks.GRAY_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.GREEN_STAINED_TILED_GLASS.get(), SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE.get(), Blocks.GREEN_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS.get(), SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE.get(), Blocks.LIGHT_BLUE_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS.get(), SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE.get(), Blocks.LIGHT_GRAY_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.LIME_STAINED_TILED_GLASS.get(), SMBBlocks.LIME_STAINED_TILED_GLASS_PANE.get(), Blocks.LIME_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get(), SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get(), Blocks.MAGENTA_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.ORANGE_STAINED_TILED_GLASS.get(), SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get(), Blocks.ORANGE_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.PINK_STAINED_TILED_GLASS.get(), SMBBlocks.PINK_STAINED_TILED_GLASS_PANE.get(), Blocks.PINK_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.PURPLE_STAINED_TILED_GLASS.get(), SMBBlocks.PURPLE_STAINED_TILED_GLASS_PANE.get(), Blocks.PURPLE_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.RED_STAINED_TILED_GLASS.get(), SMBBlocks.RED_STAINED_TILED_GLASS_PANE.get(), Blocks.RED_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.WHITE_STAINED_TILED_GLASS.get(), SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get(), Blocks.WHITE_STAINED_GLASS_PANE);
+        this.createGlassPaneRecipe(SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(), SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), Blocks.YELLOW_STAINED_GLASS_PANE);
 
         /* 1.21.4 */
-        this.pillar(Blocks.PALE_OAK_SLAB, SMBBlocks.PALE_OAK_MOSAIC, 1);
-        this.stairs(SMBBlocks.PALE_OAK_MOSAIC, SMBBlocks.PALE_OAK_MOSAIC_STAIRS);
-        this.slab(SMBBlocks.PALE_OAK_MOSAIC, SMBBlocks.PALE_OAK_MOSAIC_SLAB);
-        this.woodFromLogs(SMBBlocks.CARVED_PALE_OAK_WOOD, SMBBlocks.CARVED_PALE_OAK_LOG);
-        this.stairs(SMBBlocks.POLISHED_RESIN, SMBBlocks.POLISHED_RESIN_STAIRS, SMBBlocks.POLISHED_RESIN);
-        this.slab(SMBBlocks.POLISHED_RESIN, SMBBlocks.POLISHED_RESIN_SLAB, SMBBlocks.POLISHED_RESIN);
-        this.smeltingResultFromBase(SMBBlocks.CRACKED_RESIN_BRICKS, Blocks.RESIN_BRICKS);
-        this.pillar(Blocks.RESIN_BRICKS, SMBBlocks.RESINE_PILLAR);
-        this.twoByTwoPacker(Blocks.RESIN_BRICKS, SMBBlocks.RESIN_TILES, 4, Blocks.RESIN_BRICKS);
-        this.smeltingResultFromBase(SMBBlocks.CRACKED_RESIN_TILES, SMBBlocks.RESIN_TILES);
-        this.stairs(SMBBlocks.RESIN_TILES, SMBBlocks.RESIN_TILE_STAIRS, Blocks.RESIN_BRICKS, SMBBlocks.RESIN_TILES);
-        this.slab(SMBBlocks.RESIN_TILES, SMBBlocks.RESIN_TILE_SLAB, Blocks.RESIN_BRICKS, SMBBlocks.RESIN_TILES);
-        this.wall(SMBBlocks.RESIN_TILES, SMBBlocks.RESIN_TILE_WALL, Blocks.RESIN_BRICKS, SMBBlocks.RESIN_TILES);
-        this.twoByTwoPacker(Blocks.RESIN_BLOCK, SMBBlocks.POLISHED_RESIN, 4);
-        this.smeltingResultFromBase(SMBBlocks.SMOOTH_RESIN, Blocks.RESIN_BLOCK);
-        this.slab(SMBBlocks.SMOOTH_RESIN, SMBBlocks.SMOOTH_RESIN_SLAB, SMBBlocks.SMOOTH_RESIN);
+        this.pillar(Blocks.PALE_OAK_SLAB, SMBBlocks.PALE_OAK_MOSAIC.get(), 1);
+        this.stairs(SMBBlocks.PALE_OAK_MOSAIC.get(), SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get());
+        this.slab(SMBBlocks.PALE_OAK_MOSAIC.get(), SMBBlocks.PALE_OAK_MOSAIC_SLAB.get());
+        this.woodFromLogs(SMBBlocks.CARVED_PALE_OAK_WOOD.get(), SMBBlocks.CARVED_PALE_OAK_LOG.get());
+        this.stairs(SMBBlocks.POLISHED_RESIN.get(), SMBBlocks.POLISHED_RESIN_STAIRS.get(), SMBBlocks.POLISHED_RESIN.get());
+        this.slab(SMBBlocks.POLISHED_RESIN.get(), SMBBlocks.POLISHED_RESIN_SLAB.get(), SMBBlocks.POLISHED_RESIN.get());
+        this.smeltingResultFromBase(SMBBlocks.CRACKED_RESIN_BRICKS.get(), Blocks.RESIN_BRICKS);
+        this.pillar(Blocks.RESIN_BRICKS, SMBBlocks.RESINE_PILLAR.get());
+        this.twoByTwoPacker(Blocks.RESIN_BRICKS, SMBBlocks.RESIN_TILES.get(), 4, Blocks.RESIN_BRICKS);
+        this.smeltingResultFromBase(SMBBlocks.CRACKED_RESIN_TILES.get(), SMBBlocks.RESIN_TILES.get());
+        this.stairs(SMBBlocks.RESIN_TILES.get(), SMBBlocks.RESIN_TILE_STAIRS.get(), Blocks.RESIN_BRICKS, SMBBlocks.RESIN_TILES.get());
+        this.slab(SMBBlocks.RESIN_TILES.get(), SMBBlocks.RESIN_TILE_SLAB.get(), Blocks.RESIN_BRICKS, SMBBlocks.RESIN_TILES.get());
+        this.wall(SMBBlocks.RESIN_TILES.get(), SMBBlocks.RESIN_TILE_WALL.get(), Blocks.RESIN_BRICKS, SMBBlocks.RESIN_TILES.get());
+        this.twoByTwoPacker(Blocks.RESIN_BLOCK, SMBBlocks.POLISHED_RESIN.get(), 4);
+        this.smeltingResultFromBase(SMBBlocks.SMOOTH_RESIN.get(), Blocks.RESIN_BLOCK);
+        this.slab(SMBBlocks.SMOOTH_RESIN.get(), SMBBlocks.SMOOTH_RESIN_SLAB.get(), SMBBlocks.SMOOTH_RESIN.get());
       }
 
       private void snowyPlant(ItemLike input, ItemLike result) {
@@ -155,7 +155,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
             .withSuffix("_from_tiled_glass_pane");
 
           ShapedRecipeBuilder.shaped(BuiltInRegistries.ITEM, RecipeCategory.MISC, tiledGlassPane.asItem(), 8)
-            .define('#', SMBBlocks.TILED_GLASS_PANE)
+            .define('#', SMBBlocks.TILED_GLASS_PANE.get())
             .define('$', dye)
             .pattern("###")
             .pattern("#$#")

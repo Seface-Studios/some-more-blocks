@@ -1,16 +1,20 @@
 package net.seface.somemoreblocks;
 
-import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegisterEvent;
+import net.seface.somemoreblocks.platform.ForgePlatformRegistry;
+import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.util.SMBForgeUtils;
 import net.seface.somemoreblocks.utils.*;
@@ -18,39 +22,42 @@ import net.seface.somemoreblocks.utils.*;
 @SuppressWarnings({"removal", "deprecation"})
 @Mod(SomeMoreBlocks.ID)
 public class SomeMoreBlocksForge {
+
   public SomeMoreBlocksForge() {
     IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
     SMBForgedDataComponentTypes.init(bus);
-    SMBCreativeTabs.init(bus);
-    SMBBlocks.init(bus);
-    SMBItems.init(bus);
-    SMBFeatures.init(bus);
-    SMBBiomeModifiers.init(bus);
+    ForgePlatformRegistry.init(bus);
+    //SMBCreativeTabs.init(bus);
+    //SMBBlocks.init(bus);
+    //SMBFeatures.init(bus);
+    //SMBBiomeModifiers.init(bus);
 
-    bus.addListener(this::clientSetup);
+    //bus.addListener(this::clientSetup);
     bus.addListener(this::commonSetup);
+   //SMBItems.init(bus);
   }
 
   private void clientSetup(final FMLClientSetupEvent event) {
-    event.enqueueWork(() -> {
+    event.enqueueWork(() -> {/*
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(SMBBlocks.LUMINOUS_FLOWER.getId(), SMBBlocks.POTTED_LUMINOUS_FLOWER);
       ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(SMBBlocks.SNOW_FERN.getId(), SMBBlocks.POTTED_SNOW_FERN);
-      ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(SMBBlocks.TINY_CACTUS.getId(), SMBBlocks.POTTED_TINY_CACTUS);
+      ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(SMBBlocks.TINY_CACTUS.getId(), SMBBlocks.POTTED_TINY_CACTUS);*/
 
-      registerBlockRenders();
+      //registerBlockRenders();
     });
   }
 
   private void commonSetup(final FMLCommonSetupEvent event) {
     event.enqueueWork(() -> {
       SomeMoreBlocks.init(false);
+      //SMBBlocks.init();
 
-      registerCarvedBlocks();
+      /*registerCarvedBlocks();
       registerCompostableItems();
       registerSnowyBlocks();
       registerWaxableCopperBlocks();
-      registerWeatheringCopperBlocks();
+      registerWeatheringCopperBlocks();*/
     });
   }
 

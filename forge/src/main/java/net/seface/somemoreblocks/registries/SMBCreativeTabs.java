@@ -121,7 +121,6 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.PALE_OAK_MOSAIC.get());
       entry.accept(SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get());
       entry.accept(SMBBlocks.PALE_OAK_MOSAIC_SLAB.get());
-
       entry.accept(SMBBlocks.CARVED_BAMBOO_BLOCK.get());
       entry.accept(SMBBlocks.POLISHED_STONE.get());
       entry.accept(SMBBlocks.POLISHED_STONE_STAIRS.get());
@@ -276,7 +275,7 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.POLISHED_RESIN_STAIRS.get());
       entry.accept(SMBBlocks.POLISHED_RESIN_SLAB.get());
       entry.accept(SMBBlocks.CRACKED_RESIN_BRICKS.get());
-      entry.accept(SMBBlocks.RESIN_PILLAR.get());
+      //entry.accept(SMBBlocks.RESIN_PILLAR);
       entry.accept(SMBBlocks.RESIN_TILES.get());
       entry.accept(SMBBlocks.CRACKED_RESIN_TILES.get());
       entry.accept(SMBBlocks.RESIN_TILE_STAIRS.get());

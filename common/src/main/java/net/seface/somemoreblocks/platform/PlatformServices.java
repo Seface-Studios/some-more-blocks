@@ -5,7 +5,8 @@ import net.seface.somemoreblocks.SomeMoreBlocks;
 import java.util.ServiceLoader;
 
 public class PlatformServices {
-  public static final PlatformHelper PLATFORM = tryToLoadService(PlatformHelper.class);
+  public static final PlatformHelper PLATFORM_HELPER = tryToLoadService(PlatformHelper.class);
+  public static final PlatformRegistry PLATFORM_REGISTRY = tryToLoadService(PlatformRegistry.class);
 
   public static <T> T tryToLoadService(Class<T> clazz) {
     final T service = ServiceLoader.load(clazz)
