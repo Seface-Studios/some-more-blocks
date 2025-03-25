@@ -696,10 +696,41 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT);
     }).build();
 
+  private static final CreativeModeTab MORE_CACTUS_BLOCKS = FabricItemGroup.builder()
+    .icon(() -> new ItemStack(SMBBlocks.CACTUS_PILLAR))
+    .title(Component.translatable("itemGroup.somemoreblocks.cactusBlocks"))
+    .displayItems((ctx, entry) -> {
+      entry.accept(SMBBlocks.POLISHED_CACTUS);
+      //entry.accept(SMBBlocks.POLISHED_CACTUS_STAIRS);
+      //entry.accept(SMBBlocks.POLISHED_CACTUS_SLAB);
+      entry.accept(SMBBlocks.CHISELED_CACTUS_BRICKS);
+      entry.accept(SMBBlocks.CACTUS_BRICKS);
+      entry.accept(SMBBlocks.CRACKED_CACTUS_BRICKS);
+      //entry.accept(SMBBlocks.CACTUS_BRICK_STAIRS);
+      //entry.accept(SMBBlocks.CACTUS_BRICK_SLAB);
+      //entry.accept(SMBBlocks.CACTUS_BRICK_WALL);
+      entry.accept(SMBBlocks.CACTUS_PILLAR);
+      entry.accept(SMBBlocks.CACTUS_TILES);
+      entry.accept(SMBBlocks.CRACKED_CACTUS_TILES);
+      //entry.accept(SMBBlocks.CACTUS_TILE_STAIRS);
+      //entry.accept(SMBBlocks.CACTUS_TILE_SLAB);
+      //entry.accept(SMBBlocks.CACTUS_TILE_WALL);
+      entry.accept(SMBBlocks.MOSSY_CACTUS_BRICKS);
+      //entry.accept(SMBBlocks.MOSSY_CACTUS_BRICK_STAIRS);
+      //entry.accept(SMBBlocks.MOSSY_CACTUS_BRICK_SLAB);
+      //entry.accept(SMBBlocks.MOSSY_CACTUS_BRICK_WALL);
+      entry.accept(SMBBlocks.SMOOTH_CACTUS);
+      //entry.accept(SMBBlocks.SMOOTH_CACTUS_SLAB);
+      entry.accept(SMBBlocks.TALL_CACTUS);
+      entry.accept(SMBBlocks.CACTUS_LADDER);
+
+    }).build();
+
   public static void init() {
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "0_more_building_blocks"), MORE_BUILDING_BLOCKS);
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "1_more_colored_blocks"), MORE_COLORED_BLOCKS);
     Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "2_more_natural_blocks"), MORE_NATURAL_BLOCKS);
-    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "3_more_redstone_blocks"), MORE_REDSTONE_BLOCKS);
+    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "3_more_cactus_blocks"), MORE_CACTUS_BLOCKS);
+    Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, "4_more_redstone_blocks"), MORE_REDSTONE_BLOCKS);
   }
 }

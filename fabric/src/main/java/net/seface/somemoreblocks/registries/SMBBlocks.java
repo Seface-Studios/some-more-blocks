@@ -633,6 +633,19 @@ public class SMBBlocks {
   public static final Block SMOOTH_RESIN = registerBlock("smooth_resin", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
   public static final Block SMOOTH_RESIN_SLAB = registerBlock("smooth_resin_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
 
+  /* 1.21.4-without-cactus-on-forest */
+  public static final Block POLISHED_CACTUS = registerBlock("polished_cactus", CactusLikeBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS));
+  public static final Block CHISELED_CACTUS_BRICKS = registerBlock("chiseled_cactus_bricks", CactusLikeBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS));
+  public static final Block CACTUS_BRICKS = registerBlock("cactus_bricks", CactusLikeBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS));
+  public static final Block CRACKED_CACTUS_BRICKS = registerBlock("cracked_cactus_bricks", CactusLikeBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS));
+  public static final Block CACTUS_PILLAR = registerBlock("cactus_pillar", CactusRotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS));
+  public static final Block CACTUS_TILES = registerBlock("cactus_tiles", CactusLikeBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS));
+  public static final Block CRACKED_CACTUS_TILES = registerBlock("cracked_cactus_tiles", CactusLikeBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS));
+  public static final Block MOSSY_CACTUS_BRICKS = registerBlock("mossy_cactus_bricks", CactusLikeBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS));
+  public static final Block SMOOTH_CACTUS = registerBlock("smooth_cactus", CactusLikeBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS));
+  public static final Block TALL_CACTUS = registerBlock("tall_cactus", DoubleCactusBlock::new, BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TINY_CACTUS));
+  public static final Block CACTUS_LADDER = registerBlock("cactus_ladder", CactusLadderBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.LADDER).sound(SoundType.WOOL));
+
   public static void init() {}
 
   private static Block registerFlowerPotBlock(Block plant) {

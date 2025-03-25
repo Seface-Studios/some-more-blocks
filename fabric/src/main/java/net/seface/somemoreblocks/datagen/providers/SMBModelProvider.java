@@ -60,6 +60,18 @@ public class SMBModelProvider extends FabricModelProvider {
     SMBBlockStateTemplates.createWallBlock(SMBBlocks.RESIN_TILE_WALL, SMBBlocks.RESIN_TILES);
     SMBBlockStateTemplates.createGenericBlock(SMBBlocks.SMOOTH_RESIN);
     SMBBlockStateTemplates.createSlabBlock(SMBBlocks.SMOOTH_RESIN_SLAB, SMBBlocks.SMOOTH_RESIN);
+
+    /* 1.21.4-without-cactus-on-forest */
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.POLISHED_CACTUS);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.CHISELED_CACTUS_BRICKS);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.CACTUS_BRICKS);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.CRACKED_CACTUS_BRICKS);
+    SMBBlockStateTemplates.createRotatedPillarBlock(SMBBlocks.CACTUS_PILLAR);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.CACTUS_TILES);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.CRACKED_CACTUS_TILES);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.MOSSY_CACTUS_BRICKS);
+    SMBBlockStateTemplates.createGenericBlock(SMBBlocks.SMOOTH_CACTUS);
+    SMBBlockStateTemplates.createLadderBlock(SMBBlocks.CACTUS_LADDER);
   }
 
   @Override
@@ -179,5 +191,9 @@ public class SMBModelProvider extends FabricModelProvider {
     /* 1.21.4 */
     SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_LOG);
     SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_WOOD);
+
+    /* 1.21.4-without-cactus-on-forest */
+    SMBItemsTemplates.createGenericItemModel(SMBBlocks.TALL_CACTUS);
+    BLOCK_STATE_GENERATOR.registerSimpleFlatItemModel(SMBBlocks.CACTUS_LADDER);
   }
 }

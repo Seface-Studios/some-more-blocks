@@ -95,6 +95,18 @@ public class SMBLootTableProvider extends FabricBlockLootTableProvider {
     addGenericSlab(SMBBlocks.SMOOTH_RESIN_SLAB);
     addCarvedPaleLogBlock(SMBBlocks.CARVED_PALE_OAK_LOG);
     addCarvedPaleLogBlock(SMBBlocks.CARVED_PALE_OAK_WOOD);
+
+    /* 1.21.4-without-cactus-on-forest */
+    addGenericBlock(SMBBlocks.POLISHED_CACTUS);
+    addGenericBlock(SMBBlocks.CHISELED_CACTUS_BRICKS);
+    addGenericBlock(SMBBlocks.CACTUS_BRICKS);
+    addGenericBlock(SMBBlocks.CRACKED_CACTUS_BRICKS);
+    addGenericBlock(SMBBlocks.CACTUS_PILLAR);
+    addGenericBlock(SMBBlocks.CACTUS_TILES);
+    addGenericBlock(SMBBlocks.CRACKED_CACTUS_TILES);
+    addGenericBlock(SMBBlocks.MOSSY_CACTUS_BRICKS);
+    addGenericBlock(SMBBlocks.SMOOTH_CACTUS);
+    addGenericBlock(SMBBlocks.CACTUS_LADDER);
   }
 
   /**

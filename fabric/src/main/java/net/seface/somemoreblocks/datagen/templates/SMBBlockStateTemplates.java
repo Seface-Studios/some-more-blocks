@@ -22,6 +22,10 @@ public class SMBBlockStateTemplates {
     SMBModelProvider.BLOCK_STATE_GENERATOR.createTrivialCube(block);
   }
 
+  public static void createLadderBlock(Block block) {
+    SMBModelProvider.BLOCK_STATE_GENERATOR.createNonTemplateHorizontalBlock(block);
+  }
+
   /**
    *
    * @param glassBlock

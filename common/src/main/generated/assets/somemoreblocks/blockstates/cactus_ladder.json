@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "somemoreblocks:block/cactus_ladder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "somemoreblocks:block/cactus_ladder"
+    },
+    "facing=south": {
+      "model": "somemoreblocks:block/cactus_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "somemoreblocks:block/cactus_ladder",
+      "y": 270
+    }
+  }
+}

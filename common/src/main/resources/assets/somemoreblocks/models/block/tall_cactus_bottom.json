@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "somemoreblocks:block/tall_cactus_bottom"
+  }
+}

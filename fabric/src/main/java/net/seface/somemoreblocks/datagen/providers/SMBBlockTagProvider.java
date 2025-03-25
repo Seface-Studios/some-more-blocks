@@ -598,5 +598,9 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
     /* 1.21.4 */
     getOrCreateTagBuilder(BlockTags.PALE_OAK_LOGS).setReplace(false)
       .add(SMBBlocks.CARVED_PALE_OAK_LOG, SMBBlocks.CARVED_PALE_OAK_WOOD);
+
+    /* 1.21.4-without-cactus-on-forest */
+    getOrCreateTagBuilder(BlockTags.CLIMBABLE).setReplace(false)
+      .add(SMBBlocks.CACTUS_LADDER);
   }
 }

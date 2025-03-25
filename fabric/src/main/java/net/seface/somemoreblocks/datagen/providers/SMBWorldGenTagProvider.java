@@ -25,7 +25,6 @@ public class SMBWorldGenTagProvider extends FabricTagProvider<Biome> {
         Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE);
 
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_TINY_CACTUS)
-      .forceAddTag(BiomeTags.IS_FOREST)
       .forceAddTag(BiomeTags.IS_BADLANDS)
       .add(Biomes.DESERT);
   }
