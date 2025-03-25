@@ -38,6 +38,8 @@
     "client": ["net.seface.${mod_id}.SomeMoreBlocksFabricClient"]
   },
 
+  "accessWidener": "somemoreblocks.accesswidener",
+
   "mixins": [
     "${mod_id}.mixins.json",
     "${mod_id}.fabric.mixins.json"

@@ -3,3 +3,6 @@ accessWidener v2 named
 # Classes
 
 # Methods & Fields
+accessible field net/minecraft/client/renderer/blockentity/ChestRenderer singleModel Lnet/minecraft/client/model/ChestModel;
+accessible field net/minecraft/client/renderer/blockentity/ChestRenderer doubleLeftModel Lnet/minecraft/client/model/ChestModel;
+accessible field net/minecraft/client/renderer/blockentity/ChestRenderer doubleRightModel Lnet/minecraft/client/model/ChestModel;

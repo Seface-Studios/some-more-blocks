@@ -5,12 +5,17 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.ChestRenderer;
 import net.minecraft.client.renderer.item.properties.numeric.RangeSelectItemModelProperties;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
 import net.seface.somemoreblocks.item.properties.numeric.MoonPhaseProperty;
+import net.seface.somemoreblocks.registries.SMBBlockEntities;
 import net.seface.somemoreblocks.registries.SMBBlocks;
+import net.seface.somemoreblocks.renderer.blockentity.CactusChestRenderer;
 
 public class SomeMoreBlocksFabricClient implements ClientModInitializer {
 
@@ -19,6 +24,10 @@ public class SomeMoreBlocksFabricClient implements ClientModInitializer {
     registerBlockRenders();
     registerColorProviders();
     registerItemModelProperties();
+
+    BlockEntityRenderers.register(SMBBlockEntities.CACTUS_CHEST, CactusChestRenderer::new);
+
+    //BlockEntityRendererFactories.register(MyBlockEntities.MY_CUSTOM_CHEST_ENTITY, ChestBlockEntityRenderer::new);
   }
 
   /**

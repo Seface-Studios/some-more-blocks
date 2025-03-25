@@ -645,6 +645,7 @@ public class SMBBlocks {
   public static final Block SMOOTH_CACTUS = registerBlock("smooth_cactus", CactusLikeBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS));
   public static final Block TALL_CACTUS = registerBlock("tall_cactus", DoubleCactusBlock::new, BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TINY_CACTUS));
   public static final Block CACTUS_LADDER = registerBlock("cactus_ladder", CactusLadderBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.LADDER).sound(SoundType.WOOL));
+  public static final Block CACTUS_CHEST = registerBlock("cactus_chest", (properties -> new CactusChestBlock(() -> SMBBlockEntities.CACTUS_CHEST, properties)), BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST).sound(SoundType.WOOL));
 
   public static void init() {}
 

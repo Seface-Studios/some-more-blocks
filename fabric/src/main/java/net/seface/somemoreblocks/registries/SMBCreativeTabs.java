@@ -723,6 +723,7 @@ public class SMBCreativeTabs {
       //entry.accept(SMBBlocks.SMOOTH_CACTUS_SLAB);
       entry.accept(SMBBlocks.TALL_CACTUS);
       entry.accept(SMBBlocks.CACTUS_LADDER);
+      entry.accept(SMBBlocks.CACTUS_CHEST);
 
     }).build();
 
