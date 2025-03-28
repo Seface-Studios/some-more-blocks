@@ -20,13 +20,11 @@ public class ForgePlatformRegistry implements PlatformRegistry {
 
   @Override
   public Supplier<Block> registerBlock(String path, Function<Block.Properties, Block> factory, Block.Properties properties, boolean registerBlockItem) {
+    RegistryObject<Block> instance = ForgePlatformRegistry.BLOCKS.register(path, () -> factory.apply(properties.setId(BLOCKS.key(path))));
 
-    RegistryObject<Block> instance = ForgePlatformRegistry.BLOCKS.register(path, () -> factory.apply(properties));
-    //RegistryObject<Block> instance = ForgePlatformRegistry.BLOCKS.register(path, supplier);
-
-    SomeMoreBlocks.LOGGER.info(instance.get().getDescriptionId() + " registered.");
     if (registerBlockItem) {
-      this.registerItem(path, (props) -> new BlockItem(instance.get(), new Item.Properties().useBlockDescriptionPrefix()), new Item.Properties().useBlockDescriptionPrefix());
+      Item.Properties itemProperties = new Item.Properties().useBlockDescriptionPrefix();
+      this.registerItem(path, (props) -> new BlockItem(instance.get(), itemProperties), itemProperties);
     }
 
     return instance;
@@ -34,8 +32,9 @@ public class ForgePlatformRegistry implements PlatformRegistry {
 
   @Override
   public Supplier<Item> registerItem(String path, Function<Item.Properties, Item> factory, Item.Properties properties) {
-    Supplier<Item> supplier = () -> factory.apply(properties.setId(ITEMS.key(path)));
-    return ITEMS.register(path, supplier);
+    RegistryObject<Item> instance = ForgePlatformRegistry.ITEMS.register(path, () -> factory.apply(properties.setId(ITEMS.key(path))));
+
+    return instance;
   }
 
   public static void init(IEventBus event) {

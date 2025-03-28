@@ -30,6 +30,8 @@ public class SMBItems {
 
   /* 1.21.4 */
   public static final Supplier<Item> PALE_OAK_LEAVES_BUCKET = PlatformServices.PLATFORM_REGISTRY.registerItem("pale_oak_leaves_bucket", (properties) -> new LeavesBucketItem(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), SoundEvents.GRASS_PLACE, properties), new Item.Properties().component(SMBDataComponentTypes.BUCKET_VOLUME, LeavesBucketItem.MAX_VOLUME).stacksTo(1));
-  public static final Supplier<Item> CARVED_PALE_OAK_LOG = PlatformServices.PLATFORM_REGISTRY.registerItem("carved_pale_oak_log", (properties -> new CarvedPaleOakBlockItem(SMBBlocks.CARVED_PALE_OAK_LOG.get(), properties)), new Item.Properties().component(SMBDataComponentTypes.MOON_PHASE, RotatedCarvedPaleOakBlock.MIN_MOON_PHASE).useBlockDescriptionPrefix());
-  public static final Supplier<Item> CARVED_PALE_OAK_WOOD = PlatformServices.PLATFORM_REGISTRY.registerItem("carved_pale_oak_wood", (properties -> new CarvedPaleOakBlockItem(SMBBlocks.CARVED_PALE_OAK_WOOD.get(), properties)), new Item.Properties().component(SMBDataComponentTypes.MOON_PHASE, RotatedCarvedPaleOakBlock.MIN_MOON_PHASE).useBlockDescriptionPrefix());
+  public static final Supplier<Item> CARVED_PALE_OAK_LOG = PlatformServices.PLATFORM_REGISTRY.registerItem("carved_pale_oak_log", (properties) -> new CarvedPaleOakBlockItem(SMBBlocks.CARVED_PALE_OAK_LOG.get(), properties), new Item.Properties().component(SMBDataComponentTypes.MOON_PHASE, RotatedCarvedPaleOakBlock.MIN_MOON_PHASE).useBlockDescriptionPrefix());
+  public static final Supplier<Item> CARVED_PALE_OAK_WOOD = PlatformServices.PLATFORM_REGISTRY.registerItem("carved_pale_oak_wood", (properties) -> new CarvedPaleOakBlockItem(SMBBlocks.CARVED_PALE_OAK_WOOD.get(), properties), new Item.Properties().component(SMBDataComponentTypes.MOON_PHASE, RotatedCarvedPaleOakBlock.MIN_MOON_PHASE).useBlockDescriptionPrefix());
+
+  public static void init() {}
 }

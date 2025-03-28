@@ -21,11 +21,10 @@ public class SMBDataComponentTypes {
    * @return The Data Component instance.
    */
   private static <T> DataComponentType<T> register(String path, UnaryOperator<DataComponentType.Builder<T>> builder) {
-    ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, path);
-
+    SomeMoreBlocks.LOGGER.info(path);
       return Registry.register(
         BuiltInRegistries.DATA_COMPONENT_TYPE,
-        identifier,
+        SomeMoreBlocks.id(path),
         builder.apply(DataComponentType.builder()).build());
   }
 

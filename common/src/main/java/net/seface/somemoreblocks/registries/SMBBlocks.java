@@ -628,6 +628,8 @@ public class SMBBlocks {
   public static final Supplier<Block> SMOOTH_RESIN = PlatformServices.PLATFORM_REGISTRY.registerBlock("smooth_resin", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
   public static final Supplier<Block> SMOOTH_RESIN_SLAB = PlatformServices.PLATFORM_REGISTRY.registerBlock("smooth_resin_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS));
 
+  public static void init() {}
+
   public SMBBlocks() {
     SomeMoreBlocks.LOGGER.info("SMBBlocks carregado!");
   }

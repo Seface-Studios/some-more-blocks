@@ -16,12 +16,9 @@ public class FabricPlatformRegistry implements PlatformRegistry {
 
   @Override
   public Supplier<Block> registerBlock(String path, Function<Block.Properties, Block> factory, Block.Properties properties, boolean registerBlockItem) {
-    ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, path);
-    ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, identifier);
-
+    ResourceKey<Block> key = SomeMoreBlocks.key(Registries.BLOCK, path);
     Block instance = Blocks.register(key, factory, properties);
 
-    SomeMoreBlocks.LOGGER.info(instance.getDescriptionId() + " registered.");
     if (registerBlockItem) {
       Items.registerBlock(instance);
     }
@@ -31,9 +28,9 @@ public class FabricPlatformRegistry implements PlatformRegistry {
 
   @Override
   public Supplier<Item> registerItem(String path, Function<Item.Properties, Item> factory, Item.Properties properties) {
-    ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, path);
-    ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, identifier);
+    ResourceKey<Item> key = SomeMoreBlocks.key(Registries.ITEM, path);
+    Item instance = Items.registerItem(key, factory, properties);
 
-    return () -> Items.registerItem(key, factory, properties);
+    return () -> instance;
   }
 }

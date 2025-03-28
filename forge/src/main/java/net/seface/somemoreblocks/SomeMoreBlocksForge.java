@@ -26,8 +26,13 @@ public class SomeMoreBlocksForge {
   public SomeMoreBlocksForge() {
     IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+    SomeMoreBlocks.init(false);
     SMBForgedDataComponentTypes.init(bus);
+
+    SMBBlocks.init();
     ForgePlatformRegistry.init(bus);
+
+    //SMBItems.init();
     //SMBCreativeTabs.init(bus);
     //SMBBlocks.init(bus);
     //SMBFeatures.init(bus);
@@ -50,7 +55,6 @@ public class SomeMoreBlocksForge {
 
   private void commonSetup(final FMLCommonSetupEvent event) {
     event.enqueueWork(() -> {
-      SomeMoreBlocks.init(false);
       //SMBBlocks.init();
 
       /*registerCarvedBlocks();
