@@ -193,6 +193,7 @@ public class SMBModelProvider extends FabricModelProvider {
     SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_WOOD);
 
     /* 1.21.4-without-cactus-on-forest */
+
     SMBItemsTemplates.createGenericItemModel(SMBBlocks.TALL_CACTUS);
     BLOCK_STATE_GENERATOR.registerSimpleFlatItemModel(SMBBlocks.CACTUS_LADDER);
   }
