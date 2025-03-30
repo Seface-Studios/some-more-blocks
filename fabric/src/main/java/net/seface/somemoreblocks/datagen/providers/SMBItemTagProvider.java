@@ -16,7 +16,7 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
   }
 
   @Override
-  protected void addTags(HolderLookup.Provider provider) {
+  protected void addTags(HolderLookup.Provider provider) {/*
     getOrCreateTagBuilder(ItemTags.ACACIA_LOGS).setReplace(false)
       .add(SMBBlocks.CARVED_ACACIA_LOG.get().asItem(), SMBBlocks.CARVED_ACACIA_WOOD.get().asItem());
 
@@ -51,7 +51,7 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.MANGROVE_MOSAIC.get().asItem(), SMBBlocks.CRIMSON_MOSAIC.get().asItem(),
         SMBBlocks.WARPED_MOSAIC.get().asItem(), SMBBlocks.CHERRY_MOSAIC.get().asItem(),
 
-        /* 1.21.4 */
+        *//* 1.21.4 *//*
         SMBBlocks.PALE_OAK_MOSAIC.get().asItem());
 
     getOrCreateTagBuilder(ItemTags.SLABS).setReplace(false)
@@ -92,7 +92,7 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.MOSSY_BRICK_SLAB.get().asItem(), SMBBlocks.BONE_BRICK_SLAB.get().asItem(),
         SMBBlocks.BONE_TILE_SLAB.get().asItem(),
 
-        /* 1.21.4 */
+        *//* 1.21.4 *//*
         SMBBlocks.POLISHED_RESIN_SLAB.get().asItem(), SMBBlocks.RESIN_TILE_SLAB.get().asItem(),
         SMBBlocks.SMOOTH_RESIN_SLAB.get().asItem());
 
@@ -132,7 +132,7 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.SOUL_SANDSTONE_TILE_STAIRS.get().asItem(), SMBBlocks.MOSSY_BRICK_STAIRS.get().asItem(),
         SMBBlocks.BONE_BRICK_STAIRS.get().asItem(), SMBBlocks.BONE_TILE_STAIRS.get().asItem(),
 
-        /* 1.21.4 */
+        *//* 1.21.4 *//*
         SMBBlocks.POLISHED_RESIN_STAIRS.get().asItem(), SMBBlocks.RESIN_TILE_STAIRS.get().asItem()
       );
 
@@ -162,7 +162,7 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.MOSSY_BRICK_WALL.get().asItem(), SMBBlocks.BONE_BRICK_WALL.get().asItem(),
         SMBBlocks.BONE_TILE_WALL.get().asItem(),
 
-        /* 1.21.4 */
+        *//* 1.21.4 *//*
         SMBBlocks.RESIN_TILE_WALL.get().asItem()
       );
 
@@ -177,7 +177,7 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.MANGROVE_MOSAIC_SLAB.get().asItem(), SMBBlocks.CRIMSON_MOSAIC_SLAB.get().asItem(),
         SMBBlocks.WARPED_MOSAIC_SLAB.get().asItem(), SMBBlocks.CHERRY_MOSAIC_SLAB.get().asItem(),
 
-        /* 1.21.4 */
+        *//* 1.21.4 *//*
         SMBBlocks.PALE_OAK_MOSAIC_SLAB.get().asItem()
       );
 
@@ -189,12 +189,12 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.MANGROVE_MOSAIC_STAIRS.get().asItem(), SMBBlocks.CRIMSON_MOSAIC_STAIRS.get().asItem(),
         SMBBlocks.WARPED_MOSAIC_STAIRS.get().asItem(), SMBBlocks.CHERRY_MOSAIC_STAIRS.get().asItem(),
 
-        /* 1.21.4 */
+        *//* 1.21.4 *//*
         SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get().asItem()
       );
 
-    /* 1.21.4 */
+    *//* 1.21.4 *//*
     getOrCreateTagBuilder(ItemTags.PALE_OAK_LOGS).setReplace(false)
-      .add(SMBBlocks.CARVED_PALE_OAK_LOG.get().asItem(), SMBBlocks.CARVED_PALE_OAK_WOOD.get().asItem());
+      .add(SMBBlocks.CARVED_PALE_OAK_LOG.get().asItem(), SMBBlocks.CARVED_PALE_OAK_WOOD.get().asItem());*/
   }
 }

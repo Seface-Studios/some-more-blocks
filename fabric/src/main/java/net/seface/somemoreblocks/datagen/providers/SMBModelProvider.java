@@ -22,7 +22,7 @@ public class SMBModelProvider extends FabricModelProvider {
   }
 
   @Override
-  public void generateBlockStateModels(BlockModelGenerators gen) {
+  public void generateBlockStateModels(BlockModelGenerators gen) {/*
     BLOCK_STATE_GENERATOR = gen;
 
     SMBBlockStateTemplates.createGlassBlocks(SMBBlocks.TILED_GLASS.get(), Blocks.GLASS_PANE);
@@ -43,12 +43,12 @@ public class SMBModelProvider extends FabricModelProvider {
     SMBBlockStateTemplates.createGlassBlocks(SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get(), Blocks.MAGENTA_STAINED_GLASS_PANE);
     SMBBlockStateTemplates.createGlassBlocks(SMBBlocks.PINK_STAINED_TILED_GLASS.get(), Blocks.PINK_STAINED_GLASS_PANE);
 
-    /* 1.21.4 */
+    *//* 1.21.4 *//*
     SMBBlockStateTemplates.createCarvedPaleOakBlock(SMBBlocks.CARVED_PALE_OAK_LOG.get(), Blocks.STRIPPED_PALE_OAK_LOG);
     SMBBlockStateTemplates.createGenericBlock(SMBBlocks.PALE_OAK_MOSAIC.get());
     SMBBlockStateTemplates.createStairsBlock(SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get(), SMBBlocks.PALE_OAK_MOSAIC.get());
     SMBBlockStateTemplates.createSlabBlock(SMBBlocks.PALE_OAK_MOSAIC_SLAB.get(), SMBBlocks.PALE_OAK_MOSAIC.get());
-    SMBBlockStateTemplates.createRotatedPillarBlock(SMBBlocks.RESINE_PILLAR.get());
+    SMBBlockStateTemplates.createRotatedPillarBlock(SMBBlocks.RESIN_PILLAR.get());
     SMBBlockStateTemplates.createGenericBlock(SMBBlocks.CRACKED_RESIN_BRICKS.get());
     SMBBlockStateTemplates.createGenericBlock(SMBBlocks.CRACKED_RESIN_TILES.get());
     SMBBlockStateTemplates.createGenericBlock(SMBBlocks.POLISHED_RESIN.get());
@@ -59,11 +59,11 @@ public class SMBModelProvider extends FabricModelProvider {
     SMBBlockStateTemplates.createSlabBlock(SMBBlocks.RESIN_TILE_SLAB.get(), SMBBlocks.RESIN_TILES.get());
     SMBBlockStateTemplates.createWallBlock(SMBBlocks.RESIN_TILE_WALL.get(), SMBBlocks.RESIN_TILES.get());
     SMBBlockStateTemplates.createGenericBlock(SMBBlocks.SMOOTH_RESIN.get());
-    SMBBlockStateTemplates.createSlabBlock(SMBBlocks.SMOOTH_RESIN_SLAB.get(), SMBBlocks.SMOOTH_RESIN.get());
+    SMBBlockStateTemplates.createSlabBlock(SMBBlocks.SMOOTH_RESIN_SLAB.get(), SMBBlocks.SMOOTH_RESIN.get());*/
   }
 
   @Override
-  public void generateItemModels(ItemModelGenerators gen) {
+  public void generateItemModels(ItemModelGenerators gen) {/*
     ITEM_MODEL_GENERATOR = gen;
 
     // More Building Blocks
@@ -176,8 +176,8 @@ public class SMBModelProvider extends FabricModelProvider {
     SMBItemsTemplates.createGenericItemModel(SMBBlocks.WARPED_FUNGUS_COLONY.get());
     SMBItemsTemplates.createGenericItemModel(SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get());
 
-    /* 1.21.4 */
+    *//* 1.21.4 *//*
     SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_LOG.get());
-    SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_WOOD.get());
+    SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_WOOD.get());*/
   }
 }

@@ -5,8 +5,11 @@ import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.LandPathNodeTypesRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.PathType;
+import net.seface.somemoreblocks.platform.FabricPlatformRegistry;
+import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.utils.SMBUtils;
 
@@ -19,25 +22,26 @@ public class SomeMoreBlocksFabric implements ModInitializer {
   public void onInitialize() {
     SomeMoreBlocks.init();
 
-    //SMBBlocks.init.get()();
-    //SMBItems.init.get()();
+    SMBBlocks.init();
+    SMBItems.init();
+
     SMBCreativeTabs.init();
-    SMBFeatures.init();
+    //SMBFeatures.init();
     //SMBBiomeModifiers.init();
 
-    LandPathNodeTypesRegistry.register(SMBBlocks.TINY_CACTUS.get(), (state, neighbor) -> PathType.DAMAGE_OTHER);
+    //LandPathNodeTypesRegistry.register(SMBBlocks.TINY_CACTUS.get(), (state, neighbor) -> PathType.DAMAGE_OTHER);
 
-    registerCarvedBlocks();
+    /*registerCarvedBlocks();
     registerCompostableItems();
     registerFuels();
     registerSnowyBlocks();
     registerWaxableCopperBlocks();
-    registerWeatheringCopperBlocks();
+    registerWeatheringCopperBlocks();*/
   }
-
-  /**
+/*
+  *//**
    * Registers values related to Compostable items.
-   */
+   *//*
   private static void registerCompostableItems() {
     SMBUtils.GenericRegistry.compostableItem(0.3F, SMBBlocks.TINY_CACTUS.get());
     SMBUtils.GenericRegistry.compostableItem(0.3F, SMBBlocks.DUNE_GRASS.get());
@@ -65,9 +69,9 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.PALE_OAK_LEAVES_BUCKET.get());
   }
 
-  /**
+  *//**
    * Registers values related to Weathering-like blocks.
-   */
+   *//*
   private static void registerWeatheringCopperBlocks() {
     WeatheringCopperBlockRegistry.register(SMBBlocks.COPPER_BRICKS.get(), SMBBlocks.EXPOSED_COPPER_BRICKS.get());
     WeatheringCopperBlockRegistry.register(SMBBlocks.EXPOSED_COPPER_BRICKS.get(), SMBBlocks.WEATHERED_COPPER_BRICKS.get());
@@ -83,9 +87,9 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     WeatheringCopperBlockRegistry.register(SMBBlocks.WEATHERED_COPPER_PILLAR.get(), SMBBlocks.OXIDIZED_COPPER_PILLAR.get());
   }
 
-  /**
+  *//**
    * Registers values related to Waxable-like blocks.
-   */
+   *//*
   private static void registerWaxableCopperBlocks() {
     WaxableCopperBlockRegistry.register(SMBBlocks.COPPER_BRICKS.get(), SMBBlocks.WAXED_COPPER_BRICKS.get());
     WaxableCopperBlockRegistry.register(SMBBlocks.EXPOSED_COPPER_BRICKS.get(), SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get());
@@ -105,9 +109,9 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     WaxableCopperBlockRegistry.register(SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get());
   }
 
-  /**
+  *//**
    * Registers values related to Snowy-like blocks.
-   */
+   *//*
   private static void registerSnowyBlocks() {
     SnowyBushRegistry.register(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS.get());
     SnowyBushRegistry.register(Blocks.TALL_GRASS, SMBBlocks.TALL_SNOW_GRASS.get());
@@ -115,15 +119,15 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     SnowyBushRegistry.register(Blocks.LARGE_FERN, SMBBlocks.LARGE_SNOW_FERN.get());
   }
 
-  /**
+  *//**
    * Registers values related to Carved-like blocks.
-   */
+   *//*
   private static void registerCarvedBlocks() {
-    /*
+    *//*
      * "SeNiOr" dev: Why don't you use "StrippableBlockRegistry" from Fabric here?!!
      *  - We want to encompass functionality between the two versions and avoid the specific modifications for them.
      *    This makes more sense on 1.21.4 for example where the "Carved Pale Oak" has special functionality.
-     * */
+     * *//*
 
     CarvedBlockRegistry.register(Blocks.STRIPPED_OAK_WOOD, SMBBlocks.CARVED_OAK_WOOD.get());
     CarvedBlockRegistry.register(Blocks.STRIPPED_OAK_LOG, SMBBlocks.CARVED_OAK_LOG.get());
@@ -147,14 +151,14 @@ public class SomeMoreBlocksFabric implements ModInitializer {
     CarvedBlockRegistry.register(Blocks.STRIPPED_MANGROVE_LOG, SMBBlocks.CARVED_MANGROVE_LOG.get());
     CarvedBlockRegistry.register(Blocks.STRIPPED_BAMBOO_BLOCK, SMBBlocks.CARVED_BAMBOO_BLOCK.get());
 
-    /* 1.21.4 */
+    *//* 1.21.4 *//*
     CarvedBlockRegistry.register(Blocks.STRIPPED_PALE_OAK_LOG, SMBBlocks.CARVED_PALE_OAK_LOG.get());
     CarvedBlockRegistry.register(Blocks.STRIPPED_PALE_OAK_WOOD, SMBBlocks.CARVED_PALE_OAK_WOOD.get());
   }
 
-  /**
+  *//**
    * Registers Fuel values.
-   */
+   *//*
   private static void registerFuels() {
     FuelRegistryEvents.BUILD.register((builder, ctx) -> {
       builder.add(SMBBlocks.COAL_BRICKS.get(), Constants.COAL_BRICKS_FUEL);
@@ -163,5 +167,5 @@ public class SomeMoreBlocksFabric implements ModInitializer {
       builder.add(SMBBlocks.CUT_COAL.get(), Constants.CUT_COAL_FUEL);
       builder.add(SMBBlocks.CRACKED_CUT_COAL.get(), Constants.CRACKED_CUT_COAL_FUEL);
     });
-  }
+  }*/
 }

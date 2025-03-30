@@ -17,7 +17,12 @@ public class ForgePlatformHelper implements PlatformHelper {
   }
 
   @Override
-  public PlatformEnvironment getEnviroment() {
+  public PlatformEnvironment getEnvironment() {
     return !FMLLoader.isProduction() ? PlatformEnvironment.DEVELOPMENT : PlatformEnvironment.PRODUCTION;
+  }
+
+  @Override
+  public PlatformRegistry getRegistry() {
+    return new ForgePlatformRegistry();
   }
 }

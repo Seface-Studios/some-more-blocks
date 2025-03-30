@@ -79,7 +79,7 @@ public class SMBCreativeTabs {
       if (ctx.hasPermissions()) {
         for (int i = 0; i <= 7; i++) {
           ItemStack stack = SMBItems.CARVED_PALE_OAK_LOG.get().getDefaultInstance();
-          stack.set(SMBForgedDataComponentTypes.MOON_PHASE.get(), i);
+          stack.set(SMBDataComponentTypes.MOON_PHASE.get(), i);
           stack.set(DataComponents.RARITY, Rarity.EPIC);
 
           MutableComponent moonPhase = Component.translatable("utilities.somemoreblocks.moon_phase.name." + i)
@@ -100,7 +100,7 @@ public class SMBCreativeTabs {
       if (ctx.hasPermissions()) {
         for (int i = 0; i <= 7; i++) {
           ItemStack stack = SMBItems.CARVED_PALE_OAK_WOOD.get().getDefaultInstance();
-          stack.set(SMBForgedDataComponentTypes.MOON_PHASE.get(), i);
+          stack.set(SMBDataComponentTypes.MOON_PHASE.get(), i);
           stack.set(DataComponents.RARITY, Rarity.EPIC);
 
           MutableComponent moonPhase = Component.translatable("utilities.somemoreblocks.moon_phase.name." + i)

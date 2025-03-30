@@ -1,36 +1,53 @@
 package net.seface.somemoreblocks.platform;
 
+import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.seface.somemoreblocks.SomeMoreBlocks;
+import net.seface.somemoreblocks.platform.registry.FabricRegistryObject;
+import net.seface.somemoreblocks.platform.registry.PlatformRegistryObject;
 
-import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 public class FabricPlatformRegistry implements PlatformRegistry {
 
   @Override
-  public Supplier<Block> registerBlock(String path, Function<Block.Properties, Block> factory, Block.Properties properties, boolean registerBlockItem) {
-    ResourceKey<Block> key = SomeMoreBlocks.key(Registries.BLOCK, path);
-    Block instance = Blocks.register(key, factory, properties);
+  public PlatformRegistryObject<Block> registerBlock(String path, Supplier<Block> supplier, boolean registerBlockItem) {
+    ResourceLocation identifier = SomeMoreBlocks.id(path);
+    Block instance = Registry.register(BuiltInRegistries.BLOCK, identifier, supplier.get());
 
     if (registerBlockItem) {
-      Items.registerBlock(instance);
+      ResourceKey<Item> itemKey = SomeMoreBlocks.key(Registries.ITEM, path);
+      this.registerItem(path,
+        () -> new BlockItem(instance, new Item.Properties().useBlockDescriptionPrefix().setId(itemKey)));
     }
 
-    return () -> instance;
+    return new FabricRegistryObject<>(identifier, () -> instance);
   }
 
   @Override
-  public Supplier<Item> registerItem(String path, Function<Item.Properties, Item> factory, Item.Properties properties) {
-    ResourceKey<Item> key = SomeMoreBlocks.key(Registries.ITEM, path);
-    Item instance = Items.registerItem(key, factory, properties);
+  public PlatformRegistryObject<Item> registerItem(String path, Supplier<Item> supplier) {
+    ResourceLocation identifier = SomeMoreBlocks.id(path);
+    Item instance = Registry.register(BuiltInRegistries.ITEM, identifier, supplier.get());
 
-    return () -> instance;
+    return new FabricRegistryObject<>(identifier, () -> instance);
+  }
+
+  @Override
+  public <T> PlatformRegistryObject<DataComponentType<T>> registerDataComponent(String path, UnaryOperator<DataComponentType.Builder<T>> builder) {
+    ResourceLocation identifier = SomeMoreBlocks.id(path);
+    DataComponentType<T> instance = Registry.register(
+      BuiltInRegistries.DATA_COMPONENT_TYPE,
+      identifier,
+      builder.apply(DataComponentType.builder()).build());
+
+    return new FabricRegistryObject<>(identifier, () -> instance);
   }
 }

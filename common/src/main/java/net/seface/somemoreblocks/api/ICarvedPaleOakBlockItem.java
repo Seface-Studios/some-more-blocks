@@ -1,7 +1,7 @@
 package net.seface.somemoreblocks.api;
 
 import net.minecraft.core.component.DataComponentType;
-import net.seface.somemoreblocks.component.SMBDataComponentTypes;
+import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
 
 public interface ICarvedPaleOakBlockItem {
 
@@ -10,6 +10,6 @@ public interface ICarvedPaleOakBlockItem {
    * We don't need to do anything on Fabric version.
    */
   default DataComponentType<Integer> getMoonPhaseComponentType() {
-    return SMBDataComponentTypes.MOON_PHASE;
+    return SMBDataComponentTypes.MOON_PHASE.get();
   }
 }

@@ -2,17 +2,12 @@ package net.seface.somemoreblocks;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
 import net.seface.somemoreblocks.platform.ForgePlatformRegistry;
 import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.registries.*;
@@ -22,18 +17,16 @@ import net.seface.somemoreblocks.utils.*;
 @SuppressWarnings({"removal", "deprecation"})
 @Mod(SomeMoreBlocks.ID)
 public class SomeMoreBlocksForge {
-
   public SomeMoreBlocksForge() {
     IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-    SomeMoreBlocks.init(false);
-    SMBForgedDataComponentTypes.init(bus);
-
-    SMBBlocks.init();
+    SomeMoreBlocks.init();
     ForgePlatformRegistry.init(bus);
 
-    //SMBItems.init();
-    //SMBCreativeTabs.init(bus);
+    SMBBlocks.init();
+    SMBItems.init();
+
+
+    SMBCreativeTabs.init(bus);
     //SMBBlocks.init(bus);
     //SMBFeatures.init(bus);
     //SMBBiomeModifiers.init(bus);
@@ -68,7 +61,7 @@ public class SomeMoreBlocksForge {
   /**
    * Registers values related to Compostable items.
    */
-  private static void registerCompostableItems() {
+  /*private static void registerCompostableItems() {
     SMBUtils.GenericRegistry.compostableItem(0.3F, SMBBlocks.TINY_CACTUS.get().asItem());
     SMBUtils.GenericRegistry.compostableItem(0.3F, SMBBlocks.DUNE_GRASS.get().asItem());
     SMBUtils.GenericRegistry.compostableItem(0.5F, SMBBlocks.TALL_DUNE_GRASS.get().asItem());
@@ -93,13 +86,13 @@ public class SomeMoreBlocksForge {
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.SPRUCE_LEAVES_BUCKET.get());
 
-    /* 1.21.4 */
+    *//* 1.21.4 *//*
     SMBUtils.GenericRegistry.compostableItem(1.0F, SMBItems.PALE_OAK_LEAVES_BUCKET.get());
   }
 
-  /**
+  *//**
    * Registers values related to Weathering-like blocks.
-   */
+   *//*
   private static void registerWeatheringCopperBlocks() {
     WeatheringCopperBlockRegistry.register(SMBBlocks.COPPER_BRICKS.get(), SMBBlocks.EXPOSED_COPPER_BRICKS.get());
     WeatheringCopperBlockRegistry.register(SMBBlocks.EXPOSED_COPPER_BRICKS.get(), SMBBlocks.WEATHERED_COPPER_BRICKS.get());
@@ -115,9 +108,9 @@ public class SomeMoreBlocksForge {
     WeatheringCopperBlockRegistry.register(SMBBlocks.WEATHERED_COPPER_PILLAR.get(), SMBBlocks.OXIDIZED_COPPER_PILLAR.get());
   }
 
-  /**
+  *//**
    * Registers values related to Waxable-like blocks.
-   */
+   *//*
   private static void registerWaxableCopperBlocks() {
     WaxableCopperBlockRegistry.register(SMBBlocks.COPPER_BRICKS.get(), SMBBlocks.WAXED_COPPER_BRICKS.get());
     WaxableCopperBlockRegistry.register(SMBBlocks.EXPOSED_COPPER_BRICKS.get(), SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get());
@@ -137,9 +130,9 @@ public class SomeMoreBlocksForge {
     WaxableCopperBlockRegistry.register(SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get());
   }
 
-  /**
+  *//**
    * Registers values related to Snowy-like blocks.
-   */
+   *//*
   private static void registerSnowyBlocks() {
     SnowyBushRegistry.register(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS.get());
     SnowyBushRegistry.register(Blocks.FERN, SMBBlocks.SNOW_FERN.get());
@@ -147,9 +140,9 @@ public class SomeMoreBlocksForge {
     SnowyBushRegistry.register(Blocks.LARGE_FERN, SMBBlocks.LARGE_SNOW_FERN.get());
   }
 
-  /**
+  *//**
    * Registers values related to Carved-like blocks.
-   */
+   *//*
   private static void registerCarvedBlocks() {
     CarvedBlockRegistry.register(Blocks.STRIPPED_OAK_WOOD, SMBBlocks.CARVED_OAK_WOOD.get());
     CarvedBlockRegistry.register(Blocks.STRIPPED_OAK_LOG, SMBBlocks.CARVED_OAK_LOG.get());
@@ -173,14 +166,14 @@ public class SomeMoreBlocksForge {
     CarvedBlockRegistry.register(Blocks.STRIPPED_MANGROVE_LOG, SMBBlocks.CARVED_MANGROVE_LOG.get());
     CarvedBlockRegistry.register(Blocks.STRIPPED_BAMBOO_BLOCK, SMBBlocks.CARVED_BAMBOO_BLOCK.get());
 
-    /* 1.21.4 */
+    *//* 1.21.4 *//*
     CarvedBlockRegistry.register(Blocks.STRIPPED_PALE_OAK_LOG, SMBBlocks.CARVED_PALE_OAK_LOG.get());
     CarvedBlockRegistry.register(Blocks.STRIPPED_PALE_OAK_WOOD, SMBBlocks.CARVED_PALE_OAK_WOOD.get());
   }
 
-  /**
+  *//**
    * Registers values related to BlockRender.
-   */
+   *//*
   private static void registerBlockRenders() {
     RenderType cutout = RenderType.cutout();
     RenderType cutoutMipped = RenderType.cutoutMipped();
@@ -256,7 +249,7 @@ public class SomeMoreBlocksForge {
     SMBForgeUtils.registerRenderLayer(SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(), translucent);
     SMBForgeUtils.registerRenderLayer(SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), translucent);
 
-    /* 1.21.4 */
+    *//* 1.21.4 *//*
     ItemBlockRenderTypes.setRenderLayer(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), cutout);
-  }
+  }*/
 }

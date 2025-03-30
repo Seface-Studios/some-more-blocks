@@ -1,30 +1,25 @@
 package net.seface.somemoreblocks;
 
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.properties.numeric.RangeSelectItemModelProperties;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
 import net.seface.somemoreblocks.item.properties.numeric.MoonPhaseProperty;
-import net.seface.somemoreblocks.registries.SMBBlocks;
+import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
 
 public class SomeMoreBlocksFabricClient implements ClientModInitializer {
 
   @Override
   public void onInitializeClient() {
-    registerBlockRenders();
-    registerColorProviders();
+    /*registerBlockRenders();
+    registerColorProviders();*/
     registerItemModelProperties();
   }
 
   /**
    * Registers values related to BlockRender.
    */
-  private static void registerBlockRenders() {
+  /*private static void registerBlockRenders() {
     RenderType cutout = RenderType.cutout();
     RenderType cutoutMipped = RenderType.cutoutMipped();
     RenderType translucent = RenderType.translucent();
@@ -99,28 +94,28 @@ public class SomeMoreBlocksFabricClient implements ClientModInitializer {
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(),translucent);
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(),translucent);
 
-    /* 1.21.4 */
+     1.21.4
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), cutout);
-  }
+  }*/
 
   /**
    * Registers values related to ColorProvider.
    */
-  private static void registerColorProviders() {
+  /*private static void registerColorProviders() {
     ColorProviderRegistry.BLOCK.register(
       (blockState, tint, pos, i) -> BiomeColors.getAverageFoliageColor(tint, pos), SMBBlocks.LEAF_LITTER.get());
-  }
+  }*/
 
   /**
    * Registers values related to ItemModelProperty.
    */
   private static void registerItemModelProperties() {
     RangeSelectItemModelProperties.ID_MAPPER.put(
-      BuiltInRegistries.DATA_COMPONENT_TYPE.getKey(SMBDataComponentTypes.BUCKET_VOLUME),
+      BuiltInRegistries.DATA_COMPONENT_TYPE.getKey(SMBDataComponentTypes.BUCKET_VOLUME.get()),
       BucketVolumeProperty.MAP_CODEC);
 
     RangeSelectItemModelProperties.ID_MAPPER.put(
-      BuiltInRegistries.DATA_COMPONENT_TYPE.getKey(SMBDataComponentTypes.MOON_PHASE),
+      BuiltInRegistries.DATA_COMPONENT_TYPE.getKey(SMBDataComponentTypes.MOON_PHASE.get()),
       MoonPhaseProperty.MAP_CODEC);
   }
 }

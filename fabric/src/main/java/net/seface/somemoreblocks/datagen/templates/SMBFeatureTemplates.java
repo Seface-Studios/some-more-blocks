@@ -35,7 +35,7 @@ public class SMBFeatureTemplates {
   }
 
   /** Cattail Configured Feature configuration */
-  public static ConfiguredFeature<?, ?> configuredCattail() {
+ /* public static ConfiguredFeature<?, ?> configuredCattail() {
     return new ConfiguredFeature<>(Feature.RANDOM_PATCH,
       new RandomPatchConfiguration(32, 2, 2,
         PlacementUtils.filtered(
@@ -74,7 +74,7 @@ public class SMBFeatureTemplates {
                 BlockPredicate.matchesTag(new Vec3i(0, 0, 1), SMBBlockTags.CATTAIL_PLACEABLE),
                 BlockPredicate.matchesTag(new Vec3i(0, 0, -1), SMBBlockTags.CATTAIL_PLACEABLE))
             )))));
-  }
+  }*/
 
   /** Generic Plant Placed Feature configuration */
   public static PlacedFeature placedGenericShortPlant(ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
@@ -108,7 +108,7 @@ public class SMBFeatureTemplates {
   }
 
   /** Small Lily Pads Configured Feature configuration */
-  public static ConfiguredFeature<?, ?> configuredPatchSmallLilyPads() {
+  /*public static ConfiguredFeature<?, ?> configuredPatchSmallLilyPads() {
     return new ConfiguredFeature<>(Feature.RANDOM_PATCH,
       new RandomPatchConfiguration(5, 7, 3,
         PlacementUtils.filtered(
@@ -117,7 +117,7 @@ public class SMBFeatureTemplates {
           BlockPredicate.allOf(
             BlockPredicate.matchesBlocks(Vec3i.ZERO, Blocks.AIR),
             BlockPredicate.matchesFluids(Vec3i.ZERO.below(), Fluids.WATER)))));
-  }
+  }*/
 
   /** Generic Tall Plant Placed Feature configuration */
   public static PlacedFeature placedGenericTallPlant(ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {

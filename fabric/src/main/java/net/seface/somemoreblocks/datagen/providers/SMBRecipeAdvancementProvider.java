@@ -19,7 +19,7 @@ public class SMBRecipeAdvancementProvider extends FabricAdvancementProvider {
   }
 
   @Override
-  public void generateAdvancement(HolderLookup.Provider lookup, Consumer<AdvancementHolder> consumer) {
+  public void generateAdvancement(HolderLookup.Provider lookup, Consumer<AdvancementHolder> consumer) {/*
     RecipeAdvancement.setConsumer(consumer);
 
     RecipeAdvancement.create(Items.GREEN_DYE, RecipeAdvancementGroupType.MISC).craftableFrom(SMBBlocks.TINY_CACTUS.get()).build();
@@ -547,10 +547,10 @@ public class SMBRecipeAdvancementProvider extends FabricAdvancementProvider {
 
           .create(SMBBlocks.CUT_SOUL_SANDSTONE.get()).craftableFrom(SMBBlocks.SOUL_SANDSTONE.get()).cuttableFrom(SMBBlocks.SOUL_SANDSTONE.get())
           .create(SMBBlocks.CUT_SOUL_SANDSTONE_SLAB.get()).craftableFrom(SMBBlocks.CUT_SOUL_SANDSTONE.get()).cuttableFrom(SMBBlocks.SOUL_SANDSTONE.get(), SMBBlocks.CUT_SOUL_SANDSTONE.get())
-        /*.create(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).craftableFrom(Blocks.VINE, Blocks.MOSS_BLOCK)
+        *//*.create(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).craftableFrom(Blocks.VINE, Blocks.MOSS_BLOCK)
         .create(MBItems.MOSSY_SOUL_SANDSTONE_BRICK_STAIRS).craftableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).cuttableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS)
         .create(MBItems.MOSSY_SOUL_SANDSTONE_BRICK_SLAB).craftableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).cuttableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS)
-        .create(MBItems.MOSSY_SOUL_SANDSTONE_BRICK_WALL).craftableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).cuttableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS)*/
+        .create(MBItems.MOSSY_SOUL_SANDSTONE_BRICK_WALL).craftableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS).cuttableFrom(MBItems.MOSSY_SOUL_SANDSTONE_BRICKS)*//*
       ).build();
 
     RecipeAdvancement
@@ -722,6 +722,6 @@ public class SMBRecipeAdvancementProvider extends FabricAdvancementProvider {
         .create(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get()).craftableFrom(Items.OCHRE_FROGLIGHT)
         .create(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get()).craftableFrom(Items.VERDANT_FROGLIGHT)
         .create(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get()).craftableFrom(Items.PEARLESCENT_FROGLIGHT)
-      ).build();
+      ).build();*/
   }
 }

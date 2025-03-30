@@ -3,13 +3,8 @@ package net.seface.somemoreblocks;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 import net.seface.somemoreblocks.platform.PlatformServices;
-import net.seface.somemoreblocks.registries.SMBBlocks;
-import net.seface.somemoreblocks.registries.SMBItems;
+import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,19 +15,12 @@ public class SomeMoreBlocks {
   public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
   public static void init() {
-    init(true);
-  }
-
-  public static void init(boolean vanillaDataComponents) {
-    if (PlatformServices.PLATFORM_HELPER.isModLoaded(ID)) {
+    if (PlatformServices.HELPER.isModLoaded(ID)) {
       LOGGER.info(MOD_NAME + " mod initialized!");
       LOGGER.info("Our Links: https://sefacestudios.net/links");
     }
 
-    if (vanillaDataComponents) {
-      SMBDataComponentTypes.register();
-    }
-
+    SMBDataComponentTypes.init();
     SMBBlockTags.register();
   }
 
@@ -46,9 +34,9 @@ public class SomeMoreBlocks {
 
   /**
    * Create a generic key with Mod ID and custom path.<br />
-   * @param path The identifier path.
+   * @param path The resource key path.
    */
-  public static <T> ResourceKey<T> key(ResourceKey<? extends Registry<T>> resourceKey, String path) {
-    return ResourceKey.create(resourceKey, SomeMoreBlocks.id(path));
+  public static <T> ResourceKey<T> key(ResourceKey<? extends Registry<T>> registry, String path) {
+    return ResourceKey.create(registry, SomeMoreBlocks.id(path));
   }
 }

@@ -44,7 +44,7 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     registry.register(SMBPlacedFeature.PATCH_LARGE_SNOW_FERN, SMBFeatureTemplates.placedGenericTallPlant(SMBConfiguredFeature.PATCH_LARGE_SNOW_FERN));
   }
 
-  public static void bootstrapConfiguredFeatures(BootstrapContext<ConfiguredFeature<?, ?>> registry) {
+  public static void bootstrapConfiguredFeatures(BootstrapContext<ConfiguredFeature<?, ?>> registry) {/*
     registry.register(SMBConfiguredFeature.PATCH_CATTAIL, SMBFeatureTemplates.configuredCattail());
     registry.register(SMBConfiguredFeature.PATCH_DUNE_GRASS, SMBFeatureTemplates.configuredGenericShortPlant(SMBBlocks.DUNE_GRASS.get()));
     registry.register(SMBConfiguredFeature.PATCH_SHORT_SNOW_GRASS, SMBFeatureTemplates.configuredGenericShortPlant(SMBBlocks.SHORT_SNOW_GRASS.get()));
@@ -52,6 +52,6 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     registry.register(SMBConfiguredFeature.PATCH_SMALL_LILY_PADS, SMBFeatureTemplates.configuredPatchSmallLilyPads());
     registry.register(SMBConfiguredFeature.PATCH_TALL_DUNE_GRASS, SMBFeatureTemplates.configuredGenericTallPlant(SMBBlocks.TALL_DUNE_GRASS.get()));
     registry.register(SMBConfiguredFeature.PATCH_TALL_SNOW_GRASS, SMBFeatureTemplates.configuredGenericTallPlant(SMBBlocks.TALL_SNOW_GRASS.get()));
-    registry.register(SMBConfiguredFeature.PATCH_LARGE_SNOW_FERN, SMBFeatureTemplates.configuredGenericTallPlant(SMBBlocks.LARGE_SNOW_FERN.get()));
+    registry.register(SMBConfiguredFeature.PATCH_LARGE_SNOW_FERN, SMBFeatureTemplates.configuredGenericTallPlant(SMBBlocks.LARGE_SNOW_FERN.get()));*/
   }
 }

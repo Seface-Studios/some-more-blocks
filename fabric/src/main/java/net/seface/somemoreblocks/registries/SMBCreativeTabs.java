@@ -11,7 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemLore;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.component.SMBDataComponentTypes;
 
 import java.util.List;
 
@@ -75,7 +74,7 @@ public class SMBCreativeTabs {
       if (ctx.hasPermissions()) {
         for (int i = 0; i <= 7; i++) {
           ItemStack stack = SMBItems.CARVED_PALE_OAK_LOG.get().getDefaultInstance();
-          stack.set(SMBDataComponentTypes.MOON_PHASE, i);
+          stack.set(SMBDataComponentTypes.MOON_PHASE.get(), i);
           stack.set(DataComponents.RARITY, Rarity.EPIC);
 
           MutableComponent moonPhase = Component.translatable("utilities.somemoreblocks.moon_phase.name." + i)
@@ -96,7 +95,7 @@ public class SMBCreativeTabs {
       if (ctx.hasPermissions()) {
         for (int i = 0; i <= 7; i++) {
           ItemStack stack = SMBItems.CARVED_PALE_OAK_WOOD.get().getDefaultInstance();
-          stack.set(SMBDataComponentTypes.MOON_PHASE, i);
+          stack.set(SMBDataComponentTypes.MOON_PHASE.get(), i);
           stack.set(DataComponents.RARITY, Rarity.EPIC);
 
           MutableComponent moonPhase = Component.translatable("utilities.somemoreblocks.moon_phase.name." + i)
@@ -272,7 +271,7 @@ public class SMBCreativeTabs {
       entry.accept(SMBBlocks.POLISHED_RESIN_STAIRS.get());
       entry.accept(SMBBlocks.POLISHED_RESIN_SLAB.get());
       entry.accept(SMBBlocks.CRACKED_RESIN_BRICKS.get());
-      entry.accept(SMBBlocks.RESINE_PILLAR.get());
+      entry.accept(SMBBlocks.RESIN_PILLAR.get());
       entry.accept(SMBBlocks.RESIN_TILES.get());
       entry.accept(SMBBlocks.CRACKED_RESIN_TILES.get());
       entry.accept(SMBBlocks.RESIN_TILE_STAIRS.get());

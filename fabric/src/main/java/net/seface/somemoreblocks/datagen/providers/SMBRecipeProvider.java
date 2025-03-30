@@ -35,7 +35,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     return new RecipeProvider(provider, output) {
 
       @Override
-      public void buildRecipes() {
+      public void buildRecipes() {/*
         this.snowyPlant(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS.get());
         this.snowyPlant(Blocks.FERN, SMBBlocks.SNOW_FERN.get());
         this.snowyPlant(Blocks.TALL_GRASS, SMBBlocks.TALL_SNOW_GRASS.get());
@@ -58,7 +58,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.createGlassPaneRecipe(SMBBlocks.WHITE_STAINED_TILED_GLASS.get(), SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get(), Blocks.WHITE_STAINED_GLASS_PANE);
         this.createGlassPaneRecipe(SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(), SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), Blocks.YELLOW_STAINED_GLASS_PANE);
 
-        /* 1.21.4 */
+        *//* 1.21.4 *//*
         this.pillar(Blocks.PALE_OAK_SLAB, SMBBlocks.PALE_OAK_MOSAIC.get(), 1);
         this.stairs(SMBBlocks.PALE_OAK_MOSAIC.get(), SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get());
         this.slab(SMBBlocks.PALE_OAK_MOSAIC.get(), SMBBlocks.PALE_OAK_MOSAIC_SLAB.get());
@@ -66,7 +66,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.stairs(SMBBlocks.POLISHED_RESIN.get(), SMBBlocks.POLISHED_RESIN_STAIRS.get(), SMBBlocks.POLISHED_RESIN.get());
         this.slab(SMBBlocks.POLISHED_RESIN.get(), SMBBlocks.POLISHED_RESIN_SLAB.get(), SMBBlocks.POLISHED_RESIN.get());
         this.smeltingResultFromBase(SMBBlocks.CRACKED_RESIN_BRICKS.get(), Blocks.RESIN_BRICKS);
-        this.pillar(Blocks.RESIN_BRICKS, SMBBlocks.RESINE_PILLAR.get());
+        this.pillar(Blocks.RESIN_BRICKS, SMBBlocks.RESIN_PILLAR.get());
         this.twoByTwoPacker(Blocks.RESIN_BRICKS, SMBBlocks.RESIN_TILES.get(), 4, Blocks.RESIN_BRICKS);
         this.smeltingResultFromBase(SMBBlocks.CRACKED_RESIN_TILES.get(), SMBBlocks.RESIN_TILES.get());
         this.stairs(SMBBlocks.RESIN_TILES.get(), SMBBlocks.RESIN_TILE_STAIRS.get(), Blocks.RESIN_BRICKS, SMBBlocks.RESIN_TILES.get());
@@ -74,7 +74,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.wall(SMBBlocks.RESIN_TILES.get(), SMBBlocks.RESIN_TILE_WALL.get(), Blocks.RESIN_BRICKS, SMBBlocks.RESIN_TILES.get());
         this.twoByTwoPacker(Blocks.RESIN_BLOCK, SMBBlocks.POLISHED_RESIN.get(), 4);
         this.smeltingResultFromBase(SMBBlocks.SMOOTH_RESIN.get(), Blocks.RESIN_BLOCK);
-        this.slab(SMBBlocks.SMOOTH_RESIN.get(), SMBBlocks.SMOOTH_RESIN_SLAB.get(), SMBBlocks.SMOOTH_RESIN.get());
+        this.slab(SMBBlocks.SMOOTH_RESIN.get(), SMBBlocks.SMOOTH_RESIN_SLAB.get(), SMBBlocks.SMOOTH_RESIN.get());*/
       }
 
       private void snowyPlant(ItemLike input, ItemLike result) {
@@ -142,7 +142,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
           .save(this.output);
 
         this.stonecuttingFrom(result, stoneCuttingFrom);
-      }
+      }/*
 
       private void createGlassPaneRecipe(Block tiledGlass, Block tiledGlassPane, Block vanillaGlassPane) {
         String group = tiledGlassPane instanceof StainedGlassPaneBlock ? "stained_tiled_glass_pane" : "tiled_glass_pane";
@@ -185,7 +185,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
           .unlockedBy("has_needed_items", this.has(tiledGlass))
           .group(group)
           .save(output);
-      }
+      }*/
     };
   }
 

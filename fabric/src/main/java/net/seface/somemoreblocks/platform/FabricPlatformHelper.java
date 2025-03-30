@@ -4,7 +4,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 
 public class FabricPlatformHelper implements PlatformHelper {
-  private static FabricLoader LOADER = FabricLoader.getInstance();
+  private static final FabricLoader LOADER = FabricLoader.getInstance();
 
   @Override
   public String getPlatformName() {
@@ -17,7 +17,12 @@ public class FabricPlatformHelper implements PlatformHelper {
   }
 
   @Override
-  public PlatformEnvironment getEnviroment() {
+  public PlatformEnvironment getEnvironment() {
     return LOADER.isDevelopmentEnvironment() ? PlatformEnvironment.DEVELOPMENT : PlatformEnvironment.PRODUCTION;
+  }
+
+  @Override
+  public PlatformRegistry getRegistry() {
+    return new FabricPlatformRegistry();
   }
 }

@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
 import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
 import net.seface.somemoreblocks.item.properties.numeric.MoonPhaseProperty;
-import net.seface.somemoreblocks.registries.SMBForgedDataComponentTypes;
+import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,7 +24,7 @@ public abstract class RangeSelectItemModelPropertiesMixin {
 
   @Inject(method = "bootstrap", at = @At(value = "RETURN"))
   private static void bootstrapMixin(CallbackInfo ci) {
-    ID_MAPPER.put(SMBForgedDataComponentTypes.BUCKET_VOLUME.getId(), BucketVolumeProperty.MAP_CODEC);
-    ID_MAPPER.put(SMBForgedDataComponentTypes.MOON_PHASE.getId(), MoonPhaseProperty.MAP_CODEC);
+    ID_MAPPER.put(SMBDataComponentTypes.BUCKET_VOLUME.getId(), BucketVolumeProperty.MAP_CODEC);
+    ID_MAPPER.put(SMBDataComponentTypes.MOON_PHASE.getId(), MoonPhaseProperty.MAP_CODEC);
   }
 }
