@@ -3,6 +3,7 @@ package net.seface.somemoreblocks.item;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -23,13 +24,13 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.seface.somemoreblocks.Constants;
-import net.seface.somemoreblocks.api.ILeavesBucketItem;
 import net.seface.somemoreblocks.block.LeafLitterBlock;
+import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class LeavesBucketItem extends SolidBucketItem implements ILeavesBucketItem {
+public class LeavesBucketItem extends SolidBucketItem {
   public static final int MAX_VOLUME = 16;
   public static final int MIN_VOLUME = 1;
   private static final int BAR_COLOR = Constants.AMESFACE_COLOR;
@@ -127,5 +128,9 @@ public class LeavesBucketItem extends SolidBucketItem implements ILeavesBucketIt
       Component.translatable("item.somemoreblocks.leaves_bucket.volume_description", bucketVolume, MAX_VOLUME)
         .withStyle(ChatFormatting.GRAY)
     );
+  }
+
+  public DataComponentType<Integer> getBucketVolumeComponentType() {
+    return SMBDataComponentTypes.BUCKET_VOLUME.get();
   }
 }

@@ -12,7 +12,6 @@ public interface PlatformRegistryObject<T> extends Supplier<T> {
    */
   ResourceLocation getId();
 
-
   default String getPath() {
     return this.getId().getPath();
   }

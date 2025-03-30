@@ -1,5 +1,6 @@
-package net.seface.somemoreblocks.platform;
+package net.seface.somemoreblocks.platform.registry;
 
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -7,11 +8,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.platform.registry.FabricRegistryObject;
-import net.seface.somemoreblocks.platform.registry.PlatformRegistryObject;
 
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
@@ -47,6 +48,28 @@ public class FabricPlatformRegistry implements PlatformRegistry {
       BuiltInRegistries.DATA_COMPONENT_TYPE,
       identifier,
       builder.apply(DataComponentType.builder()).build());
+
+    return new FabricRegistryObject<>(identifier, () -> instance);
+  }
+
+  @Override
+  public PlatformRegistryObject<Feature<?>> registerFeature(String path, Supplier<Feature<?>> supplier) {
+    ResourceLocation identifier = SomeMoreBlocks.id(path);
+    Feature<?> instance = Registry.register(
+      BuiltInRegistries.FEATURE,
+      SomeMoreBlocks.key(Registries.PLACED_FEATURE, path).location(),
+      supplier.get());
+
+    return new FabricRegistryObject<>(identifier, () -> instance);
+  }
+
+  @Override
+  public PlatformRegistryObject<CreativeModeTab> registerCreativeModeTab(String path, CreativeModeTab.Row _row, int i, UnaryOperator<CreativeModeTab.Builder> builder) {
+    ResourceLocation identifier = SomeMoreBlocks.id(i + "_" + path);
+    CreativeModeTab instance = Registry.register(
+      BuiltInRegistries.CREATIVE_MODE_TAB,
+      identifier,
+      builder.apply(FabricItemGroup.builder()).build());
 
     return new FabricRegistryObject<>(identifier, () -> instance);
   }

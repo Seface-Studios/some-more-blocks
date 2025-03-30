@@ -2,6 +2,7 @@ package net.seface.somemoreblocks.platform.registry;
 
 import lombok.Getter;
 import net.minecraft.resources.ResourceLocation;
+import net.seface.somemoreblocks.platform.registry.PlatformRegistryObject;
 
 import java.util.function.Supplier;
 

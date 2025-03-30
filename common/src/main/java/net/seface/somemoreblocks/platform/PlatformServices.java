@@ -1,6 +1,7 @@
 package net.seface.somemoreblocks.platform;
 
 import net.seface.somemoreblocks.SomeMoreBlocks;
+import net.seface.somemoreblocks.platform.registry.PlatformRegistry;
 
 import java.util.ServiceLoader;
 
