@@ -17,4 +17,6 @@ public class SMBPlacedFeature {
   public static final ResourceKey<PlacedFeature> PATCH_TALL_DUNE_GRASS = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_tall_dune_grass");
   public static final ResourceKey<PlacedFeature> PATCH_TALL_SNOW_GRASS = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_tall_snow_grass");
   public static final ResourceKey<PlacedFeature> PATCH_TINY_CACTUS = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_tiny_cactus_forest");
+
+  public static void init() {}
 }

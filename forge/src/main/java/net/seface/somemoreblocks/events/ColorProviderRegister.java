@@ -1,4 +1,5 @@
 package net.seface.somemoreblocks.events;
+
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;

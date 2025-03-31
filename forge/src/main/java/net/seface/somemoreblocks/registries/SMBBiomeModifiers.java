@@ -33,11 +33,10 @@ public class SMBBiomeModifiers {
   public static RegistryObject<MapCodec<NoneLeafLitterBiomeModifier>> NONE_LEAF_LITTER = registerBiomeModifier("none_leaf_litter", NoneLeafLitterBiomeModifier::new);
 
   /**
-   *
+   * Register a new biome modifier.
    * @param path The identifier path.
-   * @param factory
-   * @return
-   * @param <T>
+   * @param factory The construction function of biome modifier.
+   * @return The biome modifier object.
    */
   private static <T extends BiomeModifier> RegistryObject<MapCodec<T>> registerBiomeModifier(String path, BiFunction<HolderSet<Biome>, Holder<PlacedFeature>, T> factory) {
     return BIOME_MODIFIERS.register(path, () ->

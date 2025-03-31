@@ -12,6 +12,7 @@ import net.minecraftforge.common.world.ModifiableBiomeInfo;
 import net.seface.somemoreblocks.registries.SMBBiomeModifiers;
 
 public record PatchTinyCactusBiomeModifier(HolderSet<Biome> biomes, Holder<PlacedFeature> feature) implements BiomeModifier {
+
   @Override
   public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
     if (phase == Phase.ADD && biomes.contains(biome) && !biome.is(Biomes.PALE_GARDEN)) {

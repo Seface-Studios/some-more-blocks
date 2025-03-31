@@ -11,6 +11,7 @@ import net.minecraftforge.common.world.ModifiableBiomeInfo;
 import net.seface.somemoreblocks.registries.SMBBiomeModifiers;
 
 public record PatchDuneGrassBiomeModifier(HolderSet<Biome> biomes, Holder<PlacedFeature> feature) implements BiomeModifier {
+
   @Override
   public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
     if (phase == Phase.ADD && biomes.contains(biome) && biome.get().getBaseTemperature() >= 0.5F) {
