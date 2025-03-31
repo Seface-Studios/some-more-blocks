@@ -9,6 +9,7 @@ import net.seface.somemoreblocks.registries.SMBBiomeModifiers;
 @SuppressWarnings({"removal", "deprecation"})
 @Mod(SomeMoreBlocks.ID)
 public class SomeMoreBlocksForge {
+
   public SomeMoreBlocksForge() {
     IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
     SomeMoreBlocks.init(() -> ForgePlatformRegistry.init(bus), null);

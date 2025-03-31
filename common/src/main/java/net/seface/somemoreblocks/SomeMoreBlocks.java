@@ -1,21 +1,15 @@
 package net.seface.somemoreblocks;
 
 import net.minecraft.core.Registry;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.seface.somemoreblocks.platform.PlatformEnvironment;
-import net.seface.somemoreblocks.platform.PlatformHelper;
+import net.minecraft.tags.TagKey;
 import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Objects;
-import java.util.Optional;
-import java.util.function.Supplier;
 
 public class SomeMoreBlocks {
   public static final String ID = "somemoreblocks";
@@ -38,7 +32,7 @@ public class SomeMoreBlocks {
     SMBDataComponentTypes.init();
     SMBBlocks.init();
     SMBItems.init();
-    SMBBlockTags.register();
+    SMBBlockTags.init();
     SMBFeatures.init();
     SMBCreativeTabs.init();
 
@@ -61,6 +55,10 @@ public class SomeMoreBlocks {
    */
   public static <T> ResourceKey<T> key(ResourceKey<? extends Registry<T>> registry, String path) {
     return ResourceKey.create(registry, SomeMoreBlocks.id(path));
+  }
+
+  public static <T> TagKey<T> tagKey(ResourceKey<Registry<T>> registryType, String path) {
+    return TagKey.create(registryType, SomeMoreBlocks.id(path));
   }
 
   private static void printHeader() {

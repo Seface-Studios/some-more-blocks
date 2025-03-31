@@ -22,17 +22,4 @@ public class SMBUtils {
       entry.accept(item);
     }
   }
-
-  public static class GenericRegistry {
-
-    /**
-     * Registry an Item to be compostable on {@link ComposterBlock}.
-     *
-     * @param chance The chance between 0-1 of being compostable
-     * @param item The item instance.
-     */
-    public static void compostableItem(float chance, ItemLike item) {
-      ComposterBlock.COMPOSTABLES.put(item, chance);
-    }
-  }
 }

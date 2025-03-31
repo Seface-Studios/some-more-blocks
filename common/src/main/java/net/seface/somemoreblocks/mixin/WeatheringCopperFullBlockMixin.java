@@ -4,7 +4,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.WeatheringCopperFullBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.seface.somemoreblocks.registries.WeatheringCopperBlockRegistry;
+import net.seface.somemoreblocks.registries.SMBRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,18 +21,15 @@ public abstract class WeatheringCopperFullBlockMixin extends Block implements We
 
   @Override
   public @NotNull Optional<BlockState> getNext(BlockState state) {
-    Optional<BlockState> weathering = WeatheringCopperBlockRegistry.getNext(state);
+    Optional<Block> weathering = SMBRegistries.WEATHERING_COPPER_BLOCKS.getNext(state.getBlock());
+      return weathering
+        .map(block -> block.withPropertiesOf(state))
+        .or(() -> Optional.of(WeatheringCopper.getNext(state.getBlock()).get().defaultBlockState()));
 
-    if (weathering.isPresent()) {
-      return weathering;
-    }
-
-    return Optional.of(WeatheringCopper.getNext(state.getBlock()).get().defaultBlockState());
   }
 
   @Inject(method = "isRandomlyTicking", at = @At(value = "HEAD"), cancellable = true)
   private void isRandomlyTickingMixin(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-    WeatheringCopperBlockRegistry.getNext(state)
-      .ifPresent(blockState -> cir.setReturnValue(true));
+    SMBRegistries.WEATHERING_COPPER_BLOCKS.getNext(state.getBlock()).ifPresent((block) -> cir.setReturnValue(true));
   }
 }

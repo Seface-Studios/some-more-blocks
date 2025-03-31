@@ -608,7 +608,7 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> WAXED_WEATHERED_COPPER_PILLAR = PlatformServices.REGISTRY.registerBlock("waxed_weathered_copper_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.WEATHERED_COPPER_PILLAR.get()).setId(SomeMoreBlocks.key(Registries.BLOCK, "waxed_weathered_copper_pillar"))));
   public static final PlatformRegistryObject<Block> WAXED_OXIDIZED_COPPER_PILLAR = PlatformServices.REGISTRY.registerBlock("waxed_oxidized_copper_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.OXIDIZED_COPPER_PILLAR.get()).setId(SomeMoreBlocks.key(Registries.BLOCK, "waxed_oxidized_copper_pillar"))));
 
-  // 1.21.4
+  /* 1.21.4 */
   public static final PlatformRegistryObject<Block> PALE_OAK_LEAF_LITTER = PlatformServices.REGISTRY.registerBlock("pale_oak_leaf_litter", () -> new LeafLitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PALE_OAK_LEAVES).replaceable().noCollission().instabreak().setId(SomeMoreBlocks.key(Registries.BLOCK, "pale_oak_leaf_litter")), Constants.PALE_OAK_LEAF_LITTER_CHANCE), false);
   public static final PlatformRegistryObject<Block> CARVED_PALE_OAK_LOG = PlatformServices.REGISTRY.registerBlock("carved_pale_oak_log", () -> new RotatedCarvedPaleOakBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_PALE_OAK_LOG).setId(SomeMoreBlocks.key(Registries.BLOCK, "carved_pale_oak_log"))), false);
   public static final PlatformRegistryObject<Block> CARVED_PALE_OAK_WOOD = PlatformServices.REGISTRY.registerBlock("carved_pale_oak_wood", () -> new RotatedCarvedPaleOakBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_PALE_OAK_WOOD).setId(SomeMoreBlocks.key(Registries.BLOCK, "carved_pale_oak_wood"))), false);

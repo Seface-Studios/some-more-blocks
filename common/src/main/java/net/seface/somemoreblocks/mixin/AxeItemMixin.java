@@ -10,13 +10,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
-import net.seface.somemoreblocks.registries.CarvedBlockRegistry;
-import net.seface.somemoreblocks.registries.WaxableCopperBlockRegistry;
-import net.seface.somemoreblocks.registries.WeatheringCopperBlockRegistry;
+import net.seface.somemoreblocks.registries.SMBRegistries;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,18 +32,18 @@ public abstract class AxeItemMixin {
 
   @Inject(method = "getStripped", at = @At(value = "HEAD"), cancellable = true)
   private void getStrippedMixin(BlockState state, CallbackInfoReturnable<Optional<BlockState>> cir) {
-    CarvedBlockRegistry.getCarvedBlock(state)
-      .ifPresent(blockState -> {
-        if (blockState.getBlock() instanceof RotatedCarvedPaleOakBlock) {
-          cir.setReturnValue(Optional.of(
-            blockState.setValue(RotatedCarvedPaleOakBlock.MOON_PHASE, this.SMB$level.getMoonPhase())
-          ));
+    SMBRegistries.CARVED_BLOCKS.getNext(state.getBlock())
+        .ifPresent((block) -> {
+          if (block instanceof RotatedCarvedPaleOakBlock) {
+            cir.setReturnValue(Optional.of(
+              block.withPropertiesOf(state).setValue(RotatedCarvedPaleOakBlock.MOON_PHASE, this.SMB$level.getMoonPhase())
+            ));
 
-          return;
-        }
+            return;
+          }
 
-        cir.setReturnValue(Optional.of(blockState));
-      });
+          cir.setReturnValue(Optional.of(block.withPropertiesOf(state)));
+        });
   }
 
   @Inject(method = "useOn", at = @At(value = "HEAD"), cancellable = true)
@@ -57,16 +56,16 @@ public abstract class AxeItemMixin {
       this.SMB$level = level;
     }
 
-    Optional<BlockState> weatheringOff = WeatheringCopperBlockRegistry.getPrevious(state);
-    Optional<BlockState> waxableOff = WaxableCopperBlockRegistry.getWaxableOff(state);
+    Optional<Block> weatheringOff = SMBRegistries.WEATHERING_COPPER_BLOCKS.getPrevious(state.getBlock());
+    Optional<Block> waxableOff = SMBRegistries.WAXED_COPPER_BLOCKS.getPrevious(state.getBlock());
 
     if (weatheringOff.isPresent()) {
-      this.SMB$evaluateNewBlockState(ctx, level, weatheringOff.get(), SoundEvents.AXE_SCRAPE, LevelEvent.PARTICLES_SCRAPE);
+      this.SMB$evaluateNewBlockState(ctx, level, weatheringOff.get().defaultBlockState(), SoundEvents.AXE_SCRAPE, LevelEvent.PARTICLES_SCRAPE);
       cir.setReturnValue(InteractionResult.SUCCESS);
     }
 
     if (waxableOff.isPresent()) {
-      this.SMB$evaluateNewBlockState(ctx, level, waxableOff.get(), SoundEvents.AXE_WAX_OFF, LevelEvent.PARTICLES_WAX_OFF);
+      this.SMB$evaluateNewBlockState(ctx, level, waxableOff.get().defaultBlockState(), SoundEvents.AXE_WAX_OFF, LevelEvent.PARTICLES_WAX_OFF);
       cir.setReturnValue(InteractionResult.SUCCESS);
     }
   }

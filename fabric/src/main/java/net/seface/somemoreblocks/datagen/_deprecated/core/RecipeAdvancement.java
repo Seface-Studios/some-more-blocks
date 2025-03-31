@@ -14,7 +14,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.tags.SMBAbstractData;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
