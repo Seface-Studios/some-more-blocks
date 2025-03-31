@@ -6,6 +6,7 @@ import lombok.Getter;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.Optional;
+import java.util.Set;
 
 public class BidirectionalRegistryObject<K, V> {
 
@@ -21,16 +22,45 @@ public class BidirectionalRegistryObject<K, V> {
     this.previous = this.next.inverse();
   }
 
-  public void register(K input, V output) {
-    this.next.put(input, output);
+  /**
+   * Registry a new object.
+   * @param key The object key.
+   * @param value The object value.
+   */
+  public void register(K key, V value) {
+    this.next.put(key, value);
   }
 
-  public Optional<V> getNext(K value) {
-    return Optional.ofNullable(this.next.get(value));
+  /**
+   * Get the value of object by the key.
+   * @param key The object key.
+   * @return The object value.
+   */
+  public Optional<V> getNext(K key) {
+    return Optional.ofNullable(this.next.get(key));
   }
 
+  /**
+   * Get the key of object by the value.
+   * @param value The object value.
+   * @return The object key.
+   */
   public Optional<K> getPrevious(V value) {
     return Optional.ofNullable(this.previous.get(value));
+  }
+
+  /**
+   * Get all the objects keys.
+   */
+  public Set<K> getKeySet() {
+    return this.next.keySet();
+  }
+
+  /**
+   * Get all the objects values.
+   */
+  public Set<V> getValueSet() {
+    return this.previous.keySet();
   }
 
   public static <K, V> BidirectionalRegistryObject<K, V> create(ResourceLocation id) {

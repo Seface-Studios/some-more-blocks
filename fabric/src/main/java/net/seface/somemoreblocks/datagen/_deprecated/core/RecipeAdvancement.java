@@ -130,7 +130,7 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
         suffix = "_from_" + requiredItemPath;
       }
 
-      ResourceKey<Recipe<?>> resourceKey = SMBAbstractData.createResourceKey(Registries.RECIPE, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
+      ResourceKey<Recipe<?>> resourceKey = SomeMoreBlocks.key(Registries.RECIPE, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
       String name = resourceKey.location().getPath();
 
       consumer.accept(
@@ -154,7 +154,7 @@ public class RecipeAdvancement implements IRecipeAdvancement<RecipeAdvancement> 
       String requiredItemPath = requiredItem.asItem().builtInRegistryHolder().key().location().getPath();
       String suffix = "_from_" + requiredItemPath + "_stonecutting";
 
-      ResourceKey<Recipe<?>> resourceKey = SMBAbstractData.createResourceKey(Registries.RECIPE, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
+      ResourceKey<Recipe<?>> resourceKey = SomeMoreBlocks.key(Registries.RECIPE, this.unlockedItem.asItem().builtInRegistryHolder().key().location().getPath() + suffix);
       String name = resourceKey.location().getPath();
 
       consumer.accept(

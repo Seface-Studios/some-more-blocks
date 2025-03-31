@@ -1,16 +1,19 @@
 package net.seface.somemoreblocks.registries;
 
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.platform.registry.BidirectionalRegistryObject;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 
 public class SMBRegistries {
   public static BidirectionalRegistryObject<Block, Block> CARVED_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("carved_blocks"));
   public static BidirectionalRegistryObject<Block, Block> SNOWY_PLANT_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("snowy_plant_blocks"));
   public static BidirectionalRegistryObject<Block, Block> WAXED_COPPER_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("waxed_copper_blocks"));
   public static BidirectionalRegistryObject<Block, Block> WEATHERING_COPPER_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("weathering_copper_blocks"));
+  public static BidirectionalRegistryObject<TagKey<Block>, Block> LEAF_LITTER_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("leaf_litter_blocks"));
 
   /**
    * This initialization need to be called directly on Mod Loader initialize class!
@@ -21,6 +24,7 @@ public class SMBRegistries {
     SMBRegistries.waxedCopperBlocks();
     SMBRegistries.weatheringCopperBlocks();
     SMBRegistries.compostableItems();
+    SMBRegistries.leafLitterBlocks();
   }
 
   private static void compostableItems() {
@@ -115,5 +119,14 @@ public class SMBRegistries {
     WEATHERING_COPPER_BLOCKS.register(SMBBlocks.COPPER_PILLAR.get(), SMBBlocks.EXPOSED_COPPER_PILLAR.get());
     WEATHERING_COPPER_BLOCKS.register(SMBBlocks.EXPOSED_COPPER_PILLAR.get(), SMBBlocks.WEATHERED_COPPER_PILLAR.get());
     WEATHERING_COPPER_BLOCKS.register(SMBBlocks.WEATHERED_COPPER_PILLAR.get(), SMBBlocks.OXIDIZED_COPPER_PILLAR.get());
+  }
+
+  private static void leafLitterBlocks() {
+    LEAF_LITTER_BLOCKS.register(SMBBlockTags.LEAF_LITTER_PARENT_LEAVES, SMBBlocks.LEAF_LITTER.get());
+    LEAF_LITTER_BLOCKS.register(SMBBlockTags.BIRCH_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.BIRCH_LEAF_LITTER.get());
+    LEAF_LITTER_BLOCKS.register(SMBBlockTags.SPRUCE_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.SPRUCE_LEAF_LITTER.get());
+    LEAF_LITTER_BLOCKS.register(SMBBlockTags.AZALEA_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.AZALEA_LEAF_LITTER.get());
+    LEAF_LITTER_BLOCKS.register(SMBBlockTags.FLOWERING_AZALEA_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get());
+    LEAF_LITTER_BLOCKS.register(SMBBlockTags.PALE_OAK_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.PALE_OAK_LEAF_LITTER.get());
   }
 }
