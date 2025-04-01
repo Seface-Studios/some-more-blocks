@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": "somemoreblocks:tall_cactus",
+  "result": {
+    "id": "somemoreblocks:smooth_cactus"
+  }
+}

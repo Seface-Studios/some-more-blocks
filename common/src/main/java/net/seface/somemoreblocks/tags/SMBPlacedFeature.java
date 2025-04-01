@@ -10,6 +10,7 @@ public class SMBPlacedFeature extends SMBAbstractData {
   public static final ResourceKey<PlacedFeature> PATCH_LUMINOUS_FLOWER = createResourceKey(Registries.PLACED_FEATURE, "patch_luminous_flower");
   public static final ResourceKey<PlacedFeature> PATCH_SMALL_LILY_PADS = createResourceKey(Registries.PLACED_FEATURE, "patch_small_lily_pads");
   public static final ResourceKey<PlacedFeature> PATCH_TALL_DUNE_GRASS = createResourceKey(Registries.PLACED_FEATURE, "patch_tall_dune_grass");
-  public static final ResourceKey<PlacedFeature> PATCH_TINY_CACTUS = createResourceKey(Registries.PLACED_FEATURE, "patch_tiny_cactus_forest");
+  public static final ResourceKey<PlacedFeature> PATCH_TINY_CACTUS = createResourceKey(Registries.PLACED_FEATURE, "patch_tiny_cactus");
+  public static final ResourceKey<PlacedFeature> PATCH_TALL_CACTUS = createResourceKey(Registries.PLACED_FEATURE, "patch_tall_cactus");
   public static final ResourceKey<PlacedFeature> NONE_LEAF_LITTER = createResourceKey(Registries.PLACED_FEATURE, "none_leaf_litter");
 }

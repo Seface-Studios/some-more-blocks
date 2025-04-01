@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mossy_cactus_bricks",
+  "ingredients": [
+    "somemoreblocks:cactus_bricks",
+    "minecraft:moss_block"
+  ],
+  "result": {
+    "id": "somemoreblocks:mossy_cactus_bricks"
+  }
+}

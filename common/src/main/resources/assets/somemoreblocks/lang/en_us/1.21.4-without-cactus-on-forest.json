@@ -12,5 +12,6 @@
   "block.somemoreblocks.smooth_cactus": "Smooth Cactus",
   "block.somemoreblocks.tall_cactus": "Tall Cactus",
   "block.somemoreblocks.cactus_ladder": "Cactus Ladder",
-  "block.somemoreblocks.cactus_chest": "Cactus Chest"
+  "block.somemoreblocks.cactus_chest": "Cactus Chest",
+  "container.somemoreblocks.cactus_chest": "Cactus Chest"
 }

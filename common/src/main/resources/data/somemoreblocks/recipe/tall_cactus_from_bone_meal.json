@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "tall_cactus",
+  "ingredients": [
+    "somemoreblocks:tiny_cactus",
+    "minecraft:bone_meal"
+  ],
+  "result": {
+    "id": "somemoreblocks:tall_cactus"
+  }
+}

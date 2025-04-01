@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "cactus_chest",
+  "key": {
+    "#": "minecraft:cactus"
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:cactus_chest"
+  }
+}

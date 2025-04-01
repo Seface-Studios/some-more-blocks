@@ -18,6 +18,7 @@ public class SMBBiomeModifiers {
     registerDuneGrassDecoration(SMBPlacedFeature.PATCH_TALL_DUNE_GRASS);
     registerLeafLitterDecoration(SMBPlacedFeature.NONE_LEAF_LITTER);
     registerTinyCactusDecoration(SMBPlacedFeature.PATCH_TINY_CACTUS);
+    registerTinyCactusDecoration(SMBPlacedFeature.PATCH_TALL_CACTUS);
     registerUndergroundDecoration(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER, SMBPlacedFeature.PATCH_LUMINOUS_FLOWER);
     registerVegetalDecoration(SMBBiomeTags.GENERATES_CATTAIL, SMBPlacedFeature.PATCH_CATTAIL);
     registerVegetalDecoration(SMBBiomeTags.GENERATES_SMALL_LILY_PADS, SMBPlacedFeature.PATCH_SMALL_LILY_PADS);

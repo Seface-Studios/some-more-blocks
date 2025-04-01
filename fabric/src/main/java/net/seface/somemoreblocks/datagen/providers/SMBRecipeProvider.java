@@ -75,6 +75,15 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.twoByTwoPacker(Blocks.RESIN_BLOCK, SMBBlocks.POLISHED_RESIN, 4);
         this.smeltingResultFromBase(SMBBlocks.SMOOTH_RESIN, Blocks.RESIN_BLOCK);
         this.slab(SMBBlocks.SMOOTH_RESIN, SMBBlocks.SMOOTH_RESIN_SLAB, SMBBlocks.SMOOTH_RESIN);
+
+        this.twoByTwoPacker(Blocks.CACTUS, SMBBlocks.CACTUS_BRICKS, 4);
+        this.smeltingResultFromBase(SMBBlocks.CRACKED_CACTUS_BRICKS, SMBBlocks.CACTUS_BRICKS);
+        this.pillar(SMBBlocks.CACTUS_BRICKS, SMBBlocks.CACTUS_PILLAR);
+        this.twoByTwoPacker(SMBBlocks.CACTUS_BRICKS, SMBBlocks.CACTUS_TILES, 4);
+        this.smeltingResultFromBase(SMBBlocks.CRACKED_CACTUS_TILES, SMBBlocks.CACTUS_TILES);
+        this.smeltingResultFromBase(SMBBlocks.SMOOTH_CACTUS, SMBBlocks.TALL_CACTUS);
+        this.twoByTwoPacker(SMBBlocks.CACTUS_PILLAR, SMBBlocks.POLISHED_CACTUS, 4);
+        this.twoByTwoPacker(SMBBlocks.POLISHED_CACTUS, SMBBlocks.CHISELED_CACTUS_BRICKS, 4);
       }
 
       private void snowyPlant(ItemLike input, ItemLike result) {

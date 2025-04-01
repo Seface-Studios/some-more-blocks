@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "cactus_ladder",
+  "key": {
+    "#": "minecraft:cactus"
+  },
+  "pattern": [
+    "# #",
+    "###",
+    "# #"
+  ],
+  "result": {
+    "count": 3,
+    "id": "somemoreblocks:cactus_ladder"
+  }
+}
