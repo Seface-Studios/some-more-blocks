@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.datagen.providers;
+package net.seface.somemoreblocks.datagen.providers.tags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -16,7 +16,7 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
   }
 
   @Override
-  protected void addTags(HolderLookup.Provider provider) {/*
+  protected void addTags(HolderLookup.Provider provider) {
     getOrCreateTagBuilder(ItemTags.ACACIA_LOGS).setReplace(false)
       .add(SMBBlocks.CARVED_ACACIA_LOG.get().asItem(), SMBBlocks.CARVED_ACACIA_WOOD.get().asItem());
 
@@ -50,9 +50,8 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.ACACIA_MOSAIC.get().asItem(), SMBBlocks.DARK_OAK_MOSAIC.get().asItem(),
         SMBBlocks.MANGROVE_MOSAIC.get().asItem(), SMBBlocks.CRIMSON_MOSAIC.get().asItem(),
         SMBBlocks.WARPED_MOSAIC.get().asItem(), SMBBlocks.CHERRY_MOSAIC.get().asItem(),
-
-        *//* 1.21.4 *//*
-        SMBBlocks.PALE_OAK_MOSAIC.get().asItem());
+        SMBBlocks.PALE_OAK_MOSAIC.get().asItem()
+      );
 
     getOrCreateTagBuilder(ItemTags.SLABS).setReplace(false)
       .add(
@@ -90,11 +89,9 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.CUT_SOUL_SANDSTONE_SLAB.get().asItem(), SMBBlocks.SMOOTH_SOUL_SANDSTONE_SLAB.get().asItem(),
         SMBBlocks.SOUL_SANDSTONE_BRICK_SLAB.get().asItem(), SMBBlocks.SOUL_SANDSTONE_TILE_SLAB.get().asItem(),
         SMBBlocks.MOSSY_BRICK_SLAB.get().asItem(), SMBBlocks.BONE_BRICK_SLAB.get().asItem(),
-        SMBBlocks.BONE_TILE_SLAB.get().asItem(),
-
-        *//* 1.21.4 *//*
-        SMBBlocks.POLISHED_RESIN_SLAB.get().asItem(), SMBBlocks.RESIN_TILE_SLAB.get().asItem(),
-        SMBBlocks.SMOOTH_RESIN_SLAB.get().asItem());
+        SMBBlocks.BONE_TILE_SLAB.get().asItem(), SMBBlocks.POLISHED_RESIN_SLAB.get().asItem(),
+        SMBBlocks.RESIN_TILE_SLAB.get().asItem(), SMBBlocks.SMOOTH_RESIN_SLAB.get().asItem()
+      );
 
     getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS).setReplace(false).add(SMBBlocks.LUMINOUS_FLOWER.get().asItem());
 
@@ -131,8 +128,6 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS.get().asItem(), SMBBlocks.SOUL_SANDSTONE_BRICK_STAIRS.get().asItem(),
         SMBBlocks.SOUL_SANDSTONE_TILE_STAIRS.get().asItem(), SMBBlocks.MOSSY_BRICK_STAIRS.get().asItem(),
         SMBBlocks.BONE_BRICK_STAIRS.get().asItem(), SMBBlocks.BONE_TILE_STAIRS.get().asItem(),
-
-        *//* 1.21.4 *//*
         SMBBlocks.POLISHED_RESIN_STAIRS.get().asItem(), SMBBlocks.RESIN_TILE_STAIRS.get().asItem()
       );
 
@@ -160,10 +155,7 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.PURPUR_TILE_WALL.get().asItem(), SMBBlocks.SOUL_SANDSTONE_WALL.get().asItem(),
         SMBBlocks.SOUL_SANDSTONE_BRICK_WALL.get().asItem(), SMBBlocks.SOUL_SANDSTONE_TILE_WALL.get().asItem(),
         SMBBlocks.MOSSY_BRICK_WALL.get().asItem(), SMBBlocks.BONE_BRICK_WALL.get().asItem(),
-        SMBBlocks.BONE_TILE_WALL.get().asItem(),
-
-        *//* 1.21.4 *//*
-        SMBBlocks.RESIN_TILE_WALL.get().asItem()
+        SMBBlocks.BONE_TILE_WALL.get().asItem(), SMBBlocks.RESIN_TILE_WALL.get().asItem()
       );
 
     getOrCreateTagBuilder(ItemTags.WARPED_STEMS).setReplace(false)
@@ -176,8 +168,6 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.ACACIA_MOSAIC_SLAB.get().asItem(), SMBBlocks.DARK_OAK_MOSAIC_SLAB.get().asItem(),
         SMBBlocks.MANGROVE_MOSAIC_SLAB.get().asItem(), SMBBlocks.CRIMSON_MOSAIC_SLAB.get().asItem(),
         SMBBlocks.WARPED_MOSAIC_SLAB.get().asItem(), SMBBlocks.CHERRY_MOSAIC_SLAB.get().asItem(),
-
-        *//* 1.21.4 *//*
         SMBBlocks.PALE_OAK_MOSAIC_SLAB.get().asItem()
       );
 
@@ -188,13 +178,10 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.ACACIA_MOSAIC_STAIRS.get().asItem(), SMBBlocks.DARK_OAK_MOSAIC_STAIRS.get().asItem(),
         SMBBlocks.MANGROVE_MOSAIC_STAIRS.get().asItem(), SMBBlocks.CRIMSON_MOSAIC_STAIRS.get().asItem(),
         SMBBlocks.WARPED_MOSAIC_STAIRS.get().asItem(), SMBBlocks.CHERRY_MOSAIC_STAIRS.get().asItem(),
-
-        *//* 1.21.4 *//*
         SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get().asItem()
       );
 
-    *//* 1.21.4 *//*
     getOrCreateTagBuilder(ItemTags.PALE_OAK_LOGS).setReplace(false)
-      .add(SMBBlocks.CARVED_PALE_OAK_LOG.get().asItem(), SMBBlocks.CARVED_PALE_OAK_WOOD.get().asItem());*/
+      .add(SMBBlocks.CARVED_PALE_OAK_LOG.get().asItem(), SMBBlocks.CARVED_PALE_OAK_WOOD.get().asItem());
   }
 }

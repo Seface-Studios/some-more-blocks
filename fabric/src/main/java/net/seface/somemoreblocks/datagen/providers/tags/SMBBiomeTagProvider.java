@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.datagen.providers;
+package net.seface.somemoreblocks.datagen.providers.tags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -11,8 +11,8 @@ import net.seface.somemoreblocks.tags.SMBBiomeTags;
 
 import java.util.concurrent.CompletableFuture;
 
-public class SMBWorldGenTagProvider extends FabricTagProvider<Biome> {
-  public SMBWorldGenTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> future) {
+public class SMBBiomeTagProvider extends FabricTagProvider<Biome> {
+  public SMBBiomeTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> future) {
     super(output, Registries.BIOME, future);
   }
 

@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.datagen.providers;
+package net.seface.somemoreblocks.datagen.providers.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
@@ -17,6 +17,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
+import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
 
 import java.util.concurrent.CompletableFuture;
@@ -27,7 +28,7 @@ public class SMBLootTableProvider extends FabricBlockLootTableProvider {
   }
 
   @Override
-  public void generate() {/*
+  public void generate() {
     addSilkTouchOnly(SMBBlocks.POLISHED_ICE.get());
     addSilkTouchOnly(SMBBlocks.POLISHED_ICE_STAIRS.get());
     addSilkTouchOnly(SMBBlocks.POLISHED_ICE_SLAB.get());
@@ -75,8 +76,6 @@ public class SMBLootTableProvider extends FabricBlockLootTableProvider {
     addSilkTouchOnly(SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE.get());
     addSilkTouchOnly(SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get());
     addSilkTouchOnly(SMBBlocks.PINK_STAINED_TILED_GLASS_PANE.get());
-
-    *//* 1.21.4 *//*
     addGenericBlock(SMBBlocks.PALE_OAK_MOSAIC.get());
     addGenericBlock(SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get());
     addGenericSlab(SMBBlocks.PALE_OAK_MOSAIC_SLAB.get());
@@ -93,7 +92,7 @@ public class SMBLootTableProvider extends FabricBlockLootTableProvider {
     addGenericBlock(SMBBlocks.SMOOTH_RESIN.get());
     addGenericSlab(SMBBlocks.SMOOTH_RESIN_SLAB.get());
     addCarvedPaleLogBlock(SMBBlocks.CARVED_PALE_OAK_LOG.get());
-    addCarvedPaleLogBlock(SMBBlocks.CARVED_PALE_OAK_WOOD.get());*/
+    addCarvedPaleLogBlock(SMBBlocks.CARVED_PALE_OAK_WOOD.get());
   }
 
   /**

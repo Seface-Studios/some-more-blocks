@@ -15,11 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.item.FuelBlockItem;
-import net.seface.somemoreblocks.platform.registry.ForgeRegistryObject;
-import net.seface.somemoreblocks.platform.registry.PlatformRegistry;
-import net.seface.somemoreblocks.platform.registry.PlatformRegistryObject;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;

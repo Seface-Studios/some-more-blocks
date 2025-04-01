@@ -4,8 +4,12 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.BlockFamilies;
 import net.seface.somemoreblocks.datagen.providers.*;
+import net.seface.somemoreblocks.datagen.providers.data.SMBLootTableProvider;
+import net.seface.somemoreblocks.datagen.providers.data.SMBRecipeProvider;
+import net.seface.somemoreblocks.datagen.providers.tags.SMBBlockTagProvider;
+import net.seface.somemoreblocks.datagen.providers.tags.SMBItemTagProvider;
+import net.seface.somemoreblocks.datagen.providers.tags.SMBBiomeTagProvider;
 
 public class Main implements DataGeneratorEntrypoint {
 
@@ -17,7 +21,7 @@ public class Main implements DataGeneratorEntrypoint {
     pack.addProvider(SMBRecipeProvider::new);
     pack.addProvider(SMBBlockTagProvider::new);
     pack.addProvider(SMBItemTagProvider::new);
-    pack.addProvider(SMBWorldGenTagProvider::new);
+    pack.addProvider(SMBBiomeTagProvider::new);
     pack.addProvider(SMBLootTableProvider::new);
     pack.addProvider(SMBFeatureProvider::new);
 
