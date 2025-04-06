@@ -328,8 +328,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.SMOOTH_PRISMARINE.get());
         entry.accept(SMBBlocks.SMOOTH_PRISMARINE_SLAB.get());
         entry.accept(SMBBlocks.NETHER_BRICKS_PILLAR.get());
-        entry.accept(SMBBlocks.CRACKED_RED_NETHER_BRICKS.get());
         entry.accept(SMBBlocks.CHISELED_RED_NETHER_BRICKS.get());
+        entry.accept(SMBBlocks.CRACKED_RED_NETHER_BRICKS.get());
         entry.accept(SMBBlocks.RED_NETHER_BRICKS_PILLAR.get());
         entry.accept(SMBBlocks.POLISHED_BLACKSTONE_PILLAR.get());
         entry.accept(SMBBlocks.POLISHED_BLACKSTONE_TILES.get());

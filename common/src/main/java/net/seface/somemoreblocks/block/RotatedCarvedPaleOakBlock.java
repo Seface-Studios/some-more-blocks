@@ -20,7 +20,6 @@ public class RotatedCarvedPaleOakBlock extends RotatedPillarBlock {
 
   public RotatedCarvedPaleOakBlock(Properties properties) {
     super(properties);
-
     this.registerDefaultState(
         (this.stateDefinition.any())
           .setValue(AXIS, Direction.Axis.Y)

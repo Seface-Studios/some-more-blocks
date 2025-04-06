@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "somemoreblocks:block/packed_snow",
-    "side": "somemoreblocks:block/packed_snow",
-    "top": "somemoreblocks:block/packed_snow"
-  }
-}

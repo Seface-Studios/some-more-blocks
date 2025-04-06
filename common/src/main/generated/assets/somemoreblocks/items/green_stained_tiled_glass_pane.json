@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "somemoreblocks:item/green_stained_tiled_glass_pane"
+    "model": "somemoreblocks:block/green_stained_tiled_glass_pane"
   }
 }

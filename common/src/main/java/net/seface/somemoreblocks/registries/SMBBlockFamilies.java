@@ -1,12 +1,17 @@
 package net.seface.somemoreblocks.registries;
 
 import com.google.common.collect.Maps;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.seface.somemoreblocks.SomeMoreBlocks;
+import net.seface.somemoreblocks.platform.registry.PlatformRegistryObject;
 
 import java.util.Map;
+import java.util.Optional;
 
 public class SMBBlockFamilies {
   private static final Map<Block, BlockFamily> BLOCK_FAMILIES = Maps.newHashMap();
@@ -56,8 +61,67 @@ public class SMBBlockFamilies {
   public static final BlockFamily MUD_TILES = register(SMBBlocks.MUD_TILES.get()).cracked(SMBBlocks.CRACKED_MUD_TILES.get()).stairs(SMBBlocks.MUD_TILE_STAIRS.get()).slab(SMBBlocks.MUD_TILE_SLAB.get()).wall(SMBBlocks.MUD_TILE_WALL.get()).getFamily();
   public static final BlockFamily MOSSY_MUD_BRICKS = register(SMBBlocks.MOSSY_MUD_BRICKS.get()).stairs(SMBBlocks.MOSSY_MUD_BRICK_STAIRS.get()).slab(SMBBlocks.MOSSY_MUD_BRICK_SLAB.get()).wall(SMBBlocks.MOSSY_MUD_BRICK_WALL.get()).getFamily();
   public static final BlockFamily SMOOTH_MUD = register(SMBBlocks.SMOOTH_MUD.get()).slab(SMBBlocks.SMOOTH_MUD_SLAB.get()).getFamily();
-
-  /* Testing */
+  public static final BlockFamily POLISHED_RESIN = register(SMBBlocks.POLISHED_RESIN.get()).stairs(SMBBlocks.POLISHED_RESIN_STAIRS.get()).slab(SMBBlocks.POLISHED_RESIN_SLAB.get()).getFamily();
+  public static final BlockFamily RESIN_TILES = register(SMBBlocks.RESIN_TILES.get()).cracked(SMBBlocks.CRACKED_RESIN_TILES.get()).stairs(SMBBlocks.RESIN_TILE_STAIRS.get()).slab(SMBBlocks.RESIN_TILE_SLAB.get()).wall(SMBBlocks.RESIN_TILE_WALL.get()).getFamily();
+  public static final BlockFamily SMOOTH_RESIN = register(SMBBlocks.SMOOTH_RESIN.get()).slab(SMBBlocks.SMOOTH_RESIN_SLAB.get()).getFamily();
+  public static final BlockFamily SANDSTONE_BRICKS = register(SMBBlocks.SANDSTONE_BRICKS.get()).cracked(SMBBlocks.CRACKED_SANDSTONE_BRICKS.get()).stairs(SMBBlocks.SANDSTONE_BRICK_STAIRS.get()).slab(SMBBlocks.SANDSTONE_BRICK_SLAB.get()).wall(SMBBlocks.SANDSTONE_BRICK_WALL.get()).getFamily();
+  public static final BlockFamily SANDSTONE_TILES = register(SMBBlocks.SANDSTONE_TILES.get()).cracked(SMBBlocks.CRACKED_SANDSTONE_TILES.get()).stairs(SMBBlocks.SANDSTONE_TILE_STAIRS.get()).slab(SMBBlocks.SANDSTONE_TILE_SLAB.get()).wall(SMBBlocks.SANDSTONE_TILE_WALL.get()).getFamily();
+  public static final BlockFamily MOSSY_SANDSTONE_BRICKS = register(SMBBlocks.MOSSY_SANDSTONE_BRICKS.get()).stairs(SMBBlocks.MOSSY_SANDSTONE_BRICK_STAIRS.get()).slab(SMBBlocks.MOSSY_SANDSTONE_BRICK_SLAB.get()).wall(SMBBlocks.MOSSY_SANDSTONE_BRICK_WALL.get()).getFamily();
+  public static final BlockFamily RED_SANDSTONE_BRICKS = register(SMBBlocks.RED_SANDSTONE_BRICKS.get()).cracked(SMBBlocks.CRACKED_RED_SANDSTONE_BRICKS.get()).stairs(SMBBlocks.RED_SANDSTONE_BRICK_STAIRS.get()).slab(SMBBlocks.RED_SANDSTONE_BRICK_SLAB.get()).wall(SMBBlocks.RED_SANDSTONE_BRICK_WALL.get()).getFamily();
+  public static final BlockFamily RED_SANDSTONE_TILES = register(SMBBlocks.RED_SANDSTONE_TILES.get()).cracked(SMBBlocks.CRACKED_RED_SANDSTONE_TILES.get()).stairs(SMBBlocks.RED_SANDSTONE_TILE_STAIRS.get()).slab(SMBBlocks.RED_SANDSTONE_TILE_SLAB.get()).wall(SMBBlocks.RED_SANDSTONE_TILE_WALL.get()).getFamily();
+  public static final BlockFamily MOSSY_RED_SANDSTONE_BRICKS = register(SMBBlocks.MOSSY_RED_SANDSTONE_BRICKS.get()).stairs(SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_STAIRS.get()).slab(SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_SLAB.get()).wall(SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_WALL.get()).getFamily();
+  public static final BlockFamily POLISHED_PRISMARINE = register(SMBBlocks.POLISHED_PRISMARINE.get()).stairs(SMBBlocks.POLISHED_PRISMARINE_STAIRS.get()).slab(SMBBlocks.POLISHED_PRISMARINE_SLAB.get()).getFamily();
+  public static final BlockFamily PRISMARINE_TILES = register(SMBBlocks.PRISMARINE_TILES.get()).cracked(SMBBlocks.CRACKED_PRISMARINE_TILES.get()).stairs(SMBBlocks.PRISMARINE_TILE_STAIRS.get()).slab(SMBBlocks.PRISMARINE_TILE_SLAB.get()).wall(SMBBlocks.PRISMARINE_TILE_WALL.get()).getFamily();
+  public static final BlockFamily MOSSY_PRISMARINE_BRICKS = register(SMBBlocks.MOSSY_PRISMARINE_BRICKS.get()).stairs(SMBBlocks.MOSSY_PRISMARINE_BRICK_STAIRS.get()).slab(SMBBlocks.MOSSY_PRISMARINE_BRICK_SLAB.get()).wall(SMBBlocks.MOSSY_PRISMARINE_BRICK_WALL.get()).getFamily();
+  public static final BlockFamily SMOOTH_PRISMARINE = register(SMBBlocks.SMOOTH_PRISMARINE.get()).slab(SMBBlocks.SMOOTH_PRISMARINE_SLAB.get()).getFamily();
+  public static final BlockFamily POLISHED_BLACKSTONE_TILES = register(SMBBlocks.POLISHED_BLACKSTONE_TILES.get()).cracked(SMBBlocks.CRACKED_POLISHED_BLACKSTONE_TILES.get()).stairs(SMBBlocks.POLISHED_BLACKSTONE_TILE_STAIRS.get()).slab(SMBBlocks.POLISHED_BLACKSTONE_TILE_SLAB.get()).wall(SMBBlocks.POLISHED_BLACKSTONE_TILE_WALL.get()).getFamily();
+  public static final BlockFamily CORRUPTED_POLISHED_BLACKSTONE_BRICKS = register(SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get()).stairs(SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_STAIRS.get()).slab(SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_SLAB.get()).wall(SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_WALL.get()).getFamily();
+  public static final BlockFamily SMOOTH_BLACKSTONE = register(SMBBlocks.SMOOTH_BLACKSTONE.get()).slab(SMBBlocks.SMOOTH_BLACKSTONE_SLAB.get()).getFamily();
+  public static final BlockFamily POLISHED_END_STONE = register(SMBBlocks.POLISHED_END_STONE.get()).stairs(SMBBlocks.POLISHED_END_STONE_STAIRS.get()).slab(SMBBlocks.POLISHED_END_STONE_SLAB.get()).getFamily();
+  public static final BlockFamily END_STONE_TILES = register(SMBBlocks.END_STONE_TILES.get()).cracked(SMBBlocks.CRACKED_END_STONE_TILES.get()).stairs(SMBBlocks.END_STONE_TILE_STAIRS.get()).slab(SMBBlocks.END_STONE_TILE_SLAB.get()).wall(SMBBlocks.END_STONE_TILE_WALL.get()).getFamily();
+  public static final BlockFamily MOSSY_END_STONE_BRICKS = register(SMBBlocks.MOSSY_END_STONE_BRICKS.get()).stairs(SMBBlocks.MOSSY_END_STONE_BRICK_STAIRS.get()).slab(SMBBlocks.MOSSY_END_STONE_BRICK_SLAB.get()).wall(SMBBlocks.MOSSY_END_STONE_BRICK_WALL.get()).getFamily();
+  public static final BlockFamily SMOOTH_END_STONE = register(SMBBlocks.SMOOTH_END_STONE.get()).slab(SMBBlocks.SMOOTH_END_STONE_SLAB.get()).getFamily();
+  public static final BlockFamily POLISHED_PURPUR = register(SMBBlocks.POLISHED_PURPUR.get()).stairs(SMBBlocks.POLISHED_PURPUR_STAIRS.get()).slab(SMBBlocks.POLISHED_PURPUR_SLAB.get()).getFamily();
+  public static final BlockFamily PURPUR_TILES = register(SMBBlocks.PURPUR_TILES.get()).cracked(SMBBlocks.CRACKED_PURPUR_TILES.get()).stairs(SMBBlocks.PURPUR_TILE_STAIRS.get()).slab(SMBBlocks.PURPUR_TILE_SLAB.get()).wall(SMBBlocks.PURPUR_TILE_WALL.get()).getFamily();
+  public static final BlockFamily MOSSY_PURPUR_BLOCK = register(SMBBlocks.MOSSY_PURPUR_BLOCK.get()).stairs(SMBBlocks.MOSSY_PURPUR_BLOCK_STAIRS.get()).slab(SMBBlocks.MOSSY_PURPUR_BLOCK_SLAB.get()).wall(SMBBlocks.MOSSY_PURPUR_BLOCK_WALL.get()).getFamily();
+  public static final BlockFamily SMOOTH_PURPUR = register(SMBBlocks.SMOOTH_PURPUR.get()).slab(SMBBlocks.SMOOTH_PURPUR_SLAB.get()).getFamily();
+  public static final BlockFamily COAL_BRICKS = register(SMBBlocks.COAL_BRICKS.get()).cracked(SMBBlocks.CRACKED_COAL_BRICKS.get()).getFamily();
+  public static final BlockFamily CUT_COAL = register(SMBBlocks.CUT_COAL.get()).cracked(SMBBlocks.CRACKED_CUT_COAL.get()).getFamily();
+  public static final BlockFamily IRON_BRICKS = register(SMBBlocks.IRON_BRICKS.get()).cracked(SMBBlocks.CRACKED_IRON_BRICKS.get()).getFamily();
+  public static final BlockFamily CUT_IRON = register(SMBBlocks.CUT_IRON.get()).cracked(SMBBlocks.CRACKED_CUT_IRON.get()).getFamily();
+  public static final BlockFamily GOLD_BRICKS = register(SMBBlocks.GOLD_BRICKS.get()).cracked(SMBBlocks.CRACKED_GOLD_BRICKS.get()).getFamily();
+  public static final BlockFamily CUT_GOLD = register(SMBBlocks.CUT_GOLD.get()).cracked(SMBBlocks.CRACKED_CUT_GOLD.get()).getFamily();
+  public static final BlockFamily REDSTONE_BRICKS = register(SMBBlocks.REDSTONE_BRICKS.get()).cracked(SMBBlocks.CRACKED_REDSTONE_BRICKS.get()).getFamily();
+  public static final BlockFamily CUT_REDSTONE = register(SMBBlocks.CUT_REDSTONE.get()).cracked(SMBBlocks.CRACKED_CUT_REDSTONE.get()).getFamily();
+  public static final BlockFamily EMERALD_BRICKS = register(SMBBlocks.EMERALD_BRICKS.get()).cracked(SMBBlocks.CRACKED_EMERALD_BRICKS.get()).getFamily();
+  public static final BlockFamily CUT_EMERALD = register(SMBBlocks.CUT_EMERALD.get()).cracked(SMBBlocks.CRACKED_CUT_EMERALD.get()).getFamily();
+  public static final BlockFamily LAPIS_BRICKS = register(SMBBlocks.LAPIS_BRICKS.get()).cracked(SMBBlocks.CRACKED_LAPIS_BRICKS.get()).getFamily();
+  public static final BlockFamily CUT_LAPIS = register(SMBBlocks.CUT_LAPIS.get()).cracked(SMBBlocks.CRACKED_CUT_LAPIS.get()).getFamily();
+  public static final BlockFamily DIAMOND_BRICKS = register(SMBBlocks.DIAMOND_BRICKS.get()).cracked(SMBBlocks.CRACKED_DIAMOND_BRICKS.get()).getFamily();
+  public static final BlockFamily CUT_DIAMOND = register(SMBBlocks.CUT_DIAMOND.get()).cracked(SMBBlocks.CRACKED_CUT_DIAMOND.get()).getFamily();
+  public static final BlockFamily NETHERITE_BRICKS = register(SMBBlocks.NETHERITE_BRICKS.get()).cracked(SMBBlocks.CRACKED_NETHERITE_BRICKS.get()).getFamily();
+  public static final BlockFamily CUT_NETHERITE = register(SMBBlocks.CUT_NETHERITE.get()).cracked(SMBBlocks.CRACKED_CUT_NETHERITE.get()).getFamily();
+  public static final BlockFamily CUT_QUARTZ = register(SMBBlocks.CUT_QUARTZ.get()).cracked(SMBBlocks.CRACKED_CUT_QUARTZ.get()).getFamily();
+  public static final BlockFamily AMETHYST_BRICKS = register(SMBBlocks.AMETHYST_BRICKS.get()).cracked(SMBBlocks.CRACKED_AMETHYST_BRICKS.get()).getFamily();
+  public static final BlockFamily CUT_AMETHYST = register(SMBBlocks.CUT_AMETHYST.get()).cracked(SMBBlocks.CRACKED_CUT_AMETHYST.get()).getFamily();
+  public static final BlockFamily COPPER_BRICKS = register(SMBBlocks.COPPER_BRICKS.get()).cracked(SMBBlocks.CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily EXPOSED_COPPER_BRICKS = register(SMBBlocks.EXPOSED_COPPER_BRICKS.get()).cracked(SMBBlocks.EXPOSED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily WEATHERED_COPPER_BRICKS = register(SMBBlocks.WEATHERED_COPPER_BRICKS.get()).cracked(SMBBlocks.WEATHERED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily OXIDIZED_COPPER_BRICKS = register(SMBBlocks.OXIDIZED_COPPER_BRICKS.get()).cracked(SMBBlocks.OXIDIZED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily WAXED_COPPER_BRICKS = register(SMBBlocks.WAXED_COPPER_BRICKS.get()).cracked(SMBBlocks.WAXED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily WAXED_EXPOSED_COPPER_BRICKS = register(SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get()).cracked(SMBBlocks.WAXED_EXPOSED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily WAXED_WEATHERED_COPPER_BRICKS = register(SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get()).cracked(SMBBlocks.WAXED_WEATHERED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily WAXED_OXIDIZED_COPPER_BRICKS = register(SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get()).cracked(SMBBlocks.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily BONE_BRICKS = register(SMBBlocks.BONE_BRICKS.get()).cracked(SMBBlocks.CRACKED_BONE_BRICKS.get()).stairs(SMBBlocks.BONE_BRICK_STAIRS.get()).slab(SMBBlocks.BONE_BRICK_SLAB.get()).wall(SMBBlocks.BONE_BRICK_WALL.get()).getFamily();
+  public static final BlockFamily BONE_TILES = register(SMBBlocks.BONE_TILES.get()).cracked(SMBBlocks.CRACKED_BONE_TILES.get()).stairs(SMBBlocks.BONE_TILE_STAIRS.get()).slab(SMBBlocks.BONE_TILE_SLAB.get()).wall(SMBBlocks.BONE_TILE_WALL.get()).getFamily();
+  // TODO: SOUL SANDSTONE FAMILY
+  public static final BlockFamily PACKED_SNOW = register(SMBBlocks.PACKED_SNOW.get()).stairs(SMBBlocks.PACKED_SNOW_STAIRS.get()).slab(SMBBlocks.PACKED_SNOW_SLAB.get()).getFamily();
+  public static final BlockFamily POLISHED_SNOW = register(SMBBlocks.POLISHED_SNOW.get()).stairs(SMBBlocks.POLISHED_SNOW_STAIRS.get()).slab(SMBBlocks.POLISHED_SNOW_SLAB.get()).getFamily();
+  public static final BlockFamily SNOW_BRICKS = register(SMBBlocks.SNOW_BRICKS.get()).cracked(SMBBlocks.CRACKED_SNOW_BRICKS.get()).stairs(SMBBlocks.SNOW_BRICK_STAIRS.get()).slab(SMBBlocks.SNOW_BRICK_SLAB.get()).wall(SMBBlocks.SNOW_BRICK_WALL.get()).getFamily();
+  public static final BlockFamily SNOW_TILES = register(SMBBlocks.SNOW_TILES.get()).cracked(SMBBlocks.CRACKED_SNOW_TILES.get()).stairs(SMBBlocks.SNOW_TILE_STAIRS.get()).slab(SMBBlocks.SNOW_TILE_SLAB.get()).wall(SMBBlocks.SNOW_TILE_WALL.get()).getFamily();
+  public static final BlockFamily POLISHED_ICE = register(SMBBlocks.POLISHED_ICE.get()).stairs(SMBBlocks.POLISHED_ICE_STAIRS.get()).slab(SMBBlocks.POLISHED_ICE_SLAB.get()).getFamily();
+  public static final BlockFamily ICE_BRICKS = register(SMBBlocks.ICE_BRICKS.get()).cracked(SMBBlocks.CRACKED_ICE_BRICKS.get()).stairs(SMBBlocks.ICE_BRICK_STAIRS.get()).slab(SMBBlocks.ICE_BRICK_SLAB.get()).wall(SMBBlocks.ICE_BRICK_WALL.get()).getFamily();
+  public static final BlockFamily ICE_TILES = register(SMBBlocks.ICE_TILES.get()).cracked(SMBBlocks.CRACKED_ICE_TILES.get()).stairs(SMBBlocks.ICE_TILE_STAIRS.get()).slab(SMBBlocks.ICE_TILE_SLAB.get()).wall(SMBBlocks.ICE_TILE_WALL.get()).getFamily();
 
   public static void init() {}
 

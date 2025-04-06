@@ -60,18 +60,6 @@ public class SMBItemsTemplates {
         ItemModelUtils.override(fourQuarter, 13)));
   }
 
-  public static void createWaxeableBlockItemModel(Block nonWaxedBlock) {
-    ResourceLocation waxedIdentifier = BuiltInRegistries.BLOCK.getKey(nonWaxedBlock).withPrefix("waxed_");
-
-    SMBItemsTemplates.createGenericItemModel(
-      nonWaxedBlock,
-      ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(nonWaxedBlock)));
-
-    SMBItemsTemplates.createGenericItemModel(
-      BuiltInRegistries.BLOCK.getValue(waxedIdentifier),
-      ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(nonWaxedBlock)));
-  }
-
   /**
    * Create a new Item definition for a Wall Block.
    * @param block
