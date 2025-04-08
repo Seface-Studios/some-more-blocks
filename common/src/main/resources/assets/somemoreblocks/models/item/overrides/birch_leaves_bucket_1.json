@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "somemoreblocks:item/birch_leaves_bucket_1"
-  }
-}

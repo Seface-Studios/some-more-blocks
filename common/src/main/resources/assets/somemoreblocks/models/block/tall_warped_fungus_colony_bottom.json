@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/tinted_cross",
-  "textures": {
-    "cross": "somemoreblocks:block/tall_warped_fungus_colony_bottom"
-  }
-}

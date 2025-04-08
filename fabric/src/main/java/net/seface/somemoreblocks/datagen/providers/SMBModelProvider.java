@@ -7,22 +7,27 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.item.RangeSelectItemModel;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.seface.somemoreblocks.datagen.providers.models.CarvedWoodProvider;
-import net.seface.somemoreblocks.datagen.providers.models.TiledGlassProvider;
+import net.seface.somemoreblocks.registries.SMBModelTemplates;
+import net.seface.somemoreblocks.datagen.providers.models.CarvedWoodBlockProvider;
+import net.seface.somemoreblocks.datagen.providers.models.TiledGlassBlockProvider;
 import net.seface.somemoreblocks.datagen.templates.SMBItemsTemplates;
+import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
 import net.seface.somemoreblocks.registries.SMBBlockFamilies;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.registries.SMBItems;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class SMBModelProvider extends FabricModelProvider {
-  public static BlockModelGenerators BLOCK_STATE_GENERATOR;
   public static ItemModelGenerators ITEM_MODEL_GENERATOR;
   public BiConsumer<ResourceLocation, ModelInstance> modelOutput;
   public Consumer<BlockStateGenerator> blockStateOutput;
@@ -37,7 +42,6 @@ public class SMBModelProvider extends FabricModelProvider {
 
   @Override
   public void generateBlockStateModels(BlockModelGenerators gen) {
-    BLOCK_STATE_GENERATOR = gen;
     this.itemModelOutput = gen.itemModelOutput;
     this.blockStateOutput = gen.blockStateOutput;
     this.modelOutput = gen.modelOutput;
@@ -330,6 +334,34 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createTrivialCube(SMBBlocks.MAGENTA_CONCRETE_TILES.get());
     gen.createTrivialCube(SMBBlocks.PINK_CONCRETE_TILES.get());
 
+    /* More Natural Blocks */
+    gen.createCrossBlockWithDefaultItem(SMBBlocks.TINY_CACTUS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    this.createPottedTinyCactus(SMBBlocks.TINY_CACTUS.get(), SMBBlocks.POTTED_TINY_CACTUS.get());
+    gen.createCrossBlockWithDefaultItem(SMBBlocks.DUNE_GRASS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_DUNE_GRASS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createCrossBlockWithDefaultItem(SMBBlocks.SHORT_SNOW_GRASS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_SNOW_GRASS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createPlantWithDefaultItem(SMBBlocks.SNOW_FERN.get(), SMBBlocks.POTTED_SNOW_FERN.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.LARGE_SNOW_FERN.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.CATTAIL.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    this.createLeafLitterWithBucket(SMBBlocks.LEAF_LITTER.get(), SMBItems.LEAVES_BUCKET.get());
+    this.createLeafLitterWithBucket(SMBBlocks.BIRCH_LEAF_LITTER.get(), SMBItems.BIRCH_LEAVES_BUCKET.get());
+    this.createLeafLitterWithBucket(SMBBlocks.SPRUCE_LEAF_LITTER.get(), SMBItems.SPRUCE_LEAVES_BUCKET.get());
+    this.createLeafLitterWithBucket(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), SMBItems.PALE_OAK_LEAVES_BUCKET.get());
+    this.createLeafLitterWithBucket(SMBBlocks.AZALEA_LEAF_LITTER.get(), SMBItems.AZALEA_LEAVES_BUCKET.get());
+    this.createLeafLitterWithBucket(SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get(), SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
+    this.createSmallLilyPad(SMBBlocks.SMALL_LILY_PADS.get());
+    gen.createPlantWithDefaultItem(SMBBlocks.LUMINOUS_FLOWER.get(), SMBBlocks.POTTED_LUMINOUS_FLOWER.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    this.createIndexedModelWithYRotationVariant(SMBBlocks.BIG_LILY_PAD.get(), false, 4);
+    gen.createCrossBlockWithDefaultItem(SMBBlocks.BROWN_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createCrossBlockWithDefaultItem(SMBBlocks.RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createCrossBlockWithDefaultItem(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createCrossBlockWithDefaultItem(SMBBlocks.WARPED_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+
     /* More Redstone Blocks */
     this.createRedstoneFroglight(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
     this.createRedstoneFroglight(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
@@ -348,33 +380,15 @@ public class SMBModelProvider extends FabricModelProvider {
     SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_WOOD.get());
 
     // More Natural Blocks
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.TINY_CACTUS.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.DUNE_GRASS.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.TALL_DUNE_GRASS.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.SHORT_SNOW_GRASS.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.TALL_SNOW_GRASS.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.SNOW_FERN.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.LARGE_SNOW_FERN.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.CATTAIL.get());
-    SMBItemsTemplates.createLeavesBucketItemModel(SMBItems.LEAVES_BUCKET.get());
-    SMBItemsTemplates.createLeavesBucketItemModel(SMBItems.BIRCH_LEAVES_BUCKET.get());
-    SMBItemsTemplates.createLeavesBucketItemModel(SMBItems.SPRUCE_LEAVES_BUCKET.get());
-    SMBItemsTemplates.createLeavesBucketItemModel(SMBItems.PALE_OAK_LEAVES_BUCKET.get());
-    SMBItemsTemplates.createLeavesBucketItemModel(SMBItems.AZALEA_LEAVES_BUCKET.get());
-    SMBItemsTemplates.createLeavesBucketItemModel(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.SMALL_LILY_PADS.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.LUMINOUS_FLOWER.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.BIG_LILY_PAD.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.BROWN_MUSHROOM_COLONY.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.RED_MUSHROOM_COLONY.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.TALL_RED_MUSHROOM_COLONY.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.CRIMSON_FUNGUS_COLONY.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.WARPED_FUNGUS_COLONY.get());
-    SMBItemsTemplates.createGenericItemModel(SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get());
+    gen.createFlatItemModel(SMBBlocks.BIG_LILY_PAD.get().asItem(), ModelTemplates.FLAT_ITEM);
   }
 
+  /**
+   * Create a block with the model copied from other block.
+   * This was created to be used between Cut Copper & Waxed Cut Copper blocks.
+   * @param fromBlock The block to be copied.
+   * @param toBlock The block to be generated.
+   */
   public final void copyCutCopperModel(Block fromBlock, Block toBlock) {
     TextureMapping textureMapping = TextureMapping.cube(fromBlock).put(TextureSlot.ALL, ModelLocationUtils.getModelLocation(fromBlock));
     ResourceLocation location = ModelTemplates.CUBE_ALL.create(ModelLocationUtils.getModelLocation(toBlock), textureMapping, this.modelOutput);
@@ -383,6 +397,12 @@ public class SMBModelProvider extends FabricModelProvider {
     this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(toBlock, location));
   }
 
+  /**
+   * Create a block with the model copied from other block.
+   * This was created to be used between Copper Pillar & Waxed Copper Pillar blocks.
+   * @param fromBlock The block to be copied.
+   * @param toBlock The block to be generated.
+   */
   public final void copyCopperPillarModel(Block fromBlock, Block toBlock) {
     TextureMapping verticalMapping = TextureMapping.column(fromBlock)
       .put(TextureSlot.SIDE, ModelLocationUtils.getModelLocation(fromBlock));
@@ -398,6 +418,10 @@ public class SMBModelProvider extends FabricModelProvider {
     this.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(toBlock, verticalModel, horizontalModel));
   }
 
+  /**
+   * Create a Redstone Froglight block models.
+   * @param block The Redstone Froglight block.
+   */
   public final void createRedstoneFroglight(Block block) {
     TextureMapping offTextureMapping = TextureMapping.cube(block);
     TextureMapping onTextureMapping = TextureMapping.cube(block)
@@ -412,11 +436,124 @@ public class SMBModelProvider extends FabricModelProvider {
     );
   }
 
-  public final CarvedWoodProvider carvedWoodProvider(Block block) {
-    return new CarvedWoodProvider(block, this.modelOutput, this.itemModelOutput, this.blockStateOutput);
+  /**
+   * Create a Potted Tiny Cactus block model.
+   * @param plantBlock The plant block.
+   * @param pottedBlock The potted plant block.
+   */
+  public final void createPottedTinyCactus(Block plantBlock, Block pottedBlock) {
+    BlockModelGenerators.PlantType plantType = BlockModelGenerators.PlantType.NOT_TINTED;
+    TextureMapping textureMapping = plantType.getPlantTextureMapping(plantBlock)
+      .put(TextureSlot.PLANT, ModelLocationUtils.getModelLocation(pottedBlock));
+
+    ResourceLocation model = plantType.getCrossPot().create(pottedBlock, textureMapping, this.modelOutput);
+
+    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(pottedBlock, model));
   }
 
-  public final TiledGlassProvider tiledGlassProvider(Block block) {
-    return new TiledGlassProvider(block, this.modelOutput, this.itemModelOutput, this.blockStateOutput);
+  /**
+   * Create a Small Lily Pad block.
+   * @param block The Small Lily Pad block.
+   */
+  public final void createSmallLilyPad(Block block) {
+    this.createIndexedModelWithYRotationVariant(block, false, 1);
+
+    ResourceLocation model = ModelLocationUtils.getModelLocation(block);
+    ResourceLocation modelWithLotus = ModelLocationUtils.getModelLocation(block).withSuffix("_with_lotus");
+    ResourceLocation itemModel = ModelTemplates.FLAT_ITEM.create(block.asItem(), TextureMapping.layer0(block), this.modelOutput);
+
+    List<Variant> variants = new ArrayList<>();
+
+    for (VariantProperties.Rotation rotation : VariantProperties.Rotation.values()) {
+      variants.add(Variant.variant().with(VariantProperties.MODEL, model).with(VariantProperties.Y_ROT, rotation));
+      variants.add(Variant.variant().with(VariantProperties.MODEL, modelWithLotus).with(VariantProperties.Y_ROT, rotation));
+    }
+
+    this.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(itemModel));
+    this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block, variants.toArray(new Variant[0])));
+  }
+
+  /**
+   * Create a Leaf Litter block and Bucket item.
+   * @param block The Leaf Litter block.
+   * @param item The Leaves Bucket item.
+   */
+  public final void createLeafLitterWithBucket(Block block, Item item) {
+    this.createIndexedModelWithYRotationVariant(block, 3);
+
+    RangeSelectItemModel.Entry[] overrides = new RangeSelectItemModel.Entry[4];
+    for (int i = 0; i < overrides.length; i++) {
+      String suffix = i == 0 ? "" : "_" + (i - 1);
+      int threshold = i == 0 ? 0 : 5 + (i - 1) * 4;
+
+      ResourceLocation identifier = ModelLocationUtils.getModelLocation(item).withSuffix(suffix);
+      TextureMapping textureMapping = TextureMapping.layer0(item).put(TextureSlot.LAYER0, identifier);
+      ResourceLocation itemModel = ModelTemplates.FLAT_ITEM.create(identifier, textureMapping, this.modelOutput);
+
+     overrides[i] = ItemModelUtils.override(ItemModelUtils.plainModel(itemModel), threshold);
+    }
+
+    this.itemModelOutput.accept(item, ItemModelUtils.rangeSelect(new BucketVolumeProperty(), overrides[3].model(), overrides));
+  }
+
+  /**
+   * Create a Square Horizontal Y-Axis Rotatable block with variations indexed as suffix.
+   * @param block The block flat block.
+   * @param maxVariations The max number of variations.
+   */
+  public final void createIndexedModelWithYRotationVariant(Block block, int maxVariations) {
+    this.createIndexedModelWithYRotationVariant(block, true, maxVariations);
+  }
+
+  /**
+   * Create a Square Horizontal Y-Axis Rotatable block with variations indexed as suffix.
+   * @param block The block flat block.
+   * @param generateBlockState If true, the block state will be generated.
+   * @param maxVariations The max number of variations.
+   */
+  public final void createIndexedModelWithYRotationVariant(Block block, boolean generateBlockState, int maxVariations) {
+    if (maxVariations <= 0) {
+      throw new IllegalArgumentException("The max variations value should be 1 or greater.");
+    }
+
+    List<Variant> variants = new ArrayList<>();
+
+    for (int i = 0; i < maxVariations; i++) {
+      String suffix = maxVariations > 1 ? "_" + i : "";
+
+      TextureMapping textureMapping = TextureMapping.defaultTexture(block)
+        .copyAndUpdate(TextureSlot.TEXTURE, ModelLocationUtils.getModelLocation(block).withSuffix(suffix));
+
+      ResourceLocation model = SMBModelTemplates.SQUARE_HORIZONTAL.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
+
+      for (VariantProperties.Rotation rotation : VariantProperties.Rotation.values()) {
+        variants.add(
+          Variant.variant()
+            .with(VariantProperties.MODEL, model)
+            .with(VariantProperties.Y_ROT, rotation)
+        );
+      }
+    }
+
+    if (!generateBlockState) return;
+    this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block, variants.toArray(new Variant[0])));
+  }
+
+  /**
+   * The Carved Wood provider
+   * Used to generate a Carved Log & Carved Wood blocks.
+   * @param block The Carved Wood block.
+   */
+  public final CarvedWoodBlockProvider carvedWoodProvider(Block block) {
+    return new CarvedWoodBlockProvider(block, this.modelOutput, this.itemModelOutput, this.blockStateOutput);
+  }
+
+  /**
+   * The Tiled Glass provider
+   * Used to generate a Tiled Glass & Tiled Glass Pane blocks.
+   * @param block The Tile Glass block.
+   */
+  public final TiledGlassBlockProvider tiledGlassProvider(Block block) {
+    return new TiledGlassBlockProvider(block, this.modelOutput, this.itemModelOutput, this.blockStateOutput);
   }
 }

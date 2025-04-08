@@ -41,26 +41,6 @@ public class SMBItemsTemplates {
   }
 
   /**
-   *
-   * @param item
-   */
-  public static void createLeavesBucketItemModel(Item item) {
-    ResourceLocation identifier = BuiltInRegistries.ITEM.getKey(item).withPrefix("item/overrides/");
-
-    ItemModel.Unbaked oneQuarter = ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(item));
-    ItemModel.Unbaked twoQuarter = ItemModelUtils.plainModel(identifier.withSuffix("_0"));
-    ItemModel.Unbaked threeQuarter = ItemModelUtils.plainModel(identifier.withSuffix("_1"));
-    ItemModel.Unbaked fourQuarter = ItemModelUtils.plainModel(identifier.withSuffix("_2"));
-
-    SMBModelProvider.ITEM_MODEL_GENERATOR.itemModelOutput.accept(
-      item, ItemModelUtils.rangeSelect(new BucketVolumeProperty(), fourQuarter,
-        ItemModelUtils.override(oneQuarter, 0),
-        ItemModelUtils.override(twoQuarter, 5),
-        ItemModelUtils.override(threeQuarter, 9),
-        ItemModelUtils.override(fourQuarter, 13)));
-  }
-
-  /**
    * Create a new Item definition for a Wall Block.
    * @param block
    */
@@ -78,10 +58,6 @@ public class SMBItemsTemplates {
     createGenericItemModel(block.asItem(), unbaked);
   }
 
-  public static void createGenericItemModel(Item item) {
-    SMBModelProvider.ITEM_MODEL_GENERATOR
-      .itemModelOutput.accept(item, ItemModelUtils.plainModel(ModelLocationUtils.getModelLocation(item)));
-  }
 
   public static void createGenericItemModel(Item item, ItemModel.Unbaked unbaked) {
     SMBModelProvider.ITEM_MODEL_GENERATOR

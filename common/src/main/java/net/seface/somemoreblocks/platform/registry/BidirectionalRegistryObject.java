@@ -16,7 +16,7 @@ public class BidirectionalRegistryObject<K, V> {
   private final BiMap<K, V> next;
   private final BiMap<V, K> previous;
 
-  public BidirectionalRegistryObject(ResourceLocation identifier) {
+  private BidirectionalRegistryObject(ResourceLocation identifier) {
     this.id = identifier;
     this.next = HashBiMap.create();
     this.previous = this.next.inverse();
