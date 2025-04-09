@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "somemoreblocks:block/big_lily_pad"
+    "model": "somemoreblocks:item/big_lily_pad"
   }
 }

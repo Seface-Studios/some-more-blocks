@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.seface.somemoreblocks.registries.SMBModelTemplates;
 import net.seface.somemoreblocks.datagen.providers.models.CarvedWoodBlockProvider;
 import net.seface.somemoreblocks.datagen.providers.models.TiledGlassBlockProvider;
-import net.seface.somemoreblocks.datagen.templates.SMBItemsTemplates;
 import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
 import net.seface.somemoreblocks.registries.SMBBlockFamilies;
 import net.seface.somemoreblocks.registries.SMBBlocks;
@@ -31,22 +30,15 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class SMBModelProvider extends FabricModelProvider {
-  public static ItemModelGenerators ITEM_MODEL_GENERATOR;
-
   private BlockModelGenerators blockModelGenerators;
-  private ItemModelGenerators itemModelGenerators;
   private Map<Block, TexturedModel> texturedModels;
 
   public BiConsumer<ResourceLocation, ModelInstance> modelOutput;
   public Consumer<BlockStateGenerator> blockStateOutput;
   public ItemModelOutput itemModelOutput;
-  private FabricDataOutput output;
-
 
   public SMBModelProvider(FabricDataOutput output) {
     super(output);
-
-    this.output = output;
     this.registerSoulSandstoneAsTexturedModel();
   }
 
@@ -57,7 +49,7 @@ public class SMBModelProvider extends FabricModelProvider {
     this.blockStateOutput = gen.blockStateOutput;
     this.modelOutput = gen.modelOutput;
 
-    this.generateAllBlockFamilies();
+    this.createBlockFamilyVariations();
 
     /* More Building Blocks */
     this.carvedWoodProvider(SMBBlocks.CARVED_OAK_LOG.get()).log(SMBBlocks.CARVED_OAK_LOG.get(), Blocks.STRIPPED_OAK_LOG).wood(SMBBlocks.CARVED_OAK_WOOD.get());
@@ -144,6 +136,7 @@ public class SMBModelProvider extends FabricModelProvider {
     this.copyCopperPillarModel(SMBBlocks.WEATHERED_COPPER_PILLAR.get(), SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get());
     this.copyCopperPillarModel(SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get());
     this.soulSandstoneFamily(SMBBlocks.SOUL_SANDSTONE.get()).generateFor(SMBBlockFamilies.SOUL_SANDSTONE);
+    this.createChiseledSoulSandstone(SMBBlocks.CHISELED_SOUL_SANDSTONE.get());
     this.soulSandstoneFamily(SMBBlocks.SOUL_SANDSTONE_BRICKS.get()).generateFor(SMBBlockFamilies.SOUL_SANDSTONE_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.SOUL_SANDSTONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     this.soulSandstoneFamily(SMBBlocks.SOUL_SANDSTONE_TILES.get()).generateFor(SMBBlockFamilies.SOUL_SANDSTONE_TILES);
@@ -273,7 +266,7 @@ public class SMBModelProvider extends FabricModelProvider {
     this.createLeafLitterWithBucket(SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get(), SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
     this.createSmallLilyPad(SMBBlocks.SMALL_LILY_PADS.get());
     gen.createPlantWithDefaultItem(SMBBlocks.LUMINOUS_FLOWER.get(), SMBBlocks.POTTED_LUMINOUS_FLOWER.get(), BlockModelGenerators.PlantType.NOT_TINTED);
-    this.createIndexedModelWithYRotationVariant(SMBBlocks.BIG_LILY_PAD.get(), false, 4);
+    this.createBigLilyPad(SMBBlocks.BIG_LILY_PAD.get());
     gen.createCrossBlockWithDefaultItem(SMBBlocks.BROWN_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
@@ -290,17 +283,7 @@ public class SMBModelProvider extends FabricModelProvider {
   }
 
   @Override
-  public void generateItemModels(ItemModelGenerators gen) {
-    ITEM_MODEL_GENERATOR = gen;
-    this.itemModelGenerators = gen;
-
-    /* More Building Blocks */
-    SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_LOG.get());
-    SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_WOOD.get());
-
-    /* More Natural Blocks */
-    gen.createFlatItemModel(SMBBlocks.BIG_LILY_PAD.get().asItem(), ModelTemplates.FLAT_ITEM);
-  }
+  public void generateItemModels(ItemModelGenerators gen) {}
 
   /**
    * Create a block with the model copied from other block.
@@ -393,6 +376,19 @@ public class SMBModelProvider extends FabricModelProvider {
   }
 
   /**
+   * Create a Big Lily Pad block.
+   * @param block The Big Lily Pad block.
+   */
+  public final void createBigLilyPad(Block block) {
+    this.createIndexedModelWithYRotationVariant(block, false, 4);
+
+    ResourceLocation itemModel = ModelTemplates.FLAT_ITEM
+      .create(block.asItem(), TextureMapping.layer0(block.asItem()), this.modelOutput);
+
+    this.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(itemModel));
+  }
+
+  /**
    * Create a Leaf Litter block and Bucket item.
    * @param block The Leaf Litter block.
    * @param item The Leaves Bucket item.
@@ -459,6 +455,50 @@ public class SMBModelProvider extends FabricModelProvider {
   }
 
   /**
+   * Create a Chiseled Soul Sandstone block.
+   * @param block The Chiseled Soul Sandstone block.
+   */
+  public final void createChiseledSoulSandstone(Block block) {
+    TextureMapping textureMapping = TextureMapping.column(block)
+      .put(TextureSlot.END, TextureMapping.getBlockTexture(SMBBlocks.SOUL_SANDSTONE.get()).withSuffix("_top"))
+      .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(SMBBlocks.CHISELED_SOUL_SANDSTONE.get()));
+
+    ResourceLocation model = ModelTemplates.CUBE_COLUMN.create(block, textureMapping, this.modelOutput);
+    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, model));
+  }
+
+  /**
+   * Generate all Block Families variations.
+   */
+  private void createBlockFamilyVariations() {
+    for (Map.Entry<Block, BlockFamily> entry : SMBBlockFamilies.getAllFamilies().entrySet()) {
+      if (!entry.getValue().shouldGenerateModel()) continue;
+      this.blockModelGenerators.family(entry.getKey()).generateFor(entry.getValue());
+    }
+  }
+
+  /**
+   * Generate all the block family models for Soul Sandstone blocks with
+   * configured Textured Models values.
+   * @param block The Soul Sandstone block.
+   */
+  private BlockModelGenerators.BlockFamilyProvider soulSandstoneFamily(Block block) {
+    List<Block> validNonTexturedModel = List.of(
+      SMBBlocks.SOUL_SANDSTONE_BRICKS.get(), SMBBlocks.SOUL_SANDSTONE_TILES.get());
+
+    if (!this.texturedModels.containsKey(block) && !validNonTexturedModel.contains(block)) {
+      throw new IllegalArgumentException(
+        "The parsed block is not a Soul Sandstone block. " +
+          "For non-Soul Sandstone blocks, use the method BlockModelGenerators#family."
+      );
+    }
+
+    TexturedModel texturedModel = this.texturedModels.getOrDefault(block, TexturedModel.CUBE.get(block));
+    return (this.blockModelGenerators).
+      new BlockFamilyProvider(texturedModel.getMapping()).fullBlock(block, texturedModel.getTemplate());
+  }
+
+  /**
    * The Carved Wood provider
    * Used to generate a Carved Log & Carved Wood blocks.
    * @param block The Carved Wood block.
@@ -477,37 +517,6 @@ public class SMBModelProvider extends FabricModelProvider {
   }
 
   /**
-   * Generate all Block Families,
-   */
-  private void generateAllBlockFamilies() {
-    for (Map.Entry<Block, BlockFamily> entry : SMBBlockFamilies.getAllFamilies().entrySet()) {
-      if (!entry.getValue().shouldGenerateModel()) continue;
-      this.blockModelGenerators.family(entry.getKey()).generateFor(entry.getValue());
-    }
-  }
-
-  /**
-   * Generate all the block family models for Soul Sandstone blocks with
-   * configured Textured Models values.
-   * @param block The Soul Sandstone block.
-   */
-  private BlockModelGenerators.BlockFamilyProvider soulSandstoneFamily(Block block) {
-    List<Block> validNonTexturedModel = List.of(
-      SMBBlocks.SOUL_SANDSTONE_BRICKS.get(), SMBBlocks.SOUL_SANDSTONE_TILES.get());
-
-    if (!this.texturedModels.containsKey(block) && !validNonTexturedModel.contains(block)) {
-      throw new IllegalArgumentException(
-        "The parsed block '" + block.getDescriptionId() + "' is not a Soul Sandstone block. " +
-        "For non-Soul Sandstone blocks, use the method BlockModelGenerators#family."
-      );
-    }
-
-    TexturedModel texturedModel = this.texturedModels.getOrDefault(block, TexturedModel.CUBE.get(block));
-    return (this.blockModelGenerators).
-      new BlockFamilyProvider(texturedModel.getMapping()).fullBlock(block, texturedModel.getTemplate());
-  }
-
-  /**
    * Register all Soul Sandstone blocks as Textured Model.
    */
   private void registerSoulSandstoneAsTexturedModel() {
@@ -516,10 +525,6 @@ public class SMBModelProvider extends FabricModelProvider {
       .put(SMBBlocks.SMOOTH_SOUL_SANDSTONE.get(), TexturedModel.createAllSame(TextureMapping.getBlockTexture(SMBBlocks.SOUL_SANDSTONE.get(), "_top")))
       .put(SMBBlocks.CUT_SOUL_SANDSTONE.get(), TexturedModel.COLUMN.get(SMBBlocks.SOUL_SANDSTONE.get()).updateTextures(
         (mapping) -> mapping.put(TextureSlot.SIDE, TextureMapping.getBlockTexture(SMBBlocks.CUT_SOUL_SANDSTONE.get()))))
-      .put(SMBBlocks.CHISELED_SOUL_SANDSTONE.get(), TexturedModel.COLUMN.get(SMBBlocks.CHISELED_SOUL_SANDSTONE.get()).updateTextures(
-        (mapping) -> mapping
-          .put(TextureSlot.END, TextureMapping.getBlockTexture(SMBBlocks.SOUL_SANDSTONE.get(), "_top"))
-          .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(SMBBlocks.CHISELED_SOUL_SANDSTONE.get())))
-      ).build();
+      .build();
   }
 }

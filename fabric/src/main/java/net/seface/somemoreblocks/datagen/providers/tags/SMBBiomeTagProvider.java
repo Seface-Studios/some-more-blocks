@@ -21,8 +21,7 @@ public class SMBBiomeTagProvider extends FabricTagProvider<Biome> {
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CATTAIL).add(Biomes.RIVER, Biomes.SWAMP);
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER).forceAddTag(BiomeTags.IS_OVERWORLD);
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SMALL_LILY_PADS)
-      .add(Biomes.LUSH_CAVES, Biomes.MANGROVE_SWAMP,
-        Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE);
+      .add(Biomes.LUSH_CAVES, Biomes.MANGROVE_SWAMP, Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE);
 
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_TINY_CACTUS)
       .forceAddTag(BiomeTags.IS_BADLANDS)

@@ -6,12 +6,15 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.item.ItemModel;
+import net.minecraft.client.renderer.item.RangeSelectItemModel;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
+import net.seface.somemoreblocks.item.properties.numeric.MoonPhaseProperty;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -44,6 +47,8 @@ public class CarvedWoodBlockProvider {
   }
 
   public CarvedWoodBlockProvider logByMoonPhase(Block block, Block topBottomBlock) {
+    RangeSelectItemModel.Entry[] overrides = new RangeSelectItemModel.Entry[RotatedCarvedPaleOakBlock.MAX_MOON_PHASE + 1];
+
     for (int i = 0; i <= RotatedCarvedPaleOakBlock.MAX_MOON_PHASE; i++) {
       String suffix = "_" + i;
 
@@ -51,13 +56,17 @@ public class CarvedWoodBlockProvider {
         .copyAndUpdate(TextureSlot.SIDE, this.mainTextureMap.get(TextureSlot.SIDE).withSuffix(suffix))
         .copyAndUpdate(TextureSlot.END, ModelLocationUtils.getModelLocation(topBottomBlock).withSuffix("_top"));
 
-      ModelTemplates.CUBE_COLUMN.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
-      ModelTemplates.CUBE_COLUMN_HORIZONTAL.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
+      ResourceLocation verticalModel = ModelTemplates.CUBE_COLUMN.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
+      ResourceLocation horizontalModel =  ModelTemplates.CUBE_COLUMN_HORIZONTAL.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
+
+      overrides[i] = ItemModelUtils.override(ItemModelUtils.plainModel(verticalModel), i);
     }
 
     ResourceLocation verticalModel = BuiltInRegistries.BLOCK.getKey(block).withPrefix("block/");
     ResourceLocation horizontalModel = BuiltInRegistries.BLOCK.getKey(block).withPrefix("block/").withSuffix("_horizontal");
+    ItemModel.Unbaked itemModel = ItemModelUtils.rangeSelect(new MoonPhaseProperty(), overrides[0].model(), overrides);
 
+    this.itemModelOutput.accept(block.asItem(), itemModel);
     this.blockStateOutput.accept(createRotatedPillarWithHorizontalAndMoonPhaseVariant(block, verticalModel, horizontalModel));
     return this;
   }
@@ -72,6 +81,8 @@ public class CarvedWoodBlockProvider {
   }
 
   public CarvedWoodBlockProvider woodByMoonPhase(Block block) {
+    RangeSelectItemModel.Entry[] overrides = new RangeSelectItemModel.Entry[RotatedCarvedPaleOakBlock.MAX_MOON_PHASE + 1];
+
     for (int i = 0; i <= RotatedCarvedPaleOakBlock.MAX_MOON_PHASE; i++) {
       String suffix = "_" + i;
 
@@ -80,11 +91,15 @@ public class CarvedWoodBlockProvider {
         .copyAndUpdate(TextureSlot.SIDE, textureLocation)
         .copyAndUpdate(TextureSlot.END, textureLocation);
 
-      ModelTemplates.CUBE_COLUMN.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
+      ResourceLocation model = ModelTemplates.CUBE_COLUMN.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
+
+      overrides[i] = ItemModelUtils.override(ItemModelUtils.plainModel(model), i);
     }
 
     ResourceLocation model = ModelLocationUtils.getModelLocation(block);
+    ItemModel.Unbaked itemModel = ItemModelUtils.rangeSelect(new MoonPhaseProperty(), overrides[0].model(), overrides);
 
+    this.itemModelOutput.accept(block.asItem(), itemModel);
     this.blockStateOutput.accept(createRotatedPillarWithHorizontalAndMoonPhaseVariant(block, model, model));
     return this;
   }
