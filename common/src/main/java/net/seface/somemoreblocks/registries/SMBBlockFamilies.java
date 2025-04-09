@@ -12,6 +12,7 @@ import net.seface.somemoreblocks.platform.registry.PlatformRegistryObject;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public class SMBBlockFamilies {
   private static final Map<Block, BlockFamily> BLOCK_FAMILIES = Maps.newHashMap();
@@ -114,7 +115,13 @@ public class SMBBlockFamilies {
   public static final BlockFamily WAXED_OXIDIZED_COPPER_BRICKS = register(SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get()).cracked(SMBBlocks.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
   public static final BlockFamily BONE_BRICKS = register(SMBBlocks.BONE_BRICKS.get()).cracked(SMBBlocks.CRACKED_BONE_BRICKS.get()).stairs(SMBBlocks.BONE_BRICK_STAIRS.get()).slab(SMBBlocks.BONE_BRICK_SLAB.get()).wall(SMBBlocks.BONE_BRICK_WALL.get()).getFamily();
   public static final BlockFamily BONE_TILES = register(SMBBlocks.BONE_TILES.get()).cracked(SMBBlocks.CRACKED_BONE_TILES.get()).stairs(SMBBlocks.BONE_TILE_STAIRS.get()).slab(SMBBlocks.BONE_TILE_SLAB.get()).wall(SMBBlocks.BONE_TILE_WALL.get()).getFamily();
-  // TODO: SOUL SANDSTONE FAMILY
+
+  public static final BlockFamily SOUL_SANDSTONE = register(SMBBlocks.SOUL_SANDSTONE.get()).stairs(SMBBlocks.SOUL_SANDSTONE_STAIRS.get()).slab(SMBBlocks.SOUL_SANDSTONE_SLAB.get()).wall(SMBBlocks.SOUL_SANDSTONE_WALL.get()).cut(SMBBlocks.CUT_SOUL_SANDSTONE.get()).chiseled(SMBBlocks.CHISELED_SOUL_SANDSTONE.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily SOUL_SANDSTONE_BRICKS = register(SMBBlocks.SOUL_SANDSTONE_BRICKS.get()).cracked(SMBBlocks.CRACKED_SOUL_SANDSTONE_BRICKS.get()).stairs(SMBBlocks.SOUL_SANDSTONE_BRICK_STAIRS.get()).slab(SMBBlocks.SOUL_SANDSTONE_BRICK_SLAB.get()).wall(SMBBlocks.SOUL_SANDSTONE_BRICK_WALL.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily SOUL_SANDSTONE_TILES = register(SMBBlocks.SOUL_SANDSTONE_TILES.get()).cracked(SMBBlocks.CRACKED_SOUL_SANDSTONE_TILES.get()).stairs(SMBBlocks.SOUL_SANDSTONE_TILE_STAIRS.get()).slab(SMBBlocks.SOUL_SANDSTONE_TILE_SLAB.get()).wall(SMBBlocks.SOUL_SANDSTONE_TILE_WALL.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily SMOOTH_SOUL_SANDSTONE = register(SMBBlocks.SMOOTH_SOUL_SANDSTONE.get()).stairs(SMBBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS.get()).slab(SMBBlocks.SMOOTH_SOUL_SANDSTONE_SLAB.get()).dontGenerateModel().getFamily();
+  public static final BlockFamily CUT_SOUL_SANDSTONE = register(SMBBlocks.CUT_SOUL_SANDSTONE.get()).slab(SMBBlocks.CUT_SOUL_SANDSTONE_SLAB.get()).dontGenerateModel().getFamily();
+
   public static final BlockFamily PACKED_SNOW = register(SMBBlocks.PACKED_SNOW.get()).stairs(SMBBlocks.PACKED_SNOW_STAIRS.get()).slab(SMBBlocks.PACKED_SNOW_SLAB.get()).getFamily();
   public static final BlockFamily POLISHED_SNOW = register(SMBBlocks.POLISHED_SNOW.get()).stairs(SMBBlocks.POLISHED_SNOW_STAIRS.get()).slab(SMBBlocks.POLISHED_SNOW_SLAB.get()).getFamily();
   public static final BlockFamily SNOW_BRICKS = register(SMBBlocks.SNOW_BRICKS.get()).cracked(SMBBlocks.CRACKED_SNOW_BRICKS.get()).stairs(SMBBlocks.SNOW_BRICK_STAIRS.get()).slab(SMBBlocks.SNOW_BRICK_SLAB.get()).wall(SMBBlocks.SNOW_BRICK_WALL.get()).getFamily();
@@ -124,6 +131,10 @@ public class SMBBlockFamilies {
   public static final BlockFamily ICE_TILES = register(SMBBlocks.ICE_TILES.get()).cracked(SMBBlocks.CRACKED_ICE_TILES.get()).stairs(SMBBlocks.ICE_TILE_STAIRS.get()).slab(SMBBlocks.ICE_TILE_SLAB.get()).wall(SMBBlocks.ICE_TILE_WALL.get()).getFamily();
 
   public static void init() {}
+
+  public static Map<Block, BlockFamily> getAllFamilies() {
+    return BLOCK_FAMILIES;
+  }
 
   /**
    * Literally a copy & paste of {@link net.minecraft.data.BlockFamilies#familyBuilder(Block) BlockFamilies#familyBuilder} method.

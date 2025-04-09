@@ -1,5 +1,6 @@
 package net.seface.somemoreblocks.datagen.providers;
 
+import com.google.common.collect.ImmutableMap;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -8,6 +9,7 @@ import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.RangeSelectItemModel;
+import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -24,172 +26,95 @@ import net.seface.somemoreblocks.registries.SMBItems;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class SMBModelProvider extends FabricModelProvider {
   public static ItemModelGenerators ITEM_MODEL_GENERATOR;
+
+  private BlockModelGenerators blockModelGenerators;
+  private ItemModelGenerators itemModelGenerators;
+  private Map<Block, TexturedModel> texturedModels;
+
   public BiConsumer<ResourceLocation, ModelInstance> modelOutput;
   public Consumer<BlockStateGenerator> blockStateOutput;
   public ItemModelOutput itemModelOutput;
   private FabricDataOutput output;
 
+
   public SMBModelProvider(FabricDataOutput output) {
     super(output);
 
     this.output = output;
+    this.registerSoulSandstoneAsTexturedModel();
   }
 
   @Override
   public void generateBlockStateModels(BlockModelGenerators gen) {
+    this.blockModelGenerators = gen;
     this.itemModelOutput = gen.itemModelOutput;
     this.blockStateOutput = gen.blockStateOutput;
     this.modelOutput = gen.modelOutput;
 
+    this.generateAllBlockFamilies();
+
     /* More Building Blocks */
     this.carvedWoodProvider(SMBBlocks.CARVED_OAK_LOG.get()).log(SMBBlocks.CARVED_OAK_LOG.get(), Blocks.STRIPPED_OAK_LOG).wood(SMBBlocks.CARVED_OAK_WOOD.get());
-    gen.family(SMBBlocks.OAK_MOSAIC.get()).generateFor(SMBBlockFamilies.OAK_MOSAIC);
     this.carvedWoodProvider(SMBBlocks.CARVED_SPRUCE_LOG.get()).log(SMBBlocks.CARVED_SPRUCE_LOG.get(), Blocks.STRIPPED_SPRUCE_LOG).wood(SMBBlocks.CARVED_SPRUCE_WOOD.get());
-    gen.family(SMBBlocks.SPRUCE_MOSAIC.get()).generateFor(SMBBlockFamilies.SPRUCE_MOSAIC);
     this.carvedWoodProvider(SMBBlocks.CARVED_BIRCH_LOG.get()).log(SMBBlocks.CARVED_BIRCH_LOG.get(), Blocks.STRIPPED_BIRCH_LOG).wood(SMBBlocks.CARVED_BIRCH_WOOD.get());
-    gen.family(SMBBlocks.BIRCH_MOSAIC.get()).generateFor(SMBBlockFamilies.BIRCH_MOSAIC);
     this.carvedWoodProvider(SMBBlocks.CARVED_JUNGLE_LOG.get()).log(SMBBlocks.CARVED_JUNGLE_LOG.get(), Blocks.STRIPPED_JUNGLE_LOG).wood(SMBBlocks.CARVED_JUNGLE_WOOD.get());
-    gen.family(SMBBlocks.JUNGLE_MOSAIC.get()).generateFor(SMBBlockFamilies.JUNGLE_MOSAIC);
     this.carvedWoodProvider(SMBBlocks.CARVED_ACACIA_LOG.get()).log(SMBBlocks.CARVED_ACACIA_LOG.get(), Blocks.STRIPPED_ACACIA_LOG).wood(SMBBlocks.CARVED_ACACIA_WOOD.get());
-    gen.family(SMBBlocks.ACACIA_MOSAIC.get()).generateFor(SMBBlockFamilies.ACACIA_MOSAIC);
     this.carvedWoodProvider(SMBBlocks.CARVED_DARK_OAK_LOG.get()).log(SMBBlocks.CARVED_DARK_OAK_LOG.get(), Blocks.STRIPPED_DARK_OAK_LOG).wood(SMBBlocks.CARVED_DARK_OAK_WOOD.get());
-    gen.family(SMBBlocks.DARK_OAK_MOSAIC.get()).generateFor(SMBBlockFamilies.DARK_OAK_MOSAIC);
     this.carvedWoodProvider(SMBBlocks.CARVED_MANGROVE_LOG.get()).log(SMBBlocks.CARVED_MANGROVE_LOG.get(), Blocks.STRIPPED_MANGROVE_LOG).wood(SMBBlocks.CARVED_MANGROVE_WOOD.get());
-    gen.family(SMBBlocks.MANGROVE_MOSAIC.get()).generateFor(SMBBlockFamilies.MANGROVE_MOSAIC);
     this.carvedWoodProvider(SMBBlocks.CARVED_CRIMSON_STEM.get()).log(SMBBlocks.CARVED_CRIMSON_STEM.get(), Blocks.STRIPPED_CRIMSON_STEM).wood(SMBBlocks.CARVED_CRIMSON_HYPHAE.get());
-    gen.family(SMBBlocks.CRIMSON_MOSAIC.get()).generateFor(SMBBlockFamilies.CRIMSON_MOSAIC);
     this.carvedWoodProvider(SMBBlocks.CARVED_WARPED_STEM.get()).log(SMBBlocks.CARVED_WARPED_STEM.get(), Blocks.STRIPPED_WARPED_STEM).wood(SMBBlocks.CARVED_WARPED_HYPHAE.get());
-    gen.family(SMBBlocks.WARPED_MOSAIC.get()).generateFor(SMBBlockFamilies.WARPED_MOSAIC);
     this.carvedWoodProvider(SMBBlocks.CARVED_CHERRY_LOG.get()).log(SMBBlocks.CARVED_CHERRY_LOG.get(), Blocks.STRIPPED_CHERRY_LOG).wood(SMBBlocks.CARVED_CHERRY_WOOD.get());
-    gen.family(SMBBlocks.CHERRY_MOSAIC.get()).generateFor(SMBBlockFamilies.CHERRY_MOSAIC);
     this.carvedWoodProvider(SMBBlocks.CARVED_BAMBOO_BLOCK.get()).log(SMBBlocks.CARVED_BAMBOO_BLOCK.get(), Blocks.STRIPPED_BAMBOO_BLOCK);
     this.carvedWoodProvider(SMBBlocks.CARVED_PALE_OAK_LOG.get()).logByMoonPhase(SMBBlocks.CARVED_PALE_OAK_LOG.get(), Blocks.STRIPPED_PALE_OAK_LOG).woodByMoonPhase(SMBBlocks.CARVED_PALE_OAK_WOOD.get());
-    gen.family(SMBBlocks.PALE_OAK_MOSAIC.get()).generateFor(SMBBlockFamilies.PALE_OAK_MOSAIC);
-    gen.family(SMBBlocks.POLISHED_STONE.get()).generateFor(SMBBlockFamilies.POLISHED_STONE);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.STONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.STONE_TILES.get()).generateFor(SMBBlockFamilies.STONE_TILES);
-    gen.family(SMBBlocks.GRANITE_BRICKS.get()).generateFor(SMBBlockFamilies.GRANITE_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.GRANITE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.GRANITE_TILES.get()).generateFor(SMBBlockFamilies.GRANITE_TILES);
-    gen.family(SMBBlocks.MOSSY_GRANITE_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_GRANITE_BRICKS);
-    gen.family(SMBBlocks.SMOOTH_GRANITE.get()).generateFor(SMBBlockFamilies.SMOOTH_GRANITE);
-    gen.family(SMBBlocks.DIORITE_BRICKS.get()).generateFor(SMBBlockFamilies.DIORITE_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.DIORITE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.DIORITE_TILES.get()).generateFor(SMBBlockFamilies.DIORITE_TILES);
-    gen.family(SMBBlocks.MOSSY_DIORITE_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_DIORITE_BRICKS);
-    gen.family(SMBBlocks.SMOOTH_DIORITE.get()).generateFor(SMBBlockFamilies.SMOOTH_DIORITE);
-    gen.family(SMBBlocks.ANDESITE_BRICKS.get()).generateFor(SMBBlockFamilies.ANDESITE_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.ANDESITE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.ANDESITE_TILES.get()).generateFor(SMBBlockFamilies.ANDESITE_TILES);
-    gen.family(SMBBlocks.MOSSY_ANDESITE_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_ANDESITE_BRICKS);
-    gen.family(SMBBlocks.SMOOTH_ANDESITE.get()).generateFor(SMBBlockFamilies.SMOOTH_ANDESITE);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.DEEPSLATE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.MOSSY_DEEPSLATE_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_DEEPSLATE_BRICKS);
-    gen.family(SMBBlocks.SMOOTH_DEEPSLATE.get()).generateFor(SMBBlockFamilies.SMOOTH_DEEPSLATE);
-    gen.family(SMBBlocks.POLISHED_CALCITE.get()).generateFor(SMBBlockFamilies.POLISHED_CALCITE);
-    gen.family(SMBBlocks.CALCITE_BRICKS.get()).generateFor(SMBBlockFamilies.CALCITE_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.CALCITE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.CALCITE_TILES.get()).generateFor(SMBBlockFamilies.CALCITE_TILES);
-    gen.family(SMBBlocks.MOSSY_CALCITE_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_CALCITE_BRICKS);
-    gen.family(SMBBlocks.SMOOTH_CALCITE.get()).generateFor(SMBBlockFamilies.SMOOTH_CALCITE);
     gen.createTrivialCube(SMBBlocks.CRACKED_TUFF_BRICKS.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.TUFF_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.TUFF_TILES.get()).generateFor(SMBBlockFamilies.TUFF_TILES);
-    gen.family(SMBBlocks.MOSSY_TUFF_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_TUFF_BRICKS);
-    gen.family(SMBBlocks.SMOOTH_TUFF.get()).generateFor(SMBBlockFamilies.SMOOTH_TUFF);
-    gen.family(SMBBlocks.POLISHED_DRIPSTONE.get()).generateFor(SMBBlockFamilies.POLISHED_DRIPSTONE);
-    gen.family(SMBBlocks.DRIPSTONE_BRICKS.get()).generateFor(SMBBlockFamilies.DRIPSTONE_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.DRIPSTONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.DRIPSTONE_TILES.get()).generateFor(SMBBlockFamilies.DRIPSTONE_TILES);
-    gen.family(SMBBlocks.MOSSY_DRIPSTONE_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_DRIPSTONE_BRICKS);
-    gen.family(SMBBlocks.SMOOTH_DRIPSTONE.get()).generateFor(SMBBlockFamilies.SMOOTH_DRIPSTONE);
     gen.createTrivialCube(SMBBlocks.CRACKED_BRICKS.get());
-    gen.family(SMBBlocks.MOSSY_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_BRICKS);
     gen.createTrivialCube(SMBBlocks.CHISELED_MUD_BRICKS.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.MUD_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createTrivialCube(SMBBlocks.CRACKED_MUD_BRICKS.get());
-    gen.family(SMBBlocks.POLISHED_MUD.get()).generateFor(SMBBlockFamilies.POLISHED_MUD);
-    gen.family(SMBBlocks.MUD_TILES.get()).generateFor(SMBBlockFamilies.MUD_TILES);
-    gen.family(SMBBlocks.MOSSY_MUD_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_MUD_BRICKS);
-    gen.family(SMBBlocks.SMOOTH_MUD.get()).generateFor(SMBBlockFamilies.SMOOTH_MUD);
-    gen.family(SMBBlocks.POLISHED_RESIN.get()).generateFor(SMBBlockFamilies.POLISHED_RESIN);
     gen.createTrivialCube(SMBBlocks.CRACKED_RESIN_BRICKS.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.RESIN_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.RESIN_TILES.get()).generateFor(SMBBlockFamilies.RESIN_TILES);
-    gen.family(SMBBlocks.SMOOTH_RESIN.get()).generateFor(SMBBlockFamilies.SMOOTH_RESIN);
-    gen.family(SMBBlocks.SANDSTONE_BRICKS.get()).generateFor(SMBBlockFamilies.SANDSTONE_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.SANDSTONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.SANDSTONE_TILES.get()).generateFor(SMBBlockFamilies.SANDSTONE_TILES);
-    gen.family(SMBBlocks.MOSSY_SANDSTONE_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_SANDSTONE_BRICKS);
-    gen.family(SMBBlocks.RED_SANDSTONE_BRICKS.get()).generateFor(SMBBlockFamilies.RED_SANDSTONE_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.RED_SANDSTONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.RED_SANDSTONE_TILES.get()).generateFor(SMBBlockFamilies.RED_SANDSTONE_TILES);
-    gen.family(SMBBlocks.MOSSY_RED_SANDSTONE_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_RED_SANDSTONE_BRICKS);
-    gen.family(SMBBlocks.POLISHED_PRISMARINE.get()).generateFor(SMBBlockFamilies.POLISHED_PRISMARINE);
     gen.createTrivialCube(SMBBlocks.CHISELED_PRISMARINE_BRICKS.get());
     gen.createTrivialCube(SMBBlocks.CRACKED_PRISMARINE_BRICKS.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.PRISMARINE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.PRISMARINE_TILES.get()).generateFor(SMBBlockFamilies.PRISMARINE_TILES);
-    gen.family(SMBBlocks.MOSSY_PRISMARINE_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_PRISMARINE_BRICKS);
-    gen.family(SMBBlocks.SMOOTH_PRISMARINE.get()).generateFor(SMBBlockFamilies.SMOOTH_PRISMARINE);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.NETHER_BRICKS_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createTrivialCube(SMBBlocks.CHISELED_RED_NETHER_BRICKS.get());
     gen.createTrivialCube(SMBBlocks.CRACKED_RED_NETHER_BRICKS.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.RED_NETHER_BRICKS_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.POLISHED_BLACKSTONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.POLISHED_BLACKSTONE_TILES.get()).generateFor(SMBBlockFamilies.POLISHED_BLACKSTONE_TILES);
-    gen.family(SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get()).generateFor(SMBBlockFamilies.CORRUPTED_POLISHED_BLACKSTONE_BRICKS);
-    gen.family(SMBBlocks.SMOOTH_BLACKSTONE.get()).generateFor(SMBBlockFamilies.SMOOTH_BLACKSTONE);
-    gen.family(SMBBlocks.POLISHED_END_STONE.get()).generateFor(SMBBlockFamilies.POLISHED_END_STONE);
     gen.createTrivialCube(SMBBlocks.CHISELED_END_STONE_BRICKS.get());
     gen.createTrivialCube(SMBBlocks.CRACKED_END_STONE_BRICKS.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.END_STONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.END_STONE_TILES.get()).generateFor(SMBBlockFamilies.END_STONE_TILES);
-    gen.family(SMBBlocks.MOSSY_END_STONE_BRICKS.get()).generateFor(SMBBlockFamilies.MOSSY_END_STONE_BRICKS);
-    gen.family(SMBBlocks.SMOOTH_END_STONE.get()).generateFor(SMBBlockFamilies.SMOOTH_END_STONE);
-    gen.family(SMBBlocks.POLISHED_PURPUR.get()).generateFor(SMBBlockFamilies.POLISHED_PURPUR);
     gen.createTrivialCube(SMBBlocks.CHISELED_PURPUR.get());
     gen.createTrivialCube(SMBBlocks.CRACKED_PURPUR_BLOCK.get());
-    gen.family(SMBBlocks.PURPUR_TILES.get()).generateFor(SMBBlockFamilies.PURPUR_TILES);
-    gen.family(SMBBlocks.MOSSY_PURPUR_BLOCK.get()).generateFor(SMBBlockFamilies.MOSSY_PURPUR_BLOCK);
-    gen.family(SMBBlocks.SMOOTH_PURPUR.get()).generateFor(SMBBlockFamilies.SMOOTH_PURPUR);
-    gen.family(SMBBlocks.COAL_BRICKS.get()).generateFor(SMBBlockFamilies.COAL_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.COAL_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.CUT_COAL.get()).generateFor(SMBBlockFamilies.CUT_COAL);
-    gen.family(SMBBlocks.IRON_BRICKS.get()).generateFor(SMBBlockFamilies.IRON_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.IRON_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.CUT_IRON.get()).generateFor(SMBBlockFamilies.CUT_IRON);
     gen.createTrivialCube(SMBBlocks.IRON_GRATE.get());
-    gen.family(SMBBlocks.GOLD_BRICKS.get()).generateFor(SMBBlockFamilies.GOLD_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.GOLD_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.CUT_GOLD.get()).generateFor(SMBBlockFamilies.CUT_GOLD);
-    gen.family(SMBBlocks.REDSTONE_BRICKS.get()).generateFor(SMBBlockFamilies.REDSTONE_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.REDSTONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.CUT_REDSTONE.get()).generateFor(SMBBlockFamilies.CUT_REDSTONE);
-    gen.family(SMBBlocks.EMERALD_BRICKS.get()).generateFor(SMBBlockFamilies.EMERALD_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.EMERALD_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.CUT_EMERALD.get()).generateFor(SMBBlockFamilies.CUT_EMERALD);
-    gen.family(SMBBlocks.LAPIS_BRICKS.get()).generateFor(SMBBlockFamilies.LAPIS_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.LAPIS_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.CUT_LAPIS.get()).generateFor(SMBBlockFamilies.CUT_LAPIS);
-    gen.family(SMBBlocks.DIAMOND_BRICKS.get()).generateFor(SMBBlockFamilies.DIAMOND_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.DIAMOND_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.CUT_DIAMOND.get()).generateFor(SMBBlockFamilies.CUT_DIAMOND);
     gen.createTrivialCube(SMBBlocks.DIAMOND_GRATE.get());
-    gen.family(SMBBlocks.NETHERITE_BRICKS.get()).generateFor(SMBBlockFamilies.NETHERITE_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.NETHERITE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.CUT_NETHERITE.get()).generateFor(SMBBlockFamilies.CUT_NETHERITE);
     gen.createTrivialCube(SMBBlocks.NETHERITE_GRATE.get());
     gen.createTrivialCube(SMBBlocks.CRACKED_QUARTZ_BRICKS.get());
-    gen.family(SMBBlocks.CUT_QUARTZ.get()).generateFor(SMBBlockFamilies.CUT_QUARTZ);
-    gen.family(SMBBlocks.AMETHYST_BRICKS.get()).generateFor(SMBBlockFamilies.AMETHYST_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.AMETHYST_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.CUT_AMETHYST.get()).generateFor(SMBBlockFamilies.CUT_AMETHYST);
     gen.family(SMBBlocks.COPPER_BRICKS.get()).generateFor(SMBBlockFamilies.COPPER_BRICKS)
       .donateModelTo(SMBBlocks.COPPER_BRICKS.get(), SMBBlocks.WAXED_COPPER_BRICKS.get())
       .donateModelTo(SMBBlocks.CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_CRACKED_COPPER_BRICKS.get());
@@ -218,18 +143,14 @@ public class SMBModelProvider extends FabricModelProvider {
     this.copyCopperPillarModel(SMBBlocks.EXPOSED_COPPER_PILLAR.get(), SMBBlocks.WAXED_EXPOSED_COPPER_PILLAR.get());
     this.copyCopperPillarModel(SMBBlocks.WEATHERED_COPPER_PILLAR.get(), SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get());
     this.copyCopperPillarModel(SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get());
-    gen.family(SMBBlocks.BONE_BRICKS.get()).generateFor(SMBBlockFamilies.BONE_BRICKS);
-    gen.family(SMBBlocks.BONE_TILES.get()).generateFor(SMBBlockFamilies.BONE_TILES);
-    // TODO: SOUL SANDSTONE GENERATOR
-    gen.family(SMBBlocks.PACKED_SNOW.get()).generateFor(SMBBlockFamilies.PACKED_SNOW);
-    gen.family(SMBBlocks.POLISHED_SNOW.get()).generateFor(SMBBlockFamilies.POLISHED_SNOW);
-    gen.family(SMBBlocks.SNOW_BRICKS.get()).generateFor(SMBBlockFamilies.SNOW_BRICKS);
+    this.soulSandstoneFamily(SMBBlocks.SOUL_SANDSTONE.get()).generateFor(SMBBlockFamilies.SOUL_SANDSTONE);
+    this.soulSandstoneFamily(SMBBlocks.SOUL_SANDSTONE_BRICKS.get()).generateFor(SMBBlockFamilies.SOUL_SANDSTONE_BRICKS);
+    gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.SOUL_SANDSTONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
+    this.soulSandstoneFamily(SMBBlocks.SOUL_SANDSTONE_TILES.get()).generateFor(SMBBlockFamilies.SOUL_SANDSTONE_TILES);
+    this.soulSandstoneFamily(SMBBlocks.SMOOTH_SOUL_SANDSTONE.get()).generateFor(SMBBlockFamilies.SMOOTH_SOUL_SANDSTONE);
+    this.soulSandstoneFamily(SMBBlocks.CUT_SOUL_SANDSTONE.get()).generateFor(SMBBlockFamilies.CUT_SOUL_SANDSTONE);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.SNOW_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.SNOW_TILES.get()).generateFor(SMBBlockFamilies.SNOW_TILES);
-    gen.family(SMBBlocks.POLISHED_ICE.get()).generateFor(SMBBlockFamilies.POLISHED_ICE);
-    gen.family(SMBBlocks.ICE_BRICKS.get()).generateFor(SMBBlockFamilies.ICE_BRICKS);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.ICE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.ICE_TILES.get()).generateFor(SMBBlockFamilies.ICE_TILES);
 
     /* More Colored Blocks */
     this.tiledGlassProvider(SMBBlocks.TILED_GLASS.get()).fullBlock().pane(SMBBlocks.TILED_GLASS_PANE.get(), Blocks.GLASS_PANE);
@@ -371,15 +292,13 @@ public class SMBModelProvider extends FabricModelProvider {
   @Override
   public void generateItemModels(ItemModelGenerators gen) {
     ITEM_MODEL_GENERATOR = gen;
+    this.itemModelGenerators = gen;
 
-    // More Building Blocks
-    SMBItemsTemplates.createWallBlockItemModel(SMBBlocks.SOUL_SANDSTONE_WALL.get());
-    SMBItemsTemplates.createWallBlockItemModel(SMBBlocks.SOUL_SANDSTONE_BRICK_WALL.get());
-    SMBItemsTemplates.createWallBlockItemModel(SMBBlocks.SOUL_SANDSTONE_TILE_WALL.get());
+    /* More Building Blocks */
     SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_LOG.get());
     SMBItemsTemplates.createCarvedBlockItemModel(SMBBlocks.CARVED_PALE_OAK_WOOD.get());
 
-    // More Natural Blocks
+    /* More Natural Blocks */
     gen.createFlatItemModel(SMBBlocks.BIG_LILY_PAD.get().asItem(), ModelTemplates.FLAT_ITEM);
   }
 
@@ -555,5 +474,52 @@ public class SMBModelProvider extends FabricModelProvider {
    */
   public final TiledGlassBlockProvider tiledGlassProvider(Block block) {
     return new TiledGlassBlockProvider(block, this.modelOutput, this.itemModelOutput, this.blockStateOutput);
+  }
+
+  /**
+   * Generate all Block Families,
+   */
+  private void generateAllBlockFamilies() {
+    for (Map.Entry<Block, BlockFamily> entry : SMBBlockFamilies.getAllFamilies().entrySet()) {
+      if (!entry.getValue().shouldGenerateModel()) continue;
+      this.blockModelGenerators.family(entry.getKey()).generateFor(entry.getValue());
+    }
+  }
+
+  /**
+   * Generate all the block family models for Soul Sandstone blocks with
+   * configured Textured Models values.
+   * @param block The Soul Sandstone block.
+   */
+  private BlockModelGenerators.BlockFamilyProvider soulSandstoneFamily(Block block) {
+    List<Block> validNonTexturedModel = List.of(
+      SMBBlocks.SOUL_SANDSTONE_BRICKS.get(), SMBBlocks.SOUL_SANDSTONE_TILES.get());
+
+    if (!this.texturedModels.containsKey(block) && !validNonTexturedModel.contains(block)) {
+      throw new IllegalArgumentException(
+        "The parsed block '" + block.getDescriptionId() + "' is not a Soul Sandstone block. " +
+        "For non-Soul Sandstone blocks, use the method BlockModelGenerators#family."
+      );
+    }
+
+    TexturedModel texturedModel = this.texturedModels.getOrDefault(block, TexturedModel.CUBE.get(block));
+    return (this.blockModelGenerators).
+      new BlockFamilyProvider(texturedModel.getMapping()).fullBlock(block, texturedModel.getTemplate());
+  }
+
+  /**
+   * Register all Soul Sandstone blocks as Textured Model.
+   */
+  private void registerSoulSandstoneAsTexturedModel() {
+    this.texturedModels = ImmutableMap.<Block, TexturedModel>builder()
+      .put(SMBBlocks.SOUL_SANDSTONE.get(), TexturedModel.TOP_BOTTOM_WITH_WALL.get(SMBBlocks.SOUL_SANDSTONE.get()))
+      .put(SMBBlocks.SMOOTH_SOUL_SANDSTONE.get(), TexturedModel.createAllSame(TextureMapping.getBlockTexture(SMBBlocks.SOUL_SANDSTONE.get(), "_top")))
+      .put(SMBBlocks.CUT_SOUL_SANDSTONE.get(), TexturedModel.COLUMN.get(SMBBlocks.SOUL_SANDSTONE.get()).updateTextures(
+        (mapping) -> mapping.put(TextureSlot.SIDE, TextureMapping.getBlockTexture(SMBBlocks.CUT_SOUL_SANDSTONE.get()))))
+      .put(SMBBlocks.CHISELED_SOUL_SANDSTONE.get(), TexturedModel.COLUMN.get(SMBBlocks.CHISELED_SOUL_SANDSTONE.get()).updateTextures(
+        (mapping) -> mapping
+          .put(TextureSlot.END, TextureMapping.getBlockTexture(SMBBlocks.SOUL_SANDSTONE.get(), "_top"))
+          .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(SMBBlocks.CHISELED_SOUL_SANDSTONE.get())))
+      ).build();
   }
 }
