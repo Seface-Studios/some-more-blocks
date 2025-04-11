@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_brown_terracotta_bricks": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:brown_terracotta_tiles_from_brown_terracotta_bricks_stonecutting"
+        "recipe": "minecraft:brown_terracotta_tiles_from_brown_terracotta_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_brown_terracotta_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:brown_terracotta_tiles_from_brown_terracotta_bricks_stonecutting"
+      "minecraft:brown_terracotta_tiles_from_brown_terracotta_bricks_stonecutting"
     ]
   }
 }

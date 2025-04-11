@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_cyan_terracotta": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:cyan_terracotta_bricks_from_cyan_terracotta_stonecutting"
+        "recipe": "minecraft:cyan_terracotta_bricks_from_cyan_terracotta_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cyan_terracotta"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:cyan_terracotta_bricks_from_cyan_terracotta_stonecutting"
+      "minecraft:cyan_terracotta_bricks_from_cyan_terracotta_stonecutting"
     ]
   }
 }

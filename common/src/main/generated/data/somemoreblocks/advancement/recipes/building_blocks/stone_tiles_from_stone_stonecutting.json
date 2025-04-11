@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_stone": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:stone_tiles_from_stone_stonecutting"
+        "recipe": "minecraft:stone_tiles_from_stone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_stone"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:stone_tiles_from_stone_stonecutting"
+      "minecraft:stone_tiles_from_stone_stonecutting"
     ]
   }
 }

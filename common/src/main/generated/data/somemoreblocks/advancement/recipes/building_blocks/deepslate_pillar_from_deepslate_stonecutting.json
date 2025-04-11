@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_deepslate": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:deepslate_pillar_from_deepslate_stonecutting"
+        "recipe": "minecraft:deepslate_pillar_from_deepslate_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_deepslate"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:deepslate_pillar_from_deepslate_stonecutting"
+      "minecraft:deepslate_pillar_from_deepslate_stonecutting"
     ]
   }
 }

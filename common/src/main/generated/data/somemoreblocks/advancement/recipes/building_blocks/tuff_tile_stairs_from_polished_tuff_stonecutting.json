@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_polished_tuff": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:tuff_tile_stairs_from_polished_tuff_stonecutting"
+        "recipe": "minecraft:tuff_tile_stairs_from_polished_tuff_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_polished_tuff"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:tuff_tile_stairs_from_polished_tuff_stonecutting"
+      "minecraft:tuff_tile_stairs_from_polished_tuff_stonecutting"
     ]
   }
 }

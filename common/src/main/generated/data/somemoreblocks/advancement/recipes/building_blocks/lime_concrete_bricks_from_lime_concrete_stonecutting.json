@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_lime_concrete": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:lime_concrete_bricks_from_lime_concrete_stonecutting"
+        "recipe": "minecraft:lime_concrete_bricks_from_lime_concrete_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_lime_concrete"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:lime_concrete_bricks_from_lime_concrete_stonecutting"
+      "minecraft:lime_concrete_bricks_from_lime_concrete_stonecutting"
     ]
   }
 }

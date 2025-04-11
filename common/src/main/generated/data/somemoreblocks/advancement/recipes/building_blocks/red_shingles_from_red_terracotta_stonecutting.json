@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_red_terracotta": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:red_shingles_from_red_terracotta_stonecutting"
+        "recipe": "minecraft:red_shingles_from_red_terracotta_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_red_terracotta"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:red_shingles_from_red_terracotta_stonecutting"
+      "minecraft:red_shingles_from_red_terracotta_stonecutting"
     ]
   }
 }

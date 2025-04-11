@@ -1,12 +1,14 @@
 package net.seface.somemoreblocks.registries;
 
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.platform.registry.BidirectionalRegistryObject;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
+import org.jetbrains.annotations.Nullable;
 
 public class SMBRegistries {
   public static BidirectionalRegistryObject<Block, Block> CARVED_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("carved_blocks"));
@@ -14,6 +16,13 @@ public class SMBRegistries {
   public static BidirectionalRegistryObject<Block, Block> WAXED_COPPER_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("waxed_copper_blocks"));
   public static BidirectionalRegistryObject<Block, Block> WEATHERING_COPPER_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("weathering_copper_blocks"));
   public static BidirectionalRegistryObject<TagKey<Block>, Block> LEAF_LITTER_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("leaf_litter_blocks"));
+  public static BidirectionalRegistryObject<@Nullable DyeColor, Block> STAINED_TILED_GLASS_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("tiled_glass_blocks"));
+  public static BidirectionalRegistryObject<@Nullable DyeColor, Block> STAINED_TILED_GLASS_PANE_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("stained_tiled_glass_pane_blocks"));
+  public static BidirectionalRegistryObject<@Nullable DyeColor, Block> SHINGLES_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("shingles_blocks"));
+  public static BidirectionalRegistryObject<@Nullable DyeColor, Block> TERRACOTTA_BRICKS_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("terracotta_bricks_blocks"));
+  public static BidirectionalRegistryObject<@Nullable DyeColor, Block> TERRACOTTA_TILES_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("terracotta_tiles_blocks"));
+  public static BidirectionalRegistryObject<DyeColor, Block> CONCRETE_BRICKS_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("concrete_bricks_blocks"));
+  public static BidirectionalRegistryObject<DyeColor, Block> CONCRETE_TILES_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("concrete_tiles_blocks"));
 
   /**
    * This initialization need to be called directly on Mod Loader initialize class!
@@ -25,6 +34,11 @@ public class SMBRegistries {
     SMBRegistries.weatheringCopperBlocks();
     SMBRegistries.compostableItems();
     SMBRegistries.leafLitterBlocks();
+    SMBRegistries.shinglesBlocks();
+    SMBRegistries.terracottaBlocks();
+    SMBRegistries.concreteBlocks();
+    SMBRegistries.stainedTiledGlassBlocks();
+    SMBRegistries.stainedTiledGlassPaneBlocks();
   }
 
   private static void compostableItems() {
@@ -128,5 +142,139 @@ public class SMBRegistries {
     LEAF_LITTER_BLOCKS.register(SMBBlockTags.AZALEA_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.AZALEA_LEAF_LITTER.get());
     LEAF_LITTER_BLOCKS.register(SMBBlockTags.FLOWERING_AZALEA_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get());
     LEAF_LITTER_BLOCKS.register(SMBBlockTags.PALE_OAK_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.PALE_OAK_LEAF_LITTER.get());
+  }
+
+  private static void stainedTiledGlassBlocks() {
+    STAINED_TILED_GLASS_BLOCKS.register(null, SMBBlocks.TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.WHITE, SMBBlocks.WHITE_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.LIGHT_GRAY, SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.GRAY, SMBBlocks.GRAY_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.BLACK, SMBBlocks.BLACK_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.BROWN, SMBBlocks.BROWN_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.RED, SMBBlocks.RED_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.ORANGE, SMBBlocks.ORANGE_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.YELLOW, SMBBlocks.YELLOW_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.LIME, SMBBlocks.LIME_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.GREEN, SMBBlocks.GREEN_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.CYAN, SMBBlocks.CYAN_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.LIGHT_BLUE, SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.BLUE, SMBBlocks.BLUE_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.PURPLE, SMBBlocks.PURPLE_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.MAGENTA, SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get());
+    STAINED_TILED_GLASS_BLOCKS.register(DyeColor.PINK, SMBBlocks.PINK_STAINED_TILED_GLASS.get());
+  }
+
+  private static void stainedTiledGlassPaneBlocks() {
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(null, SMBBlocks.TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.WHITE, SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.LIGHT_GRAY, SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.GRAY, SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.BLACK, SMBBlocks.BLACK_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.BROWN, SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.RED, SMBBlocks.RED_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.ORANGE, SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.YELLOW, SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.LIME, SMBBlocks.LIME_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.GREEN, SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.CYAN, SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.LIGHT_BLUE, SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.BLUE, SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.PURPLE, SMBBlocks.PURPLE_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.MAGENTA, SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get());
+    STAINED_TILED_GLASS_PANE_BLOCKS.register(DyeColor.PINK, SMBBlocks.PINK_STAINED_TILED_GLASS_PANE.get());
+  }
+
+  private static void shinglesBlocks() {
+    SHINGLES_BLOCKS.register(null, SMBBlocks.SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.WHITE, SMBBlocks.WHITE_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.LIGHT_GRAY, SMBBlocks.LIGHT_GRAY_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.GRAY, SMBBlocks.GRAY_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.BLACK, SMBBlocks.BLACK_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.BROWN, SMBBlocks.BROWN_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.RED, SMBBlocks.RED_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.ORANGE, SMBBlocks.ORANGE_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.YELLOW, SMBBlocks.YELLOW_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.LIME, SMBBlocks.LIME_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.GREEN, SMBBlocks.GREEN_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.CYAN, SMBBlocks.CYAN_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.LIGHT_BLUE, SMBBlocks.LIGHT_BLUE_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.BLUE, SMBBlocks.BLUE_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.PURPLE, SMBBlocks.PURPLE_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.MAGENTA, SMBBlocks.MAGENTA_SHINGLES.get());
+    SHINGLES_BLOCKS.register(DyeColor.PINK, SMBBlocks.PINK_SHINGLES.get());
+  }
+
+  private static void terracottaBlocks() {
+    TERRACOTTA_BRICKS_BLOCKS.register(null, SMBBlocks.TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.WHITE, SMBBlocks.WHITE_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.LIGHT_GRAY, SMBBlocks.LIGHT_GRAY_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.GRAY, SMBBlocks.GRAY_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.BLACK, SMBBlocks.BLACK_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.BROWN, SMBBlocks.BROWN_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.RED, SMBBlocks.RED_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.ORANGE, SMBBlocks.ORANGE_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.YELLOW, SMBBlocks.YELLOW_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.LIME, SMBBlocks.LIME_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.GREEN, SMBBlocks.GREEN_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.CYAN, SMBBlocks.CYAN_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.LIGHT_BLUE, SMBBlocks.LIGHT_BLUE_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.BLUE, SMBBlocks.BLUE_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.PURPLE, SMBBlocks.PURPLE_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.MAGENTA, SMBBlocks.MAGENTA_TERRACOTTA_BRICKS.get());
+    TERRACOTTA_BRICKS_BLOCKS.register(DyeColor.PINK, SMBBlocks.PINK_TERRACOTTA_BRICKS.get());
+
+    TERRACOTTA_TILES_BLOCKS.register(null, SMBBlocks.TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.WHITE, SMBBlocks.WHITE_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.LIGHT_GRAY, SMBBlocks.LIGHT_GRAY_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.GRAY, SMBBlocks.GRAY_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.BLACK, SMBBlocks.BLACK_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.BROWN, SMBBlocks.BROWN_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.RED, SMBBlocks.RED_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.ORANGE, SMBBlocks.ORANGE_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.YELLOW, SMBBlocks.YELLOW_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.LIME, SMBBlocks.LIME_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.GREEN, SMBBlocks.GREEN_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.CYAN, SMBBlocks.CYAN_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.LIGHT_BLUE, SMBBlocks.LIGHT_BLUE_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.BLUE, SMBBlocks.BLUE_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.PURPLE, SMBBlocks.PURPLE_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.MAGENTA, SMBBlocks.MAGENTA_TERRACOTTA_TILES.get());
+    TERRACOTTA_TILES_BLOCKS.register(DyeColor.PINK, SMBBlocks.PINK_TERRACOTTA_TILES.get());
+  }
+
+  private static void concreteBlocks() {
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.WHITE, SMBBlocks.WHITE_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.LIGHT_GRAY, SMBBlocks.LIGHT_GRAY_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.GRAY, SMBBlocks.GRAY_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.BLACK, SMBBlocks.BLACK_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.BROWN, SMBBlocks.BROWN_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.RED, SMBBlocks.RED_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.ORANGE, SMBBlocks.ORANGE_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.YELLOW, SMBBlocks.YELLOW_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.LIME, SMBBlocks.LIME_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.GREEN, SMBBlocks.GREEN_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.CYAN, SMBBlocks.CYAN_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.LIGHT_BLUE, SMBBlocks.LIGHT_BLUE_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.BLUE, SMBBlocks.BLUE_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.PURPLE, SMBBlocks.PURPLE_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.MAGENTA, SMBBlocks.MAGENTA_CONCRETE_BRICKS.get());
+    CONCRETE_BRICKS_BLOCKS.register(DyeColor.PINK, SMBBlocks.PINK_CONCRETE_BRICKS.get());
+
+    CONCRETE_TILES_BLOCKS.register(DyeColor.WHITE, SMBBlocks.WHITE_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.LIGHT_GRAY, SMBBlocks.LIGHT_GRAY_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.GRAY, SMBBlocks.GRAY_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.BLACK, SMBBlocks.BLACK_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.BROWN, SMBBlocks.BROWN_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.RED, SMBBlocks.RED_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.ORANGE, SMBBlocks.ORANGE_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.YELLOW, SMBBlocks.YELLOW_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.LIME, SMBBlocks.LIME_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.GREEN, SMBBlocks.GREEN_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.CYAN, SMBBlocks.CYAN_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.LIGHT_BLUE, SMBBlocks.LIGHT_BLUE_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.BLUE, SMBBlocks.BLUE_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.PURPLE, SMBBlocks.PURPLE_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.MAGENTA, SMBBlocks.MAGENTA_CONCRETE_TILES.get());
+    CONCRETE_TILES_BLOCKS.register(DyeColor.PINK, SMBBlocks.PINK_CONCRETE_TILES.get());
   }
 }

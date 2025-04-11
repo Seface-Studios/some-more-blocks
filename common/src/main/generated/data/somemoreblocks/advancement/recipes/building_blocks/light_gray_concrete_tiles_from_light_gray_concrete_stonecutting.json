@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_light_gray_concrete": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:light_gray_concrete_tiles_from_light_gray_concrete_stonecutting"
+        "recipe": "minecraft:light_gray_concrete_tiles_from_light_gray_concrete_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_light_gray_concrete"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:light_gray_concrete_tiles_from_light_gray_concrete_stonecutting"
+      "minecraft:light_gray_concrete_tiles_from_light_gray_concrete_stonecutting"
     ]
   }
 }

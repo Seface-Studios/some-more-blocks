@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cut_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "somemoreblocks:cut_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:cracked_cut_iron_from_cut_iron_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cut_iron"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:cracked_cut_iron_from_cut_iron_stonecutting"
+    ]
+  }
+}

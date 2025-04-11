@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:prismarine_bricks",
-  "result": {
-    "count": 1,
-    "id": "somemoreblocks:chiseled_prismarine_bricks"
-  }
-}

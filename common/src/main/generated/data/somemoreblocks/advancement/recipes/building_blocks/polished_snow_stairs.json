@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_polished_snow": {
       "conditions": {
         "items": [
           {
-            "items": "somemoreblocks:packed_snow"
+            "items": "somemoreblocks:polished_snow"
           }
         ]
       },
@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_polished_snow"
     ]
   ],
   "rewards": {

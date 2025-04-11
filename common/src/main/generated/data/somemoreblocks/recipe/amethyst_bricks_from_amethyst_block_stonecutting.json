@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:amethyst_block",
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:amethyst_bricks"
+  }
+}

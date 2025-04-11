@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_smooth_tuff": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:smooth_tuff_slab_from_smooth_tuff_stonecutting"
+        "recipe": "minecraft:smooth_tuff_slab_from_smooth_tuff_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_smooth_tuff"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:smooth_tuff_slab_from_smooth_tuff_stonecutting"
+      "minecraft:smooth_tuff_slab_from_smooth_tuff_stonecutting"
     ]
   }
 }

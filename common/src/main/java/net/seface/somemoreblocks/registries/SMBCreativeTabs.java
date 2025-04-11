@@ -486,8 +486,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.SOUL_SANDSTONE_TILE_SLAB.get());
         entry.accept(SMBBlocks.SOUL_SANDSTONE_TILE_WALL.get());
         entry.accept(SMBBlocks.SMOOTH_SOUL_SANDSTONE.get());
-        entry.accept(SMBBlocks.SMOOTH_SOUL_SANDSTONE_SLAB.get());
         entry.accept(SMBBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS.get());
+        entry.accept(SMBBlocks.SMOOTH_SOUL_SANDSTONE_SLAB.get());
         entry.accept(SMBBlocks.CUT_SOUL_SANDSTONE.get());
         entry.accept(SMBBlocks.CUT_SOUL_SANDSTONE_SLAB.get());
         entry.accept(SMBBlocks.PACKED_SNOW.get());

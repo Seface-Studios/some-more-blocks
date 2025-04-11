@@ -32,7 +32,7 @@ public class Main implements DataGeneratorEntrypoint {
       data/assets for both Minecraft version;
       When we decided to abandon that system, we still need to generate the recipe advancements.
     */
-    pack.addProvider(SMBRecipeAdvancementProvider::new);
+    //pack.addProvider(SMBRecipeAdvancementProvider::new);
   }
 
   @Override

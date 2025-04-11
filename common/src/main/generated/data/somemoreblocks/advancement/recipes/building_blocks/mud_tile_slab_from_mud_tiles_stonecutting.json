@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_mud_tiles": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:mud_tile_slab_from_mud_tiles_stonecutting"
+        "recipe": "minecraft:mud_tile_slab_from_mud_tiles_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_mud_tiles"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:mud_tile_slab_from_mud_tiles_stonecutting"
+      "minecraft:mud_tile_slab_from_mud_tiles_stonecutting"
     ]
   }
 }

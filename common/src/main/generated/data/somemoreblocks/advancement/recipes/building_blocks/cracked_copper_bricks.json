@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_copper_bricks": {
       "conditions": {
         "items": [
           {
-            "items": "somemoreblocks:cracked_copper_bricks"
+            "items": "somemoreblocks:copper_bricks"
           }
         ]
       },
@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_copper_bricks"
     ]
   ],
   "rewards": {

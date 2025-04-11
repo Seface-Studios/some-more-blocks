@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_prismarine_tiles": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:prismarine_bricks"
+            "items": "somemoreblocks:prismarine_tiles"
           }
         ]
       },
@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_prismarine_tiles"
     ]
   ],
   "rewards": {

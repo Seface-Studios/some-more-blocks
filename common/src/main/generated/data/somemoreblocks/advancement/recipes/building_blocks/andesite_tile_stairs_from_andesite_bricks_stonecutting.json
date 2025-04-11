@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_andesite_bricks": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:andesite_tile_stairs_from_andesite_bricks_stonecutting"
+        "recipe": "minecraft:andesite_tile_stairs_from_andesite_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_andesite_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:andesite_tile_stairs_from_andesite_bricks_stonecutting"
+      "minecraft:andesite_tile_stairs_from_andesite_bricks_stonecutting"
     ]
   }
 }

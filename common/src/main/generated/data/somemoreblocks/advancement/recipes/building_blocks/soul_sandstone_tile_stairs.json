@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_soul_sandstone_tiles": {
       "conditions": {
         "items": [
           {
@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_soul_sandstone_tiles"
     ]
   ],
   "rewards": {

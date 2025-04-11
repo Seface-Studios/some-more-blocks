@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_dripstone_block": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:dripstone_brick_slab_from_dripstone_block_stonecutting"
+        "recipe": "minecraft:dripstone_brick_slab_from_dripstone_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_dripstone_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:dripstone_brick_slab_from_dripstone_block_stonecutting"
+      "minecraft:dripstone_brick_slab_from_dripstone_block_stonecutting"
     ]
   }
 }

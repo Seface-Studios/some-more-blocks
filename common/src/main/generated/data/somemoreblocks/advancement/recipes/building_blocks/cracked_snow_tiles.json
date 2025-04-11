@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_snow_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": "somemoreblocks:snow_tiles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "somemoreblocks:cracked_snow_tiles"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_snow_tiles"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "somemoreblocks:cracked_snow_tiles"
+    ]
+  }
+}

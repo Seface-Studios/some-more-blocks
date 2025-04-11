@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_light_blue_terracotta_bricks": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:light_blue_terracotta_tiles_from_light_blue_terracotta_bricks_stonecutting"
+        "recipe": "minecraft:light_blue_terracotta_tiles_from_light_blue_terracotta_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_light_blue_terracotta_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:light_blue_terracotta_tiles_from_light_blue_terracotta_bricks_stonecutting"
+      "minecraft:light_blue_terracotta_tiles_from_light_blue_terracotta_bricks_stonecutting"
     ]
   }
 }

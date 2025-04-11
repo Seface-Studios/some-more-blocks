@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_polished_prismarine": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:prismarine_tile_stairs_from_polished_prismarine_stonecutting"
+        "recipe": "minecraft:prismarine_tile_stairs_from_polished_prismarine_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_polished_prismarine"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:prismarine_tile_stairs_from_polished_prismarine_stonecutting"
+      "minecraft:prismarine_tile_stairs_from_polished_prismarine_stonecutting"
     ]
   }
 }

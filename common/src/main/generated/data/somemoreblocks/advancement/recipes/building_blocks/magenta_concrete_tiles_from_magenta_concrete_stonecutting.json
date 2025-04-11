@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_magenta_concrete": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:magenta_concrete_tiles_from_magenta_concrete_stonecutting"
+        "recipe": "minecraft:magenta_concrete_tiles_from_magenta_concrete_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_magenta_concrete"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:magenta_concrete_tiles_from_magenta_concrete_stonecutting"
+      "minecraft:magenta_concrete_tiles_from_magenta_concrete_stonecutting"
     ]
   }
 }

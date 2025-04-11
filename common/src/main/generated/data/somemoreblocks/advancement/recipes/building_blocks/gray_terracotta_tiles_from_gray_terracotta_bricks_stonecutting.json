@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_gray_terracotta_bricks": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:gray_terracotta_tiles_from_gray_terracotta_bricks_stonecutting"
+        "recipe": "minecraft:gray_terracotta_tiles_from_gray_terracotta_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_gray_terracotta_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:gray_terracotta_tiles_from_gray_terracotta_bricks_stonecutting"
+      "minecraft:gray_terracotta_tiles_from_gray_terracotta_bricks_stonecutting"
     ]
   }
 }

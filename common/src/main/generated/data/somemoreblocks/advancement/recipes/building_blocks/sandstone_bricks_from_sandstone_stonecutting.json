@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_sandstone": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:sandstone_bricks_from_sandstone_stonecutting"
+        "recipe": "minecraft:sandstone_bricks_from_sandstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sandstone"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:sandstone_bricks_from_sandstone_stonecutting"
+      "minecraft:sandstone_bricks_from_sandstone_stonecutting"
     ]
   }
 }

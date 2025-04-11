@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_bone_block": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:bone_brick_slab_from_bone_block_stonecutting"
+        "recipe": "minecraft:bone_brick_slab_from_bone_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_bone_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:bone_brick_slab_from_bone_block_stonecutting"
+      "minecraft:bone_brick_slab_from_bone_block_stonecutting"
     ]
   }
 }

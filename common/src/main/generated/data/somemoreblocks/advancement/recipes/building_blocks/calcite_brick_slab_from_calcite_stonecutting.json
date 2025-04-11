@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_calcite": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:calcite_brick_slab_from_calcite_stonecutting"
+        "recipe": "minecraft:calcite_brick_slab_from_calcite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_calcite"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:calcite_brick_slab_from_calcite_stonecutting"
+      "minecraft:calcite_brick_slab_from_calcite_stonecutting"
     ]
   }
 }

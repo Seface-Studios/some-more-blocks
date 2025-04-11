@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_orange_concrete": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:orange_concrete_tiles_from_orange_concrete_stonecutting"
+        "recipe": "minecraft:orange_concrete_tiles_from_orange_concrete_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_orange_concrete"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:orange_concrete_tiles_from_orange_concrete_stonecutting"
+      "minecraft:orange_concrete_tiles_from_orange_concrete_stonecutting"
     ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_diorite": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:chiseled_diorite_bricks_from_diorite_stonecutting"
+        "recipe": "minecraft:chiseled_diorite_bricks_from_diorite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_diorite"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:chiseled_diorite_bricks_from_diorite_stonecutting"
+      "minecraft:chiseled_diorite_bricks_from_diorite_stonecutting"
     ]
   }
 }

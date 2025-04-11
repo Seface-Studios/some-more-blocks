@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_smooth_end_stone": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:smooth_end_stone_slab_from_smooth_end_stone_stonecutting"
+        "recipe": "minecraft:smooth_end_stone_slab_from_smooth_end_stone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_smooth_end_stone"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:smooth_end_stone_slab_from_smooth_end_stone_stonecutting"
+      "minecraft:smooth_end_stone_slab_from_smooth_end_stone_stonecutting"
     ]
   }
 }

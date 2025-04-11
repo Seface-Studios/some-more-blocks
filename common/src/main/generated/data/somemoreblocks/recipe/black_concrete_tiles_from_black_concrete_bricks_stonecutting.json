@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "somemoreblocks:black_concrete_bricks",
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:black_concrete_tiles"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "somemoreblocks:cut_diamond",
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:cracked_cut_diamond"
+  }
+}

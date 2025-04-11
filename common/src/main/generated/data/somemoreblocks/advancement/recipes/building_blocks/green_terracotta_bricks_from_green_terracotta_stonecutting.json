@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_green_terracotta": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:green_terracotta_bricks_from_green_terracotta_stonecutting"
+        "recipe": "minecraft:green_terracotta_bricks_from_green_terracotta_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_green_terracotta"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:green_terracotta_bricks_from_green_terracotta_stonecutting"
+      "minecraft:green_terracotta_bricks_from_green_terracotta_stonecutting"
     ]
   }
 }

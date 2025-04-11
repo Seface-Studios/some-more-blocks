@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_corrupted_polished_blackstone_bricks": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:corrupted_polished_blackstone_brick_wall_from_corrupted_polished_blackstone_bricks_stonecutting"
+        "recipe": "minecraft:corrupted_polished_blackstone_brick_wall_from_corrupted_polished_blackstone_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_corrupted_polished_blackstone_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:corrupted_polished_blackstone_brick_wall_from_corrupted_polished_blackstone_bricks_stonecutting"
+      "minecraft:corrupted_polished_blackstone_brick_wall_from_corrupted_polished_blackstone_bricks_stonecutting"
     ]
   }
 }

@@ -28,6 +28,10 @@ public class BidirectionalRegistryObject<K, V> {
    * @param value The object value.
    */
   public void register(K key, V value) {
+    if (this.next.containsKey(key)) {
+      throw new IllegalArgumentException("The key " + key + " are already registered.");
+    }
+
     this.next.put(key, value);
   }
 

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_purple_concrete": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:purple_concrete_bricks_from_purple_concrete_stonecutting"
+        "recipe": "minecraft:purple_concrete_bricks_from_purple_concrete_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_purple_concrete"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:purple_concrete_bricks_from_purple_concrete_stonecutting"
+      "minecraft:purple_concrete_bricks_from_purple_concrete_stonecutting"
     ]
   }
 }

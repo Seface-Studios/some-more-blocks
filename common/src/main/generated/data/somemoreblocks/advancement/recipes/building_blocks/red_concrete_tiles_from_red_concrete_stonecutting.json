@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_red_concrete": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:red_concrete_tiles_from_red_concrete_stonecutting"
+        "recipe": "minecraft:red_concrete_tiles_from_red_concrete_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_red_concrete"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:red_concrete_tiles_from_red_concrete_stonecutting"
+      "minecraft:red_concrete_tiles_from_red_concrete_stonecutting"
     ]
   }
 }

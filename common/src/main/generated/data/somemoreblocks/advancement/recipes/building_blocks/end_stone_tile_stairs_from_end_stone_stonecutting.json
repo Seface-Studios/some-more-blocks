@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_end_stone": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:end_stone_tile_stairs_from_end_stone_stonecutting"
+        "recipe": "minecraft:end_stone_tile_stairs_from_end_stone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_end_stone"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:end_stone_tile_stairs_from_end_stone_stonecutting"
+      "minecraft:end_stone_tile_stairs_from_end_stone_stonecutting"
     ]
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_polished_blackstone": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:polished_blackstone_tile_stairs_from_polished_blackstone_stonecutting"
+        "recipe": "minecraft:polished_blackstone_tile_stairs_from_polished_blackstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_polished_blackstone"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:polished_blackstone_tile_stairs_from_polished_blackstone_stonecutting"
+      "minecraft:polished_blackstone_tile_stairs_from_polished_blackstone_stonecutting"
     ]
   }
 }

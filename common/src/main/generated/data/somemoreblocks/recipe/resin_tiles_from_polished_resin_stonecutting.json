@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "somemoreblocks:polished_resin",
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:resin_tiles"
+  }
+}

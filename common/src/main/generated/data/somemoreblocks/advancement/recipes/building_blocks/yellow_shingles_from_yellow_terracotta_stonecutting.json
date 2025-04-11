@@ -1,7 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:yellow_shingles_from_yellow_terracotta_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_terracotta": {
       "conditions": {
         "items": [
           {
@@ -10,23 +16,17 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "somemoreblocks:yellow_shingles_from_yellow_terracotta_stonecutting"
-      },
-      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_yellow_terracotta"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:yellow_shingles_from_yellow_terracotta_stonecutting"
+      "minecraft:yellow_shingles_from_yellow_terracotta_stonecutting"
     ]
   }
 }

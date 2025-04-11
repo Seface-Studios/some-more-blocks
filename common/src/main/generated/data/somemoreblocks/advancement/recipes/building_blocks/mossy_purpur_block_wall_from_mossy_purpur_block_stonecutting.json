@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_mossy_purpur_block": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:mossy_purpur_block_wall_from_mossy_purpur_block_stonecutting"
+        "recipe": "minecraft:mossy_purpur_block_wall_from_mossy_purpur_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_mossy_purpur_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:mossy_purpur_block_wall_from_mossy_purpur_block_stonecutting"
+      "minecraft:mossy_purpur_block_wall_from_mossy_purpur_block_stonecutting"
     ]
   }
 }

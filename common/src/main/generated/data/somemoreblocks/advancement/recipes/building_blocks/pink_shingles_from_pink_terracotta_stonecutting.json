@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_pink_terracotta": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:pink_shingles_from_pink_terracotta_stonecutting"
+        "recipe": "minecraft:pink_shingles_from_pink_terracotta_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_pink_terracotta"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:pink_shingles_from_pink_terracotta_stonecutting"
+      "minecraft:pink_shingles_from_pink_terracotta_stonecutting"
     ]
   }
 }

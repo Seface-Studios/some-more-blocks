@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_sandstone_tiles": {
       "conditions": {
         "items": [
           {
-            "items": "somemoreblocks:sandstone_bricks"
+            "items": "somemoreblocks:sandstone_tiles"
           }
         ]
       },
@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sandstone_tiles"
     ]
   ],
   "rewards": {

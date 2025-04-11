@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_packed_mud": {
       "conditions": {
         "items": [
           {
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "somemoreblocks:polished_mud_slab_from_packed_mud_stonecutting"
+        "recipe": "minecraft:polished_mud_slab_from_packed_mud_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_needed_items",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_packed_mud"
     ]
   ],
   "rewards": {
     "recipes": [
-      "somemoreblocks:polished_mud_slab_from_packed_mud_stonecutting"
+      "minecraft:polished_mud_slab_from_packed_mud_stonecutting"
     ]
   }
 }
