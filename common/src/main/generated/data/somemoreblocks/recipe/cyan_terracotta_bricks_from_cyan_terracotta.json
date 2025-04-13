@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "terracotta_bricks_from_terracotta",
+  "key": {
+    "#": "minecraft:cyan_terracotta"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "id": "somemoreblocks:cyan_terracotta_bricks"
+  }
+}

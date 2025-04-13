@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "tiled_tinted_glass",
+  "key": {
+    "#": "minecraft:tinted_glass"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "id": "somemoreblocks:tiled_tinted_glass"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "shingles_from_terracotta",
+  "key": {
+    "#": "minecraft:green_terracotta"
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "count": 2,
+    "id": "somemoreblocks:green_shingles"
+  }
+}

@@ -3,19 +3,16 @@ package net.seface.somemoreblocks.datagen.providers.data;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -23,8 +20,11 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StainedGlassPaneBlock;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.registries.SMBBlockFamilies;
 import net.seface.somemoreblocks.registries.SMBBlocks;
+import net.seface.somemoreblocks.registries.SMBRegistries;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -291,45 +291,17 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.END_STONE_BRICK_SLAB, SMBBlocks.POLISHED_END_STONE.get(), 2);
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.END_STONE_BRICK_WALL, SMBBlocks.POLISHED_END_STONE.get());
 
+        /* Implementing... */
+        this.shingles();
+        this.terracottaBricksAndTiles();
+        this.concreteBricksAndTiles();
+        this.tiledGlassAndTiledGlassPane();
+        this.snowyPlant(Blocks.SHORT_GRASS);
+        this.snowyPlant(Blocks.FERN);
+        this.snowyPlant(Blocks.TALL_GRASS);
+        this.snowyPlant(Blocks.LARGE_FERN);
+
         /* Testing Things below */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        this.snowyPlant(Blocks.SHORT_GRASS, SMBBlocks.SHORT_SNOW_GRASS.get());
-        this.snowyPlant(Blocks.FERN, SMBBlocks.SNOW_FERN.get());
-        this.snowyPlant(Blocks.TALL_GRASS, SMBBlocks.TALL_SNOW_GRASS.get());
-        this.snowyPlant(Blocks.LARGE_FERN, SMBBlocks.LARGE_SNOW_FERN.get());
-        this.createGlassPaneRecipe(SMBBlocks.TILED_GLASS.get(), SMBBlocks.TILED_GLASS_PANE.get(), Blocks.GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.BLACK_STAINED_TILED_GLASS.get(), SMBBlocks.BLACK_STAINED_TILED_GLASS_PANE.get(), Blocks.BLACK_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.BLUE_STAINED_TILED_GLASS.get(), SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE.get(), Blocks.BLUE_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.BROWN_STAINED_TILED_GLASS.get(), SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE.get(), Blocks.BROWN_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.CYAN_STAINED_TILED_GLASS.get(), SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE.get(), Blocks.CYAN_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.GRAY_STAINED_TILED_GLASS.get(), SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE.get(), Blocks.GRAY_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.GREEN_STAINED_TILED_GLASS.get(), SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE.get(), Blocks.GREEN_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS.get(), SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE.get(), Blocks.LIGHT_BLUE_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS.get(), SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE.get(), Blocks.LIGHT_GRAY_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.LIME_STAINED_TILED_GLASS.get(), SMBBlocks.LIME_STAINED_TILED_GLASS_PANE.get(), Blocks.LIME_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get(), SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get(), Blocks.MAGENTA_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.ORANGE_STAINED_TILED_GLASS.get(), SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get(), Blocks.ORANGE_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.PINK_STAINED_TILED_GLASS.get(), SMBBlocks.PINK_STAINED_TILED_GLASS_PANE.get(), Blocks.PINK_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.PURPLE_STAINED_TILED_GLASS.get(), SMBBlocks.PURPLE_STAINED_TILED_GLASS_PANE.get(), Blocks.PURPLE_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.RED_STAINED_TILED_GLASS.get(), SMBBlocks.RED_STAINED_TILED_GLASS_PANE.get(), Blocks.RED_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.WHITE_STAINED_TILED_GLASS.get(), SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get(), Blocks.WHITE_STAINED_GLASS_PANE);
-        this.createGlassPaneRecipe(SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(), SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), Blocks.YELLOW_STAINED_GLASS_PANE);
 
         /* 1.21.4 */
         /*this.pillar(Blocks.PALE_OAK_SLAB, SMBBlocks.PALE_OAK_MOSAIC.get(), 1);
@@ -406,129 +378,139 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         }
       }
 
+      /**
+       * Generate all the Shingles block variants.
+       */
+      private void shingles() {
+        SomeMoreBlocks.LOGGER.info("Generating Shingles recipes.");
+        DyeColor[] dyeColors = DyeColor.values();
 
+        for (DyeColor dyeColor : dyeColors) {
+          Block shingles = SMBRegistries.SHINGLES_BLOCKS.getNext(dyeColor).orElseThrow();
+          Block terracotta = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(dyeColor + "_terracotta"));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-      private void snowyPlant(ItemLike input, ItemLike result) {
-        this.shapeless(RecipeCategory.MISC, result)
-          .requires(input)
-          .requires(Items.SNOWBALL)
-          .unlockedBy(getHasName(input), this.has(input))
-          .save(this.output);
-      }
-
-      /*private void stonecuttingFrom(ItemLike result, ItemLike ...stonecuttingFrom) {
-        this.stonecuttingFrom(result, 1, stonecuttingFrom);
-      }
-
-      private void stonecuttingFrom(ItemLike result, int count, ItemLike ...stonecuttingFrom) {
-        for (ItemLike input : List.of(stonecuttingFrom)) {
-          this.stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, result, input, count);
-        }
-      }*/
-
-      public void twoByTwoPacker(ItemLike input, ItemLike result, ItemLike ...stonecuttingFrom) {
-        this.twoByTwoPacker(input, result, 1, stonecuttingFrom);
-      }
-
-      public void twoByTwoPacker(ItemLike input, ItemLike result, int count, ItemLike ...stonecuttingFrom) {
-        this.shaped(RecipeCategory.BUILDING_BLOCKS, result, count)
-          .define('#', input)
-          .pattern("##")
-          .pattern("##")
-          .unlockedBy(getHasName(input), this.has(input))
-          .save(this.output);
-
-
-        //this.stonecuttingFrom(result, stonecuttingFrom);
-      }
-
-      public void slab(ItemLike input, ItemLike result, ItemLike ...stoneCuttingFrom) {
-        this.slab(RecipeCategory.BUILDING_BLOCKS, result, input);
-        //this.stonecuttingFrom(result, 2, stoneCuttingFrom);
-      }
-
-      public void wall(ItemLike input, ItemLike result, ItemLike ...stoneCuttingFrom) {
-        this.wall(RecipeCategory.BUILDING_BLOCKS, result, input);
-        //this.stonecuttingFrom(result, stoneCuttingFrom);
-      }
-
-      private void pillar(ItemLike input, ItemLike result, ItemLike ...stoneCuttingFrom) {
-        this.pillar(input, result, 2, stoneCuttingFrom);
-      }
-
-      private void pillar(ItemLike input, ItemLike result, int count, ItemLike ...stoneCuttingFrom) {
-        this.shaped(RecipeCategory.BUILDING_BLOCKS, result, count)
-          .define('#', input)
-          .pattern("#")
-          .pattern("#")
-          .unlockedBy(getHasName(input), this.has(input))
-          .save(this.output);
-
-        //this.stonecuttingFrom(result, stoneCuttingFrom);
-      }
-
-      private void stairs(ItemLike input, ItemLike result, ItemLike ...stoneCuttingFrom) {
-        this.stairBuilder(result, Ingredient.of(input))
-          .unlockedBy(getHasName(input), this.has(input))
-          .save(this.output);
-
-        //this.stonecuttingFrom(result, stoneCuttingFrom);
-      }
-
-      private void createGlassPaneRecipe(Block tiledGlass, Block tiledGlassPane, Block vanillaGlassPane) {
-        String group = tiledGlassPane instanceof StainedGlassPaneBlock ? "stained_tiled_glass_pane" : "tiled_glass_pane";
-
-        // With Dye in the center
-        if (tiledGlassPane instanceof StainedGlassPaneBlock) {
-          DyeItem dye = DyeItem.byColor(((StainedGlassPaneBlock) tiledGlassPane).getColor());
-
-          ResourceLocation fromTiledGlassPane = BuiltInRegistries.ITEM.getKey(tiledGlassPane.asItem())
-            .withSuffix("_from_tiled_glass_pane");
-
-          ShapedRecipeBuilder.shaped(BuiltInRegistries.ITEM, RecipeCategory.MISC, tiledGlassPane.asItem(), 8)
-            .define('#', SMBBlocks.TILED_GLASS_PANE.get())
-            .define('$', dye)
-            .pattern("###")
-            .pattern("#$#")
-            .pattern("###")
-            .unlockedBy("has_needed_items", this.has(tiledGlass))
-            .group(group)
-            .save(output, ResourceKey.create(Registries.RECIPE, fromTiledGlassPane));
+          this.aroundDyeItemWith(RecipeCategory.BUILDING_BLOCKS, "shingles_from_dye", SMBBlocks.SHINGLES.get(), shingles, dyeColor);
+          this.shinglesFromTerracotta(RecipeCategory.BUILDING_BLOCKS, "shingles_from_terracotta", terracotta, shingles);
         }
 
-        // With Vanilla Stained Glass Pane
-        ResourceLocation fromVanillaPane = BuiltInRegistries.ITEM.getKey(tiledGlassPane.asItem())
-          .withSuffix("_from_" + BuiltInRegistries.ITEM.getKey(vanillaGlassPane.asItem()).getPath());
+        this.shinglesFromTerracotta(RecipeCategory.BUILDING_BLOCKS, "shingles", Blocks.TERRACOTTA, SMBBlocks.SHINGLES.get());
+      }
 
-        ShapedRecipeBuilder.shaped(BuiltInRegistries.ITEM, RecipeCategory.MISC, tiledGlassPane.asItem(), 4)
-          .define('#', vanillaGlassPane)
-          .pattern("##")
-          .pattern("##")
-          .unlockedBy("has_needed_items", this.has(vanillaGlassPane))
+      /**
+       * Generate all the Terracotta Bricks and Terracotta Tiles blocks variants.
+       */
+      private void terracottaBricksAndTiles() {
+        SomeMoreBlocks.LOGGER.info("Generating Terracotta Bricks and Terracotta Tiles recipes.");
+        DyeColor[] dyeColors = DyeColor.values();
+
+        for (DyeColor dyeColor : dyeColors) {
+          Block terracotta = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(dyeColor + "_terracotta"));
+          Block terracottaBricks = SMBRegistries.TERRACOTTA_BRICKS_BLOCKS.getNext(dyeColor).orElseThrow();
+          Block terracottaTiles = SMBRegistries.TERRACOTTA_TILES_BLOCKS.getNext(dyeColor).orElseThrow();
+
+          this.aroundDyeItemWith(RecipeCategory.BUILDING_BLOCKS, "terracotta_bricks_from_dye", SMBBlocks.TERRACOTTA_BRICKS.get(), terracottaBricks, dyeColor);
+          this.aroundDyeItemWith(RecipeCategory.BUILDING_BLOCKS, "terracotta_tiles_from_dye", SMBBlocks.TERRACOTTA_TILES.get(), terracottaTiles, dyeColor);
+          this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "terracotta_bricks_from_terracotta", terracotta, terracottaBricks);
+          this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "terracotta_tiles_from_terracotta_bricks", terracottaBricks, terracottaTiles);
+        }
+
+        this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "terracotta_bricks", Blocks.TERRACOTTA, SMBBlocks.TERRACOTTA_BRICKS.get());
+        this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "terracotta_tiles", SMBBlocks.TERRACOTTA_BRICKS.get(), SMBBlocks.TERRACOTTA_TILES.get());
+      }
+
+      /**
+       * Generate all the Concrete Bricks and Concrete Tiles blocks variants.
+       */
+      private void concreteBricksAndTiles() {
+        SomeMoreBlocks.LOGGER.info("Generating Concrete Bricks and Concrete Tiles recipes.");
+        DyeColor[] dyeColors = DyeColor.values();
+
+        for (DyeColor dyeColor : dyeColors) {
+          Block concrete = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(dyeColor + "_concrete"));
+          Block concreteBricks = SMBRegistries.CONCRETE_BRICKS_BLOCKS.getNext(dyeColor).orElseThrow();
+          Block concreteTiles = SMBRegistries.CONCRETE_TILES_BLOCKS.getNext(dyeColor).orElseThrow();
+
+          this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "concrete_bricks_from_concrete", concrete, concreteBricks);
+          this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "concrete_tiles_from_concrete_bricks", concreteBricks, concreteTiles);
+        }
+      }
+
+      /**
+       * Generate all the Tiled Glass and Tiled Glass Pane blocks variants.
+       */
+      private void tiledGlassAndTiledGlassPane() {
+        SomeMoreBlocks.LOGGER.info("Generating Tiled Glass and Tiled Glass Pane recipes.");
+        DyeColor[] dyeColors = DyeColor.values();
+
+        for (DyeColor dyeColor : dyeColors) {
+          Block stainedGlass = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(dyeColor + "_stained_glass"));
+          Block tiledGlass = SMBRegistries.STAINED_TILED_GLASS_BLOCKS.getNext(dyeColor).orElseThrow();
+          Block tiledGlassPane = SMBRegistries.STAINED_TILED_GLASS_PANE_BLOCKS.getNext(dyeColor).orElseThrow();
+
+          this.aroundDyeItemWith(RecipeCategory.BUILDING_BLOCKS, "tiled_glass_from_dye", SMBBlocks.TILED_GLASS.get(), tiledGlass, dyeColor);
+          this.aroundDyeItemWith(RecipeCategory.MISC, "tiled_glass_pane_from_dye", SMBBlocks.TILED_GLASS_PANE.get(), tiledGlassPane, dyeColor);
+          this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "tiled_glass_from_stained_glass", stainedGlass, tiledGlass);
+          this.tiledGlassPaneFromTiledGlass(RecipeCategory.MISC, tiledGlass, tiledGlassPane);
+        }
+
+        this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "tiled_tinted_glass", Blocks.TINTED_GLASS, SMBBlocks.TILED_TINTED_GLASS.get());
+        this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "tiled_glass", Blocks.GLASS, SMBBlocks.TILED_GLASS.get());
+        this.tiledGlassPaneFromTiledGlass(RecipeCategory.MISC, SMBBlocks.TILED_GLASS.get(), SMBBlocks.TILED_GLASS_PANE.get());
+      }
+
+      /* =================== */
+      private void shinglesFromTerracotta(RecipeCategory category, String group, ItemLike terracotta, ItemLike shingles) {
+        this.shaped(category, shingles, 2)
+          .define('#', terracotta)
+          .pattern("#")
+          .pattern("#")
           .group(group)
-          .save(output, ResourceKey.create(Registries.RECIPE, fromVanillaPane));
+          .unlockedBy(RecipeProvider.getHasName(terracotta), this.has(terracotta))
+          .save(this.output, getConversionRecipeName(shingles, terracotta));
+      }
 
-        // Default recipe
-        ShapedRecipeBuilder.shaped(BuiltInRegistries.ITEM, RecipeCategory.MISC, tiledGlassPane.asItem(), 16)
+      private void tiledGlassPaneFromTiledGlass(RecipeCategory category, ItemLike tiledGlass, ItemLike tiledGlassPane) {
+        this.shaped(category, tiledGlassPane, 16)
           .define('#', tiledGlass)
           .pattern("###")
           .pattern("###")
-          .unlockedBy("has_needed_items", this.has(tiledGlass))
+          .group("tiled_glass_pane_from_tiled_glass")
+          .unlockedBy(RecipeProvider.getHasName(tiledGlass), this.has(tiledGlass))
+          .save(this.output, getConversionRecipeName(tiledGlassPane, tiledGlass));
+      }
+
+      private void twoByTwoGrouped(RecipeCategory category, String group, ItemLike input, ItemLike output) {
+        this.shaped(category, output, 4)
+          .define('#', input)
+          .pattern("##")
+          .pattern("##")
           .group(group)
-          .save(output);
+          .unlockedBy(RecipeProvider.getHasName(input), this.has(input))
+          .save(this.output, getConversionRecipeName(output, input));
+      }
+
+      private void aroundDyeItemWith(RecipeCategory category, String group, ItemLike baseBlock, ItemLike output, @Nullable DyeColor dyeColor) {
+        DyeItem dyeItem = DyeItem.byColor(dyeColor);
+
+        this.shaped(category, output, 8)
+          .define('#', baseBlock)
+          .define('X', dyeItem)
+          .pattern("###")
+          .pattern("#X#")
+          .pattern("###")
+          .group(group)
+          .unlockedBy(RecipeProvider.getHasName(dyeItem), this.has(dyeItem))
+          .save(this.output);
+      }
+
+      private void snowyPlant(Block inputItem) {
+        Block snowyPlant = SMBRegistries.SNOWY_PLANT_BLOCKS.getNext(inputItem).get();
+
+        this.shapeless(RecipeCategory.MISC, snowyPlant)
+          .requires(inputItem)
+          .requires(Items.SNOWBALL)
+          .unlockedBy(RecipeProvider.getHasName(inputItem), this.has(inputItem))
+          .save(this.output);
       }
     };
   }

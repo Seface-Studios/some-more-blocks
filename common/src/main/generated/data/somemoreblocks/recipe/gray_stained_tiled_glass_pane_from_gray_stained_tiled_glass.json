@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "tiled_glass_pane_from_tiled_glass",
+  "key": {
+    "#": "somemoreblocks:gray_stained_tiled_glass"
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 16,
+    "id": "somemoreblocks:gray_stained_tiled_glass_pane"
+  }
+}

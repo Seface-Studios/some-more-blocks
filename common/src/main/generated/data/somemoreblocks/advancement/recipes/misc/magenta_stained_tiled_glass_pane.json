@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_needed_items": {
+    "has_magenta_dye": {
       "conditions": {
         "items": [
           {
-            "items": "somemoreblocks:magenta_stained_tiled_glass"
+            "items": "minecraft:magenta_dye"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_needed_items"
+      "has_magenta_dye"
     ]
   ],
   "rewards": {

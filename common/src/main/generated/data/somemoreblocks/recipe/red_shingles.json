@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "shingles_from_dye",
+  "key": {
+    "#": "somemoreblocks:shingles",
+    "X": "minecraft:red_dye"
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "somemoreblocks:red_shingles"
+  }
+}

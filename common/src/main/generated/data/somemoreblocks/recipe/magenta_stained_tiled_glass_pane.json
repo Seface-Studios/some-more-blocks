@@ -1,16 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "stained_tiled_glass_pane",
+  "group": "tiled_glass_pane_from_dye",
   "key": {
-    "#": "somemoreblocks:magenta_stained_tiled_glass"
+    "#": "somemoreblocks:tiled_glass_pane",
+    "X": "minecraft:magenta_dye"
   },
   "pattern": [
     "###",
+    "#X#",
     "###"
   ],
   "result": {
-    "count": 16,
+    "count": 8,
     "id": "somemoreblocks:magenta_stained_tiled_glass_pane"
   }
 }

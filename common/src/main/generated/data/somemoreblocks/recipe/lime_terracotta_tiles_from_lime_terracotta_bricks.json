@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "terracotta_tiles_from_terracotta_bricks",
+  "key": {
+    "#": "somemoreblocks:lime_terracotta_bricks"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "id": "somemoreblocks:lime_terracotta_tiles"
+  }
+}
