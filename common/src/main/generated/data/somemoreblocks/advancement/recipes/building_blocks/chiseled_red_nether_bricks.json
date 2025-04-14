@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_red_nether_brick_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:red_nether_brick_slab"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "somemoreblocks:chiseled_red_nether_bricks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_red_nether_brick_slab"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "somemoreblocks:chiseled_red_nether_bricks"
+    ]
+  }
+}

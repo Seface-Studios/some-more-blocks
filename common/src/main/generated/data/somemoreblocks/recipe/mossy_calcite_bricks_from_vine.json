@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mossy_calcite_bricks",
+  "ingredients": [
+    "somemoreblocks:calcite_bricks",
+    "minecraft:vine"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:mossy_calcite_bricks"
+  }
+}

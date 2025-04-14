@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:magma_cream",
+    "minecraft:polished_blackstone_bricks"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:corrupted_polished_blackstone_bricks"
+  }
+}

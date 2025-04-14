@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:cyan_concrete",
-  "result": {
-    "count": 1,
-    "id": "somemoreblocks:cyan_concrete_bricks"
-  }
-}
