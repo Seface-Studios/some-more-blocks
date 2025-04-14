@@ -4,12 +4,14 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
-import net.seface.somemoreblocks.datagen.providers.*;
+import net.seface.somemoreblocks.datagen.providers.assets.SMBModelProvider;
+import net.seface.somemoreblocks.datagen.providers.data.SMBHusbandryAdvancementsProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBLootTableProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBRecipeProvider;
-import net.seface.somemoreblocks.datagen.providers.tags.SMBBlockTagProvider;
-import net.seface.somemoreblocks.datagen.providers.tags.SMBItemTagProvider;
-import net.seface.somemoreblocks.datagen.providers.tags.SMBBiomeTagProvider;
+import net.seface.somemoreblocks.datagen.providers.data.tags.SMBBiomeTagProvider;
+import net.seface.somemoreblocks.datagen.providers.data.tags.SMBBlockTagProvider;
+import net.seface.somemoreblocks.datagen.providers.data.tags.SMBItemTagProvider;
+import net.seface.somemoreblocks.datagen.providers.data.worldgen.SMBFeatureProvider;
 
 public class Main implements DataGeneratorEntrypoint {
 
@@ -17,22 +19,17 @@ public class Main implements DataGeneratorEntrypoint {
   public void onInitializeDataGenerator(FabricDataGenerator gen) {
     FabricDataGenerator.Pack pack = gen.createPack();
 
+    /* Assets */
     pack.addProvider(SMBModelProvider::new);
+
+    /* Data */
     pack.addProvider(SMBRecipeProvider::new);
     pack.addProvider(SMBBlockTagProvider::new);
     pack.addProvider(SMBItemTagProvider::new);
     pack.addProvider(SMBBiomeTagProvider::new);
     pack.addProvider(SMBLootTableProvider::new);
     pack.addProvider(SMBFeatureProvider::new);
-
-    /*
-      Why this custom provider exists?
-
-      In the initial development stage we used to have our own data generation, tha generates
-      data/assets for both Minecraft version;
-      When we decided to abandon that system, we still need to generate the recipe advancements.
-    */
-    //pack.addProvider(SMBRecipeAdvancementProvider::new);
+    pack.addProvider(SMBHusbandryAdvancementsProvider::new);
   }
 
   @Override
