@@ -2,29 +2,36 @@ package net.seface.somemoreblocks.datagen.providers.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.storage.loot.IntRange;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
+import net.minecraft.world.level.storage.loot.entries.*;
 import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
 import net.seface.somemoreblocks.registries.SMBBlockFamilies;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
+import net.seface.somemoreblocks.registries.SMBItems;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -300,6 +307,18 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropSelf(SMBBlocks.SMALL_LILY_PADS.get());
     this.dropSelf(SMBBlocks.BIG_LILY_PAD.get());
     this.dropSelf(SMBBlocks.LUMINOUS_FLOWER.get());
+    this.dropSmallMushroomColony(SMBBlocks.BROWN_MUSHROOM_COLONY.get(), SMBItems.BROWN_MUSHROOM_COLONY.get(), Items.BROWN_MUSHROOM, 2);
+    this.dropSmallMushroomColony(SMBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(), SMBItems.BROWN_MUSHROOM_COLONY.get(), Items.BROWN_MUSHROOM, 2);
+    this.dropTallMushroomColony(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), SMBItems.BROWN_MUSHROOM_COLONY.get(), Items.BROWN_MUSHROOM);
+    this.dropSmallMushroomColony(SMBBlocks.RED_MUSHROOM_COLONY.get(), SMBItems.RED_MUSHROOM_COLONY.get(), Items.RED_MUSHROOM, 2);
+    this.dropSmallMushroomColony(SMBBlocks.RED_MUSHROOM_COLONY_WALL.get(), SMBItems.RED_MUSHROOM_COLONY.get(), Items.RED_MUSHROOM, 2);
+    this.dropTallMushroomColony(SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), SMBItems.RED_MUSHROOM_COLONY.get(), Items.RED_MUSHROOM);
+    this.dropSmallMushroomColony(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), SMBItems.CRIMSON_FUNGUS_COLONY.get(), Items.CRIMSON_FUNGUS, 2);
+    this.dropSmallMushroomColony(SMBBlocks.CRIMSON_FUNGUS_COLONY_WALL.get(), SMBItems.CRIMSON_FUNGUS_COLONY.get(), Items.CRIMSON_FUNGUS, 2);
+    this.dropTallMushroomColony(SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), SMBItems.CRIMSON_FUNGUS_COLONY.get(), Items.CRIMSON_FUNGUS);
+    this.dropSmallMushroomColony(SMBBlocks.WARPED_FUNGUS_COLONY.get(), SMBItems.WARPED_FUNGUS_COLONY.get(), Items.WARPED_FUNGUS, 2);
+    this.dropSmallMushroomColony(SMBBlocks.WARPED_FUNGUS_COLONY_WALL.get(), SMBItems.WARPED_FUNGUS_COLONY.get(), Items.WARPED_FUNGUS, 2);
+    this.dropTallMushroomColony(SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), SMBItems.WARPED_FUNGUS_COLONY.get(), Items.WARPED_FUNGUS);
 
     this.dropPottedContents(SMBBlocks.POTTED_TINY_CACTUS.get());
     this.dropPottedContents(SMBBlocks.POTTED_LUMINOUS_FLOWER.get());
@@ -329,6 +348,50 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
 
       this.dropSelf(entry.getKey());
     }
+  }
+
+  private void dropTallMushroomColony(Block block, ItemLike whenShearsItem, ItemLike otherItem) {
+    this.add(block, LootTable.lootTable()
+      .withPool(LootPool.lootPool()
+        .setRolls(ConstantValue.exactly(1.0F))
+        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER)))
+        .when(LocationCheck.checkLocation(
+          LocationPredicate.Builder.location()
+            .setBlock(BlockPredicate.Builder.block()
+              .of(this.registries.lookupOrThrow(Registries.BLOCK), block)
+              .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER))
+            ), new BlockPos(0, 1, 0)
+        ))
+        .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(this.hasShears()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))
+          .otherwise(LootItem.lootTableItem(otherItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F))))
+        )
+      )
+      .withPool(LootPool.lootPool()
+        .setRolls(ConstantValue.exactly(1.0F))
+        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)))
+        .when(LocationCheck.checkLocation(
+          LocationPredicate.Builder.location()
+            .setBlock(BlockPredicate.Builder.block()
+              .of(this.registries.lookupOrThrow(Registries.BLOCK), block)
+              .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER))
+            ), new BlockPos(0, -1, 0)
+        ))
+        .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(this.hasShears()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))
+          .otherwise(LootItem.lootTableItem(otherItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F))))
+        )
+      )
+    );
+  }
+
+  private void dropSmallMushroomColony(Block block, ItemLike whenShearsItem, ItemLike otherItem, float otherAmount) {
+    this.add(block, LootTable.lootTable()
+      .withPool(LootPool.lootPool()
+        .setRolls(ConstantValue.exactly(1.0F))
+        .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(this.hasShears()))
+          .otherwise(LootItem.lootTableItem(otherItem).apply(SetItemCountFunction.setCount(ConstantValue.exactly(otherAmount))))
+        )
+      )
+    );
   }
 
   /**
