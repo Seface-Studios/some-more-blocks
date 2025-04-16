@@ -5,9 +5,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.seface.somemoreblocks.datagen.providers.assets.SMBModelProvider;
-import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBHusbandryAdvancementsProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBBlockLootProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBRecipeProvider;
+import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBHusbandryAdvancementsProvider;
 import net.seface.somemoreblocks.datagen.providers.data.tags.SMBBiomeTagProvider;
 import net.seface.somemoreblocks.datagen.providers.data.tags.SMBBlockTagProvider;
 import net.seface.somemoreblocks.datagen.providers.data.tags.SMBItemTagProvider;
@@ -35,7 +35,8 @@ public class Main implements DataGeneratorEntrypoint {
   @Override
   public void buildRegistry(RegistrySetBuilder registryBuilder) {
     DataGeneratorEntrypoint.super.buildRegistry(registryBuilder);
-    registryBuilder.add(Registries.CONFIGURED_FEATURE, SMBFeatureProvider::bootstrapConfiguredFeatures);
-    registryBuilder.add(Registries.PLACED_FEATURE, SMBFeatureProvider::bootstrapPlacedFeatures);
+
+    registryBuilder.add(Registries.PLACED_FEATURE, SMBFeatureProvider::bootstrapF);
+    registryBuilder.add(Registries.CONFIGURED_FEATURE, SMBFeatureProvider::bootstrapCF);
   }
 }

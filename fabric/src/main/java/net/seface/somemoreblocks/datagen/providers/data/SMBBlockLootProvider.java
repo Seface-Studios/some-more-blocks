@@ -2,7 +2,10 @@ package net.seface.somemoreblocks.datagen.providers.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.advancements.critereon.*;
+import net.minecraft.advancements.critereon.BlockPredicate;
+import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.LocationPredicate;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -16,10 +19,11 @@ import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.SlabType;
-import net.minecraft.world.level.storage.loot.IntRange;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.*;
+import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
@@ -79,7 +83,6 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropSelfCarvedPaleOak(SMBBlocks.CARVED_PALE_OAK_LOG.get());
     this.dropSelfCarvedPaleOak(SMBBlocks.CARVED_PALE_OAK_WOOD.get());
     this.dropSelf(SMBBlocks.CARVED_BAMBOO_BLOCK.get());
-
     this.dropSelf(SMBBlocks.AMETHYST_PILLAR.get());
     this.dropSelf(SMBBlocks.ANDESITE_PILLAR.get());
     this.dropSelf(SMBBlocks.CALCITE_PILLAR.get());
@@ -121,7 +124,6 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropSelf(SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get());
     this.dropSelf(SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get());
     this.dropSelf(SMBBlocks.WEATHERED_COPPER_PILLAR.get());
-
     this.dropSelf(SMBBlocks.CRACKED_BRICKS.get());
     this.dropSelf(SMBBlocks.CRACKED_CUT_COPPER.get());
     this.dropSelf(SMBBlocks.CRACKED_END_STONE_BRICKS.get());
@@ -138,11 +140,9 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropSelf(SMBBlocks.WAXED_OXIDIZED_CRACKED_CUT_COPPER.get());
     this.dropSelf(SMBBlocks.WAXED_WEATHERED_CRACKED_CUT_COPPER.get());
     this.dropSelf(SMBBlocks.WEATHERED_CRACKED_CUT_COPPER.get());
-
     this.dropSelf(SMBBlocks.IRON_GRATE.get());
     this.dropSelf(SMBBlocks.DIAMOND_GRATE.get());
     this.dropSelf(SMBBlocks.NETHERITE_GRATE.get());
-
     this.dropWhenShovel(SMBBlocks.CRACKED_SNOW_BRICKS.get());
     this.dropWhenShovel(SMBBlocks.CRACKED_SNOW_TILES.get());
     this.dropWhenShovel(SMBBlocks.PACKED_SNOW.get());
@@ -159,7 +159,6 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropWhenShovel(SMBBlocks.SNOW_TILE_STAIRS.get());
     this.dropWhenShovel(SMBBlocks.SNOW_TILE_WALL.get());
     this.dropWhenShovel(SMBBlocks.SNOW_TILES.get());
-
     this.dropWhenSilkTouch(SMBBlocks.POLISHED_ICE.get());
     this.dropWhenSilkTouch(SMBBlocks.POLISHED_ICE_STAIRS.get());
     this.dropWhenSilkTouch(SMBBlocks.POLISHED_ICE_SLAB.get());
@@ -319,7 +318,6 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropSmallMushroomColony(SMBBlocks.WARPED_FUNGUS_COLONY.get(), SMBItems.WARPED_FUNGUS_COLONY.get(), Items.WARPED_FUNGUS, 2);
     this.dropSmallMushroomColony(SMBBlocks.WARPED_FUNGUS_COLONY_WALL.get(), SMBItems.WARPED_FUNGUS_COLONY.get(), Items.WARPED_FUNGUS, 2);
     this.dropTallMushroomColony(SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), SMBItems.WARPED_FUNGUS_COLONY.get(), Items.WARPED_FUNGUS);
-
     this.dropPottedContents(SMBBlocks.POTTED_TINY_CACTUS.get());
     this.dropPottedContents(SMBBlocks.POTTED_LUMINOUS_FLOWER.get());
     this.dropPottedContents(SMBBlocks.POTTED_SNOW_FERN.get());
