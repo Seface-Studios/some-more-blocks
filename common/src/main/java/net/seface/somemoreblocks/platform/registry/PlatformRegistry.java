@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.PushReaction;
 import net.seface.somemoreblocks.SomeMoreBlocks;
@@ -54,7 +55,7 @@ public interface PlatformRegistry {
    * @param supplier The Feature supplier.
    * @return The registered Feature.
    */
-  PlatformRegistryObject<Feature<?>> registerFeature(String path, Supplier<Feature<?>> supplier);
+  <F extends Feature<? extends FeatureConfiguration>> PlatformRegistryObject<F> registerFeature(String path, Supplier<F> supplier);
 
   /**
    * Main method to configure and registry a Creative Mode Tab.

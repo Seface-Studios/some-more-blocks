@@ -6,6 +6,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 
 public class SMBConfiguredFeature {
+  public static final ResourceKey<ConfiguredFeature<?, ?>> NONE_LEAF_LITTER = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "none_leaf_litter");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_CATTAIL = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_cattail");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_DUNE_GRASS = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_dune_grass");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_LARGE_SNOW_FERN = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_large_snow_fern");

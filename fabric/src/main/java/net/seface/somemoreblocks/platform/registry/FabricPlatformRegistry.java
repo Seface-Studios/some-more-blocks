@@ -12,6 +12,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 
 import java.util.function.Supplier;
@@ -53,9 +54,9 @@ public class FabricPlatformRegistry implements PlatformRegistry {
   }
 
   @Override
-  public PlatformRegistryObject<Feature<?>> registerFeature(String path, Supplier<Feature<?>> supplier) {
+  public <F extends Feature<? extends FeatureConfiguration>> PlatformRegistryObject<F> registerFeature(String path, Supplier<F> supplier) {
     ResourceLocation identifier = SomeMoreBlocks.id(path);
-    Feature<?> instance = Registry.register(
+    F instance = Registry.register(
       BuiltInRegistries.FEATURE,
       SomeMoreBlocks.key(Registries.PLACED_FEATURE, path).location(),
       supplier.get());

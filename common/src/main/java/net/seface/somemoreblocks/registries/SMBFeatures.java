@@ -8,7 +8,7 @@ import net.seface.somemoreblocks.tags.SMBBlockTags;
 import net.seface.somemoreblocks.worldgen.feature.FallenLeafFeature;
 
 public class SMBFeatures {
-  public static final PlatformRegistryObject<Feature<?>> NONE_LEAF_LITTER_FEATURE = PlatformServices.REGISTRY.registerFeature("none_leaf_litter", () -> new FallenLeafFeature(NoneFeatureConfiguration.CODEC));
+  public static final PlatformRegistryObject<Feature<NoneFeatureConfiguration>> NONE_LEAF_LITTER_FEATURE = PlatformServices.REGISTRY.registerFeature("none_leaf_litter", () -> new FallenLeafFeature(NoneFeatureConfiguration.CODEC));
 
   public static void init() {}
 }

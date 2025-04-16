@@ -8,6 +8,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -71,9 +72,9 @@ public class ForgePlatformRegistry implements PlatformRegistry {
   }
 
   @Override
-  public PlatformRegistryObject<Feature<?>> registerFeature(String path, Supplier<Feature<?>> supplier) {
+  public <F extends Feature<? extends FeatureConfiguration>> PlatformRegistryObject<F> registerFeature(String path, Supplier<F> supplier) {
     ResourceLocation identifier = SomeMoreBlocks.id(path);
-    RegistryObject<Feature<?>> instance = FEATURES.register(path, supplier);
+    RegistryObject<F> instance = FEATURES.register(path, supplier);
 
     return new ForgeRegistryObject<>(identifier, instance);
   }

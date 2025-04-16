@@ -1,4 +1,4 @@
-// 1.21.4	2025-04-15T21:07:02.6637279	Some More Blocks/Feature
+// 1.21.4	2025-04-15T23:26:59.4959878	Some More Blocks/Feature
 7fa77152a1dd8447f9a2d227e69bedaa21f47d3b data\somemoreblocks\worldgen\configured_feature\patch_large_snow_fern.json
 50cc49347251e0c8dc748e842fca3afb0ed16cd9 data\somemoreblocks\worldgen\configured_feature\patch_small_lily_pads.json
 2253d9e8e9097314798e008de57017c06f72a160 data\somemoreblocks\worldgen\placed_feature\patch_tall_dune_grass.json
@@ -14,4 +14,6 @@ d9832c3a47f0524d899a0b6d496e23b9adc618fd data\somemoreblocks\worldgen\placed_fea
 5a7c858b6efbee63ca60abbf67f19ce69d0631f1 data\somemoreblocks\worldgen\placed_feature\patch_tall_snow_grass.json
 56f486e8176550617635be749537d9f884731633 data\somemoreblocks\worldgen\configured_feature\patch_snow_fern.json
 4b4e2c0b45c09f321c24b8f1b5a87b32542e4742 data\somemoreblocks\worldgen\configured_feature\patch_tall_dune_grass.json
+8e770a71604bda3cf486e6cb06a411ab1b20cd0f data\somemoreblocks\worldgen\configured_feature\none_leaf_litter.json
+9fcc41baaee1d69d1417be4d85253641ef200bee data\somemoreblocks\worldgen\placed_feature\none_leaf_litter.json
 828dbd8a159a405378b09ef498cbfdb3d45bad40 data\somemoreblocks\worldgen\placed_feature\patch_cattail.json

@@ -8,9 +8,12 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.seface.somemoreblocks.datagen.providers.data.worldgen.providers.*;
 import net.seface.somemoreblocks.registries.SMBBlocks;
+import net.seface.somemoreblocks.registries.SMBFeatures;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 
@@ -41,6 +44,7 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     patchTallSnowGrass().registerPlaceFeature(context);
     patchSnowFern().registerPlaceFeature(context);
     patchLargeSnowFern().registerPlaceFeature(context);
+    noneLeafLitter().registerPlaceFeature(context);
   }
 
   public static void bootstrapCF(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -52,6 +56,7 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     patchTallSnowGrass().registerConfiguredFeature(context);
     patchSnowFern().registerConfiguredFeature(context);
     patchLargeSnowFern().registerConfiguredFeature(context);
+    noneLeafLitter().registerConfiguredFeature(context);
   }
 
   private static GenericSmallPlantFeatureProvider patchDuneGrass() {
@@ -78,15 +83,19 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     return tallPlantProvider(SMBBlocks.LARGE_SNOW_FERN.get(), SMBPlacedFeature.PATCH_LARGE_SNOW_FERN, SMBConfiguredFeature.PATCH_LARGE_SNOW_FERN);
   }
 
+  private static EmptyFeatureProvider noneLeafLitter() {
+    return emptyProvider(SMBFeatures.NONE_LEAF_LITTER_FEATURE.get(), SMBPlacedFeature.NONE_LEAF_LITTER, SMBConfiguredFeature.NONE_LEAF_LITTER);
+  }
+
   private static GenericSmallPlantFeatureProvider smallPlantProvider(Block block, ResourceKey<PlacedFeature> placedFeature, ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
-    return new GenericSmallPlantFeatureProvider(block)
-      .setPlacedFeatureKey(placedFeature)
-      .setConfiguredFeatureKey(configuredFeature);
+    return new GenericSmallPlantFeatureProvider(block).setPlacedFeatureKey(placedFeature).setConfiguredFeatureKey(configuredFeature);
   }
 
   private static GenericTallPlantFeatureProvider tallPlantProvider(Block block, ResourceKey<PlacedFeature> placedFeature, ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
-    return new GenericTallPlantFeatureProvider(block)
-      .setPlacedFeatureKey(placedFeature)
-      .setConfiguredFeatureKey(configuredFeature);
+    return new GenericTallPlantFeatureProvider(block).setPlacedFeatureKey(placedFeature).setConfiguredFeatureKey(configuredFeature);
+  }
+
+  private static EmptyFeatureProvider emptyProvider(Feature<NoneFeatureConfiguration> feature, ResourceKey<PlacedFeature> placedFeature, ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
+    return new EmptyFeatureProvider(feature).setPlacedFeatureKey(placedFeature).setConfiguredFeatureKey(configuredFeature);
   }
 }
