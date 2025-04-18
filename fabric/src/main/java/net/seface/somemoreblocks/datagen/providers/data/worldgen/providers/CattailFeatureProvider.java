@@ -1,8 +1,8 @@
 package net.seface.somemoreblocks.datagen.providers.data.worldgen.providers;
 
+import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -16,6 +16,7 @@ import net.seface.somemoreblocks.tags.SMBBlockTags;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class CattailFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
@@ -38,39 +39,32 @@ public class CattailFeatureProvider extends AbstractFeatureProvider<RandomPatchC
       PlacementUtils.filtered(
         Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(SimpleStateProvider.simple(SMBBlocks.CATTAIL.get())),
+        BlockPredicate.anyOf(this.getFluidOrCattailPredicate(), this.getCattailPredicate())
+      )
+    );
+  }
 
-        BlockPredicate.anyOf(
-          BlockPredicate.allOf(
-            BlockPredicate.ONLY_IN_AIR_PREDICATE,
-            BlockPredicate.anyOf(
-              BlockPredicate.anyOf(
-                BlockPredicate.matchesFluids(new Vec3i(1, -1, 0), Fluids.WATER, Fluids.FLOWING_WATER),
-                BlockPredicate.matchesBlocks(new Vec3i(1, -1, 0), SMBBlocks.CATTAIL.get()),
-                BlockPredicate.matchesBlocks(new Vec3i(1, 0, 0), SMBBlocks.CATTAIL.get())),
-              BlockPredicate.anyOf(
-                BlockPredicate.matchesFluids(new Vec3i(-1, -1, 0), Fluids.WATER, Fluids.FLOWING_WATER),
-                BlockPredicate.matchesBlocks(new Vec3i(-1, -1, 0), SMBBlocks.CATTAIL.get()),
-                BlockPredicate.matchesBlocks(new Vec3i(-1, 0, 0), SMBBlocks.CATTAIL.get())),
-              BlockPredicate.anyOf(
-                BlockPredicate.matchesFluids(new Vec3i(0, -1, 1), Fluids.WATER, Fluids.FLOWING_WATER),
-                BlockPredicate.matchesBlocks(new Vec3i(0, -1, 1), SMBBlocks.CATTAIL.get()),
-                BlockPredicate.matchesBlocks(new Vec3i(0, 0, 1), SMBBlocks.CATTAIL.get())),
-              BlockPredicate.anyOf(
-                BlockPredicate.matchesFluids(new Vec3i(0, -1, -1), Fluids.WATER, Fluids.FLOWING_WATER),
-                BlockPredicate.matchesBlocks(new Vec3i(0, -1, -1), SMBBlocks.CATTAIL.get()),
-                BlockPredicate.matchesBlocks(new Vec3i(0, 0, -1), SMBBlocks.CATTAIL.get()))
-            )
-          ),
+  private BlockPredicate getFluidOrCattailPredicate() {
+    return BlockPredicate.anyOf(
+      Arrays.stream(Direction.values())
+        .filter(direction -> direction != Direction.UP && direction != Direction.DOWN)
+        .map(direction -> BlockPredicate.anyOf(
+          BlockPredicate.matchesFluids(direction.getUnitVec3i(), Fluids.WATER, Fluids.FLOWING_WATER),
+          BlockPredicate.matchesBlocks(direction.getUnitVec3i(), SMBBlocks.CATTAIL.get()),
+          BlockPredicate.matchesBlocks(new Vec3i(direction.getUnitVec3i().getX(), 0, direction.getUnitVec3i().getZ()), SMBBlocks.CATTAIL.get())
+        ))
+        .toArray(BlockPredicate[]::new));
+  }
 
-          BlockPredicate.allOf(
-            BlockPredicate.matchesFluids(Vec3i.ZERO, Fluids.WATER),
-            BlockPredicate.matchesTag(Vec3i.ZERO.below(), SMBBlockTags.CATTAIL_PLACEABLE),
-            BlockPredicate.anyOf(
-              BlockPredicate.matchesTag(new Vec3i(1, 0, 0), SMBBlockTags.CATTAIL_PLACEABLE),
-              BlockPredicate.matchesTag(new Vec3i(-1, 0, 0), SMBBlockTags.CATTAIL_PLACEABLE),
-              BlockPredicate.matchesTag(new Vec3i(0, 0, 1), SMBBlockTags.CATTAIL_PLACEABLE),
-              BlockPredicate.matchesTag(new Vec3i(0, 0, -1), SMBBlockTags.CATTAIL_PLACEABLE))
-          ))));
+  private BlockPredicate getCattailPredicate() {
+    return BlockPredicate.allOf(
+      BlockPredicate.matchesFluids(Vec3i.ZERO, Fluids.WATER),
+      BlockPredicate.matchesTag(Vec3i.ZERO.below(), SMBBlockTags.CATTAIL_PLACEABLE),
+      BlockPredicate.anyOf(
+        Arrays.stream(Direction.values())
+          .filter(dir -> dir != Direction.UP && dir != Direction.DOWN)
+          .map(dir -> BlockPredicate.matchesTag(dir.getUnitVec3i(), SMBBlockTags.CATTAIL_PLACEABLE))
+          .toArray(BlockPredicate[]::new)));
   }
 
   public static <T extends AbstractFeatureProvider<?>> T create() {

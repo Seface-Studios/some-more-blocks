@@ -1,0 +1,6 @@
+{
+  "type": "somemoreblocks:none_leaf_litter",
+  "biomes": "#minecraft:is_overworld",
+  "feature": "somemoreblocks:none_leaf_litter",
+  "step": "vegetal_decoration"
+}

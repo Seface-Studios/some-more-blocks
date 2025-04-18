@@ -287,7 +287,7 @@ public class SMBModelProvider extends FabricModelProvider {
 
   /**
    * Create a block with the model copied from other block.
-   * This was created to be used between Cut Copper & Waxed Cut Copper blocks.
+   * This was created to be used between Cut Copper and Waxed Cut Copper blocks.
    * @param fromBlock The block to be copied.
    * @param toBlock The block to be generated.
    */
@@ -301,7 +301,7 @@ public class SMBModelProvider extends FabricModelProvider {
 
   /**
    * Create a block with the model copied from other block.
-   * This was created to be used between Copper Pillar & Waxed Copper Pillar blocks.
+   * This was created to be used between Copper Pillar and Waxed Copper Pillar blocks.
    * @param fromBlock The block to be copied.
    * @param toBlock The block to be generated.
    */
@@ -500,7 +500,7 @@ public class SMBModelProvider extends FabricModelProvider {
 
   /**
    * The Carved Wood provider
-   * Used to generate a Carved Log & Carved Wood blocks.
+   * Used to generate a Carved Log and Carved Wood blocks.
    * @param block The Carved Wood block.
    */
   public final CarvedWoodBlockProvider carvedWoodProvider(Block block) {
@@ -509,7 +509,7 @@ public class SMBModelProvider extends FabricModelProvider {
 
   /**
    * The Tiled Glass provider
-   * Used to generate a Tiled Glass & Tiled Glass Pane blocks.
+   * Used to generate a Tiled Glass and Tiled Glass Pane blocks.
    * @param block The Tile Glass block.
    */
   public final TiledGlassBlockProvider tiledGlassProvider(Block block) {

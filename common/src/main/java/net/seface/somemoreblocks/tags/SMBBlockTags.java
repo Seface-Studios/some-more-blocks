@@ -24,6 +24,7 @@ public final class SMBBlockTags {
   public static final TagKey<Block> CONCRETE_BRICKS = SomeMoreBlocks.tagKey(Registries.BLOCK, "concrete_bricks");
   public static final TagKey<Block> CONCRETE_TILES = SomeMoreBlocks.tagKey(Registries.BLOCK, "concrete_tiles");
   public static final TagKey<Block> TINY_CACTUS_PLACEABLE = SomeMoreBlocks.tagKey(Registries.BLOCK, "tiny_cactus_placeable");
+  public static final TagKey<Block> LUMINOUS_FLOWER_REPLACEABLE = SomeMoreBlocks.tagKey(Registries.BLOCK, "luminous_flower_replaceable");
 
   public static void init() {}
 }

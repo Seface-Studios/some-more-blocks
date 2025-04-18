@@ -38,6 +38,8 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
   public static void bootstrapF(BootstrapContext<PlacedFeature> context) {
     CattailFeatureProvider.create().registerPlaceFeature(context);
     SmallLilyPadsFeatureProvider.create().registerPlaceFeature(context);
+    LuminousFlowerFeatureProvider.create().registerPlaceFeature(context);
+    TinyCactusFeatureProvider.create().registerPlaceFeature(context);
     patchDuneGrass().registerPlaceFeature(context);
     patchTallDuneGrass().registerPlaceFeature(context);
     patchShortSnowGrass().registerPlaceFeature(context);
@@ -50,6 +52,8 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
   public static void bootstrapCF(BootstrapContext<ConfiguredFeature<?, ?>> context) {
     CattailFeatureProvider.create().registerConfiguredFeature(context);
     SmallLilyPadsFeatureProvider.create().registerConfiguredFeature(context);
+    LuminousFlowerFeatureProvider.create().registerConfiguredFeature(context);
+    TinyCactusFeatureProvider.create().registerConfiguredFeature(context);
     patchDuneGrass().registerConfiguredFeature(context);
     patchTallDuneGrass().registerConfiguredFeature(context);
     patchShortSnowGrass().registerConfiguredFeature(context);

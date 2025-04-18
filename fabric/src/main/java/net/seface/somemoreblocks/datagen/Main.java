@@ -6,10 +6,10 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.seface.somemoreblocks.datagen.providers.assets.SMBModelProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBBlockLootProvider;
+import net.seface.somemoreblocks.datagen.providers.data.SMBForgeBiomeModifierProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBRecipeProvider;
 import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBHusbandryAdvancementsProvider;
 import net.seface.somemoreblocks.datagen.providers.data.tags.SMBBiomeTagProvider;
-import net.seface.somemoreblocks.datagen.providers.data.tags.SMBBlockTagProvider;
 import net.seface.somemoreblocks.datagen.providers.data.tags.SMBItemTagProvider;
 import net.seface.somemoreblocks.datagen.providers.data.worldgen.SMBFeatureProvider;
 
@@ -24,12 +24,12 @@ public class Main implements DataGeneratorEntrypoint {
 
     /* Data */
     pack.addProvider(SMBRecipeProvider::new);
-    pack.addProvider(SMBBlockTagProvider::new);
     pack.addProvider(SMBItemTagProvider::new);
     pack.addProvider(SMBBiomeTagProvider::new);
     pack.addProvider(SMBBlockLootProvider::new);
     pack.addProvider(SMBFeatureProvider::new);
     pack.addProvider(SMBHusbandryAdvancementsProvider::new);
+    pack.addProvider(SMBForgeBiomeModifierProvider::new);
   }
 
   @Override
