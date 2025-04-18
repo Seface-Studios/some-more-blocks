@@ -32,7 +32,6 @@ public class SomeMoreBlocks {
     SMBDataComponentTypes.init();
     SMBBlocks.init();
     SMBItems.init();
-    SMBBlockFamilies.init();
     SMBBlockTags.init();
     SMBFeatures.init();
     SMBCreativeTabs.init();

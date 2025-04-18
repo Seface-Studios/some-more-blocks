@@ -1,9 +1,7 @@
 package net.seface.somemoreblocks.platform.registry;
 
 import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -11,13 +9,9 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.PushReaction;
 import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.platform.registry.PlatformRegistryObject;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
@@ -28,15 +22,15 @@ public interface PlatformRegistry {
    * @param path The identifier path.
    * @param supplier The block supplier.
    * @param registerBlockItem If true, a BlockItem will be auto-registered.
-   * @return The registered Block supplier.
+   * @return The registered Block.
    */
   PlatformRegistryObject<Block> registerBlock(String path, Supplier<Block> supplier, boolean registerBlockItem);
 
   /**
-   * Main method to register a Item.
+   * Main method to register an Item.
    * @param path The identifier path.
    * @param supplier The Item supplier.
-   * @return The registered item supplier.
+   * @return The registered item.
    */
   PlatformRegistryObject<Item> registerItem(String path, Supplier<Item> supplier);
 
@@ -71,7 +65,7 @@ public interface PlatformRegistry {
    * Main method to register a Block and BlockItem.
    * @param path The identifier path.
    * @param supplier The block supplier.
-   * @return The registered block supplier.
+   * @return The registered block.
    */
   default PlatformRegistryObject<Block> registerBlock(String path, Supplier<Block> supplier) {
     return this.registerBlock(path, supplier, true);
@@ -80,7 +74,7 @@ public interface PlatformRegistry {
   /**
    * Register a Flower Pot block for specific plant with default BlockProperties.
    * @param plant The plant to be potted.
-   * @return The registered potted block supplier.
+   * @return The registered potted block.
    */
   default PlatformRegistryObject<Block> registerFlowerPotBlock(PlatformRegistryObject<Block> plant) {
     return this.registerFlowerPotBlock(plant, BlockBehaviour.Properties.of().instabreak().noOcclusion().pushReaction(PushReaction.DESTROY));
@@ -90,7 +84,7 @@ public interface PlatformRegistry {
    * Register a Flower Pot block for specific plant with default BlockProperties.
    * @param plant The plant to be potted.
    * @param properties The flower pot block properties.
-   * @return The registered potted block supplier.
+   * @return The registered potted block.
    */
   default PlatformRegistryObject<Block> registerFlowerPotBlock(PlatformRegistryObject<Block> plant, Block.Properties properties) {
     String path = "potted_" + plant.getPath();

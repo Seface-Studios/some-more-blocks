@@ -1,19 +1,19 @@
 package net.seface.somemoreblocks.registries;
 
 import com.google.common.collect.Maps;
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.platform.registry.PlatformRegistryObject;
 
 import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Stream;
 
+/**
+ * This is <b>only used for Data Generation</b> and should not be implemented in other part of the code.
+ * We are not using BlockFamilies for all Mod Loaders 'cause it's annoying to register for multiple loaders.
+ * <br /><br />
+ * Are you a dev and seeing this you want to implement a PlatformRegistryObject for this? Feel free to make a PR!
+ */
+@Deprecated
 public class SMBBlockFamilies {
   private static final Map<Block, BlockFamily> BLOCK_FAMILIES = Maps.newHashMap();
 
