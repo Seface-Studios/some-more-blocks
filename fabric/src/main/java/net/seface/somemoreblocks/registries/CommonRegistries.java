@@ -2,10 +2,8 @@ package net.seface.somemoreblocks.registries;
 
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.LandPathNodeTypesRegistry;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.seface.somemoreblocks.Constants;
-import net.seface.somemoreblocks.utils.SMBUtils;
 
 public class CommonRegistries {
 

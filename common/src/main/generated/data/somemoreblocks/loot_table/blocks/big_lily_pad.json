@@ -5,7 +5,11 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:survives_explosion"
+          "block": "somemoreblocks:big_lily_pad",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "position": "bottom_left"
+          }
         }
       ],
       "entries": [

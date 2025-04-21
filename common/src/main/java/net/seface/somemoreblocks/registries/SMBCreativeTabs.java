@@ -668,10 +668,10 @@ public class SMBCreativeTabs {
         entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get());
         entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
         entry.accept(SMBItems.SMALL_LILY_PADS.get());
+        entry.accept(SMBItems.BIG_LILY_PAD.get());
         entry.accept(SMBBlocks.LUMINOUS_FLOWER.get());
 
         if (ctx.hasPermissions()) {
-          entry.accept(SMBItems.BIG_LILY_PAD.get());
           entry.accept(SMBItems.BROWN_MUSHROOM_COLONY.get());
           entry.accept(SMBItems.TALL_BROWN_MUSHROOM_COLONY.get());
           entry.accept(SMBItems.RED_MUSHROOM_COLONY.get());

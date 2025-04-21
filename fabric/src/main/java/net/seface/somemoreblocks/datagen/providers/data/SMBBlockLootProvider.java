@@ -8,6 +8,7 @@ import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamily;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -26,16 +28,12 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
-import net.seface.somemoreblocks.registries.SMBBlockFamilies;
-import net.seface.somemoreblocks.registries.SMBBlocks;
-import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
-import net.seface.somemoreblocks.registries.SMBItems;
+import net.seface.somemoreblocks.block.properties.QuadDirection;
+import net.seface.somemoreblocks.registries.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -304,7 +302,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropWhenShearsDoublePlant(SMBBlocks.LARGE_SNOW_FERN.get(), SMBBlocks.SNOW_FERN.get());
     this.dropWhenShears(SMBBlocks.CATTAIL.get());
     this.dropSelf(SMBBlocks.SMALL_LILY_PADS.get());
-    this.dropSelf(SMBBlocks.BIG_LILY_PAD.get());
+    this.dropBigLilyPad(SMBBlocks.BIG_LILY_PAD.get());
     this.dropSelf(SMBBlocks.LUMINOUS_FLOWER.get());
     this.dropSmallMushroomColony(SMBBlocks.BROWN_MUSHROOM_COLONY.get(), SMBItems.BROWN_MUSHROOM_COLONY.get(), Items.BROWN_MUSHROOM, 2);
     this.dropSmallMushroomColony(SMBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(), SMBItems.BROWN_MUSHROOM_COLONY.get(), Items.BROWN_MUSHROOM, 2);
@@ -364,6 +362,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
           .otherwise(LootItem.lootTableItem(otherItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F))))
         )
       )
+
       .withPool(LootPool.lootPool()
         .setRolls(ConstantValue.exactly(1.0F))
         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER)))
@@ -388,6 +387,20 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
         .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(this.hasShears()))
           .otherwise(LootItem.lootTableItem(otherItem).apply(SetItemCountFunction.setCount(ConstantValue.exactly(otherAmount))))
         )
+      )
+    );
+  }
+
+  private void dropBigLilyPad(Block block) {
+    this.add(block, LootTable.lootTable()
+      .withPool(LootPool.lootPool()
+        .setRolls(ConstantValue.exactly(1.0F))
+        .when(
+          LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+            .setProperties(StatePropertiesPredicate.Builder.properties()
+              .hasProperty(SMBBlockStateProperties.POSITION, QuadDirection.BOTTOM_LEFT))
+        )
+        .add(LootItem.lootTableItem(block))
       )
     );
   }

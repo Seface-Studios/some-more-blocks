@@ -4,35 +4,29 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.IceBlock;
-import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.WaterlilyBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.seface.somemoreblocks.block.properties.QuadDirection;
+import net.seface.somemoreblocks.registries.SMBBlockStateProperties;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * This block class does not represent the final version.
- * @deprecated Marked as deprecated until is done.
- */
-@Deprecated
 public class BigLilyPadBlock extends WaterlilyBlock {
   protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
-  public static final IntegerProperty TEXTURE = IntegerProperty.create("texture", 0, 3);
+  public static final EnumProperty<QuadDirection> POSITION = SMBBlockStateProperties.POSITION;
   public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
 
   public BigLilyPadBlock(Properties properties) {
@@ -40,7 +34,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
 
     this.registerDefaultState(
       (this.stateDefinition.any())
-        .setValue(TEXTURE, 0)
+        .setValue(POSITION, QuadDirection.BOTTOM_LEFT)
         .setValue(FACING, Direction.NORTH));
   }
 
@@ -52,15 +46,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
 
   @Override
   protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> property) {
-    property.add(TEXTURE, FACING);
-  }
-
-  @Override
-  protected boolean mayPlaceOn(BlockState state, BlockGetter blockGetter, BlockPos pos) {
-    FluidState fluidState = blockGetter.getFluidState(pos);
-    FluidState fluidState2 = blockGetter.getFluidState(pos.above());
-
-    return (fluidState.getType() == Fluids.WATER || state.getBlock() instanceof IceBlock) && fluidState2.getType() == Fluids.EMPTY;
+    property.add(POSITION, FACING);
   }
 
   @Override
@@ -69,146 +55,91 @@ public class BigLilyPadBlock extends WaterlilyBlock {
     Level level = context.getLevel();
 
     Direction facing = context.getHorizontalDirection();
+    BlockPos topLeftPos = pos.relative(facing);
+    BlockPos topRightPos = pos.relative(facing.getClockWise()).relative(facing);
+    BlockPos bottomRightPos = pos.relative(facing.getClockWise());
 
-    BlockPos sidePos = BigLilyPadChildOffsets.getSidePos(pos, facing, 0);
-    BlockPos sideTopPos = BigLilyPadChildOffsets.getSideTopPos(pos, facing, 0);
-    BlockPos topPos = BigLilyPadChildOffsets.getTopPos(pos, facing, 0);
+    boolean isPlaceable = level.getBlockState(pos).canBeReplaced(context) && level.getBlockState(topLeftPos).canBeReplaced(context) &&
+                          level.getBlockState(topRightPos).canBeReplaced(context) && level.getBlockState(bottomRightPos).canBeReplaced(context);
 
-    return (level.getBlockState(pos).canBeReplaced(context) && level.getFluidState(pos.below()).isSource()) &&
-      (level.getBlockState(sidePos).canBeReplaced(context) && level.getFluidState(sidePos.below()).isSource()) &&
-      (level.getBlockState(sideTopPos).canBeReplaced(context) && level.getFluidState(sideTopPos.below()).isSource()) &&
-      (level.getBlockState(topPos).canBeReplaced(context) && level.getFluidState(topPos.below()).isSource())
-      ? super.getStateForPlacement(context) : null;
+    boolean isOnFluidOrIce =
+      (level.getFluidState(pos.below()).is(Fluids.WATER) || level.getBlockState(pos.below()).is(Blocks.ICE)) &&
+      (level.getFluidState(topLeftPos.below()).is(Fluids.WATER) || level.getBlockState(topLeftPos.below()).is(Blocks.ICE)) &&
+      (level.getFluidState(topRightPos.below()).is(Fluids.WATER) || level.getBlockState(topRightPos.below()).is(Blocks.ICE)) &&
+      (level.getFluidState(bottomRightPos.below()).is(Fluids.WATER) || level.getBlockState(bottomRightPos.below()).is(Blocks.ICE));
+
+    return isPlaceable && isOnFluidOrIce ? super.getStateForPlacement(context) : null;
   }
 
   @Override
   public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity player, ItemStack item) {
     Direction facing = player != null ? player.getDirection() : Direction.getRandom(RandomSource.create());
 
-    BlockPos rightPos = pos.offset(facing.getClockWise().getUnitVec3i());
-    BlockPos rightTopPos = pos.offset(facing.getClockWise().getUnitVec3i().offset(facing.getUnitVec3i()));
-    BlockPos topPos = pos.offset(facing.getUnitVec3i());
+    BlockPos topLeftPos = pos.relative(facing);
+    BlockPos topRightPos = pos.relative(facing.getClockWise()).relative(facing);
+    BlockPos bottomRightPos = pos.relative(facing.getClockWise());
 
-    level.setBlock(pos, createBlockState(state, facing, 0), 3);
-    level.setBlock(rightPos, createBlockState(state, facing, 1), 3);
-    level.setBlock(rightTopPos, createBlockState(state, facing, 2), 3);
-    level.setBlock(topPos, createBlockState(state, facing, 3), 3);
+    level.setBlock(pos, this.defaultBlockState().setValue(FACING, facing), 3);
+    level.setBlock(bottomRightPos, this.createBlockStateFor(facing, QuadDirection.BOTTOM_RIGHT), 3);
+    level.setBlock(topRightPos, this.createBlockStateFor(facing, QuadDirection.TOP_RIGHT), 3);
+    level.setBlock(topLeftPos, this.createBlockStateFor(facing, QuadDirection.TOP_LEFT), 3);
   }
 
-  @NotNull
   @Override
-  public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-    if (level.isClientSide) return super.playerWillDestroy(level, pos, state, player);
+  protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+    BlockPos neighborBlockPos = this.getRelativeBlockPos(state, pos);
+    QuadDirection expectedPosition = this.getExpectedNeighborPosition(state);
 
+    BlockState neighborState = level.getBlockState(neighborBlockPos);
+
+    if (state.getValue(POSITION) != QuadDirection.BOTTOM_LEFT) {
+      return neighborState.is(this) && neighborState.getValue(POSITION) == expectedPosition && super.canSurvive(state, level, pos);
+    }
+
+    return super.canSurvive(state, level, pos);
+  }
+
+  @Override
+  protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean bool) {
     Direction facing = state.getValue(FACING);
-    int texture = state.getValue(TEXTURE);
+    QuadDirection position = state.getValue(POSITION);
 
-    this.destroyBlockIfSameType(level, BigLilyPadChildOffsets.getSidePos(pos, facing, texture));
-    this.destroyBlockIfSameType(level, BigLilyPadChildOffsets.getSideTopPos(pos, facing, texture));
-    this.destroyBlockIfSameType(level, BigLilyPadChildOffsets.getTopPos(pos, facing, texture));
+    if (position == QuadDirection.BOTTOM_RIGHT) {
+      BlockPos bottomLeftPos = pos.relative(facing.getCounterClockWise());
 
-    return super.playerWillDestroy(level, pos, state, player);
+      if (level.getBlockState(bottomLeftPos).is(this)) {
+        level.destroyBlock(bottomLeftPos, true);
+        return;
+      }
+    }
+
+    super.onRemove(state, level, pos, newState, bool);
   }
 
-  private static BlockState createBlockState(BlockState state, Direction facing, int texture) {
-    return state.setValue(FACING, facing).setValue(TEXTURE, texture);
+  private BlockState createBlockStateFor(Direction facing, QuadDirection position) {
+    return this.defaultBlockState().setValue(FACING, facing).setValue(POSITION, position);
   }
 
-  private void destroyBlockIfSameType(Level level, BlockPos pos) {
-    if (!level.getBlockState(pos).is(this)) return;
-    level.destroyBlock(pos, true);
+  private BlockPos getRelativeBlockPos(BlockState state, BlockPos pos) {
+    Direction facing = state.getValue(FACING);
+    QuadDirection position = state.getValue(POSITION);
+
+    return switch (position) {
+      case BOTTOM_LEFT -> pos.relative(facing.getClockWise());
+      case TOP_LEFT -> pos.relative(facing.getOpposite());
+      case TOP_RIGHT -> pos.relative(facing.getCounterClockWise());
+      case BOTTOM_RIGHT -> pos.relative(facing);
+    };
   }
 
-  /* NEED REWORK */
-  protected enum BigLilyPadChildOffsets {
-    DESTROYED_FROM_TEXTURE_0(0,
-      new Rotation[]{Rotation.CLOCKWISE_90},
-      new Rotation[]{Rotation.CLOCKWISE_90, Rotation.NONE},
-      new Rotation[]{Rotation.NONE},
-      false
-    ),
-    DESTROYED_FROM_TEXTURE_1(1,
-      new Rotation[]{Rotation.COUNTERCLOCKWISE_90},
-      new Rotation[]{Rotation.NONE},
-      new Rotation[]{Rotation.COUNTERCLOCKWISE_90, Rotation.NONE},
-      false
-    ),
-    DESTROYED_FROM_TEXTURE_2(2,
-      new Rotation[]{Rotation.CLOCKWISE_90},
-      new Rotation[]{Rotation.NONE},
-      new Rotation[]{Rotation.CLOCKWISE_90, Rotation.NONE},
-      true
-    ),
-    DESTROYED_FROM_TEXTURE_3(3,
-      new Rotation[]{Rotation.COUNTERCLOCKWISE_90},
-      new Rotation[]{Rotation.COUNTERCLOCKWISE_90, Rotation.NONE},
-      new Rotation[]{Rotation.NONE},
-      true
-    );
+  private QuadDirection getExpectedNeighborPosition(BlockState state) {
+    QuadDirection position = state.getValue(POSITION);
 
-    private final int texture;
-    private final Rotation[] sidePosRotations;
-    private final Rotation[] sideTopPosRotations;
-    private final Rotation[] topPosRotations;
-    private final boolean opposite;
-
-    /**
-     * Todo: Add a param to use a single getPOSITION method.
-     */
-    BigLilyPadChildOffsets(int texture, Rotation[] sidePosRotations, Rotation[] sideTopRotations, Rotation[] topPosRotations, boolean opposite) {
-      this.texture = texture;
-      this.sidePosRotations = sidePosRotations;
-      this.sideTopPosRotations = sideTopRotations;
-      this.topPosRotations = topPosRotations;
-      this.opposite = opposite;
-    }
-
-    public static BlockPos getSidePos(BlockPos pos, Direction facing, int texture) {
-      BigLilyPadChildOffsets appendTo = BigLilyPadChildOffsets.getOffsetFromTexture(texture);
-      facing = appendTo.opposite ? facing.getOpposite() : facing;
-
-      BlockPos savedPos = pos;
-      for (Rotation rotation : appendTo.sidePosRotations) {
-        savedPos = savedPos.offset(rotation.rotate(facing).getUnitVec3i());
-      }
-
-      return savedPos;
-    }
-
-    public static BlockPos getSideTopPos(BlockPos pos, Direction facing, int texture) {
-      BigLilyPadChildOffsets appendTo = BigLilyPadChildOffsets.getOffsetFromTexture(texture);
-      boolean opposite = appendTo.texture >= 2;
-      facing = opposite ? facing.getOpposite() : facing;
-
-      BlockPos savedPos = pos;
-      for (Rotation rotation : appendTo.sideTopPosRotations) {
-        savedPos = savedPos.offset(rotation.rotate(facing).getUnitVec3i());
-      }
-
-      return savedPos;
-    }
-
-    public static BlockPos getTopPos(BlockPos pos, Direction facing, int texture) {
-      BigLilyPadChildOffsets appendTo = BigLilyPadChildOffsets.getOffsetFromTexture(texture);
-      boolean opposite = appendTo.texture >= 2;
-      facing = opposite ? facing.getOpposite() : facing;
-
-      BlockPos savedPos = pos;
-      for (Rotation rotation : appendTo.topPosRotations) {
-        savedPos = savedPos.offset(rotation.rotate(facing).getUnitVec3i());
-      }
-
-      return savedPos;
-    }
-
-    public static BigLilyPadChildOffsets getOffsetFromTexture(int texture) {
-      for (BigLilyPadChildOffsets append : BigLilyPadChildOffsets.values()) {
-        if (append.texture == texture) {
-          return append;
-        }
-      }
-
-      return BigLilyPadChildOffsets.DESTROYED_FROM_TEXTURE_0;
-    }
+    return switch (position) {
+      case BOTTOM_LEFT -> QuadDirection.BOTTOM_RIGHT;
+      case TOP_LEFT -> QuadDirection.BOTTOM_LEFT;
+      case TOP_RIGHT -> QuadDirection.TOP_LEFT;
+      case BOTTOM_RIGHT -> QuadDirection.TOP_RIGHT;
+    };
   }
 }

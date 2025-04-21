@@ -9,19 +9,18 @@ import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.RangeSelectItemModel;
+import net.minecraft.core.Direction;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.seface.somemoreblocks.registries.SMBModelTemplates;
+import net.seface.somemoreblocks.block.properties.QuadDirection;
+import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.datagen.providers.assets.providers.CarvedWoodBlockProvider;
 import net.seface.somemoreblocks.datagen.providers.assets.providers.TiledGlassBlockProvider;
 import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
-import net.seface.somemoreblocks.registries.SMBBlockFamilies;
-import net.seface.somemoreblocks.registries.SMBBlocks;
-import net.seface.somemoreblocks.registries.SMBItems;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -380,12 +379,43 @@ public class SMBModelProvider extends FabricModelProvider {
    * @param block The Big Lily Pad block.
    */
   public final void createBigLilyPad(Block block) {
-    this.createIndexedModelWithYRotationVariant(block, false, 4);
+    PropertyDispatch.C2<Direction, QuadDirection> c2 = PropertyDispatch.properties(BlockStateProperties.HORIZONTAL_FACING, SMBBlockStateProperties.POSITION);
+
+    /* Generate Block Model */
+    for (int i = 0; i < QuadDirection.values().length; i++) {
+      String suffix = "_" + i;
+
+      TextureMapping textureMapping = TextureMapping.defaultTexture(block)
+        .copyAndUpdate(TextureSlot.TEXTURE, ModelLocationUtils.getModelLocation(block).withSuffix(suffix));
+
+      ResourceLocation model = SMBModelTemplates.SQUARE_HORIZONTAL.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
+
+      for (Direction facing : Direction.Plane.HORIZONTAL) {
+        Variant variant = Variant.variant()
+          .with(VariantProperties.MODEL, model);
+
+        if (facing != Direction.NORTH) {
+          VariantProperties.Rotation yRot;
+
+          switch (facing) {
+            case EAST  -> yRot = VariantProperties.Rotation.R90;
+            case SOUTH -> yRot = VariantProperties.Rotation.R180;
+            case WEST  -> yRot = VariantProperties.Rotation.R270;
+            default -> yRot = VariantProperties.Rotation.R0;
+          }
+
+          variant.with(VariantProperties.Y_ROT, yRot);
+        }
+
+        c2.select(facing, QuadDirection.getByIndex(i), variant);
+      }
+    }
 
     ResourceLocation itemModel = ModelTemplates.FLAT_ITEM
       .create(block.asItem(), TextureMapping.layer0(block.asItem()), this.modelOutput);
 
     this.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(itemModel));
+    this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block).with(c2));
   }
 
   /**
@@ -416,8 +446,8 @@ public class SMBModelProvider extends FabricModelProvider {
    * @param block The block flat block.
    * @param maxVariations The max number of variations.
    */
-  public final void createIndexedModelWithYRotationVariant(Block block, int maxVariations) {
-    this.createIndexedModelWithYRotationVariant(block, true, maxVariations);
+  public final List<Variant> createIndexedModelWithYRotationVariant(Block block, int maxVariations) {
+    return this.createIndexedModelWithYRotationVariant(block, true, maxVariations);
   }
 
   /**
@@ -426,7 +456,7 @@ public class SMBModelProvider extends FabricModelProvider {
    * @param generateBlockState If true, the block state will be generated.
    * @param maxVariations The max number of variations.
    */
-  public final void createIndexedModelWithYRotationVariant(Block block, boolean generateBlockState, int maxVariations) {
+  public final List<Variant> createIndexedModelWithYRotationVariant(Block block, boolean generateBlockState, int maxVariations) {
     if (maxVariations <= 0) {
       throw new IllegalArgumentException("The max variations value should be 1 or greater.");
     }
@@ -450,8 +480,10 @@ public class SMBModelProvider extends FabricModelProvider {
       }
     }
 
-    if (!generateBlockState) return;
+    if (!generateBlockState) return variants;
     this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block, variants.toArray(new Variant[0])));
+
+    return variants;
   }
 
   /**

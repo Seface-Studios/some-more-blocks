@@ -51,6 +51,7 @@ void removeDeprecatedStrings() {
   data.each { key, values ->
     files.eachWithIndex { file, i ->
       if (file.name == "deprecated_strings.json") return
+      if (file.name == "credits.json") return
 
       def langFile = new File(langDir, file.name)
       def langData = JSON.parse(langFile)

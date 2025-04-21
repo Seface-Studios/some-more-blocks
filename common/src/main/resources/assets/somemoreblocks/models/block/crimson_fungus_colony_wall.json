@@ -1,5 +1,6 @@
 {
   "credit": "By Seface Studios",
+  "ambientocclusion": false,
   "textures": {
     "particle": "somemoreblocks:block/crimson_fungus_colony_wall",
     "texture": "somemoreblocks:block/crimson_fungus_colony_wall"

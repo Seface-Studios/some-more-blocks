@@ -1,5 +1,6 @@
 {
   "credit": "By Seface Studios",
+  "ambientocclusion": false,
   "textures": {
     "particle": "somemoreblocks:block/brown_mushroom_colony_wall",
     "texture": "somemoreblocks:block/brown_mushroom_colony_wall"
