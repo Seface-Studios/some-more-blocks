@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "somemoreblocks:block/redstone_shroomlight"
+    },
+    "lit=true": {
+      "model": "somemoreblocks:block/redstone_shroomlight_on"
+    }
+  }
+}

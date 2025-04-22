@@ -696,6 +696,7 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
         entry.accept(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
         entry.accept(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
+        entry.accept(SMBBlocks.REDSTONE_SHROOMLIGHT.get());
       }));
 
   public static void init() {}

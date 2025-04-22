@@ -324,6 +324,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropSelf(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
     this.dropSelf(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
     this.dropSelf(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
+    this.dropSelf(SMBBlocks.REDSTONE_SHROOMLIGHT.get());
   }
 
   /**

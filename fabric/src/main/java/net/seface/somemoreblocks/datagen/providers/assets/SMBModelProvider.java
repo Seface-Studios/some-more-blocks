@@ -276,9 +276,10 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
 
     /* More Redstone Blocks */
-    this.createRedstoneFroglight(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
-    this.createRedstoneFroglight(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
-    this.createRedstoneFroglight(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
+    this.createRedstoneLampBlock(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
+    this.createRedstoneLampBlock(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
+    this.createRedstoneLampBlock(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
+    this.createRedstoneLampBlock(SMBBlocks.REDSTONE_SHROOMLIGHT.get());
   }
 
   @Override
@@ -323,7 +324,7 @@ public class SMBModelProvider extends FabricModelProvider {
    * Create a Redstone Froglight block models.
    * @param block The Redstone Froglight block.
    */
-  public final void createRedstoneFroglight(Block block) {
+  public final void createRedstoneLampBlock(Block block) {
     TextureMapping offTextureMapping = TextureMapping.cube(block);
     TextureMapping onTextureMapping = TextureMapping.cube(block)
       .put(TextureSlot.ALL, ModelLocationUtils.getModelLocation(block).withSuffix("_on"));

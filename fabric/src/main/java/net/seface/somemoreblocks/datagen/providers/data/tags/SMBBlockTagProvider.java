@@ -550,6 +550,9 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
           SMBBlocks.SNOW_TILE_SLAB.get(), SMBBlocks.SNOW_TILE_WALL.get()
         );
 
+    this.getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_HOE).setReplace(false)
+      .add(SMBBlocks.REDSTONE_SHROOMLIGHT.get());
+
     this.getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).setReplace(false)
         .add(
           SMBBlocks.IRON_BRICKS.get(), SMBBlocks.CRACKED_SNOW_BRICKS.get(), SMBBlocks.IRON_PILLAR.get(),

@@ -1,4 +1,4 @@
-// 1.21.4	2025-04-21T14:12:48.557531	Some More Blocks/Block Loot Tables
+// 1.21.4	2025-04-21T22:31:36.0403856	Some More Blocks/Block Loot Tables
 bc976649ff0ac56de39f0c7102b571d89dfed986 data\somemoreblocks\loot_table\blocks\diorite_brick_stairs.json
 f8c574a72ce99e45ee92b37e45d6828e4eb13b5b data\somemoreblocks\loot_table\blocks\red_terracotta_tiles.json
 beef7249e0fa7f2674451f2c7af8b7424062b76e data\somemoreblocks\loot_table\blocks\polished_end_stone_stairs.json
@@ -215,6 +215,7 @@ e51a7fb5765aae0b4d2c873a96af8eb8b4064ee4 data\somemoreblocks\loot_table\blocks\m
 d3a9620f9f9bc8b267a847f2cbeb0f832fa57f1d data\somemoreblocks\loot_table\blocks\polished_snow_stairs.json
 57edf2db74228dde372e83472da9dc083c757b65 data\somemoreblocks\loot_table\blocks\ice_brick_slab.json
 40f731b970407c8aa7bf66029b09868f80de6c05 data\somemoreblocks\loot_table\blocks\andesite_bricks.json
+0c72a2e8a7868e872bc3e82d46d779ee3d217add data\somemoreblocks\loot_table\blocks\redstone_shroomlight.json
 c3587f7dae82142255ce6eb44772582917fc34e5 data\somemoreblocks\loot_table\blocks\warped_mosaic.json
 5c0a8208a031214237f8e974fba0d050c1e8a4c4 data\somemoreblocks\loot_table\blocks\resin_tile_slab.json
 b4dd2c326f2c8e4c85ed37081edfd5ccbfcf280a data\somemoreblocks\loot_table\blocks\brown_stained_tiled_glass.json

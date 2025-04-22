@@ -389,6 +389,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.redstoneLamp(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get(), Blocks.OCHRE_FROGLIGHT);
         this.redstoneLamp(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get(), Blocks.VERDANT_FROGLIGHT);
         this.redstoneLamp(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get(), Blocks.PEARLESCENT_FROGLIGHT);
+        this.redstoneLamp(SMBBlocks.REDSTONE_SHROOMLIGHT.get(), Blocks.SHROOMLIGHT);
 
         /* Extends Vanilla */
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.PRISMARINE_BRICKS, SMBBlocks.POLISHED_PRISMARINE.get());
