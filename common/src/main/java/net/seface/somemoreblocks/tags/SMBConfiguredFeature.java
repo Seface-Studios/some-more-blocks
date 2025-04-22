@@ -17,6 +17,7 @@ public class SMBConfiguredFeature {
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TALL_SNOW_GRASS = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_tall_snow_grass");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_LUMINOUS_FLOWER = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_luminous_flower");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_TINY_CACTUS = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_tiny_cactus");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> NONE_BIG_LILY_PAD = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "none_big_lily_pad");
 
   public static void init() {}
 }

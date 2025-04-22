@@ -1,6 +1,6 @@
 {
   "type": "somemoreblocks:patch_tiny_cactus",
   "biomes": "#somemoreblocks:generates_tiny_cactus",
-  "feature": "somemoreblocks:patch_tiny_cactus_forest",
+  "feature": "somemoreblocks:none_big_lily_pad",
   "step": "vegetal_decoration"
 }

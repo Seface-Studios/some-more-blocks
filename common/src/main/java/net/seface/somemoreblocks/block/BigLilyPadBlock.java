@@ -6,9 +6,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.WaterlilyBlock;
@@ -21,13 +19,16 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.seface.somemoreblocks.block.properties.QuadDirection;
 import net.seface.somemoreblocks.registries.SMBBlockStateProperties;
+import net.seface.somemoreblocks.registries.SMBBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.function.Function;
+
 public class BigLilyPadBlock extends WaterlilyBlock {
   protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
-  public static final EnumProperty<QuadDirection> POSITION = SMBBlockStateProperties.POSITION;
   public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
+  public static final EnumProperty<QuadDirection> POSITION = SMBBlockStateProperties.POSITION;
 
   public BigLilyPadBlock(Properties properties) {
     super(properties);
@@ -80,9 +81,9 @@ public class BigLilyPadBlock extends WaterlilyBlock {
     BlockPos bottomRightPos = pos.relative(facing.getClockWise());
 
     level.setBlock(pos, this.defaultBlockState().setValue(FACING, facing), 3);
-    level.setBlock(bottomRightPos, this.createBlockStateFor(facing, QuadDirection.BOTTOM_RIGHT), 3);
-    level.setBlock(topRightPos, this.createBlockStateFor(facing, QuadDirection.TOP_RIGHT), 3);
-    level.setBlock(topLeftPos, this.createBlockStateFor(facing, QuadDirection.TOP_LEFT), 3);
+    level.setBlock(bottomRightPos, createBlockStateFor(state, facing, QuadDirection.BOTTOM_RIGHT), 3);
+    level.setBlock(topRightPos, createBlockStateFor(state, facing, QuadDirection.TOP_RIGHT), 3);
+    level.setBlock(topLeftPos, createBlockStateFor(state, facing, QuadDirection.TOP_LEFT), 3);
   }
 
   @Override
@@ -116,8 +117,21 @@ public class BigLilyPadBlock extends WaterlilyBlock {
     super.onRemove(state, level, pos, newState, bool);
   }
 
-  private BlockState createBlockStateFor(Direction facing, QuadDirection position) {
-    return this.defaultBlockState().setValue(FACING, facing).setValue(POSITION, position);
+  public static void placeAt(LevelAccessor level, Direction facing, BlockPos pos, int i) {
+    BlockState bigLilyPad = SMBBlocks.BIG_LILY_PAD.get().defaultBlockState();
+
+    BlockPos topLeftPos = pos.relative(facing);
+    BlockPos topRightPos = pos.relative(facing.getClockWise()).relative(facing);
+    BlockPos bottomRightPos = pos.relative(facing.getClockWise());
+
+    level.setBlock(pos, bigLilyPad.setValue(FACING, facing), i);
+    level.setBlock(bottomRightPos, createBlockStateFor(bigLilyPad, facing, QuadDirection.BOTTOM_RIGHT), i);
+    level.setBlock(topRightPos, createBlockStateFor(bigLilyPad, facing, QuadDirection.TOP_RIGHT), i);
+    level.setBlock(topLeftPos, createBlockStateFor(bigLilyPad, facing, QuadDirection.TOP_LEFT), i);
+  }
+
+  private static BlockState createBlockStateFor(BlockState state, Direction facing, QuadDirection position) {
+    return state.setValue(FACING, facing).setValue(POSITION, position);
   }
 
   private BlockPos getRelativeBlockPos(BlockState state, BlockPos pos) {

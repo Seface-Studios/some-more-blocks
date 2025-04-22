@@ -17,7 +17,7 @@ public class SMBBiomeModifiers {
     registerDuneGrassDecoration(SMBPlacedFeature.PATCH_DUNE_GRASS);
     registerDuneGrassDecoration(SMBPlacedFeature.PATCH_TALL_DUNE_GRASS);
     registerLeafLitterDecoration(SMBPlacedFeature.NONE_LEAF_LITTER);
-    registerTinyCactusDecoration(SMBPlacedFeature.PATCH_TINY_CACTUS);
+    registerTinyCactusDecoration(SMBPlacedFeature.NONE_BIG_LILY_PAD);
     registerUndergroundDecoration(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER, SMBPlacedFeature.PATCH_LUMINOUS_FLOWER);
     registerVegetalDecoration(SMBBiomeTags.GENERATES_CATTAIL, SMBPlacedFeature.PATCH_CATTAIL);
     registerVegetalDecoration(SMBBiomeTags.GENERATES_SNOW_PLANTS, SMBPlacedFeature.PATCH_SHORT_SNOW_GRASS);
@@ -25,6 +25,7 @@ public class SMBBiomeModifiers {
     registerVegetalDecoration(SMBBiomeTags.GENERATES_SNOW_PLANTS, SMBPlacedFeature.PATCH_TALL_SNOW_GRASS);
     registerVegetalDecoration(SMBBiomeTags.GENERATES_SNOW_PLANTS, SMBPlacedFeature.PATCH_LARGE_SNOW_FERN);
     registerVegetalDecoration(SMBBiomeTags.GENERATES_SMALL_LILY_PADS, SMBPlacedFeature.PATCH_SMALL_LILY_PADS);
+    registerVegetalDecoration(SMBBiomeTags.GENERATES_SMALL_LILY_PADS, SMBPlacedFeature.NONE_BIG_LILY_PAD);
   }
 
   /**
