@@ -629,6 +629,7 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> SMOOTH_RESIN_SLAB = PlatformServices.REGISTRY.registerBlock("smooth_resin_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS).setId(SomeMoreBlocks.key(Registries.BLOCK, "smooth_resin_slab"))));
 
   public static final PlatformRegistryObject<Block> REDSTONE_SHROOMLIGHT = PlatformServices.REGISTRY.registerBlock("redstone_shroomlight", () -> new RedstoneLampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_LAMP).sound(SoundType.SHROOMLIGHT).setId(SomeMoreBlocks.key(Registries.BLOCK, "redstone_shroomlight"))));
+  public static final PlatformRegistryObject<Block> PALE_ROSE_BUSH = PlatformServices.REGISTRY.registerBlock("pale_rose_bush", () -> new TallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH).setId(SomeMoreBlocks.key(Registries.BLOCK, "pale_rose_bush"))));
 
   public static void init() {}
 }

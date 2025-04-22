@@ -660,6 +660,7 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.TALL_SNOW_GRASS.get());
         entry.accept(SMBBlocks.SNOW_FERN.get());
         entry.accept(SMBBlocks.LARGE_SNOW_FERN.get());
+        entry.accept(SMBBlocks.PALE_ROSE_BUSH.get());
         entry.accept(SMBBlocks.CATTAIL.get());
         entry.accept(SMBItems.LEAVES_BUCKET.get());
         entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get());

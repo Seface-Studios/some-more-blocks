@@ -36,6 +36,7 @@ public class ClientRegistries {
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(), cutout);
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.BROWN_STAINED_TILED_GLASS.get(),translucent);
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE.get(),translucent);
+    BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.PALE_ROSE_BUSH.get(), cutout);
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.CATTAIL.get(), cutout);
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), cutout);
     BlockRenderLayerMap.INSTANCE.putBlock(SMBBlocks.CRIMSON_FUNGUS_COLONY_WALL.get(), cutout);

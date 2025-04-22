@@ -256,6 +256,10 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_SNOW_GRASS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createPlantWithDefaultItem(SMBBlocks.SNOW_FERN.get(), SMBBlocks.POTTED_SNOW_FERN.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.LARGE_SNOW_FERN.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+
+    this.createEmissiveDoublePlantWithDefaultItem(SMBBlocks.PALE_ROSE_BUSH.get());
+    //gen.createDoublePlantWithDefaultItem(SMBBlocks.PALE_ROSE_BUSH.get(), BlockModelGenerators.PlantType.EMISSIVE_NOT_TINTED);
+
     gen.createDoublePlantWithDefaultItem(SMBBlocks.CATTAIL.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     this.createLeafLitterWithBucket(SMBBlocks.LEAF_LITTER.get(), SMBItems.LEAVES_BUCKET.get());
     this.createLeafLitterWithBucket(SMBBlocks.BIRCH_LEAF_LITTER.get(), SMBItems.BIRCH_LEAVES_BUCKET.get());
@@ -284,6 +288,29 @@ public class SMBModelProvider extends FabricModelProvider {
 
   @Override
   public void generateItemModels(ItemModelGenerators gen) {}
+
+  // TODO: Need to update item model
+  public final void createEmissiveDoublePlantWithDefaultItem(Block block) {
+    TextureMapping topTextureMapping = TextureMapping.crossEmissive(block)
+      .put(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(block, "_top"))
+      .put(TextureSlot.CROSS_EMISSIVE, ModelLocationUtils.getModelLocation(block, "_top_emissive"));
+
+    TextureMapping bottomTextureMapping = TextureMapping.crossEmissive(block)
+      .put(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(block, "_bottom"))
+      .put(TextureSlot.CROSS_EMISSIVE, ModelLocationUtils.getModelLocation(block, "_bottom_emissive"));
+
+    ResourceLocation topModel = ModelTemplates.CROSS_EMISSIVE.createWithSuffix(block, "_top", topTextureMapping, this.modelOutput);
+    ResourceLocation bottomModel = ModelTemplates.CROSS_EMISSIVE.createWithSuffix(block, "_bottom", bottomTextureMapping, this.modelOutput);
+
+    TextureMapping itemTextureMapping = TextureMapping.layered(
+      ModelLocationUtils.getModelLocation(block, "_top"),
+      ModelLocationUtils.getModelLocation(block, "_top_emissive"));
+
+    ResourceLocation itemModel = ModelTemplates.FLAT_ITEM.create(block.asItem(), itemTextureMapping, this.modelOutput);
+
+    this.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(itemModel));
+    this.blockModelGenerators.createDoubleBlock(block, topModel, bottomModel);
+  }
 
   /**
    * Create a block with the model copied from other block.
