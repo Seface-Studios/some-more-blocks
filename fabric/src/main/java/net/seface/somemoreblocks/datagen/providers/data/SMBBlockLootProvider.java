@@ -16,6 +16,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -300,6 +301,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropWhenShearsDoublePlant(SMBBlocks.TALL_SNOW_GRASS.get(), SMBBlocks.SHORT_SNOW_GRASS.get());
     this.dropWhenShears(SMBBlocks.SNOW_FERN.get());
     this.dropWhenShearsDoublePlant(SMBBlocks.LARGE_SNOW_FERN.get(), SMBBlocks.SNOW_FERN.get());
+    this.dropDoublePlantWithoutShears(SMBBlocks.PALE_ROSE_BUSH.get());
     this.dropWhenShears(SMBBlocks.CATTAIL.get());
     this.dropSelf(SMBBlocks.SMALL_LILY_PADS.get());
     this.dropBigLilyPad(SMBBlocks.BIG_LILY_PAD.get());
@@ -325,6 +327,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropSelf(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
     this.dropSelf(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
     this.dropSelf(SMBBlocks.REDSTONE_SHROOMLIGHT.get());
+    this.dropSelf(SMBBlocks.REDSTONE_SEA_LANTERN.get());
   }
 
   /**
@@ -345,6 +348,10 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
 
       this.dropSelf(entry.getKey());
     }
+  }
+
+  private void dropDoublePlantWithoutShears(Block block) {
+    this.add(block, this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
   }
 
   private void dropTallMushroomColony(Block block, ItemLike whenShearsItem, ItemLike otherItem) {

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "somemoreblocks:corrupted_polished_basalt_bricks"
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "somemoreblocks:corrupted_polished_basalt_brick_wall"
+  }
+}

@@ -13,6 +13,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.seface.somemoreblocks.block.BigLilyPadBlock;
 import net.seface.somemoreblocks.block.properties.QuadDirection;
 import net.seface.somemoreblocks.registries.SMBBlocks;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 
 public class BigLilyPadFeature extends Feature<NoneFeatureConfiguration> {
   public BigLilyPadFeature(Codec<NoneFeatureConfiguration> codec) {
@@ -40,9 +41,9 @@ public class BigLilyPadFeature extends Feature<NoneFeatureConfiguration> {
     return true;
   }
 
-  // TODO: Update this.
   private boolean isValidPlacement(WorldGenLevel level, BlockPos pos) {
     BlockPos belowPos = pos.below();
-    return level.getBlockState(pos).isAir() && (level.getFluidState(belowPos).is(Fluids.WATER) || level.getBlockState(belowPos).is(Blocks.ICE));
+    return (level.getBlockState(pos).canBeReplaced() || level.getBlockState(pos).isAir() || level.getBlockState(pos).is(SMBBlockTags.BIG_LILY_PAD_REPLACEABLE)) &&
+      (level.getFluidState(belowPos).is(Fluids.WATER) || level.getBlockState(belowPos).is(Blocks.ICE));
   }
 }

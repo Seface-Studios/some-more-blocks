@@ -118,6 +118,7 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.PALE_OAK_MOSAIC_SLAB.get());
 
         entry.accept(SMBBlocks.CARVED_BAMBOO_BLOCK.get());
+        entry.accept(SMBBlocks.CARVED_MUSHROOM_STEM.get());
         entry.accept(SMBBlocks.POLISHED_STONE.get());
         entry.accept(SMBBlocks.POLISHED_STONE_STAIRS.get());
         entry.accept(SMBBlocks.POLISHED_STONE_SLAB.get());
@@ -331,6 +332,22 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CHISELED_RED_NETHER_BRICKS.get());
         entry.accept(SMBBlocks.CRACKED_RED_NETHER_BRICKS.get());
         entry.accept(SMBBlocks.RED_NETHER_BRICKS_PILLAR.get());
+        entry.accept(SMBBlocks.POLISHED_BASALT_BRICKS.get());
+        entry.accept(SMBBlocks.CRACKED_POLISHED_BASALT_BRICKS.get());
+        entry.accept(SMBBlocks.POLISHED_BASALT_BRICK_STAIRS.get());
+        entry.accept(SMBBlocks.POLISHED_BASALT_BRICK_SLAB.get());
+        entry.accept(SMBBlocks.POLISHED_BASALT_BRICK_WALL.get());
+        entry.accept(SMBBlocks.CHISELED_POLISHED_BASALT_BRICKS.get());
+        entry.accept(SMBBlocks.POLISHED_BASALT_PILLAR.get());
+        entry.accept(SMBBlocks.POLISHED_BASALT_TILES.get());
+        entry.accept(SMBBlocks.CRACKED_POLISHED_BASALT_TILES.get());
+        entry.accept(SMBBlocks.POLISHED_BASALT_TILE_STAIRS.get());
+        entry.accept(SMBBlocks.POLISHED_BASALT_TILE_SLAB.get());
+        entry.accept(SMBBlocks.POLISHED_BASALT_TILE_WALL.get());
+        entry.accept(SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICKS.get());
+        entry.accept(SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get());
+        entry.accept(SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_SLAB.get());
+        entry.accept(SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_WALL.get());
         entry.accept(SMBBlocks.POLISHED_BLACKSTONE_PILLAR.get());
         entry.accept(SMBBlocks.POLISHED_BLACKSTONE_TILES.get());
         entry.accept(SMBBlocks.CRACKED_POLISHED_BLACKSTONE_TILES.get());
@@ -698,6 +715,7 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
         entry.accept(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
         entry.accept(SMBBlocks.REDSTONE_SHROOMLIGHT.get());
+        entry.accept(SMBBlocks.REDSTONE_SEA_LANTERN.get());
       }));
 
   public static void init() {}

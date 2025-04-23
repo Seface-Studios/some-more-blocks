@@ -11,7 +11,7 @@ import java.util.Map;
  * This is <b>only used for Data Generation</b> and should not be implemented in other part of the code.
  * We are not using BlockFamilies for all Mod Loaders 'cause it's annoying to register for multiple loaders.
  * <br /><br />
- * Are you a dev and seeing this you want to implement a PlatformRegistryObject for this? Feel free to make a PR!
+ * Are you a dev want to implement a PlatformRegistryObject for this? Feel free to make a PR!
  */
 @Deprecated
 public class SMBBlockFamilies {
@@ -75,6 +75,9 @@ public class SMBBlockFamilies {
   public static final BlockFamily PRISMARINE_TILES = register(SMBBlocks.PRISMARINE_TILES.get()).cracked(SMBBlocks.CRACKED_PRISMARINE_TILES.get()).stairs(SMBBlocks.PRISMARINE_TILE_STAIRS.get()).slab(SMBBlocks.PRISMARINE_TILE_SLAB.get()).wall(SMBBlocks.PRISMARINE_TILE_WALL.get()).getFamily();
   public static final BlockFamily MOSSY_PRISMARINE_BRICKS = register(SMBBlocks.MOSSY_PRISMARINE_BRICKS.get()).stairs(SMBBlocks.MOSSY_PRISMARINE_BRICK_STAIRS.get()).slab(SMBBlocks.MOSSY_PRISMARINE_BRICK_SLAB.get()).wall(SMBBlocks.MOSSY_PRISMARINE_BRICK_WALL.get()).getFamily();
   public static final BlockFamily SMOOTH_PRISMARINE = register(SMBBlocks.SMOOTH_PRISMARINE.get()).slab(SMBBlocks.SMOOTH_PRISMARINE_SLAB.get()).getFamily();
+  public static final BlockFamily POLISHED_BASALT_BRICKS = register(SMBBlocks.POLISHED_BASALT_BRICKS.get()).cracked(SMBBlocks.CRACKED_POLISHED_BASALT_BRICKS.get()).stairs(SMBBlocks.POLISHED_BASALT_BRICK_STAIRS.get()).slab(SMBBlocks.POLISHED_BASALT_BRICK_SLAB.get()).wall(SMBBlocks.POLISHED_BASALT_BRICK_WALL.get()).chiseled(SMBBlocks.CHISELED_POLISHED_BASALT_BRICKS.get()).getFamily();
+  public static final BlockFamily POLISHED_BASALT_TILES = register(SMBBlocks.POLISHED_BASALT_TILES.get()).cracked(SMBBlocks.CRACKED_POLISHED_BASALT_TILES.get()).stairs(SMBBlocks.POLISHED_BASALT_TILE_STAIRS.get()).slab(SMBBlocks.POLISHED_BASALT_TILE_SLAB.get()).wall(SMBBlocks.POLISHED_BASALT_TILE_WALL.get()).getFamily();
+  public static final BlockFamily CORRUPTED_POLISHED_BASALT_BRICKS = register(SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICKS.get()).stairs(SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get()).slab(SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_SLAB.get()).wall(SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_WALL.get()).getFamily();
   public static final BlockFamily POLISHED_BLACKSTONE_TILES = register(SMBBlocks.POLISHED_BLACKSTONE_TILES.get()).cracked(SMBBlocks.CRACKED_POLISHED_BLACKSTONE_TILES.get()).stairs(SMBBlocks.POLISHED_BLACKSTONE_TILE_STAIRS.get()).slab(SMBBlocks.POLISHED_BLACKSTONE_TILE_SLAB.get()).wall(SMBBlocks.POLISHED_BLACKSTONE_TILE_WALL.get()).getFamily();
   public static final BlockFamily CORRUPTED_POLISHED_BLACKSTONE_BRICKS = register(SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get()).stairs(SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_STAIRS.get()).slab(SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_SLAB.get()).wall(SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_WALL.get()).getFamily();
   public static final BlockFamily SMOOTH_BLACKSTONE = register(SMBBlocks.SMOOTH_BLACKSTONE.get()).slab(SMBBlocks.SMOOTH_BLACKSTONE_SLAB.get()).getFamily();

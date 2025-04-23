@@ -15,7 +15,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.seface.somemoreblocks.block.properties.QuadDirection;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.datagen.providers.assets.providers.CarvedWoodBlockProvider;
@@ -61,8 +63,9 @@ public class SMBModelProvider extends FabricModelProvider {
     this.carvedWoodProvider(SMBBlocks.CARVED_CRIMSON_STEM.get()).log(SMBBlocks.CARVED_CRIMSON_STEM.get(), Blocks.STRIPPED_CRIMSON_STEM).wood(SMBBlocks.CARVED_CRIMSON_HYPHAE.get());
     this.carvedWoodProvider(SMBBlocks.CARVED_WARPED_STEM.get()).log(SMBBlocks.CARVED_WARPED_STEM.get(), Blocks.STRIPPED_WARPED_STEM).wood(SMBBlocks.CARVED_WARPED_HYPHAE.get());
     this.carvedWoodProvider(SMBBlocks.CARVED_CHERRY_LOG.get()).log(SMBBlocks.CARVED_CHERRY_LOG.get(), Blocks.STRIPPED_CHERRY_LOG).wood(SMBBlocks.CARVED_CHERRY_WOOD.get());
-    this.carvedWoodProvider(SMBBlocks.CARVED_BAMBOO_BLOCK.get()).log(SMBBlocks.CARVED_BAMBOO_BLOCK.get(), Blocks.STRIPPED_BAMBOO_BLOCK);
     this.carvedWoodProvider(SMBBlocks.CARVED_PALE_OAK_LOG.get()).logByMoonPhase(SMBBlocks.CARVED_PALE_OAK_LOG.get(), Blocks.STRIPPED_PALE_OAK_LOG).woodByMoonPhase(SMBBlocks.CARVED_PALE_OAK_WOOD.get());
+    this.carvedWoodProvider(SMBBlocks.CARVED_BAMBOO_BLOCK.get()).log(SMBBlocks.CARVED_BAMBOO_BLOCK.get(), Blocks.STRIPPED_BAMBOO_BLOCK);
+    gen.createMushroomBlock(SMBBlocks.CARVED_MUSHROOM_STEM.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.STONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.GRANITE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.DIORITE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
@@ -87,6 +90,7 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createTrivialCube(SMBBlocks.CHISELED_RED_NETHER_BRICKS.get());
     gen.createTrivialCube(SMBBlocks.CRACKED_RED_NETHER_BRICKS.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.RED_NETHER_BRICKS_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
+    gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.POLISHED_BASALT_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.POLISHED_BLACKSTONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createTrivialCube(SMBBlocks.CHISELED_END_STONE_BRICKS.get());
     gen.createTrivialCube(SMBBlocks.CRACKED_END_STONE_BRICKS.get());
@@ -256,10 +260,7 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_SNOW_GRASS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createPlantWithDefaultItem(SMBBlocks.SNOW_FERN.get(), SMBBlocks.POTTED_SNOW_FERN.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.LARGE_SNOW_FERN.get(), BlockModelGenerators.PlantType.NOT_TINTED);
-
     this.createEmissiveDoublePlantWithDefaultItem(SMBBlocks.PALE_ROSE_BUSH.get());
-    //gen.createDoublePlantWithDefaultItem(SMBBlocks.PALE_ROSE_BUSH.get(), BlockModelGenerators.PlantType.EMISSIVE_NOT_TINTED);
-
     gen.createDoublePlantWithDefaultItem(SMBBlocks.CATTAIL.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     this.createLeafLitterWithBucket(SMBBlocks.LEAF_LITTER.get(), SMBItems.LEAVES_BUCKET.get());
     this.createLeafLitterWithBucket(SMBBlocks.BIRCH_LEAF_LITTER.get(), SMBItems.BIRCH_LEAVES_BUCKET.get());
@@ -284,33 +285,12 @@ public class SMBModelProvider extends FabricModelProvider {
     this.createRedstoneLampBlock(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
     this.createRedstoneLampBlock(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
     this.createRedstoneLampBlock(SMBBlocks.REDSTONE_SHROOMLIGHT.get());
+
+    this.createRedstoneSeaLantern(SMBBlocks.POLISHED_PRISMARINE.get(), SMBBlocks.REDSTONE_SEA_LANTERN.get());
   }
 
   @Override
   public void generateItemModels(ItemModelGenerators gen) {}
-
-  // TODO: Need to update item model
-  public final void createEmissiveDoublePlantWithDefaultItem(Block block) {
-    TextureMapping topTextureMapping = TextureMapping.crossEmissive(block)
-      .put(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(block, "_top"))
-      .put(TextureSlot.CROSS_EMISSIVE, ModelLocationUtils.getModelLocation(block, "_top_emissive"));
-
-    TextureMapping bottomTextureMapping = TextureMapping.crossEmissive(block)
-      .put(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(block, "_bottom"))
-      .put(TextureSlot.CROSS_EMISSIVE, ModelLocationUtils.getModelLocation(block, "_bottom_emissive"));
-
-    ResourceLocation topModel = ModelTemplates.CROSS_EMISSIVE.createWithSuffix(block, "_top", topTextureMapping, this.modelOutput);
-    ResourceLocation bottomModel = ModelTemplates.CROSS_EMISSIVE.createWithSuffix(block, "_bottom", bottomTextureMapping, this.modelOutput);
-
-    TextureMapping itemTextureMapping = TextureMapping.layered(
-      ModelLocationUtils.getModelLocation(block, "_top"),
-      ModelLocationUtils.getModelLocation(block, "_top_emissive"));
-
-    ResourceLocation itemModel = ModelTemplates.FLAT_ITEM.create(block.asItem(), itemTextureMapping, this.modelOutput);
-
-    this.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(itemModel));
-    this.blockModelGenerators.createDoubleBlock(block, topModel, bottomModel);
-  }
 
   /**
    * Create a block with the model copied from other block.
@@ -358,6 +338,33 @@ public class SMBModelProvider extends FabricModelProvider {
 
     ResourceLocation offModel = ModelTemplates.CUBE_ALL.create(block, offTextureMapping, this.modelOutput);
     ResourceLocation onModel = ModelTemplates.CUBE_ALL.createWithSuffix(block, "_on", onTextureMapping, this.modelOutput);
+
+    this.blockStateOutput.accept(
+      MultiVariantGenerator.multiVariant(block)
+        .with(BlockModelGenerators.createBooleanModelDispatch(BlockStateProperties.LIT, onModel, offModel))
+    );
+  }
+
+  /**
+   * Create a Redstone Sea Lanter block models.
+   * @param bottomAndTopBlock The Bottom-Top block.
+   * @param block The Redstone Sea Lantern block.
+   */
+  public final void createRedstoneSeaLantern(Block bottomAndTopBlock, Block block) {
+    TextureMapping offTextureMapping = TextureMapping.cube(block)
+      .put(TextureSlot.UP, ModelLocationUtils.getModelLocation(bottomAndTopBlock))
+      .put(TextureSlot.DOWN, ModelLocationUtils.getModelLocation(bottomAndTopBlock));
+
+    TextureMapping onTextureMapping = TextureMapping.cube(block)
+      .put(TextureSlot.UP, ModelLocationUtils.getModelLocation(bottomAndTopBlock))
+      .put(TextureSlot.DOWN, ModelLocationUtils.getModelLocation(bottomAndTopBlock))
+      .put(TextureSlot.NORTH, ModelLocationUtils.getModelLocation(block).withSuffix("_on_north"))
+      .put(TextureSlot.SOUTH, ModelLocationUtils.getModelLocation(block).withSuffix("_on_south"))
+      .put(TextureSlot.EAST, ModelLocationUtils.getModelLocation(block).withSuffix("_on_east"))
+      .put(TextureSlot.WEST, ModelLocationUtils.getModelLocation(block).withSuffix("_on_west"));
+
+    ResourceLocation offModel = ModelTemplates.CUBE.create(block, offTextureMapping, this.modelOutput);
+    ResourceLocation onModel = ModelTemplates.CUBE.createWithSuffix(block, "_on", onTextureMapping, this.modelOutput);
 
     this.blockStateOutput.accept(
       MultiVariantGenerator.multiVariant(block)
@@ -467,6 +474,31 @@ public class SMBModelProvider extends FabricModelProvider {
     }
 
     this.itemModelOutput.accept(item, ItemModelUtils.rangeSelect(new BucketVolumeProperty(), overrides[3].model(), overrides));
+  }
+
+  /**
+   * Create a Double Plant with Emissive textures.
+   * @param block The plant block.
+   */
+  public final void createEmissiveDoublePlantWithDefaultItem(Block block) {
+    TextureMapping topTextureMapping = TextureMapping.crossEmissive(block)
+      .put(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(block, "_top"))
+      .put(TextureSlot.CROSS_EMISSIVE, ModelLocationUtils.getModelLocation(block, "_top_emissive"));
+
+    TextureMapping bottomTextureMapping = TextureMapping.crossEmissive(block)
+      .put(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(block, "_bottom"))
+      .put(TextureSlot.CROSS_EMISSIVE, ModelLocationUtils.getModelLocation(block, "_bottom_emissive"));
+
+    ResourceLocation topModel = ModelTemplates.CROSS_EMISSIVE.createWithSuffix(block, "_top", topTextureMapping, this.modelOutput);
+    ResourceLocation bottomModel = ModelTemplates.CROSS_EMISSIVE.createWithSuffix(block, "_bottom", bottomTextureMapping, this.modelOutput);
+
+    TextureMapping itemTextureMapping = TextureMapping.layered(
+      topTextureMapping.get(TextureSlot.CROSS),  topTextureMapping.get(TextureSlot.CROSS_EMISSIVE));
+
+    ResourceLocation itemModel = ModelTemplates.TWO_LAYERED_ITEM.create(block.asItem(), itemTextureMapping, this.modelOutput);
+
+    this.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(itemModel));
+    this.blockModelGenerators.createDoubleBlock(block, topModel, bottomModel);
   }
 
   /**

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "somemoreblocks:block/redstone_sea_lantern"
+    },
+    "lit=true": {
+      "model": "somemoreblocks:block/redstone_sea_lantern_on"
+    }
+  }
+}

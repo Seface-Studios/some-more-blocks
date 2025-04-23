@@ -98,6 +98,10 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.NETHER_BRICKS_PILLAR.get(), Blocks.NETHER_BRICKS);
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CHISELED_RED_NETHER_BRICKS.get(), Blocks.RED_NETHER_BRICKS);
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.RED_NETHER_BRICKS_PILLAR.get(), Blocks.RED_NETHER_BRICKS);
+        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.POLISHED_BASALT_BRICKS);
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.POLISHED_BASALT_PILLAR.get(), Blocks.POLISHED_BASALT);
+        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.POLISHED_BASALT_TILES);
+        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.CORRUPTED_POLISHED_BASALT_BRICKS);
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.POLISHED_BLACKSTONE_PILLAR.get(), Blocks.BLACKSTONE);
         this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.POLISHED_BLACKSTONE_TILES, List.of(Blocks.BLACKSTONE, Blocks.POLISHED_BLACKSTONE, Blocks.POLISHED_BLACKSTONE_BRICKS));
         this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.CORRUPTED_POLISHED_BLACKSTONE_BRICKS);
@@ -286,6 +290,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.RED_NETHER_BRICKS_PILLAR.get(), Blocks.RED_NETHER_BRICKS, 2);
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.POLISHED_BLACKSTONE_PILLAR.get(), Blocks.POLISHED_BLACKSTONE_BRICKS, 2);
         this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.POLISHED_BLACKSTONE_TILES.get(), Blocks.POLISHED_BLACKSTONE_BRICKS, 4);
+        this.corruptedBlock(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICKS.get(), SMBBlocks.POLISHED_BASALT_BRICKS.get());
         this.corruptedBlock(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get(), Blocks.POLISHED_BLACKSTONE_BRICKS);
         this.smeltingResultFromBase(SMBBlocks.SMOOTH_BLACKSTONE.get(), Blocks.BLACKSTONE);
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CHISELED_END_STONE_BRICKS.get(), Blocks.END_STONE_BRICK_SLAB, 1);
@@ -390,6 +395,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.redstoneLamp(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get(), Blocks.VERDANT_FROGLIGHT);
         this.redstoneLamp(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get(), Blocks.PEARLESCENT_FROGLIGHT);
         this.redstoneLamp(SMBBlocks.REDSTONE_SHROOMLIGHT.get(), Blocks.SHROOMLIGHT);
+        this.redstoneLamp(SMBBlocks.REDSTONE_SEA_LANTERN.get(), Blocks.SEA_LANTERN);
 
         /* Extends Vanilla */
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.PRISMARINE_BRICKS, SMBBlocks.POLISHED_PRISMARINE.get());
