@@ -591,6 +591,9 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
     this.getOrCreateTagBuilder(SMBBlockTags.LUMINOUS_FLOWER_REPLACEABLE)
       .add(Blocks.SHORT_GRASS, Blocks.MOSS_CARPET);
 
+    this.getOrCreateTagBuilder(BlockTags.FROG_PREFER_JUMP_TO).setReplace(false)
+      .add(SMBBlocks.BIG_LILY_PAD.get());
+
     this.getOrCreateTagBuilder(SMBBlockTags.BIG_LILY_PAD_REPLACEABLE)
       .add(Blocks.LILY_PAD, Blocks.MOSS_CARPET, SMBBlocks.SMALL_LILY_PADS.get());
   }

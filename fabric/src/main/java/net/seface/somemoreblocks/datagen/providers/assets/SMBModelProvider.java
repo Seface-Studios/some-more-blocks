@@ -254,6 +254,7 @@ public class SMBModelProvider extends FabricModelProvider {
     /* More Natural Blocks */
     gen.createCrossBlockWithDefaultItem(SMBBlocks.TINY_CACTUS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     this.createPottedTinyCactus(SMBBlocks.TINY_CACTUS.get(), SMBBlocks.POTTED_TINY_CACTUS.get());
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_CACTUS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.DUNE_GRASS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_DUNE_GRASS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.SHORT_SNOW_GRASS.get(), BlockModelGenerators.PlantType.NOT_TINTED);

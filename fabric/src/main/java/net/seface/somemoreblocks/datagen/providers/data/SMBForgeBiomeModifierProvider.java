@@ -34,13 +34,15 @@ public class SMBForgeBiomeModifierProvider extends ForgeModifierProvider {
       .setDecorationStep(GenerationStep.Decoration.VEGETAL_DECORATION)
       .setBiomes(SMBBiomeTags.GENERATES_SMALL_LILY_PADS).build();
 
+    this.vegetalDecoration("none_big_lily_pad", SMBPlacedFeature.NONE_BIG_LILY_PAD).setBiomes(SMBBiomeTags.GENERATES_BIG_LILY_PAD).build();
+
     this.configure()
       .setType(SomeMoreBlocks.id("patch_tall_dune_grass"))
       .setFeature(SMBPlacedFeature.PATCH_TALL_DUNE_GRASS)
       .setDecorationStep(GenerationStep.Decoration.VEGETAL_DECORATION)
       .setBiomes(BiomeTags.IS_BEACH).build();
 
-    this.vegetalDecoration("patch_tiny_cactus", SMBPlacedFeature.NONE_BIG_LILY_PAD).setBiomes(SMBBiomeTags.GENERATES_TINY_CACTUS).build();
+    this.vegetalDecoration("patch_tiny_cactus", SMBPlacedFeature.PATCH_TINY_CACTUS).setBiomes(SMBBiomeTags.GENERATES_TINY_CACTUS).build();
   }
 
   private ForgeBiomeModifier vegetalDecoration(String path, ResourceKey<PlacedFeature> placedFeature) {

@@ -1,5 +1,7 @@
 package net.seface.somemoreblocks.platform.registry;
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -16,6 +18,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.item.FuelBlockItem;
+import net.seface.somemoreblocks.registries.SMBBlocks;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -86,6 +89,21 @@ public class ForgePlatformRegistry implements PlatformRegistry {
       () -> builder.apply(CreativeModeTab.builder(row, i)).build());
 
     return new ForgeRegistryObject<>(identifier, instance);
+  }
+
+  @Override
+  public void setBlockRenderType(Block block, RenderType renderType) {
+    /*
+     * For some reason, Forge is not registering the correct
+     * RenderType for the Translucent block items.
+     */
+    if (renderType == RenderType.translucent()) {
+      ItemBlockRenderTypes.setRenderLayer(block, renderType);
+      ItemBlockRenderTypes.TYPE_BY_BLOCK.put(block, renderType); /* TYPE_BY_BLOCK via Access Transformer. */
+      return;
+    }
+
+    ItemBlockRenderTypes.setRenderLayer(block, renderType);
   }
 
   public static void init(IEventBus eventBus) {

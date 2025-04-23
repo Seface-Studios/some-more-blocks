@@ -9,6 +9,7 @@ public final class SMBBiomeTags {
   public static final TagKey<Biome> GENERATES_CATTAIL = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_cattail");
   public static final TagKey<Biome> GENERATES_LUMINOUS_FLOWER = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_luminous_flower");
   public static final TagKey<Biome> GENERATES_SMALL_LILY_PADS = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_small_lily_pads");
+  public static final TagKey<Biome> GENERATES_BIG_LILY_PAD = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_big_lily_pad");
   public static final TagKey<Biome> GENERATES_TINY_CACTUS = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_tiny_cactus");
   public static final TagKey<Biome> GENERATES_RED_MUSHROOM_COLONY = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_red_mushroom_colony");
   public static final TagKey<Biome> GENERATES_BROWN_MUSHROOM_COLONY = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_brown_mushroom_colony");

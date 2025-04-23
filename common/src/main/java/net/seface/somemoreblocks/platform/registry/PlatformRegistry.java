@@ -1,5 +1,6 @@
 package net.seface.somemoreblocks.platform.registry;
 
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
@@ -60,6 +61,13 @@ public interface PlatformRegistry {
    * @return The registered Creative Mode Tab.
    */
   PlatformRegistryObject<CreativeModeTab> registerCreativeModeTab(String path, CreativeModeTab.Row row, int i, UnaryOperator<CreativeModeTab.Builder> builder);
+
+  /**
+   * Main method to set the render type for a block.
+   * @param block The block to be configured.
+   * @param renderType The render type.
+   */
+  void setBlockRenderType(Block block, RenderType renderType);
 
   /**
    * Main method to register a Block and BlockItem.

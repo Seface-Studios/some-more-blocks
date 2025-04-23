@@ -671,6 +671,7 @@ public class SMBCreativeTabs {
       .title(Component.translatable("itemGroup.somemoreblocks.naturalBlocks"))
       .displayItems((ctx, entry) -> {
         entry.accept(SMBBlocks.TINY_CACTUS.get());
+        entry.accept(SMBBlocks.TALL_CACTUS.get());
         entry.accept(SMBBlocks.DUNE_GRASS.get());
         entry.accept(SMBBlocks.TALL_DUNE_GRASS.get());
         entry.accept(SMBBlocks.SHORT_SNOW_GRASS.get());

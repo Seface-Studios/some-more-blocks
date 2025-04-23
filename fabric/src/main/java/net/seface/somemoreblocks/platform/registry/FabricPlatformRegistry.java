@@ -1,6 +1,8 @@
 package net.seface.somemoreblocks.platform.registry;
 
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -73,5 +75,10 @@ public class FabricPlatformRegistry implements PlatformRegistry {
       builder.apply(FabricItemGroup.builder()).build());
 
     return new FabricRegistryObject<>(identifier, () -> instance);
+  }
+
+  @Override
+  public void setBlockRenderType(Block block, RenderType renderType) {
+    BlockRenderLayerMap.INSTANCE.putBlock(block, renderType);
   }
 }

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "somemoreblocks:block/tall_cactus_bottom"
+    },
+    "half=upper": {
+      "model": "somemoreblocks:block/tall_cactus_top"
+    }
+  }
+}

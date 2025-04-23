@@ -31,6 +31,7 @@ public class SMBBiomeModifiers {
   public static RegistryObject<MapCodec<PatchDuneGrassBiomeModifier>> PATCH_DUNE_GRASS = registerBiomeModifier("patch_dune_grass", PatchDuneGrassBiomeModifier::new);
   public static RegistryObject<MapCodec<PatchTallDuneGrassBiomeModifier>> PATCH_TALL_DUNE_GRASS = registerBiomeModifier("patch_tall_dune_grass", PatchTallDuneGrassBiomeModifier::new);
   public static RegistryObject<MapCodec<NoneLeafLitterBiomeModifier>> NONE_LEAF_LITTER = registerBiomeModifier("none_leaf_litter", NoneLeafLitterBiomeModifier::new);
+  public static RegistryObject<MapCodec<NoneBigLilyPadBiomeModifier>> NONE_BIG_LILY_PAD = registerBiomeModifier("none_big_lily_pad", NoneBigLilyPadBiomeModifier::new);
 
   /**
    * Register a new biome modifier.

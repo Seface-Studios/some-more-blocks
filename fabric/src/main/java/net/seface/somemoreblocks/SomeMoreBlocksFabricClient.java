@@ -17,6 +17,7 @@ public class SomeMoreBlocksFabricClient implements ClientModInitializer {
 
   @Override
   public void onInitializeClient() {
+    SomeMoreBlocks.initClient();
     ClientRegistries.init();
   }
 }
