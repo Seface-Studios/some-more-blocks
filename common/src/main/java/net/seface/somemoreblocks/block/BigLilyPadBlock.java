@@ -4,9 +4,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.WaterlilyBlock;
@@ -22,8 +26,6 @@ import net.seface.somemoreblocks.registries.SMBBlockStateProperties;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.function.Function;
 
 public class BigLilyPadBlock extends WaterlilyBlock {
   protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
@@ -117,6 +119,32 @@ public class BigLilyPadBlock extends WaterlilyBlock {
     super.onRemove(state, level, pos, newState, bool);
   }
 
+  @Override
+  public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+    if (level.isClientSide) return super.playerWillDestroy(level, pos, state, player);
+
+    if (player.isCreative()) {
+      this.preventDropFromBottomLeftPart(level, pos, state, player);
+    }
+
+    return super.playerWillDestroy(level, pos, state, player);
+  }
+
+  protected void preventDropFromBottomLeftPart(Level level, BlockPos pos, BlockState state, Player player) {
+    QuadDirection position = state.getValue(POSITION);
+    if (position == QuadDirection.BOTTOM_LEFT) return;
+
+    BlockPos bottomLeftPos = this.getRelativeBottomLeftBlockPos(state, pos);
+    BlockState bottomLeft = level.getBlockState(bottomLeftPos);
+    level.setBlock(bottomLeftPos, Blocks.STONE.defaultBlockState(), 35);
+
+    if (bottomLeft.is(this) && bottomLeft.getValue(POSITION) == QuadDirection.BOTTOM_LEFT) {
+      BlockState newState = bottomLeft.getFluidState().is(Fluids.WATER) ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
+      level.setBlock(bottomLeftPos, newState, 35);
+      level.levelEvent(player, 2001, bottomLeftPos, Block.getId(bottomLeft));
+    }
+  }
+
   public static void placeAt(LevelAccessor level, Direction facing, BlockPos pos, int i) {
     BlockState bigLilyPad = SMBBlocks.BIG_LILY_PAD.get().defaultBlockState();
 
@@ -143,6 +171,18 @@ public class BigLilyPadBlock extends WaterlilyBlock {
       case TOP_LEFT -> pos.relative(facing.getOpposite());
       case TOP_RIGHT -> pos.relative(facing.getCounterClockWise());
       case BOTTOM_RIGHT -> pos.relative(facing);
+    };
+  }
+
+  private BlockPos getRelativeBottomLeftBlockPos(BlockState state, BlockPos pos) {
+    Direction facing = state.getValue(FACING);
+    QuadDirection position = state.getValue(POSITION);
+
+    return switch (position) {
+      case TOP_LEFT -> pos.relative(facing.getOpposite());
+      case TOP_RIGHT -> pos.relative(facing.getCounterClockWise()).relative(facing.getOpposite());
+      case BOTTOM_LEFT -> pos;
+      case BOTTOM_RIGHT -> pos.relative(facing.getCounterClockWise());
     };
   }
 
