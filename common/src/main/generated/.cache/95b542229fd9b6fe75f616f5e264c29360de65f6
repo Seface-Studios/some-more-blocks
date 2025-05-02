@@ -1,4 +1,4 @@
-// 1.21.4	2025-05-01T20:07:49.8822312	Some More Blocks/Forge Biome Modifier
+// 1.21.4	2025-05-01T20:32:56.8165076	Some More Blocks/Forge Biome Modifier
 368717b71a7cbca62d284f32e7da2390e30a7436 data\somemoreblocks\forge\biome_modifier\patch_cattail.json
 fe4ec0649c87bc5420c5334056eba750de40e8d8 data\somemoreblocks\forge\biome_modifier\simple_block_spruce_leaf_litter.json
 cca48f505b8577da1aba1cb11d747f1acfa94fe2 data\somemoreblocks\forge\biome_modifier\patch_snow_grass.json
@@ -9,6 +9,7 @@ bdcaf6074ccc0a07ab82d9155540760c7c930993 data\somemoreblocks\forge\biome_modifie
 1e4c2dbc385254b1c759c207dbd6292c59ebf6e4 data\somemoreblocks\forge\biome_modifier\patch_small_lily_pads_lush_caves.json
 0292ea0cadccb38653852c45b6c822faa89908ee data\somemoreblocks\forge\biome_modifier\patch_small_lily_pads.json
 57db081934ac0ee4fcf225154bd00d066408a6c2 data\somemoreblocks\forge\biome_modifier\simple_block_flowering_azalea_leaf_litter.json
+32278dd696b02de1457adec4c3d283a721eba822 data\somemoreblocks\forge\biome_modifier\patch_pale_rose_bush.json
 1e9729f788af68e5a64adc22ee85f01936eb62cd data\somemoreblocks\forge\biome_modifier\patch_dune_grass.json
 04267288adca7cccbc0eee482e8cf25596ccb929 data\somemoreblocks\forge\biome_modifier\simple_block_azalea_leaf_litter.json
 bb37a64a1cd0659e8983a885f332bd6849500d2e data\somemoreblocks\forge\biome_modifier\simple_block_pale_oak_leaf_litter.json

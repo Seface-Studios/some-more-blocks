@@ -9,9 +9,9 @@ import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 
 import java.util.List;
 
-public class BigLilyPadFeatureProvider extends EmptyFeatureProvider {
+public class NoneBigLilyPadFeatureProvider extends EmptyFeatureProvider {
 
-  public BigLilyPadFeatureProvider() {
+  public NoneBigLilyPadFeatureProvider() {
     super(SMBFeatures.NONE_BIG_LILY_FEATURE.get());
   }
 
@@ -25,7 +25,7 @@ public class BigLilyPadFeatureProvider extends EmptyFeatureProvider {
   }
 
   public static <T extends AbstractFeatureProvider<?>> T create() {
-    return new BigLilyPadFeatureProvider()
+    return new NoneBigLilyPadFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.NONE_BIG_LILY_PAD)
       .setConfiguredFeatureKey(SMBConfiguredFeature.NONE_BIG_LILY_PAD);
   }

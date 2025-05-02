@@ -30,6 +30,7 @@ public class SMBForgeBiomeModifierProvider extends ForgeModifierProvider {
       .setDecorationStep(GenerationStep.Decoration.UNDERGROUND_DECORATION)
       .setBiomes(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER).build();
 
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_PALE_ROSE_BUSH).setBiomes(Biomes.PALE_GARDEN).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_SMALL_LILY_PADS).setBiomes(SMBBiomeTags.GENERATES_SMALL_LILY_PADS).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES).setBiomes(Biomes.LUSH_CAVES).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_SNOW_GRASS).setBiomes(SMBBiomeTags.GENERATES_SNOW_GRASS).build();

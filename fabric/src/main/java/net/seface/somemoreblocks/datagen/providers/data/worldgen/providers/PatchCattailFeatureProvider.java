@@ -20,9 +20,9 @@ import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 import java.util.Arrays;
 import java.util.List;
 
-public class CattailFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchCattailFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
 
-  public CattailFeatureProvider() {
+  public PatchCattailFeatureProvider() {
     super(Feature.RANDOM_PATCH);
   }
 
@@ -79,7 +79,7 @@ public class CattailFeatureProvider extends AbstractFeatureProvider<RandomPatchC
   }
 
   public static <T extends AbstractFeatureProvider<?>> T create() {
-    return new CattailFeatureProvider()
+    return new PatchCattailFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_CATTAIL)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_CATTAIL);
   }

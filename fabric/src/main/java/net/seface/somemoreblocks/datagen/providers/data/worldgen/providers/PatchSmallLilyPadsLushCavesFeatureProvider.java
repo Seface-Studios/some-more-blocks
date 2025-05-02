@@ -3,17 +3,13 @@ package net.seface.somemoreblocks.datagen.providers.data.worldgen.providers;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.util.valueproviders.ConstantInt;
-import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
-import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.Fluids;
 import net.seface.somemoreblocks.registries.SMBBlocks;
@@ -22,9 +18,9 @@ import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 
 import java.util.List;
 
-public class SmallLilyPadsLushCavesFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchSmallLilyPadsLushCavesFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
 
-  public SmallLilyPadsLushCavesFeatureProvider() {
+  public PatchSmallLilyPadsLushCavesFeatureProvider() {
     super(Feature.RANDOM_PATCH);
   }
 
@@ -59,7 +55,7 @@ public class SmallLilyPadsLushCavesFeatureProvider extends AbstractFeatureProvid
   }
 
   public static <T extends AbstractFeatureProvider<?>> T create() {
-    return new SmallLilyPadsLushCavesFeatureProvider()
+    return new PatchSmallLilyPadsLushCavesFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES);
   }

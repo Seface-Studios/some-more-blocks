@@ -18,6 +18,7 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.patchDuneGrass();
     SMBBiomeModifiers.patchLargeSnowFern();
     SMBBiomeModifiers.patchLuminousFlower();
+    SMBBiomeModifiers.patchPaleRoseBush();
     SMBBiomeModifiers.patchSmallLilyPads();
     SMBBiomeModifiers.patchSmallLilyPadsLushCaves();
     SMBBiomeModifiers.patchSnowGrass();
@@ -34,6 +35,14 @@ public class SMBBiomeModifiers {
       (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_BIG_LILY_PAD).test(ctx),
       GenerationStep.Decoration.VEGETAL_DECORATION,
       SMBPlacedFeature.NONE_BIG_LILY_PAD
+    );
+  }
+
+  private static void patchPaleRoseBush() {
+    BiomeModifications.addFeature(
+      (ctx) -> ctx.getBiomeKey() == Biomes.PALE_GARDEN,
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_PALE_ROSE_BUSH
     );
   }
 
