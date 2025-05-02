@@ -110,6 +110,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropSelf(SMBBlocks.CHISELED_PURPUR.get());
     this.dropSelf(SMBBlocks.RED_NETHER_BRICKS_PILLAR.get());
     this.dropSelf(SMBBlocks.CHISELED_RED_NETHER_BRICKS.get());
+    this.dropSelf(SMBBlocks.POLISHED_BASALT_PILLAR.get());
     this.dropSelf(SMBBlocks.RED_SANDSTONE_PILLAR.get());
     this.dropSelf(SMBBlocks.REDSTONE_PILLAR.get());
     this.dropSelf(SMBBlocks.SANDSTONE_PILLAR.get());
@@ -295,6 +296,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
 
     /* More Natural Blocks */
     this.dropSelf(SMBBlocks.TINY_CACTUS.get());
+    this.dropSelf(SMBBlocks.TALL_CACTUS.get());
     this.dropWhenShears(SMBBlocks.DUNE_GRASS.get());
     this.dropWhenShearsDoublePlant(SMBBlocks.TALL_DUNE_GRASS.get(), SMBBlocks.DUNE_GRASS.get());
     this.dropWhenShears(SMBBlocks.SHORT_SNOW_GRASS.get());

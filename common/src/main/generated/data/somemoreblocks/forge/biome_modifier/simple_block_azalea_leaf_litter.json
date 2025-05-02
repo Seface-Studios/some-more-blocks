@@ -1,0 +1,6 @@
+{
+  "type": "somemoreblocks:simple_block_azalea_leaf_litter",
+  "biomes": "#minecraft:is_overworld",
+  "feature": "somemoreblocks:simple_block_azalea_leaf_litter",
+  "step": "vegetal_decoration"
+}

@@ -1,5 +1,6 @@
 package net.seface.somemoreblocks.platform.registry;
 
+import com.mojang.serialization.MapCodec;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.client.renderer.RenderType;

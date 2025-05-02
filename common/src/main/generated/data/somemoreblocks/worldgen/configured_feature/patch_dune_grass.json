@@ -6,10 +6,24 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "somemoreblocks:dune_grass"
-            }
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "somemoreblocks:dune_grass"
+                },
+                "weight": 6
+              },
+              {
+                "data": {
+                  "Name": "somemoreblocks:tall_dune_grass",
+                  "Properties": {
+                    "half": "lower"
+                  }
+                },
+                "weight": 2
+              }
+            ]
           }
         }
       },
@@ -23,8 +37,8 @@
         }
       ]
     },
-    "tries": 24,
-    "xz_spread": 1,
+    "tries": 32,
+    "xz_spread": 3,
     "y_spread": 3
   }
 }

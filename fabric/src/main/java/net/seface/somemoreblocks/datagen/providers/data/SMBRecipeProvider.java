@@ -288,9 +288,11 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CHISELED_RED_NETHER_BRICKS.get(), Blocks.RED_NETHER_BRICK_SLAB, 1);
         this.smeltingResultFromBase(SMBBlocks.CRACKED_RED_NETHER_BRICKS.get(), Blocks.RED_NETHER_BRICKS);
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.RED_NETHER_BRICKS_PILLAR.get(), Blocks.RED_NETHER_BRICKS, 2);
+        this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.POLISHED_BASALT_PILLAR.get(), SMBBlocks.POLISHED_BASALT_BRICKS.get(), 2);
+        this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.POLISHED_BASALT_TILES.get(), SMBBlocks.POLISHED_BASALT_BRICKS.get(), 4);
+        this.corruptedBlock(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICKS.get(), SMBBlocks.POLISHED_BASALT_BRICKS.get());
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.POLISHED_BLACKSTONE_PILLAR.get(), Blocks.POLISHED_BLACKSTONE_BRICKS, 2);
         this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.POLISHED_BLACKSTONE_TILES.get(), Blocks.POLISHED_BLACKSTONE_BRICKS, 4);
-        this.corruptedBlock(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICKS.get(), SMBBlocks.POLISHED_BASALT_BRICKS.get());
         this.corruptedBlock(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get(), Blocks.POLISHED_BLACKSTONE_BRICKS);
         this.smeltingResultFromBase(SMBBlocks.SMOOTH_BLACKSTONE.get(), Blocks.BLACKSTONE);
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CHISELED_END_STONE_BRICKS.get(), Blocks.END_STONE_BRICK_SLAB, 1);

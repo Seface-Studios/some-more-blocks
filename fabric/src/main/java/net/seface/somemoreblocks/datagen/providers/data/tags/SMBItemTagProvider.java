@@ -90,7 +90,9 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.SOUL_SANDSTONE_BRICK_SLAB.get().asItem(), SMBBlocks.SOUL_SANDSTONE_TILE_SLAB.get().asItem(),
         SMBBlocks.MOSSY_BRICK_SLAB.get().asItem(), SMBBlocks.BONE_BRICK_SLAB.get().asItem(),
         SMBBlocks.BONE_TILE_SLAB.get().asItem(), SMBBlocks.POLISHED_RESIN_SLAB.get().asItem(),
-        SMBBlocks.RESIN_TILE_SLAB.get().asItem(), SMBBlocks.SMOOTH_RESIN_SLAB.get().asItem()
+        SMBBlocks.RESIN_TILE_SLAB.get().asItem(), SMBBlocks.SMOOTH_RESIN_SLAB.get().asItem(),
+        SMBBlocks.POLISHED_BASALT_BRICK_SLAB.get().asItem(), SMBBlocks.POLISHED_BASALT_TILE_SLAB.get().asItem(),
+        SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_SLAB.get().asItem()
       );
 
     getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS).setReplace(false).add(SMBBlocks.LUMINOUS_FLOWER.get().asItem());
@@ -128,7 +130,9 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS.get().asItem(), SMBBlocks.SOUL_SANDSTONE_BRICK_STAIRS.get().asItem(),
         SMBBlocks.SOUL_SANDSTONE_TILE_STAIRS.get().asItem(), SMBBlocks.MOSSY_BRICK_STAIRS.get().asItem(),
         SMBBlocks.BONE_BRICK_STAIRS.get().asItem(), SMBBlocks.BONE_TILE_STAIRS.get().asItem(),
-        SMBBlocks.POLISHED_RESIN_STAIRS.get().asItem(), SMBBlocks.RESIN_TILE_STAIRS.get().asItem()
+        SMBBlocks.POLISHED_RESIN_STAIRS.get().asItem(), SMBBlocks.RESIN_TILE_STAIRS.get().asItem(),
+        SMBBlocks.POLISHED_BASALT_BRICK_STAIRS.get().asItem(), SMBBlocks.POLISHED_BASALT_TILE_STAIRS.get().asItem(),
+        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get().asItem()
       );
 
     getOrCreateTagBuilder(ItemTags.WALLS).setReplace(false)
@@ -155,7 +159,9 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.PURPUR_TILE_WALL.get().asItem(), SMBBlocks.SOUL_SANDSTONE_WALL.get().asItem(),
         SMBBlocks.SOUL_SANDSTONE_BRICK_WALL.get().asItem(), SMBBlocks.SOUL_SANDSTONE_TILE_WALL.get().asItem(),
         SMBBlocks.MOSSY_BRICK_WALL.get().asItem(), SMBBlocks.BONE_BRICK_WALL.get().asItem(),
-        SMBBlocks.BONE_TILE_WALL.get().asItem(), SMBBlocks.RESIN_TILE_WALL.get().asItem()
+        SMBBlocks.BONE_TILE_WALL.get().asItem(), SMBBlocks.RESIN_TILE_WALL.get().asItem(),
+        SMBBlocks.POLISHED_BASALT_BRICK_WALL.get().asItem(), SMBBlocks.POLISHED_BASALT_TILE_WALL.get().asItem(),
+        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_WALL.get().asItem()
       );
 
     getOrCreateTagBuilder(ItemTags.WARPED_STEMS).setReplace(false)

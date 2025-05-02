@@ -373,6 +373,23 @@
     "somemoreblocks:resin_tile_slab",
     "somemoreblocks:resin_tile_wall",
     "somemoreblocks:smooth_resin",
-    "somemoreblocks:smooth_resin_slab"
+    "somemoreblocks:smooth_resin_slab",
+    "somemoreblocks:polished_basalt_bricks",
+    "somemoreblocks:cracked_polished_basalt_bricks",
+    "somemoreblocks:polished_basalt_brick_stairs",
+    "somemoreblocks:polished_basalt_brick_slab",
+    "somemoreblocks:polished_basalt_brick_wall",
+    "somemoreblocks:chiseled_polished_basalt_bricks",
+    "somemoreblocks:polished_basalt_pillar",
+    "somemoreblocks:polished_basalt_tiles",
+    "somemoreblocks:cracked_polished_basalt_tiles",
+    "somemoreblocks:polished_basalt_tile_stairs",
+    "somemoreblocks:polished_basalt_tile_slab",
+    "somemoreblocks:polished_basalt_tile_wall",
+    "somemoreblocks:corrupted_polished_basalt_bricks",
+    "somemoreblocks:corrupted_polished_basalt_brick_stairs",
+    "somemoreblocks:corrupted_polished_basalt_brick_slab",
+    "somemoreblocks:corrupted_polished_basalt_brick_wall",
+    "somemoreblocks:redstone_sea_lantern"
   ]
 }

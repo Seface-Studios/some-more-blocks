@@ -7,13 +7,13 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.seface.somemoreblocks.datagen.providers.data.worldgen.providers.*;
 import net.seface.somemoreblocks.registries.SMBBlocks;
-import net.seface.somemoreblocks.registries.SMBFeatures;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 
@@ -36,72 +36,83 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
   }
 
   public static void bootstrapF(BootstrapContext<PlacedFeature> context) {
-    CattailFeatureProvider.create().registerPlaceFeature(context);
-    SmallLilyPadsFeatureProvider.create().registerPlaceFeature(context);
-    LuminousFlowerFeatureProvider.create().registerPlaceFeature(context);
-    TinyCactusFeatureProvider.create().registerPlaceFeature(context);
     BigLilyPadFeatureProvider.create().registerPlaceFeature(context);
-    patchDuneGrass().registerPlaceFeature(context);
-    patchTallDuneGrass().registerPlaceFeature(context);
-    patchShortSnowGrass().registerPlaceFeature(context);
-    patchTallSnowGrass().registerPlaceFeature(context);
-    patchSnowFern().registerPlaceFeature(context);
-    patchLargeSnowFern().registerPlaceFeature(context);
-    noneLeafLitter().registerPlaceFeature(context);
+    CattailFeatureProvider.create().registerPlaceFeature(context);
+    DunePlantsFeatureProvider.create().registerPlaceFeature(context);
+    LargeSnowFernFeatureProvider.create().registerPlaceFeature(context);
+    LuminousFlowerFeatureProvider.create().registerPlaceFeature(context);
+    PatchCactusFeatureProvider.create().registerPlaceFeature(context);
+    SMBFeatureProvider.azaleaLeafLitter().registerPlaceFeature(context);
+    SMBFeatureProvider.birchLeafLitter().registerPlaceFeature(context);
+    SMBFeatureProvider.floweringAzaleaLeafLitter().registerPlaceFeature(context);
+    SMBFeatureProvider.leafLitter().registerPlaceFeature(context);
+    SMBFeatureProvider.paleOakLeafLitter().registerPlaceFeature(context);
+    SMBFeatureProvider.spruceLeafLitter().registerPlaceFeature(context);
+    SmallLilyPadsFeatureProvider.create().registerPlaceFeature(context);
+    SmallLilyPadsLushCavesFeatureProvider.create().registerPlaceFeature(context);
+    SnowPlantsFeatureProvider.create().registerPlaceFeature(context);
   }
 
   public static void bootstrapCF(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-    CattailFeatureProvider.create().registerConfiguredFeature(context);
-    SmallLilyPadsFeatureProvider.create().registerConfiguredFeature(context);
-    LuminousFlowerFeatureProvider.create().registerConfiguredFeature(context);
-    TinyCactusFeatureProvider.create().registerConfiguredFeature(context);
     BigLilyPadFeatureProvider.create().registerConfiguredFeature(context);
-    patchDuneGrass().registerConfiguredFeature(context);
-    patchTallDuneGrass().registerConfiguredFeature(context);
-    patchShortSnowGrass().registerConfiguredFeature(context);
-    patchTallSnowGrass().registerConfiguredFeature(context);
-    patchSnowFern().registerConfiguredFeature(context);
-    patchLargeSnowFern().registerConfiguredFeature(context);
-    noneLeafLitter().registerConfiguredFeature(context);
+    CattailFeatureProvider.create().registerConfiguredFeature(context);
+    DunePlantsFeatureProvider.create().registerConfiguredFeature(context);
+    LargeSnowFernFeatureProvider.create().registerConfiguredFeature(context);
+    LuminousFlowerFeatureProvider.create().registerConfiguredFeature(context);
+    PatchCactusFeatureProvider.create().registerConfiguredFeature(context);
+    SMBFeatureProvider.azaleaLeafLitter().registerConfiguredFeature(context);
+    SMBFeatureProvider.birchLeafLitter().registerConfiguredFeature(context);
+    SMBFeatureProvider.floweringAzaleaLeafLitter().registerConfiguredFeature(context);
+    SMBFeatureProvider.leafLitter().registerConfiguredFeature(context);
+    SMBFeatureProvider.paleOakLeafLitter().registerConfiguredFeature(context);
+    SMBFeatureProvider.spruceLeafLitter().registerConfiguredFeature(context);
+    SmallLilyPadsFeatureProvider.create().registerConfiguredFeature(context);
+    SmallLilyPadsLushCavesFeatureProvider.create().registerConfiguredFeature(context);
+    SnowPlantsFeatureProvider.create().registerConfiguredFeature(context);
   }
 
-  private static GenericSmallPlantFeatureProvider patchDuneGrass() {
-    return smallPlantProvider(SMBBlocks.DUNE_GRASS.get(), SMBPlacedFeature.PATCH_DUNE_GRASS, SMBConfiguredFeature.PATCH_DUNE_GRASS);
+  private static LeafLitterFeatureProvider leafLitter() {
+    return simpleLeafLitter(SMBBlocks.LEAF_LITTER.get(), SMBPlacedFeature.SIMPLE_BLOCK_LEAF_LITTER, SMBConfiguredFeature.SIMPLE_BLOCK_LEAF_LITTER)
+      .addParent(Blocks.ACACIA_LEAVES)
+      .addParent(Blocks.DARK_OAK_LEAVES)
+      .addParent(Blocks.JUNGLE_LEAVES)
+      .addParent(Blocks.MANGROVE_LEAVES)
+      .addParent(Blocks.OAK_LEAVES)
+      .setChance(12.5F);
   }
 
-  private static GenericSmallPlantFeatureProvider patchShortSnowGrass() {
-    return smallPlantProvider(SMBBlocks.SHORT_SNOW_GRASS.get(), SMBPlacedFeature.PATCH_SHORT_SNOW_GRASS, SMBConfiguredFeature.PATCH_SHORT_SNOW_GRASS);
+  private static LeafLitterFeatureProvider birchLeafLitter() {
+    return simpleLeafLitter(SMBBlocks.BIRCH_LEAF_LITTER.get(), SMBPlacedFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER, SMBConfiguredFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER)
+      .addParent(Blocks.BIRCH_LEAVES)
+      .setChance(12.5F);
   }
 
-  private static GenericSmallPlantFeatureProvider patchSnowFern() {
-    return smallPlantProvider(SMBBlocks.SNOW_FERN.get(), SMBPlacedFeature.PATCH_SNOW_FERN, SMBConfiguredFeature.PATCH_SNOW_FERN);
+  private static LeafLitterFeatureProvider spruceLeafLitter() {
+    return simpleLeafLitter(SMBBlocks.SPRUCE_LEAF_LITTER.get(), SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER, SMBConfiguredFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER)
+      .addParent(Blocks.SPRUCE_LEAVES)
+      .setChance(12.5F);
   }
 
-  private static GenericTallPlantFeatureProvider patchTallDuneGrass() {
-    return tallPlantProvider(SMBBlocks.TALL_DUNE_GRASS.get(), SMBPlacedFeature.PATCH_TALL_DUNE_GRASS, SMBConfiguredFeature.PATCH_TALL_DUNE_GRASS);
+  private static LeafLitterFeatureProvider azaleaLeafLitter() {
+    return simpleLeafLitter(SMBBlocks.AZALEA_LEAF_LITTER.get(), SMBPlacedFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER, SMBConfiguredFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER)
+      .addParent(Blocks.AZALEA_LEAVES)
+      .setChance(15.0F);
   }
 
-  private static GenericTallPlantFeatureProvider patchTallSnowGrass() {
-    return tallPlantProvider(SMBBlocks.TALL_SNOW_GRASS.get(), SMBPlacedFeature.PATCH_TALL_SNOW_GRASS, SMBConfiguredFeature.PATCH_TALL_SNOW_GRASS);
+  private static LeafLitterFeatureProvider floweringAzaleaLeafLitter() {
+    return simpleLeafLitter(SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get(), SMBPlacedFeature.SIMPLE_BLOCK_FLOWERING_AZALEA_LEAF_LITTER, SMBConfiguredFeature.SIMPLE_BLOCK_FLOWERING_AZALEA_LEAF_LITTER)
+      .addParent(Blocks.FLOWERING_AZALEA_LEAVES)
+      .addParent(Blocks.AZALEA_LEAVES)
+      .setChance(10.0F);
   }
 
-  private static GenericTallPlantFeatureProvider patchLargeSnowFern() {
-    return tallPlantProvider(SMBBlocks.LARGE_SNOW_FERN.get(), SMBPlacedFeature.PATCH_LARGE_SNOW_FERN, SMBConfiguredFeature.PATCH_LARGE_SNOW_FERN);
+  private static LeafLitterFeatureProvider paleOakLeafLitter() {
+    return simpleLeafLitter(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), SMBPlacedFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER, SMBConfiguredFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER)
+      .addParent(Blocks.PALE_OAK_LEAVES)
+      .setChance(12.5F);
   }
 
-  private static EmptyFeatureProvider noneLeafLitter() {
-    return emptyProvider(SMBFeatures.NONE_LEAF_LITTER_FEATURE.get(), SMBPlacedFeature.NONE_LEAF_LITTER, SMBConfiguredFeature.NONE_LEAF_LITTER);
-  }
-
-  private static GenericSmallPlantFeatureProvider smallPlantProvider(Block block, ResourceKey<PlacedFeature> placedFeature, ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
-    return new GenericSmallPlantFeatureProvider(block).setPlacedFeatureKey(placedFeature).setConfiguredFeatureKey(configuredFeature);
-  }
-
-  private static GenericTallPlantFeatureProvider tallPlantProvider(Block block, ResourceKey<PlacedFeature> placedFeature, ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
-    return new GenericTallPlantFeatureProvider(block).setPlacedFeatureKey(placedFeature).setConfiguredFeatureKey(configuredFeature);
-  }
-
-  private static EmptyFeatureProvider emptyProvider(Feature<NoneFeatureConfiguration> feature, ResourceKey<PlacedFeature> placedFeature, ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
-    return new EmptyFeatureProvider(feature).setPlacedFeatureKey(placedFeature).setConfiguredFeatureKey(configuredFeature);
+  private static LeafLitterFeatureProvider simpleLeafLitter(Block block, ResourceKey<PlacedFeature> placedFeature, ResourceKey<ConfiguredFeature<?, ?>> configuredFeature) {
+    return new LeafLitterFeatureProvider(block).setPlacedFeatureKey(placedFeature).setConfiguredFeatureKey(configuredFeature);
   }
 }

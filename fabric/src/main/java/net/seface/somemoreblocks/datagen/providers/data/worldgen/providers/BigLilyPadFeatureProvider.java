@@ -18,7 +18,7 @@ public class BigLilyPadFeatureProvider extends EmptyFeatureProvider {
   @Override
   protected void placed(List<PlacementModifier> modifier) {
     modifier.add(CountPlacement.of(1));
-    modifier.add(RarityFilter.onAverageOnceEvery(5));
+    modifier.add(RarityFilter.onAverageOnceEvery(3));
     modifier.add(InSquarePlacement.spread());
     modifier.add(HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG));
     modifier.add(BiomeFilter.biome());

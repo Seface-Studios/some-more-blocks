@@ -1,0 +1,15 @@
+{
+  "type": "somemoreblocks:simple_block_leaf_litter",
+  "config": {
+    "chance": 15.0,
+    "parents": [
+      "minecraft:azalea_leaves"
+    ],
+    "to_place": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "somemoreblocks:azalea_leaf_litter"
+      }
+    }
+  }
+}

@@ -15,7 +15,7 @@ public record PatchLuminousFlowerBiomeModifier(HolderSet<Biome> biomes, Holder<P
   @Override
   public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
     if (phase == Phase.ADD && biomes.contains(biome)) {
-      builder.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, feature);
+      builder.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, feature);
     }
   }
 

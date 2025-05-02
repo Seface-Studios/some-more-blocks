@@ -3,6 +3,7 @@ package net.seface.somemoreblocks.datagen.providers.data.worldgen.providers;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -27,43 +28,53 @@ public class CattailFeatureProvider extends AbstractFeatureProvider<RandomPatchC
 
   @Override
   protected void placed(List<PlacementModifier> modifier) {
-    modifier.add(CountPlacement.of(5));
+    modifier.add(RarityFilter.onAverageOnceEvery(5));
+    modifier.add(CountPlacement.of(1));
     modifier.add(InSquarePlacement.spread());
-    modifier.add(HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG));
+    modifier.add(HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING));
     modifier.add(BiomeFilter.biome());
   }
 
   @Override
   protected RandomPatchConfiguration configuration() {
-    return new RandomPatchConfiguration(32, 2, 2,
+    return new RandomPatchConfiguration(64, 7, 3,
       PlacementUtils.filtered(
         Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(SimpleStateProvider.simple(SMBBlocks.CATTAIL.get())),
-        BlockPredicate.anyOf(this.getFluidOrCattailPredicate(), this.getCattailPredicate())
+        BlockPredicate.anyOf(
+          this.canSpawnOnRiverBorder()/*, this.canSpawnOnWaterButNearRiverBorder()*/
+        )
       )
     );
   }
 
-  private BlockPredicate getFluidOrCattailPredicate() {
+  private BlockPredicate canSpawnOnRiverBorder() {
     return BlockPredicate.anyOf(
       Arrays.stream(Direction.values())
         .filter(direction -> direction != Direction.UP && direction != Direction.DOWN)
-        .map(direction -> BlockPredicate.anyOf(
-          BlockPredicate.matchesFluids(direction.getUnitVec3i(), Fluids.WATER, Fluids.FLOWING_WATER),
-          BlockPredicate.matchesBlocks(direction.getUnitVec3i(), SMBBlocks.CATTAIL.get()),
-          BlockPredicate.matchesBlocks(new Vec3i(direction.getUnitVec3i().getX(), 0, direction.getUnitVec3i().getZ()), SMBBlocks.CATTAIL.get())
-        ))
+        .map(direction ->
+          BlockPredicate.allOf(
+            BlockPredicate.ONLY_IN_AIR_PREDICATE,
+            BlockPredicate.matchesTag(Vec3i.ZERO.below(),SMBBlockTags.CATTAIL_PLACEABLE),
+            BlockPredicate.anyOf(
+              BlockPredicate.matchesFluids(Vec3i.ZERO.below().relative(direction), Fluids.WATER)
+            )
+          ))
         .toArray(BlockPredicate[]::new));
   }
 
-  private BlockPredicate getCattailPredicate() {
+  private BlockPredicate canSpawnOnWaterButNearRiverBorder() {
     return BlockPredicate.allOf(
       BlockPredicate.matchesFluids(Vec3i.ZERO, Fluids.WATER),
-      BlockPredicate.matchesTag(Vec3i.ZERO.below(), SMBBlockTags.CATTAIL_PLACEABLE),
+      BlockPredicate.matchesBlocks(Vec3i.ZERO.above(), Blocks.AIR),
+      BlockPredicate.matchesTag(Vec3i.ZERO.below(),SMBBlockTags.CATTAIL_PLACEABLE),
+
       BlockPredicate.anyOf(
         Arrays.stream(Direction.values())
           .filter(dir -> dir != Direction.UP && dir != Direction.DOWN)
-          .map(dir -> BlockPredicate.matchesTag(dir.getUnitVec3i(), SMBBlockTags.CATTAIL_PLACEABLE))
+          .map(dir ->
+            BlockPredicate.not(BlockPredicate.matchesFluids(dir.getUnitVec3i(), Fluids.WATER))
+          )
           .toArray(BlockPredicate[]::new)));
   }
 

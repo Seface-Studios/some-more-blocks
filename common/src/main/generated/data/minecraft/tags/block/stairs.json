@@ -57,6 +57,9 @@
     "somemoreblocks:bone_brick_stairs",
     "somemoreblocks:bone_tile_stairs",
     "somemoreblocks:polished_resin_stairs",
-    "somemoreblocks:resin_tile_stairs"
+    "somemoreblocks:resin_tile_stairs",
+    "somemoreblocks:polished_basalt_brick_stairs",
+    "somemoreblocks:polished_basalt_tile_stairs",
+    "somemoreblocks:corrupted_polished_basalt_brick_stairs"
   ]
 }

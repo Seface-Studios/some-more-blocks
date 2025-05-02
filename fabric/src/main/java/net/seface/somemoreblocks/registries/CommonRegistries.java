@@ -14,6 +14,7 @@ public class CommonRegistries {
 
   private static void registerPathNodeTypes() {
     LandPathNodeTypesRegistry.register(SMBBlocks.TINY_CACTUS.get(), (state, neighbor) -> PathType.DAMAGE_OTHER);
+    LandPathNodeTypesRegistry.register(SMBBlocks.TALL_CACTUS.get(), (state, neighbor) -> PathType.DAMAGE_OTHER);
   }
 
  /**

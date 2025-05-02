@@ -1,13 +1,18 @@
 package net.seface.somemoreblocks.datagen.providers.data.forge;
 
 import com.google.gson.JsonObject;
+import com.mojang.datafixers.util.Either;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,10 +60,12 @@ public abstract class ForgeModifierProvider implements DataProvider {
   }
 
   private String getBiomesFieldValue(ForgeBiomeModifier modifier) {
-    if (modifier.getBiomes().orThrow() instanceof TagKey<Biome>) {
-      return "#" + modifier.getBiomes().left().orElseThrow().location();
+    Either<TagKey<Biome>, ResourceKey<Biome>> biomes = modifier.getBiomes();
+
+    if (biomes.left().isPresent()) {
+      return "#" + biomes.left().orElseThrow().location();
     }
 
-    return modifier.getBiomes().right().orElseThrow().location().toString();
+    return biomes.right().orElseThrow().location().toString();
   }
 }

@@ -4,8 +4,6 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -14,82 +12,96 @@ import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 
 public class SMBBiomeModifiers {
   public static void init() {
-    registerDuneGrassDecoration(SMBPlacedFeature.PATCH_DUNE_GRASS);
-    registerDuneGrassDecoration(SMBPlacedFeature.PATCH_TALL_DUNE_GRASS);
-    registerLeafLitterDecoration(SMBPlacedFeature.NONE_LEAF_LITTER);
-    registerTinyCactusDecoration(SMBPlacedFeature.NONE_BIG_LILY_PAD);
-    registerUndergroundDecoration(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER, SMBPlacedFeature.PATCH_LUMINOUS_FLOWER);
-    registerVegetalDecoration(SMBBiomeTags.GENERATES_CATTAIL, SMBPlacedFeature.PATCH_CATTAIL);
-    registerVegetalDecoration(SMBBiomeTags.GENERATES_SNOW_PLANTS, SMBPlacedFeature.PATCH_SHORT_SNOW_GRASS);
-    registerVegetalDecoration(SMBBiomeTags.GENERATES_SNOW_PLANTS, SMBPlacedFeature.PATCH_SNOW_FERN);
-    registerVegetalDecoration(SMBBiomeTags.GENERATES_SNOW_PLANTS, SMBPlacedFeature.PATCH_TALL_SNOW_GRASS);
-    registerVegetalDecoration(SMBBiomeTags.GENERATES_SNOW_PLANTS, SMBPlacedFeature.PATCH_LARGE_SNOW_FERN);
-    registerVegetalDecoration(SMBBiomeTags.GENERATES_SMALL_LILY_PADS, SMBPlacedFeature.PATCH_SMALL_LILY_PADS);
-    registerVegetalDecoration(SMBBiomeTags.GENERATES_SMALL_LILY_PADS, SMBPlacedFeature.NONE_BIG_LILY_PAD);
+    SMBBiomeModifiers.noneBigLilyPad();
+    SMBBiomeModifiers.patchCactusPlants();
+    SMBBiomeModifiers.patchCattail();
+    SMBBiomeModifiers.patchDuneGrass();
+    SMBBiomeModifiers.patchLargeSnowFern();
+    SMBBiomeModifiers.patchLuminousFlower();
+    SMBBiomeModifiers.patchSmallLilyPads();
+    SMBBiomeModifiers.patchSmallLilyPadsLushCaves();
+    SMBBiomeModifiers.patchSnowGrass();
+    SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER);
+    SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER);
+    SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_FLOWERING_AZALEA_LEAF_LITTER);
+    SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_LEAF_LITTER);
+    SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER);
+    SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER);
   }
 
-  /**
-   * Register a generic vegetal decoration.
-   * @param biomeTag The available biomes.
-   * @param feature The feature.
-   */
-  private static void registerVegetalDecoration(TagKey<Biome> biomeTag, ResourceKey<PlacedFeature> feature) {
-    registerDecoration(biomeTag, GenerationStep.Decoration.VEGETAL_DECORATION, feature);
-  }
-
-  /**
-   * Register a generic underground decoration.
-   * @param biomeTag The available biomes.
-   * @param feature The feature.
-   */
-  private static void registerUndergroundDecoration(TagKey<Biome> biomeTag, ResourceKey<PlacedFeature> feature) {
-    registerDecoration(biomeTag, GenerationStep.Decoration.UNDERGROUND_DECORATION, feature);
-  }
-
-  /**
-   * Register a generic decoration.
-   * @param biomeTag The available biomes.
-   * @param step The decoration step.
-   * @param feature The feature.
-   */
-  private static void registerDecoration(TagKey<Biome> biomeTag, GenerationStep.Decoration step, ResourceKey<PlacedFeature> feature) {
+  private static void noneBigLilyPad() {
     BiomeModifications.addFeature(
-      (ctx) -> BiomeSelectors.tag(biomeTag).test(ctx), step, feature
-    );
-  }
-
-  /**
-   * Register a vegetal decoration for Tiny Cactus.
-   * @param feature The Tiny Cactus feature.
-   */
-  private static void registerTinyCactusDecoration(ResourceKey<PlacedFeature> feature) {
-    BiomeModifications.addFeature(
-      (ctx) ->
-        BiomeSelectors.tag(SMBBiomeTags.GENERATES_TINY_CACTUS).test(ctx) &&
-        !BiomeSelectors.includeByKey(Biomes.PALE_GARDEN).test(ctx) &&
-        ctx.getBiome().getBaseTemperature() >= 0.3F,
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_BIG_LILY_PAD).test(ctx),
       GenerationStep.Decoration.VEGETAL_DECORATION,
-      feature
+      SMBPlacedFeature.NONE_BIG_LILY_PAD
     );
   }
 
-  /**
-   * Register a vegetal decoration for Dune Grass.
-   * @param feature The Dune Grass feature.
-   */
-  private static void registerDuneGrassDecoration(ResourceKey<PlacedFeature> feature) {
+  private static void patchCactusPlants() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_CACTUS_PLANTS).test(ctx) && ctx.getBiome().getBaseTemperature() >= 0.3F,
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_CACTUS_PLANTS
+    );
+  }
+
+  private static void patchCattail() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_CATTAIL).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_CATTAIL
+    );
+  }
+
+  private static void patchDuneGrass() {
     BiomeModifications.addFeature(
       (ctx) -> BiomeSelectors.tag(BiomeTags.IS_BEACH).test(ctx) && ctx.getBiome().getBaseTemperature() >= 0.5F,
       GenerationStep.Decoration.VEGETAL_DECORATION,
-      feature
+      SMBPlacedFeature.PATCH_DUNE_GRASS
     );
   }
 
-  /**
-   * Register a vegetal decoration for Leaf Litter.
-   * @param feature The Leaf Litter feature.
-   */
-  private static void registerLeafLitterDecoration(ResourceKey<PlacedFeature> feature) {
+  private static void patchLuminousFlower() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_LUMINOUS_FLOWER
+    );
+  }
+
+  private static void patchSmallLilyPads() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_SMALL_LILY_PADS).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_SMALL_LILY_PADS
+    );
+  }
+
+  private static void patchSmallLilyPadsLushCaves() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.includeByKey(Biomes.LUSH_CAVES).test(ctx),
+      GenerationStep.Decoration.UNDERGROUND_DECORATION,
+      SMBPlacedFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES
+    );
+  }
+
+  private static void patchSnowGrass() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_SNOW_GRASS).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_SNOW_GRASS
+    );
+  }
+
+  private static void patchLargeSnowFern() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_LARGE_SNOW_FERN).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_LARGE_SNOW_FERN
+    );
+  }
+
+  private static void simpleLeafLitter(ResourceKey<PlacedFeature> feature) {
     BiomeModifications.addFeature(
       (ctx) -> BiomeSelectors.tag(BiomeTags.IS_OVERWORLD).test(ctx),
       GenerationStep.Decoration.VEGETAL_DECORATION,

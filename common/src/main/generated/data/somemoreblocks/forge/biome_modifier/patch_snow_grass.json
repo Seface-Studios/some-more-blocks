@@ -1,0 +1,6 @@
+{
+  "type": "somemoreblocks:patch_snow_grass",
+  "biomes": "#somemoreblocks:generates_snow_grass",
+  "feature": "somemoreblocks:patch_snow_grass",
+  "step": "vegetal_decoration"
+}

@@ -19,14 +19,15 @@ public class SMBBiomeTagProvider extends FabricTagProvider<Biome> {
   @Override
   protected void addTags(HolderLookup.Provider provider) {
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CATTAIL).add(Biomes.RIVER, Biomes.SWAMP);
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER).forceAddTag(BiomeTags.IS_OVERWORLD);
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER).add(Biomes.LUSH_CAVES);
+
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SMALL_LILY_PADS)
       .add(Biomes.LUSH_CAVES, Biomes.MANGROVE_SWAMP, Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE);
 
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_BIG_LILY_PAD)
       .add(Biomes.MANGROVE_SWAMP, Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE);
 
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_TINY_CACTUS)
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CACTUS_PLANTS)
       .forceAddTag(BiomeTags.IS_BADLANDS)
       .add(Biomes.DESERT);
 
@@ -35,6 +36,7 @@ public class SMBBiomeTagProvider extends FabricTagProvider<Biome> {
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY).add(Biomes.CRIMSON_FOREST);
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).add(Biomes.WARPED_FOREST);
 
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SNOW_PLANTS).add(Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA);
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SNOW_GRASS).add(Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA);
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_LARGE_SNOW_FERN).add(Biomes.SNOWY_TAIGA);
   }
 }

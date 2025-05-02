@@ -26,23 +26,17 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
+@Setter
 @Getter
 @SuppressWarnings("deprecation")
 public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
   public static final MapCodec<LeafLitterBlock> CODEC = simpleCodec(LeafLitterBlock::new);
   protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
 
-  @Setter
   private Item bucketItem;
-  private final float chance;
 
   public LeafLitterBlock(Properties properties) {
-    this(properties, 25.0F);
-  }
-
-  public LeafLitterBlock(Properties properties, float chance) {
     super(properties);
-    this.chance = chance;
   }
 
   @NotNull

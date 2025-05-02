@@ -8,10 +8,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.*;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
@@ -27,14 +24,15 @@ public class LuminousFlowerFeatureProvider extends AbstractFeatureProvider<Rando
 
   @Override
   protected void placed(List<PlacementModifier> modifier) {
-    modifier.add(CountPlacement.of(8));
+    modifier.add(CountPlacement.of(4));
     modifier.add(InSquarePlacement.spread());
-    modifier.add(HeightRangePlacement.uniform(VerticalAnchor.absolute(-32), VerticalAnchor.absolute(50)));
+    modifier.add(HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.absolute(52)));
+    modifier.add(BiomeFilter.biome());
   }
 
   @Override
   protected RandomPatchConfiguration configuration() {
-    return new RandomPatchConfiguration(23, 7, 3,
+    return new RandomPatchConfiguration(24, 3, 3,
       PlacementUtils.filtered(
         Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(SimpleStateProvider.simple(SMBBlocks.LUMINOUS_FLOWER.get())),

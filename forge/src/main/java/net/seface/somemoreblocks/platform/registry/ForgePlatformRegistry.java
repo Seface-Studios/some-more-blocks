@@ -18,7 +18,6 @@ import net.minecraftforge.registries.RegistryObject;
 import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.item.FuelBlockItem;
-import net.seface.somemoreblocks.registries.SMBBlocks;
 
 import java.util.Map;
 import java.util.function.Supplier;

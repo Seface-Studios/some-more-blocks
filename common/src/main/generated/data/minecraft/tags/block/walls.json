@@ -45,6 +45,9 @@
     "somemoreblocks:mossy_brick_wall",
     "somemoreblocks:bone_brick_wall",
     "somemoreblocks:bone_tile_wall",
-    "somemoreblocks:resin_tile_wall"
+    "somemoreblocks:resin_tile_wall",
+    "somemoreblocks:polished_basalt_brick_wall",
+    "somemoreblocks:polished_basalt_tile_wall",
+    "somemoreblocks:corrupted_polished_basalt_brick_wall"
   ]
 }
