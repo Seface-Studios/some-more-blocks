@@ -39,6 +39,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
     this.getOrCreateTagBuilder(SMBBlockTags.MUSHROOM_COLONY_PLACEABLE)
       .forceAddTag(BlockTags.DIRT)
       .forceAddTag(BlockTags.LOGS)
+      .add(Blocks.MUSHROOM_STEM)
       .add(
         Blocks.MANGROVE_ROOTS, Blocks.MUDDY_MANGROVE_ROOTS,
         Blocks.CRIMSON_NYLIUM, Blocks.WARPED_NYLIUM);
@@ -603,5 +604,15 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
 
     this.getOrCreateTagBuilder(SMBBlockTags.BIG_LILY_PAD_REPLACEABLE)
       .add(Blocks.LILY_PAD, Blocks.MOSS_CARPET, SMBBlocks.SMALL_LILY_PADS.get());
+
+    this.getOrCreateTagBuilder(SMBBlockTags.MUSHROOM_COLONIES)
+      .add(
+        SMBBlocks.BROWN_MUSHROOM_COLONY.get(), SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), SMBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(),
+        SMBBlocks.RED_MUSHROOM_COLONY.get(), SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), SMBBlocks.RED_MUSHROOM_COLONY_WALL.get());
+
+    this.getOrCreateTagBuilder(SMBBlockTags.FUNGUS_COLONIES)
+      .add(
+        SMBBlocks.WARPED_FUNGUS_COLONY.get(), SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), SMBBlocks.WARPED_FUNGUS_COLONY.get(),
+        SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), SMBBlocks.CRIMSON_FUNGUS_COLONY.get());
   }
 }

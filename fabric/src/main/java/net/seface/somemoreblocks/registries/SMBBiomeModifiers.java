@@ -22,12 +22,16 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.patchSmallLilyPads();
     SMBBiomeModifiers.patchSmallLilyPadsLushCaves();
     SMBBiomeModifiers.patchSnowGrass();
+    SMBBiomeModifiers.simpleBrownMushroomColonyWall();
+    SMBBiomeModifiers.simpleCrimsonFungusColonyWall();
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_FLOWERING_AZALEA_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER);
+    SMBBiomeModifiers.simpleRedMushroomColonyWall();
+    SMBBiomeModifiers.simpleWarpedFungusColonyWall();
   }
 
   private static void noneBigLilyPad() {
@@ -107,6 +111,38 @@ public class SMBBiomeModifiers {
       (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_LARGE_SNOW_FERN).test(ctx),
       GenerationStep.Decoration.VEGETAL_DECORATION,
       SMBPlacedFeature.PATCH_LARGE_SNOW_FERN
+    );
+  }
+
+  private static void simpleWarpedFungusColonyWall() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.foundInTheNether().test(ctx) && ctx.getBiomeKey() == Biomes.WARPED_FOREST,
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL
+    );
+  }
+
+  private static void simpleCrimsonFungusColonyWall() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.foundInTheNether().test(ctx) && ctx.getBiomeKey() == Biomes.CRIMSON_FOREST,
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL
+    );
+  }
+
+  private static void simpleRedMushroomColonyWall() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(BiomeTags.IS_TAIGA).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL
+    );
+  }
+
+  private static void simpleBrownMushroomColonyWall() {
+    BiomeModifications.addFeature(
+      (ctx) -> ctx.getBiomeKey() == Biomes.BIRCH_FOREST || ctx.getBiomeKey() == Biomes.OLD_GROWTH_BIRCH_FOREST,
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL
     );
   }
 

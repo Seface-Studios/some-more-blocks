@@ -22,6 +22,10 @@ public class SMBConfiguredFeature {
   public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_BLOCK_LEAF_LITTER = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_block_leaf_litter");
   public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_block_pale_oak_leaf_litter");
   public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_BLOCK_SPRUCE_LEAF_LITTER = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_block_spruce_leaf_litter");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_BROWN_MUSHROOM_COLONY_WALL = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_brown_mushroom_colony_wall");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_CRIMSON_FUNGUS_COLONY_WALL = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_crimson_fungus_colony_wall");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_RED_MUSHROOM_COLONY_WALL = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_red_mushroom_colony_wall");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_WARPED_FUNGUS_COLONY_WALL = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_warped_fungus_colony_wall");
 
   public static void init() {}
 }
