@@ -23,7 +23,8 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.patchSmallLilyPadsLushCaves();
     SMBBiomeModifiers.patchSnowGrass();
     SMBBiomeModifiers.simpleBrownMushroomColonyWall();
-    SMBBiomeModifiers.simpleCrimsonFungusColonyWall();
+    SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.PATCH_CRIMSON_FUNGUS_COLONY);
+    SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_FLOWERING_AZALEA_LEAF_LITTER);
@@ -31,7 +32,8 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER);
     SMBBiomeModifiers.simpleRedMushroomColonyWall();
-    SMBBiomeModifiers.simpleWarpedFungusColonyWall();
+    SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY);
+    SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL);
   }
 
   private static void noneBigLilyPad() {
@@ -114,19 +116,19 @@ public class SMBBiomeModifiers {
     );
   }
 
-  private static void simpleWarpedFungusColonyWall() {
+  private static void patchWarpedFungusColony(ResourceKey<PlacedFeature> feature) {
     BiomeModifications.addFeature(
       (ctx) -> BiomeSelectors.foundInTheNether().test(ctx) && ctx.getBiomeKey() == Biomes.WARPED_FOREST,
       GenerationStep.Decoration.VEGETAL_DECORATION,
-      SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL
+      feature
     );
   }
 
-  private static void simpleCrimsonFungusColonyWall() {
+  private static void patchCrimsonFungusColony(ResourceKey<PlacedFeature> feature) {
     BiomeModifications.addFeature(
       (ctx) -> BiomeSelectors.foundInTheNether().test(ctx) && ctx.getBiomeKey() == Biomes.CRIMSON_FOREST,
       GenerationStep.Decoration.VEGETAL_DECORATION,
-      SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL
+      feature
     );
   }
 

@@ -6,8 +6,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -49,13 +47,17 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     SMBFeatureProvider.azaleaLeafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.birchLeafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.brownMushroomColony().registerPlaceFeature(context);
+    SMBFeatureProvider.brownMushroomColonyWall().registerPlaceFeature(context);
     SMBFeatureProvider.crimsonFungusColony().registerPlaceFeature(context);
+    SMBFeatureProvider.crimsonFungusColonyWall().registerPlaceFeature(context);
     SMBFeatureProvider.floweringAzaleaLeafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.leafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.paleOakLeafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.redMushroomColony().registerPlaceFeature(context);
+    SMBFeatureProvider.redMushroomColonyWall().registerPlaceFeature(context);
     SMBFeatureProvider.spruceLeafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.warpedFungusColony().registerPlaceFeature(context);
+    SMBFeatureProvider.warpedFungusColonyWall().registerPlaceFeature(context);
   }
 
   public static void bootstrapCF(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -72,13 +74,17 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     SMBFeatureProvider.azaleaLeafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.birchLeafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.brownMushroomColony().registerConfiguredFeature(context);
+    SMBFeatureProvider.brownMushroomColonyWall().registerConfiguredFeature(context);
     SMBFeatureProvider.crimsonFungusColony().registerConfiguredFeature(context);
+    SMBFeatureProvider.crimsonFungusColonyWall().registerConfiguredFeature(context);
     SMBFeatureProvider.floweringAzaleaLeafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.leafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.paleOakLeafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.redMushroomColony().registerConfiguredFeature(context);
+    SMBFeatureProvider.redMushroomColonyWall().registerConfiguredFeature(context);
     SMBFeatureProvider.spruceLeafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.warpedFungusColony().registerConfiguredFeature(context);
+    SMBFeatureProvider.warpedFungusColonyWall().registerConfiguredFeature(context);
   }
 
   private static SimpleLeafLitterFeatureProvider leafLitter() {
@@ -122,19 +128,35 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
       .setChance(12.5F);
   }
 
-  private static SimpleMushroomColonyWallFeatureProvider redMushroomColony() {
+  private static PatchMushroomColonyFeatureProvider redMushroomColony() {
+    return new PatchMushroomColonyFeatureProvider(SMBBlocks.RED_MUSHROOM_COLONY.get(), SMBBlocks.TALL_RED_MUSHROOM_COLONY.get()).setPlacedFeatureKey(SMBPlacedFeature.PATCH_RED_MUSHROOM_COLONY).setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_RED_MUSHROOM_COLONY);
+  }
+
+  private static SimpleMushroomColonyWallFeatureProvider redMushroomColonyWall() {
     return simpleMushroomColony(SMBBlocks.RED_MUSHROOM_COLONY_WALL.get(), SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL, SMBConfiguredFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL);
   }
 
-  private static SimpleMushroomColonyWallFeatureProvider brownMushroomColony() {
+  private static PatchMushroomColonyFeatureProvider brownMushroomColony() {
+    return new PatchMushroomColonyFeatureProvider(SMBBlocks.BROWN_MUSHROOM_COLONY.get(), SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get()).setPlacedFeatureKey(SMBPlacedFeature.PATCH_BROWN_MUSHROOM_COLONY).setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_BROWN_MUSHROOM_COLONY);
+  }
+
+  private static SimpleMushroomColonyWallFeatureProvider brownMushroomColonyWall() {
     return simpleMushroomColony(SMBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(), SMBPlacedFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL, SMBConfiguredFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL);
   }
 
-  private static SimpleMushroomColonyWallFeatureProvider warpedFungusColony() {
+  private static PatchFungusColonyFeatureProvider warpedFungusColony() {
+    return new PatchFungusColonyFeatureProvider(SMBBlocks.WARPED_FUNGUS_COLONY.get(), SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get()).setPlacedFeatureKey(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY).setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_WARPED_FUNGUS_COLONY);
+  }
+
+  private static SimpleMushroomColonyWallFeatureProvider warpedFungusColonyWall() {
     return simpleFungusColony(SMBBlocks.WARPED_FUNGUS_COLONY_WALL.get(), SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL, SMBConfiguredFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL);
   }
 
-  private static SimpleMushroomColonyWallFeatureProvider crimsonFungusColony() {
+  private static PatchFungusColonyFeatureProvider crimsonFungusColony() {
+    return new PatchFungusColonyFeatureProvider(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get()).setPlacedFeatureKey(SMBPlacedFeature.PATCH_CRIMSON_FUNGUS_COLONY).setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_CRIMSON_FUNGUS_COLONY);
+  }
+
+  private static SimpleMushroomColonyWallFeatureProvider crimsonFungusColonyWall() {
     return simpleFungusColony(SMBBlocks.CRIMSON_FUNGUS_COLONY_WALL.get(), SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL, SMBConfiguredFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL);
   }
 

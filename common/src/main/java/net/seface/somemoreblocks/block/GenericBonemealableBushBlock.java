@@ -38,7 +38,7 @@ public class GenericBonemealableBushBlock extends TallGrassBlock implements Bone
   public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
     DoublePlantBlock doublePlantBlock = (DoublePlantBlock) this.tallBlock;
     if (doublePlantBlock.defaultBlockState().canSurvive(level, pos) && level.isEmptyBlock(pos.above())) {
-      DoublePlantBlock.placeAt(level, doublePlantBlock.defaultBlockState(), pos, 2);
+
     }
   }
 }

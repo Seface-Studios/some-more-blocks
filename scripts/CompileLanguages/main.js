@@ -1,0 +1,1 @@
+console.log("Future script to compile language files from Crowdin.");
