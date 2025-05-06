@@ -1,6 +1,6 @@
 {
   "type": "somemoreblocks:none_big_lily_pad",
-  "biomes": "#somemoreblocks:generates_big_lily_pad",
+  "biomes": "#somemoreblocks:generates/big_lily_pad",
   "feature": "somemoreblocks:none_big_lily_pad",
   "step": "vegetal_decoration"
 }

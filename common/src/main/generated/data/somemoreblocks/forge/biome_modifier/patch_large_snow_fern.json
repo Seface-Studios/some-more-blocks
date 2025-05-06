@@ -1,6 +1,6 @@
 {
   "type": "somemoreblocks:patch_large_snow_fern",
-  "biomes": "#somemoreblocks:generates_large_snow_fern",
+  "biomes": "#somemoreblocks:generates/large_snow_fern",
   "feature": "somemoreblocks:patch_large_snow_fern",
   "step": "vegetal_decoration"
 }

@@ -6,17 +6,17 @@ import net.minecraft.world.level.biome.Biome;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 
 public final class SMBBiomeTags {
-  public static final TagKey<Biome> GENERATES_CATTAIL = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_cattail");
-  public static final TagKey<Biome> GENERATES_LUMINOUS_FLOWER = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_luminous_flower");
-  public static final TagKey<Biome> GENERATES_SMALL_LILY_PADS = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_small_lily_pads");
-  public static final TagKey<Biome> GENERATES_BIG_LILY_PAD = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_big_lily_pad");
-  public static final TagKey<Biome> GENERATES_CACTUS_PLANTS = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_cactus_plants");
-  public static final TagKey<Biome> GENERATES_RED_MUSHROOM_COLONY = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_red_mushroom_colony");
-  public static final TagKey<Biome> GENERATES_BROWN_MUSHROOM_COLONY = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_brown_mushroom_colony");
-  public static final TagKey<Biome> GENERATES_CRIMSON_FUNGUS_COLONY = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_crimson_fungus_colony");
-  public static final TagKey<Biome> GENERATES_WARPED_FUNGUS_COLONY = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_warped_fungus_colony");
-  public static final TagKey<Biome> GENERATES_SNOW_GRASS = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_snow_grass");
-  public static final TagKey<Biome> GENERATES_LARGE_SNOW_FERN = SomeMoreBlocks.tagKey(Registries.BIOME, "generates_large_snow_fern");
+  public static final TagKey<Biome> GENERATES_CATTAIL = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/cattail");
+  public static final TagKey<Biome> GENERATES_LUMINOUS_FLOWER = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/luminous_flower");
+  public static final TagKey<Biome> GENERATES_SMALL_LILY_PADS = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/small_lily_pads");
+  public static final TagKey<Biome> GENERATES_BIG_LILY_PAD = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/big_lily_pad");
+  public static final TagKey<Biome> GENERATES_CACTUS_PLANTS = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/cactus_plants");
+  public static final TagKey<Biome> GENERATES_RED_MUSHROOM_COLONY = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/red_mushroom_colony");
+  public static final TagKey<Biome> GENERATES_BROWN_MUSHROOM_COLONY = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/brown_mushroom_colony");
+  public static final TagKey<Biome> GENERATES_CRIMSON_FUNGUS_COLONY = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/crimson_fungus_colony");
+  public static final TagKey<Biome> GENERATES_WARPED_FUNGUS_COLONY = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/warped_fungus_colony");
+  public static final TagKey<Biome> GENERATES_SNOW_GRASS = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/snow_grass");
+  public static final TagKey<Biome> GENERATES_LARGE_SNOW_FERN = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/large_snow_fern");
 
   public static void init() {}
 }

@@ -31,10 +31,17 @@ public class SMBBiomeTagProvider extends FabricTagProvider<Biome> {
       .forceAddTag(BiomeTags.IS_BADLANDS)
       .add(Biomes.DESERT);
 
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).add(Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST);
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY).add(Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST);
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY).add(Biomes.CRIMSON_FOREST);
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).add(Biomes.WARPED_FOREST);
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY)
+      .add(Biomes.SWAMP, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.MUSHROOM_FIELDS);
+
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY)
+      .add(Biomes.SWAMP, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.MUSHROOM_FIELDS);
+
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY)
+      .add(Biomes.CRIMSON_FOREST);
+
+    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY)
+      .add(Biomes.WARPED_FOREST);
 
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SNOW_GRASS).add(Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA);
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_LARGE_SNOW_FERN).add(Biomes.SNOWY_TAIGA);

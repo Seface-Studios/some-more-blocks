@@ -1,6 +1,6 @@
 {
   "type": "somemoreblocks:patch_luminous_flower",
-  "biomes": "#somemoreblocks:generates_luminous_flower",
+  "biomes": "#somemoreblocks:generates/luminous_flower",
   "feature": "somemoreblocks:patch_luminous_flower",
   "step": "underground_decoration"
 }

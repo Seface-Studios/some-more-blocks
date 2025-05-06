@@ -22,7 +22,8 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.patchSmallLilyPads();
     SMBBiomeModifiers.patchSmallLilyPadsLushCaves();
     SMBBiomeModifiers.patchSnowGrass();
-    SMBBiomeModifiers.simpleBrownMushroomColonyWall();
+    SMBBiomeModifiers.simpleBrownMushroomColony(SMBPlacedFeature.PATCH_BROWN_MUSHROOM_COLONY);
+    SMBBiomeModifiers.simpleBrownMushroomColony(SMBPlacedFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL);
     SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.PATCH_CRIMSON_FUNGUS_COLONY);
     SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER);
@@ -31,7 +32,8 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER);
-    SMBBiomeModifiers.simpleRedMushroomColonyWall();
+    SMBBiomeModifiers.simpleRedMushroomColony(SMBPlacedFeature.PATCH_RED_MUSHROOM_COLONY);
+    SMBBiomeModifiers.simpleRedMushroomColony(SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL);
     SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY);
     SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL);
   }
@@ -118,7 +120,7 @@ public class SMBBiomeModifiers {
 
   private static void patchWarpedFungusColony(ResourceKey<PlacedFeature> feature) {
     BiomeModifications.addFeature(
-      (ctx) -> BiomeSelectors.foundInTheNether().test(ctx) && ctx.getBiomeKey() == Biomes.WARPED_FOREST,
+      (ctx) -> BiomeSelectors.foundInTheNether().test(ctx) && BiomeSelectors.tag(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).test(ctx),
       GenerationStep.Decoration.VEGETAL_DECORATION,
       feature
     );
@@ -126,25 +128,25 @@ public class SMBBiomeModifiers {
 
   private static void patchCrimsonFungusColony(ResourceKey<PlacedFeature> feature) {
     BiomeModifications.addFeature(
-      (ctx) -> BiomeSelectors.foundInTheNether().test(ctx) && ctx.getBiomeKey() == Biomes.CRIMSON_FOREST,
+      (ctx) -> BiomeSelectors.foundInTheNether().test(ctx) && BiomeSelectors.tag(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY).test(ctx),
       GenerationStep.Decoration.VEGETAL_DECORATION,
       feature
     );
   }
 
-  private static void simpleRedMushroomColonyWall() {
+  private static void simpleRedMushroomColony(ResourceKey<PlacedFeature> feature) {
     BiomeModifications.addFeature(
-      (ctx) -> BiomeSelectors.tag(BiomeTags.IS_TAIGA).test(ctx),
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).test(ctx),
       GenerationStep.Decoration.VEGETAL_DECORATION,
-      SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL
+      feature
     );
   }
 
-  private static void simpleBrownMushroomColonyWall() {
+  private static void simpleBrownMushroomColony(ResourceKey<PlacedFeature> feature) {
     BiomeModifications.addFeature(
-      (ctx) -> ctx.getBiomeKey() == Biomes.BIRCH_FOREST || ctx.getBiomeKey() == Biomes.OLD_GROWTH_BIRCH_FOREST,
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY).test(ctx),
       GenerationStep.Decoration.VEGETAL_DECORATION,
-      SMBPlacedFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL
+      feature
     );
   }
 

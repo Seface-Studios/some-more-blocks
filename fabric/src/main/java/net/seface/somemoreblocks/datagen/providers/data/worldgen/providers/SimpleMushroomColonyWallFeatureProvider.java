@@ -31,6 +31,7 @@ public class SimpleMushroomColonyWallFeatureProvider extends AbstractFeatureProv
 
   @Override
   protected void placed(List<PlacementModifier> modifier) {
+    modifier.add(RarityFilter.onAverageOnceEvery(2));
     modifier.add(CountPlacement.of(256));
     modifier.add(InSquarePlacement.spread());
     modifier.add(HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG));
@@ -66,10 +67,13 @@ public class SimpleMushroomColonyWallFeatureProvider extends AbstractFeatureProv
         BlockPredicate.ONLY_IN_AIR_PREDICATE,
         BlockPredicate.anyOf(
           BlockPredicate.matchesBlocks(Vec3i.ZERO.above(), Blocks.AIR),
-          BlockPredicate.matchesTag(Vec3i.ZERO.above(), SMBBlockTags.MUSHROOM_COLONIES),
-          BlockPredicate.matchesTag(Vec3i.ZERO.above(), BlockTags.LEAVES)
+          BlockPredicate.matchesTag(Vec3i.ZERO.above(), SMBBlockTags.MUSHROOM_COLONIES)
         ),
-        BlockPredicate.matchesTag(Vec3i.ZERO.relative(direction.getOpposite()), BlockTags.LOGS_THAT_BURN)
+
+        BlockPredicate.anyOf(
+          BlockPredicate.matchesTag(Vec3i.ZERO.relative(direction.getOpposite()), BlockTags.LOGS_THAT_BURN),
+          BlockPredicate.matchesBlocks(Vec3i.ZERO.relative(direction.getOpposite()), Blocks.MUSHROOM_STEM)
+        )
       )
     );
   }

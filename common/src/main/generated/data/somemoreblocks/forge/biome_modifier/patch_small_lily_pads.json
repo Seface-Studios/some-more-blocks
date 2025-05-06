@@ -1,6 +1,6 @@
 {
   "type": "somemoreblocks:patch_small_lily_pads",
-  "biomes": "#somemoreblocks:generates_small_lily_pads",
+  "biomes": "#somemoreblocks:generates/small_lily_pads",
   "feature": "somemoreblocks:patch_small_lily_pads",
   "step": "vegetal_decoration"
 }

@@ -27,7 +27,7 @@ public class PatchMushroomColonyFeatureProvider extends AbstractFeatureProvider<
 
   @Override
   protected void placed(List<PlacementModifier> modifier) {
-    modifier.add(CountPlacement.of(2));
+    modifier.add(RarityFilter.onAverageOnceEvery(8));
     modifier.add(InSquarePlacement.spread());
     modifier.add(HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG));
     modifier.add(BiomeFilter.biome());
@@ -35,7 +35,7 @@ public class PatchMushroomColonyFeatureProvider extends AbstractFeatureProvider<
 
   @Override
   protected RandomPatchConfiguration configuration() {
-    return new RandomPatchConfiguration(24, 3, 2,
+    return new RandomPatchConfiguration(8, 3, 2,
       PlacementUtils.filtered(
         Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(

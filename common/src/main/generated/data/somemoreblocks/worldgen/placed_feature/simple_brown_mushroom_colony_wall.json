@@ -2,6 +2,10 @@
   "feature": "somemoreblocks:simple_brown_mushroom_colony_wall",
   "placement": [
     {
+      "type": "minecraft:rarity_filter",
+      "chance": 2
+    },
+    {
       "type": "minecraft:count",
       "count": 256
     },

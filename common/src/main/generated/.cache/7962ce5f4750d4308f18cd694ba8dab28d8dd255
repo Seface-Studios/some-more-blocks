@@ -1,4 +1,4 @@
-// 1.21.4	2025-05-04T23:47:36.7944253	Some More Blocks/Block Loot Tables
+// 1.21.4	2025-05-05T23:49:22.2017306	Some More Blocks/Block Loot Tables
 bc976649ff0ac56de39f0c7102b571d89dfed986 data\somemoreblocks\loot_table\blocks\diorite_brick_stairs.json
 f8c574a72ce99e45ee92b37e45d6828e4eb13b5b data\somemoreblocks\loot_table\blocks\red_terracotta_tiles.json
 beef7249e0fa7f2674451f2c7af8b7424062b76e data\somemoreblocks\loot_table\blocks\polished_end_stone_stairs.json
@@ -348,8 +348,8 @@ d65f476d55ba5dfe9f1b79182260174e0d184b68 data\somemoreblocks\loot_table\blocks\r
 1c8bef8a9956e025f905ebca90a69d6291533de8 data\somemoreblocks\loot_table\blocks\white_shingles.json
 027ef2b8a575330edcc0d63c7a9c25a4e6231cb8 data\somemoreblocks\loot_table\blocks\white_stained_tiled_glass.json
 1ac9b59754b55ec90026d8a47cbc773e5e921ace data\somemoreblocks\loot_table\blocks\cracked_emerald_bricks.json
-d869155f2d849f5c3707a910bd58dd6c3eac73d6 data\somemoreblocks\loot_table\blocks\coal_pillar.json
 3dd28ab713ade19a459619a25bbcebc2373383f4 data\somemoreblocks\loot_table\blocks\smooth_dripstone.json
+d869155f2d849f5c3707a910bd58dd6c3eac73d6 data\somemoreblocks\loot_table\blocks\coal_pillar.json
 511375220968d8b1fa179b14273f9e14570380c3 data\somemoreblocks\loot_table\blocks\light_blue_concrete_bricks.json
 2f686a95551921ae4c7440ed26f8a611f28671db data\somemoreblocks\loot_table\blocks\yellow_terracotta_tiles.json
 29604bb5fbd473ff32b404069794764f78e42cbd data\somemoreblocks\loot_table\blocks\carved_birch_log.json
