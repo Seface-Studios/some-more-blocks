@@ -24,24 +24,15 @@
             "type": "minecraft:any_of",
             "predicates": [
               {
-                "type": "minecraft:any_of",
+                "type": "minecraft:all_of",
                 "predicates": [
                   {
-                    "type": "minecraft:all_of",
+                    "type": "minecraft:matching_blocks",
+                    "blocks": "minecraft:air"
+                  },
+                  {
+                    "type": "minecraft:any_of",
                     "predicates": [
-                      {
-                        "type": "minecraft:matching_blocks",
-                        "blocks": "minecraft:air"
-                      },
-                      {
-                        "type": "minecraft:matching_block_tag",
-                        "offset": [
-                          0,
-                          -1,
-                          0
-                        ],
-                        "tag": "somemoreblocks:cattail_placeable"
-                      },
                       {
                         "type": "minecraft:any_of",
                         "predicates": [
@@ -53,26 +44,34 @@
                               -1,
                               -1
                             ]
+                          },
+                          {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:not",
+                                "predicate": {
+                                  "type": "minecraft:matching_fluids",
+                                  "fluids": "minecraft:water",
+                                  "offset": [
+                                    0,
+                                    0,
+                                    -1
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": "somemoreblocks:cattail",
+                                "offset": [
+                                  0,
+                                  0,
+                                  -1
+                                ]
+                              }
+                            ]
                           }
                         ]
-                      }
-                    ]
-                  },
-                  {
-                    "type": "minecraft:all_of",
-                    "predicates": [
-                      {
-                        "type": "minecraft:matching_blocks",
-                        "blocks": "minecraft:air"
-                      },
-                      {
-                        "type": "minecraft:matching_block_tag",
-                        "offset": [
-                          0,
-                          -1,
-                          0
-                        ],
-                        "tag": "somemoreblocks:cattail_placeable"
                       },
                       {
                         "type": "minecraft:any_of",
@@ -85,26 +84,34 @@
                               -1,
                               1
                             ]
+                          },
+                          {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:not",
+                                "predicate": {
+                                  "type": "minecraft:matching_fluids",
+                                  "fluids": "minecraft:water",
+                                  "offset": [
+                                    0,
+                                    0,
+                                    1
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": "somemoreblocks:cattail",
+                                "offset": [
+                                  0,
+                                  0,
+                                  1
+                                ]
+                              }
+                            ]
                           }
                         ]
-                      }
-                    ]
-                  },
-                  {
-                    "type": "minecraft:all_of",
-                    "predicates": [
-                      {
-                        "type": "minecraft:matching_blocks",
-                        "blocks": "minecraft:air"
-                      },
-                      {
-                        "type": "minecraft:matching_block_tag",
-                        "offset": [
-                          0,
-                          -1,
-                          0
-                        ],
-                        "tag": "somemoreblocks:cattail_placeable"
                       },
                       {
                         "type": "minecraft:any_of",
@@ -117,26 +124,34 @@
                               -1,
                               0
                             ]
+                          },
+                          {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:not",
+                                "predicate": {
+                                  "type": "minecraft:matching_fluids",
+                                  "fluids": "minecraft:water",
+                                  "offset": [
+                                    -1,
+                                    0,
+                                    0
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": "somemoreblocks:cattail",
+                                "offset": [
+                                  -1,
+                                  0,
+                                  0
+                                ]
+                              }
+                            ]
                           }
                         ]
-                      }
-                    ]
-                  },
-                  {
-                    "type": "minecraft:all_of",
-                    "predicates": [
-                      {
-                        "type": "minecraft:matching_blocks",
-                        "blocks": "minecraft:air"
-                      },
-                      {
-                        "type": "minecraft:matching_block_tag",
-                        "offset": [
-                          0,
-                          -1,
-                          0
-                        ],
-                        "tag": "somemoreblocks:cattail_placeable"
                       },
                       {
                         "type": "minecraft:any_of",
@@ -148,6 +163,206 @@
                               1,
                               -1,
                               0
+                            ]
+                          },
+                          {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:not",
+                                "predicate": {
+                                  "type": "minecraft:matching_fluids",
+                                  "fluids": "minecraft:water",
+                                  "offset": [
+                                    1,
+                                    0,
+                                    0
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": "somemoreblocks:cattail",
+                                "offset": [
+                                  1,
+                                  0,
+                                  0
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "minecraft:all_of",
+                "predicates": [
+                  {
+                    "type": "minecraft:matching_fluids",
+                    "fluids": "minecraft:water"
+                  },
+                  {
+                    "type": "minecraft:any_of",
+                    "predicates": [
+                      {
+                        "type": "minecraft:any_of",
+                        "predicates": [
+                          {
+                            "type": "minecraft:not",
+                            "predicate": {
+                              "type": "minecraft:matching_fluids",
+                              "fluids": "minecraft:water",
+                              "offset": [
+                                0,
+                                0,
+                                -1
+                              ]
+                            }
+                          },
+                          {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_fluids",
+                                "fluids": "minecraft:water",
+                                "offset": [
+                                  0,
+                                  0,
+                                  -1
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": "somemoreblocks:cattail",
+                                "offset": [
+                                  0,
+                                  0,
+                                  -1
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "minecraft:any_of",
+                        "predicates": [
+                          {
+                            "type": "minecraft:not",
+                            "predicate": {
+                              "type": "minecraft:matching_fluids",
+                              "fluids": "minecraft:water",
+                              "offset": [
+                                0,
+                                0,
+                                1
+                              ]
+                            }
+                          },
+                          {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_fluids",
+                                "fluids": "minecraft:water",
+                                "offset": [
+                                  0,
+                                  0,
+                                  1
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": "somemoreblocks:cattail",
+                                "offset": [
+                                  0,
+                                  0,
+                                  1
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "minecraft:any_of",
+                        "predicates": [
+                          {
+                            "type": "minecraft:not",
+                            "predicate": {
+                              "type": "minecraft:matching_fluids",
+                              "fluids": "minecraft:water",
+                              "offset": [
+                                -1,
+                                0,
+                                0
+                              ]
+                            }
+                          },
+                          {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_fluids",
+                                "fluids": "minecraft:water",
+                                "offset": [
+                                  -1,
+                                  0,
+                                  0
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": "somemoreblocks:cattail",
+                                "offset": [
+                                  -1,
+                                  0,
+                                  0
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "minecraft:any_of",
+                        "predicates": [
+                          {
+                            "type": "minecraft:not",
+                            "predicate": {
+                              "type": "minecraft:matching_fluids",
+                              "fluids": "minecraft:water",
+                              "offset": [
+                                1,
+                                0,
+                                0
+                              ]
+                            }
+                          },
+                          {
+                            "type": "minecraft:all_of",
+                            "predicates": [
+                              {
+                                "type": "minecraft:matching_fluids",
+                                "fluids": "minecraft:water",
+                                "offset": [
+                                  1,
+                                  0,
+                                  0
+                                ]
+                              },
+                              {
+                                "type": "minecraft:matching_blocks",
+                                "blocks": "somemoreblocks:cattail",
+                                "offset": [
+                                  1,
+                                  0,
+                                  0
+                                ]
+                              }
                             ]
                           }
                         ]
@@ -161,8 +376,8 @@
         }
       ]
     },
-    "tries": 64,
-    "xz_spread": 7,
+    "tries": 76,
+    "xz_spread": 2,
     "y_spread": 3
   }
 }

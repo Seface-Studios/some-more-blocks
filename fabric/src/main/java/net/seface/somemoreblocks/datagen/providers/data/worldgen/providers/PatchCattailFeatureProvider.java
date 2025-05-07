@@ -28,8 +28,8 @@ public class PatchCattailFeatureProvider extends AbstractFeatureProvider<RandomP
 
   @Override
   protected void placed(List<PlacementModifier> modifier) {
-    modifier.add(RarityFilter.onAverageOnceEvery(5));
-    modifier.add(CountPlacement.of(1));
+    modifier.add(RarityFilter.onAverageOnceEvery(6));
+    modifier.add(CountPlacement.of(12));
     modifier.add(InSquarePlacement.spread());
     modifier.add(HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING));
     modifier.add(BiomeFilter.biome());
@@ -37,45 +37,56 @@ public class PatchCattailFeatureProvider extends AbstractFeatureProvider<RandomP
 
   @Override
   protected RandomPatchConfiguration configuration() {
-    return new RandomPatchConfiguration(64, 7, 3,
+    return new RandomPatchConfiguration(76, 2, 3,
       PlacementUtils.filtered(
         Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(SimpleStateProvider.simple(SMBBlocks.CATTAIL.get())),
         BlockPredicate.anyOf(
-          this.canSpawnOnRiverBorder()/*, this.canSpawnOnWaterButNearRiverBorder()*/
+          this.canSpawnOnRiverBorder(),
+          this.canSpawnOnWaterButNearRiverBorder()
         )
       )
     );
   }
 
   private BlockPredicate canSpawnOnRiverBorder() {
-    return BlockPredicate.anyOf(
-      Arrays.stream(Direction.values())
-        .filter(direction -> direction != Direction.UP && direction != Direction.DOWN)
-        .map(direction ->
-          BlockPredicate.allOf(
-            BlockPredicate.ONLY_IN_AIR_PREDICATE,
-            BlockPredicate.matchesTag(Vec3i.ZERO.below(),SMBBlockTags.CATTAIL_PLACEABLE),
+    return BlockPredicate.allOf(
+      BlockPredicate.ONLY_IN_AIR_PREDICATE,
+      BlockPredicate.anyOf(
+        Arrays.stream(Direction.values())
+          .filter(direction -> direction != Direction.UP && direction != Direction.DOWN)
+          .map(direction ->
             BlockPredicate.anyOf(
-              BlockPredicate.matchesFluids(Vec3i.ZERO.below().relative(direction), Fluids.WATER)
+              BlockPredicate.matchesFluids(Vec3i.ZERO.below().relative(direction), Fluids.WATER),
+              BlockPredicate.allOf(
+                BlockPredicate.not(BlockPredicate.matchesFluids(Vec3i.ZERO.relative(direction), Fluids.WATER)),
+                BlockPredicate.matchesBlocks(Vec3i.ZERO.relative(direction), SMBBlocks.CATTAIL.get())
+              )
             )
-          ))
-        .toArray(BlockPredicate[]::new));
+          )
+          .toArray(BlockPredicate[]::new)
+      )
+    );
   }
 
   private BlockPredicate canSpawnOnWaterButNearRiverBorder() {
     return BlockPredicate.allOf(
       BlockPredicate.matchesFluids(Vec3i.ZERO, Fluids.WATER),
-      BlockPredicate.matchesBlocks(Vec3i.ZERO.above(), Blocks.AIR),
-      BlockPredicate.matchesTag(Vec3i.ZERO.below(),SMBBlockTags.CATTAIL_PLACEABLE),
-
       BlockPredicate.anyOf(
         Arrays.stream(Direction.values())
-          .filter(dir -> dir != Direction.UP && dir != Direction.DOWN)
-          .map(dir ->
-            BlockPredicate.not(BlockPredicate.matchesFluids(dir.getUnitVec3i(), Fluids.WATER))
+          .filter(direction -> direction != Direction.UP && direction != Direction.DOWN)
+          .map(direction ->
+            BlockPredicate.anyOf(
+              BlockPredicate.not(BlockPredicate.matchesFluids(Vec3i.ZERO.relative(direction), Fluids.WATER)),
+              BlockPredicate.allOf(
+                BlockPredicate.matchesFluids(Vec3i.ZERO.relative(direction), Fluids.WATER),
+                BlockPredicate.matchesBlocks(Vec3i.ZERO.relative(direction), SMBBlocks.CATTAIL.get())
+              )
+            )
           )
-          .toArray(BlockPredicate[]::new)));
+          .toArray(BlockPredicate[]::new)
+      )
+    );
   }
 
   public static <T extends AbstractFeatureProvider<?>> T create() {

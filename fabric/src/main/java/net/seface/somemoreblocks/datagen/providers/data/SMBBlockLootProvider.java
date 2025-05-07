@@ -296,7 +296,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
 
     /* More Natural Blocks */
     this.dropSelf(SMBBlocks.TINY_CACTUS.get());
-    this.dropSelf(SMBBlocks.TALL_CACTUS.get());
+    this.dropDoublePlantWithoutShears(SMBBlocks.TALL_CACTUS.get());
     this.dropWhenShears(SMBBlocks.DUNE_GRASS.get());
     this.dropWhenShearsDoublePlant(SMBBlocks.TALL_DUNE_GRASS.get(), SMBBlocks.DUNE_GRASS.get());
     this.dropWhenShears(SMBBlocks.SHORT_SNOW_GRASS.get());
