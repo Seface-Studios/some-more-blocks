@@ -24,3 +24,4 @@ rootProject.name = 'some-more-blocks'
 include("common")
 include("fabric")
 include("forge")
+include("neoforge")

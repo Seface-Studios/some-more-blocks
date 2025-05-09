@@ -1,6 +1,6 @@
 {
-  "type": "somemoreblocks:patch_small_lily_pads",
+  "type": "forge:add_features",
   "biomes": "#somemoreblocks:generates/small_lily_pads",
-  "feature": "somemoreblocks:patch_small_lily_pads",
+  "features": "somemoreblocks:patch_small_lily_pads",
   "step": "vegetal_decoration"
 }

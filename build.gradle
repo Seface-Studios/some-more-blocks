@@ -31,6 +31,10 @@ subprojects {
       exclude("**/forge/**")
     }
 
+    if (project.name != "neoforge") {
+      exclude("**/neoforge/**")
+    }
+
     from(rootProject.file("LICENSE")) {
       rename { "${it}-${mod_name.replaceAll(' ', '')}" }
     }
@@ -82,32 +86,40 @@ subprojects {
 
   processResources {
     def expandProps = [
-      "version"                   : version,
-      "group"                     : project.group,
-      "minecraft_version"         : minecraft_version,
-      "forge_version"             : forge_version,
-      "forge_loader_version_range": forge_loader_version_range,
-      "forge_version_range"       : forge_version_range,
-      "minecraft_version_range"   : minecraft_version_range,
-      "fabric_version"            : fabric_version,
-      "fabric_loader_version"     : fabric_loader_version,
-      "mod_name"                  : mod_name,
-      "mod_author"                : mod_author,
-      "mod_id"                    : mod_id,
-      "license"                   : license,
-      "description"               : project.description,
-      "credits"                   : credits,
-      "main_url"                  : main_url,
-      "source_url"                : source_url,
-      "issues_tracker_url"        : source_url.concat("/issues"),
-      "crowdin_url"               : crowdin_url,
-      "discord_url"               : discord_url,
-      "ng_name"                   : "Nicolle Gama" // ★ October 30, 2001 - ✟ February 13, 2024
+      /* Minecraft */
+      "minecraft_version"             : minecraft_version,
+      "minecraft_version_range"       : minecraft_version_range,
+
+      /* Loaders */
+      "fabric_version"                : fabric_version,
+      "fabric_loader_version"         : fabric_loader_version,
+      "forge_version"                 : forge_version,
+      "forge_loader_version_range"    : forge_loader_version_range,
+      "forge_version_range"           : forge_version_range,
+      "neoforge_version"              : neoforge_version,
+      "neoforge_loader_version_range" : neoforge_loader_version_range,
+      "neoforge_version_range"        : neoforge_version_range,
+
+      /* Informations */
+      "version"                       : version,
+      "group"                         : project.group,
+      "mod_name"                      : mod_name,
+      "mod_author"                    : mod_author,
+      "mod_id"                        : mod_id,
+      "license"                       : license,
+      "description"                   : project.description,
+      "credits"                       : credits,
+      "main_url"                      : main_url,
+      "source_url"                    : source_url,
+      "issues_tracker_url"            : source_url.concat("/issues"),
+      "crowdin_url"                   : crowdin_url,
+      "discord_url"                   : discord_url,
+      "ng_name"                       : "Nicolle Gama" // ★ October 30, 2001 - ✟ February 13, 2024
     ]
 
     filesMatching([
       '**/pack.mcmeta',  '**/lang/**/*.json',  'fabric.mod.json',
-      'META-INF/mods.toml', '*.mixins.json']) {
+      'META-INF/mods.toml', 'META-INF/neoforge.mods.toml', '*.mixins.json']) {
       expand expandProps
     }
 

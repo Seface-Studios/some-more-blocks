@@ -9,6 +9,7 @@ import net.seface.somemoreblocks.datagen.providers.data.SMBBlockLootProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBForgeBiomeModifierProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBRecipeProvider;
 import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBHusbandryAdvancementsProvider;
+import net.seface.somemoreblocks.datagen.providers.data.forge.ForgeModifierProvider;
 import net.seface.somemoreblocks.datagen.providers.data.tags.SMBBiomeTagProvider;
 import net.seface.somemoreblocks.datagen.providers.data.tags.SMBBlockTagProvider;
 import net.seface.somemoreblocks.datagen.providers.data.tags.SMBItemTagProvider;
@@ -31,7 +32,8 @@ public class Main implements DataGeneratorEntrypoint {
     pack.addProvider(SMBBlockLootProvider::new);
     pack.addProvider(SMBFeatureProvider::new);
     pack.addProvider(SMBHusbandryAdvancementsProvider::new);
-    pack.addProvider(SMBForgeBiomeModifierProvider::new);
+    pack.addProvider((output, _completableFuture) -> new SMBForgeBiomeModifierProvider(output, ForgeModifierProvider.Loader.FORGE));
+    pack.addProvider((output, _completableFuture) -> new SMBForgeBiomeModifierProvider(output, ForgeModifierProvider.Loader.NEOFORGE));
   }
 
   @Override

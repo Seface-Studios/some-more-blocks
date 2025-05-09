@@ -12,8 +12,8 @@ import net.seface.somemoreblocks.tags.SMBBiomeTags;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 
 public class SMBForgeBiomeModifierProvider extends ForgeModifierProvider {
-  public SMBForgeBiomeModifierProvider(FabricDataOutput output) {
-    super(output);
+  public SMBForgeBiomeModifierProvider(FabricDataOutput output, Loader loader) {
+    super(output, loader);
   }
 
   @Override
@@ -21,11 +21,13 @@ public class SMBForgeBiomeModifierProvider extends ForgeModifierProvider {
     this.vegetalDecoration(SMBPlacedFeature.NONE_BIG_LILY_PAD).setBiomes(SMBBiomeTags.GENERATES_BIG_LILY_PAD).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_CACTUS_PLANTS).setBiomes(SMBBiomeTags.GENERATES_CACTUS_PLANTS).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_CATTAIL).setBiomes(SMBBiomeTags.GENERATES_CATTAIL).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_DUNE_GRASS).setBiomes(BiomeTags.IS_BEACH).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_CRIMSON_FUNGUS_COLONY).setBiomes(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_DUNE_GRASS).setType().setBiomes(BiomeTags.IS_BEACH).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_LARGE_SNOW_FERN).setBiomes(SMBBiomeTags.GENERATES_LARGE_SNOW_FERN).build();
 
     this.configure()
-      .setType(SMBPlacedFeature.PATCH_LUMINOUS_FLOWER.location())
+      .setType(this.loader, Modifier.ADD_FEATURES)
       .setFeature(SMBPlacedFeature.PATCH_LUMINOUS_FLOWER)
       .setDecorationStep(GenerationStep.Decoration.UNDERGROUND_DECORATION)
       .setBiomes(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER).build();
@@ -34,13 +36,18 @@ public class SMBForgeBiomeModifierProvider extends ForgeModifierProvider {
     this.vegetalDecoration(SMBPlacedFeature.PATCH_SMALL_LILY_PADS).setBiomes(SMBBiomeTags.GENERATES_SMALL_LILY_PADS).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES).setBiomes(Biomes.LUSH_CAVES).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_SNOW_GRASS).setBiomes(SMBBiomeTags.GENERATES_SNOW_GRASS).build();
-
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY).setBiomes(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_BROWN_MUSHROOM_COLONY).setBiomes(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_FLOWERING_AZALEA_LEAF_LITTER).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_LEAF_LITTER).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_RED_MUSHROOM_COLONY).setBiomes(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).build();
   }
 
   private ForgeBiomeModifier leafLitterDecoration(ResourceKey<PlacedFeature> placedFeature) {
@@ -50,7 +57,7 @@ public class SMBForgeBiomeModifierProvider extends ForgeModifierProvider {
 
   private ForgeBiomeModifier vegetalDecoration(ResourceKey<PlacedFeature> placedFeature) {
     return this.configure()
-      .setType(placedFeature.location())
+      .setType(this.loader, Modifier.ADD_FEATURES)
       .setFeature(placedFeature)
       .setDecorationStep(GenerationStep.Decoration.VEGETAL_DECORATION);
   }

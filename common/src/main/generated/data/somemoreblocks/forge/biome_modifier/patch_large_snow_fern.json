@@ -1,6 +1,6 @@
 {
-  "type": "somemoreblocks:patch_large_snow_fern",
+  "type": "forge:add_features",
   "biomes": "#somemoreblocks:generates/large_snow_fern",
-  "feature": "somemoreblocks:patch_large_snow_fern",
+  "features": "somemoreblocks:patch_large_snow_fern",
   "step": "vegetal_decoration"
 }

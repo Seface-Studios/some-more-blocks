@@ -1,6 +1,6 @@
 {
-  "type": "somemoreblocks:patch_cactus_plants",
+  "type": "forge:add_features",
   "biomes": "#somemoreblocks:generates/cactus_plants",
-  "feature": "somemoreblocks:patch_cactus_plants",
+  "features": "somemoreblocks:patch_cactus_plants",
   "step": "vegetal_decoration"
 }

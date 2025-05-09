@@ -1,6 +1,6 @@
 {
-  "type": "somemoreblocks:patch_snow_grass",
+  "type": "forge:add_features",
   "biomes": "#somemoreblocks:generates/snow_grass",
-  "feature": "somemoreblocks:patch_snow_grass",
+  "features": "somemoreblocks:patch_snow_grass",
   "step": "vegetal_decoration"
 }

@@ -15,6 +15,8 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.noneBigLilyPad();
     SMBBiomeModifiers.patchCactusPlants();
     SMBBiomeModifiers.patchCattail();
+    SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.PATCH_CRIMSON_FUNGUS_COLONY);
+    SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL);
     SMBBiomeModifiers.patchDuneGrass();
     SMBBiomeModifiers.patchLargeSnowFern();
     SMBBiomeModifiers.patchLuminousFlower();
@@ -22,10 +24,10 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.patchSmallLilyPads();
     SMBBiomeModifiers.patchSmallLilyPadsLushCaves();
     SMBBiomeModifiers.patchSnowGrass();
+    SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY);
+    SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL);
     SMBBiomeModifiers.simpleBrownMushroomColony(SMBPlacedFeature.PATCH_BROWN_MUSHROOM_COLONY);
     SMBBiomeModifiers.simpleBrownMushroomColony(SMBPlacedFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL);
-    SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.PATCH_CRIMSON_FUNGUS_COLONY);
-    SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_FLOWERING_AZALEA_LEAF_LITTER);
@@ -34,8 +36,6 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER);
     SMBBiomeModifiers.simpleRedMushroomColony(SMBPlacedFeature.PATCH_RED_MUSHROOM_COLONY);
     SMBBiomeModifiers.simpleRedMushroomColony(SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL);
-    SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY);
-    SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL);
   }
 
   private static void noneBigLilyPad() {

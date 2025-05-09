@@ -412,6 +412,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.END_STONE_BRICK_WALL, SMBBlocks.POLISHED_END_STONE.get());
         this.oneItemToOther(RecipeCategory.MISC, Items.GLOWSTONE_DUST, SMBBlocks.LUMINOUS_FLOWER.get(), 2);
         this.oneItemToOther(RecipeCategory.MISC, Items.GREEN_DYE, SMBBlocks.TINY_CACTUS.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.GREEN_DYE, SMBBlocks.TALL_CACTUS.get(), 2);
       }
 
       /**

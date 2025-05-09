@@ -1,6 +1,6 @@
 {
-  "type": "somemoreblocks:patch_cattail",
+  "type": "forge:add_features",
   "biomes": "#somemoreblocks:generates/cattail",
-  "feature": "somemoreblocks:patch_cattail",
+  "features": "somemoreblocks:patch_cattail",
   "step": "vegetal_decoration"
 }

@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#somemoreblocks:generates/big_lily_pad",
+  "features": "somemoreblocks:none_big_lily_pad",
+  "step": "vegetal_decoration"
+}

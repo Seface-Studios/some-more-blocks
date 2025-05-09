@@ -24,8 +24,18 @@ public class ForgeBiomeModifier {
 
   public ForgeBiomeModifier() {}
 
+  public ForgeBiomeModifier setType() {
+    this.type = this.feature.location();
+    return this;
+  }
+
   public ForgeBiomeModifier setType(ResourceLocation value) {
     this.type = value;
+    return this;
+  }
+
+  public ForgeBiomeModifier setType(ForgeModifierProvider.Loader loader, ForgeModifierProvider.Modifier modifier) {
+    this.type = ResourceLocation.fromNamespaceAndPath(loader.getId(), modifier.getType());
     return this;
   }
 
@@ -50,6 +60,6 @@ public class ForgeBiomeModifier {
   }
 
   public void build() {
-    TO_GENERATE.put(this.type, this);
+    TO_GENERATE.put(this.feature.location(), this);
   }
 }
