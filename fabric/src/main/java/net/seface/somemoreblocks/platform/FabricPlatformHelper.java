@@ -10,7 +10,7 @@ public class FabricPlatformHelper implements PlatformHelper {
 
   @Override
   public String getPlatformName() {
-    return "Fabric";
+    return PlatformServices.Platforms.FABRIC.getName();
   }
 
   @Override

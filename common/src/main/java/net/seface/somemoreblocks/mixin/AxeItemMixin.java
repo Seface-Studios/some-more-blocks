@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
+import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.registries.SMBRegistries;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -32,6 +33,13 @@ public abstract class AxeItemMixin {
 
   @Inject(method = "getStripped", at = @At(value = "HEAD"), cancellable = true)
   private void getStrippedMixin(BlockState state, CallbackInfoReturnable<Optional<BlockState>> cir) {
+    /*
+     * Why we don't run this on NeoForge?
+     * Because we need to apply this to getToolModifiedState provided by IBlockExtension class.
+     * See more at the mixin of RotatedPillarBlock on NeoForge project.
+     */
+    if (PlatformServices.HELPER.is(PlatformServices.Platforms.NEOFORGE)) return;
+
     SMBRegistries.CARVED_BLOCKS.getNext(state.getBlock())
         .ifPresent((block) -> {
           if (block instanceof RotatedCarvedPaleOakBlock) {
@@ -48,6 +56,12 @@ public abstract class AxeItemMixin {
 
   @Inject(method = "useOn", at = @At(value = "HEAD"), cancellable = true)
   public void useOnMixin(UseOnContext ctx, CallbackInfoReturnable<InteractionResult> cir) {
+    /*
+     * Why we don't run this on NeoForge?
+     * Because NeoForge has a Built-in data map, so to prevent any incompatibility we need to avoid it.
+     */
+    if (PlatformServices.HELPER.is(PlatformServices.Platforms.NEOFORGE)) return;
+
     Level level = ctx.getLevel();
     BlockPos pos = ctx.getClickedPos();
     BlockState state = level.getBlockState(pos);

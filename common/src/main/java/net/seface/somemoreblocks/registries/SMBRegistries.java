@@ -1,21 +1,20 @@
 package net.seface.somemoreblocks.registries;
 
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.platform.registry.BidirectionalRegistryObject;
-import net.seface.somemoreblocks.tags.SMBBlockTags;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.function.Supplier;
 
 public class SMBRegistries {
   public static BidirectionalRegistryObject<Block, Block> CARVED_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("carved_blocks"));
   public static BidirectionalRegistryObject<Block, Block> SNOWY_PLANT_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("snowy_plant_blocks"));
   public static BidirectionalRegistryObject<Block, Block> WAXED_COPPER_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("waxed_copper_blocks"));
   public static BidirectionalRegistryObject<Block, Block> WEATHERING_COPPER_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("weathering_copper_blocks"));
-  public static BidirectionalRegistryObject<TagKey<Block>, Block> LEAF_LITTER_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("leaf_litter_blocks"));
   public static BidirectionalRegistryObject<@Nullable DyeColor, Block> STAINED_TILED_GLASS_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("tiled_glass_blocks"));
   public static BidirectionalRegistryObject<@Nullable DyeColor, Block> STAINED_TILED_GLASS_PANE_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("stained_tiled_glass_pane_blocks"));
   public static BidirectionalRegistryObject<@Nullable DyeColor, Block> SHINGLES_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("shingles_blocks"));
@@ -33,7 +32,6 @@ public class SMBRegistries {
     SMBRegistries.waxedCopperBlocks();
     SMBRegistries.weatheringCopperBlocks();
     SMBRegistries.compostableItems();
-    SMBRegistries.leafLitterBlocks();
     SMBRegistries.shinglesBlocks();
     SMBRegistries.terracottaBlocks();
     SMBRegistries.concreteBlocks();
@@ -43,12 +41,12 @@ public class SMBRegistries {
 
   private static void compostableItems() {
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.TINY_CACTUS.get().asItem(), 0.3F);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.TALL_CACTUS.get().asItem(), 1.0F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.DUNE_GRASS.get().asItem(), 0.3F);
-    ComposterBlock.COMPOSTABLES.put(SMBBlocks.TALL_DUNE_GRASS.get().asItem(), 0.5F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.TALL_DUNE_GRASS.get().asItem(), 0.5F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.SHORT_SNOW_GRASS.get().asItem(), 0.3F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.TALL_SNOW_GRASS.get().asItem(), 0.65F);
-    ComposterBlock.COMPOSTABLES.put(SMBBlocks.SNOW_FERN.get().asItem(), 0.65F);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.SNOW_FERN.get().asItem(), 0.3F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.LARGE_SNOW_FERN.get().asItem(), 0.65F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.CATTAIL.get().asItem(), 0.65F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.LUMINOUS_FLOWER.get().asItem(), 0.65F);
@@ -60,6 +58,9 @@ public class SMBRegistries {
     ComposterBlock.COMPOSTABLES.put(SMBItems.TALL_CRIMSON_FUNGUS_COLONY.get(), 1.0F);
     ComposterBlock.COMPOSTABLES.put(SMBItems.WARPED_FUNGUS_COLONY.get(), 0.85F);
     ComposterBlock.COMPOSTABLES.put(SMBItems.TALL_WARPED_FUNGUS_COLONY.get(), 1.0F);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.PALE_ROSE_BUSH.get().asItem(), 0.85F);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.SMALL_LILY_PADS.get().asItem(), 0.65F);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.BIG_LILY_PAD.get().asItem(), 1.0F);
     ComposterBlock.COMPOSTABLES.put(SMBItems.LEAVES_BUCKET.get(), 1.0F);
     ComposterBlock.COMPOSTABLES.put(SMBItems.AZALEA_LEAVES_BUCKET.get(), 1.0F);
     ComposterBlock.COMPOSTABLES.put(SMBItems.BIRCH_LEAVES_BUCKET.get(), 1.0F);
@@ -134,15 +135,6 @@ public class SMBRegistries {
     WEATHERING_COPPER_BLOCKS.register(SMBBlocks.COPPER_PILLAR.get(), SMBBlocks.EXPOSED_COPPER_PILLAR.get());
     WEATHERING_COPPER_BLOCKS.register(SMBBlocks.EXPOSED_COPPER_PILLAR.get(), SMBBlocks.WEATHERED_COPPER_PILLAR.get());
     WEATHERING_COPPER_BLOCKS.register(SMBBlocks.WEATHERED_COPPER_PILLAR.get(), SMBBlocks.OXIDIZED_COPPER_PILLAR.get());
-  }
-
-  private static void leafLitterBlocks() {
-    LEAF_LITTER_BLOCKS.register(SMBBlockTags.LEAF_LITTER_PARENT_LEAVES, SMBBlocks.LEAF_LITTER.get());
-    LEAF_LITTER_BLOCKS.register(SMBBlockTags.BIRCH_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.BIRCH_LEAF_LITTER.get());
-    LEAF_LITTER_BLOCKS.register(SMBBlockTags.SPRUCE_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.SPRUCE_LEAF_LITTER.get());
-    LEAF_LITTER_BLOCKS.register(SMBBlockTags.AZALEA_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.AZALEA_LEAF_LITTER.get());
-    LEAF_LITTER_BLOCKS.register(SMBBlockTags.FLOWERING_AZALEA_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get());
-    LEAF_LITTER_BLOCKS.register(SMBBlockTags.PALE_OAK_LEAF_LITTER_PARENT_LEAVES, SMBBlocks.PALE_OAK_LEAF_LITTER.get());
   }
 
   private static void stainedTiledGlassBlocks() {

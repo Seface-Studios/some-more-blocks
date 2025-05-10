@@ -10,7 +10,7 @@ public class ForgePlatformHelper implements PlatformHelper {
 
   @Override
   public String getPlatformName() {
-    return "Forge";
+    return PlatformServices.Platforms.FORGE.getName();
   }
 
   @Override

@@ -32,4 +32,38 @@ public interface PlatformHelper {
    * Get the Game and Mod version in the format: GameVersion-ModVersion
    */
   String getVersion();
+
+  /**
+   * Get the Game version.
+   */
+  default String getGameVersion() {
+    String[] v = this.getVersion().split("-");
+    return v[0];
+  }
+
+  /**
+   * Get the Mod version.
+   */
+  default String getModVersion() {
+    String[] v = this.getVersion().split("-");
+    return v[1];
+  }
+
+  /**
+   * Checks if the running platform is the expected one.
+   * @param expectedPlatform The expected platform to be running.
+   * @return True if is the expected platform.
+   */
+  default boolean is(PlatformServices.Platforms expectedPlatform) {
+    return this.is(expectedPlatform.getName());
+  }
+
+  /**
+   * Checks if the running platform is the expected one.
+   * @param platformName The expected platform name.
+   * @return True if is the expected platform.
+   */
+  default boolean is(String platformName) {
+    return this.getPlatformName().equals(platformName);
+  }
 }

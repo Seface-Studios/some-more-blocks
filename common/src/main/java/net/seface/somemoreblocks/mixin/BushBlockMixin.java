@@ -70,7 +70,6 @@ public abstract class BushBlockMixin extends Block {
 
   /**
    * Update the BlockState to the normal variation. The parsed BlockState should be a valid Snowy variation!
-   *
    * @param state The current BlockState.
    * @param level The affected world.
    * @param pos The current block position.

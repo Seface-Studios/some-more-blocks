@@ -4,11 +4,11 @@ import lombok.Getter;
 
 import java.util.UUID;
 
-/*
- * This doesn't have any effects for the Platform System (yet).
- * Marked as @Deprecated until there.
+/**
+ * @deprecated This doesn't have any effects for the Platform System (yet).
+ *             Marked as deprecated until there.
  */
-@Deprecated
+@Deprecated()
 @Getter
 public enum PlatformEnvironment {
   UNKNOWN(0, "Unknown", "e7f3cf0d-8000-4fda-af29-0d085f4207dd"),

@@ -19,8 +19,8 @@ ${description}
 In loving memory of §dNicolle Gama§f.
 '''
 
-#[[mixins]]
-#config = "${mod_id}.mixins.json"
+[[mixins]]
+config = "${mod_id}.mixins.json"
 
 [[mixins]]
 config = "${mod_id}.neoforge.mixins.json"

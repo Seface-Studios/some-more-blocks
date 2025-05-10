@@ -1,12 +1,18 @@
 package net.seface.somemoreblocks.platform.registry;
 
+import com.google.common.base.Suppliers;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+import com.google.common.collect.ImmutableMap;
 import lombok.Getter;
 import net.minecraft.resources.ResourceLocation;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 
+import java.util.Collections;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Supplier;
 
 public class BidirectionalRegistryObject<K, V> {
 
@@ -14,7 +20,7 @@ public class BidirectionalRegistryObject<K, V> {
   private final ResourceLocation id;
 
   private final BiMap<K, V> next;
-  private final BiMap<V, K> previous;
+  private final Map<V, K> previous;
 
   private BidirectionalRegistryObject(ResourceLocation identifier) {
     this.id = identifier;
@@ -28,8 +34,12 @@ public class BidirectionalRegistryObject<K, V> {
    * @param value The object value.
    */
   public void register(K key, V value) {
+    if (value == null) {
+      throw new IllegalArgumentException("The value cannot be null.");
+    }
+
     if (this.next.containsKey(key)) {
-      throw new IllegalArgumentException("The key " + key + " are already registered.");
+      throw new IllegalArgumentException("The key " + key + " is already registered.");
     }
 
     this.next.put(key, value);
@@ -64,7 +74,7 @@ public class BidirectionalRegistryObject<K, V> {
    * Get all the objects values.
    */
   public Set<V> getValueSet() {
-    return this.previous.keySet();
+    return this.next.values();
   }
 
   public static <K, V> BidirectionalRegistryObject<K, V> create(ResourceLocation id) {

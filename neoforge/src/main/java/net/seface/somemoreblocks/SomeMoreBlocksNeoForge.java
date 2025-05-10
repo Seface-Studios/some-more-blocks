@@ -9,7 +9,8 @@ import net.seface.somemoreblocks.registries.SMBBiomeModifiers;
 public class SomeMoreBlocksNeoForge {
 
   public SomeMoreBlocksNeoForge(IEventBus bus) {
-    SomeMoreBlocks.init(() -> NeoForgePlatformRegistry.init(bus), null);
+    SomeMoreBlocks.init();
     SMBBiomeModifiers.init(bus);
+    NeoForgePlatformRegistry.init(bus);
   }
 }

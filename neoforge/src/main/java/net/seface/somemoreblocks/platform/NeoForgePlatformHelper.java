@@ -10,7 +10,7 @@ public class NeoForgePlatformHelper implements PlatformHelper {
 
   @Override
   public String getPlatformName() {
-    return "NeoForge";
+    return PlatformServices.Platforms.NEOFORGE.getName();
   }
 
   @Override

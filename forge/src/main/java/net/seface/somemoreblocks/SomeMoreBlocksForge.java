@@ -5,6 +5,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.seface.somemoreblocks.platform.registry.ForgePlatformRegistry;
 import net.seface.somemoreblocks.registries.SMBBiomeModifiers;
+import net.seface.somemoreblocks.registries.SMBRegistries;
 
 @SuppressWarnings({"removal", "deprecation"})
 @Mod(SomeMoreBlocks.ID)

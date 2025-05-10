@@ -3,7 +3,6 @@ package net.seface.somemoreblocks.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
@@ -12,7 +11,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
-@SuppressWarnings("deprecation")
 public class WeatheringRotatedCopperFullBlock extends RotatedPillarBlock implements WeatheringCopper {
   private final WeatheringCopper.WeatherState weatherState;
 
@@ -23,13 +21,9 @@ public class WeatheringRotatedCopperFullBlock extends RotatedPillarBlock impleme
 
   @Override
   public @NotNull Optional<BlockState> getNext(BlockState state) {
-    Optional<Block> weathering = SMBRegistries.WEATHERING_COPPER_BLOCKS.getNext(state.getBlock());
-
-    if (weathering.isPresent()) {
-      return Optional.of(weathering.get().withPropertiesOf(state));
-    }
-
-    return Optional.of(WeatheringCopper.getNext(state.getBlock()).get().withPropertiesOf(state));
+    return SMBRegistries.WEATHERING_COPPER_BLOCKS.getNext(state.getBlock())
+      .map(block -> block.withPropertiesOf(state))
+      .or(() -> Optional.of(WeatheringCopper.getNext(state.getBlock()).get().defaultBlockState()));
   }
 
   @Override
@@ -39,8 +33,7 @@ public class WeatheringRotatedCopperFullBlock extends RotatedPillarBlock impleme
 
   @Override
   public boolean isRandomlyTicking(BlockState state) {
-    Block block = state.getBlock();
-    return SMBRegistries.WEATHERING_COPPER_BLOCKS.getNext(block).isPresent() || WeatheringCopper.getNext(block).isPresent();
+    return SMBRegistries.WEATHERING_COPPER_BLOCKS.getNext(state.getBlock()).isPresent();
   }
 
   @NotNull

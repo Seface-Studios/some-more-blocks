@@ -11,7 +11,7 @@ import net.seface.somemoreblocks.registries.SMBRegistries;
 public class CommonSetupEvent {
 
   @SubscribeEvent
-  public static void onClientSetup(final FMLCommonSetupEvent event) {
+  public static void onCommonSetup(final FMLCommonSetupEvent event) {
     event.enqueueWork(SMBRegistries::init);
   }
 }
