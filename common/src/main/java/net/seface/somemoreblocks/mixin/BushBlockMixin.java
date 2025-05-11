@@ -56,7 +56,7 @@ public abstract class BushBlockMixin extends Block {
     if (snowyVariation.isEmpty()) return;
     if (!isSnowing || level.getBrightness(LightLayer.BLOCK, pos) > 11) return;
 
-    // Investigate some possible issues that can occur here.
+    // TODO: Investigate some possible issues that can occur here.
     if (isDoublePlant) {
       if (state.getValue(DoublePlantBlock.HALF).equals(DoubleBlockHalf.UPPER)) return;
 

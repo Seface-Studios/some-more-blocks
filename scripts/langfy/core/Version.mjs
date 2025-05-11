@@ -3,8 +3,8 @@ import { MINECRAFT_VERSION } from "../main.mjs";
 export class Version {
 
   /**
-   * 
-   * @param {string} expectedVersion 
+   * Check if the current version is the expected one.
+   * @param {string} expectedVersion The expected version.
    */
   static isExpectedVersion(expectedVersion) {
     const match = expectedVersion.match(/(>=|<=|==|>|<)?([\d.]+)/);

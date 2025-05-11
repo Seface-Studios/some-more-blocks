@@ -32,6 +32,5 @@ public class SMBPlacedFeature {
   public static final ResourceKey<PlacedFeature> SIMPLE_RED_MUSHROOM_COLONY_WALL = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "simple_red_mushroom_colony_wall");
   public static final ResourceKey<PlacedFeature> SIMPLE_WARPED_FUNGUS_COLONY_WALL = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "simple_warped_fungus_colony_wall");
 
-
   public static void init() {}
 }
