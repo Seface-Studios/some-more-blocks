@@ -11,6 +11,7 @@ public final class SMBBlockTags {
   public static final TagKey<Block> BIRCH_LEAF_LITTER_PARENT_LEAVES = SomeMoreBlocks.tagKey(Registries.BLOCK, "birch_leaf_litter_parent_leaves");
   public static final TagKey<Block> CACTUS_PLANTS_PLACEABLE = SomeMoreBlocks.tagKey(Registries.BLOCK, "cactus_plants_placeable");
   public static final TagKey<Block> CATTAIL_PLACEABLE = SomeMoreBlocks.tagKey(Registries.BLOCK, "cattail_placeable");
+  public static final TagKey<Block> CATTAIL_ON_WATER_PLACEABLE = SomeMoreBlocks.tagKey(Registries.BLOCK, "cattail_on_water_placeable");
   public static final TagKey<Block> CONCRETE_BRICKS = SomeMoreBlocks.tagKey(Registries.BLOCK, "concrete_bricks");
   public static final TagKey<Block> CONCRETE_TILES = SomeMoreBlocks.tagKey(Registries.BLOCK, "concrete_tiles");
   public static final TagKey<Block> DUNE_GRASS_PLACEABLE = SomeMoreBlocks.tagKey(Registries.BLOCK, "dune_grass_placeable");

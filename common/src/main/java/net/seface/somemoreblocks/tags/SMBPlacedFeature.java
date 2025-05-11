@@ -10,6 +10,7 @@ public class SMBPlacedFeature {
   public static final ResourceKey<PlacedFeature> PATCH_BROWN_MUSHROOM_COLONY = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_brown_mushroom_colony");
   public static final ResourceKey<PlacedFeature> PATCH_CACTUS_PLANTS = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_cactus_plants");
   public static final ResourceKey<PlacedFeature> PATCH_CATTAIL = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_cattail");
+  public static final ResourceKey<PlacedFeature> PATCH_CATTAIL_SWAMP = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_cattail_swamp");
   public static final ResourceKey<PlacedFeature> PATCH_CRIMSON_FUNGUS_COLONY = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_crimson_fungus_colony");
   public static final ResourceKey<PlacedFeature> PATCH_DUNE_GRASS = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_dune_grass");
   public static final ResourceKey<PlacedFeature> PATCH_LARGE_SNOW_FERN = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_large_snow_fern");

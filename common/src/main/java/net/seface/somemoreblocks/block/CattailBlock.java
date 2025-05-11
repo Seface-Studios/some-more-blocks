@@ -31,7 +31,9 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
     BlockState blockBelow = level.getBlockState(pos.below());
 
     if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
-      return blockBelow.is(SMBBlockTags.CATTAIL_PLACEABLE) && !level.getBlockState(pos.above()).liquid();
+      return (blockBelow.is(SMBBlockTags.CATTAIL_PLACEABLE) && !state.getValue(WATERLOGGED) ||
+        blockBelow.is(SMBBlockTags.CATTAIL_ON_WATER_PLACEABLE) && state.getValue(WATERLOGGED)) &&
+        !level.getBlockState(pos.above()).liquid();
     }
 
     return blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER;

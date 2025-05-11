@@ -23,6 +23,10 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
       .forceAddTag(BlockTags.DIRT)
       .add(Blocks.MUD, Blocks.MUDDY_MANGROVE_ROOTS,Blocks.CLAY);
 
+    this.getOrCreateTagBuilder(SMBBlockTags.CATTAIL_ON_WATER_PLACEABLE)
+      .forceAddTag(SMBBlockTags.CATTAIL_PLACEABLE)
+      .add(Blocks.GRAVEL, Blocks.SAND);
+
     this.getOrCreateTagBuilder(SMBBlockTags.DUNE_GRASS_PLACEABLE)
       .forceAddTag(BlockTags.DIRT)
       .forceAddTag(BlockTags.SAND);

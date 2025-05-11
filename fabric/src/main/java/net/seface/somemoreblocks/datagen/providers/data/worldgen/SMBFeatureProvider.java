@@ -37,6 +37,7 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     NoneBigLilyPadFeatureProvider.create().registerPlaceFeature(context);
     PatchCactusFeatureProvider.create().registerPlaceFeature(context);
     PatchCattailFeatureProvider.create().registerPlaceFeature(context);
+    PatchCattailSwampFeatureProvider.create().registerPlaceFeature(context);
     PatchDunePlantsFeatureProvider.create().registerPlaceFeature(context);
     PatchLargeSnowFernFeatureProvider.create().registerPlaceFeature(context);
     PatchLuminousFlowerFeatureProvider.create().registerPlaceFeature(context);
@@ -64,6 +65,7 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     NoneBigLilyPadFeatureProvider.create().registerConfiguredFeature(context);
     PatchCactusFeatureProvider.create().registerConfiguredFeature(context);
     PatchCattailFeatureProvider.create().registerConfiguredFeature(context);
+    PatchCattailSwampFeatureProvider.create().registerConfiguredFeature(context);
     PatchDunePlantsFeatureProvider.create().registerConfiguredFeature(context);
     PatchLargeSnowFernFeatureProvider.create().registerConfiguredFeature(context);
     PatchLuminousFlowerFeatureProvider.create().registerConfiguredFeature(context);

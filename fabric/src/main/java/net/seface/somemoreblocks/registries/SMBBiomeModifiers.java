@@ -15,6 +15,7 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.noneBigLilyPad();
     SMBBiomeModifiers.patchCactusPlants();
     SMBBiomeModifiers.patchCattail();
+    SMBBiomeModifiers.patchCattailSwamp();
     SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.PATCH_CRIMSON_FUNGUS_COLONY);
     SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL);
     SMBBiomeModifiers.patchDuneGrass();
@@ -64,7 +65,15 @@ public class SMBBiomeModifiers {
 
   private static void patchCattail() {
     BiomeModifications.addFeature(
-      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_CATTAIL).test(ctx),
+      (ctx) -> ctx.getBiomeKey() == Biomes.RIVER,
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_CATTAIL
+    );
+  }
+
+  private static void patchCattailSwamp() {
+    BiomeModifications.addFeature(
+      (ctx) -> ctx.getBiomeKey() == Biomes.SWAMP,
       GenerationStep.Decoration.VEGETAL_DECORATION,
       SMBPlacedFeature.PATCH_CATTAIL
     );

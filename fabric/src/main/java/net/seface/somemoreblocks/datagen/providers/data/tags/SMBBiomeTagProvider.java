@@ -18,7 +18,6 @@ public class SMBBiomeTagProvider extends FabricTagProvider<Biome> {
 
   @Override
   protected void addTags(HolderLookup.Provider provider) {
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CATTAIL).add(Biomes.RIVER, Biomes.SWAMP);
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER).add(Biomes.LUSH_CAVES);
 
     getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SMALL_LILY_PADS)

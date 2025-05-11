@@ -20,7 +20,8 @@ public class SMBForgeBiomeModifierProvider extends ForgeModifierProvider {
   public void create() {
     this.vegetalDecoration(SMBPlacedFeature.NONE_BIG_LILY_PAD).setBiomes(SMBBiomeTags.GENERATES_BIG_LILY_PAD).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_CACTUS_PLANTS).setBiomes(SMBBiomeTags.GENERATES_CACTUS_PLANTS).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_CATTAIL).setBiomes(SMBBiomeTags.GENERATES_CATTAIL).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_CATTAIL).setBiomes(Biomes.RIVER).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_CATTAIL_SWAMP).setBiomes(Biomes.SWAMP).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_CRIMSON_FUNGUS_COLONY).setBiomes(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY).build();
     this.vegetalDecoration(SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_DUNE_GRASS).setType().setBiomes(BiomeTags.IS_BEACH).build();

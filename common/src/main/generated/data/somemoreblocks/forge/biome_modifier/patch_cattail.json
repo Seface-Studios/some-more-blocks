@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#somemoreblocks:generates/cattail",
+  "biomes": "minecraft:river",
   "features": "somemoreblocks:patch_cattail",
   "step": "vegetal_decoration"
 }
