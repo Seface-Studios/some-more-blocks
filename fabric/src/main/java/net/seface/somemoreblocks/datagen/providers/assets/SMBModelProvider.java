@@ -15,14 +15,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.seface.somemoreblocks.block.properties.QuadDirection;
-import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.datagen.providers.assets.providers.CarvedWoodBlockProvider;
 import net.seface.somemoreblocks.datagen.providers.assets.providers.TiledGlassBlockProvider;
 import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
+import net.seface.somemoreblocks.registries.*;
 
 import java.util.ArrayList;
 import java.util.List;

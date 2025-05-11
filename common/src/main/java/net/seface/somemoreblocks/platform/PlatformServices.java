@@ -3,8 +3,6 @@ package net.seface.somemoreblocks.platform;
 import lombok.Getter;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.platform.registry.PlatformRegistry;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ServiceLoader;
 

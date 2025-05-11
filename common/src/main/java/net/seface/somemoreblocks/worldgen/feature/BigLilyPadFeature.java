@@ -11,8 +11,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Fluids;
 import net.seface.somemoreblocks.block.BigLilyPadBlock;
-import net.seface.somemoreblocks.block.properties.QuadDirection;
-import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
 
 public class BigLilyPadFeature extends Feature<NoneFeatureConfiguration> {

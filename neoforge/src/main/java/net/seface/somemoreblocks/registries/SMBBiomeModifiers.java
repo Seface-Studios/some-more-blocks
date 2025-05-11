@@ -11,15 +11,11 @@ import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.seface.somemoreblocks.SomeMoreBlocks;
+import net.seface.somemoreblocks.worldgen.ForgifiedBiomeModifier;
 import net.seface.somemoreblocks.worldgen.PatchDunePlantsBiomeModifier;
 
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
-
-interface IBiomeModifier {
-  HolderSet<Biome> biomes(BiomeModifier biomeModifier);
-  Holder<PlacedFeature> feature(BiomeModifier biomeModifier);
-}
 
 public class SMBBiomeModifiers {
   public static final DeferredRegister<MapCodec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister.create(NeoForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, SomeMoreBlocks.ID);
@@ -35,8 +31,8 @@ public class SMBBiomeModifiers {
   private static <T extends BiomeModifier> Supplier<MapCodec<T>> registerBiomeModifier(String path, BiFunction<HolderSet<Biome>, Holder<PlacedFeature>, T> factory) {
     return BIOME_MODIFIERS.register(path, () ->
       RecordCodecBuilder.mapCodec(builder -> builder.group(
-        Biome.LIST_CODEC.fieldOf("biomes").forGetter((instance) -> ((IBiomeModifier) instance).biomes(instance)),
-        PlacedFeature.CODEC.fieldOf("features").forGetter((instance) -> ((IBiomeModifier) instance).feature(instance))
+        Biome.LIST_CODEC.fieldOf("biomes").forGetter((instance) -> ((ForgifiedBiomeModifier<BiomeModifier>) instance).biomes(instance)),
+        PlacedFeature.CODEC.fieldOf("features").forGetter((instance) -> ((ForgifiedBiomeModifier<BiomeModifier>) instance).features(instance))
       ).apply(builder, factory))
     );
   }

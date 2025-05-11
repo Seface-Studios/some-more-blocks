@@ -8,8 +8,6 @@ import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.platform.registry.BidirectionalRegistryObject;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Supplier;
-
 public class SMBRegistries {
   public static BidirectionalRegistryObject<Block, Block> CARVED_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("carved_blocks"));
   public static BidirectionalRegistryObject<Block, Block> SNOWY_PLANT_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("snowy_plant_blocks"));

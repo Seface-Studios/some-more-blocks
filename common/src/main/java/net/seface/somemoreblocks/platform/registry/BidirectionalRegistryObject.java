@@ -1,18 +1,13 @@
 package net.seface.somemoreblocks.platform.registry;
 
-import com.google.common.base.Suppliers;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import com.google.common.collect.ImmutableMap;
 import lombok.Getter;
 import net.minecraft.resources.ResourceLocation;
-import net.seface.somemoreblocks.SomeMoreBlocks;
 
-import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.function.Supplier;
 
 public class BidirectionalRegistryObject<K, V> {
 
