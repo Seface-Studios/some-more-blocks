@@ -25,6 +25,7 @@ runs
 
 **/*/lang/*.json
 !**/*/generated/**/*/lang/*.json
+!**/*/lang/credits.json
 !**/*/lang/deprecated_strings.json
 
 **/node_modules
