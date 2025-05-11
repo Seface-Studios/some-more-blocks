@@ -648,8 +648,8 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> REDSTONE_SHROOMLIGHT = PlatformServices.REGISTRY.registerBlock("redstone_shroomlight", () -> new RedstoneLampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHROOMLIGHT).setId(SomeMoreBlocks.key(Registries.BLOCK, "redstone_shroomlight"))));
   public static final PlatformRegistryObject<Block> REDSTONE_SEA_LANTERN = PlatformServices.REGISTRY.registerBlock("redstone_sea_lantern", () -> new RedstoneLampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_LAMP).setId(SomeMoreBlocks.key(Registries.BLOCK, "redstone_sea_lantern"))));
   public static final PlatformRegistryObject<Block> PALE_ROSE_BUSH = PlatformServices.REGISTRY.registerBlock("pale_rose_bush", () -> new TallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH).setId(SomeMoreBlocks.key(Registries.BLOCK, "pale_rose_bush"))));
-
   public static final PlatformRegistryObject<Block> CARVED_MUSHROOM_STEM = PlatformServices.REGISTRY.registerBlock("carved_mushroom_stem", () -> new HugeMushroomBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).setId(SomeMoreBlocks.key(Registries.BLOCK, "carved_mushroom_stem"))));
+  public static final PlatformRegistryObject<Block> REEDS = PlatformServices.REGISTRY.registerBlock("reeds", () -> new CattailBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.CATTAIL.get()).noCollission().setId(SomeMoreBlocks.key(Registries.BLOCK, "reeds"))));
 
   public static void init() {}
 }
