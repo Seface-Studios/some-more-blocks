@@ -1,15 +1,5 @@
 plugins {
   id "org.jetbrains.gradle.plugin.idea-ext" version "1.1.7"
-  id "com.github.node-gradle.node" version "3.5.0"
-}
-
-node {
-  version = '20.0.0'
-  npmVersion = '10.0.0'
-}
-
-task runJsScript(type: NodeTask) {
-  script = file('scripts/CompileLanguages/main.js')
 }
 
 subprojects {
@@ -118,7 +108,7 @@ subprojects {
     ]
 
     filesMatching([
-      '**/pack.mcmeta',  '**/lang/**/*.json',  'fabric.mod.json',
+      '**/pack.mcmeta', 'fabric.mod.json',
       'META-INF/mods.toml', 'META-INF/neoforge.mods.toml', '*.mixins.json']) {
       expand expandProps
     }

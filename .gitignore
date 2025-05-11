@@ -24,6 +24,7 @@ run
 runs
 
 **/*/lang/*.json
+!**/*/generated/**/*/lang/*.json
 !**/*/lang/deprecated_strings.json
 
 **/node_modules

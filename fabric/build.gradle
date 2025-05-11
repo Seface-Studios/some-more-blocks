@@ -3,9 +3,14 @@ plugins {
   id 'idea'
   id 'fabric-loom' version '1.9-SNAPSHOT'
   id 'maven-publish'
+  id "com.github.node-gradle.node" version "3.5.0"
 }
 
-apply from: "${rootDir}/gradle/scripts/lang.gradle"
+node {
+  version = '20.0.0'
+  npmVersion = '10.0.0'
+  download = true
+}
 
 base {
   archivesName = "${mod_name.replaceAll(' ', '')}@${project.name}-${minecraft_version}"
@@ -53,6 +58,17 @@ loom {
   }
 }
 
+task runJsScript(type: NodeTask) {
+  dependsOn tasks.named("runDatagen")
+
+  script = project(":common").file('../scripts/langfy/main.mjs')
+  args = [minecraft_version, mod_name]
+}
+
+tasks.named("runDatagen") {
+  finalizedBy tasks.named("runJsScript")
+}
+
 tasks.withType(JavaCompile).configureEach {
   source(project(":common").sourceSets.main.allSource)
 }
@@ -63,10 +79,6 @@ tasks.withType(Javadoc).configureEach {
 
 tasks.named("sourcesJar", Jar) {
   from(project(":common").sourceSets.main.allSource)
-}
-
-tasks.named("runDatagen") {
-  dependsOn "buildLangFiles"
 }
 
 processResources {
