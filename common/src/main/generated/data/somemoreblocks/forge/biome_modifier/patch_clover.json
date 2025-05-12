@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#somemoreblocks:generates/clover",
+  "features": "somemoreblocks:patch_clover",
+  "step": "vegetal_decoration"
+}

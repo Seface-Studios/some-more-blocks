@@ -6,7 +6,7 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.seface.somemoreblocks.datagen.providers.assets.SMBModelProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBBlockLootProvider;
-import net.seface.somemoreblocks.datagen.providers.data.SMBForgeBiomeModifierProvider;
+import net.seface.somemoreblocks.datagen.providers.data.worldgen.SMBForgeBiomeModifierProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBRecipeProvider;
 import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBHusbandryAdvancementsProvider;
 import net.seface.somemoreblocks.datagen.providers.data.forge.ForgeModifierProvider;

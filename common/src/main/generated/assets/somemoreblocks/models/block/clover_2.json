@@ -1,0 +1,7 @@
+{
+  "parent": "somemoreblocks:block/templates/tinted_flowerbed_2",
+  "textures": {
+    "flowerbed": "somemoreblocks:block/clover",
+    "stem": "somemoreblocks:block/clover_stem"
+  }
+}

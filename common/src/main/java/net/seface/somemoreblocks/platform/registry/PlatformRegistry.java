@@ -1,5 +1,6 @@
 package net.seface.somemoreblocks.platform.registry;
 
+import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;

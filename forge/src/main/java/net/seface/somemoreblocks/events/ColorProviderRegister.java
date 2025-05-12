@@ -13,6 +13,7 @@ public class ColorProviderRegister {
 
   @SubscribeEvent
   public static void onRegisterColorProvider(final RegisterColorHandlersEvent.Block event) {
-    event.register((blockState, tint, pos, i) -> BiomeColors.getAverageFoliageColor(tint, pos), SMBBlocks.LEAF_LITTER.get());
+    event.register((state, tint, pos, i) -> BiomeColors.getAverageFoliageColor(tint, pos), SMBBlocks.LEAF_LITTER.get());
+    event.register((state, tint, pos, i) -> BiomeColors.getAverageGrassColor(tint, pos), SMBBlocks.CLOVER.get());
   }
 }

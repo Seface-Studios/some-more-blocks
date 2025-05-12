@@ -20,18 +20,16 @@ public class ClientRegistries {
   private static void registerColorProviders() {
     ColorProviderRegistry.BLOCK.register(
       (blockState, tint, pos, i) -> BiomeColors.getAverageFoliageColor(tint, pos), SMBBlocks.LEAF_LITTER.get());
+
+    ColorProviderRegistry.BLOCK.register(
+      (blockState, tint, pos, i) -> BiomeColors.getAverageGrassColor(tint, pos), SMBBlocks.CLOVER.get());
   }
 
   /**
    * Registers values related to ItemModelProperty.
    */
   private static void registerItemModelProperties() {
-    RangeSelectItemModelProperties.ID_MAPPER.put(
-      BuiltInRegistries.DATA_COMPONENT_TYPE.getKey(SMBDataComponentTypes.BUCKET_VOLUME.get()),
-      BucketVolumeProperty.MAP_CODEC);
-
-    RangeSelectItemModelProperties.ID_MAPPER.put(
-      BuiltInRegistries.DATA_COMPONENT_TYPE.getKey(SMBDataComponentTypes.MOON_PHASE.get()),
-      MoonPhaseProperty.MAP_CODEC);
+    RangeSelectItemModelProperties.ID_MAPPER.put(SMBDataComponentTypes.BUCKET_VOLUME.getId(), BucketVolumeProperty.MAP_CODEC);
+    RangeSelectItemModelProperties.ID_MAPPER.put(SMBDataComponentTypes.MOON_PHASE.getId(), MoonPhaseProperty.MAP_CODEC);
   }
 }

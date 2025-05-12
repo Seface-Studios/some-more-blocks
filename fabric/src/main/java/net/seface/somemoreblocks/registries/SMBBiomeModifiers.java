@@ -16,6 +16,7 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.patchCactusPlants();
     SMBBiomeModifiers.patchCattail();
     SMBBiomeModifiers.patchCattailSwamp();
+    SMBBiomeModifiers.patchClover();
     SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.PATCH_CRIMSON_FUNGUS_COLONY);
     SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL);
     SMBBiomeModifiers.patchDuneGrass();
@@ -76,6 +77,14 @@ public class SMBBiomeModifiers {
       (ctx) -> ctx.getBiomeKey() == Biomes.SWAMP,
       GenerationStep.Decoration.VEGETAL_DECORATION,
       SMBPlacedFeature.PATCH_CATTAIL
+    );
+  }
+
+  private static void patchClover() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_CLOVER).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_CLOVER
     );
   }
 

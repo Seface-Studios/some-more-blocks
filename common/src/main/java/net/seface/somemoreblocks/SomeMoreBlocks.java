@@ -93,9 +93,8 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.BROWN_STAINED_TILED_GLASS.get(),translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE.get(),translucent);
-    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_ROSE_BUSH.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CATTAIL.get(), cutout);
-    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.REEDS.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CLOVER.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CRIMSON_FUNGUS_COLONY_WALL.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CYAN_STAINED_TILED_GLASS.get(),translucent);
@@ -122,6 +121,8 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.NETHERITE_GRATE.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.ORANGE_STAINED_TILED_GLASS.get(),translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get(),translucent);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_ROSE_BUSH.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PINK_STAINED_TILED_GLASS.get(),translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PINK_STAINED_TILED_GLASS_PANE.get(),translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.POTTED_LUMINOUS_FLOWER.get(), cutout);
@@ -133,11 +134,13 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.RED_MUSHROOM_COLONY_WALL.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.RED_STAINED_TILED_GLASS.get(),translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.RED_STAINED_TILED_GLASS_PANE.get(),translucent);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.REEDS.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SHORT_SNOW_GRASS.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SMALL_LILY_PADS.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SNOW_FERN.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SPRUCE_LEAF_LITTER.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TALL_CACTUS.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TALL_DUNE_GRASS.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), cutout);
@@ -147,13 +150,11 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TILED_GLASS_PANE.get(),translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TILED_TINTED_GLASS.get(),translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TINY_CACTUS.get(), cutout);
-    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TALL_CACTUS.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.WARPED_FUNGUS_COLONY.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.WARPED_FUNGUS_COLONY_WALL.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.WHITE_STAINED_TILED_GLASS.get(),translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get(),translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(),translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(),translucent);
-    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), cutout);
   }
 }

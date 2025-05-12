@@ -649,6 +649,7 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> PALE_ROSE_BUSH = PlatformServices.REGISTRY.registerBlock("pale_rose_bush", () -> new TallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH).setId(SomeMoreBlocks.key(Registries.BLOCK, "pale_rose_bush"))));
   public static final PlatformRegistryObject<Block> CARVED_MUSHROOM_STEM = PlatformServices.REGISTRY.registerBlock("carved_mushroom_stem", () -> new HugeMushroomBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).setId(SomeMoreBlocks.key(Registries.BLOCK, "carved_mushroom_stem"))));
   public static final PlatformRegistryObject<Block> REEDS = PlatformServices.REGISTRY.registerBlock("reeds", () -> new CattailBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.CATTAIL.get()).noCollission().setId(SomeMoreBlocks.key(Registries.BLOCK, "reeds"))));
+  public static final PlatformRegistryObject<Block> CLOVER = PlatformServices.REGISTRY.registerBlock("clover", () -> new CloverBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_PETALS).replaceable().noCollission().setId(SomeMoreBlocks.key(Registries.BLOCK, "clover"))), false);
 
   public static void init() {}
 }

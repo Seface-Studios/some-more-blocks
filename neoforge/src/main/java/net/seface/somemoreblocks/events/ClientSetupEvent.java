@@ -6,6 +6,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 
@@ -14,6 +15,7 @@ public class ClientSetupEvent {
 
   @SubscribeEvent
   public static void onClientSetup(final FMLClientSetupEvent event) {
+
     event.enqueueWork(() -> {
       SomeMoreBlocks.initClient();
       ClientSetupEvent.registerFlowerPots();

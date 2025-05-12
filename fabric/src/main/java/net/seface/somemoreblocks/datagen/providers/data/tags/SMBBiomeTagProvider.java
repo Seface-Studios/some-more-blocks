@@ -18,31 +18,37 @@ public class SMBBiomeTagProvider extends FabricTagProvider<Biome> {
 
   @Override
   protected void addTags(HolderLookup.Provider provider) {
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER).add(Biomes.LUSH_CAVES);
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER).add(Biomes.LUSH_CAVES);
 
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SMALL_LILY_PADS)
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SMALL_LILY_PADS)
       .add(Biomes.LUSH_CAVES, Biomes.MANGROVE_SWAMP, Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE);
 
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_BIG_LILY_PAD)
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_BIG_LILY_PAD)
       .add(Biomes.MANGROVE_SWAMP, Biomes.JUNGLE, Biomes.BAMBOO_JUNGLE);
 
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CACTUS_PLANTS)
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CACTUS_PLANTS)
       .forceAddTag(BiomeTags.IS_BADLANDS)
       .add(Biomes.DESERT);
 
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY)
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY)
       .add(Biomes.SWAMP, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.MUSHROOM_FIELDS);
 
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY)
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY)
       .add(Biomes.SWAMP, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.MUSHROOM_FIELDS);
 
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY)
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY)
       .add(Biomes.CRIMSON_FOREST);
 
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY)
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY)
       .add(Biomes.WARPED_FOREST);
 
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SNOW_GRASS).add(Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA);
-    getOrCreateTagBuilder(SMBBiomeTags.GENERATES_LARGE_SNOW_FERN).add(Biomes.SNOWY_TAIGA);
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SNOW_GRASS).add(Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA);
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_LARGE_SNOW_FERN).add(Biomes.SNOWY_TAIGA);
+
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CLOVER)
+      .forceAddTag(BiomeTags.IS_JUNGLE)
+      .add(Biomes.BIRCH_FOREST, Biomes.DARK_FOREST, Biomes.FLOWER_FOREST, Biomes.FOREST,
+           Biomes.GROVE, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS,
+           Biomes.MEADOW);
   }
 }

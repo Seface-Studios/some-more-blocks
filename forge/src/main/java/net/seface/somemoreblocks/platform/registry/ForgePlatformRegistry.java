@@ -36,7 +36,8 @@ public class ForgePlatformRegistry implements PlatformRegistry {
     Map.entry("cracked_coal_bricks", Constants.CRACKED_COAL_BRICKS_FUEL),
     Map.entry("coal_pillar", Constants.COAL_PILLAR_FUEL),
     Map.entry("cut_coal", Constants.CUT_COAL_FUEL),
-    Map.entry("cracked_cut_coal", Constants.CRACKED_CUT_COAL_FUEL));
+    Map.entry("cracked_cut_coal", Constants.CRACKED_CUT_COAL_FUEL),
+    Map.entry("clover", Constants.CLOVER_FUEL));
 
   @Override
   public PlatformRegistryObject<Block> registerBlock(String path, Supplier<Block> supplier, boolean registerBlockItem) {

@@ -21,6 +21,7 @@ public abstract class Constants {
   public static final int CRACKED_COAL_BRICKS_FUEL = $COAL_BLOCK_FUEL + 3200;
   public static final int CRACKED_CUT_COAL_FUEL = $COAL_BLOCK_FUEL + 3800;
   public static final int CUT_COAL_FUEL = $MAX_FUEL;
+  public static final int CLOVER_FUEL = 100;
 
   /*
    * Shingles Strength Property

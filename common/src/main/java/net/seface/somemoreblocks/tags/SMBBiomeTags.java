@@ -16,6 +16,7 @@ public final class SMBBiomeTags {
   public static final TagKey<Biome> GENERATES_WARPED_FUNGUS_COLONY = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/warped_fungus_colony");
   public static final TagKey<Biome> GENERATES_SNOW_GRASS = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/snow_grass");
   public static final TagKey<Biome> GENERATES_LARGE_SNOW_FERN = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/large_snow_fern");
+  public static final TagKey<Biome> GENERATES_CLOVER = SomeMoreBlocks.tagKey(Registries.BIOME, "generates/clover");
 
   public static void init() {}
 }

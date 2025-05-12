@@ -16,6 +16,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.SlabType;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
@@ -31,6 +33,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.seface.somemoreblocks.block.CloverBlock;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
 import net.seface.somemoreblocks.block.properties.QuadDirection;
 import net.seface.somemoreblocks.registries.*;
@@ -39,6 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.IntStream;
 
 public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
   private static final List<BlockFamily> SHOULD_NOT_GENERATE_LOOT_TABLE = new ArrayList<>();
@@ -305,6 +309,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropDoublePlantWithoutShears(SMBBlocks.PALE_ROSE_BUSH.get());
     this.dropWhenShears(SMBBlocks.CATTAIL.get());
     this.dropWhenShears(SMBBlocks.REEDS.get());
+    this.dropSelfClover(SMBBlocks.CLOVER.get());
     this.dropSelf(SMBBlocks.SMALL_LILY_PADS.get());
     this.dropBigLilyPad(SMBBlocks.BIG_LILY_PAD.get());
     this.dropSelf(SMBBlocks.LUMINOUS_FLOWER.get());
@@ -354,6 +359,17 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
 
   private void dropDoublePlantWithoutShears(Block block) {
     this.add(block, this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+  }
+
+  private void dropSelfClover(Block block) {
+    this.add(block, LootTable.lootTable()
+      .withPool(LootPool.lootPool()
+        .setRolls(ConstantValue.exactly(1.0F))
+        .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block)
+          .apply(IntStream.rangeClosed(1, 4).boxed().toList(), (integer) ->
+            SetItemCountFunction.setCount(ConstantValue.exactly((float)integer))
+              .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CloverBlock.AMOUNT, integer)))
+          )))));
   }
 
   private void dropTallMushroomColony(Block block, ItemLike whenShearsItem, ItemLike otherItem) {

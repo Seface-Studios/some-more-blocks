@@ -1,4 +1,4 @@
-package net.seface.somemoreblocks.datagen.providers.data;
+package net.seface.somemoreblocks.datagen.providers.data.worldgen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.resources.ResourceKey;
@@ -49,6 +49,7 @@ public class SMBForgeBiomeModifierProvider extends ForgeModifierProvider {
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_RED_MUSHROOM_COLONY).setBiomes(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).build();
     this.vegetalDecoration(SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_CLOVER).setBiomes(SMBBiomeTags.GENERATES_CLOVER).build();
   }
 
   private ForgeBiomeModifier leafLitterDecoration(ResourceKey<PlacedFeature> placedFeature) {
