@@ -12,7 +12,7 @@
                 "data": {
                   "Name": "somemoreblocks:tiny_cactus"
                 },
-                "weight": 4
+                "weight": 60
               },
               {
                 "data": {
@@ -21,7 +21,7 @@
                     "half": "lower"
                   }
                 },
-                "weight": 2
+                "weight": 40
               }
             ]
           }

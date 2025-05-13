@@ -23,7 +23,7 @@ public class PatchCactusFeatureProvider extends AbstractFeatureProvider<RandomPa
 
   @Override
   protected void placed(List<PlacementModifier> modifier) {
-    modifier.add(NoiseThresholdCountPlacement.of(-0.8, 5, 10));
+    modifier.add(RarityFilter.onAverageOnceEvery(3));
     modifier.add(InSquarePlacement.spread());
     modifier.add(HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING));
     modifier.add(BiomeFilter.biome());
@@ -37,8 +37,8 @@ public class PatchCactusFeatureProvider extends AbstractFeatureProvider<RandomPa
         new SimpleBlockConfiguration(
           new WeightedStateProvider(
             new SimpleWeightedRandomList.Builder<BlockState>()
-              .add(SMBBlocks.TINY_CACTUS.get().defaultBlockState(), 4)
-              .add(SMBBlocks.TALL_CACTUS.get().defaultBlockState(), 2)
+              .add(SMBBlocks.TINY_CACTUS.get().defaultBlockState(), 60)
+              .add(SMBBlocks.TALL_CACTUS.get().defaultBlockState(), 40)
               .build()
           )
         ),
