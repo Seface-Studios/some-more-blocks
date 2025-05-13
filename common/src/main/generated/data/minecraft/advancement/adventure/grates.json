@@ -1,0 +1,40 @@
+{
+  "parent": "minecraft:adventure/minecraft_trials_edition",
+  "criteria": {
+    "grates": {
+      "conditions": {
+        "items": [
+          {
+            "items": "somemoreblocks:iron_grate"
+          },
+          {
+            "items": "somemoreblocks:diamond_grate"
+          },
+          {
+            "items": "somemoreblocks:netherite_grate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.somemoreblocks.adventure.grates.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "somemoreblocks:netherite_grate"
+    },
+    "title": {
+      "translate": "advancements.somemoreblocks.adventure.grates.title"
+    }
+  },
+  "requirements": [
+    [
+      "grates"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

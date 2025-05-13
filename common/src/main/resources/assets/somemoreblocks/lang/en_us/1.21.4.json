@@ -48,5 +48,13 @@
   "utilities.somemoreblocks.moon_phase.name.4": "New Moon",
   "utilities.somemoreblocks.moon_phase.name.5": "Waning Crescent",
   "utilities.somemoreblocks.moon_phase.name.6": "Third Quarter",
-  "utilities.somemoreblocks.moon_phase.name.7": "Waning Gibbous"
+  "utilities.somemoreblocks.moon_phase.name.7": "Waning Gibbous",
+  "advancements.somemoreblocks.husbandry.redstone_froglights.title": "With Our Power(ed) Combined!",
+  "advancements.somemoreblocks.husbandry.redstone_froglights.description": "Have all Redstone Froglights in your inventory",
+  "advancements.somemoreblocks.adventure.grates.title": "A Grate Time Waste...",
+  "advancements.somemoreblocks.adventure.grates.description": "Have all ${mod_name} Grates blocks in your inventory",
+  "advancements.somemoreblocks.nether.obtain_cut_netherite.title": "Very Serious Dedication",
+  "advancements.somemoreblocks.nether.obtain_cut_netherite.description": "Use Netherite Bricks to craft an unreversible block and immediately regret it",
+  "advancements.somemoreblocks.husbandry.carved_pale_woods.title": "Tonight We Steal The Moon!",
+  "advancements.somemoreblocks.husbandry.carved_pale_woods.description": "Use an Axe to carve a Stripped Pale Log (or Wood) in each lunar phase"
 }

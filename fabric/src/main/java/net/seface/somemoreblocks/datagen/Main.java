@@ -6,6 +6,8 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.seface.somemoreblocks.datagen.providers.assets.SMBModelProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBBlockLootProvider;
+import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBAdventureAdvancementsProvider;
+import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBNetherAdvancementsProvider;
 import net.seface.somemoreblocks.datagen.providers.data.worldgen.SMBForgeBiomeModifierProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBRecipeProvider;
 import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBHusbandryAdvancementsProvider;
@@ -31,7 +33,9 @@ public class Main implements DataGeneratorEntrypoint {
     pack.addProvider(SMBBlockTagProvider::new);
     pack.addProvider(SMBBlockLootProvider::new);
     pack.addProvider(SMBFeatureProvider::new);
+    pack.addProvider(SMBAdventureAdvancementsProvider::new);
     pack.addProvider(SMBHusbandryAdvancementsProvider::new);
+    pack.addProvider(SMBNetherAdvancementsProvider::new);
     pack.addProvider((output, _completableFuture) -> new SMBForgeBiomeModifierProvider(output, ForgeModifierProvider.Loader.FORGE));
     pack.addProvider((output, _completableFuture) -> new SMBForgeBiomeModifierProvider(output, ForgeModifierProvider.Loader.NEOFORGE));
   }

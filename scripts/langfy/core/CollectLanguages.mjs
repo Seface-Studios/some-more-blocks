@@ -44,10 +44,12 @@ export class CollectLanguages {
       });
 
       const deprecatedStringsData = JSON.parse(fs.readFileSync(DEPRECATED_STRINGS, 'utf-8'));
-      for (const deprecatedVersion of Object.keys(deprecatedStringsData)) {
+
+      // Remove all deprecated strings
+      for (const deprecatedVersion of Object.keys(deprecatedStringsData['removed'])) {
         if (!Version.isExpectedVersion(deprecatedVersion)) continue;
 
-        const keys = deprecatedStringsData[deprecatedVersion];
+        const keys = deprecatedStringsData['removed'][deprecatedVersion];
         for (const key of keys) {
           if (mergedData.hasOwnProperty(key)) {
             delete mergedData[key];

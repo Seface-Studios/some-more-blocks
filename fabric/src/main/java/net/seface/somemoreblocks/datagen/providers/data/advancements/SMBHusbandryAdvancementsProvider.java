@@ -4,13 +4,13 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.AdvancementType;
-import net.minecraft.advancements.critereon.BlockPredicate;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger;
-import net.minecraft.advancements.critereon.LocationPredicate;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponentPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.advancements.packs.VanillaHusbandryAdvancements;
 import net.minecraft.network.chat.Component;
@@ -20,6 +20,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
+import net.seface.somemoreblocks.item.CarvedPaleOakBlockItem;
+import net.seface.somemoreblocks.registries.SMBBlocks;
+import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
+import net.seface.somemoreblocks.registries.SMBItems;
 import net.seface.somemoreblocks.registries.SMBRegistries;
 
 import java.util.ArrayList;
@@ -44,6 +49,11 @@ public class SMBHusbandryAdvancementsProvider extends FabricAdvancementProvider 
   }
 
   @Override
+  public String getName() {
+    return "Advancements Husbandry";
+  }
+
+  @Override
   public void generateAdvancement(HolderLookup.Provider lookup, Consumer<AdvancementHolder> gen) {
     this.generator = gen;
     this.itemHolder = lookup.lookupOrThrow(Registries.ITEM);
@@ -51,6 +61,8 @@ public class SMBHusbandryAdvancementsProvider extends FabricAdvancementProvider 
 
     this.waxOnOrOff("safely_harvest_honey", Items.HONEYCOMB, "wax_on", WAX_ON_BLOCKS, List.of(Items.HONEYCOMB));
     this.waxOnOrOff("wax_on", Items.STONE_AXE, "wax_off", WAX_OFF_BLOCKS, Arrays.stream(VanillaHusbandryAdvancements.WAX_SCRAPING_TOOLS).toList());
+    this.withOurPoweredCombined();
+    this.tonightWeStealTheMoon();
   }
 
   /**
@@ -77,5 +89,39 @@ public class SMBHusbandryAdvancementsProvider extends FabricAdvancementProvider 
           )
         ).build(outputPath)
     );
+  }
+
+  private void withOurPoweredCombined() {
+    ResourceLocation parentPath = ResourceLocation.withDefaultNamespace("husbandry/froglights");
+    Advancement.Builder.advancement()
+      .parent(Advancement.Builder.advancement().build(parentPath))
+      .display(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get(), Component.translatable("advancements.somemoreblocks.husbandry.redstone_froglights.title"), Component.translatable("advancements.somemoreblocks.husbandry.redstone_froglights.description"), null, AdvancementType.CHALLENGE, true, true, false)
+      .addCriterion("redstone_froglights",
+        InventoryChangeTrigger.TriggerInstance.hasItems(
+          SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get(),
+          SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get(),
+          SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get()
+        )
+      ).save(this.generator, "husbandry/redstone_froglights");
+  }
+
+  private void tonightWeStealTheMoon() {
+    List<ItemPredicate.Builder> items = new ArrayList<>();
+
+    for (int i : RotatedCarvedPaleOakBlock.MOON_PHASE.getPossibleValues()) {
+      items.add(
+        ItemPredicate.Builder.item()
+          .hasComponents(DataComponentPredicate.allOf(DataComponentMap.builder().set(SMBDataComponentTypes.MOON_PHASE.get(), i).build())));
+    }
+
+    ResourceLocation parentPath = ResourceLocation.withDefaultNamespace("husbandry/root");
+    Advancement.Builder.advancement()
+      .parent(Advancement.Builder.advancement().build(parentPath))
+      .display(SMBBlocks.CARVED_PALE_OAK_LOG.get(), Component.translatable("advancements.somemoreblocks.husbandry.carved_pale_woods.title"), Component.translatable("advancements.somemoreblocks.husbandry.carved_pale_woods.description"), null, AdvancementType.CHALLENGE, true, true, false)
+      .addCriterion("carved_pale_woods",
+        InventoryChangeTrigger.TriggerInstance.hasItems(items.toArray(new ItemPredicate.Builder[0]))
+      )
+      .rewards(AdvancementRewards.Builder.experience(100))
+      .save(this.generator, "husbandry/carved_pale_woods");
   }
 }

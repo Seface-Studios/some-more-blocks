@@ -1,16 +1,14 @@
 {
-  ">=1.21": [
-    "block.somemoreblocks.chiseled_tuff_bricks",
-    "block.somemoreblocks.polished_tuff",
-    "block.somemoreblocks.polished_tuff_slab",
-    "block.somemoreblocks.polished_tuff_stairs",
-    "block.somemoreblocks.tuff_brick_slab",
-    "block.somemoreblocks.tuff_brick_stairs",
-    "block.somemoreblocks.tuff_brick_wall",
-    "block.somemoreblocks.tuff_bricks",
-    "somemoreblocks.resourcepack.update_1_21.enabled",
-    "somemoreblocks.resourcepack.update_1_21.name",
-    "somemoreblocks.resourcepack.update_1_21.read_more",
-    "somemoreblocks.resourcepack.update_1_21.read_more.hover"
-  ]
+  "removed": {
+    ">=1.21": [
+      "block.somemoreblocks.chiseled_tuff_bricks",
+      "block.somemoreblocks.polished_tuff",
+      "block.somemoreblocks.polished_tuff_slab",
+      "block.somemoreblocks.polished_tuff_stairs",
+      "block.somemoreblocks.tuff_brick_slab",
+      "block.somemoreblocks.tuff_brick_stairs",
+      "block.somemoreblocks.tuff_brick_wall",
+      "block.somemoreblocks.tuff_bricks"
+    ]
+  }
 }

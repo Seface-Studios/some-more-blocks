@@ -35,8 +35,8 @@
   "block.somemoreblocks.corrupted_polished_basalt_brick_stairs": "Corrupted Polished Basalt Brick Stairs",
   "block.somemoreblocks.corrupted_polished_basalt_brick_slab": "Corrupted Polished Basalt Brick Slab",
   "block.somemoreblocks.corrupted_polished_basalt_brick_wall": "Corrupted Polished Basalt Brick Wall",
-  "block.somemoreblocks.carved_mushroom_stem": "Carved Mushroom Stem",
-  "block.somemoreblocks.tall_cactus": "Tall Cactus",
+  "block.somemoreblocks.carved_mushroom_stem": "Caule de Cogumelo Esculpido",
+  "block.somemoreblocks.tall_cactus": "Cacto Grande",
   "block.somemoreblocks.reeds": "Juncos",
   "block.somemoreblocks.clover": "Trevo de Quatro Folhas",
   "item.somemoreblocks.carved_pale_oak_logs.moon_phase_description": "Fase da Lua: %s",
@@ -48,5 +48,13 @@
   "utilities.somemoreblocks.moon_phase.name.4": "Lua Nova",
   "utilities.somemoreblocks.moon_phase.name.5": "Lua Minguante",
   "utilities.somemoreblocks.moon_phase.name.6": "Quarto Minguante",
-  "utilities.somemoreblocks.moon_phase.name.7": "Lua Balsâmica"
+  "utilities.somemoreblocks.moon_phase.name.7": "Lua Balsâmica",
+  "advancements.somemoreblocks.husbandry.redstone_froglights.title": "Com Nossas Energias Combinadas",
+  "advancements.somemoreblocks.husbandry.redstone_froglights.description": "Tenha todos os Anfibrilho de Redstone no seu inventário",
+  "advancements.somemoreblocks.adventure.grates.title": "Uma grade tempo perdido...",
+  "advancements.somemoreblocks.adventure.grates.description": "Tenha todas as Grades do ${mod_name} no seu inventário.",
+  "advancements.somemoreblocks.nether.obtain_cut_netherite.title": "Dedicação Bem Séria",
+  "advancements.somemoreblocks.nether.obtain_cut_netherite.description": "Use tijolos de Netherite para criar um bloco irreversível e se arrepender imediatamente",
+  "advancements.somemoreblocks.husbandry.carved_pale_woods.title": "Hoje Iremos Roubar a Lua!",
+  "advancements.somemoreblocks.husbandry.carved_pale_woods.description": "Use um Machado para esculpir um Tronco Pálido D|escascado (ou madeira) em cada fase lunar"
 }
