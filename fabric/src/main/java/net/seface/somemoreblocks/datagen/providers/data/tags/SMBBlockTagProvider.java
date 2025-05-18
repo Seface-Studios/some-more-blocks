@@ -286,7 +286,16 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.BONE_BRICK_STAIRS.get(), SMBBlocks.BONE_TILE_STAIRS.get(),
         SMBBlocks.POLISHED_RESIN_STAIRS.get(), SMBBlocks.RESIN_TILE_STAIRS.get(),
         SMBBlocks.POLISHED_BASALT_BRICK_STAIRS.get(), SMBBlocks.POLISHED_BASALT_TILE_STAIRS.get(),
-        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get()
+        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get(),
+        SMBBlocks.SHINGLES_STAIRS.get(), SMBBlocks.WHITE_SHINGLES_STAIRS.get(),
+        SMBBlocks.LIGHT_GRAY_SHINGLES_STAIRS.get(), SMBBlocks.GRAY_SHINGLES_STAIRS.get(),
+        SMBBlocks.BLACK_SHINGLES_STAIRS.get(), SMBBlocks.BROWN_SHINGLES_STAIRS.get(),
+        SMBBlocks.RED_SHINGLES_STAIRS.get(), SMBBlocks.ORANGE_SHINGLES_STAIRS.get(),
+        SMBBlocks.YELLOW_SHINGLES_STAIRS.get(), SMBBlocks.LIME_SHINGLES_STAIRS.get(),
+        SMBBlocks.GREEN_SHINGLES_STAIRS.get(), SMBBlocks.CYAN_SHINGLES_STAIRS.get(),
+        SMBBlocks.LIGHT_BLUE_SHINGLES_STAIRS.get(), SMBBlocks.BLUE_SHINGLES_STAIRS.get(),
+        SMBBlocks.PURPLE_SHINGLES_STAIRS.get(), SMBBlocks.MAGENTA_SHINGLES_STAIRS.get(),
+        SMBBlocks.PINK_SHINGLES_STAIRS.get()
       );
 
     this.getOrCreateTagBuilder(BlockTags.TERRACOTTA).setReplace(false)
@@ -618,5 +627,13 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
       .add(
         SMBBlocks.WARPED_FUNGUS_COLONY.get(), SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), SMBBlocks.WARPED_FUNGUS_COLONY.get(),
         SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), SMBBlocks.CRIMSON_FUNGUS_COLONY.get());
+
+    this.getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).setReplace(false)
+      .add(
+        SMBBlocks.IRON_BRICKS.get(), SMBBlocks.IRON_PILLAR.get(), SMBBlocks.CUT_IRON.get(),
+        SMBBlocks.GOLD_BRICKS.get(), SMBBlocks.GOLD_PILLAR.get(), SMBBlocks.CUT_GOLD.get(),
+        SMBBlocks.EMERALD_BRICKS.get(), SMBBlocks.EMERALD_PILLAR.get(), SMBBlocks.CUT_EMERALD.get(),
+        SMBBlocks.DIAMOND_BRICKS.get(), SMBBlocks.DIAMOND_PILLAR.get(), SMBBlocks.CUT_DIAMOND.get(),
+        SMBBlocks.NETHERITE_BRICKS.get(), SMBBlocks.NETHERITE_PILLAR.get(), SMBBlocks.CUT_NETHERITE.get());
   }
 }

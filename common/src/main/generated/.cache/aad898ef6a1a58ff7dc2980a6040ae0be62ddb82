@@ -1,6 +1,7 @@
 // 1.21.4	-999999999-01-01T00:00:00	Some More Blocks/Tags for minecraft:block
 412bd0f3d8b19b3fb44f26925ead1e0d039ae9ed data/minecraft/tags/block/acacia_logs.json
 666894c241afef87eeccb3a62f643c163d54a738 data/minecraft/tags/block/bamboo_blocks.json
+3cac94eae4c9f507baace0e3e77c94a4865d335d data/minecraft/tags/block/beacon_base_blocks.json
 af49264a3cab351b81a7dcaa583222b7bc627fe1 data/minecraft/tags/block/birch_logs.json
 580bb384ea7ffb19b748c9d77986ad82a6b8cc86 data/minecraft/tags/block/cherry_logs.json
 ea61cccb18025241e46540e23cd8a3128eed784f data/minecraft/tags/block/crimson_stems.json
@@ -27,7 +28,7 @@ f9035ebb72b33c8dcb4483de4ca914dd9a05e40b data/minecraft/tags/block/slabs.json
 c87b062796877f4386eb34e42fad982e31d9aac0 data/minecraft/tags/block/small_flowers.json
 bb326c4e0f30d5df32110799ddac1f014576a91d data/minecraft/tags/block/snow.json
 de751525b956fdbac6c0442cb1bd0c99a2f691ec data/minecraft/tags/block/spruce_logs.json
-54e9e21e685223df483c0962cdc4bf67232165d5 data/minecraft/tags/block/stairs.json
+fbcd8d362b6ce0eff5825c654c2f188bf5638994 data/minecraft/tags/block/stairs.json
 26faa6240bb61ec529ecd9f5ccc25e8462c89736 data/minecraft/tags/block/terracotta.json
 1fbecb0eeecfc0be3e1ba5ca11d8993dba55211d data/minecraft/tags/block/walls.json
 032c4c0ed55dc1b19887888f8eedb7d6f7e1c159 data/minecraft/tags/block/warped_stems.json

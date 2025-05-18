@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "somemoreblocks:block/lime_shingles",
+    "side": "somemoreblocks:block/lime_shingles",
+    "top": "somemoreblocks:block/lime_shingles"
+  }
+}

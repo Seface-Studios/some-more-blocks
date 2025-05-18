@@ -132,7 +132,16 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
         SMBBlocks.BONE_BRICK_STAIRS.get().asItem(), SMBBlocks.BONE_TILE_STAIRS.get().asItem(),
         SMBBlocks.POLISHED_RESIN_STAIRS.get().asItem(), SMBBlocks.RESIN_TILE_STAIRS.get().asItem(),
         SMBBlocks.POLISHED_BASALT_BRICK_STAIRS.get().asItem(), SMBBlocks.POLISHED_BASALT_TILE_STAIRS.get().asItem(),
-        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get().asItem()
+        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get().asItem(),
+        SMBBlocks.SHINGLES_STAIRS.get().asItem(), SMBBlocks.WHITE_SHINGLES_STAIRS.get().asItem(),
+        SMBBlocks.LIGHT_GRAY_SHINGLES_STAIRS.get().asItem(), SMBBlocks.GRAY_SHINGLES_STAIRS.get().asItem(),
+        SMBBlocks.BLACK_SHINGLES_STAIRS.get().asItem(), SMBBlocks.BROWN_SHINGLES_STAIRS.get().asItem(),
+        SMBBlocks.RED_SHINGLES_STAIRS.get().asItem(), SMBBlocks.ORANGE_SHINGLES_STAIRS.get().asItem(),
+        SMBBlocks.YELLOW_SHINGLES_STAIRS.get().asItem(), SMBBlocks.LIME_SHINGLES_STAIRS.get().asItem(),
+        SMBBlocks.GREEN_SHINGLES_STAIRS.get().asItem(), SMBBlocks.CYAN_SHINGLES_STAIRS.get().asItem(),
+        SMBBlocks.LIGHT_BLUE_SHINGLES_STAIRS.get().asItem(), SMBBlocks.BLUE_SHINGLES_STAIRS.get().asItem(),
+        SMBBlocks.PURPLE_SHINGLES_STAIRS.get().asItem(), SMBBlocks.MAGENTA_SHINGLES_STAIRS.get().asItem(),
+        SMBBlocks.PINK_SHINGLES_STAIRS.get().asItem()
       );
 
     getOrCreateTagBuilder(ItemTags.WALLS).setReplace(false)

@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
@@ -131,10 +132,39 @@ public class SMBBlockFamilies {
   public static final BlockFamily ICE_BRICKS = register(SMBBlocks.ICE_BRICKS.get()).cracked(SMBBlocks.CRACKED_ICE_BRICKS.get()).stairs(SMBBlocks.ICE_BRICK_STAIRS.get()).slab(SMBBlocks.ICE_BRICK_SLAB.get()).wall(SMBBlocks.ICE_BRICK_WALL.get()).getFamily();
   public static final BlockFamily ICE_TILES = register(SMBBlocks.ICE_TILES.get()).cracked(SMBBlocks.CRACKED_ICE_TILES.get()).stairs(SMBBlocks.ICE_TILE_STAIRS.get()).slab(SMBBlocks.ICE_TILE_SLAB.get()).wall(SMBBlocks.ICE_TILE_WALL.get()).getFamily();
 
+  public static final BlockFamily SHINGLES = register(SMBBlocks.SHINGLES.get()).stairs(SMBBlocks.SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily WHITE_SHINGLES = register(SMBBlocks.WHITE_SHINGLES.get()).stairs(SMBBlocks.WHITE_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily LIGHT_GRAY_SHINGLES = register(SMBBlocks.LIGHT_GRAY_SHINGLES.get()).stairs(SMBBlocks.LIGHT_GRAY_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily GRAY_SHINGLES = register(SMBBlocks.GRAY_SHINGLES.get()).stairs(SMBBlocks.GRAY_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily BLACK_SHINGLES = register(SMBBlocks.BLACK_SHINGLES.get()).stairs(SMBBlocks.BLACK_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily BROWN_SHINGLES = register(SMBBlocks.BROWN_SHINGLES.get()).stairs(SMBBlocks.BROWN_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily RED_SHINGLES = register(SMBBlocks.RED_SHINGLES.get()).stairs(SMBBlocks.RED_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily ORANGE_SHINGLES = register(SMBBlocks.ORANGE_SHINGLES.get()).stairs(SMBBlocks.ORANGE_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily YELLOW_SHINGLES = register(SMBBlocks.YELLOW_SHINGLES.get()).stairs(SMBBlocks.YELLOW_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily LIME_SHINGLES = register(SMBBlocks.LIME_SHINGLES.get()).stairs(SMBBlocks.LIME_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily GREEN_SHINGLES = register(SMBBlocks.GREEN_SHINGLES.get()).stairs(SMBBlocks.GREEN_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily CYAN_SHINGLES = register(SMBBlocks.CYAN_SHINGLES.get()).stairs(SMBBlocks.CYAN_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily LIGHT_BLUE_SHINGLES = register(SMBBlocks.LIGHT_BLUE_SHINGLES.get()).stairs(SMBBlocks.LIGHT_BLUE_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily BLUE_SHINGLES = register(SMBBlocks.BLUE_SHINGLES.get()).stairs(SMBBlocks.BLUE_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily PURPLE_SHINGLES = register(SMBBlocks.PURPLE_SHINGLES.get()).stairs(SMBBlocks.PURPLE_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily MAGENTA_SHINGLES = register(SMBBlocks.MAGENTA_SHINGLES.get()).stairs(SMBBlocks.MAGENTA_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily PINK_SHINGLES = register(SMBBlocks.PINK_SHINGLES.get()).stairs(SMBBlocks.PINK_SHINGLES_STAIRS.get()).getFamily();
+
   public static void init() {}
 
   public static Map<Block, BlockFamily> getAllFamilies() {
     return BLOCK_FAMILIES;
+  }
+
+  @Nullable
+  public static BlockFamily getByBaseBlock(Block block) {
+    for (Map.Entry<Block, BlockFamily> blockFamily : getAllFamilies().entrySet()) {
+      if (blockFamily.getValue().getBaseBlock() == block) {
+        return blockFamily.getValue();
+      }
+    }
+
+    return null;
   }
 
   /**

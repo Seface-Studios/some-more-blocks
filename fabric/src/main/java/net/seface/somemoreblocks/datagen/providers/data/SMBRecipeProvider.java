@@ -588,6 +588,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
           Block shingles = SMBRegistries.SHINGLES_BLOCKS.getNext(dyeColor).orElseThrow();
           Block terracotta = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(dyeColor + "_terracotta"));
 
+          this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.getByBaseBlock(shingles));
           this.aroundDyeItemWith(RecipeCategory.BUILDING_BLOCKS, "shingles_from_dye", SMBBlocks.SHINGLES.get(), shingles, dyeColor);
           this.oneByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "shingles_from_terracotta", shingles, terracotta, 4);
           this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, shingles, List.of(terracotta));
