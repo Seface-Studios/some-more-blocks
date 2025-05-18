@@ -10,6 +10,8 @@ const LANG_DIR = path.join(process.cwd(), "../common/src/main/resources/assets/s
 const DEPRECATED_STRINGS = path.join(LANG_DIR, "deprecated_strings.json");
 const LANG_OUTPUT_DIR = path.join(process.cwd(), "../common/src/main/generated/assets/somemoreblocks/lang");
 
+let definitiveKeys = [];
+
 export class CollectLanguages {
   static collect() {
     if (!fs.existsSync(LANG_OUTPUT_DIR)) {
@@ -20,7 +22,10 @@ export class CollectLanguages {
       return fs.statSync(path.join(LANG_DIR, file)).isDirectory();
     });
 
+    langDirs.sort((a, b) => a.localeCompare(b, 'en')).unshift(langDirs.splice(langDirs.indexOf('en_us'), 1)[0]);
+
     langDirs.forEach(langCode => {
+      let keys = [];
       const language = new Language(langCode);
 
       if (langCode !== "en_us") {
@@ -42,6 +47,18 @@ export class CollectLanguages {
         const fileData = JSON.parse(rawFileData);
         Object.assign(mergedData, fileData);
       });
+
+
+      if (langCode === "en_us") {
+        definitiveKeys = Object.keys(mergedData);
+      }
+
+      keys = Object.keys(mergedData);
+
+      const missingKeys = definitiveKeys.filter((k) => !keys.includes(k));
+      if (missingKeys.length > 0) {
+        console.log(`Missing translation keys in the language '${langCode}':`, missingKeys)
+      }
 
       const deprecatedStringsData = JSON.parse(fs.readFileSync(DEPRECATED_STRINGS, 'utf-8'));
 

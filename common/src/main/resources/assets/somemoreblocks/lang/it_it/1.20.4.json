@@ -1,11 +1,11 @@
 {
   "modmenu.becomeATranslator.somemoreblocks": "Diventa un traduttore",
-  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} è un progetto Vanilla-like che aggiunge nuovi tipi di blocco al gioco. \\n\\nIn ricordo di: <underline><color #8442db>${ng_name}</color></underline> \\u2b50",
+  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} è un progetto Vanilla-like che aggiunge nuovi tipi di blocco al gioco. \n\nIn ricordo di: <underline><color #8442db>${ng_name}</color></underline> \u2b50",
   "modmenu.summaryTranslation.somemoreblocks": "${mod_name} è una mod Vanilla-like che aggiunge nuove varianti di blocchi al gioco.",
   "somemoreblocks.resourcepack.update_1_21.name": "Sperimentale: Aggiornamento 1.21",
   "somemoreblocks.resourcepack.update_1_21.enabled": "Il Pacchetto risorse 1.21 sperimentale è stato attivato automaticamente in questo mondo.",
   "somemoreblocks.resourcepack.update_1_21.read_more": "Leggi altro",
-  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "Clicca qui per saperne di più sul pacchetto di risorse sperimentale\\n",
+  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "Clicca qui per saperne di più sul pacchetto di risorse sperimentale\n",
   "block.somemoreblocks.acacia_mosaic_slab": "Lastra d'Acacia a mosaico",
   "block.somemoreblocks.acacia_mosaic_stairs": "Scalini d'Acacia a mosaico",
   "block.somemoreblocks.acacia_mosaic": "Assi di acacia intrecciate",

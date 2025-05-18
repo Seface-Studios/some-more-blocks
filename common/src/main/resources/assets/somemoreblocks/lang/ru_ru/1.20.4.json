@@ -1,11 +1,11 @@
 {
   "modmenu.becomeATranslator.somemoreblocks": "Стать Переводчиком",
-  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} - это проект в ванильном стиле, который добавляет новые вариации блоков в игру. \\n\\nВ память о <underline><color #8442db>${ng_name}</color></underline>\\u2b50",
+  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} - это проект в ванильном стиле, который добавляет новые вариации блоков в игру. \n\nВ память о <underline><color #8442db>${ng_name}</color></underline>\u2b50",
   "modmenu.summaryTranslation.somemoreblocks": "${mod_name} - это проект в ванильном стиле, который добавляет новые вариации блоков в игру.",
   "somemoreblocks.resourcepack.update_1_21.name": "Экспериментально: Обновление 1.21",
   "somemoreblocks.resourcepack.update_1_21.enabled": "Экспериментальный ресурс пак 1.21 был автоматически включён в этом мире.",
   "somemoreblocks.resourcepack.update_1_21.read_more": "Подробнее",
-  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "Нажмите здесь, чтобы прочитать больше о\\nэксперементальном ресурс паке",
+  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "Нажмите здесь, чтобы прочитать больше о\nэксперементальном ресурс паке",
   "block.somemoreblocks.acacia_mosaic_slab": "Плита из акациевой мозаики",
   "block.somemoreblocks.acacia_mosaic_stairs": "Ступенька из акациевой мозаики",
   "block.somemoreblocks.acacia_mosaic": "Акациевая мозаика",

@@ -1,11 +1,11 @@
 {
   "modmenu.becomeATranslator.somemoreblocks": "Ayuda a Traducir",
-  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} es un proyecto semi-vanilla que añade nuevas variaciones de bloques al juego. \\n\\nEn memoria de <underline><color #8442db>${ng_name}</color></underline> \\u2b50",
+  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} es un proyecto semi-vanilla que añade nuevas variaciones de bloques al juego. \n\nEn memoria de <underline><color #8442db>${ng_name}</color></underline> \u2b50",
   "modmenu.summaryTranslation.somemoreblocks": "${mod_name} es un proyecto semi-vanilla que añade nuevas variaciones de bloques al juego.",
   "somemoreblocks.resourcepack.update_1_21.name": "Experimental: Actualización 1.21",
   "somemoreblocks.resourcepack.update_1_21.enabled": "El Paquete de Recursos Experimental 1.21 fue activado automáticamente en este mundo.",
   "somemoreblocks.resourcepack.update_1_21.read_more": "Más Información",
-  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "Haz clic aquí para ver más información sobre el\\nPaquete de Recursos experimental",
+  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "Haz clic aquí para ver más información sobre el\nPaquete de Recursos experimental",
   "block.somemoreblocks.acacia_mosaic_slab": "Losa de Mosaico de Acacia",
   "block.somemoreblocks.acacia_mosaic_stairs": "Escaleras de Mosaico de Acacia",
   "block.somemoreblocks.acacia_mosaic": "Mosaico de Acacia",

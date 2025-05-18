@@ -1,11 +1,11 @@
 {
   "modmenu.becomeATranslator.somemoreblocks": "翻訳者になる",
-  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name}は、ゲームにバニラのような新しいブロックのバリエーションを追加するプロジェクトです。\\n\\n<underline><color #8442db>${ng_name}</color></underline>を偲んで\\u2b50",
+  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name}は、ゲームにバニラのような新しいブロックのバリエーションを追加するプロジェクトです。\n\n<underline><color #8442db>${ng_name}</color></underline>を偲んで\u2b50",
   "modmenu.summaryTranslation.somemoreblocks": "${mod_name} は、ゲームにバニラのような新しいブロックのバリエーションを追加するプロジェクトです。",
   "somemoreblocks.resourcepack.update_1_21.name": "実験的: 1.21アップデート",
   "somemoreblocks.resourcepack.update_1_21.enabled": "実験的な1.21リソースパックはこの世界で自動的に有効化されました。",
   "somemoreblocks.resourcepack.update_1_21.read_more": "詳細を読む",
-  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "ここをクリックして、\\n実験的なリソースパックの詳細をご覧ください",
+  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "ここをクリックして、\n実験的なリソースパックの詳細をご覧ください",
   "block.somemoreblocks.acacia_mosaic_slab": "アカシアの板細工のハーフブロック",
   "block.somemoreblocks.acacia_mosaic_stairs": "アカシアの板細工の階段",
   "block.somemoreblocks.acacia_mosaic": "アカシアの板細工",

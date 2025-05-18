@@ -1,11 +1,11 @@
 {
   "modmenu.becomeATranslator.somemoreblocks": "Çevirmen olun",
-  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} oyuna yeni blok varyasyonları ekleyen vanilya benzeri bir projedir. \\n\\nSevgi dolu anısına, <underline><color #8442db>${ng_name}</color></underline> \\u2b50",
+  "modmenu.descriptionTranslation.somemoreblocks": "${mod_name} oyuna yeni blok varyasyonları ekleyen vanilya benzeri bir projedir. \n\nSevgi dolu anısına, <underline><color #8442db>${ng_name}</color></underline> \u2b50",
   "modmenu.summaryTranslation.somemoreblocks": "${mod_name} oyuna vanilya benzeri yeni blok varyasyonları ekleyen bir projedir.",
   "somemoreblocks.resourcepack.update_1_21.name": "Deneysel: Güncelleme 1,21",
   "somemoreblocks.resourcepack.update_1_21.enabled": "Deneysel 1,21 Kaynak Paketi bu dünyada otomatik olarak etkinleştirildi.",
   "somemoreblocks.resourcepack.update_1_21.read_more": "Daha Fazlasını Oku",
-  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "Deneysel Kaynak Paketi hakkında\\ndaha fazlasını okumak için tıkla",
+  "somemoreblocks.resourcepack.update_1_21.read_more.hover": "Deneysel Kaynak Paketi hakkında\ndaha fazlasını okumak için tıkla",
   "block.somemoreblocks.acacia_mosaic_slab": "Akasya Mozaik Basamak",
   "block.somemoreblocks.acacia_mosaic_stairs": "Akasya Mozaik Merdiven",
   "block.somemoreblocks.acacia_mosaic": "Akasya Mozaik",
