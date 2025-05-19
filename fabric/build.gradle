@@ -1,8 +1,5 @@
 plugins {
-  id 'java'
-  id 'idea'
-  id 'fabric-loom' version '1.9-SNAPSHOT'
-  id 'maven-publish'
+  id "fabric-loom" version "${fabric_loom_version}"
   id "com.github.node-gradle.node" version "3.5.0"
 }
 
@@ -12,17 +9,11 @@ node {
   download = true
 }
 
-base {
-  archivesName = "${mod_name.replaceAll(' ', '')}@${project.name}-${minecraft_version}"
-}
-
 dependencies {
   minecraft "com.mojang:minecraft:${minecraft_version}"
   mappings loom.officialMojangMappings()
   modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
   modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
-  implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
-  compileOnly project(":common")
 }
 
 fabricApi {
@@ -67,34 +58,4 @@ task runJsScript(type: NodeTask) {
 
 tasks.named("runDatagen") {
   finalizedBy tasks.named("runJsScript")
-}
-
-tasks.withType(JavaCompile).configureEach {
-  source(project(":common").sourceSets.main.allSource)
-}
-
-tasks.withType(Javadoc).configureEach {
-  source(project(":common").sourceSets.main.allJava)
-}
-
-tasks.named("sourcesJar", Jar) {
-  from(project(":common").sourceSets.main.allSource)
-}
-
-processResources {
-  from project(":common").sourceSets.main.resources
-}
-
-publishing {
-  publications {
-    mavenJava(MavenPublication) {
-      artifactId this.base.archivesName.get()
-      from this.components.java
-    }
-  }
-
-  repositories {
-    mavenCentral()
-    maven { url "file://" + System.getenv("local_maven") }
-  }
 }

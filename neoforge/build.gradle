@@ -1,26 +1,11 @@
 plugins {
-  id 'java-library'
-  id 'eclipse'
-  id 'idea'
-  id 'net.neoforged.moddev' version '2.0.87'
-  id 'maven-publish'
-}
-
-base {
-  archivesName = "${mod_name.replaceAll(' ', '')}@${project.name}-${minecraft_version}"
-}
-
-repositories {
-    mavenCentral()
+  id "java-library"
+  id "net.neoforged.moddev" version "${neoforge_loom_version}"
 }
 
 dependencies {
   implementation "net.neoforged:neoforge:${neoforge_version}"
-  compileOnly project(":common")
-
-  //annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 }
-
 
 neoForge {
   version = neoforge_version
@@ -29,22 +14,11 @@ neoForge {
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
   }
 
-  //mappings channel: 'official', version: minecraft_version
-
-  /*mappings {
-    official()
-  }*/
-
   parchment {
     mappingsVersion = "2025.03.23"
     minecraftVersion = "1.21.4"
   }
 
-  // This line is optional. Access Transformers are automatically detected
-  // accessTransformers = project.files('src/main/resources/META-INF/accesstransformer.cfg')
-
-  // Default run configurations.
-  // These can be tweaked, removed, or duplicated as needed.
   runs {
     configureEach {
       systemProperty('neoforge.enabledGameTestNamespaces', mod_id)
@@ -68,36 +42,10 @@ neoForge {
   }
 }
 
-/*mixin {
-  add(sourceSets.main, "${mod_id}.refmap.json")
-
-  config("${mod_id}.mixins.json")
-  config("${mod_id}.forge.mixins.json")
-}*/
-
-
-sourceSets.main.resources {
-  srcDir(project(":common").file('src/main/generated'))
-}
-
-tasks.withType(JavaCompile).configureEach {
-  source(project(":common").sourceSets.main.allSource)
-}
-tasks.withType(Javadoc).configureEach {
-  source(project(":common").sourceSets.main.allJava)
-}
-tasks.named("sourcesJar", Jar) {
-  from(project(":common").sourceSets.main.allSource)
-}
-
 sourceSets.each {
   def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
   it.output.resourcesDir = dir
   it.java.destinationDirectory = dir
-}
-
-processResources {
-  from project(":common").sourceSets.main.resources
 }
 
 idea {

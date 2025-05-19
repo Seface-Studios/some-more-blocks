@@ -1,13 +1,6 @@
 plugins {
-  id 'eclipse'
-  id 'idea'
-  id 'maven-publish'
-  id 'net.minecraftforge.gradle' version '[6.0.24,6.2)'
-  id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
-}
-
-base {
-  archivesName = "${mod_name.replaceAll(' ', '')}@${project.name}-${minecraft_version}"
+  id "net.minecraftforge.gradle" version "${forge_loom_version}"
+  id "org.spongepowered.mixin" version "0.7-SNAPSHOT"
 }
 
 jar {
@@ -59,14 +52,8 @@ minecraft {
   }
 }
 
-sourceSets.main.resources {
-  srcDir(project(":common").file('src/main/generated'))
-}
-
 dependencies {
   minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-  compileOnly project(":common")
-
   annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 
   /*
@@ -85,31 +72,12 @@ mixin {
   config("${mod_id}.forge.mixins.json")
 }
 
-tasks.withType(JavaCompile).configureEach {
-  source(project(":common").sourceSets.main.allSource)
-}
-tasks.withType(Javadoc).configureEach {
-  source(project(":common").sourceSets.main.allJava)
-}
-tasks.named("sourcesJar", Jar) {
-  from(project(":common").sourceSets.main.allSource)
-}
-
-processResources {
-  from project(":common").sourceSets.main.resources
-}
-
-publishing {
-  publications {
-    mavenJava(MavenPublication) {
-      artifactId base.archivesName.get()
-      from components.java
-      fg.component(it)
-    }
-  }
-  repositories {
-    maven {
-      url "file://" + System.getenv("local_maven")
+afterEvaluate {
+  publishing {
+    publications {
+      mavenJava(MavenPublication) {
+        fg.component(it)
+      }
     }
   }
 }
