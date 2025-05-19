@@ -20,8 +20,8 @@ public class TinyCactusBlock extends TallGrassBlock {
 
   @Override
   public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-    BlockState bellowBlockState = level.getBlockState(pos.below());
-    return bellowBlockState.is(SMBBlockTags.CACTUS_PLANTS_PLACEABLE) && !level.getBlockState(pos.above()).liquid();
+    BlockState blockBelow = level.getBlockState(pos.below());
+    return blockBelow.is(SMBBlockTags.CACTUS_PLANTS_PLACEABLE) && !level.getBlockState(pos.above()).liquid();
   }
 
   @Override

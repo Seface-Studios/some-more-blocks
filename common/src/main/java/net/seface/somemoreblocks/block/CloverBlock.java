@@ -6,10 +6,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.BushBlock;
-import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -18,6 +16,8 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.seface.somemoreblocks.registries.SMBBlocks;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 
 import java.util.function.BiFunction;
 
@@ -88,5 +88,15 @@ public class CloverBlock extends BushBlock {
     return state.is(this) ?
       state.setValue(AMOUNT, Math.min(4, state.getValue(AMOUNT) + 1)) :
       this.defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite());
+  }
+
+  @Override
+  protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+    if (state.is(SMBBlocks.NETHER_CLOVER.get())) {
+      BlockState blockBelow = level.getBlockState(pos.below());
+      return blockBelow.is(SMBBlockTags.NETHER_CLOVER_PLACEABLE) && !level.getBlockState(pos.above()).liquid();
+    }
+
+    return super.canSurvive(state, level, pos);
   }
 }

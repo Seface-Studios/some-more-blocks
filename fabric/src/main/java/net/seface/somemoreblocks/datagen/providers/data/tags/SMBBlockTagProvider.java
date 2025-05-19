@@ -635,5 +635,10 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.EMERALD_BRICKS.get(), SMBBlocks.EMERALD_PILLAR.get(), SMBBlocks.CUT_EMERALD.get(),
         SMBBlocks.DIAMOND_BRICKS.get(), SMBBlocks.DIAMOND_PILLAR.get(), SMBBlocks.CUT_DIAMOND.get(),
         SMBBlocks.NETHERITE_BRICKS.get(), SMBBlocks.NETHERITE_PILLAR.get(), SMBBlocks.CUT_NETHERITE.get());
+
+    this.getOrCreateTagBuilder(SMBBlockTags.NETHER_CLOVER_PLACEABLE)
+      .add(
+        Blocks.NETHERRACK, Blocks.CRIMSON_NYLIUM, Blocks.WARPED_NYLIUM,
+        Blocks.SOUL_SAND, Blocks.SOUL_SOIL);
   }
 }

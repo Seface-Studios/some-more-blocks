@@ -8,6 +8,7 @@ import net.seface.somemoreblocks.SomeMoreBlocks;
 public class SMBConfiguredFeature {
   public static final ResourceKey<ConfiguredFeature<?, ?>> NONE_BIG_LILY_PAD = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "none_big_lily_pad");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_CLOVER = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_clover");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_NETHER_CLOVER = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_nether_clover");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BROWN_MUSHROOM_COLONY = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_brown_mushroom_colony");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_CACTUS_PLANTS = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_cactus_plants");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_CATTAIL = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_cattail");

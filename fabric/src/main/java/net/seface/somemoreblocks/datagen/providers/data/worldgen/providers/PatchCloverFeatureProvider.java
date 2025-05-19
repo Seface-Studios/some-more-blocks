@@ -1,10 +1,11 @@
 package net.seface.somemoreblocks.datagen.providers.data.worldgen.providers;
 
+import lombok.Setter;
 import net.minecraft.core.Direction;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -20,8 +21,18 @@ import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 import java.util.List;
 
 public class PatchCloverFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+  protected Block toPlaceBlock;
+
+  @Setter
+  protected int tries = 96;
+
   public PatchCloverFeatureProvider() {
+    this(SMBBlocks.CLOVER.get());
+  }
+
+  public PatchCloverFeatureProvider(Block toPlaceBlock) {
     super(Feature.FLOWER);
+    this.toPlaceBlock = toPlaceBlock;
   }
 
   @Override
@@ -38,14 +49,14 @@ public class PatchCloverFeatureProvider extends AbstractFeatureProvider<RandomPa
 
     for (Direction direction : CloverBlock.FACING.getPossibleValues()) {
       for (int i : CloverBlock.AMOUNT.getPossibleValues()) {
-        builder.add(SMBBlocks.CLOVER.get()
+        builder.add(this.toPlaceBlock
           .defaultBlockState()
           .setValue(CloverBlock.FACING, direction)
           .setValue(CloverBlock.AMOUNT, i), 1);
       }
     }
 
-    return new RandomPatchConfiguration(96, 6, 2,
+    return new RandomPatchConfiguration(this.tries, 6, 2,
       PlacementUtils.filtered(
         Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(

@@ -705,6 +705,7 @@ public class SMBCreativeTabs {
         entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get());
         entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
         entry.accept(SMBItems.CLOVER.get());
+        entry.accept(SMBItems.NETHER_CLOVER.get());
         entry.accept(SMBItems.SMALL_LILY_PADS.get());
         entry.accept(SMBItems.BIG_LILY_PAD.get());
         entry.accept(SMBBlocks.LUMINOUS_FLOWER.get());

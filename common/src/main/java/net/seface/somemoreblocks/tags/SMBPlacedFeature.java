@@ -8,6 +8,7 @@ import net.seface.somemoreblocks.SomeMoreBlocks;
 public class SMBPlacedFeature {
   public static final ResourceKey<PlacedFeature> NONE_BIG_LILY_PAD = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "none_big_lily_pad");
   public static final ResourceKey<PlacedFeature> PATCH_CLOVER = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_clover");
+  public static final ResourceKey<PlacedFeature> PATCH_NETHER_CLOVER = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_nether_clover");
   public static final ResourceKey<PlacedFeature> PATCH_BROWN_MUSHROOM_COLONY = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_brown_mushroom_colony");
   public static final ResourceKey<PlacedFeature> PATCH_CACTUS_PLANTS = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_cactus_plants");
   public static final ResourceKey<PlacedFeature> PATCH_CATTAIL = SomeMoreBlocks.key(Registries.PLACED_FEATURE, "patch_cattail");

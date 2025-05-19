@@ -1,0 +1,7 @@
+{
+  "parent": "somemoreblocks:block/templates/nether_flowerbed_1",
+  "textures": {
+    "flowerbed": "somemoreblocks:block/nether_clover",
+    "stem": "somemoreblocks:block/nether_clover_stem"
+  }
+}

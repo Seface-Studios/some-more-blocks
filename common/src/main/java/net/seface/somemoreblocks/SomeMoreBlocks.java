@@ -95,6 +95,7 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CATTAIL.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CLOVER.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.NETHER_CLOVER.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CRIMSON_FUNGUS_COLONY_WALL.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CYAN_STAINED_TILED_GLASS.get(), translucent);

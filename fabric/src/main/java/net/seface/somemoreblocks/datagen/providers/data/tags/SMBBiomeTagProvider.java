@@ -48,7 +48,10 @@ public class SMBBiomeTagProvider extends FabricTagProvider<Biome> {
     this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_CLOVER)
       .forceAddTag(BiomeTags.IS_JUNGLE)
       .add(Biomes.BIRCH_FOREST, Biomes.DARK_FOREST, Biomes.FLOWER_FOREST, Biomes.FOREST,
-           Biomes.GROVE, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS,
-           Biomes.MEADOW);
+        Biomes.GROVE, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS,
+        Biomes.MEADOW);
+
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_NETHER_CLOVER)
+      .add(Biomes.CRIMSON_FOREST, Biomes.WARPED_FOREST, Biomes.FLOWER_FOREST, Biomes.NETHER_WASTES);
   }
 }

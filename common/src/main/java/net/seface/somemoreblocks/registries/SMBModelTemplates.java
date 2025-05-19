@@ -13,6 +13,10 @@ public class SMBModelTemplates {
   public static final ModelTemplate TINTED_FLOWERBED_2 = create("tinted_flowerbed_2", "_2", TextureSlot.FLOWERBED, TextureSlot.STEM);
   public static final ModelTemplate TINTED_FLOWERBED_3 = create("tinted_flowerbed_3", "_3", TextureSlot.FLOWERBED, TextureSlot.STEM);
   public static final ModelTemplate TINTED_FLOWERBED_4 = create("tinted_flowerbed_4", "_4", TextureSlot.FLOWERBED, TextureSlot.STEM);
+  public static final ModelTemplate NETHER_FLOWERBED_1 = create("nether_flowerbed_1", "_1", TextureSlot.FLOWERBED, TextureSlot.STEM);
+  public static final ModelTemplate NETHER_FLOWERBED_2 = create("nether_flowerbed_2", "_2", TextureSlot.FLOWERBED, TextureSlot.STEM);
+  public static final ModelTemplate NETHER_FLOWERBED_3 = create("nether_flowerbed_3", "_3", TextureSlot.FLOWERBED, TextureSlot.STEM);
+  public static final ModelTemplate NETHER_FLOWERBED_4 = create("nether_flowerbed_4", "_4", TextureSlot.FLOWERBED, TextureSlot.STEM);
 
   public static ModelTemplate create(String path, TextureSlot ...textureSlots) {
     return create(path, "", textureSlots);
