@@ -651,5 +651,7 @@
   "advancements.somemoreblocks.nether.obtain_cut_netherite.title": "Very Serious Dedication",
   "advancements.somemoreblocks.nether.obtain_cut_netherite.description": "Use Netherite Bricks to craft an unreversible block and immediately regret it",
   "advancements.somemoreblocks.husbandry.carved_pale_woods.title": "Next, We Are Going To Steal... The Moon!",
-  "advancements.somemoreblocks.husbandry.carved_pale_woods.description": "Use an Axe to carve a Stripped Pale Log (or Wood) in each lunar phase"
+  "advancements.somemoreblocks.husbandry.carved_pale_woods.description": "Use an Axe to carve a Stripped Pale Log (or Wood) in each lunar phase",
+  "gamerule.doSnowAccumulateOnPlants": "Accumulate snow on plants",
+  "gamerule.doSnowAccumulateOnPlants.description": "If enabled, possible plants will be turned into snowy variant."
 }

@@ -651,5 +651,7 @@
   "advancements.somemoreblocks.nether.obtain_cut_netherite.title": "Dedicação bem séria",
   "advancements.somemoreblocks.nether.obtain_cut_netherite.description": "Use Tijolos de Netherita para criar um bloco irreversível e se arrepender imediatamente",
   "advancements.somemoreblocks.husbandry.carved_pale_woods.title": "Agora, nós vamos roubar... A Lua!",
-  "advancements.somemoreblocks.husbandry.carved_pale_woods.description": "Use um Machado para esculpir um Tronco de Carvalho Pálido Descascado (ou madeira) em cada fase lunar"
+  "advancements.somemoreblocks.husbandry.carved_pale_woods.description": "Use um Machado para esculpir um Tronco de Carvalho Pálido Descascado (ou madeira) em cada fase lunar",
+  "gamerule.doSnowAccumulateOnPlants": "Acumulo de neve em plants",
+  "gamerule.doSnowAccumulateOnPlants.description": "Se habilitado, possiveis plants podem se transformar na variação com neve."
 }
