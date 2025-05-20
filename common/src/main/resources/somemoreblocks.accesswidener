@@ -8,3 +8,4 @@ accessible method net/minecraft/world/level/block/WaterloggedTransparentBlock <i
 accessible method net/minecraft/world/level/block/WaterlilyBlock <init> (Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
 
 # Methods & Fields
+accessible method net/minecraft/world/level/GameRules$BooleanValue create (Z)Lnet/minecraft/world/level/GameRules$Type;

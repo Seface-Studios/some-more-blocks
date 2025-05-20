@@ -6,6 +6,7 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -62,6 +63,8 @@ public interface PlatformRegistry {
    * @return The registered Creative Mode Tab.
    */
   PlatformRegistryObject<CreativeModeTab> registerCreativeModeTab(String path, CreativeModeTab.Row row, int i, UnaryOperator<CreativeModeTab.Builder> builder);
+
+  <T extends GameRules.Value<T>> GameRules.Key<T> registerGameRule(String id, GameRules.Category category, GameRules.Type<T> type);
 
   /**
    * Main method to set the render type for a block.

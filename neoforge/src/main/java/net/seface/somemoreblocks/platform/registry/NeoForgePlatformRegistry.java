@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -73,6 +74,11 @@ public class NeoForgePlatformRegistry implements PlatformRegistry {
       () -> builder.apply(CreativeModeTab.builder(row, i)).build());
 
     return new NeoForgeRegistryObject<>(identifier, instance);
+  }
+
+  @Override
+  public <T extends GameRules.Value<T>> GameRules.Key<T> registerGameRule(String id, GameRules.Category category, GameRules.Type<T> type) {
+    return GameRules.register(id, category, type);
   }
 
   @Override

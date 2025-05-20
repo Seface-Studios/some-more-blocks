@@ -1,6 +1,7 @@
 package net.seface.somemoreblocks.platform.registry;
 
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Registry;
@@ -12,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -75,6 +77,11 @@ public class FabricPlatformRegistry implements PlatformRegistry {
       builder.apply(FabricItemGroup.builder()).build());
 
     return new FabricRegistryObject<>(identifier, () -> instance);
+  }
+
+  @Override
+  public <T extends GameRules.Value<T>> GameRules.Key<T> registerGameRule(String id, GameRules.Category category, GameRules.Type<T> type) {
+    return GameRuleRegistry.register(id, category, type);
   }
 
   @Override

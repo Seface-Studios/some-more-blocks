@@ -10,7 +10,11 @@ allprojects {
   def w = new Date().format("yy")
   def a = String.format("%02d", Calendar.getInstance().get(Calendar.WEEK_OF_YEAR))
 
-  version = !is_snapshot.toBoolean() ? version : "${w}w${a}${snapshot_week_suffix}"
+  version = !is_snapshot.toBoolean() || is_private_build.toBoolean() ? version : "${w}w${a}${snapshot_week_suffix}"
+
+  if (is_private_build.toBoolean()) {
+    version = "${version}-private.${a}"
+  }
 
   java {
     toolchain.languageVersion = JavaLanguageVersion.of(21)

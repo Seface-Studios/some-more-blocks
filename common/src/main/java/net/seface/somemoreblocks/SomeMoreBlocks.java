@@ -36,6 +36,7 @@ public class SomeMoreBlocks {
     SMBBlockTags.init();
     SMBFeatures.init();
     SMBCreativeTabs.init();
+    SMBGameRules.init();
 
     if (afterRegistries != null) {
       afterRegistries.run();

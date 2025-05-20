@@ -49,7 +49,7 @@ loom {
   }
 }
 
-task runJsScript(type: NodeTask) {
+task applyLocalizations(type: NodeTask) {
   dependsOn tasks.named("runDatagen")
 
   script = project(":common").file('../scripts/langfy/main.mjs')
@@ -57,5 +57,5 @@ task runJsScript(type: NodeTask) {
 }
 
 tasks.named("runDatagen") {
-  finalizedBy tasks.named("runJsScript")
+  finalizedBy tasks.named("applyLocalizations")
 }

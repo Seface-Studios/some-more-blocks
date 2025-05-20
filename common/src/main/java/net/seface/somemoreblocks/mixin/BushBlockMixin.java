@@ -3,14 +3,13 @@ package net.seface.somemoreblocks.mixin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
-import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.seface.somemoreblocks.registries.SMBGameRules;
 import net.seface.somemoreblocks.registries.SMBRegistries;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -35,8 +34,10 @@ public abstract class BushBlockMixin extends Block {
 
   @Override
   public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-    this.SMB$turnIntoNormalVariation(state, level, pos);
-    this.SMB$turnIntoSnowVariation(state, level, pos);
+    if (level.getGameRules().getBoolean(SMBGameRules.RULE_SNOW_ACCUMULATE)) {
+      this.SMB$turnIntoNormalVariation(state, level, pos);
+      this.SMB$turnIntoSnowVariation(state, level, pos);
+    }
   }
 
   /**
