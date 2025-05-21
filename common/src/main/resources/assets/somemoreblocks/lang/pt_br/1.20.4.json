@@ -653,5 +653,5 @@
   "advancements.somemoreblocks.husbandry.carved_pale_woods.title": "Agora, nós vamos roubar... A Lua!",
   "advancements.somemoreblocks.husbandry.carved_pale_woods.description": "Use um Machado para esculpir um Tronco de Carvalho Pálido Descascado (ou madeira) em cada fase lunar",
   "gamerule.doSnowAccumulateOnPlants": "Acumulo de neve em plants",
-  "gamerule.doSnowAccumulateOnPlants.description": "Se habilitado, possiveis plants podem se transformar na variação com neve."
+  "gamerule.doSnowAccumulateOnPlants.description": "Se habilitado, possiveis plantas podem se transformar na variação com neve."
 }
