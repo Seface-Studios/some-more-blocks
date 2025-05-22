@@ -52,13 +52,15 @@ Special mention for the **NeoForge port** which will be constantly maintained al
   - Cattails can now be placed and generated above gravel and sand if on water.
 - **Beacon base blocks:** Iron, Gold, Diamond, Emerald and Netherite Bricks, Cut and Pillar can now be used as Beacon base block.
   - This is not applied for Cracked variations.
+- **Conduit activation:** Some More Blocks primsarine variations can now be used as Conduit activation block.
+  - This is not applied for Cracked variations.
 - **Technical adjustments**
   - `tiny_cactus_placeable.json` was renamed to `cactus_plants_placeable.json`.
   - All the Biome Tags with `generates_*.json` format was moved to `generates/*.json` folder. This will affect how the id of this biome tags are; Check all the available Biome Tags [here](https://github.com/Seface-Studios/some-more-blocks/tree/1.21.4/common/src/main/generated/data/somemoreblocks/tags/worldgen/biome).
     - `generates_tiny_cactus.json` was renamed to `generates/cactus_plants.json`.
-- We are now fully using the Fabric Data Generation.
-- Custom Platform Service for better development.
-- Bumped the minimun Fabric version from `0.110.5+1.21.4` to `0.117.0+1.21.4`.
+  - We are now fully using the Fabric Data Generation.
+  - Custom Platform Service for better development.
+  - Bumped the minimun Fabric version from `0.110.5+1.21.4` to `0.117.0+1.21.4`.
 
 ### Removed
 - All the Parent Block Tags for all leaf litters type. The parent leaves are now set on Configured Feature file of the leaf litter.
