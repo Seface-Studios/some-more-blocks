@@ -25,7 +25,7 @@ Special mention for the **NeoForge port** which will be constantly maintained al
   - **Nether Clover:** Can be found in all nether biomes with exception of basalt Deltas.
   - **Tall Cactus:** This block can be found in deserts and badlands alongside the Tiny Cactus.
 - **Shingles Stairs:** 17 new colored stairs.
-- **doSnowAccumulateOnPlants Gamerule:** If false, the gamerule will prevent some plants to be turned into snowy variant (short grass, ferns etc).
+- **doSnowAccumulateOnPlants Gamerule:** If false, the gamerule will prevent some plants to be turned into snowy variant (short grass, ferns etc) and snowy plants to be turned into normal.
   - `Devs Note` - We are aware of incompatibility with some season mods like [Fabric Seasons](https://www.curseforge.com/minecraft/mc-mods/fabric-seasons) and [Serene Seasons](https://www.curseforge.com/minecraft/mc-mods/serene-seasons). While we try to decide the better way to implement this compatibility, this game rule will fix the issue. Have any suggestion about this? Send an email to `contact@sefacestudios.net` with the subject `Snowy Plants Season Mods Compatibility`.
 - **New advancements**⁽⁺⁴⁾
   - **With Our Power(ed) Combined!** - Have all Redstone Froglights in your inventory.
@@ -33,9 +33,9 @@ Special mention for the **NeoForge port** which will be constantly maintained al
   - **Very Serious Dedication** - Use Netherite Bricks to craft an unreversible block and immediately regret it.
   - **Next, We Are Going To Steal... The Moon!** - Use an Axe to carve a Stripped Pale Log (or Wood) in each lunar phase.
 - **New languages**⁽⁺⁵⁾
-  - **Italian:** Thanks to *biancoaleepapy* and *Alessia04*.
-  - **Japanese:** Thanks to *HayaKoh* and *chatintoro*.
-  - **Russian:** Thanks to *mannoob_the_uhh* and *bonnie22556*.
+  - **Italian:** Thanks to *Alessia04* and *biancoaleepapy*.
+  - **Japanese:** Thanks to *chatintoro* and *HayaKoh*.
+  - **Russian:** Thanks to *bonnie22556* and *mannoob_the_uhh*.
   - **Spanish (Spain):** Thanks to *Rubenicos*.
   - **Turkish:** Thanks to *emrzeyy*.
 
@@ -45,10 +45,10 @@ Special mention for the **NeoForge port** which will be constantly maintained al
   - Carved Mangrove Log/Wood figure is now represented by a Lily Pad.
   - Corrupted Bricks are now animated.
 - **World generation and distribution**
-  - Short Snow Grass and Snow Fern can now be found naturally in [snowy taiga](https://minecraft.wiki/w/Snowy_Taiga) and [snowy plains](https://minecraft.wiki/w/Snowy_Plains).
-  - Large Snow Fern can now be found naturally in [snowy taiga](https://minecraft.wiki/w/Snowy_Taiga).
-  - Tiny Cactus will not generate in [forests](https://minecraft.wiki/w/Forests) anymore.
-    - Tiny Cactus can now only be found in [deserts](https://minecraft.wiki/w/Desert) and [badlands](https://minecraft.wiki/w/Badlands).
+  - Short Snow Grass and Snow Fern can now be found naturally in snowy taiga and snowy plains.
+  - Large Snow Fern can now be found naturally in snowy taiga.
+  - Tiny Cactus will not generate in forests anymore.
+    - Tiny Cactus can now only be found in deserts and badlands.
   - Cattails can now be placed and generated above gravel and sand if on water.
 - **Beacon base blocks:** Iron, Gold, Diamond, Emerald and Netherite Bricks, Cut and Pillar can now be used as Beacon base block.
   - This is not applied for Cracked variations.
