@@ -43,13 +43,6 @@ public class SMBRegistries {
     SMBRegistries.stainedTiledGlassPaneBlocks();
   }
 
-  /*private static void conduitValidBlocks() {
-    List<Block> validBlocksList = new ArrayList<>(Arrays.asList(ConduitBlockEntity.VALID_BLOCKS));
-    validBlocksList.add(novoBloco);
-
-    ConduitBlockEntity.VALID_BLOCKS = validBlocksList.toArray(new Block[0]);
-  }*/
-
   private static void compostableItems() {
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.TINY_CACTUS.get().asItem(), 0.3F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.TALL_CACTUS.get().asItem(), 1.0F);

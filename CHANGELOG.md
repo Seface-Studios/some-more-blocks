@@ -8,6 +8,11 @@ Special mention for the **NeoForge port** which will be constantly maintained al
 
 ### Added
 - **Pale Rose Bush:** A new plant that can be found on pale garden biome. Different from the Eyeblosoom, this plant will not close with daylight.
+- **Pale Mushroom Family**⁽⁺⁴⁾
+  - Pale Mushroom
+  - Pale Mushroom Colony
+  - Pale Mushroom Colony Wall
+  - Tall Pale Mushroom Colony
 - **Redstone Shroomlight:** A new lamp-like block craftable with Shroomlight block and Redstone.
 - **Redstone Sea Lantern:** A new lamp-like block craftable with Sea Lantern block and Redstone.
 - **Carved Mushroom Stem:** Use a Axe on Mushroom Stem to transform into the Carved variation. This variation has a mushroom carved into it.
@@ -50,10 +55,8 @@ Special mention for the **NeoForge port** which will be constantly maintained al
   - Tiny Cactus will not generate in forests anymore.
     - Tiny Cactus can now only be found in deserts and badlands.
   - Cattails can now be placed and generated above gravel and sand if on water.
-- **Beacon base blocks:** Iron, Gold, Diamond, Emerald and Netherite Bricks, Cut and Pillar can now be used as Beacon base block.
-  - This is not applied for Cracked variations.
-- **Conduit activation:** Some More Blocks primsarine variations can now be used as Conduit activation block.
-  - This is not applied for Cracked variations.
+- **Beacon base blocks:** Iron, Gold, Diamond, Emerald and Netherite Bricks, Cut and Pillar can now be used as Beacon base block. (This is not applied for Cracked variations.)
+- **Conduit activation:** Polished, Chiseled, Pillar, Tiles, Mossy Bricks and Smooth Prismarine variations can now be used as Conduit activator. (This is not applied for Cracked variations.)
 - **Technical adjustments**
   - `tiny_cactus_placeable.json` was renamed to `cactus_plants_placeable.json`.
   - All the Biome Tags with `generates_*.json` format was moved to `generates/*.json` folder. This will affect how the id of this biome tags are; Check all the available Biome Tags [here](https://github.com/Seface-Studios/some-more-blocks/tree/1.21.4/common/src/main/generated/data/somemoreblocks/tags/worldgen/biome).
