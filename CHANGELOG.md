@@ -73,9 +73,7 @@ Special mention for the **NeoForge port** which will be constantly maintained al
 
 ---
 <div>
-  <img align="right" height="64" width="64" src="https://raw.githubusercontent.com/Seface-Blocks/some-more-blocks/main/.github/assets/icon_64.gif" title="Some More Blocks Icon" />
-
-<h3>Seface Studios</h3>
-  
+  <img align="right" height="64" width="64" src="https://raw.githubusercontent.com/Seface-Blocks/some-more-blocks/main/.github/assets/animated_icon.gif" title="Some More Blocks Icon" />
+  <h3>Seface Studios</h3>
   <p><a href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> · <a title="X (FKA Twitter)" href="https://x.com/SefaceStudios">@SefaceStudios</a></p>
 </div>
