@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:mossy_prismarine_bricks"
+    "#": {
+      "item": "somemoreblocks:mossy_prismarine_bricks"
+    }
   },
   "pattern": [
     "#  ",

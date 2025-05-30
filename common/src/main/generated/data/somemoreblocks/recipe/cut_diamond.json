@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "minecraft:diamond_block"
+    "#": {
+      "item": "minecraft:diamond_block"
+    }
   },
   "pattern": [
     "##",

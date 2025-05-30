@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_calcite_bricks",
   "ingredients": [
-    "somemoreblocks:calcite_bricks",
-    "minecraft:vine"
+    {
+      "item": "somemoreblocks:calcite_bricks"
+    },
+    {
+      "item": "minecraft:vine"
+    }
   ],
   "result": {
     "count": 1,

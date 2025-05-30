@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:packed_snow"
+    "#": {
+      "item": "somemoreblocks:packed_snow"
+    }
   },
   "pattern": [
     "#  ",

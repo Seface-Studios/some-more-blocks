@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:polished_purpur",
+  "ingredient": {
+    "item": "somemoreblocks:polished_purpur"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:purpur_tile_wall"

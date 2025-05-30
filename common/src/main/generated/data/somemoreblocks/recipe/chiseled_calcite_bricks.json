@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:calcite_brick_slab"
+    "#": {
+      "item": "somemoreblocks:calcite_brick_slab"
+    }
   },
   "pattern": [
     "#",

@@ -8,9 +8,7 @@
     "TinyCactusBlockMixin",
     "TallCactusBlockMixin"
   ],
-  "client": [
-    "RangeSelectItemModelPropertiesMixin"
-  ],
+  "client": [],
   "server": [],
   "injectors": {
     "defaultRequire": 1

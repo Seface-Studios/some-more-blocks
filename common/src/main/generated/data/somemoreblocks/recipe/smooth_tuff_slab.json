@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:smooth_tuff"
+    "#": {
+      "item": "somemoreblocks:smooth_tuff"
+    }
   },
   "pattern": [
     "###"

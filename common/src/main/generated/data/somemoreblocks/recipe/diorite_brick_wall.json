@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": "somemoreblocks:diorite_bricks"
+    "#": {
+      "item": "somemoreblocks:diorite_bricks"
+    }
   },
   "pattern": [
     "###",

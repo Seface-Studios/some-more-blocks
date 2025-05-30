@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "minecraft:dripstone_block",
+  "ingredient": {
+    "item": "minecraft:dripstone_block"
+  },
   "result": {
     "id": "somemoreblocks:smooth_dripstone"
   }

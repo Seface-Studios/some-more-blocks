@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:dripstone_tiles",
+  "ingredient": {
+    "item": "somemoreblocks:dripstone_tiles"
+  },
   "result": {
     "id": "somemoreblocks:cracked_dripstone_tiles"
   }

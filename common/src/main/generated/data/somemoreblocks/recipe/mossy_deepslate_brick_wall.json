@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": "somemoreblocks:mossy_deepslate_bricks"
+    "#": {
+      "item": "somemoreblocks:mossy_deepslate_bricks"
+    }
   },
   "pattern": [
     "###",

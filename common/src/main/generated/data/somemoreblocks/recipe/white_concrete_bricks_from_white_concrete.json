@@ -3,7 +3,9 @@
   "category": "building",
   "group": "concrete_bricks_from_concrete",
   "key": {
-    "#": "minecraft:white_concrete"
+    "#": {
+      "item": "minecraft:white_concrete"
+    }
   },
   "pattern": [
     "##",

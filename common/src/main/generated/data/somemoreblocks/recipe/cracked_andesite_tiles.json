@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:andesite_tiles",
+  "ingredient": {
+    "item": "somemoreblocks:andesite_tiles"
+  },
   "result": {
     "id": "somemoreblocks:cracked_andesite_tiles"
   }

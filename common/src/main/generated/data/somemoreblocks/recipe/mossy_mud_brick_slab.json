@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:mossy_mud_bricks"
+    "#": {
+      "item": "somemoreblocks:mossy_mud_bricks"
+    }
   },
   "pattern": [
     "###"

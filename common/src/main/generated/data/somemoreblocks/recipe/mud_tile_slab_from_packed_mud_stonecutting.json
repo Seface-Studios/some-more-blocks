@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:packed_mud",
+  "ingredient": {
+    "item": "minecraft:packed_mud"
+  },
   "result": {
     "count": 2,
     "id": "somemoreblocks:mud_tile_slab"

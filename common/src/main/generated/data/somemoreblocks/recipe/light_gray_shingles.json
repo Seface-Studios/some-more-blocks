@@ -3,8 +3,12 @@
   "category": "building",
   "group": "shingles_from_dye",
   "key": {
-    "#": "somemoreblocks:shingles",
-    "X": "minecraft:light_gray_dye"
+    "#": {
+      "item": "somemoreblocks:shingles"
+    },
+    "X": {
+      "item": "minecraft:light_gray_dye"
+    }
   },
   "pattern": [
     "###",

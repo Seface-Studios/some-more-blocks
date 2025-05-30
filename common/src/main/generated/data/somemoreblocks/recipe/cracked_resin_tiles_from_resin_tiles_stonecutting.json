@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:resin_tiles",
-  "result": {
-    "count": 1,
-    "id": "somemoreblocks:cracked_resin_tiles"
-  }
-}

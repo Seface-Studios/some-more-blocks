@@ -3,7 +3,9 @@
   "category": "building",
   "group": "mosaic",
   "key": {
-    "#": "minecraft:spruce_slab"
+    "#": {
+      "item": "minecraft:spruce_slab"
+    }
   },
   "pattern": [
     "#",

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:prismarine_tiles"
+    "#": {
+      "item": "somemoreblocks:prismarine_tiles"
+    }
   },
   "pattern": [
     "#  ",

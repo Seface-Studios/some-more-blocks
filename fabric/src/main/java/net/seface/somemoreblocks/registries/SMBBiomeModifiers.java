@@ -23,7 +23,6 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.patchDuneGrass();
     SMBBiomeModifiers.patchLargeSnowFern();
     SMBBiomeModifiers.patchLuminousFlower();
-    SMBBiomeModifiers.patchPaleRoseBush();
     SMBBiomeModifiers.patchSmallLilyPads();
     SMBBiomeModifiers.patchSmallLilyPadsLushCaves();
     SMBBiomeModifiers.patchSnowGrass();
@@ -35,8 +34,6 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_FLOWERING_AZALEA_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_LEAF_LITTER);
-    SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER);
-    SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER);
     SMBBiomeModifiers.simpleRedMushroomColony(SMBPlacedFeature.PATCH_RED_MUSHROOM_COLONY);
     SMBBiomeModifiers.simpleRedMushroomColony(SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL);
   }
@@ -46,14 +43,6 @@ public class SMBBiomeModifiers {
       (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_BIG_LILY_PAD).test(ctx),
       GenerationStep.Decoration.VEGETAL_DECORATION,
       SMBPlacedFeature.NONE_BIG_LILY_PAD
-    );
-  }
-
-  private static void patchPaleRoseBush() {
-    BiomeModifications.addFeature(
-      (ctx) -> ctx.getBiomeKey() == Biomes.PALE_GARDEN,
-      GenerationStep.Decoration.VEGETAL_DECORATION,
-      SMBPlacedFeature.PATCH_PALE_ROSE_BUSH
     );
   }
 

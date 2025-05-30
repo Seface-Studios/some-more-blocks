@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_andesite_bricks",
   "ingredients": [
-    "somemoreblocks:andesite_bricks",
-    "minecraft:moss_block"
+    {
+      "item": "somemoreblocks:andesite_bricks"
+    },
+    {
+      "item": "minecraft:moss_block"
+    }
   ],
   "result": {
     "count": 1,

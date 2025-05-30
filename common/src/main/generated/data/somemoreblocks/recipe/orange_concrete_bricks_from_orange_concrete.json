@@ -3,7 +3,9 @@
   "category": "building",
   "group": "concrete_bricks_from_concrete",
   "key": {
-    "#": "minecraft:orange_concrete"
+    "#": {
+      "item": "minecraft:orange_concrete"
+    }
   },
   "pattern": [
     "##",

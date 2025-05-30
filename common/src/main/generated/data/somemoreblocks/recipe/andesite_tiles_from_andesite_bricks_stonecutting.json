@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:andesite_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:andesite_bricks"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:andesite_tiles"

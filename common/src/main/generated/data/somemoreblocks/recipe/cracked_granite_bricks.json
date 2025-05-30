@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:granite_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:granite_bricks"
+  },
   "result": {
     "id": "somemoreblocks:cracked_granite_bricks"
   }

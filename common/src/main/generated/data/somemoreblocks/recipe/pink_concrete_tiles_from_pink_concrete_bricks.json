@@ -3,7 +3,9 @@
   "category": "building",
   "group": "concrete_tiles_from_concrete_bricks",
   "key": {
-    "#": "somemoreblocks:pink_concrete_bricks"
+    "#": {
+      "item": "somemoreblocks:pink_concrete_bricks"
+    }
   },
   "pattern": [
     "##",

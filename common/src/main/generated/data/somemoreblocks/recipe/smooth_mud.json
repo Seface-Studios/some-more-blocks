@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "minecraft:packed_mud",
+  "ingredient": {
+    "item": "minecraft:packed_mud"
+  },
   "result": {
     "id": "somemoreblocks:smooth_mud"
   }

@@ -3,8 +3,12 @@
   "category": "building",
   "group": "waxed_copper_bricks",
   "ingredients": [
-    "minecraft:honeycomb",
-    "somemoreblocks:copper_bricks"
+    {
+      "item": "minecraft:honeycomb"
+    },
+    {
+      "item": "somemoreblocks:copper_bricks"
+    }
   ],
   "result": {
     "count": 1,

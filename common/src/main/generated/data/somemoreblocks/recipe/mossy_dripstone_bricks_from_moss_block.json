@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_dripstone_bricks",
   "ingredients": [
-    "somemoreblocks:dripstone_bricks",
-    "minecraft:moss_block"
+    {
+      "item": "somemoreblocks:dripstone_bricks"
+    },
+    {
+      "item": "minecraft:moss_block"
+    }
   ],
   "result": {
     "count": 1,

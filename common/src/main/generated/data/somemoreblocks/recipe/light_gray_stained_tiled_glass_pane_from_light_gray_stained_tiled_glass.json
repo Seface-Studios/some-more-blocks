@@ -3,7 +3,9 @@
   "category": "misc",
   "group": "tiled_glass_pane_from_tiled_glass",
   "key": {
-    "#": "somemoreblocks:light_gray_stained_tiled_glass"
+    "#": {
+      "item": "somemoreblocks:light_gray_stained_tiled_glass"
+    }
   },
   "pattern": [
     "###",

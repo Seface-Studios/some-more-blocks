@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:black_shingles"
+    "#": {
+      "item": "somemoreblocks:black_shingles"
+    }
   },
   "pattern": [
     "#  ",

@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:diorite",
+  "ingredient": {
+    "item": "minecraft:diorite"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:diorite_pillar"

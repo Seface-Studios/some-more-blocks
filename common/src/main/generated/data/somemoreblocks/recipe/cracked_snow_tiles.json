@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:snow_tiles",
+  "ingredient": {
+    "item": "somemoreblocks:snow_tiles"
+  },
   "result": {
     "id": "somemoreblocks:cracked_snow_tiles"
   }

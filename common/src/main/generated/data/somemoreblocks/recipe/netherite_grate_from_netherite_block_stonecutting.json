@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:netherite_block",
+  "ingredient": {
+    "item": "minecraft:netherite_block"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:netherite_grate"

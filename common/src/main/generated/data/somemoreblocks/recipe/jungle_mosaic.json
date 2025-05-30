@@ -3,7 +3,9 @@
   "category": "building",
   "group": "mosaic",
   "key": {
-    "#": "minecraft:jungle_slab"
+    "#": {
+      "item": "minecraft:jungle_slab"
+    }
   },
   "pattern": [
     "#",

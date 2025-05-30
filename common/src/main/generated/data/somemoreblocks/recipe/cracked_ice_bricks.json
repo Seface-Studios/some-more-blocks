@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:ice_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:ice_bricks"
+  },
   "result": {
     "id": "somemoreblocks:cracked_ice_bricks"
   }

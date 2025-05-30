@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_deepslate_bricks",
   "ingredients": [
-    "minecraft:deepslate_bricks",
-    "minecraft:moss_block"
+    {
+      "item": "minecraft:deepslate_bricks"
+    },
+    {
+      "item": "minecraft:moss_block"
+    }
   ],
   "result": {
     "count": 1,

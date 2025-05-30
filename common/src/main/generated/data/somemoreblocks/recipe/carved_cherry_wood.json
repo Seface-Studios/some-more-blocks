@@ -3,7 +3,9 @@
   "category": "building",
   "group": "carved_wood",
   "key": {
-    "#": "somemoreblocks:carved_cherry_log"
+    "#": {
+      "item": "somemoreblocks:carved_cherry_log"
+    }
   },
   "pattern": [
     "##",

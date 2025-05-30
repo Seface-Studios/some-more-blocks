@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:sandstone_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:sandstone_bricks"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:cracked_sandstone_tiles"

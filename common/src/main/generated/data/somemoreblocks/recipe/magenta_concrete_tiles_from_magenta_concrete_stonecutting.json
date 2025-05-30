@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:magenta_concrete",
+  "ingredient": {
+    "item": "minecraft:magenta_concrete"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:magenta_concrete_tiles"

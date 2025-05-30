@@ -6,7 +6,6 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.ItemAbility;
 import net.neoforged.neoforge.common.extensions.IBlockExtension;
-import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
 import net.seface.somemoreblocks.registries.SMBRegistries;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,12 +19,7 @@ public abstract class RotatedPillarBlockMixin extends Block implements IBlockExt
   @Override
   public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext ctx, ItemAbility itemAbility, boolean simulate) {
     return SMBRegistries.CARVED_BLOCKS.getNext(state.getBlock())
-      .map((block) -> {
-        if (block instanceof RotatedCarvedPaleOakBlock) {
-          return block.withPropertiesOf(state)
-            .setValue(RotatedCarvedPaleOakBlock.MOON_PHASE, ctx.getLevel().getMoonPhase());
-        }
-        return block.withPropertiesOf(state);
-      }).orElse(super.getToolModifiedState(state, ctx, itemAbility, simulate));
+      .map((block) -> block.withPropertiesOf(state))
+      .orElse(super.getToolModifiedState(state, ctx, itemAbility, simulate));
   }
 }

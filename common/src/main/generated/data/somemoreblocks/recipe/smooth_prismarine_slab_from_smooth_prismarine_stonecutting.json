@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:smooth_prismarine",
+  "ingredient": {
+    "item": "somemoreblocks:smooth_prismarine"
+  },
   "result": {
     "count": 2,
     "id": "somemoreblocks:smooth_prismarine_slab"

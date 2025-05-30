@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:mud_tiles",
+  "ingredient": {
+    "item": "somemoreblocks:mud_tiles"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:cracked_mud_tiles"

@@ -3,7 +3,9 @@
   "category": "building",
   "group": "terracotta_bricks_from_terracotta",
   "key": {
-    "#": "minecraft:magenta_terracotta"
+    "#": {
+      "item": "minecraft:magenta_terracotta"
+    }
   },
   "pattern": [
     "##",

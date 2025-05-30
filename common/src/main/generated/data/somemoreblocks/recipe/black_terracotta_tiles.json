@@ -3,8 +3,12 @@
   "category": "building",
   "group": "terracotta_tiles_from_dye",
   "key": {
-    "#": "somemoreblocks:terracotta_tiles",
-    "X": "minecraft:black_dye"
+    "#": {
+      "item": "somemoreblocks:terracotta_tiles"
+    },
+    "X": {
+      "item": "minecraft:black_dye"
+    }
   },
   "pattern": [
     "###",

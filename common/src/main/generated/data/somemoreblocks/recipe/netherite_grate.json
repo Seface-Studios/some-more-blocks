@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "M": "minecraft:netherite_block"
+    "M": {
+      "item": "minecraft:netherite_block"
+    }
   },
   "pattern": [
     " M ",

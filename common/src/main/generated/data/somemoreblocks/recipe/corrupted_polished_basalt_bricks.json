@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    "minecraft:magma_cream",
-    "somemoreblocks:polished_basalt_bricks"
+    {
+      "item": "minecraft:magma_cream"
+    },
+    {
+      "item": "somemoreblocks:polished_basalt_bricks"
+    }
   ],
   "result": {
     "count": 1,

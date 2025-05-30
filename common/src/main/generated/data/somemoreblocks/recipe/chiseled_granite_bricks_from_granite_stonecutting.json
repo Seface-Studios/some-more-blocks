@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:granite",
+  "ingredient": {
+    "item": "minecraft:granite"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:chiseled_granite_bricks"

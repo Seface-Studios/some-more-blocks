@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:sandstone_tiles",
+  "ingredient": {
+    "item": "somemoreblocks:sandstone_tiles"
+  },
   "result": {
     "id": "somemoreblocks:cracked_sandstone_tiles"
   }

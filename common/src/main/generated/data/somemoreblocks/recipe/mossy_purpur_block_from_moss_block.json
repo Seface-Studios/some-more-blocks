@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_purpur_block",
   "ingredients": [
-    "minecraft:purpur_block",
-    "minecraft:moss_block"
+    {
+      "item": "minecraft:purpur_block"
+    },
+    {
+      "item": "minecraft:moss_block"
+    }
   ],
   "result": {
     "count": 1,

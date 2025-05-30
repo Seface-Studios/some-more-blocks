@@ -3,7 +3,9 @@
   "category": "building",
   "group": "waxed_oxidized_copper_pillar",
   "key": {
-    "#": "minecraft:waxed_oxidized_copper"
+    "#": {
+      "item": "minecraft:waxed_oxidized_copper"
+    }
   },
   "pattern": [
     "#",

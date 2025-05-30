@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    "minecraft:magma_cream",
-    "minecraft:polished_blackstone_bricks"
+    {
+      "item": "minecraft:magma_cream"
+    },
+    {
+      "item": "minecraft:polished_blackstone_bricks"
+    }
   ],
   "result": {
     "count": 1,

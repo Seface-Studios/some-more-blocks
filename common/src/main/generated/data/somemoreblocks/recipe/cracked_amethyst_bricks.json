@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:amethyst_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:amethyst_bricks"
+  },
   "result": {
     "id": "somemoreblocks:cracked_amethyst_bricks"
   }

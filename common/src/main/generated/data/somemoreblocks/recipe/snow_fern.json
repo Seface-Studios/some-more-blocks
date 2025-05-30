@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "minecraft:fern",
-    "minecraft:snowball"
+    {
+      "item": "minecraft:fern"
+    },
+    {
+      "item": "minecraft:snowball"
+    }
   ],
   "result": {
     "count": 1,

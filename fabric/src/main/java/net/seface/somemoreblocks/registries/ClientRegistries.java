@@ -2,10 +2,7 @@ package net.seface.somemoreblocks.registries;
 
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.item.properties.numeric.RangeSelectItemModelProperties;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
-import net.seface.somemoreblocks.item.properties.numeric.MoonPhaseProperty;
 
 public class ClientRegistries {
 
@@ -29,7 +26,6 @@ public class ClientRegistries {
    * Registers values related to ItemModelProperty.
    */
   private static void registerItemModelProperties() {
-    RangeSelectItemModelProperties.ID_MAPPER.put(SMBDataComponentTypes.BUCKET_VOLUME.getId(), BucketVolumeProperty.MAP_CODEC);
-    RangeSelectItemModelProperties.ID_MAPPER.put(SMBDataComponentTypes.MOON_PHASE.getId(), MoonPhaseProperty.MAP_CODEC);
+    //RangeSelectItemModelProperties.ID_MAPPER.put(SMBDataComponentTypes.BUCKET_VOLUME.getId(), BucketVolumeProperty.MAP_CODEC);
   }
 }

@@ -20,11 +20,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
-import net.seface.somemoreblocks.item.CarvedPaleOakBlockItem;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
-import net.seface.somemoreblocks.registries.SMBItems;
 import net.seface.somemoreblocks.registries.SMBRegistries;
 
 import java.util.ArrayList;
@@ -62,7 +59,6 @@ public class SMBHusbandryAdvancementsProvider extends FabricAdvancementProvider 
     this.waxOnOrOff("safely_harvest_honey", Items.HONEYCOMB, "wax_on", WAX_ON_BLOCKS, List.of(Items.HONEYCOMB));
     this.waxOnOrOff("wax_on", Items.STONE_AXE, "wax_off", WAX_OFF_BLOCKS, Arrays.stream(VanillaHusbandryAdvancements.WAX_SCRAPING_TOOLS).toList());
     this.withOurPoweredCombined();
-    this.tonightWeStealTheMoon();
   }
 
   /**
@@ -84,8 +80,8 @@ public class SMBHusbandryAdvancementsProvider extends FabricAdvancementProvider 
           Component.translatable("advancements.husbandry." + name + ".title"), Component.translatable("advancements.husbandry." + name + ".description"), null, AdvancementType.TASK, true, true, false)
         .addCriterion(name,
           ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(
-            LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(this.blockHolder, usableOn)),
-            ItemPredicate.Builder.item().of(this.itemHolder, usedBy.toArray(new ItemLike[0]))
+            LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(usableOn)),
+            ItemPredicate.Builder.item().of(usedBy.toArray(new ItemLike[0]))
           )
         ).build(outputPath)
     );
@@ -103,25 +99,5 @@ public class SMBHusbandryAdvancementsProvider extends FabricAdvancementProvider 
           SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get()
         )
       ).save(this.generator, "husbandry/redstone_froglights");
-  }
-
-  private void tonightWeStealTheMoon() {
-    List<ItemPredicate.Builder> items = new ArrayList<>();
-
-    for (int i : RotatedCarvedPaleOakBlock.MOON_PHASE.getPossibleValues()) {
-      items.add(
-        ItemPredicate.Builder.item()
-          .hasComponents(DataComponentPredicate.allOf(DataComponentMap.builder().set(SMBDataComponentTypes.MOON_PHASE.get(), i).build())));
-    }
-
-    ResourceLocation parentPath = ResourceLocation.withDefaultNamespace("husbandry/root");
-    Advancement.Builder.advancement()
-      .parent(Advancement.Builder.advancement().build(parentPath))
-      .display(SMBBlocks.CARVED_PALE_OAK_LOG.get(), Component.translatable("advancements.somemoreblocks.husbandry.carved_pale_woods.title"), Component.translatable("advancements.somemoreblocks.husbandry.carved_pale_woods.description"), null, AdvancementType.CHALLENGE, true, true, false)
-      .addCriterion("carved_pale_woods",
-        InventoryChangeTrigger.TriggerInstance.hasItems(items.toArray(new ItemPredicate.Builder[0]))
-      )
-      .rewards(AdvancementRewards.Builder.experience(100))
-      .save(this.generator, "husbandry/carved_pale_woods");
   }
 }

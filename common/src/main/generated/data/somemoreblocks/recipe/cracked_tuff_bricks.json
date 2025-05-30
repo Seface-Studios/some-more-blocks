@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "minecraft:tuff_bricks",
+  "ingredient": {
+    "item": "minecraft:tuff_bricks"
+  },
   "result": {
     "id": "somemoreblocks:cracked_tuff_bricks"
   }

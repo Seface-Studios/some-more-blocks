@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": "somemoreblocks:mossy_dripstone_bricks"
+    "#": {
+      "item": "somemoreblocks:mossy_dripstone_bricks"
+    }
   },
   "pattern": [
     "###",

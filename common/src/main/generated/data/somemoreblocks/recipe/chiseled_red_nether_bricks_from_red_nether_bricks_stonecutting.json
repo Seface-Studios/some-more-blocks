@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:red_nether_bricks",
+  "ingredient": {
+    "item": "minecraft:red_nether_bricks"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:chiseled_red_nether_bricks"

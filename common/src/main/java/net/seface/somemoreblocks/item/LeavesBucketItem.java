@@ -25,7 +25,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.block.LeafLitterBlock;
+import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
+import net.seface.somemoreblocks.tags.SMBBlockTags;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -75,6 +77,12 @@ public class LeavesBucketItem extends SolidBucketItem {
     // Try to place leaf litter and decrease bucket volume
     if (bucketVolume > 0) {
       BlockPlaceContext placeContext = new BlockPlaceContext(ctx);
+      BlockPos relativePos = placeContext.getClickedPos();
+      BlockState relativeBlock = level.getBlockState(relativePos);
+
+      if (!relativeBlock.canBeReplaced() || relativeBlock.is(this.leafLitterState.getBlock())) {
+        return InteractionResult.FAIL;
+      }
 
       if (!this.canPlace(placeContext, this.leafLitterState)) return InteractionResult.FAIL;
 

@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "minecraft:exposed_cut_copper",
+  "ingredient": {
+    "item": "minecraft:exposed_cut_copper"
+  },
   "result": {
     "id": "somemoreblocks:exposed_cracked_cut_copper"
   }

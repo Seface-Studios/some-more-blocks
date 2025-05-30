@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:mossy_red_sandstone_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:mossy_red_sandstone_bricks"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:mossy_red_sandstone_brick_stairs"

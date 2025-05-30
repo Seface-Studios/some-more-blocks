@@ -6,14 +6,12 @@ import lombok.Setter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BucketPickup;
@@ -53,9 +51,8 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
     return state2.is(this) || super.skipRendering(state1, state2, direction);
   }
 
-  @NotNull
   @Override
-  protected VoxelShape getOcclusionShape(BlockState state) {
+  protected VoxelShape getOcclusionShape(BlockState state, BlockGetter block, BlockPos pos) {
     return Shapes.empty();
   }
 
@@ -67,10 +64,10 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
 
   @NotNull
   @Override
-  protected BlockState updateShape(BlockState state1, LevelReader level, ScheduledTickAccess tick, BlockPos pos1, Direction direction, BlockPos pos2, BlockState state2, RandomSource random) {
+  protected BlockState updateShape(BlockState state1, Direction direction, BlockState state2, LevelAccessor level, BlockPos pos1, BlockPos pos2) {
     return !state1.canSurvive(level, pos1) ?
       Blocks.AIR.defaultBlockState() :
-      super.updateShape(state1, level, tick, pos1, direction, pos2, state2, random);
+      super.updateShape(state1, direction, state2, level, pos1, pos2);
   }
 
   @Override
@@ -82,8 +79,8 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
 
   @NotNull
   @Override
-  protected ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean b) {
-    ItemStack stack = super.getCloneItemStack(level, pos, state, b);
+  public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+    ItemStack stack = super.getCloneItemStack(level, pos, state);
     stack.set(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType(), LeavesBucketItem.MAX_VOLUME);
 
     return stack;

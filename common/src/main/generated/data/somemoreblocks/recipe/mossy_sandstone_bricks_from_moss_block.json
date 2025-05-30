@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_sandstone_bricks",
   "ingredients": [
-    "somemoreblocks:sandstone_bricks",
-    "minecraft:moss_block"
+    {
+      "item": "somemoreblocks:sandstone_bricks"
+    },
+    {
+      "item": "minecraft:moss_block"
+    }
   ],
   "result": {
     "count": 1,

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "somemoreblocks:block/pale_rose_bush_top",
-    "layer1": "somemoreblocks:block/pale_rose_bush_top_emissive"
-  }
-}

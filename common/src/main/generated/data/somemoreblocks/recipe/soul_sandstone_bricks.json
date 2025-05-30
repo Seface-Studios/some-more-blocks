@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:cut_soul_sandstone"
+    "#": {
+      "item": "somemoreblocks:cut_soul_sandstone"
+    }
   },
   "pattern": [
     "##",

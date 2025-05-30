@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:smooth_deepslate",
+  "ingredient": {
+    "item": "somemoreblocks:smooth_deepslate"
+  },
   "result": {
     "count": 2,
     "id": "somemoreblocks:smooth_deepslate_slab"

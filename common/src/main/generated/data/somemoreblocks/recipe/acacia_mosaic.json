@@ -3,7 +3,9 @@
   "category": "building",
   "group": "mosaic",
   "key": {
-    "#": "minecraft:acacia_slab"
+    "#": {
+      "item": "minecraft:acacia_slab"
+    }
   },
   "pattern": [
     "#",

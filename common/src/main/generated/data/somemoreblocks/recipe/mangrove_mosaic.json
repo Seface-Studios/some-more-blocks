@@ -3,7 +3,9 @@
   "category": "building",
   "group": "mosaic",
   "key": {
-    "#": "minecraft:mangrove_slab"
+    "#": {
+      "item": "minecraft:mangrove_slab"
+    }
   },
   "pattern": [
     "#",

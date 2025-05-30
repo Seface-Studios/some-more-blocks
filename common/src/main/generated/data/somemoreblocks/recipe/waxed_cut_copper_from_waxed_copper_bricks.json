@@ -3,7 +3,9 @@
   "category": "building",
   "group": "waxed_copper_bricks",
   "key": {
-    "#": "somemoreblocks:waxed_copper_bricks"
+    "#": {
+      "item": "somemoreblocks:waxed_copper_bricks"
+    }
   },
   "pattern": [
     "##",

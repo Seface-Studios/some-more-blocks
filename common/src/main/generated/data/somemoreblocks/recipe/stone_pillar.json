@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "minecraft:stone_bricks"
+    "#": {
+      "item": "minecraft:stone_bricks"
+    }
   },
   "pattern": [
     "#",

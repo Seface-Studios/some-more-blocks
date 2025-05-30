@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:lime_concrete_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:lime_concrete_bricks"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:lime_concrete_tiles"

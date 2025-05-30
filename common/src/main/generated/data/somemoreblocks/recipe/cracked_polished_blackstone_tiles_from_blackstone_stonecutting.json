@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:blackstone",
+  "ingredient": {
+    "item": "minecraft:blackstone"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:cracked_polished_blackstone_tiles"

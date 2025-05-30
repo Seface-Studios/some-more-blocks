@@ -3,7 +3,9 @@
   "category": "building",
   "group": "carved_wood",
   "key": {
-    "#": "somemoreblocks:carved_crimson_stem"
+    "#": {
+      "item": "somemoreblocks:carved_crimson_stem"
+    }
   },
   "pattern": [
     "##",

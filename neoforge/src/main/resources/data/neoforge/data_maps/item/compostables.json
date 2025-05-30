@@ -17,14 +17,12 @@
     "somemoreblocks:tall_crimson_fungus_colony": { "chance": 1.0 },
     "somemoreblocks:warped_fungus_colony": { "chance": 0.65 },
     "somemoreblocks:tall_warped_fungus_colony": { "chance": 1.0 },
-    "somemoreblocks:pale_rose_bush": { "chance": 0.85 },
     "somemoreblocks:small_lily_pads": { "chance": 0.65 },
     "somemoreblocks:big_lily_pad": { "chance": 1.0 },
     "somemoreblocks:leaves_bucket": { "chance": 1.0 },
     "somemoreblocks:azalea_leaves_bucket": { "chance": 1.0 },
     "somemoreblocks:birch_leaves_bucket": { "chance": 1.0 },
     "somemoreblocks:flowering_azalea_leaves_bucket": { "chance": 1.0 },
-    "somemoreblocks:spruce_leaves_bucket": { "chance": 1.0 },
-    "somemoreblocks:pale_oak_leaves_bucket": { "chance": 1.0 }
+    "somemoreblocks:spruce_leaves_bucket": { "chance": 1.0 }
   }
 }

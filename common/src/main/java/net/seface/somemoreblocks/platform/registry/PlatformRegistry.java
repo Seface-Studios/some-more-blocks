@@ -2,8 +2,10 @@ package net.seface.somemoreblocks.platform.registry;
 
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.GameRules;
@@ -14,6 +16,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.material.PushReaction;
 import net.seface.somemoreblocks.SomeMoreBlocks;
+import net.seface.somemoreblocks.item.LeavesBucketItem;
 
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
@@ -45,6 +48,19 @@ public interface PlatformRegistry {
    * @param <T> The registered Data Component Type.
    */
   <T> PlatformRegistryObject<DataComponentType<T>> registerDataComponent(String path, UnaryOperator<DataComponentType.Builder<T>> builder);
+
+  /**
+   * Register a model predicate.
+   */
+  default void registerModelPredicate(Item item, String path) {
+    // register method via Access Widener
+    ItemProperties.register(
+      item, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, path),
+      (stack, world, entity, seed) ->  stack.getItem() instanceof LeavesBucketItem
+        ? (float) stack.get(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType()) / 100.0F
+        : 0.01F
+    );
+  }
 
   /**
    * Main method to register a Feature.
@@ -101,6 +117,6 @@ public interface PlatformRegistry {
   default PlatformRegistryObject<Block> registerFlowerPotBlock(PlatformRegistryObject<Block> plant, Block.Properties properties) {
     String path = "potted_" + plant.getPath();
     return this.registerBlock(path,
-      () -> new FlowerPotBlock(plant.get(), properties.setId(SomeMoreBlocks.key(Registries.BLOCK, path))), false);
+      () -> new FlowerPotBlock(plant.get(), properties), false);
   }
 }

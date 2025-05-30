@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_calcite_bricks",
   "ingredients": [
-    "somemoreblocks:calcite_bricks",
-    "minecraft:moss_block"
+    {
+      "item": "somemoreblocks:calcite_bricks"
+    },
+    {
+      "item": "minecraft:moss_block"
+    }
   ],
   "result": {
     "count": 1,

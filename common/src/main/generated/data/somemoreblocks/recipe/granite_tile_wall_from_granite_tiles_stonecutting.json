@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:granite_tiles",
+  "ingredient": {
+    "item": "somemoreblocks:granite_tiles"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:granite_tile_wall"

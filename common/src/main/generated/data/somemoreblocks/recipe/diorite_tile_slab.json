@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:diorite_tiles"
+    "#": {
+      "item": "somemoreblocks:diorite_tiles"
+    }
   },
   "pattern": [
     "###"

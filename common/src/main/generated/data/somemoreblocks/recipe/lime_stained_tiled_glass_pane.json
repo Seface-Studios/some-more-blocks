@@ -3,8 +3,12 @@
   "category": "misc",
   "group": "tiled_glass_pane_from_dye",
   "key": {
-    "#": "somemoreblocks:tiled_glass_pane",
-    "X": "minecraft:lime_dye"
+    "#": {
+      "item": "somemoreblocks:tiled_glass_pane"
+    },
+    "X": {
+      "item": "minecraft:lime_dye"
+    }
   },
   "pattern": [
     "###",

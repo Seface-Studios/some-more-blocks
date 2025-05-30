@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": "somemoreblocks:mud_tiles"
+    "#": {
+      "item": "somemoreblocks:mud_tiles"
+    }
   },
   "pattern": [
     "###",

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "#": "somemoreblocks:cut_redstone"
+    "#": {
+      "item": "somemoreblocks:cut_redstone"
+    }
   },
   "pattern": [
     "##",

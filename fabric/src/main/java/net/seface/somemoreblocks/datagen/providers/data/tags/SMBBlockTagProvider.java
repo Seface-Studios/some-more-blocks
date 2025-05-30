@@ -37,7 +37,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
       .add(
         Blocks.DEAD_BUSH, Blocks.FERN,
         Blocks.SHORT_GRASS, Blocks.VINE,
-        Blocks.MOSS_CARPET, Blocks.PALE_MOSS_CARPET,
+        Blocks.MOSS_CARPET,
         SMBBlocks.DUNE_GRASS.get(), SMBBlocks.SNOW_FERN.get(), SMBBlocks.SHORT_SNOW_GRASS.get());
 
     this.getOrCreateTagBuilder(SMBBlockTags.MUSHROOM_COLONY_PLACEABLE)
@@ -115,7 +115,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
       .add(
         SMBBlocks.LEAF_LITTER.get(), SMBBlocks.AZALEA_LEAF_LITTER.get(),
         SMBBlocks.BIRCH_LEAF_LITTER.get(), SMBBlocks.SPRUCE_LEAF_LITTER.get(),
-        SMBBlocks.PALE_OAK_LEAF_LITTER.get(), SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get());
+        SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get());
 
     addToVanillaTags();
   }
@@ -173,16 +173,13 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
     this.getOrCreateTagBuilder(BlockTags.OAK_LOGS).setReplace(false)
       .add(SMBBlocks.CARVED_OAK_LOG.get(), SMBBlocks.CARVED_OAK_WOOD.get());
 
-    this.getOrCreateTagBuilder(BlockTags.PALE_OAK_LOGS).setReplace(false)
-      .add(SMBBlocks.CARVED_PALE_OAK_LOG.get(), SMBBlocks.CARVED_PALE_OAK_WOOD.get());
-
     this.getOrCreateTagBuilder(BlockTags.PLANKS).setReplace(false)
       .add(
         SMBBlocks.OAK_MOSAIC.get(), SMBBlocks.SPRUCE_MOSAIC.get(),
         SMBBlocks.BIRCH_MOSAIC.get(), SMBBlocks.JUNGLE_MOSAIC.get(),
         SMBBlocks.ACACIA_MOSAIC.get(), SMBBlocks.DARK_OAK_MOSAIC.get(),
         SMBBlocks.MANGROVE_MOSAIC.get(), SMBBlocks.CRIMSON_MOSAIC.get(),
-        SMBBlocks.WARPED_MOSAIC.get(), SMBBlocks.CHERRY_MOSAIC.get(), SMBBlocks.PALE_OAK_MOSAIC.get());
+        SMBBlocks.WARPED_MOSAIC.get(), SMBBlocks.CHERRY_MOSAIC.get());
 
     this.getOrCreateTagBuilder(BlockTags.REPLACEABLE_BY_TREES).setReplace(false)
       .forceAddTag(SMBBlockTags.LEAF_LITTERS)
@@ -236,8 +233,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.CUT_SOUL_SANDSTONE_SLAB.get(), SMBBlocks.SMOOTH_SOUL_SANDSTONE_SLAB.get(),
         SMBBlocks.SOUL_SANDSTONE_BRICK_SLAB.get(), SMBBlocks.SOUL_SANDSTONE_TILE_SLAB.get(),
         SMBBlocks.MOSSY_BRICK_SLAB.get(), SMBBlocks.BONE_BRICK_SLAB.get(),
-        SMBBlocks.BONE_TILE_SLAB.get(), SMBBlocks.POLISHED_RESIN_SLAB.get(),
-        SMBBlocks.RESIN_TILE_SLAB.get(), SMBBlocks.SMOOTH_RESIN_SLAB.get(),
+        SMBBlocks.BONE_TILE_SLAB.get(),
         SMBBlocks.POLISHED_BASALT_BRICK_SLAB.get(), SMBBlocks.POLISHED_BASALT_TILE_SLAB.get(),
         SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_SLAB.get()
       );
@@ -284,7 +280,6 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS.get(), SMBBlocks.SOUL_SANDSTONE_BRICK_STAIRS.get(),
         SMBBlocks.SOUL_SANDSTONE_TILE_STAIRS.get(), SMBBlocks.MOSSY_BRICK_STAIRS.get(),
         SMBBlocks.BONE_BRICK_STAIRS.get(), SMBBlocks.BONE_TILE_STAIRS.get(),
-        SMBBlocks.POLISHED_RESIN_STAIRS.get(), SMBBlocks.RESIN_TILE_STAIRS.get(),
         SMBBlocks.POLISHED_BASALT_BRICK_STAIRS.get(), SMBBlocks.POLISHED_BASALT_TILE_STAIRS.get(),
         SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get(),
         SMBBlocks.SHINGLES_STAIRS.get(), SMBBlocks.WHITE_SHINGLES_STAIRS.get(),
@@ -326,7 +321,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.PURPUR_TILE_WALL.get(), SMBBlocks.SOUL_SANDSTONE_WALL.get(),
         SMBBlocks.SOUL_SANDSTONE_BRICK_WALL.get(), SMBBlocks.SOUL_SANDSTONE_TILE_WALL.get(),
         SMBBlocks.MOSSY_BRICK_WALL.get(), SMBBlocks.BONE_BRICK_WALL.get(),
-        SMBBlocks.BONE_TILE_WALL.get(), SMBBlocks.RESIN_TILE_WALL.get(),
+        SMBBlocks.BONE_TILE_WALL.get(),
         SMBBlocks.POLISHED_BASALT_BRICK_WALL.get(), SMBBlocks.POLISHED_BASALT_TILE_WALL.get(),
         SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_WALL.get()
       );
@@ -340,8 +335,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.BIRCH_MOSAIC_SLAB.get(), SMBBlocks.JUNGLE_MOSAIC_SLAB.get(),
         SMBBlocks.ACACIA_MOSAIC_SLAB.get(), SMBBlocks.DARK_OAK_MOSAIC_SLAB.get(),
         SMBBlocks.MANGROVE_MOSAIC_SLAB.get(), SMBBlocks.CRIMSON_MOSAIC_SLAB.get(),
-        SMBBlocks.WARPED_MOSAIC_SLAB.get(), SMBBlocks.CHERRY_MOSAIC_SLAB.get(),
-        SMBBlocks.PALE_OAK_MOSAIC_SLAB.get()
+        SMBBlocks.WARPED_MOSAIC_SLAB.get(), SMBBlocks.CHERRY_MOSAIC_SLAB.get()
       );
 
     this.getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).setReplace(false)
@@ -350,8 +344,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.BIRCH_MOSAIC_STAIRS.get(), SMBBlocks.JUNGLE_MOSAIC_STAIRS.get(),
         SMBBlocks.ACACIA_MOSAIC_STAIRS.get(), SMBBlocks.DARK_OAK_MOSAIC_STAIRS.get(),
         SMBBlocks.MANGROVE_MOSAIC_STAIRS.get(), SMBBlocks.CRIMSON_MOSAIC_STAIRS.get(),
-        SMBBlocks.WARPED_MOSAIC_STAIRS.get(), SMBBlocks.CHERRY_MOSAIC_STAIRS.get(),
-        SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get()
+        SMBBlocks.WARPED_MOSAIC_STAIRS.get(), SMBBlocks.CHERRY_MOSAIC_STAIRS.get()
       );
 
     this.getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE).setReplace(false)
@@ -542,13 +535,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.WAXED_EXPOSED_CRACKED_CUT_COPPER.get(), SMBBlocks.WAXED_WEATHERED_CRACKED_CUT_COPPER.get(),
         SMBBlocks.WAXED_OXIDIZED_CRACKED_CUT_COPPER.get(), SMBBlocks.WAXED_COPPER_PILLAR.get(),
         SMBBlocks.WAXED_EXPOSED_COPPER_PILLAR.get(), SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get(),
-        SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get(), SMBBlocks.POLISHED_RESIN.get(),
-        SMBBlocks.POLISHED_RESIN_STAIRS.get(), SMBBlocks.POLISHED_RESIN_SLAB.get(),
-        SMBBlocks.CRACKED_RESIN_BRICKS.get(), SMBBlocks.RESIN_PILLAR.get(),
-        SMBBlocks.RESIN_TILES.get(), SMBBlocks.CRACKED_RESIN_TILES.get(),
-        SMBBlocks.RESIN_TILE_STAIRS.get(), SMBBlocks.RESIN_TILE_SLAB.get(),
-        SMBBlocks.RESIN_TILE_WALL.get(), SMBBlocks.SMOOTH_RESIN.get(),
-        SMBBlocks.SMOOTH_RESIN_SLAB.get(), SMBBlocks.POLISHED_BASALT_BRICKS.get(),
+        SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get(), SMBBlocks.POLISHED_BASALT_BRICKS.get(),
         SMBBlocks.CRACKED_POLISHED_BASALT_BRICKS.get(), SMBBlocks.POLISHED_BASALT_BRICK_STAIRS.get(),
         SMBBlocks.POLISHED_BASALT_BRICK_SLAB.get(), SMBBlocks.POLISHED_BASALT_BRICK_WALL.get(),
         SMBBlocks.CHISELED_POLISHED_BASALT_BRICKS.get(), SMBBlocks.POLISHED_BASALT_PILLAR.get(),
@@ -602,9 +589,6 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.NETHERITE_BRICKS.get(), SMBBlocks.CRACKED_NETHERITE_BRICKS.get(), SMBBlocks.NETHERITE_PILLAR.get(),
         SMBBlocks.CUT_NETHERITE.get(), SMBBlocks.CRACKED_CUT_NETHERITE.get(), SMBBlocks.NETHERITE_GRATE.get()
       );
-
-    this.getOrCreateTagBuilder(BlockTags.PALE_OAK_LOGS).setReplace(false)
-      .add(SMBBlocks.CARVED_PALE_OAK_LOG.get(), SMBBlocks.CARVED_PALE_OAK_WOOD.get());
 
     this.getOrCreateTagBuilder(SMBBlockTags.LUMINOUS_FLOWER_REPLACEABLE)
       .add(

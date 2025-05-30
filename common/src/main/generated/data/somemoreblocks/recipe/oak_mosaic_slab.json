@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:oak_mosaic"
+    "#": {
+      "item": "somemoreblocks:oak_mosaic"
+    }
   },
   "pattern": [
     "###"

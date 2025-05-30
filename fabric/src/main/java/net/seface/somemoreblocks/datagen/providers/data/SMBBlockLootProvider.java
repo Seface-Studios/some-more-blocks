@@ -6,17 +6,15 @@ import net.minecraft.advancements.critereon.BlockPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamily;
+import net.minecraft.data.models.model.ModelLocationUtils;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoublePlantBlock;
-import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.SlabType;
@@ -24,9 +22,6 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
-import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
-import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
@@ -34,9 +29,11 @@ import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.seface.somemoreblocks.block.CloverBlock;
-import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
 import net.seface.somemoreblocks.block.properties.QuadDirection;
-import net.seface.somemoreblocks.registries.*;
+import net.seface.somemoreblocks.registries.SMBBlockFamilies;
+import net.seface.somemoreblocks.registries.SMBBlockStateProperties;
+import net.seface.somemoreblocks.registries.SMBBlocks;
+import net.seface.somemoreblocks.registries.SMBItems;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,8 +79,6 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropSelf(SMBBlocks.CARVED_WARPED_HYPHAE.get());
     this.dropSelf(SMBBlocks.CARVED_CHERRY_LOG.get());
     this.dropSelf(SMBBlocks.CARVED_CHERRY_WOOD.get());
-    this.dropSelfCarvedPaleOak(SMBBlocks.CARVED_PALE_OAK_LOG.get());
-    this.dropSelfCarvedPaleOak(SMBBlocks.CARVED_PALE_OAK_WOOD.get());
     this.dropSelf(SMBBlocks.CARVED_BAMBOO_BLOCK.get());
     this.dropSelf(SMBBlocks.AMETHYST_PILLAR.get());
     this.dropSelf(SMBBlocks.ANDESITE_PILLAR.get());
@@ -306,7 +301,6 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropWhenShearsDoublePlant(SMBBlocks.TALL_SNOW_GRASS.get(), SMBBlocks.SHORT_SNOW_GRASS.get());
     this.dropWhenShears(SMBBlocks.SNOW_FERN.get());
     this.dropWhenShearsDoublePlant(SMBBlocks.LARGE_SNOW_FERN.get(), SMBBlocks.SNOW_FERN.get());
-    this.dropDoublePlantWithoutShears(SMBBlocks.PALE_ROSE_BUSH.get());
     this.dropWhenShears(SMBBlocks.CATTAIL.get());
     this.dropWhenShears(SMBBlocks.REEDS.get());
     this.dropSelfClover(SMBBlocks.CLOVER.get());
@@ -381,11 +375,11 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
         .when(LocationCheck.checkLocation(
           LocationPredicate.Builder.location()
             .setBlock(BlockPredicate.Builder.block()
-              .of(this.registries.lookupOrThrow(Registries.BLOCK), block)
+              .of(block)
               .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER))
             ), new BlockPos(0, 1, 0)
         ))
-        .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(this.hasShears()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))
+        .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(HAS_SHEARS).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))
           .otherwise(LootItem.lootTableItem(otherItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F))))
         )
       )
@@ -396,11 +390,11 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
         .when(LocationCheck.checkLocation(
           LocationPredicate.Builder.location()
             .setBlock(BlockPredicate.Builder.block()
-              .of(this.registries.lookupOrThrow(Registries.BLOCK), block)
+              .of(block)
               .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER))
             ), new BlockPos(0, -1, 0)
         ))
-        .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(this.hasShears()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))
+        .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(HAS_SHEARS).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))
           .otherwise(LootItem.lootTableItem(otherItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F))))
         )
       )
@@ -411,7 +405,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.add(block, LootTable.lootTable()
       .withPool(LootPool.lootPool()
         .setRolls(ConstantValue.exactly(1.0F))
-        .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(this.hasShears()))
+        .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(HAS_SHEARS))
           .otherwise(LootItem.lootTableItem(otherItem).apply(SetItemCountFunction.setCount(ConstantValue.exactly(otherAmount))))
         )
       )
@@ -431,38 +425,11 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
       )
     );
   }
-
-  /**
-   * Specific to Carved Pale Log/Wood loot table where drops the correct item by the
-   * moon_phase block state.
-   */
-  private void dropSelfCarvedPaleOak(Block block) {
-    LootPoolSingletonContainer.Builder<?> lootItem = LootItem.lootTableItem(block);
-
-    for (int i = 0; i <= RotatedCarvedPaleOakBlock.MAX_MOON_PHASE ; i++) {
-      lootItem.apply(
-        SetComponentsFunction.setComponent(SMBDataComponentTypes.MOON_PHASE.get(), i)
-          .when(
-            LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-              .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RotatedCarvedPaleOakBlock.MOON_PHASE, i))
-          )
-      );
-    }
-
-    this.add(block,
-      LootTable.lootTable()
-        .withPool(LootPool.lootPool()
-          .setRolls(ConstantValue.exactly(1.0F))
-          .setBonusRolls(ConstantValue.exactly(0.0F))
-          .add(lootItem))
-        .setRandomSequence(ModelLocationUtils.getModelLocation(block)));
-  }
-
   private void dropWhenShovel(Block block) {
     this.add(block, LootTable.lootTable()
       .withPool(LootPool.lootPool()
         .setRolls(ConstantValue.exactly(1.0F))
-        .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(this.registries.lookupOrThrow(Registries.ITEM), ItemTags.SHOVELS)))
+        .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.SHOVELS)))
         .add(LootItem.lootTableItem(block)))
     );
   }
@@ -473,7 +440,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
         LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
           .add(
             this.applyExplosionDecay(block, LootItem.lootTableItem(block)
-              .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(this.registries.lookupOrThrow(Registries.ITEM), ItemTags.SHOVELS)))
+              .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.SHOVELS)))
               .apply(
                 SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
                   .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SlabBlock.TYPE, SlabType.DOUBLE)))

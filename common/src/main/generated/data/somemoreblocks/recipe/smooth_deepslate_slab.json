@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:smooth_deepslate"
+    "#": {
+      "item": "somemoreblocks:smooth_deepslate"
+    }
   },
   "pattern": [
     "###"

@@ -3,8 +3,12 @@
   "category": "building",
   "group": "tiled_glass_from_dye",
   "key": {
-    "#": "somemoreblocks:tiled_glass",
-    "X": "minecraft:red_dye"
+    "#": {
+      "item": "somemoreblocks:tiled_glass"
+    },
+    "X": {
+      "item": "minecraft:red_dye"
+    }
   },
   "pattern": [
     "###",

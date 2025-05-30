@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:terracotta_bricks"
+    "#": {
+      "item": "somemoreblocks:terracotta_bricks"
+    }
   },
   "pattern": [
     "##",

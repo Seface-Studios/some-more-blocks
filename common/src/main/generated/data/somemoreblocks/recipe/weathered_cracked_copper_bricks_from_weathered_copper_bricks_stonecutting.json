@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:weathered_copper_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:weathered_copper_bricks"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:weathered_cracked_copper_bricks"

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:jungle_mosaic"
+    "#": {
+      "item": "somemoreblocks:jungle_mosaic"
+    }
   },
   "pattern": [
     "###"

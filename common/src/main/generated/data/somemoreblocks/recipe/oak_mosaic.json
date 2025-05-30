@@ -3,7 +3,9 @@
   "category": "building",
   "group": "mosaic",
   "key": {
-    "#": "minecraft:oak_slab"
+    "#": {
+      "item": "minecraft:oak_slab"
+    }
   },
   "pattern": [
     "#",

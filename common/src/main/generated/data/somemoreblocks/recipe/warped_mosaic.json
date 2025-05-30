@@ -3,7 +3,9 @@
   "category": "building",
   "group": "mosaic",
   "key": {
-    "#": "minecraft:warped_slab"
+    "#": {
+      "item": "minecraft:warped_slab"
+    }
   },
   "pattern": [
     "#",

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:cut_coal"
+    "#": {
+      "item": "somemoreblocks:cut_coal"
+    }
   },
   "pattern": [
     "##",

@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:cut_iron",
+  "ingredient": {
+    "item": "somemoreblocks:cut_iron"
+  },
   "result": {
     "id": "somemoreblocks:cracked_cut_iron"
   }

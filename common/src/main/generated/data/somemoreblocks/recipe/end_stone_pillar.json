@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "minecraft:end_stone_bricks"
+    "#": {
+      "item": "minecraft:end_stone_bricks"
+    }
   },
   "pattern": [
     "#",

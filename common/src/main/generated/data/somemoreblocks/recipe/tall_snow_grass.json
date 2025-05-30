@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "minecraft:tall_grass",
-    "minecraft:snowball"
+    {
+      "item": "minecraft:tall_grass"
+    },
+    {
+      "item": "minecraft:snowball"
+    }
   ],
   "result": {
     "count": 1,

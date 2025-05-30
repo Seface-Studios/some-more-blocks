@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    "minecraft:prismarine_bricks",
-    "minecraft:kelp"
+    {
+      "item": "minecraft:prismarine_bricks"
+    },
+    {
+      "item": "minecraft:kelp"
+    }
   ],
   "result": {
     "count": 1,

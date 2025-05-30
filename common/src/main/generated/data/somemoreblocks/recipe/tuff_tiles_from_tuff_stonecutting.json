@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:tuff",
+  "ingredient": {
+    "item": "minecraft:tuff"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:tuff_tiles"

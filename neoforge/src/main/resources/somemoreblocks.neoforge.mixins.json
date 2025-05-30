@@ -9,9 +9,7 @@
     "TinyCactusBlockMixin",
     "RotatedPillarBlockMixin"
   ],
-  "client": [
-    "RangeSelectItemModelPropertiesMixin"
-  ],
+  "client": [],
   "server": [],
   "injectors": {
     "defaultRequire": 1

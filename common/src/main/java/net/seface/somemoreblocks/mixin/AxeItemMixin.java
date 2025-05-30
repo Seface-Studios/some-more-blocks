@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
 import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.registries.SMBRegistries;
 import org.spongepowered.asm.mixin.Mixin;
@@ -42,14 +41,6 @@ public abstract class AxeItemMixin {
 
     SMBRegistries.CARVED_BLOCKS.getNext(state.getBlock())
         .ifPresent((block) -> {
-          if (block instanceof RotatedCarvedPaleOakBlock) {
-            cir.setReturnValue(Optional.of(
-              block.withPropertiesOf(state).setValue(RotatedCarvedPaleOakBlock.MOON_PHASE, this.SMB$level.getMoonPhase())
-            ));
-
-            return;
-          }
-
           cir.setReturnValue(Optional.of(block.withPropertiesOf(state)));
         });
   }

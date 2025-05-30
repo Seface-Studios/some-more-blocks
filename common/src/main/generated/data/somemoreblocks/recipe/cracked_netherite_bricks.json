@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:netherite_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:netherite_bricks"
+  },
   "result": {
     "id": "somemoreblocks:cracked_netherite_bricks"
   }

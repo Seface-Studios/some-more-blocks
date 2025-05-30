@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:polished_purpur",
+  "ingredient": {
+    "item": "somemoreblocks:polished_purpur"
+  },
   "result": {
     "id": "somemoreblocks:smooth_purpur"
   }

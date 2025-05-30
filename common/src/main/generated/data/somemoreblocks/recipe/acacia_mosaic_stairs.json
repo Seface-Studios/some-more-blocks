@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:acacia_mosaic"
+    "#": {
+      "item": "somemoreblocks:acacia_mosaic"
+    }
   },
   "pattern": [
     "#  ",

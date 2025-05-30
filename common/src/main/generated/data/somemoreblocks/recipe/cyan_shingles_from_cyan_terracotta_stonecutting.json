@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:cyan_terracotta",
+  "ingredient": {
+    "item": "minecraft:cyan_terracotta"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:cyan_shingles"

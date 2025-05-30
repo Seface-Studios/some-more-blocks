@@ -3,7 +3,9 @@
   "category": "building",
   "group": "mosaic",
   "key": {
-    "#": "minecraft:crimson_slab"
+    "#": {
+      "item": "minecraft:crimson_slab"
+    }
   },
   "pattern": [
     "#",

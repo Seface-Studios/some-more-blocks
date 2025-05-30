@@ -32,7 +32,7 @@ public class FabricPlatformRegistry implements PlatformRegistry {
     if (registerBlockItem) {
       ResourceKey<Item> itemKey = SomeMoreBlocks.key(Registries.ITEM, path);
       this.registerItem(path,
-        () -> new BlockItem(instance, new Item.Properties().useBlockDescriptionPrefix().setId(itemKey)));
+        () -> new BlockItem(instance, new Item.Properties()));
     }
 
     return new FabricRegistryObject<>(identifier, () -> instance);

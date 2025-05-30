@@ -3,7 +3,9 @@
   "category": "building",
   "group": "soul_sandstone",
   "key": {
-    "#": "minecraft:soul_sand"
+    "#": {
+      "item": "minecraft:soul_sand"
+    }
   },
   "pattern": [
     "##",

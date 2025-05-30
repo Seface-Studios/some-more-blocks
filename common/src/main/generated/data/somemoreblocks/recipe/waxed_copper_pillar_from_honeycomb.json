@@ -3,8 +3,12 @@
   "category": "building",
   "group": "waxed_copper_pillar",
   "ingredients": [
-    "minecraft:honeycomb",
-    "somemoreblocks:copper_pillar"
+    {
+      "item": "minecraft:honeycomb"
+    },
+    {
+      "item": "somemoreblocks:copper_pillar"
+    }
   ],
   "result": {
     "count": 1,

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:cut_netherite"
+    "#": {
+      "item": "somemoreblocks:cut_netherite"
+    }
   },
   "pattern": [
     "##",

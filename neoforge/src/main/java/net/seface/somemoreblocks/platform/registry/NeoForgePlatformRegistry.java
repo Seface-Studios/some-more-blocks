@@ -25,7 +25,7 @@ import java.util.function.UnaryOperator;
 public class NeoForgePlatformRegistry implements PlatformRegistry {
   private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(SomeMoreBlocks.ID);
   private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(SomeMoreBlocks.ID);
-  private static final DeferredRegister.DataComponents DATA_COMPONENT_TYPES = DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, SomeMoreBlocks.ID);
+  private static final DeferredRegister.DataComponents DATA_COMPONENT_TYPES = DeferredRegister.createDataComponents(SomeMoreBlocks.ID);
   private static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, SomeMoreBlocks.ID);
   private static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SomeMoreBlocks.ID);
 
@@ -36,7 +36,7 @@ public class NeoForgePlatformRegistry implements PlatformRegistry {
 
     if (registerBlockItem) {
       this.registerItem(path,
-        () -> new BlockItem(instance.get(), new Item.Properties().useBlockDescriptionPrefix().setId(SomeMoreBlocks.key(Registries.ITEM, path))));
+        () -> new BlockItem(instance.get(), new Item.Properties()));
     }
 
     return new NeoForgeRegistryObject<>(identifier, instance);

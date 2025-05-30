@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:calcite_tiles",
+  "ingredient": {
+    "item": "somemoreblocks:calcite_tiles"
+  },
   "result": {
     "id": "somemoreblocks:cracked_calcite_tiles"
   }

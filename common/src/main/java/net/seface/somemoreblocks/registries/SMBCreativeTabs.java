@@ -69,54 +69,6 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CHERRY_MOSAIC.get());
         entry.accept(SMBBlocks.CHERRY_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.CHERRY_MOSAIC_SLAB.get());
-
-        /* 1.21.4 */
-        if (ctx.hasPermissions()) {
-          for (int i = 0; i <= 7; i++) {
-            ItemStack stack = SMBItems.CARVED_PALE_OAK_LOG.get().getDefaultInstance();
-            stack.set(SMBDataComponentTypes.MOON_PHASE.get(), i);
-            stack.set(DataComponents.RARITY, Rarity.EPIC);
-
-            MutableComponent moonPhase = Component.translatable("utilities.somemoreblocks.moon_phase.name." + i)
-              .withStyle(ChatFormatting.WHITE)
-              .append(" (" + i + ")");
-
-            MutableComponent lore = Component.translatable("item.somemoreblocks.carved_pale_oak_logs.moon_phase_description", moonPhase)
-              .withStyle(style -> style.withItalic(false).withColor(ChatFormatting.YELLOW));
-
-            stack.set(DataComponents.LORE, new ItemLore(List.of(lore)));
-
-            entry.accept(stack);
-          }
-        } else {
-          entry.accept(SMBItems.CARVED_PALE_OAK_LOG.get());
-        }
-
-        if (ctx.hasPermissions()) {
-          for (int i = 0; i <= 7; i++) {
-            ItemStack stack = SMBItems.CARVED_PALE_OAK_WOOD.get().getDefaultInstance();
-            stack.set(SMBDataComponentTypes.MOON_PHASE.get(), i);
-            stack.set(DataComponents.RARITY, Rarity.EPIC);
-
-            MutableComponent moonPhase = Component.translatable("utilities.somemoreblocks.moon_phase.name." + i)
-              .withStyle(ChatFormatting.WHITE)
-              .append(" (" + i + ")");
-
-            MutableComponent lore = Component.translatable("item.somemoreblocks.carved_pale_oak_logs.moon_phase_description", moonPhase)
-              .withStyle(style -> style.withItalic(false).withColor(ChatFormatting.YELLOW));
-
-            stack.set(DataComponents.LORE, new ItemLore(List.of(lore)));
-
-            entry.accept(stack);
-          }
-        } else {
-          entry.accept(SMBItems.CARVED_PALE_OAK_WOOD.get());
-        }
-
-        entry.accept(SMBBlocks.PALE_OAK_MOSAIC.get());
-        entry.accept(SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get());
-        entry.accept(SMBBlocks.PALE_OAK_MOSAIC_SLAB.get());
-
         entry.accept(SMBBlocks.CARVED_BAMBOO_BLOCK.get());
         entry.accept(SMBBlocks.CARVED_MUSHROOM_STEM.get());
         entry.accept(SMBBlocks.POLISHED_STONE.get());
@@ -266,21 +218,6 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.MOSSY_MUD_BRICK_WALL.get());
         entry.accept(SMBBlocks.SMOOTH_MUD.get());
         entry.accept(SMBBlocks.SMOOTH_MUD_SLAB.get());
-
-        /* 1.21.4 */
-        entry.accept(SMBBlocks.POLISHED_RESIN.get());
-        entry.accept(SMBBlocks.POLISHED_RESIN_STAIRS.get());
-        entry.accept(SMBBlocks.POLISHED_RESIN_SLAB.get());
-        entry.accept(SMBBlocks.CRACKED_RESIN_BRICKS.get());
-        entry.accept(SMBBlocks.RESIN_PILLAR.get());
-        entry.accept(SMBBlocks.RESIN_TILES.get());
-        entry.accept(SMBBlocks.CRACKED_RESIN_TILES.get());
-        entry.accept(SMBBlocks.RESIN_TILE_STAIRS.get());
-        entry.accept(SMBBlocks.RESIN_TILE_SLAB.get());
-        entry.accept(SMBBlocks.RESIN_TILE_WALL.get());
-        entry.accept(SMBBlocks.SMOOTH_RESIN.get());
-        entry.accept(SMBBlocks.SMOOTH_RESIN_SLAB.get());
-
         entry.accept(SMBBlocks.SANDSTONE_BRICKS.get());
         entry.accept(SMBBlocks.CRACKED_SANDSTONE_BRICKS.get());
         entry.accept(SMBBlocks.SANDSTONE_BRICK_STAIRS.get());
@@ -695,13 +632,11 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.TALL_SNOW_GRASS.get());
         entry.accept(SMBBlocks.SNOW_FERN.get());
         entry.accept(SMBBlocks.LARGE_SNOW_FERN.get());
-        entry.accept(SMBBlocks.PALE_ROSE_BUSH.get());
         entry.accept(SMBBlocks.CATTAIL.get());
         entry.accept(SMBBlocks.REEDS.get());
         entry.accept(SMBItems.LEAVES_BUCKET.get());
         entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get());
         entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.get());
-        entry.accept(SMBItems.PALE_OAK_LEAVES_BUCKET.get());
         entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get());
         entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
         entry.accept(SMBItems.CLOVER.get());

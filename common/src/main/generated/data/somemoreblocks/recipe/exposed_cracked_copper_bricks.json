@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:exposed_copper_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:exposed_copper_bricks"
+  },
   "result": {
     "id": "somemoreblocks:exposed_cracked_copper_bricks"
   }

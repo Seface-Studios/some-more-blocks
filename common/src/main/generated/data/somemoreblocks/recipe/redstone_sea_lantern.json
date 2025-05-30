@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "#": "minecraft:redstone",
-    "X": "minecraft:sea_lantern"
+    "#": {
+      "item": "minecraft:redstone"
+    },
+    "X": {
+      "item": "minecraft:sea_lantern"
+    }
   },
   "pattern": [
     " # ",

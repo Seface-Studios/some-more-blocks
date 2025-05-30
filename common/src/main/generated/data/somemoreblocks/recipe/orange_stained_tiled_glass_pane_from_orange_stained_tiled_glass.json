@@ -3,7 +3,9 @@
   "category": "misc",
   "group": "tiled_glass_pane_from_tiled_glass",
   "key": {
-    "#": "somemoreblocks:orange_stained_tiled_glass"
+    "#": {
+      "item": "somemoreblocks:orange_stained_tiled_glass"
+    }
   },
   "pattern": [
     "###",

@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:polished_basalt_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:polished_basalt_bricks"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:polished_basalt_brick_stairs"

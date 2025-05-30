@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_dripstone_bricks",
   "ingredients": [
-    "somemoreblocks:dripstone_bricks",
-    "minecraft:vine"
+    {
+      "item": "somemoreblocks:dripstone_bricks"
+    },
+    {
+      "item": "minecraft:vine"
+    }
   ],
   "result": {
     "count": 1,

@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:purpur_tiles",
+  "ingredient": {
+    "item": "somemoreblocks:purpur_tiles"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:purpur_tile_stairs"

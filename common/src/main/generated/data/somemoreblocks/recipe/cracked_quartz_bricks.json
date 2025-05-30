@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "minecraft:quartz_bricks",
+  "ingredient": {
+    "item": "minecraft:quartz_bricks"
+  },
   "result": {
     "id": "somemoreblocks:cracked_quartz_bricks"
   }

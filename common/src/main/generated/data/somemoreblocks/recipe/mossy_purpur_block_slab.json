@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:mossy_purpur_block"
+    "#": {
+      "item": "somemoreblocks:mossy_purpur_block"
+    }
   },
   "pattern": [
     "###"

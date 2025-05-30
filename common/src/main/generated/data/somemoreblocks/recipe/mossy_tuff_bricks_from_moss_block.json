@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_tuff_bricks",
   "ingredients": [
-    "minecraft:tuff_bricks",
-    "minecraft:moss_block"
+    {
+      "item": "minecraft:tuff_bricks"
+    },
+    {
+      "item": "minecraft:moss_block"
+    }
   ],
   "result": {
     "count": 1,

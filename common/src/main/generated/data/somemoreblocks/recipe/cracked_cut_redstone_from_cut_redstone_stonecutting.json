@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:cut_redstone",
+  "ingredient": {
+    "item": "somemoreblocks:cut_redstone"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:cracked_cut_redstone"

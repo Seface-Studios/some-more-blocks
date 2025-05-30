@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "minecraft:prismarine",
+  "ingredient": {
+    "item": "minecraft:prismarine"
+  },
   "result": {
     "id": "somemoreblocks:smooth_prismarine"
   }

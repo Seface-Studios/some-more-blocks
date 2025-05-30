@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "minecraft:purpur_block",
+  "ingredient": {
+    "item": "minecraft:purpur_block"
+  },
   "result": {
     "id": "somemoreblocks:cracked_purpur_block"
   }

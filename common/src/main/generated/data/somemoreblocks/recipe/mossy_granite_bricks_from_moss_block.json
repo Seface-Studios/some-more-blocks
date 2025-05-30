@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_granite_bricks",
   "ingredients": [
-    "somemoreblocks:granite_bricks",
-    "minecraft:moss_block"
+    {
+      "item": "somemoreblocks:granite_bricks"
+    },
+    {
+      "item": "minecraft:moss_block"
+    }
   ],
   "result": {
     "count": 1,

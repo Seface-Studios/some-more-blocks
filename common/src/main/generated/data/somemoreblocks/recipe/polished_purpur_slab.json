@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:polished_purpur"
+    "#": {
+      "item": "somemoreblocks:polished_purpur"
+    }
   },
   "pattern": [
     "###"

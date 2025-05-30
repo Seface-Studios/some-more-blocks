@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:red_sandstone",
+  "ingredient": {
+    "item": "minecraft:red_sandstone"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:cracked_red_sandstone_tiles"

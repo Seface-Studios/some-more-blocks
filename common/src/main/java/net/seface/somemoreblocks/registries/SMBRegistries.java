@@ -62,7 +62,6 @@ public class SMBRegistries {
     ComposterBlock.COMPOSTABLES.put(SMBItems.TALL_CRIMSON_FUNGUS_COLONY.get(), 1.0F);
     ComposterBlock.COMPOSTABLES.put(SMBItems.WARPED_FUNGUS_COLONY.get(), 0.85F);
     ComposterBlock.COMPOSTABLES.put(SMBItems.TALL_WARPED_FUNGUS_COLONY.get(), 1.0F);
-    ComposterBlock.COMPOSTABLES.put(SMBBlocks.PALE_ROSE_BUSH.get().asItem(), 0.85F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.SMALL_LILY_PADS.get().asItem(), 0.65F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.BIG_LILY_PAD.get().asItem(), 1.0F);
     ComposterBlock.COMPOSTABLES.put(SMBItems.LEAVES_BUCKET.get(), 1.0F);
@@ -70,7 +69,6 @@ public class SMBRegistries {
     ComposterBlock.COMPOSTABLES.put(SMBItems.BIRCH_LEAVES_BUCKET.get(), 1.0F);
     ComposterBlock.COMPOSTABLES.put(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), 1.0F);
     ComposterBlock.COMPOSTABLES.put(SMBItems.SPRUCE_LEAVES_BUCKET.get(), 1.0F);
-    ComposterBlock.COMPOSTABLES.put(SMBItems.PALE_OAK_LEAVES_BUCKET.get(), 1.0F);
   }
 
   private static void carvedBlocks() {
@@ -94,8 +92,6 @@ public class SMBRegistries {
     CARVED_BLOCKS.register(Blocks.STRIPPED_CRIMSON_HYPHAE, SMBBlocks.CARVED_CRIMSON_HYPHAE.get());
     CARVED_BLOCKS.register(Blocks.STRIPPED_MANGROVE_WOOD, SMBBlocks.CARVED_MANGROVE_WOOD.get());
     CARVED_BLOCKS.register(Blocks.STRIPPED_MANGROVE_LOG, SMBBlocks.CARVED_MANGROVE_LOG.get());
-    CARVED_BLOCKS.register(Blocks.STRIPPED_PALE_OAK_LOG, SMBBlocks.CARVED_PALE_OAK_LOG.get());
-    CARVED_BLOCKS.register(Blocks.STRIPPED_PALE_OAK_WOOD, SMBBlocks.CARVED_PALE_OAK_WOOD.get());
     CARVED_BLOCKS.register(Blocks.STRIPPED_BAMBOO_BLOCK, SMBBlocks.CARVED_BAMBOO_BLOCK.get());
     CARVED_BLOCKS.register(Blocks.MUSHROOM_STEM, SMBBlocks.CARVED_MUSHROOM_STEM.get());
   }

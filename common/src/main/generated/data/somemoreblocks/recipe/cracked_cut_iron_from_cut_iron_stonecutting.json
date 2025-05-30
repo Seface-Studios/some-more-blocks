@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:cut_iron",
+  "ingredient": {
+    "item": "somemoreblocks:cut_iron"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:cracked_cut_iron"

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:smooth_end_stone"
+    "#": {
+      "item": "somemoreblocks:smooth_end_stone"
+    }
   },
   "pattern": [
     "###"

@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_sandstone_bricks",
   "ingredients": [
-    "somemoreblocks:sandstone_bricks",
-    "minecraft:vine"
+    {
+      "item": "somemoreblocks:sandstone_bricks"
+    },
+    {
+      "item": "minecraft:vine"
+    }
   ],
   "result": {
     "count": 1,

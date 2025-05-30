@@ -1,34 +1,31 @@
 package net.seface.somemoreblocks.datagen.providers.assets.providers;
 
+import com.google.gson.JsonElement;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.data.models.BlockModelGenerators;
-import net.minecraft.client.data.models.ItemModelOutput;
-import net.minecraft.client.data.models.blockstates.*;
-import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.client.data.models.model.ModelInstance;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.data.models.BlockModelGenerators;
+import net.minecraft.data.models.blockstates.*;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 @Environment(EnvType.CLIENT)
 public class TiledGlassBlockProvider {
   private final Block block;
   private final TextureMapping mainTextureMap;
-  private final BiConsumer<ResourceLocation, ModelInstance> modelOutput;
-  private final ItemModelOutput itemModelOutput;
+  private final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
   private final Consumer<BlockStateGenerator> blockStateOutput;
 
-  public TiledGlassBlockProvider(Block block, BiConsumer<ResourceLocation, ModelInstance> modelOutput, ItemModelOutput itemModelOutput, Consumer<BlockStateGenerator> blockStateOutput) {
+  public TiledGlassBlockProvider(Block block, BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput, Consumer<BlockStateGenerator> blockStateOutput) {
     this.block = block;
     this.mainTextureMap = TextureMapping.cube(block);
     this.modelOutput = modelOutput;
-    this.itemModelOutput = itemModelOutput;
     this.blockStateOutput = blockStateOutput;
   }
 
@@ -50,7 +47,6 @@ public class TiledGlassBlockProvider {
 
     ResourceLocation item = ModelTemplates.FLAT_ITEM.create(tiledGlassPane, TextureMapping.layer0(this.block), this.modelOutput);
 
-    this.itemModelOutput.accept(tiledGlassPane.asItem(), ItemModelUtils.plainModel(item));
     this.blockStateOutput.accept(createPane(tiledGlassPane, post, side, sideAlt, noSide, noSideAlt));
     return this;
   }

@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "somemoreblocks:prismarine_tiles",
+  "ingredient": {
+    "item": "somemoreblocks:prismarine_tiles"
+  },
   "result": {
     "id": "somemoreblocks:cracked_prismarine_tiles"
   }

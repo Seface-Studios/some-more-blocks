@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:white_concrete",
+  "ingredient": {
+    "item": "minecraft:white_concrete"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:white_concrete_tiles"

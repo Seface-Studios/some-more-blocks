@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_purpur_block",
   "ingredients": [
-    "minecraft:purpur_block",
-    "minecraft:vine"
+    {
+      "item": "minecraft:purpur_block"
+    },
+    {
+      "item": "minecraft:vine"
+    }
   ],
   "result": {
     "count": 1,

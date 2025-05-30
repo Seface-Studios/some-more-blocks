@@ -3,7 +3,9 @@
   "category": "building",
   "group": "carved_wood",
   "key": {
-    "#": "somemoreblocks:carved_oak_log"
+    "#": {
+      "item": "somemoreblocks:carved_oak_log"
+    }
   },
   "pattern": [
     "##",

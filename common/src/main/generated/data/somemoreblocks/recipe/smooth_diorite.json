@@ -3,7 +3,9 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": "minecraft:diorite",
+  "ingredient": {
+    "item": "minecraft:diorite"
+  },
   "result": {
     "id": "somemoreblocks:smooth_diorite"
   }

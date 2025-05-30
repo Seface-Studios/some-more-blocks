@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "#": "minecraft:redstone",
-    "X": "minecraft:pearlescent_froglight"
+    "#": {
+      "item": "minecraft:redstone"
+    },
+    "X": {
+      "item": "minecraft:pearlescent_froglight"
+    }
   },
   "pattern": [
     " # ",

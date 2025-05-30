@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:dripstone_tiles",
+  "ingredient": {
+    "item": "somemoreblocks:dripstone_tiles"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:dripstone_tile_wall"

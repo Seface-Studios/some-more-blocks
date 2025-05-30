@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": "somemoreblocks:soul_sandstone_bricks"
+    "#": {
+      "item": "somemoreblocks:soul_sandstone_bricks"
+    }
   },
   "pattern": [
     "###",

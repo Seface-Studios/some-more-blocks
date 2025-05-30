@@ -48,10 +48,10 @@ public class ForgePlatformRegistry implements PlatformRegistry {
     if (registerBlockItem) {
       if (FUEL_BLOCK_ITEMS.containsKey(path)) {
         this.registerItem(path,
-          () -> new FuelBlockItem(instance.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ITEMS.key(path)), FUEL_BLOCK_ITEMS.get(path)));
+          () -> new FuelBlockItem(instance.get(), new Item.Properties(), FUEL_BLOCK_ITEMS.get(path)));
       } else {
         this.registerItem(path,
-          () -> new BlockItem(instance.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ITEMS.key(path))));
+          () -> new BlockItem(instance.get(), new Item.Properties()));
       }
     }
 

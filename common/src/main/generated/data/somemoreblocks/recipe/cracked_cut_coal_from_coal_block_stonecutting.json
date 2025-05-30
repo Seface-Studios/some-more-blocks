@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:coal_block",
+  "ingredient": {
+    "item": "minecraft:coal_block"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:cracked_cut_coal"

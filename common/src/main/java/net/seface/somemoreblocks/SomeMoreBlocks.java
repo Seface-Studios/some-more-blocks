@@ -45,6 +45,7 @@ public class SomeMoreBlocks {
 
   public static void initClient() {
     registerBlockRenders();
+    registerModelPredicates();
   }
 
   /**
@@ -123,8 +124,6 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.NETHERITE_GRATE.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.ORANGE_STAINED_TILED_GLASS.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get(), translucent);
-    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), cutout);
-    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_ROSE_BUSH.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PINK_STAINED_TILED_GLASS.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PINK_STAINED_TILED_GLASS_PANE.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.POTTED_LUMINOUS_FLOWER.get(), cutout);
@@ -158,5 +157,13 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), translucent);
+  }
+
+  private static void registerModelPredicates() {
+    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.LEAVES_BUCKET.get(), SMBDataComponentTypes.BUCKET_VOLUME.getPath());
+    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.SPRUCE_LEAVES_BUCKET.get(), SMBDataComponentTypes.BUCKET_VOLUME.getPath());
+    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.BIRCH_LEAVES_BUCKET.get(), SMBDataComponentTypes.BUCKET_VOLUME.getPath());
+    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.AZALEA_LEAVES_BUCKET.get(), SMBDataComponentTypes.BUCKET_VOLUME.getPath());
+    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), SMBDataComponentTypes.BUCKET_VOLUME.getPath());
   }
 }

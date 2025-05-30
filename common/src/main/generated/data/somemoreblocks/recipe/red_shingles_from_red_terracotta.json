@@ -3,7 +3,9 @@
   "category": "building",
   "group": "shingles_from_terracotta",
   "key": {
-    "#": "minecraft:red_terracotta"
+    "#": {
+      "item": "minecraft:red_terracotta"
+    }
   },
   "pattern": [
     "#",

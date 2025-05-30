@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:gold_bricks",
+  "ingredient": {
+    "item": "somemoreblocks:gold_bricks"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:cracked_cut_gold"

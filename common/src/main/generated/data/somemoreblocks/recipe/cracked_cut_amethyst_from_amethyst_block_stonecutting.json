@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:amethyst_block",
+  "ingredient": {
+    "item": "minecraft:amethyst_block"
+  },
   "result": {
     "count": 1,
     "id": "somemoreblocks:cracked_cut_amethyst"

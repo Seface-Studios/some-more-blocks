@@ -3,7 +3,9 @@
   "category": "building",
   "group": "terracotta_tiles_from_terracotta_bricks",
   "key": {
-    "#": "somemoreblocks:light_blue_terracotta_bricks"
+    "#": {
+      "item": "somemoreblocks:light_blue_terracotta_bricks"
+    }
   },
   "pattern": [
     "##",

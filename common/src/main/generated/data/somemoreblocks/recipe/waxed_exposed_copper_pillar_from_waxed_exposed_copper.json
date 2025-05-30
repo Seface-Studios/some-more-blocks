@@ -3,7 +3,9 @@
   "category": "building",
   "group": "waxed_exposed_copper_pillar",
   "key": {
-    "#": "minecraft:waxed_exposed_copper"
+    "#": {
+      "item": "minecraft:waxed_exposed_copper"
+    }
   },
   "pattern": [
     "#",

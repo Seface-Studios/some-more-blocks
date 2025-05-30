@@ -3,8 +3,12 @@
   "category": "building",
   "group": "mossy_bricks",
   "ingredients": [
-    "minecraft:bricks",
-    "minecraft:vine"
+    {
+      "item": "minecraft:bricks"
+    },
+    {
+      "item": "minecraft:vine"
+    }
   ],
   "result": {
     "count": 1,

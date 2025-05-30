@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": "somemoreblocks:smooth_blackstone"
+    "#": {
+      "item": "somemoreblocks:smooth_blackstone"
+    }
   },
   "pattern": [
     "###"

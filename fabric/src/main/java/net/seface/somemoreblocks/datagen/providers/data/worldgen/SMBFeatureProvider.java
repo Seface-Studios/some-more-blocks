@@ -43,7 +43,6 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     PatchLargeSnowFernFeatureProvider.create().registerPlaceFeature(context);
     PatchLuminousFlowerFeatureProvider.create().registerPlaceFeature(context);
     PatchNetherCloverFeatureProvider.create().registerPlaceFeature(context);
-    PatchPaleRoseBushFeatureProvider.create().registerPlaceFeature(context);
     PatchSmallLilyPadsFeatureProvider.create().registerPlaceFeature(context);
     PatchSmallLilyPadsLushCavesFeatureProvider.create().registerPlaceFeature(context);
     PatchSnowPlantsFeatureProvider.create().registerPlaceFeature(context);
@@ -55,7 +54,6 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     SMBFeatureProvider.crimsonFungusColonyWall().registerPlaceFeature(context);
     SMBFeatureProvider.floweringAzaleaLeafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.leafLitter().registerPlaceFeature(context);
-    SMBFeatureProvider.paleOakLeafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.redMushroomColony().registerPlaceFeature(context);
     SMBFeatureProvider.redMushroomColonyWall().registerPlaceFeature(context);
     SMBFeatureProvider.spruceLeafLitter().registerPlaceFeature(context);
@@ -73,7 +71,6 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     PatchLargeSnowFernFeatureProvider.create().registerConfiguredFeature(context);
     PatchLuminousFlowerFeatureProvider.create().registerConfiguredFeature(context);
     PatchNetherCloverFeatureProvider.create().registerConfiguredFeature(context);
-    PatchPaleRoseBushFeatureProvider.create().registerConfiguredFeature(context);
     PatchSmallLilyPadsFeatureProvider.create().registerConfiguredFeature(context);
     PatchSmallLilyPadsLushCavesFeatureProvider.create().registerConfiguredFeature(context);
     PatchSnowPlantsFeatureProvider.create().registerConfiguredFeature(context);
@@ -85,7 +82,6 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     SMBFeatureProvider.crimsonFungusColonyWall().registerConfiguredFeature(context);
     SMBFeatureProvider.floweringAzaleaLeafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.leafLitter().registerConfiguredFeature(context);
-    SMBFeatureProvider.paleOakLeafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.redMushroomColony().registerConfiguredFeature(context);
     SMBFeatureProvider.redMushroomColonyWall().registerConfiguredFeature(context);
     SMBFeatureProvider.spruceLeafLitter().registerConfiguredFeature(context);
@@ -126,12 +122,6 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
       .addParent(Blocks.FLOWERING_AZALEA_LEAVES)
       .addParent(Blocks.AZALEA_LEAVES)
       .setChance(10.0F);
-  }
-
-  private static SimpleLeafLitterFeatureProvider paleOakLeafLitter() {
-    return simpleLeafLitter(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), SMBPlacedFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER, SMBConfiguredFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER)
-      .addParent(Blocks.PALE_OAK_LEAVES)
-      .setChance(12.5F);
   }
 
   private static PatchMushroomColonyFeatureProvider redMushroomColony() {
