@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:lapis_bricks"
+  },
+  "result": "somemoreblocks:cracked_lapis_bricks"
+}

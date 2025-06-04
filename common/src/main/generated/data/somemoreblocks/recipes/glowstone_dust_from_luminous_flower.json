@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "somemoreblocks:luminous_flower"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:glowstone_dust"
+  }
+}

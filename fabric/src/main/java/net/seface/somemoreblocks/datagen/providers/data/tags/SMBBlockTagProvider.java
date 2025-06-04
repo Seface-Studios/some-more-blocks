@@ -211,6 +211,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.MOSSY_ANDESITE_BRICK_SLAB.get(), SMBBlocks.ANDESITE_TILE_SLAB.get(),
         SMBBlocks.POLISHED_END_STONE_SLAB.get(), SMBBlocks.SMOOTH_END_STONE_SLAB.get(),
         SMBBlocks.MOSSY_END_STONE_BRICK_SLAB.get(), SMBBlocks.END_STONE_TILE_SLAB.get(),
+        SMBBlocks.TUFF_BRICK_SLAB.get(), SMBBlocks.POLISHED_TUFF_SLAB.get(),
         SMBBlocks.SMOOTH_TUFF_SLAB.get(), SMBBlocks.MOSSY_TUFF_BRICK_SLAB.get(),
         SMBBlocks.TUFF_TILE_SLAB.get(), SMBBlocks.RED_SANDSTONE_BRICK_SLAB.get(),
         SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_SLAB.get(), SMBBlocks.RED_SANDSTONE_TILE_SLAB.get(),
@@ -262,6 +263,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.MOSSY_ANDESITE_BRICK_STAIRS.get(), SMBBlocks.ANDESITE_TILE_STAIRS.get(),
         SMBBlocks.POLISHED_END_STONE_STAIRS.get(), SMBBlocks.MOSSY_END_STONE_BRICK_STAIRS.get(),
         SMBBlocks.END_STONE_TILE_STAIRS.get(), SMBBlocks.MOSSY_TUFF_BRICK_STAIRS.get(),
+        SMBBlocks.TUFF_BRICK_STAIRS.get(), SMBBlocks.POLISHED_TUFF_STAIRS.get(),
         SMBBlocks.TUFF_TILE_STAIRS.get(), SMBBlocks.RED_SANDSTONE_BRICK_STAIRS.get(),
         SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_STAIRS.get(), SMBBlocks.RED_SANDSTONE_TILE_STAIRS.get(),
         SMBBlocks.POLISHED_CALCITE_STAIRS.get(), SMBBlocks.CALCITE_BRICK_STAIRS.get(),
@@ -307,6 +309,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.ANDESITE_BRICK_WALL.get(), SMBBlocks.MOSSY_ANDESITE_BRICK_WALL.get(),
         SMBBlocks.ANDESITE_TILE_WALL.get(), SMBBlocks.MOSSY_END_STONE_BRICK_WALL.get(),
         SMBBlocks.END_STONE_TILE_WALL.get(), SMBBlocks.MOSSY_TUFF_BRICK_WALL.get(),
+        SMBBlocks.TUFF_BRICK_WALL.get(),
         SMBBlocks.TUFF_TILE_WALL.get(), SMBBlocks.RED_SANDSTONE_BRICK_WALL.get(),
         SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_WALL.get(), SMBBlocks.RED_SANDSTONE_TILE_WALL.get(),
         SMBBlocks.CALCITE_BRICK_WALL.get(), SMBBlocks.MOSSY_CALCITE_BRICK_WALL.get(),
@@ -543,7 +546,15 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.POLISHED_BASALT_TILE_STAIRS.get(), SMBBlocks.POLISHED_BASALT_TILE_SLAB.get(),
         SMBBlocks.POLISHED_BASALT_TILE_WALL.get(), SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICKS.get(),
         SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get(), SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_SLAB.get(),
-        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_WALL.get(), SMBBlocks.REDSTONE_SEA_LANTERN.get()
+        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_WALL.get(), SMBBlocks.REDSTONE_SEA_LANTERN.get(),
+        SMBBlocks.WHITE_CHECKERED_TILES.get(), SMBBlocks.LIGHT_GRAY_CHECKERED_TILES.get(),
+        SMBBlocks.GRAY_CHECKERED_TILES.get(), SMBBlocks.BLACK_CHECKERED_TILES.get(),
+        SMBBlocks.BROWN_CHECKERED_TILES.get(), SMBBlocks.RED_CHECKERED_TILES.get(),
+        SMBBlocks.ORANGE_CHECKERED_TILES.get(), SMBBlocks.YELLOW_CHECKERED_TILES.get(),
+        SMBBlocks.LIME_CHECKERED_TILES.get(), SMBBlocks.GREEN_CHECKERED_TILES.get(),
+        SMBBlocks.CYAN_CHECKERED_TILES.get(), SMBBlocks.LIGHT_BLUE_CHECKERED_TILES.get(),
+        SMBBlocks.BLUE_CHECKERED_TILES.get(), SMBBlocks.PURPLE_CHECKERED_TILES.get(),
+        SMBBlocks.MAGENTA_CHECKERED_TILES.get(), SMBBlocks.PINK_CHECKERED_TILES.get()
       );
 
     this.getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_SHOVEL).setReplace(false)

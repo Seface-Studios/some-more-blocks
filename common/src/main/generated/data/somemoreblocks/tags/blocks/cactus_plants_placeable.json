@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:dirt",
+    "#minecraft:sand",
+    "#minecraft:terracotta",
+    "#somemoreblocks:terracotta_bricks",
+    "#somemoreblocks:terracotta_tiles",
+    "#somemoreblocks:shingles"
+  ]
+}

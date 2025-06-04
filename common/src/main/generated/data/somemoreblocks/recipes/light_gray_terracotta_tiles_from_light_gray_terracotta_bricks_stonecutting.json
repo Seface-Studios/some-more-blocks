@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:light_gray_terracotta_bricks"
+  },
+  "result": "somemoreblocks:light_gray_terracotta_tiles"
+}

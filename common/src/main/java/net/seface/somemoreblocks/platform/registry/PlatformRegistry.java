@@ -1,11 +1,7 @@
 package net.seface.somemoreblocks.platform.registry;
 
-import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.GameRules;
@@ -41,23 +37,14 @@ public interface PlatformRegistry {
   PlatformRegistryObject<Item> registerItem(String path, Supplier<Item> supplier);
 
   /**
-   * Main method to register a Data Component Type.
-   * @param path The identifier path.
-   * @param builder The Data Component Type builder.
-   * @return The registered Data Component Type.
-   * @param <T> The registered Data Component Type.
-   */
-  <T> PlatformRegistryObject<DataComponentType<T>> registerDataComponent(String path, UnaryOperator<DataComponentType.Builder<T>> builder);
-
-  /**
    * Register a model predicate.
    */
   default void registerModelPredicate(Item item, String path) {
     // register method via Access Widener
     ItemProperties.register(
-      item, ResourceLocation.fromNamespaceAndPath(SomeMoreBlocks.ID, path),
+      item, SomeMoreBlocks.id(path),
       (stack, world, entity, seed) ->  stack.getItem() instanceof LeavesBucketItem
-        ? (float) stack.get(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType()) / 100.0F
+        ? (float) LeavesBucketItem.getBucketVolume(stack) / 100.0F
         : 0.01F
     );
   }

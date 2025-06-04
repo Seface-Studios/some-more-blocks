@@ -3,17 +3,14 @@ package net.seface.somemoreblocks.item;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.component.DataComponentType;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BucketItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SolidBucketItem;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -25,14 +22,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.block.LeafLitterBlock;
-import net.seface.somemoreblocks.registries.SMBBlocks;
-import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
-import net.seface.somemoreblocks.tags.SMBBlockTags;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class LeavesBucketItem extends SolidBucketItem {
+  public static final String BUCKET_VOLUME = "bucket_volume";
   public static final int MAX_VOLUME = 16;
   public static final int MIN_VOLUME = 1;
   private static final int BAR_COLOR = Constants.AMESFACE_COLOR;
@@ -54,7 +50,7 @@ public class LeavesBucketItem extends SolidBucketItem {
     BlockState state = level.getBlockState(pos);
     ItemStack stack = ctx.getItemInHand();
 
-    int bucketVolume = stack.getComponents().getOrDefault(this.getBucketVolumeComponentType(), 1);
+    int bucketVolume = LeavesBucketItem.getBucketVolume(stack);
 
     // Try to collect leaf litter and increase bucket volume
     if (state.getBlock().equals(this.getBlock())) {
@@ -68,7 +64,7 @@ public class LeavesBucketItem extends SolidBucketItem {
       }
 
       if (!player.isCreative() || bucketVolume < MAX_VOLUME) {
-        stack.set(this.getBucketVolumeComponentType(), bucketVolume + 1);
+        LeavesBucketItem.setBucketVolume(stack, bucketVolume + 1);
       }
 
       return InteractionResult.SUCCESS;
@@ -101,7 +97,7 @@ public class LeavesBucketItem extends SolidBucketItem {
       }
 
       if (bucketVolume > 1) {
-        stack.set(this.getBucketVolumeComponentType(), bucketVolume - 1);
+        LeavesBucketItem.setBucketVolume(stack, bucketVolume - 1);
         return InteractionResult.SUCCESS;
       }
 
@@ -114,12 +110,12 @@ public class LeavesBucketItem extends SolidBucketItem {
 
   @Override
   public boolean isBarVisible(ItemStack stack) {
-    return stack.getComponents().getOrDefault(this.getBucketVolumeComponentType(), 1) < MAX_VOLUME;
+    return LeavesBucketItem.getBucketVolume(stack) < MAX_VOLUME;
   }
 
   @Override
   public int getBarWidth(ItemStack stack) {
-    return Math.min(13 * stack.getComponents().getOrDefault(this.getBucketVolumeComponentType(), 1) / 16, 16);
+    return Math.min(13 * LeavesBucketItem.getBucketVolume(stack) / 16, 16);
   }
 
   @Override
@@ -128,17 +124,38 @@ public class LeavesBucketItem extends SolidBucketItem {
   }
 
   @Override
-  public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> tooltip, TooltipFlag tooltipFlag) {
-    super.appendHoverText(stack, ctx, tooltip, tooltipFlag);
+  public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag tooltipFlag) {
+    super.appendHoverText(stack, level, tooltip, tooltipFlag);
 
-    int bucketVolume = stack.getComponents().getOrDefault(this.getBucketVolumeComponentType(), 1);
+    int bucketVolume = LeavesBucketItem.getBucketVolume(stack);
     tooltip.add(1,
       Component.translatable("item.somemoreblocks.leaves_bucket.volume_description", bucketVolume, MAX_VOLUME)
         .withStyle(ChatFormatting.GRAY)
     );
   }
 
-  public DataComponentType<Integer> getBucketVolumeComponentType() {
-    return SMBDataComponentTypes.BUCKET_VOLUME.get();
+  @Override
+  public ItemStack getDefaultInstance() {
+    ItemStack stack = super.getDefaultInstance();
+    LeavesBucketItem.setBucketVolume(stack, LeavesBucketItem.MAX_VOLUME);
+
+    return stack;
+  }
+
+  public static boolean hasBucketVolume(ItemStack stack) {
+    return stack.hasTag() && stack.getTag().contains(LeavesBucketItem.BUCKET_VOLUME);
+  }
+
+  public static void setBucketVolume(ItemStack stack, int value) {
+    CompoundTag nbt = stack.getOrCreateTag();
+    nbt.putInt(LeavesBucketItem.BUCKET_VOLUME, value);
+  }
+
+  public static int getBucketVolume(ItemStack stack) {
+    if (LeavesBucketItem.hasBucketVolume(stack)) {
+      return stack.getTag().getInt(LeavesBucketItem.BUCKET_VOLUME);
+    }
+
+    return LeavesBucketItem.MIN_VOLUME;
   }
 }

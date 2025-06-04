@@ -15,7 +15,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-@Environment(EnvType.CLIENT)
 public class TiledGlassBlockProvider {
   private final Block block;
   private final TextureMapping mainTextureMap;

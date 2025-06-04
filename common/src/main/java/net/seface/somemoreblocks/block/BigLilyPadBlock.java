@@ -89,7 +89,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
   }
 
   @Override
-  protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+  public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
     BlockPos neighborBlockPos = this.getRelativeBlockPos(state, pos);
     QuadDirection expectedPosition = this.getExpectedNeighborPosition(state);
 
@@ -103,7 +103,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
   }
 
   @Override
-  protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean bool) {
+  public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean bool) {
     Direction facing = state.getValue(FACING);
     QuadDirection position = state.getValue(POSITION);
 

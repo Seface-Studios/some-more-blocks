@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:yellow_concrete_bricks"
+  },
+  "result": "somemoreblocks:yellow_concrete_tiles"
+}

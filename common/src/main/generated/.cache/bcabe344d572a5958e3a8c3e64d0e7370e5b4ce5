@@ -1,4 +1,4 @@
-// 1.21	2025-05-29T23:15:51.9915244	Some More Blocks/Advancements Husbandry
-502041978e79a81a98ad8b4d51853889011ec4de data\minecraft\advancement\husbandry\wax_on.json
-4f3527c674df01e374acb67afbb7e693f50de9b2 data\minecraft\advancement\husbandry\wax_off.json
-bb53be2884e98634b624b05682c22c52a2dc15b1 data\minecraft\advancement\husbandry\redstone_froglights.json
+// 1.20.4	2025-06-02T21:48:42.6053419	Some More Blocks/Advancements Husbandry
+6ad73ff9c0b544e3d3faabd64bb1104c25478878 data\minecraft\advancements\husbandry\wax_off.json
+b93f6d75a8112eccc9b5286c6eef72725dfde2e6 data\minecraft\advancements\husbandry\wax_on.json
+ae41bd2f0951547538f3947e990fd311feb5893b data\minecraft\advancements\husbandry\redstone_froglights.json

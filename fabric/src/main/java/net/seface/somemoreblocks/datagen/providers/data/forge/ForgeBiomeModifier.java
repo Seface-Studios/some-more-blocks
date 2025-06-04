@@ -35,7 +35,7 @@ public class ForgeBiomeModifier {
   }
 
   public ForgeBiomeModifier setType(ForgeModifierProvider.Loader loader, ForgeModifierProvider.Modifier modifier) {
-    this.type = ResourceLocation.fromNamespaceAndPath(loader.getId(), modifier.getType());
+    this.type = new ResourceLocation(loader.getId(), modifier.getType());
     return this;
   }
 

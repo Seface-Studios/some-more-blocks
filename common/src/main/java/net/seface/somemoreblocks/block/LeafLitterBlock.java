@@ -52,7 +52,7 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
   }
 
   @Override
-  protected VoxelShape getOcclusionShape(BlockState state, BlockGetter block, BlockPos pos) {
+  public VoxelShape getOcclusionShape(BlockState state, BlockGetter block, BlockPos pos) {
     return Shapes.empty();
   }
 
@@ -64,7 +64,7 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
 
   @NotNull
   @Override
-  protected BlockState updateShape(BlockState state1, Direction direction, BlockState state2, LevelAccessor level, BlockPos pos1, BlockPos pos2) {
+  public BlockState updateShape(BlockState state1, Direction direction, BlockState state2, LevelAccessor level, BlockPos pos1, BlockPos pos2) {
     return !state1.canSurvive(level, pos1) ?
       Blocks.AIR.defaultBlockState() :
       super.updateShape(state1, direction, state2, level, pos1, pos2);
@@ -81,7 +81,7 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
   @Override
   public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
     ItemStack stack = super.getCloneItemStack(level, pos, state);
-    stack.set(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType(), LeavesBucketItem.MAX_VOLUME);
+    LeavesBucketItem.setBucketVolume(stack, LeavesBucketItem.MAX_VOLUME);
 
     return stack;
   }
@@ -95,7 +95,7 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
     }
 
     ItemStack stack = this.bucketItem.getDefaultInstance();
-    stack.set(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType(), LeavesBucketItem.MIN_VOLUME);
+    LeavesBucketItem.setBucketVolume(stack, LeavesBucketItem.MIN_VOLUME);
 
     return stack;
   }

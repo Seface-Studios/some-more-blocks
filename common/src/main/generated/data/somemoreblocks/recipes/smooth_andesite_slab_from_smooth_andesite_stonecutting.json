@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "somemoreblocks:smooth_andesite"
+  },
+  "result": "somemoreblocks:smooth_andesite_slab"
+}

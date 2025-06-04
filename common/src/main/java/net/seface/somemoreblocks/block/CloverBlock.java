@@ -91,7 +91,7 @@ public class CloverBlock extends BushBlock {
   }
 
   @Override
-  protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+  public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
     if (state.is(SMBBlocks.NETHER_CLOVER.get())) {
       BlockState blockBelow = level.getBlockState(pos.below());
       return blockBelow.is(SMBBlockTags.NETHER_CLOVER_PLACEABLE) && !level.getBlockState(pos.above()).liquid();

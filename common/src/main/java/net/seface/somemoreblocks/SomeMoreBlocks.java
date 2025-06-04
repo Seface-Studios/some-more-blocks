@@ -5,6 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
@@ -30,7 +31,6 @@ public class SomeMoreBlocks {
       beforeRegistries.run();
     }
 
-    SMBDataComponentTypes.init();
     SMBBlocks.init();
     SMBItems.init();
     SMBBlockTags.init();
@@ -53,7 +53,15 @@ public class SomeMoreBlocks {
    * @param path The identifier path.
    */
   public static ResourceLocation id(String path) {
-    return ResourceLocation.fromNamespaceAndPath(ID, path);
+    return new ResourceLocation(SomeMoreBlocks.ID, path);
+  }
+
+  /**
+   * Create a default identifier with Minecraft ID and custom path.<br />
+   * @param path The identifier path.
+   */
+  public static ResourceLocation minecraftId(String path) {
+    return new ResourceLocation(ResourceLocation.DEFAULT_NAMESPACE, path);
   }
 
   /**
@@ -160,10 +168,10 @@ public class SomeMoreBlocks {
   }
 
   private static void registerModelPredicates() {
-    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.LEAVES_BUCKET.get(), SMBDataComponentTypes.BUCKET_VOLUME.getPath());
-    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.SPRUCE_LEAVES_BUCKET.get(), SMBDataComponentTypes.BUCKET_VOLUME.getPath());
-    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.BIRCH_LEAVES_BUCKET.get(), SMBDataComponentTypes.BUCKET_VOLUME.getPath());
-    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.AZALEA_LEAVES_BUCKET.get(), SMBDataComponentTypes.BUCKET_VOLUME.getPath());
-    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), SMBDataComponentTypes.BUCKET_VOLUME.getPath());
+    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.SPRUCE_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.BIRCH_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
+    PlatformServices.REGISTRY.registerModelPredicate(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get(), LeavesBucketItem.BUCKET_VOLUME);
   }
 }

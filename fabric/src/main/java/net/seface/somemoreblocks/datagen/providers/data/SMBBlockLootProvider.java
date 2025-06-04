@@ -45,7 +45,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
   private static final List<BlockFamily> SHOULD_NOT_GENERATE_LOOT_TABLE = new ArrayList<>();
 
   public SMBBlockLootProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-    super(output, lookup);
+    super(output);
 
     SHOULD_NOT_GENERATE_LOOT_TABLE.addAll(List.of(
       SMBBlockFamilies.PACKED_SNOW, SMBBlockFamilies.POLISHED_SNOW, SMBBlockFamilies.SNOW_BRICKS,
@@ -225,6 +225,22 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropSelf(SMBBlocks.PURPLE_SHINGLES.get());
     this.dropSelf(SMBBlocks.MAGENTA_SHINGLES.get());
     this.dropSelf(SMBBlocks.PINK_SHINGLES.get());
+    this.dropSelf(SMBBlocks.WHITE_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.LIGHT_GRAY_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.GRAY_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.BLACK_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.BROWN_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.RED_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.ORANGE_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.YELLOW_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.LIME_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.GREEN_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.CYAN_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.LIGHT_BLUE_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.BLUE_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.PURPLE_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.MAGENTA_CHECKERED_TILES.get());
+    this.dropSelf(SMBBlocks.PINK_CHECKERED_TILES.get());
     this.dropSelf(SMBBlocks.TERRACOTTA_BRICKS.get());
     this.dropSelf(SMBBlocks.WHITE_TERRACOTTA_BRICKS.get());
     this.dropSelf(SMBBlocks.LIGHT_GRAY_TERRACOTTA_BRICKS.get());
@@ -477,7 +493,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
         LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
           .add(
             this.applyExplosionDecay(block, LootItem.lootTableItem(block)
-              .when(this.hasSilkTouch())
+              .when(HAS_NO_SILK_TOUCH)
               .apply(
                 SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
                   .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SlabBlock.TYPE, SlabType.DOUBLE)))

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "mosaic",
+  "key": {
+    "#": {
+      "item": "minecraft:acacia_slab"
+    }
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "item": "somemoreblocks:acacia_mosaic"
+  }
+}

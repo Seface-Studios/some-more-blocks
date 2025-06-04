@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:emerald_bricks"
+  },
+  "result": "somemoreblocks:cracked_cut_emerald"
+}

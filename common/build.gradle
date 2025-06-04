@@ -4,8 +4,10 @@ plugins {
 
 minecraft {
   version(minecraft_version)
-  if (file("src/main/resources/${mod_id}.accesswidener").exists()) {
-    accessWideners(file("src/main/resources/${mod_id}.accesswidener"))
+
+  var File AW = file("src/main/resources/${mod_id}.accesswidener")
+  if (AW.exists()) {
+    accessWideners(AW)
   }
 }
 

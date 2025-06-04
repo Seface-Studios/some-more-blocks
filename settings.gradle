@@ -6,7 +6,7 @@ pluginManagement {
       url = 'https://maven.fabricmc.net/'
     }
     maven {
-      name = 'Forge'
+      name = 'MinecraftForge'
       url = 'https://maven.minecraftforge.net/'
     }
     maven {

@@ -12,7 +12,7 @@ public class CrackedPoweredBlock extends PoweredBlock {
   }
 
   @Override
-  protected int getSignal(BlockState state, BlockGetter getter, BlockPos pos, Direction direction) {
+  public int getSignal(BlockState state, BlockGetter getter, BlockPos pos, Direction direction) {
     return 7;
   }
 }

@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Registry;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -42,17 +41,6 @@ public class FabricPlatformRegistry implements PlatformRegistry {
   public PlatformRegistryObject<Item> registerItem(String path, Supplier<Item> supplier) {
     ResourceLocation identifier = SomeMoreBlocks.id(path);
     Item instance = Registry.register(BuiltInRegistries.ITEM, identifier, supplier.get());
-
-    return new FabricRegistryObject<>(identifier, () -> instance);
-  }
-
-  @Override
-  public <T> PlatformRegistryObject<DataComponentType<T>> registerDataComponent(String path, UnaryOperator<DataComponentType.Builder<T>> builder) {
-    ResourceLocation identifier = SomeMoreBlocks.id(path);
-    DataComponentType<T> instance = Registry.register(
-      BuiltInRegistries.DATA_COMPONENT_TYPE,
-      identifier,
-      builder.apply(DataComponentType.builder()).build());
 
     return new FabricRegistryObject<>(identifier, () -> instance);
   }

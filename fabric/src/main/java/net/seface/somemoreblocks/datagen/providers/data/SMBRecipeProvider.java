@@ -2,12 +2,10 @@ package net.seface.somemoreblocks.datagen.providers.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.DyeColor;
@@ -16,6 +14,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.registries.SMBBlockFamilies;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.registries.SMBRegistries;
@@ -24,13 +23,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 
 public class SMBRecipeProvider extends FabricRecipeProvider {
   private RecipeOutput output;
 
-  public SMBRecipeProvider(FabricDataOutput fabricOutput, CompletableFuture<HolderLookup.Provider> future) {
-    super(fabricOutput, future);
+  public SMBRecipeProvider(FabricDataOutput fabricOutput) {
+    super(fabricOutput);
   }
 
   @Override
@@ -53,8 +51,10 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.CALCITE_TILES, List.of(Blocks.CALCITE, SMBBlocks.POLISHED_CALCITE.get(), SMBBlocks.CALCITE_BRICKS.get()));
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.MOSSY_CALCITE_BRICKS);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.SMOOTH_CALCITE);
+    this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.POLISHED_TUFF, List.of(Blocks.TUFF));
+    this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.TUFF_BRICKS, List.of(Blocks.TUFF, SMBBlocks.POLISHED_TUFF.get()));
     this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.TUFF_PILLAR.get(), Blocks.TUFF);
-    this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.TUFF_TILES, List.of(Blocks.TUFF, Blocks.POLISHED_TUFF, Blocks.TUFF_BRICKS));
+    this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.TUFF_TILES, List.of(Blocks.TUFF, Blocks.POLISHED_TUFF, SMBBlocks.TUFF_BRICKS.get()));
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.MOSSY_TUFF_BRICKS);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.SMOOTH_TUFF);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.POLISHED_DRIPSTONE, List.of(Blocks.DRIPSTONE_BLOCK));
@@ -238,10 +238,9 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CALCITE_TILES.get(), SMBBlocks.CALCITE_BRICKS.get(), 4);
     this.mossyBlockFromVineAndMossBlock(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.MOSSY_CALCITE_BRICKS.get(), SMBBlocks.CALCITE_BRICKS.get());
     smeltingResultFromBase(this.output, SMBBlocks.SMOOTH_CALCITE.get(), Blocks.CALCITE);
-    smeltingResultFromBase(this.output, SMBBlocks.CRACKED_TUFF_BRICKS.get(), Blocks.TUFF_BRICKS);
-    this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.TUFF_PILLAR.get(), Blocks.TUFF_BRICKS, 2);
-    this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.TUFF_TILES.get(), Blocks.TUFF_BRICKS, 4);
-    this.mossyBlockFromVineAndMossBlock(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.MOSSY_TUFF_BRICKS.get(), Blocks.TUFF_BRICKS);
+    this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.TUFF_PILLAR.get(), SMBBlocks.TUFF_BRICKS.get(), 2);
+    this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.TUFF_TILES.get(), SMBBlocks.TUFF_BRICKS.get(), 4);
+    this.mossyBlockFromVineAndMossBlock(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.MOSSY_TUFF_BRICKS.get(), SMBBlocks.TUFF_BRICKS.get());
     smeltingResultFromBase(this.output, SMBBlocks.SMOOTH_TUFF.get(), Blocks.TUFF);
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.DRIPSTONE_BRICKS.get(), Blocks.DRIPSTONE_BLOCK, 4);
     this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.DRIPSTONE_PILLAR.get(), SMBBlocks.DRIPSTONE_BRICKS.get(), 2);
@@ -374,6 +373,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
 
     /* More Colored Blocks */
     this.shingles();
+    this.checkeredTiles();
     this.terracottaBricksAndTiles();
     this.concreteBricksAndTiles();
     this.tiledGlassAndTiledGlassPane();
@@ -574,7 +574,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
 
     for (DyeColor dyeColor : dyeColors) {
       Block shingles = SMBRegistries.SHINGLES_BLOCKS.getNext(dyeColor).orElseThrow();
-      Block terracotta = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(dyeColor + "_terracotta"));
+      Block terracotta = BuiltInRegistries.BLOCK.get(SomeMoreBlocks.minecraftId(dyeColor + "_terracotta"));
 
       this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.getByBaseBlock(shingles));
       this.aroundDyeItemWith(RecipeCategory.BUILDING_BLOCKS, "shingles_from_dye", SMBBlocks.SHINGLES.get(), shingles, dyeColor);
@@ -586,6 +586,23 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.SHINGLES.get(), List.of(Blocks.TERRACOTTA));
   }
 
+  private void checkeredTiles() {
+    DyeColor[] dyeColors = DyeColor.values();
+
+    for (DyeColor dyeColor : dyeColors) {
+      Block checkeredTiles = SMBRegistries.CHECKERED_TILES.getNext(dyeColor).orElseThrow();
+      Block concrete = BuiltInRegistries.BLOCK.get(SomeMoreBlocks.minecraftId(dyeColor + "_concrete"));
+
+      ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, checkeredTiles, 4)
+        .define('#', Blocks.QUARTZ_BLOCK)
+        .define('$', concrete)
+        .pattern("#$")
+        .pattern("$#")
+        .unlockedBy(RecipeProvider.getHasName(Blocks.QUARTZ_BLOCK), this.has(Blocks.QUARTZ_BLOCK))
+        .save(this.output);
+    }
+  }
+
   /**
    * Generate all the Terracotta Bricks and Terracotta Tiles blocks variants.
    */
@@ -593,7 +610,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     DyeColor[] dyeColors = DyeColor.values();
 
     for (DyeColor dyeColor : dyeColors) {
-      Block terracotta = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(dyeColor + "_terracotta"));
+      Block terracotta = BuiltInRegistries.BLOCK.get(SomeMoreBlocks.minecraftId(dyeColor + "_terracotta"));
       Block terracottaBricks = SMBRegistries.TERRACOTTA_BRICKS_BLOCKS.getNext(dyeColor).orElseThrow();
       Block terracottaTiles = SMBRegistries.TERRACOTTA_TILES_BLOCKS.getNext(dyeColor).orElseThrow();
 
@@ -618,7 +635,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     DyeColor[] dyeColors = DyeColor.values();
 
     for (DyeColor dyeColor : dyeColors) {
-      Block concrete = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(dyeColor + "_concrete"));
+      Block concrete = BuiltInRegistries.BLOCK.get(SomeMoreBlocks.minecraftId(dyeColor + "_concrete"));
       Block concreteBricks = SMBRegistries.CONCRETE_BRICKS_BLOCKS.getNext(dyeColor).orElseThrow();
       Block concreteTiles = SMBRegistries.CONCRETE_TILES_BLOCKS.getNext(dyeColor).orElseThrow();
 
@@ -635,7 +652,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     DyeColor[] dyeColors = DyeColor.values();
 
     for (DyeColor dyeColor : dyeColors) {
-      Block stainedGlass = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(dyeColor + "_stained_glass"));
+      Block stainedGlass = BuiltInRegistries.BLOCK.get(SomeMoreBlocks.minecraftId(dyeColor + "_stained_glass"));
       Block tiledGlass = SMBRegistries.STAINED_TILED_GLASS_BLOCKS.getNext(dyeColor).orElseThrow();
       Block tiledGlassPane = SMBRegistries.STAINED_TILED_GLASS_PANE_BLOCKS.getNext(dyeColor).orElseThrow();
 

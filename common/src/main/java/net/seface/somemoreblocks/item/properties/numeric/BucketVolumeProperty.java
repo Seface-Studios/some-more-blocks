@@ -13,8 +13,8 @@ public record BucketVolumeProperty() implements ItemPropertyFunction {
 
   @Override
   public float call(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity entity, int i) {
-    if (stack.getComponents().has(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType())) {
-      return stack.get(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType());
+    if (LeavesBucketItem.hasBucketVolume(stack)) {
+      return LeavesBucketItem.getBucketVolume(stack);
     }
 
     return 0;

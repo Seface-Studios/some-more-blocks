@@ -16,7 +16,7 @@ public class TallCactusBlock extends DoublePlantBlock {
   }
 
   @Override
-  protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+  public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
     BlockState blockBelow = level.getBlockState(pos.below());
     if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
       return blockBelow.is(SMBBlockTags.CACTUS_PLANTS_PLACEABLE) && !level.getBlockState(pos.above()).liquid();
@@ -26,7 +26,7 @@ public class TallCactusBlock extends DoublePlantBlock {
   }
 
   @Override
-  protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+  public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
     if (!(entity instanceof LivingEntity)) return;
     entity.hurt(level.damageSources().cactus(), 1.0F);
   }

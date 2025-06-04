@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -33,7 +33,7 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     return "Feature";
   }
 
-  public static void bootstrapF(BootstrapContext<PlacedFeature> context) {
+  public static void bootstrapF(BootstapContext<PlacedFeature> context) {
     NoneBigLilyPadFeatureProvider.create().registerPlaceFeature(context);
     PatchCactusFeatureProvider.create().registerPlaceFeature(context);
     PatchCattailFeatureProvider.create().registerPlaceFeature(context);
@@ -61,7 +61,7 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     SMBFeatureProvider.warpedFungusColonyWall().registerPlaceFeature(context);
   }
 
-  public static void bootstrapCF(BootstrapContext<ConfiguredFeature<?, ?>> context) {
+  public static void bootstrapCF(BootstapContext<ConfiguredFeature<?, ?>> context) {
     NoneBigLilyPadFeatureProvider.create().registerConfiguredFeature(context);
     PatchCactusFeatureProvider.create().registerConfiguredFeature(context);
     PatchCattailFeatureProvider.create().registerConfiguredFeature(context);

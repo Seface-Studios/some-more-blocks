@@ -1,17 +1,12 @@
 package net.seface.somemoreblocks.registries;
 
-import net.minecraft.ChatFormatting;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.flag.FeatureFlag;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.component.ItemLore;
+import net.minecraft.world.level.ItemLike;
 import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.platform.registry.PlatformRegistryObject;
-
-import java.util.List;
 
 public class SMBCreativeTabs {
   public static final PlatformRegistryObject<CreativeModeTab> MORE_BUILDING_BLOCKS = PlatformServices.REGISTRY.registerCreativeModeTab("more_building_blocks", CreativeModeTab.Row.TOP, 0,
@@ -162,7 +157,15 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.MOSSY_CALCITE_BRICK_WALL.get());
         entry.accept(SMBBlocks.SMOOTH_CALCITE.get());
         entry.accept(SMBBlocks.SMOOTH_CALCITE_SLAB.get());
+        entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.TUFF_BRICKS.get());
         entry.accept(SMBBlocks.CRACKED_TUFF_BRICKS.get());
+        entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.TUFF_BRICK_STAIRS.get());
+        entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.TUFF_BRICK_SLAB.get());
+        entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.TUFF_BRICK_WALL.get());
+        entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.CHISELED_TUFF_BRICKS.get());
+        entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.POLISHED_TUFF.get());
+        entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.POLISHED_TUFF_STAIRS.get());
+        entryWithoutFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.POLISHED_TUFF_SLAB.get());
         entry.accept(SMBBlocks.TUFF_PILLAR.get());
         entry.accept(SMBBlocks.TUFF_TILES.get());
         entry.accept(SMBBlocks.CRACKED_TUFF_TILES.get());
@@ -340,7 +343,7 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.IRON_PILLAR.get());
         entry.accept(SMBBlocks.CUT_IRON.get());
         entry.accept(SMBBlocks.CRACKED_CUT_IRON.get());
-        entry.accept(SMBBlocks.IRON_GRATE.get());
+        entryWithFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.IRON_GRATE.get());
         entry.accept(SMBBlocks.GOLD_BRICKS.get());
         entry.accept(SMBBlocks.CRACKED_GOLD_BRICKS.get());
         entry.accept(SMBBlocks.GOLD_PILLAR.get());
@@ -366,13 +369,13 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.DIAMOND_PILLAR.get());
         entry.accept(SMBBlocks.CUT_DIAMOND.get());
         entry.accept(SMBBlocks.CRACKED_CUT_DIAMOND.get());
-        entry.accept(SMBBlocks.DIAMOND_GRATE.get());
+        entryWithFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.DIAMOND_GRATE.get());
         entry.accept(SMBBlocks.NETHERITE_BRICKS.get());
         entry.accept(SMBBlocks.CRACKED_NETHERITE_BRICKS.get());
         entry.accept(SMBBlocks.NETHERITE_PILLAR.get());
         entry.accept(SMBBlocks.CUT_NETHERITE.get());
         entry.accept(SMBBlocks.CRACKED_CUT_NETHERITE.get());
-        entry.accept(SMBBlocks.NETHERITE_GRATE.get());
+        entryWithFeatureFlag(ctx, entry, FeatureFlags.UPDATE_1_21, SMBBlocks.NETHERITE_GRATE.get());
         entry.accept(SMBBlocks.CRACKED_QUARTZ_BRICKS.get());
         entry.accept(SMBBlocks.CUT_QUARTZ.get());
         entry.accept(SMBBlocks.CRACKED_CUT_QUARTZ.get());
@@ -551,6 +554,22 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.PURPLE_SHINGLES_STAIRS.get());
         entry.accept(SMBBlocks.MAGENTA_SHINGLES_STAIRS.get());
         entry.accept(SMBBlocks.PINK_SHINGLES_STAIRS.get());
+        entry.accept(SMBBlocks.WHITE_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.LIGHT_GRAY_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.GRAY_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.BLACK_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.BROWN_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.RED_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.ORANGE_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.YELLOW_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.LIME_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.GREEN_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.CYAN_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.LIGHT_BLUE_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.BLUE_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.PURPLE_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.MAGENTA_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.PINK_CHECKERED_TILES.get());
         entry.accept(SMBBlocks.TERRACOTTA_BRICKS.get());
         entry.accept(SMBBlocks.WHITE_TERRACOTTA_BRICKS.get());
         entry.accept(SMBBlocks.LIGHT_GRAY_TERRACOTTA_BRICKS.get());
@@ -634,11 +653,11 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.LARGE_SNOW_FERN.get());
         entry.accept(SMBBlocks.CATTAIL.get());
         entry.accept(SMBBlocks.REEDS.get());
-        entry.accept(SMBItems.LEAVES_BUCKET.get());
-        entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get());
-        entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.get());
-        entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get());
-        entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
+        entry.accept(SMBItems.LEAVES_BUCKET.get().getDefaultInstance());
+        entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get().getDefaultInstance());
+        entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.get().getDefaultInstance());
+        entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get().getDefaultInstance());
+        entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get().getDefaultInstance());
         entry.accept(SMBItems.CLOVER.get());
         entry.accept(SMBItems.NETHER_CLOVER.get());
         entry.accept(SMBItems.SMALL_LILY_PADS.get());
@@ -672,4 +691,16 @@ public class SMBCreativeTabs {
       }));
 
   public static void init() {}
+
+  private static void entryWithFeatureFlag(CreativeModeTab.ItemDisplayParameters context, CreativeModeTab.Output entry, FeatureFlag featureFlag, ItemLike item) {
+    if (context.enabledFeatures().contains(featureFlag)) {
+      entry.accept(item);
+    }
+  }
+
+  private static void entryWithoutFeatureFlag(CreativeModeTab.ItemDisplayParameters context, CreativeModeTab.Output entry, FeatureFlag featureFlag, ItemLike item) {
+    if (!context.enabledFeatures().contains(featureFlag)) {
+      entry.accept(item);
+    }
+  }
 }

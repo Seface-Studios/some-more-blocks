@@ -1,7 +1,6 @@
 package net.seface.somemoreblocks;
 
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.seface.somemoreblocks.platform.registry.NeoForgePlatformRegistry;
 import net.seface.somemoreblocks.registries.SMBBiomeModifiers;

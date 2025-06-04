@@ -18,14 +18,14 @@ dependencies {
 
 fabricApi {
   configureDataGeneration((settings) -> {
-    settings.client = true
     settings.getOutputDirectory().set(project(":common").file("src/main/generated"))
   })
 }
 
 loom {
-  if (project(":common").file("src/main/resources/${mod_id}.accesswidener").exists()) {
-    accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))
+  var File AW = project(":common").file("src/main/resources/${mod_id}.accesswidener")
+  if (AW.exists()) {
+    accessWidenerPath.set(AW)
   }
 
   mixin {
@@ -33,18 +33,18 @@ loom {
   }
 
   runs {
-    client {
-      client()
-      setConfigName("Fabric Client")
+    configureEach {
+      setConfigName("Fabric ${it.name.capitalize()}")
       ideConfigGenerated(true)
       runDir("run")
     }
 
+    client {
+      client()
+    }
+
     server {
       server()
-      setConfigName("Fabric Server")
-      ideConfigGenerated(true)
-      runDir("run")
     }
   }
 }

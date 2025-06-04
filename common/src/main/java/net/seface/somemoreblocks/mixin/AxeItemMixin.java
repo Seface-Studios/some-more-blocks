@@ -96,7 +96,7 @@ public abstract class AxeItemMixin {
     level.levelEvent(player, levelEvent, pos, 0);
 
     if (player != null) {
-      ctx.getItemInHand().hurtAndBreak(1, player, LivingEntity.getSlotForHand(ctx.getHand()));
+      ctx.getItemInHand().hurtAndBreak(1, player, (_player) -> _player.broadcastBreakEvent(ctx.getHand()));
     }
   }
 }

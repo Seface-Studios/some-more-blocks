@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "carved_wood",
+  "key": {
+    "#": {
+      "item": "somemoreblocks:carved_crimson_stem"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "item": "somemoreblocks:carved_crimson_hyphae"
+  }
+}

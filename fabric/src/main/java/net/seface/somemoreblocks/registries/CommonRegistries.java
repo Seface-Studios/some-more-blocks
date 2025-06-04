@@ -2,7 +2,7 @@ package net.seface.somemoreblocks.registries;
 
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.LandPathNodeTypesRegistry;
-import net.minecraft.world.level.pathfinder.PathType;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.seface.somemoreblocks.Constants;
 
 public class CommonRegistries {
@@ -13,8 +13,8 @@ public class CommonRegistries {
   }
 
   private static void registerPathNodeTypes() {
-    LandPathNodeTypesRegistry.register(SMBBlocks.TINY_CACTUS.get(), (state, neighbor) -> PathType.DAMAGE_OTHER);
-    LandPathNodeTypesRegistry.register(SMBBlocks.TALL_CACTUS.get(), (state, neighbor) -> PathType.DAMAGE_OTHER);
+    LandPathNodeTypesRegistry.register(SMBBlocks.TINY_CACTUS.get(), (state, neighbor) -> BlockPathTypes.DAMAGE_OTHER);
+    LandPathNodeTypesRegistry.register(SMBBlocks.TALL_CACTUS.get(), (state, neighbor) -> BlockPathTypes.DAMAGE_OTHER);
   }
 
  /**

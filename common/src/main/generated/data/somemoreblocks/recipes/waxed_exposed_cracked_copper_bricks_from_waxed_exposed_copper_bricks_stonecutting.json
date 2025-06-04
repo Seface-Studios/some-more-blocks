@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:waxed_exposed_copper_bricks"
+  },
+  "result": "somemoreblocks:waxed_exposed_cracked_copper_bricks"
+}

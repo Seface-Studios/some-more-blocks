@@ -1,6 +1,5 @@
 package net.seface.somemoreblocks.registries;
 
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -8,11 +7,12 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.seface.somemoreblocks.Constants;
-import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.block.*;
 import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.platform.registry.PlatformRegistryObject;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
+import net.seface.somemoreblocks.block.GrateBlock;
+import net.seface.somemoreblocks.block.TransparentGlassBlock;
 
 public class SMBBlocks {
   public static final PlatformRegistryObject<Block> AZALEA_LEAF_LITTER = PlatformServices.REGISTRY.registerBlock("azalea_leaf_litter", () -> new LeafLitterBlock(Block.Properties.ofFullCopy(Blocks.AZALEA_LEAVES).replaceable().noCollission().instabreak()), false);
@@ -154,6 +154,18 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> END_STONE_TILE_WALL = PlatformServices.REGISTRY.registerBlock("end_stone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.END_STONE_TILES.get()).forceSolidOn()));
   public static final PlatformRegistryObject<Block> CRACKED_END_STONE_TILES = PlatformServices.REGISTRY.registerBlock("cracked_end_stone_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE_BRICKS)));
   public static final PlatformRegistryObject<Block> END_STONE_PILLAR = PlatformServices.REGISTRY.registerBlock("end_stone_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE_BRICKS)));
+
+  /* Should be disabled with UPDATE_1_21 turned on */
+  public static final PlatformRegistryObject<Block> TUFF_BRICKS = PlatformServices.REGISTRY.registerBlock("tuff_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF)));
+  public static final PlatformRegistryObject<Block> TUFF_BRICK_SLAB = PlatformServices.REGISTRY.registerBlock("tuff_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TUFF_BRICKS.get())));
+  public static final PlatformRegistryObject<Block> TUFF_BRICK_STAIRS = PlatformServices.REGISTRY.registerBlock("tuff_brick_stairs", () -> new StairBlock(SMBBlocks.TUFF_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TUFF_BRICKS.get())));
+  public static final PlatformRegistryObject<Block> TUFF_BRICK_WALL = PlatformServices.REGISTRY.registerBlock("tuff_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TUFF_BRICKS.get())));
+  public static final PlatformRegistryObject<Block> CHISELED_TUFF_BRICKS = PlatformServices.REGISTRY.registerBlock("chiseled_tuff_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.TUFF_BRICKS.get())));
+  public static final PlatformRegistryObject<Block> POLISHED_TUFF = PlatformServices.REGISTRY.registerBlock("polished_tuff", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF)));
+  public static final PlatformRegistryObject<Block> POLISHED_TUFF_SLAB = PlatformServices.REGISTRY.registerBlock("polished_tuff_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.POLISHED_TUFF.get())));
+  public static final PlatformRegistryObject<Block> POLISHED_TUFF_STAIRS = PlatformServices.REGISTRY.registerBlock("polished_tuff_stairs", () -> new StairBlock(SMBBlocks.POLISHED_TUFF.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.POLISHED_TUFF.get())));
+  /* ===== */
+
   public static final PlatformRegistryObject<Block> SMOOTH_TUFF = PlatformServices.REGISTRY.registerBlock("smooth_tuff", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF)));
   public static final PlatformRegistryObject<Block> SMOOTH_TUFF_SLAB = PlatformServices.REGISTRY.registerBlock("smooth_tuff_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.SMOOTH_TUFF.get())));
   public static final PlatformRegistryObject<Block> CRACKED_TUFF_BRICKS = PlatformServices.REGISTRY.registerBlock("cracked_tuff_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF).sound(SoundType.TUFF_BRICKS)));
@@ -435,7 +447,7 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> CUT_IRON = PlatformServices.REGISTRY.registerBlock("cut_iron", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
   public static final PlatformRegistryObject<Block> CRACKED_CUT_IRON = PlatformServices.REGISTRY.registerBlock("cracked_cut_iron", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
   public static final PlatformRegistryObject<Block> IRON_PILLAR = PlatformServices.REGISTRY.registerBlock("iron_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)));
-  public static final PlatformRegistryObject<Block> IRON_GRATE = PlatformServices.REGISTRY.registerBlock("iron_grate", () -> new WaterloggedTransparentBlock(BlockBehaviour.Properties.of().noOcclusion().strength(Blocks.IRON_BLOCK.defaultDestroyTime()).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+  public static final PlatformRegistryObject<Block> IRON_GRATE = PlatformServices.REGISTRY.registerBlock("iron_grate", () -> new GrateBlock(BlockBehaviour.Properties.of().noOcclusion().strength(Blocks.IRON_BLOCK.defaultDestroyTime()).requiresCorrectToolForDrops().sound(SoundType.METAL)));
   public static final PlatformRegistryObject<Block> GOLD_BRICKS = PlatformServices.REGISTRY.registerBlock("gold_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
   public static final PlatformRegistryObject<Block> CRACKED_GOLD_BRICKS = PlatformServices.REGISTRY.registerBlock("cracked_gold_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
   public static final PlatformRegistryObject<Block> CUT_GOLD = PlatformServices.REGISTRY.registerBlock("cut_gold", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK)));
@@ -461,13 +473,13 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> CUT_DIAMOND = PlatformServices.REGISTRY.registerBlock("cut_diamond", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)));
   public static final PlatformRegistryObject<Block> CRACKED_CUT_DIAMOND = PlatformServices.REGISTRY.registerBlock("cracked_cut_diamond", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)));
   public static final PlatformRegistryObject<Block> DIAMOND_PILLAR = PlatformServices.REGISTRY.registerBlock("diamond_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)));
-  public static final PlatformRegistryObject<Block> DIAMOND_GRATE = PlatformServices.REGISTRY.registerBlock("diamond_grate", () -> new WaterloggedTransparentBlock(BlockBehaviour.Properties.of().noOcclusion().strength(Blocks.DIAMOND_BLOCK.defaultDestroyTime()).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+  public static final PlatformRegistryObject<Block> DIAMOND_GRATE = PlatformServices.REGISTRY.registerBlock("diamond_grate", () -> new GrateBlock(BlockBehaviour.Properties.of().noOcclusion().strength(Blocks.DIAMOND_BLOCK.defaultDestroyTime()).requiresCorrectToolForDrops().sound(SoundType.METAL)));
   public static final PlatformRegistryObject<Block> NETHERITE_BRICKS = PlatformServices.REGISTRY.registerBlock("netherite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK)));
   public static final PlatformRegistryObject<Block> CRACKED_NETHERITE_BRICKS = PlatformServices.REGISTRY.registerBlock("cracked_netherite_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK)));
   public static final PlatformRegistryObject<Block> CUT_NETHERITE = PlatformServices.REGISTRY.registerBlock("cut_netherite", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK)));
   public static final PlatformRegistryObject<Block> CRACKED_CUT_NETHERITE = PlatformServices.REGISTRY.registerBlock("cracked_cut_netherite", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK)));
   public static final PlatformRegistryObject<Block> NETHERITE_PILLAR = PlatformServices.REGISTRY.registerBlock("netherite_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK)));
-  public static final PlatformRegistryObject<Block> NETHERITE_GRATE = PlatformServices.REGISTRY.registerBlock("netherite_grate", () -> new WaterloggedTransparentBlock(BlockBehaviour.Properties.of().noOcclusion().strength(Blocks.NETHERITE_BLOCK.defaultDestroyTime()).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
+  public static final PlatformRegistryObject<Block> NETHERITE_GRATE = PlatformServices.REGISTRY.registerBlock("netherite_grate", () -> new GrateBlock(BlockBehaviour.Properties.of().noOcclusion().strength(Blocks.NETHERITE_BLOCK.defaultDestroyTime()).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
   public static final PlatformRegistryObject<Block> AMETHYST_BRICKS = PlatformServices.REGISTRY.registerBlock("amethyst_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)));
   public static final PlatformRegistryObject<Block> CRACKED_AMETHYST_BRICKS = PlatformServices.REGISTRY.registerBlock("cracked_amethyst_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)));
   public static final PlatformRegistryObject<Block> CUT_AMETHYST = PlatformServices.REGISTRY.registerBlock("cut_amethyst", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK)));
@@ -546,7 +558,7 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> MOSSY_BRICK_STAIRS = PlatformServices.REGISTRY.registerBlock("mossy_brick_stairs", () -> new StairBlock(MOSSY_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SMBBlocks.MOSSY_BRICKS.get())));
   public static final PlatformRegistryObject<Block> MOSSY_BRICK_WALL = PlatformServices.REGISTRY.registerBlock("mossy_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.MOSSY_BRICKS.get()).forceSolidOn()));
   public static final PlatformRegistryObject<Block> CRACKED_BRICKS = PlatformServices.REGISTRY.registerBlock("cracked_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS)));
-  public static final PlatformRegistryObject<Block> TILED_GLASS = PlatformServices.REGISTRY.registerBlock("tiled_glass", () -> new TransparentBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
+  public static final PlatformRegistryObject<Block> TILED_GLASS = PlatformServices.REGISTRY.registerBlock("tiled_glass", () -> new TransparentGlassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
   public static final PlatformRegistryObject<Block> TILED_TINTED_GLASS = PlatformServices.REGISTRY.registerBlock("tiled_tinted_glass", () -> new TintedGlassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TINTED_GLASS)));
   public static final PlatformRegistryObject<Block> WHITE_STAINED_TILED_GLASS = PlatformServices.REGISTRY.registerBlock("white_stained_tiled_glass", () -> new StainedGlassBlock(DyeColor.WHITE, BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_STAINED_GLASS)));
   public static final PlatformRegistryObject<Block> LIGHT_GRAY_STAINED_TILED_GLASS = PlatformServices.REGISTRY.registerBlock("light_gray_stained_tiled_glass", () -> new StainedGlassBlock(DyeColor.LIGHT_GRAY, BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_STAINED_GLASS)));
@@ -649,6 +661,23 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> PURPLE_SHINGLES_STAIRS = PlatformServices.REGISTRY.registerBlock("purple_shingles_stairs", () -> new StairBlock(SMBBlocks.PURPLE_SHINGLES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
   public static final PlatformRegistryObject<Block> MAGENTA_SHINGLES_STAIRS = PlatformServices.REGISTRY.registerBlock("magenta_shingles_stairs", () -> new StairBlock(SMBBlocks.MAGENTA_SHINGLES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_MAGENTA)));
   public static final PlatformRegistryObject<Block> PINK_SHINGLES_STAIRS = PlatformServices.REGISTRY.registerBlock("pink_shingles_stairs", () -> new StairBlock(SMBBlocks.PINK_SHINGLES.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_PINK)));
+
+  public static final PlatformRegistryObject<Block> WHITE_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("white_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.SHINGLES.get()).mapColor(MapColor.TERRACOTTA_WHITE)));
+  public static final PlatformRegistryObject<Block> LIGHT_GRAY_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("light_gray_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_LIGHT_GRAY)));
+  public static final PlatformRegistryObject<Block> GRAY_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("gray_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_GRAY)));
+  public static final PlatformRegistryObject<Block> BLACK_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("black_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_BLACK)));
+  public static final PlatformRegistryObject<Block> BROWN_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("brown_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_BROWN)));
+  public static final PlatformRegistryObject<Block> RED_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("red_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_RED)));
+  public static final PlatformRegistryObject<Block> ORANGE_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("orange_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_ORANGE)));
+  public static final PlatformRegistryObject<Block> YELLOW_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("yellow_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_YELLOW)));
+  public static final PlatformRegistryObject<Block> LIME_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("lime_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_LIGHT_GREEN)));
+  public static final PlatformRegistryObject<Block> GREEN_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("green_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_GREEN)));
+  public static final PlatformRegistryObject<Block> CYAN_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("cyan_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_CYAN)));
+  public static final PlatformRegistryObject<Block> LIGHT_BLUE_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("light_blue_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_LIGHT_BLUE)));
+  public static final PlatformRegistryObject<Block> BLUE_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("blue_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_BLUE)));
+  public static final PlatformRegistryObject<Block> PURPLE_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("purple_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
+  public static final PlatformRegistryObject<Block> MAGENTA_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("magenta_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_MAGENTA)));
+  public static final PlatformRegistryObject<Block> PINK_CHECKERED_TILES = PlatformServices.REGISTRY.registerBlock("pink_checkered_tiles", () -> new Block(BlockBehaviour.Properties.ofFullCopy(SHINGLES.get()).mapColor(MapColor.TERRACOTTA_PINK)));
 
 
   public static void init() {}

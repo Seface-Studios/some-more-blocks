@@ -10,6 +10,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 
 import java.util.concurrent.CompletableFuture;
@@ -18,8 +19,8 @@ import java.util.function.Consumer;
 public class SMBNetherAdvancementsProvider extends FabricAdvancementProvider {
   private Consumer<AdvancementHolder> generator;
 
-  public SMBNetherAdvancementsProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-    super(output, lookup);
+  public SMBNetherAdvancementsProvider(FabricDataOutput output) {
+    super(output);
   }
 
   @Override
@@ -28,13 +29,13 @@ public class SMBNetherAdvancementsProvider extends FabricAdvancementProvider {
   }
 
   @Override
-  public void generateAdvancement(HolderLookup.Provider lookup, Consumer<AdvancementHolder> gen) {
+  public void generateAdvancement(Consumer<AdvancementHolder> gen) {
     this.generator = gen;
     this.verySeriousDedication();
   }
 
   private void verySeriousDedication() {
-    ResourceLocation parentPath = ResourceLocation.withDefaultNamespace("nether/obtain_ancient_debris");
+    ResourceLocation parentPath = SomeMoreBlocks.minecraftId("nether/obtain_ancient_debris");
     Advancement.Builder.advancement()
       .parent(Advancement.Builder.advancement().build(parentPath))
       .display(SMBBlocks.CUT_NETHERITE.get(), Component.translatable("advancements.somemoreblocks.nether.obtain_cut_netherite.title"), Component.translatable("advancements.somemoreblocks.nether.obtain_cut_netherite.description"), null, AdvancementType.CHALLENGE, true, true, false)

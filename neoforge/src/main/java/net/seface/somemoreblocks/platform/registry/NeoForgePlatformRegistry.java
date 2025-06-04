@@ -2,7 +2,6 @@ package net.seface.somemoreblocks.platform.registry;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -25,7 +24,6 @@ import java.util.function.UnaryOperator;
 public class NeoForgePlatformRegistry implements PlatformRegistry {
   private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(SomeMoreBlocks.ID);
   private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(SomeMoreBlocks.ID);
-  private static final DeferredRegister.DataComponents DATA_COMPONENT_TYPES = DeferredRegister.createDataComponents(SomeMoreBlocks.ID);
   private static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, SomeMoreBlocks.ID);
   private static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SomeMoreBlocks.ID);
 
@@ -46,15 +44,6 @@ public class NeoForgePlatformRegistry implements PlatformRegistry {
   public PlatformRegistryObject<Item> registerItem(String path, Supplier<Item> supplier) {
     ResourceLocation identifier = SomeMoreBlocks.id(path);
     DeferredItem<Item> instance = ITEMS.register(path, supplier);
-
-    return new NeoForgeRegistryObject<>(identifier, instance);
-  }
-
-  @Override
-  public <T> PlatformRegistryObject<DataComponentType<T>> registerDataComponent(String path, UnaryOperator<DataComponentType.Builder<T>> builder) {
-    ResourceLocation identifier = SomeMoreBlocks.id(path);
-    DeferredHolder<DataComponentType<?>, DataComponentType<T>> instance = DATA_COMPONENT_TYPES.register(path,
-      () -> builder.apply(DataComponentType.builder()).build());
 
     return new NeoForgeRegistryObject<>(identifier, instance);
   }
@@ -89,7 +78,6 @@ public class NeoForgePlatformRegistry implements PlatformRegistry {
   public static void init(IEventBus eventBus) {
     BLOCKS.register(eventBus);
     ITEMS.register(eventBus);
-    DATA_COMPONENT_TYPES.register(eventBus);
     FEATURES.register(eventBus);
     CREATIVE_MODE_TABS.register(eventBus);
   }

@@ -4,14 +4,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
-import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.AdvancementType;
 import net.minecraft.advancements.critereon.*;
-import net.minecraft.core.HolderGetter;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponentMap;
-import net.minecraft.core.component.DataComponentPredicate;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.advancements.packs.VanillaHusbandryAdvancements;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -20,26 +14,23 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.registries.SMBBlocks;
-import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
 import net.seface.somemoreblocks.registries.SMBRegistries;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class SMBHusbandryAdvancementsProvider extends FabricAdvancementProvider {
   private Consumer<AdvancementHolder> generator;
-  private HolderGetter<Item> itemHolder;
-  private HolderGetter<Block> blockHolder;
 
   private static final List<Block> WAX_ON_BLOCKS = new ArrayList<>(HoneycombItem.WAXABLES.get().keySet());
   private static final List<Block> WAX_OFF_BLOCKS = new ArrayList<>(HoneycombItem.WAX_OFF_BY_BLOCK.get().keySet());
 
-  public SMBHusbandryAdvancementsProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-    super(output, lookup);
+  public SMBHusbandryAdvancementsProvider(FabricDataOutput output) {
+    super(output);
 
     WAX_ON_BLOCKS.addAll(SMBRegistries.WAXED_COPPER_BLOCKS.getKeySet().stream().toList());
     WAX_OFF_BLOCKS.addAll(SMBRegistries.WAXED_COPPER_BLOCKS.getValueSet().stream().toList());
@@ -51,10 +42,8 @@ public class SMBHusbandryAdvancementsProvider extends FabricAdvancementProvider 
   }
 
   @Override
-  public void generateAdvancement(HolderLookup.Provider lookup, Consumer<AdvancementHolder> gen) {
+  public void generateAdvancement(Consumer<AdvancementHolder> gen) {
     this.generator = gen;
-    this.itemHolder = lookup.lookupOrThrow(Registries.ITEM);
-    this.blockHolder = lookup.lookupOrThrow(Registries.BLOCK);
 
     this.waxOnOrOff("safely_harvest_honey", Items.HONEYCOMB, "wax_on", WAX_ON_BLOCKS, List.of(Items.HONEYCOMB));
     this.waxOnOrOff("wax_on", Items.STONE_AXE, "wax_off", WAX_OFF_BLOCKS, Arrays.stream(VanillaHusbandryAdvancements.WAX_SCRAPING_TOOLS).toList());
@@ -70,8 +59,8 @@ public class SMBHusbandryAdvancementsProvider extends FabricAdvancementProvider 
    * @param usedBy The item to interact on block.
    */
   private void waxOnOrOff(String parent, ItemLike displayItem, String name, List<Block> usableOn, List<Item> usedBy) {
-    ResourceLocation parentPath = ResourceLocation.withDefaultNamespace("husbandry/" + parent);
-    ResourceLocation outputPath = ResourceLocation.withDefaultNamespace("husbandry/" + name);
+    ResourceLocation parentPath = SomeMoreBlocks.minecraftId("husbandry/" + parent);
+    ResourceLocation outputPath = SomeMoreBlocks.minecraftId("husbandry/" + name);
 
     this.generator.accept(
       Advancement.Builder.advancement()
@@ -88,7 +77,7 @@ public class SMBHusbandryAdvancementsProvider extends FabricAdvancementProvider 
   }
 
   private void withOurPoweredCombined() {
-    ResourceLocation parentPath = ResourceLocation.withDefaultNamespace("husbandry/froglights");
+    ResourceLocation parentPath = SomeMoreBlocks.minecraftId("husbandry/froglights");
     Advancement.Builder.advancement()
       .parent(Advancement.Builder.advancement().build(parentPath))
       .display(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get(), Component.translatable("advancements.somemoreblocks.husbandry.redstone_froglights.title"), Component.translatable("advancements.somemoreblocks.husbandry.redstone_froglights.description"), null, AdvancementType.CHALLENGE, true, true, false)

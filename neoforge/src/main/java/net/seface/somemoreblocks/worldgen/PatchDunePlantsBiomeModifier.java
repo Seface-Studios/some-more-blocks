@@ -1,6 +1,6 @@
 package net.seface.somemoreblocks.worldgen;
 
-import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;
@@ -20,7 +20,7 @@ public record PatchDunePlantsBiomeModifier(HolderSet<Biome> biomes, Holder<Place
   }
 
   @Override
-  public MapCodec<? extends BiomeModifier> codec() {
+  public Codec<? extends BiomeModifier> codec() {
     return SMBBiomeModifiers.PATCH_DUNE_GRASS.get();
   }
 }

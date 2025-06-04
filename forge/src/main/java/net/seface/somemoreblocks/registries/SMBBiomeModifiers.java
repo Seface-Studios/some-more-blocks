@@ -1,6 +1,6 @@
 package net.seface.somemoreblocks.registries;
 
-import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -18,9 +18,9 @@ import net.seface.somemoreblocks.worldgen.PatchDunePlantsBiomeModifier;
 import java.util.function.BiFunction;
 
 public class SMBBiomeModifiers {
-  public static final DeferredRegister<MapCodec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, SomeMoreBlocks.ID);
+  public static final DeferredRegister<Codec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, SomeMoreBlocks.ID);
 
-  public static RegistryObject<MapCodec<PatchDunePlantsBiomeModifier>> PATCH_DUNE_GRASS = registerBiomeModifier("patch_dune_grass", PatchDunePlantsBiomeModifier::new);
+  public static RegistryObject<Codec<PatchDunePlantsBiomeModifier>> PATCH_DUNE_GRASS = registerBiomeModifier("patch_dune_grass", PatchDunePlantsBiomeModifier::new);
 
   /**
    * Register a new biome modifier.
@@ -28,9 +28,9 @@ public class SMBBiomeModifiers {
    * @param factory The construction function of biome modifier.
    * @return The biome modifier object.
    */
-  private static <T extends BiomeModifier> RegistryObject<MapCodec<T>> registerBiomeModifier(String path, BiFunction<HolderSet<Biome>, Holder<PlacedFeature>, T> factory) {
+  private static <T extends BiomeModifier> RegistryObject<Codec<T>> registerBiomeModifier(String path, BiFunction<HolderSet<Biome>, Holder<PlacedFeature>, T> factory) {
     return BIOME_MODIFIERS.register(path, () ->
-      RecordCodecBuilder.mapCodec(builder -> builder.group(
+      RecordCodecBuilder.create(builder -> builder.group(
         Biome.LIST_CODEC.fieldOf("biomes").forGetter((instance) -> ((ForgifiedBiomeModifier<BiomeModifier>) instance).biomes(instance)),
         PlacedFeature.CODEC.fieldOf("features").forGetter((instance) -> ((ForgifiedBiomeModifier<BiomeModifier>) instance).features(instance))
       ).apply(builder, factory))

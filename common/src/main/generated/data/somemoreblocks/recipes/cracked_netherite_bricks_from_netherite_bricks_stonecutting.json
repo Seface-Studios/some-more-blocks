@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:netherite_bricks"
+  },
+  "result": "somemoreblocks:cracked_netherite_bricks"
+}

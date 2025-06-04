@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:dirt",
+    "#minecraft:logs",
+    "minecraft:mushroom_stem",
+    "minecraft:mangrove_roots",
+    "minecraft:muddy_mangrove_roots",
+    "minecraft:crimson_nylium",
+    "minecraft:warped_nylium"
+  ]
+}
