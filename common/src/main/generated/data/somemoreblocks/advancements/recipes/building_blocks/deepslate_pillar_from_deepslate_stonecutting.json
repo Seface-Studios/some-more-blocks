@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_deepslate"
+      "has_deepslate",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:deepslate_pillar_from_deepslate_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

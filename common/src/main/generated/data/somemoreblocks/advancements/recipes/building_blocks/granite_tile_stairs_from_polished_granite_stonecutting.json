@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_granite"
+      "has_polished_granite",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:granite_tile_stairs_from_polished_granite_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_bone_tiles"
+      "has_bone_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:cracked_bone_tiles"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

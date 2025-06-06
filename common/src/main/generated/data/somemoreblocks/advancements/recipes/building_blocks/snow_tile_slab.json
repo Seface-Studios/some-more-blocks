@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_snow_tiles"
+      "has_snow_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:snow_tile_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

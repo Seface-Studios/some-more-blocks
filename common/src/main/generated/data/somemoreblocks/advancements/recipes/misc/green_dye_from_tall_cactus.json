@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_tall_cactus"
+      "has_tall_cactus",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:green_dye_from_tall_cactus"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

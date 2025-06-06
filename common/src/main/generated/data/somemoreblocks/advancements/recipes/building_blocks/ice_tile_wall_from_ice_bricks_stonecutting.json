@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_ice_bricks"
+      "has_ice_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:ice_tile_wall_from_ice_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

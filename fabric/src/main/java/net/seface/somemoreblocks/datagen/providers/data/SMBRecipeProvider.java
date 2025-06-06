@@ -23,16 +23,17 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class SMBRecipeProvider extends FabricRecipeProvider {
-  private RecipeOutput output;
+  private Consumer<FinishedRecipe> output;
 
   public SMBRecipeProvider(FabricDataOutput fabricOutput) {
     super(fabricOutput);
   }
 
   @Override
-  public void buildRecipes(RecipeOutput output) {
+  public void buildRecipes(Consumer<FinishedRecipe> output) {
     this.output = output;
 
     this.createBlockFamilyRecipes();
@@ -54,7 +55,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.POLISHED_TUFF, List.of(Blocks.TUFF));
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.TUFF_BRICKS, List.of(Blocks.TUFF, SMBBlocks.POLISHED_TUFF.get()));
     this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.TUFF_PILLAR.get(), Blocks.TUFF);
-    this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.TUFF_TILES, List.of(Blocks.TUFF, Blocks.POLISHED_TUFF, SMBBlocks.TUFF_BRICKS.get()));
+    this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.TUFF_TILES, List.of(Blocks.TUFF, SMBBlocks.POLISHED_TUFF.get(), SMBBlocks.TUFF_BRICKS.get()));
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.MOSSY_TUFF_BRICKS);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.SMOOTH_TUFF);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.POLISHED_DRIPSTONE, List.of(Blocks.DRIPSTONE_BLOCK));
@@ -113,7 +114,6 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.IRON_BRICKS, List.of(Blocks.IRON_BLOCK));
     this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.IRON_PILLAR.get(), Blocks.IRON_BLOCK);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.CUT_IRON, List.of(Blocks.IRON_BLOCK, SMBBlocks.IRON_BRICKS.get()));
-    this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.IRON_GRATE.get(), Blocks.IRON_BLOCK);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.GOLD_BRICKS, List.of(Blocks.GOLD_BLOCK));
     this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.GOLD_PILLAR.get(), Blocks.GOLD_BLOCK);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.CUT_GOLD, List.of(Blocks.GOLD_BLOCK, SMBBlocks.GOLD_BRICKS.get()));
@@ -129,11 +129,9 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.DIAMOND_BRICKS, List.of(Blocks.DIAMOND_BLOCK));
     this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.DIAMOND_PILLAR.get(), Blocks.DIAMOND_BLOCK);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.CUT_DIAMOND, List.of(Blocks.DIAMOND_BLOCK, SMBBlocks.DIAMOND_BRICKS.get()));
-    this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.DIAMOND_GRATE.get(), Blocks.DIAMOND_BLOCK);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.NETHERITE_BRICKS, List.of(Blocks.NETHERITE_BLOCK));
     this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.NETHERITE_PILLAR.get(), Blocks.NETHERITE_BLOCK);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.CUT_NETHERITE, List.of(Blocks.NETHERITE_BLOCK, SMBBlocks.NETHERITE_BRICKS.get()));
-    this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.NETHERITE_GRATE.get(), Blocks.NETHERITE_BLOCK);
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.CUT_QUARTZ, List.of(Blocks.QUARTZ_BLOCK, Blocks.QUARTZ_BRICKS));
     this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.AMETHYST_BRICKS, List.of(Blocks.AMETHYST_BLOCK));
     this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.AMETHYST_PILLAR.get(), Blocks.AMETHYST_BLOCK);
@@ -297,7 +295,6 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CUT_IRON.get(), Blocks.IRON_BLOCK, 4);
     this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.IRON_PILLAR.get(), Blocks.IRON_BLOCK, 2);
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.IRON_BRICKS.get(), SMBBlocks.CUT_IRON.get(), 4);
-    grate(this.output, SMBBlocks.IRON_GRATE.get(), Blocks.IRON_BLOCK);
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CUT_GOLD.get(), Blocks.GOLD_BLOCK, 4);
     this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.GOLD_PILLAR.get(), Blocks.GOLD_BLOCK, 2);
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.GOLD_BRICKS.get(), SMBBlocks.CUT_GOLD.get(), 4);
@@ -313,11 +310,9 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CUT_DIAMOND.get(), Blocks.DIAMOND_BLOCK, 4);
     this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.DIAMOND_PILLAR.get(), Blocks.DIAMOND_BLOCK, 2);
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.DIAMOND_BRICKS.get(), SMBBlocks.CUT_DIAMOND.get(), 4);
-    grate(this.output, SMBBlocks.DIAMOND_GRATE.get(), Blocks.DIAMOND_BLOCK);
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CUT_NETHERITE.get(), Blocks.NETHERITE_BLOCK, 4);
     this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.NETHERITE_PILLAR.get(), Blocks.NETHERITE_BLOCK, 2);
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.NETHERITE_BRICKS.get(), SMBBlocks.CUT_NETHERITE.get(), 4);
-    grate(this.output, SMBBlocks.NETHERITE_GRATE.get(), Blocks.NETHERITE_BLOCK);
     smeltingResultFromBase(this.output, SMBBlocks.CRACKED_QUARTZ_BRICKS.get(), Blocks.QUARTZ_BRICKS);
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CUT_QUARTZ.get(), Blocks.QUARTZ_BRICKS, 4);
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CUT_AMETHYST.get(), Blocks.AMETHYST_BLOCK, 4);
@@ -366,7 +361,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
     this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.ICE_TILES.get(), SMBBlocks.ICE_BRICKS.get(), 4);
 
     /* More Natural Blocks */
-    this.snowyPlant(Blocks.SHORT_GRASS);
+    this.snowyPlant(Blocks.GRASS);
     this.snowyPlant(Blocks.FERN);
     this.snowyPlant(Blocks.TALL_GRASS);
     this.snowyPlant(Blocks.LARGE_FERN);
@@ -406,8 +401,8 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
    */
   private void createBlockFamilyRecipes() {
     for (Map.Entry<Block, BlockFamily> entry : SMBBlockFamilies.getAllFamilies().entrySet()) {
-      if (!entry.getValue().shouldGenerateRecipe()) continue;
-      this.generateRecipes(this.output, entry.getValue(), FeatureFlagSet.of(FeatureFlags.VANILLA));
+      if (!entry.getValue().shouldGenerateRecipe(FeatureFlagSet.of(FeatureFlags.VANILLA))) continue;
+      this.generateRecipes(this.output, entry.getValue());
     }
   }
 

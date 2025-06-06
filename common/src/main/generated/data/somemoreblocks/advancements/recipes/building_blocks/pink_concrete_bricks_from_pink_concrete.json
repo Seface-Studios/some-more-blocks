@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_pink_concrete"
+      "has_pink_concrete",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:pink_concrete_bricks_from_pink_concrete"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

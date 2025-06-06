@@ -14,5 +14,6 @@
   "result": {
     "count": 4,
     "item": "somemoreblocks:green_terracotta_tiles"
-  }
+  },
+  "show_notification": true
 }

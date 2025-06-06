@@ -13,5 +13,6 @@
   "result": {
     "count": 2,
     "item": "somemoreblocks:diorite_pillar"
-  }
+  },
+  "show_notification": true
 }

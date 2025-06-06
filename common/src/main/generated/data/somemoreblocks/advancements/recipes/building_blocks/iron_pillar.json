@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_iron_block"
+      "has_iron_block",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:iron_pillar"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

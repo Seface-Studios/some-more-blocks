@@ -15,13 +15,16 @@
     }
   },
   "display": {
+    "announce_to_chat": true,
     "description": {
       "translate": "advancements.somemoreblocks.nether.obtain_cut_netherite.description"
     },
     "frame": "challenge",
+    "hidden": false,
     "icon": {
       "item": "somemoreblocks:cut_netherite"
     },
+    "show_toast": true,
     "title": {
       "translate": "advancements.somemoreblocks.nether.obtain_cut_netherite.title"
     }

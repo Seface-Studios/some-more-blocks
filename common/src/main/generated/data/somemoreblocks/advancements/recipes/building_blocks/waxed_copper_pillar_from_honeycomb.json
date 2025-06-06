@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_copper_pillar"
+      "has_copper_pillar",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:waxed_copper_pillar_from_honeycomb"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

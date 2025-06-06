@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cut_amethyst"
+      "has_cut_amethyst",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:amethyst_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

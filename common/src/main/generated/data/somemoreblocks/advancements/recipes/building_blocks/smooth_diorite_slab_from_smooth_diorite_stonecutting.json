@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_smooth_diorite"
+      "has_smooth_diorite",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:smooth_diorite_slab_from_smooth_diorite_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

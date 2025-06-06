@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_ice"
+      "has_polished_ice",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:ice_tile_stairs_from_polished_ice_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

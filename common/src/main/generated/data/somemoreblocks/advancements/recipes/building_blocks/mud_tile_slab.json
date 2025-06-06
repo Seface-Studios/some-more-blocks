@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_mud_tiles"
+      "has_mud_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:mud_tile_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

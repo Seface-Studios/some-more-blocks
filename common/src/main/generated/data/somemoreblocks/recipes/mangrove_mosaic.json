@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "somemoreblocks:mangrove_mosaic"
-  }
+  },
+  "show_notification": true
 }

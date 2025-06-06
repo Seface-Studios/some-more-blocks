@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_blackstone_tiles"
+      "has_polished_blackstone_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:polished_blackstone_tile_wall"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

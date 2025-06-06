@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_mud"
+      "has_polished_mud",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:mud_bricks_from_polished_mud_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

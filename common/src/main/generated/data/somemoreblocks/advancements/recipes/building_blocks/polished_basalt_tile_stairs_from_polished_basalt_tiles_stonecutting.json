@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_basalt_tiles"
+      "has_polished_basalt_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:polished_basalt_tile_stairs_from_polished_basalt_tiles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

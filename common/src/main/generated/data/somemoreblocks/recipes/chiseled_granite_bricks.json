@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "somemoreblocks:chiseled_granite_bricks"
-  }
+  },
+  "show_notification": true
 }

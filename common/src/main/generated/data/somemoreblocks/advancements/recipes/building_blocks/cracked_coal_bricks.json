@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_coal_bricks"
+      "has_coal_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:cracked_coal_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

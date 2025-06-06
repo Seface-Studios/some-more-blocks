@@ -25,13 +25,16 @@
     }
   },
   "display": {
+    "announce_to_chat": true,
     "description": {
       "translate": "advancements.somemoreblocks.husbandry.redstone_froglights.description"
     },
     "frame": "challenge",
+    "hidden": false,
     "icon": {
       "item": "somemoreblocks:verdant_redstone_froglight"
     },
+    "show_toast": true,
     "title": {
       "translate": "advancements.somemoreblocks.husbandry.redstone_froglights.title"
     }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cracked_cut_copper"
+      "has_cracked_cut_copper",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:waxed_cracked_cut_copper_from_honeycomb"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

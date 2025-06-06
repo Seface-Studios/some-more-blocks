@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "minecraft:short_grass",
+    "minecraft:grass",
     "minecraft:moss_carpet",
     "minecraft:sculk_vein",
     "minecraft:glow_lichen",

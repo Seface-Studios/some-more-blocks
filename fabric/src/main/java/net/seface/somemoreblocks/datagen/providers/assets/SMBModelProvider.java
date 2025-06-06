@@ -2,8 +2,6 @@ package net.seface.somemoreblocks.datagen.providers.assets;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonElement;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.core.Direction;
@@ -20,7 +18,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.seface.somemoreblocks.block.properties.QuadDirection;
 import net.seface.somemoreblocks.datagen.providers.assets.providers.CarvedWoodBlockProvider;
 import net.seface.somemoreblocks.datagen.providers.assets.providers.TiledGlassBlockProvider;
-import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
 import net.seface.somemoreblocks.registries.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -94,29 +91,26 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createTrivialCube(SMBBlocks.CRACKED_PURPUR_BLOCK.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.COAL_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.IRON_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.createTrivialCube(SMBBlocks.IRON_GRATE.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.GOLD_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.REDSTONE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.EMERALD_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.LAPIS_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.DIAMOND_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.createTrivialCube(SMBBlocks.DIAMOND_GRATE.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.NETHERITE_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.createTrivialCube(SMBBlocks.NETHERITE_GRATE.get());
     gen.createTrivialCube(SMBBlocks.CRACKED_QUARTZ_BRICKS.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.AMETHYST_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.family(SMBBlocks.COPPER_BRICKS.get()).generateFor(SMBBlockFamilies.COPPER_BRICKS)
-      .donateModelTo(SMBBlocks.COPPER_BRICKS.get(), SMBBlocks.WAXED_COPPER_BRICKS.get())
-      .donateModelTo(SMBBlocks.CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_CRACKED_COPPER_BRICKS.get());
+      .fullBlockCopies(SMBBlocks.WAXED_COPPER_BRICKS.get())
+      .fullBlockCopies(SMBBlocks.WAXED_CRACKED_COPPER_BRICKS.get());
     gen.family(SMBBlocks.EXPOSED_COPPER_BRICKS.get()).generateFor(SMBBlockFamilies.EXPOSED_COPPER_BRICKS)
-      .donateModelTo(SMBBlocks.EXPOSED_COPPER_BRICKS.get(), SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get())
-      .donateModelTo(SMBBlocks.EXPOSED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_EXPOSED_CRACKED_COPPER_BRICKS.get());
+      .fullBlockCopies(SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get())
+      .fullBlockCopies(SMBBlocks.WAXED_EXPOSED_CRACKED_COPPER_BRICKS.get());
     gen.family(SMBBlocks.WEATHERED_COPPER_BRICKS.get()).generateFor(SMBBlockFamilies.WEATHERED_COPPER_BRICKS)
-      .donateModelTo(SMBBlocks.WEATHERED_COPPER_BRICKS.get(), SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get())
-      .donateModelTo(SMBBlocks.WEATHERED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_WEATHERED_CRACKED_COPPER_BRICKS.get());
+      .fullBlockCopies(SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get())
+      .fullBlockCopies(SMBBlocks.WAXED_WEATHERED_CRACKED_COPPER_BRICKS.get());
     gen.family(SMBBlocks.OXIDIZED_COPPER_BRICKS.get()).generateFor(SMBBlockFamilies.OXIDIZED_COPPER_BRICKS)
-      .donateModelTo(SMBBlocks.OXIDIZED_COPPER_BRICKS.get(), SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get())
-      .donateModelTo(SMBBlocks.OXIDIZED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS.get());
+      .fullBlockCopies(SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get())
+      .fullBlockCopies(SMBBlocks.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.COPPER_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.EXPOSED_COPPER_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.WEATHERED_COPPER_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);

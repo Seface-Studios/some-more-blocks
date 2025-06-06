@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_waxed_copper_bricks"
+      "has_waxed_copper_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:waxed_cut_copper_from_waxed_copper_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_purpur"
+      "has_polished_purpur",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:purpur_tiles_from_polished_purpur_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

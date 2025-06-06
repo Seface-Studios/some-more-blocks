@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_luminous_flower"
+      "has_luminous_flower",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:glowstone_dust_from_luminous_flower"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

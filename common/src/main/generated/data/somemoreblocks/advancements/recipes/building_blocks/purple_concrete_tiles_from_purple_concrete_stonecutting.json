@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_purple_concrete"
+      "has_purple_concrete",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:purple_concrete_tiles_from_purple_concrete_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

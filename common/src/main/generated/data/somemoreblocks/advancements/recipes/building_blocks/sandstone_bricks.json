@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cut_sandstone"
+      "has_cut_sandstone",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:sandstone_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

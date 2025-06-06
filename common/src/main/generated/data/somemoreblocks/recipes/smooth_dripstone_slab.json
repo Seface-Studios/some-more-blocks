@@ -12,5 +12,6 @@
   "result": {
     "count": 6,
     "item": "somemoreblocks:smooth_dripstone_slab"
-  }
+  },
+  "show_notification": true
 }

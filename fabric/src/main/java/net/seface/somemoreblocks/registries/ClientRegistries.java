@@ -1,19 +1,12 @@
 package net.seface.somemoreblocks.registries;
 
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.network.chat.Component;
-import net.seface.somemoreblocks.SomeMoreBlocks;
-import net.seface.somemoreblocks.SomeMoreBlocksFabric;
-import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
 
 public class ClientRegistries {
 
   public static void init() {
     ClientRegistries.registerColorProviders();
-    ClientRegistries.onFindPacks();
   }
 
   /**
@@ -25,19 +18,5 @@ public class ClientRegistries {
 
     ColorProviderRegistry.BLOCK.register(
       (blockState, tint, pos, i) -> BiomeColors.getAverageGrassColor(tint, pos), SMBBlocks.CLOVER.get());
-  }
-
-  /**
-   * Registers the built-in resource packs.
-   */
-  private static void onFindPacks() {
-    if (SomeMoreBlocksFabric.CONTAINER.isEmpty()) return;
-
-    ResourceManagerHelper.registerBuiltinResourcePack(
-      SomeMoreBlocks.id("update_1_21"),
-      SomeMoreBlocksFabric.CONTAINER.get(),
-      Component.translatable("somemoreblocks.resourcepack.update_1_21.name"),
-      ResourcePackActivationType.NORMAL
-    );
   }
 }

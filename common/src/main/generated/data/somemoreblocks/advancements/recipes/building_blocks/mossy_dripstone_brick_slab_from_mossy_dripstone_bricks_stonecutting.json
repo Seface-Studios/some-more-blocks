@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_mossy_dripstone_bricks"
+      "has_mossy_dripstone_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:mossy_dripstone_brick_slab_from_mossy_dripstone_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

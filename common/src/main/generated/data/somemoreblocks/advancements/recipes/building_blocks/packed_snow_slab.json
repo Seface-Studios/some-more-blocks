@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_packed_snow"
+      "has_packed_snow",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:packed_snow_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

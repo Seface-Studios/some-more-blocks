@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cyan_concrete"
+      "has_cyan_concrete",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:cyan_concrete_tiles_from_cyan_concrete_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

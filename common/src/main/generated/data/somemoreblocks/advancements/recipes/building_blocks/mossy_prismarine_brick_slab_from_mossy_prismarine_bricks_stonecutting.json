@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_mossy_prismarine_bricks"
+      "has_mossy_prismarine_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:mossy_prismarine_brick_slab_from_mossy_prismarine_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

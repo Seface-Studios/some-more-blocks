@@ -1,6 +1,5 @@
 package net.seface.somemoreblocks.block;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
@@ -21,7 +20,6 @@ import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
 public class MushroomColonyBlock extends BushBlock implements BonemealableBlock {
-  public static final MapCodec<MushroomColonyBlock> CODEC = simpleCodec(MushroomColonyBlock::new);
   protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0);
 
   private final TagKey<Block> tagKey;
@@ -43,12 +41,6 @@ public class MushroomColonyBlock extends BushBlock implements BonemealableBlock 
 
   @NotNull
   @Override
-  public MapCodec<MushroomColonyBlock> codec() {
-    return CODEC;
-  }
-
-  @NotNull
-  @Override
   public VoxelShape getShape(BlockState state, BlockGetter block, BlockPos pos, CollisionContext context) {
     return SHAPE;
   }
@@ -59,7 +51,7 @@ public class MushroomColonyBlock extends BushBlock implements BonemealableBlock 
   }
 
   @Override
-  public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+  public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean bool) {
     return this.grownBlock.defaultBlockState().canSurvive(level, pos) && level.isEmptyBlock(pos.above());
   }
 

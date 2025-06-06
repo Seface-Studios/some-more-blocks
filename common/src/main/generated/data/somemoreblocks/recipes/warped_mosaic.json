@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "somemoreblocks:warped_mosaic"
-  }
+  },
+  "show_notification": true
 }

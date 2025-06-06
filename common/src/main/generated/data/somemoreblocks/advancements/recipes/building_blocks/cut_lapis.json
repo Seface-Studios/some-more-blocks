@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_lapis_block"
+      "has_lapis_block",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:cut_lapis"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

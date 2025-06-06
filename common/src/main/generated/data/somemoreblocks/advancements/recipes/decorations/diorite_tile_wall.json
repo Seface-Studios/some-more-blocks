@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_diorite_tiles"
+      "has_diorite_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:diorite_tile_wall"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

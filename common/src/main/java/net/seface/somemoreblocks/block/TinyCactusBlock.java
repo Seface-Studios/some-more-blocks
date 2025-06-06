@@ -31,7 +31,7 @@ public class TinyCactusBlock extends TallGrassBlock {
   }
 
   @Override
-  public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+  public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean bool) {
     return SMBBlocks.TALL_CACTUS.get().defaultBlockState().canSurvive(level, pos) && level.isEmptyBlock(pos.above());
   }
 

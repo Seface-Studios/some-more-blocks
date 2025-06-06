@@ -14,5 +14,6 @@
   "result": {
     "count": 4,
     "item": "somemoreblocks:brown_terracotta_tiles"
-  }
+  },
+  "show_notification": true
 }

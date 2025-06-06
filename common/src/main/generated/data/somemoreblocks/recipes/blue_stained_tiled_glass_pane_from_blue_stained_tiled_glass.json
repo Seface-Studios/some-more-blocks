@@ -14,5 +14,6 @@
   "result": {
     "count": 16,
     "item": "somemoreblocks:blue_stained_tiled_glass_pane"
-  }
+  },
+  "show_notification": true
 }

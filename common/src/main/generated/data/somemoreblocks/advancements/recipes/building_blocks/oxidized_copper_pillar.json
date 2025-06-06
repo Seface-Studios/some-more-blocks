@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_oxidized_copper"
+      "has_oxidized_copper",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:oxidized_copper_pillar"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

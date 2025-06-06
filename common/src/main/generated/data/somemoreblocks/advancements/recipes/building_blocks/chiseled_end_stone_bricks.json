@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_end_stone_brick_slab"
+      "has_end_stone_brick_slab",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:chiseled_end_stone_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

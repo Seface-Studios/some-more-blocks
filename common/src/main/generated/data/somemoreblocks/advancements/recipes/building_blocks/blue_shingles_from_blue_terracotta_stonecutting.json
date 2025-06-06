@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_blue_terracotta"
+      "has_blue_terracotta",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:blue_shingles_from_blue_terracotta_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

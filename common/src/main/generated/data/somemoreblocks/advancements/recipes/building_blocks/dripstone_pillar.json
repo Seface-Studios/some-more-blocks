@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_dripstone_bricks"
+      "has_dripstone_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:dripstone_pillar"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

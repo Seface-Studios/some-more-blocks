@@ -13,5 +13,6 @@
   "result": {
     "count": 4,
     "item": "somemoreblocks:packed_snow"
-  }
+  },
+  "show_notification": true
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_sandstone_tiles"
+      "has_sandstone_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:sandstone_tile_wall"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

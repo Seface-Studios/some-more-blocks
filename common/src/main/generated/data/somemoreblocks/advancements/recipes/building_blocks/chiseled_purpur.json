@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_purpur_slab"
+      "has_purpur_slab",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:chiseled_purpur"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

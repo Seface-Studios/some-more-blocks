@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_smooth_mud"
+      "has_smooth_mud",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:smooth_mud_slab_from_smooth_mud_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

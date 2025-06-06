@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_snow"
+      "has_polished_snow",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:polished_snow_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

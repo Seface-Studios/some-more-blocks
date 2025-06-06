@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_smooth_calcite"
+      "has_smooth_calcite",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:smooth_calcite_slab_from_smooth_calcite_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_corrupted_polished_blackstone_bricks"
+      "has_corrupted_polished_blackstone_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:corrupted_polished_blackstone_brick_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

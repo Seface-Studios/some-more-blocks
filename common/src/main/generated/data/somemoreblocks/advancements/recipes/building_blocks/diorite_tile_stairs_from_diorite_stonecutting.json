@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_diorite"
+      "has_diorite",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:diorite_tile_stairs_from_diorite_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

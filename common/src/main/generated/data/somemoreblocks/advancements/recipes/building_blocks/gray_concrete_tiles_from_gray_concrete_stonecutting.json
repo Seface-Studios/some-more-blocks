@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_gray_concrete"
+      "has_gray_concrete",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:gray_concrete_tiles_from_gray_concrete_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

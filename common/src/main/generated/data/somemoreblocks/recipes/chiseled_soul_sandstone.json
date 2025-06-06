@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "somemoreblocks:chiseled_soul_sandstone"
-  }
+  },
+  "show_notification": true
 }

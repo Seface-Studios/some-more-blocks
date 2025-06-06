@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_white_dye"
+      "has_white_dye",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:white_terracotta_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

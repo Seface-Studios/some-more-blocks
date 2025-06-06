@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cut_emerald"
+      "has_cut_emerald",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:cracked_cut_emerald"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

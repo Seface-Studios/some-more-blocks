@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_packed_mud"
+      "has_packed_mud",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:smooth_mud"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

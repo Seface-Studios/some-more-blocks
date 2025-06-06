@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cut_copper"
+      "has_cut_copper",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:cracked_cut_copper"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -16,5 +16,6 @@
   "result": {
     "count": 4,
     "item": "somemoreblocks:magenta_checkered_tiles"
-  }
+  },
+  "show_notification": true
 }

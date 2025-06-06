@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_mud_tiles"
+      "has_mud_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:mud_tile_slab_from_mud_tiles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_red_sandstone_bricks"
+      "has_red_sandstone_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:red_sandstone_tile_slab_from_red_sandstone_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

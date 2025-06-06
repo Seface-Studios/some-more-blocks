@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_sea_lantern"
+      "has_sea_lantern",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:redstone_sea_lantern"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

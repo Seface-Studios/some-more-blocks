@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_blue_stained_glass"
+      "has_blue_stained_glass",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:blue_stained_tiled_glass_from_blue_stained_glass"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

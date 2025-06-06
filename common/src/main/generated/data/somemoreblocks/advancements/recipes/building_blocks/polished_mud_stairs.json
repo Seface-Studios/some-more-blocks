@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_mud"
+      "has_polished_mud",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:polished_mud_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

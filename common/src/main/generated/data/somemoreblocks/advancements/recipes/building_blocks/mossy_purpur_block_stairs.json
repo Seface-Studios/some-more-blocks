@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_mossy_purpur_block"
+      "has_mossy_purpur_block",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:mossy_purpur_block_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_shingles"
+      "has_shingles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:shingles_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

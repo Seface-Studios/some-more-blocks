@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_oxidized_copper_bricks"
+      "has_oxidized_copper_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:oxidized_cut_copper_from_oxidized_copper_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

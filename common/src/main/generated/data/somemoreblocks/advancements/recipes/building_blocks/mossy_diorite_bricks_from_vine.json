@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_diorite_bricks"
+      "has_diorite_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:mossy_diorite_bricks_from_vine"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

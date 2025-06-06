@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "somemoreblocks:redstone_shroomlight"
-  }
+  },
+  "show_notification": true
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_bone_tiles"
+      "has_bone_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:bone_tile_stairs_from_bone_tiles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

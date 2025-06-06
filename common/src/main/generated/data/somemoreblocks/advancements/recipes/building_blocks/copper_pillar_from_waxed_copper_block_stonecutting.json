@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_waxed_copper_block"
+      "has_waxed_copper_block",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:copper_pillar_from_waxed_copper_block_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

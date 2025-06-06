@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cut_gold"
+      "has_cut_gold",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:cracked_cut_gold_from_cut_gold_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

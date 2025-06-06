@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "somemoreblocks:chiseled_purpur"
-  }
+  },
+  "show_notification": true
 }

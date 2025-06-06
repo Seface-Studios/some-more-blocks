@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_smooth_prismarine"
+      "has_smooth_prismarine",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:smooth_prismarine_slab_from_smooth_prismarine_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

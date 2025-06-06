@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_light_blue_shingles"
+      "has_light_blue_shingles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:light_blue_shingles_stairs_from_light_blue_shingles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

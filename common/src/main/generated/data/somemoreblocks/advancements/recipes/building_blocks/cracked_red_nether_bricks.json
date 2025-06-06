@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_red_nether_bricks"
+      "has_red_nether_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:cracked_red_nether_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

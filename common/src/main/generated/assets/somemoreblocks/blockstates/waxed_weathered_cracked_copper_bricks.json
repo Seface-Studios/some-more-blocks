@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "somemoreblocks:block/weathered_cracked_copper_bricks"
+      "model": "somemoreblocks:block/weathered_copper_bricks"
     }
   }
 }

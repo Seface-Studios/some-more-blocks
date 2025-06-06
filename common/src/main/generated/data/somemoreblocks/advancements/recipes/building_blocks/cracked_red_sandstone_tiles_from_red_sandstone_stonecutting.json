@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_red_sandstone"
+      "has_red_sandstone",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:cracked_red_sandstone_tiles_from_red_sandstone_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

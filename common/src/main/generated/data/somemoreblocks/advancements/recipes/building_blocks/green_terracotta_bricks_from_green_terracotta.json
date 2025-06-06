@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_green_terracotta"
+      "has_green_terracotta",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:green_terracotta_bricks_from_green_terracotta"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

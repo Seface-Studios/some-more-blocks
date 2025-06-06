@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_magenta_dye"
+      "has_magenta_dye",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:magenta_terracotta_tiles"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

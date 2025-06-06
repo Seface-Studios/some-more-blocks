@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "minecraft:polished_tuff"
+              "somemoreblocks:polished_tuff"
             ]
           }
         ]
@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_tuff"
+      "has_polished_tuff",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:tuff_tiles_from_polished_tuff_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

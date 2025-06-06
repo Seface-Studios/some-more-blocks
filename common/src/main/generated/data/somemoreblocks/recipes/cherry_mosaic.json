@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "somemoreblocks:cherry_mosaic"
-  }
+  },
+  "show_notification": true
 }

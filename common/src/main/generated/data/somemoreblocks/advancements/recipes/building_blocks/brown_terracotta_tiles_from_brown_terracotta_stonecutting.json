@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_brown_terracotta"
+      "has_brown_terracotta",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:brown_terracotta_tiles_from_brown_terracotta_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

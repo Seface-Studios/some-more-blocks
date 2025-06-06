@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_exposed_copper_bricks"
+      "has_exposed_copper_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:exposed_cut_copper_from_exposed_copper_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

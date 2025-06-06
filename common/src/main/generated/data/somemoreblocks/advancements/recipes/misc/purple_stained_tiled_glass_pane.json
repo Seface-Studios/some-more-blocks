@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_purple_dye"
+      "has_purple_dye",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:purple_stained_tiled_glass_pane"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_smooth_soul_sandstone"
+      "has_smooth_soul_sandstone",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:smooth_soul_sandstone_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

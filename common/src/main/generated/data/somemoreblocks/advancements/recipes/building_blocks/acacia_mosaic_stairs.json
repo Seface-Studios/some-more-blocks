@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_acacia_mosaic"
+      "has_acacia_mosaic",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:acacia_mosaic_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

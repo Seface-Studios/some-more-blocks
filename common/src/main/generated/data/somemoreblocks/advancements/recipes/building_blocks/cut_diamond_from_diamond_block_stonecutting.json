@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_diamond_block"
+      "has_diamond_block",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:cut_diamond_from_diamond_block_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

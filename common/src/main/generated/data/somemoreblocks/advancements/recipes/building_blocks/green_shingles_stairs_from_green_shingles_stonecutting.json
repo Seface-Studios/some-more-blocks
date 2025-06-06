@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_green_shingles"
+      "has_green_shingles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:green_shingles_stairs_from_green_shingles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

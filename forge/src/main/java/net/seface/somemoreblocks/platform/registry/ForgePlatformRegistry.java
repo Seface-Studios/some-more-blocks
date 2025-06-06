@@ -82,22 +82,12 @@ public class ForgePlatformRegistry implements PlatformRegistry {
   }
 
   @Override
-  public <T extends GameRules.Value<T>> GameRules.Key<T> registerGameRule(String id, GameRules.Category category, GameRules.Type<T> type) {
-    return GameRules.register(id, category, type);
+  public GameRules.Key<GameRules.BooleanValue> registerBooleanGameRule(String id, GameRules.Category category, boolean defaultValue) {
+    return GameRules.register(id, category, GameRules.BooleanValue.create(defaultValue));
   }
 
   @Override
   public void setBlockRenderType(Block block, RenderType renderType) {
-    /*
-     * For some reason, Forge is not registering the correct
-     * RenderType for the Translucent block items.
-     */
-    if (renderType == RenderType.translucent()) {
-      ItemBlockRenderTypes.setRenderLayer(block, renderType);
-      ItemBlockRenderTypes.TYPE_BY_BLOCK.put(block, renderType); /* TYPE_BY_BLOCK via Access Transformer. */
-      return;
-    }
-
     ItemBlockRenderTypes.setRenderLayer(block, renderType);
   }
 

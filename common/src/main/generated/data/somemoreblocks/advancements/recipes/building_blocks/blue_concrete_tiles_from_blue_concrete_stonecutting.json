@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_blue_concrete"
+      "has_blue_concrete",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:blue_concrete_tiles_from_blue_concrete_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

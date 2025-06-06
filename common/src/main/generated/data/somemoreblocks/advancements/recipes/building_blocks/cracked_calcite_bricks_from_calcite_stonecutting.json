@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_calcite"
+      "has_calcite",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:cracked_calcite_bricks_from_calcite_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

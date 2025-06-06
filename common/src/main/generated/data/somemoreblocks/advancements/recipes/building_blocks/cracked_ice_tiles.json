@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_ice_tiles"
+      "has_ice_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:cracked_ice_tiles"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

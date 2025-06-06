@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_soul_sandstone_tiles"
+      "has_soul_sandstone_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:soul_sandstone_tile_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

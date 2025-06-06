@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "somemoreblocks:redstone_sea_lantern"
-  }
+  },
+  "show_notification": true
 }

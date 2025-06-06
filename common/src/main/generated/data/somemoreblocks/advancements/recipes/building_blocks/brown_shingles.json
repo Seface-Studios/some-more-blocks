@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_brown_dye"
+      "has_brown_dye",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:brown_shingles"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "somemoreblocks:acacia_mosaic"
-  }
+  },
+  "show_notification": true
 }

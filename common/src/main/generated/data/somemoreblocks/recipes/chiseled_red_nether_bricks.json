@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "somemoreblocks:chiseled_red_nether_bricks"
-  }
+  },
+  "show_notification": true
 }

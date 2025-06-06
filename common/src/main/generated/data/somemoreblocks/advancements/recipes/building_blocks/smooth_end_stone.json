@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_end_stone"
+      "has_end_stone",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:smooth_end_stone"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

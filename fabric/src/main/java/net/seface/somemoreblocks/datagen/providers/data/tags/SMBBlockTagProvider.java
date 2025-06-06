@@ -36,7 +36,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
     this.getOrCreateTagBuilder(SMBBlockTags.LEAF_LITTER_REPLACEABLE)
       .add(
         Blocks.DEAD_BUSH, Blocks.FERN,
-        Blocks.SHORT_GRASS, Blocks.VINE,
+        Blocks.GRASS, Blocks.VINE,
         Blocks.MOSS_CARPET,
         SMBBlocks.DUNE_GRASS.get(), SMBBlocks.SNOW_FERN.get(), SMBBlocks.SHORT_SNOW_GRASS.get());
 
@@ -416,7 +416,6 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.CUT_QUARTZ.get(), SMBBlocks.CUT_REDSTONE.get(),
         SMBBlocks.CUT_SOUL_SANDSTONE_SLAB.get(), SMBBlocks.CUT_SOUL_SANDSTONE.get(),
         SMBBlocks.DEEPSLATE_PILLAR.get(), SMBBlocks.DIAMOND_BRICKS.get(),
-        SMBBlocks.DIAMOND_GRATE.get(), SMBBlocks.DIAMOND_PILLAR.get(),
         SMBBlocks.DIORITE_BRICK_SLAB.get(), SMBBlocks.DIORITE_BRICK_STAIRS.get(),
         SMBBlocks.DIORITE_BRICK_WALL.get(), SMBBlocks.DIORITE_BRICKS.get(),
         SMBBlocks.DIORITE_PILLAR.get(), SMBBlocks.DIORITE_TILE_SLAB.get(),
@@ -435,7 +434,6 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.GRANITE_BRICKS.get(), SMBBlocks.GRANITE_PILLAR.get(),
         SMBBlocks.GRANITE_TILE_SLAB.get(), SMBBlocks.GRANITE_TILE_STAIRS.get(),
         SMBBlocks.GRANITE_TILE_WALL.get(), SMBBlocks.GRANITE_TILES.get(),
-        SMBBlocks.IRON_BRICKS.get(), SMBBlocks.IRON_GRATE.get(),
         SMBBlocks.IRON_PILLAR.get(), SMBBlocks.LAPIS_BRICKS.get(),
         SMBBlocks.LAPIS_PILLAR.get(), SMBBlocks.MOSSY_ANDESITE_BRICK_SLAB.get(),
         SMBBlocks.MOSSY_ANDESITE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_ANDESITE_BRICK_WALL.get(),
@@ -469,7 +467,6 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.MUD_TILE_SLAB.get(), SMBBlocks.MUD_TILE_STAIRS.get(),
         SMBBlocks.MUD_TILE_WALL.get(), SMBBlocks.MUD_TILES.get(),
         SMBBlocks.NETHER_BRICKS_PILLAR.get(), SMBBlocks.NETHERITE_BRICKS.get(),
-        SMBBlocks.NETHERITE_GRATE.get(), SMBBlocks.NETHERITE_PILLAR.get(),
         SMBBlocks.POLISHED_BLACKSTONE_TILE_SLAB.get(), SMBBlocks.POLISHED_BLACKSTONE_TILE_STAIRS.get(),
         SMBBlocks.POLISHED_BLACKSTONE_TILE_WALL.get(), SMBBlocks.POLISHED_BLACKSTONE_TILES.get(),
         SMBBlocks.POLISHED_CALCITE_SLAB.get(), SMBBlocks.POLISHED_CALCITE_STAIRS.get(),
@@ -572,7 +569,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
     this.getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).setReplace(false)
         .add(
           SMBBlocks.IRON_BRICKS.get(), SMBBlocks.CRACKED_SNOW_BRICKS.get(), SMBBlocks.IRON_PILLAR.get(),
-          SMBBlocks.CUT_IRON.get(), SMBBlocks.CRACKED_CUT_IRON.get(), SMBBlocks.IRON_GRATE.get(),
+          SMBBlocks.CUT_IRON.get(), SMBBlocks.CRACKED_CUT_IRON.get(),
           SMBBlocks.LAPIS_BRICKS.get(), SMBBlocks.CRACKED_LAPIS_BRICKS.get(), SMBBlocks.LAPIS_PILLAR.get(),
           SMBBlocks.CUT_LAPIS.get(), SMBBlocks.CRACKED_CUT_LAPIS.get(),
           SMBBlocks.COPPER_BRICKS.get(), SMBBlocks.CRACKED_COPPER_BRICKS.get(), SMBBlocks.COPPER_PILLAR.get(), SMBBlocks.CRACKED_CUT_COPPER.get(),
@@ -592,18 +589,18 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.EMERALD_BRICKS.get(), SMBBlocks.CRACKED_EMERALD_BRICKS.get(), SMBBlocks.EMERALD_PILLAR.get(),
         SMBBlocks.CUT_EMERALD.get(), SMBBlocks.CRACKED_CUT_EMERALD.get(),
         SMBBlocks.DIAMOND_BRICKS.get(), SMBBlocks.CRACKED_DIAMOND_BRICKS.get(), SMBBlocks.DIAMOND_PILLAR.get(),
-        SMBBlocks.CUT_DIAMOND.get(), SMBBlocks.CRACKED_CUT_DIAMOND.get(), SMBBlocks.DIAMOND_GRATE.get()
+        SMBBlocks.CUT_DIAMOND.get(), SMBBlocks.CRACKED_CUT_DIAMOND.get()
       );
 
     this.getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).setReplace(false)
       .add(
         SMBBlocks.NETHERITE_BRICKS.get(), SMBBlocks.CRACKED_NETHERITE_BRICKS.get(), SMBBlocks.NETHERITE_PILLAR.get(),
-        SMBBlocks.CUT_NETHERITE.get(), SMBBlocks.CRACKED_CUT_NETHERITE.get(), SMBBlocks.NETHERITE_GRATE.get()
+        SMBBlocks.CUT_NETHERITE.get(), SMBBlocks.CRACKED_CUT_NETHERITE.get()
       );
 
     this.getOrCreateTagBuilder(SMBBlockTags.LUMINOUS_FLOWER_REPLACEABLE)
       .add(
-        Blocks.SHORT_GRASS, Blocks.MOSS_CARPET, Blocks.SCULK_VEIN,
+        Blocks.GRASS, Blocks.MOSS_CARPET, Blocks.SCULK_VEIN,
         Blocks.GLOW_LICHEN, Blocks.VINE, Blocks.CAVE_VINES,
         Blocks.CAVE_VINES_PLANT);
 

@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "somemoreblocks:verdant_redstone_froglight"
-  }
+  },
+  "show_notification": true
 }

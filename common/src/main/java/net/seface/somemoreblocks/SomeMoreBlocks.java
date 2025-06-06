@@ -110,14 +110,12 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CRIMSON_FUNGUS_COLONY_WALL.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CYAN_STAINED_TILED_GLASS.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE.get(), translucent);
-    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.DIAMOND_GRATE.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.DUNE_GRASS.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get(), cutoutMipped);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.GRAY_STAINED_TILED_GLASS.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.GREEN_STAINED_TILED_GLASS.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE.get(), translucent);
-    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.IRON_GRATE.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.LARGE_SNOW_FERN.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.LEAF_LITTER.get(), cutoutMipped);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS.get(), translucent);
@@ -129,7 +127,6 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.LUMINOUS_FLOWER.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get(), translucent);
-    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.NETHERITE_GRATE.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.ORANGE_STAINED_TILED_GLASS.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PINK_STAINED_TILED_GLASS.get(), translucent);

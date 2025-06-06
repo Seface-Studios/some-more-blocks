@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cut_gold"
+      "has_cut_gold",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:cracked_cut_gold"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

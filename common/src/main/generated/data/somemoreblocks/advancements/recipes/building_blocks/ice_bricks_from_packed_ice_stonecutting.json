@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_packed_ice"
+      "has_packed_ice",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:ice_bricks_from_packed_ice_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

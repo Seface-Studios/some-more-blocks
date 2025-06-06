@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_purpur"
+      "has_polished_purpur",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:polished_purpur_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

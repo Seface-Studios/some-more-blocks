@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_white_shingles"
+      "has_white_shingles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:white_shingles_stairs_from_white_shingles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

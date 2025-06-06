@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_blackstone"
+      "has_polished_blackstone",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:cracked_polished_blackstone_tiles_from_polished_blackstone_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

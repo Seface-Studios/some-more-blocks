@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_netherite_block"
+      "has_netherite_block",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:netherite_pillar_from_netherite_block_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

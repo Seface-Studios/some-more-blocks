@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_smooth_andesite"
+      "has_smooth_andesite",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:smooth_andesite_slab_from_smooth_andesite_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

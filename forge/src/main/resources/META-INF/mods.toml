@@ -6,29 +6,29 @@ issueTrackerURL = "${issues_tracker_url}"
 showAsResourcePack = false
 
 [[mods]]
-    modId = "${mod_id}"
-    version = "${version}"
-    displayName = "${mod_name}"
-    displayURL= "${main_url}"
-    logoFile = "assets/${mod_id}/icon_64.png"
-    credits = "Everyone who contributed on Crowdin and GitHub."
-    authors = "${mod_author}"
-    updateJSONURL = "${source_url}/raw/refs/heads/main/.github/forge-update.json"
-    description = '''
-    ${description}
-    In loving memory of §dNicolle Gama§f.
-    '''
+  modId = "${mod_id}"
+  version = "${version}"
+  displayName = "${mod_name}"
+  displayURL= "${main_url}"
+  logoFile = "assets/${mod_id}/icon_64.png"
+  credits = "Everyone who contributed on Crowdin and GitHub."
+  authors = "${mod_author}"
+  updateJSONURL = "${source_url}/raw/refs/heads/main/.github/forge-update.json"
+  description = '''
+  ${description}
+  In loving memory of §dNicolle Gama§f.
+  '''
 
 [[dependencies.${mod_id}]]
-    modId = "forge"
-    mandatory = true
-    versionRange = "${forge_version_range}"
-    ordering = "NONE"
-    side = "BOTH"
+  modId = "forge"
+  mandatory = true
+  versionRange = "${forge_version_range}"
+  ordering = "NONE"
+  side = "BOTH"
 
 [[dependencies.${mod_id}]]
-    modId= "minecraft"
-    mandatory = true
-    versionRange = "${minecraft_version_range}"
-    ordering = "NONE"
-    side = "BOTH"
+  modId= "minecraft"
+  mandatory = true
+  versionRange = "${minecraft_version_range}"
+  ordering = "NONE"
+  side = "BOTH"

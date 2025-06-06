@@ -12,5 +12,6 @@
   "result": {
     "count": 6,
     "item": "somemoreblocks:corrupted_polished_basalt_brick_slab"
-  }
+  },
+  "show_notification": true
 }

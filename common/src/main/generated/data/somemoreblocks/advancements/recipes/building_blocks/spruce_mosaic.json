@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_spruce_slab"
+      "has_spruce_slab",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:spruce_mosaic"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

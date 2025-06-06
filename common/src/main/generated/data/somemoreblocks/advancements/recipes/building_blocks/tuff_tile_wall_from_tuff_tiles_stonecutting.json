@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_tuff_tiles"
+      "has_tuff_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:tuff_tile_wall_from_tuff_tiles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_terracotta_bricks"
+      "has_terracotta_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:terracotta_tiles"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

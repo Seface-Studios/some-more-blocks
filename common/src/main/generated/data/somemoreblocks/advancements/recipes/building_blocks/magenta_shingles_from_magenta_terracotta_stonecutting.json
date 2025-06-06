@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_magenta_terracotta"
+      "has_magenta_terracotta",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:magenta_shingles_from_magenta_terracotta_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_prismarine"
+      "has_polished_prismarine",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:polished_prismarine_slab_from_polished_prismarine_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

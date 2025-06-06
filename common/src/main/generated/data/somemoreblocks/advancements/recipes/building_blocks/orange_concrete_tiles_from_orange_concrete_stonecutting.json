@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_orange_concrete"
+      "has_orange_concrete",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:orange_concrete_tiles_from_orange_concrete_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

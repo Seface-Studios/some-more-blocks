@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_granite_brick_slab"
+      "has_granite_brick_slab",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:chiseled_granite_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

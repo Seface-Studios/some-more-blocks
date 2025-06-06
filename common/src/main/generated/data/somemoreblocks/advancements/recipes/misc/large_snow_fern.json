@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_large_fern"
+      "has_large_fern",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:large_snow_fern"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

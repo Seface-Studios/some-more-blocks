@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_gray_stained_tiled_glass"
+      "has_gray_stained_tiled_glass",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:gray_stained_tiled_glass_pane_from_gray_stained_tiled_glass"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

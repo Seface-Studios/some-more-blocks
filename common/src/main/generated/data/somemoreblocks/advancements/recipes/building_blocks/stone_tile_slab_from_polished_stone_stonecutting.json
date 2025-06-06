@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_stone"
+      "has_polished_stone",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:stone_tile_slab_from_polished_stone_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

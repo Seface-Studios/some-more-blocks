@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_waxed_weathered_cut_copper"
+      "has_waxed_weathered_cut_copper",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:waxed_weathered_cracked_cut_copper"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

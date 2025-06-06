@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_orange_shingles"
+      "has_orange_shingles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:orange_shingles_stairs_from_orange_shingles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_calcite"
+      "has_polished_calcite",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:calcite_tile_wall_from_polished_calcite_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

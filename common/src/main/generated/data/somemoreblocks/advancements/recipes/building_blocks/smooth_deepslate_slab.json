@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_smooth_deepslate"
+      "has_smooth_deepslate",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:smooth_deepslate_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

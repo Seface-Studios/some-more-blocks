@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_yellow_dye"
+      "has_yellow_dye",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:yellow_terracotta_tiles"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

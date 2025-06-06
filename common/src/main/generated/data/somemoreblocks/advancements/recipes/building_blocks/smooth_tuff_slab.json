@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_smooth_tuff"
+      "has_smooth_tuff",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:smooth_tuff_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

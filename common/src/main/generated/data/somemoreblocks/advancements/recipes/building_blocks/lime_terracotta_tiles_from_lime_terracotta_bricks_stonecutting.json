@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_lime_terracotta_bricks"
+      "has_lime_terracotta_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:lime_terracotta_tiles_from_lime_terracotta_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

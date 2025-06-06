@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_soul_soil"
+      "has_soul_soil",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:soul_sandstone_from_soul_soil"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

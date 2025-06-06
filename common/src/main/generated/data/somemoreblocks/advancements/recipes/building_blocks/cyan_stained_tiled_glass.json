@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cyan_dye"
+      "has_cyan_dye",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:cyan_stained_tiled_glass"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

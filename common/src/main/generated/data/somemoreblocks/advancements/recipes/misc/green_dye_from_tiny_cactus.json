@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_tiny_cactus"
+      "has_tiny_cactus",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:green_dye_from_tiny_cactus"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

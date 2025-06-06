@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_smooth_tuff"
+      "has_smooth_tuff",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:smooth_tuff_slab_from_smooth_tuff_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

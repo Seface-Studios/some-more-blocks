@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_ochre_froglight"
+      "has_ochre_froglight",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:ochre_redstone_froglight"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

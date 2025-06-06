@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_black_dye"
+      "has_black_dye",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:black_stained_tiled_glass_pane"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

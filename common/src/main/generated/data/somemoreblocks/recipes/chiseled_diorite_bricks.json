@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "somemoreblocks:chiseled_diorite_bricks"
-  }
+  },
+  "show_notification": true
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_smooth_purpur"
+      "has_smooth_purpur",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:smooth_purpur_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

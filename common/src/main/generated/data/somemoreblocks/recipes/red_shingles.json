@@ -18,5 +18,6 @@
   "result": {
     "count": 8,
     "item": "somemoreblocks:red_shingles"
-  }
+  },
+  "show_notification": true
 }

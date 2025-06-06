@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_carved_log"
+      "has_carved_log",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:carved_crimson_hyphae"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

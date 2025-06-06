@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "somemoreblocks:soul_sandstone"
-  }
+  },
+  "show_notification": true
 }

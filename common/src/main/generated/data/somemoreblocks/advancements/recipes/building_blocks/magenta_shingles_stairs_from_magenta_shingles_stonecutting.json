@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_magenta_shingles"
+      "has_magenta_shingles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:magenta_shingles_stairs_from_magenta_shingles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

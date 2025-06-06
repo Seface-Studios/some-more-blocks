@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_andesite"
+      "has_polished_andesite",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:andesite_tile_stairs_from_polished_andesite_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

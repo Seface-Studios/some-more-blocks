@@ -138,9 +138,6 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropSelf(SMBBlocks.WAXED_OXIDIZED_CRACKED_CUT_COPPER.get());
     this.dropSelf(SMBBlocks.WAXED_WEATHERED_CRACKED_CUT_COPPER.get());
     this.dropSelf(SMBBlocks.WEATHERED_CRACKED_CUT_COPPER.get());
-    this.dropSelf(SMBBlocks.IRON_GRATE.get());
-    this.dropSelf(SMBBlocks.DIAMOND_GRATE.get());
-    this.dropSelf(SMBBlocks.NETHERITE_GRATE.get());
     this.dropWhenShovel(SMBBlocks.CRACKED_SNOW_BRICKS.get());
     this.dropWhenShovel(SMBBlocks.CRACKED_SNOW_TILES.get());
     this.dropWhenShovel(SMBBlocks.PACKED_SNOW.get());
@@ -392,7 +389,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
           LocationPredicate.Builder.location()
             .setBlock(BlockPredicate.Builder.block()
               .of(block)
-              .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER))
+              .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER).build()).build()
             ), new BlockPos(0, 1, 0)
         ))
         .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(HAS_SHEARS).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))
@@ -407,7 +404,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
           LocationPredicate.Builder.location()
             .setBlock(BlockPredicate.Builder.block()
               .of(block)
-              .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER))
+              .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER).build()).build()
             ), new BlockPos(0, -1, 0)
         ))
         .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(HAS_SHEARS).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))))

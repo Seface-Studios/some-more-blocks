@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "somemoreblocks:chiseled_dripstone_bricks"
-  }
+  },
+  "show_notification": true
 }

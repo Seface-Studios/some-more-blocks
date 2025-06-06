@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_magenta_shingles"
+      "has_magenta_shingles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:magenta_shingles_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

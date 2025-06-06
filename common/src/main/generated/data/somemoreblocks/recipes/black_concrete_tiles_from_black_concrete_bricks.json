@@ -14,5 +14,6 @@
   "result": {
     "count": 4,
     "item": "somemoreblocks:black_concrete_tiles"
-  }
+  },
+  "show_notification": true
 }

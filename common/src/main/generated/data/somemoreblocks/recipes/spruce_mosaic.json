@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "somemoreblocks:spruce_mosaic"
-  }
+  },
+  "show_notification": true
 }

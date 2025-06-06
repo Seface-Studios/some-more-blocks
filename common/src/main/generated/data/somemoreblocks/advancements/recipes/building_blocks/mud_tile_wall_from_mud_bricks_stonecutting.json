@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_mud_bricks"
+      "has_mud_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:mud_tile_wall_from_mud_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_netherite_bricks"
+      "has_netherite_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:cracked_netherite_bricks_from_netherite_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

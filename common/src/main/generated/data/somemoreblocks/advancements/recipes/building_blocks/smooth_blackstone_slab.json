@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_smooth_blackstone"
+      "has_smooth_blackstone",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:smooth_blackstone_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

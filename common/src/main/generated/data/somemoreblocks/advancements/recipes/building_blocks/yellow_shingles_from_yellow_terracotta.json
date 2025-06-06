@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_yellow_terracotta"
+      "has_yellow_terracotta",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:yellow_shingles_from_yellow_terracotta"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

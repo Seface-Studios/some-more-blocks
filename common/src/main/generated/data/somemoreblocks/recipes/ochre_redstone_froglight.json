@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "somemoreblocks:ochre_redstone_froglight"
-  }
+  },
+  "show_notification": true
 }

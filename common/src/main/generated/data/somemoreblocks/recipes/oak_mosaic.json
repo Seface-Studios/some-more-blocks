@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "somemoreblocks:oak_mosaic"
-  }
+  },
+  "show_notification": true
 }

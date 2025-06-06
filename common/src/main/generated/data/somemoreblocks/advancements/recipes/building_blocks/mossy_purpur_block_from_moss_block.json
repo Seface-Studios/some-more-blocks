@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_purpur_block"
+      "has_purpur_block",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:mossy_purpur_block_from_moss_block"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

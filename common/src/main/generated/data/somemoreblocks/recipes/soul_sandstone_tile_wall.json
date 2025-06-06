@@ -13,5 +13,6 @@
   "result": {
     "count": 6,
     "item": "somemoreblocks:soul_sandstone_tile_wall"
-  }
+  },
+  "show_notification": true
 }

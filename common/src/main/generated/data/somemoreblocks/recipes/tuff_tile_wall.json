@@ -13,5 +13,6 @@
   "result": {
     "count": 6,
     "item": "somemoreblocks:tuff_tile_wall"
-  }
+  },
+  "show_notification": true
 }

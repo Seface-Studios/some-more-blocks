@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cut_lapis"
+      "has_cut_lapis",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:lapis_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

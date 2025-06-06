@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_calcite"
+      "has_polished_calcite",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:polished_calcite_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

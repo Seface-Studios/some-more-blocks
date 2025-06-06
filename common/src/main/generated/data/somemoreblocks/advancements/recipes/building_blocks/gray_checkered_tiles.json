@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_quartz_block"
+      "has_quartz_block",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:gray_checkered_tiles"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

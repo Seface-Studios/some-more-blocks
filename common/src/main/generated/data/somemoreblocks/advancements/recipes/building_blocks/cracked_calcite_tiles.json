@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_calcite_tiles"
+      "has_calcite_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:cracked_calcite_tiles"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

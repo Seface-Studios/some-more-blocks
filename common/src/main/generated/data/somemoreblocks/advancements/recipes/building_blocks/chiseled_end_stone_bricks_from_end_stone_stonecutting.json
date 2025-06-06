@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_end_stone"
+      "has_end_stone",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:chiseled_end_stone_bricks_from_end_stone_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

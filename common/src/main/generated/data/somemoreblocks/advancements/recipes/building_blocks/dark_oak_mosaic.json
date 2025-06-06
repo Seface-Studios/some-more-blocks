@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_dark_oak_slab"
+      "has_dark_oak_slab",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:dark_oak_mosaic"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

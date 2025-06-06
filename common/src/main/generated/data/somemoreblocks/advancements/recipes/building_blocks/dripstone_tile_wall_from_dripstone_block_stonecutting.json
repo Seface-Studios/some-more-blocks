@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_dripstone_block"
+      "has_dripstone_block",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:dripstone_tile_wall_from_dripstone_block_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

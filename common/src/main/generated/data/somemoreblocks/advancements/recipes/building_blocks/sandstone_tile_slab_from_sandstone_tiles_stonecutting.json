@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_sandstone_tiles"
+      "has_sandstone_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:sandstone_tile_slab_from_sandstone_tiles_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cut_netherite"
+      "has_cut_netherite",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:cracked_cut_netherite"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -2,7 +2,6 @@ package net.seface.somemoreblocks.block;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -24,7 +23,6 @@ import java.util.Map;
 
 @SuppressWarnings("deprecation")
 public class WallMushroomColonyBlock extends BushBlock {
-  public static final MapCodec<WallMushroomColonyBlock> CODEC = simpleCodec(WallMushroomColonyBlock::new);
   protected static final Map<Direction, VoxelShape> SHAPE = Maps.newEnumMap(ImmutableMap.of(
     Direction.SOUTH, Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 6.0),
     Direction.WEST, Block.box(10.0, 0.0, 0.0, 16.0, 16.0, 16.0),
@@ -37,12 +35,6 @@ public class WallMushroomColonyBlock extends BushBlock {
   public WallMushroomColonyBlock(Properties properties) {
     super(properties);
     this.registerDefaultState((this.stateDefinition.any()).setValue(FACING, Direction.NORTH));
-  }
-
-  @NotNull
-  @Override
-  public MapCodec<WallMushroomColonyBlock> codec() {
-    return CODEC;
   }
 
   @NotNull

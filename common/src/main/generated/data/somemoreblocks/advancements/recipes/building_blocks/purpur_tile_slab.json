@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_purpur_tiles"
+      "has_purpur_tiles",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:purpur_tile_slab"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

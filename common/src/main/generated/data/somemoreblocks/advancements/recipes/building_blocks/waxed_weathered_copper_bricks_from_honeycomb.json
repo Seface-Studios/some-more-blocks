@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_weathered_copper_bricks"
+      "has_weathered_copper_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:waxed_weathered_copper_bricks_from_honeycomb"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

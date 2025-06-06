@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_polished_diorite"
+      "has_polished_diorite",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:diorite_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_tuff"
+      "has_tuff",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:polished_tuff_slab_from_tuff_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

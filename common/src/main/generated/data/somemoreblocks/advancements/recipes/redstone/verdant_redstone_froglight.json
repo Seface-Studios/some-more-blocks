@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_verdant_froglight"
+      "has_verdant_froglight",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:verdant_redstone_froglight"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

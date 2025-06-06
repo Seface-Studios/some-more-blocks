@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_birch_mosaic"
+      "has_birch_mosaic",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "somemoreblocks:birch_mosaic_stairs"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

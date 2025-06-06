@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_terracotta"
+      "has_terracotta",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:terracotta_bricks_from_terracotta_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

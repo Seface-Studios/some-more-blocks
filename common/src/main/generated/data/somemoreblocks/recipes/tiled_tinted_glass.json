@@ -13,5 +13,6 @@
   "result": {
     "count": 4,
     "item": "somemoreblocks:tiled_tinted_glass"
-  }
+  },
+  "show_notification": true
 }

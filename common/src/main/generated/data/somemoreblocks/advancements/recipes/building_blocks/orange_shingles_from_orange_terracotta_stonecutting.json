@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_orange_terracotta"
+      "has_orange_terracotta",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:orange_shingles_from_orange_terracotta_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

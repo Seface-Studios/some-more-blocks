@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cyan_terracotta_bricks"
+      "has_cyan_terracotta_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:cyan_terracotta_tiles_from_cyan_terracotta_bricks"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

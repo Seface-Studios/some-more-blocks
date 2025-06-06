@@ -15,7 +15,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BucketPickup;
-import net.minecraft.world.level.block.TransparentBlock;
+import net.minecraft.world.level.block.HalfTransparentBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -30,8 +30,8 @@ import java.util.Optional;
 @Setter
 @Getter
 @SuppressWarnings("deprecation")
-public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
-  public static final MapCodec<LeafLitterBlock> CODEC = simpleCodec(LeafLitterBlock::new);
+public class LeafLitterBlock extends HalfTransparentBlock implements BucketPickup {
+  //public static final MapCodec<LeafLitterBlock> CODEC = simpleCodec(LeafLitterBlock::new);
   protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
 
   private Item bucketItem;
@@ -40,11 +40,11 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
     super(properties);
   }
 
-  @NotNull
+  /*@NotNull
   @Override
   protected MapCodec<? extends TransparentBlock> codec() {
     return CODEC;
-  }
+  }*/
 
   @Override
   public boolean skipRendering(BlockState state1, BlockState state2, Direction direction) {
@@ -79,15 +79,15 @@ public class LeafLitterBlock extends TransparentBlock implements BucketPickup {
 
   @NotNull
   @Override
-  public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
-    ItemStack stack = super.getCloneItemStack(level, pos, state);
+  public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos pos, BlockState state) {
+    ItemStack stack = super.getCloneItemStack(blockGetter, pos, state);
     LeavesBucketItem.setBucketVolume(stack, LeavesBucketItem.MAX_VOLUME);
 
     return stack;
   }
 
   @Override
-  public @NotNull ItemStack pickupBlock(@Nullable Player player, LevelAccessor level, BlockPos pos, BlockState state) {
+  public @NotNull ItemStack pickupBlock(LevelAccessor level, BlockPos pos, BlockState state) {
     level.setBlock(pos, Blocks.AIR.defaultBlockState(), 11);
 
     if (!level.isClientSide()) {

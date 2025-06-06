@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_cut_lapis"
+      "has_cut_lapis",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:cracked_cut_lapis_from_cut_lapis_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

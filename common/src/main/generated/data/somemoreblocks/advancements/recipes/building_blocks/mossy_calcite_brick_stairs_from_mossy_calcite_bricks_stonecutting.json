@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_mossy_calcite_bricks"
+      "has_mossy_calcite_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:mossy_calcite_brick_stairs_from_mossy_calcite_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

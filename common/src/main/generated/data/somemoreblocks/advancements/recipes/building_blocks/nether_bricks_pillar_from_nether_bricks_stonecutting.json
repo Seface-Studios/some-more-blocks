@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_nether_bricks"
+      "has_nether_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:nether_bricks_pillar_from_nether_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

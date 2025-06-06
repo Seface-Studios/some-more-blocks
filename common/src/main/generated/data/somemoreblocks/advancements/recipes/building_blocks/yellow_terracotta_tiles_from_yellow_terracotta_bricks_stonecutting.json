@@ -22,13 +22,14 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_yellow_terracotta_bricks"
+      "has_yellow_terracotta_bricks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:yellow_terracotta_tiles_from_yellow_terracotta_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

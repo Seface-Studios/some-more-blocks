@@ -1,6 +1,7 @@
 pluginManagement {
   repositories {
     gradlePluginPortal()
+    mavenCentral()
     maven {
       name = 'Fabric'
       url = 'https://maven.fabricmc.net/'
@@ -24,4 +25,3 @@ rootProject.name = 'some-more-blocks'
 include("common")
 include("fabric")
 include("forge")
-include("neoforge")

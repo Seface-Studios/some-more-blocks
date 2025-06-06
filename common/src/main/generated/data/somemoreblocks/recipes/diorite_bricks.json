@@ -13,5 +13,6 @@
   "result": {
     "count": 4,
     "item": "somemoreblocks:diorite_bricks"
-  }
+  },
+  "show_notification": true
 }

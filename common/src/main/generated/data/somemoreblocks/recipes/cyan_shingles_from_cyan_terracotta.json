@@ -14,5 +14,6 @@
   "result": {
     "count": 4,
     "item": "somemoreblocks:cyan_shingles"
-  }
+  },
+  "show_notification": true
 }
