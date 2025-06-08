@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:quartz_block"
+    },
+    "$": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+  "pattern": [
+    "#$",
+    "$#"
+  ],
+  "result": {
+    "count": 4,
+    "id": "somemoreblocks:white_checkered_tiles"
+  }
+}

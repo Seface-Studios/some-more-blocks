@@ -378,6 +378,22 @@
     "somemoreblocks:corrupted_polished_basalt_brick_stairs",
     "somemoreblocks:corrupted_polished_basalt_brick_slab",
     "somemoreblocks:corrupted_polished_basalt_brick_wall",
-    "somemoreblocks:redstone_sea_lantern"
+    "somemoreblocks:redstone_sea_lantern",
+    "somemoreblocks:white_checkered_tiles",
+    "somemoreblocks:light_gray_checkered_tiles",
+    "somemoreblocks:gray_checkered_tiles",
+    "somemoreblocks:black_checkered_tiles",
+    "somemoreblocks:brown_checkered_tiles",
+    "somemoreblocks:red_checkered_tiles",
+    "somemoreblocks:orange_checkered_tiles",
+    "somemoreblocks:yellow_checkered_tiles",
+    "somemoreblocks:lime_checkered_tiles",
+    "somemoreblocks:green_checkered_tiles",
+    "somemoreblocks:cyan_checkered_tiles",
+    "somemoreblocks:light_blue_checkered_tiles",
+    "somemoreblocks:blue_checkered_tiles",
+    "somemoreblocks:purple_checkered_tiles",
+    "somemoreblocks:magenta_checkered_tiles",
+    "somemoreblocks:pink_checkered_tiles"
   ]
 }

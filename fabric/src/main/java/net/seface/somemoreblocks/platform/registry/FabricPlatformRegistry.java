@@ -1,6 +1,7 @@
 package net.seface.somemoreblocks.platform.registry;
 
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.client.renderer.RenderType;
@@ -80,8 +81,8 @@ public class FabricPlatformRegistry implements PlatformRegistry {
   }
 
   @Override
-  public <T extends GameRules.Value<T>> GameRules.Key<T> registerGameRule(String id, GameRules.Category category, GameRules.Type<T> type) {
-    return GameRuleRegistry.register(id, category, type);
+  public GameRules.Key<GameRules.BooleanValue> registerBooleanGameRule(String id, GameRules.Category category, boolean defaultValue) {
+    return GameRuleRegistry.register(id, category, GameRuleFactory.createBooleanRule(defaultValue));
   }
 
   @Override

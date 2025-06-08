@@ -1,17 +1,9 @@
 package net.seface.somemoreblocks.registries;
 
-import net.minecraft.ChatFormatting;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.component.ItemLore;
 import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.platform.registry.PlatformRegistryObject;
-
-import java.util.List;
 
 public class SMBCreativeTabs {
   public static final PlatformRegistryObject<CreativeModeTab> MORE_BUILDING_BLOCKS = PlatformServices.REGISTRY.registerCreativeModeTab("more_building_blocks", CreativeModeTab.Row.TOP, 0,
@@ -551,6 +543,22 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.PURPLE_SHINGLES_STAIRS.get());
         entry.accept(SMBBlocks.MAGENTA_SHINGLES_STAIRS.get());
         entry.accept(SMBBlocks.PINK_SHINGLES_STAIRS.get());
+        entry.accept(SMBBlocks.WHITE_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.LIGHT_GRAY_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.GRAY_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.BLACK_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.BROWN_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.RED_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.ORANGE_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.YELLOW_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.LIME_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.GREEN_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.CYAN_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.LIGHT_BLUE_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.BLUE_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.PURPLE_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.MAGENTA_CHECKERED_TILES.get());
+        entry.accept(SMBBlocks.PINK_CHECKERED_TILES.get());
         entry.accept(SMBBlocks.TERRACOTTA_BRICKS.get());
         entry.accept(SMBBlocks.WHITE_TERRACOTTA_BRICKS.get());
         entry.accept(SMBBlocks.LIGHT_GRAY_TERRACOTTA_BRICKS.get());

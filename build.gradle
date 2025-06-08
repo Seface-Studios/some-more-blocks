@@ -17,23 +17,25 @@ allprojects {
   }
 
   java {
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    toolchain.languageVersion = JavaLanguageVersion.of(java_version.toInteger())
     withSourcesJar()
     withJavadocJar()
   }
 
   repositories {
     mavenCentral()
+
     maven {
       name = 'Sponge / Mixin'
       url = 'https://repo.spongepowered.org/repository/maven-public/'
     }
+
     maven { url = "https://jitpack.io" }
   }
 
   tasks.withType(JavaCompile).configureEach {
     it.options.encoding = 'UTF-8'
-    it.options.getRelease().set(21)
+    it.options.getRelease().set(java_version.toInteger())
   }
 
   tasks.withType(GenerateModuleMetadata).configureEach {
@@ -84,11 +86,11 @@ subprojects {
   }
 
   dependencies {
-    compileOnly 'org.projectlombok:lombok:1.18.34'
-    annotationProcessor 'org.projectlombok:lombok:1.18.34'
-    testCompileOnly 'org.projectlombok:lombok:1.18.34'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+    compileOnly "org.projectlombok:lombok:${lombok_version}"
+    annotationProcessor "org.projectlombok:lombok:${lombok_version}"
+    testCompileOnly "org.projectlombok:lombok:${lombok_version}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombok_version}"
   }
 
   processResources {
@@ -96,6 +98,7 @@ subprojects {
       /* Minecraft */
       "minecraft_version"             : minecraft_version,
       "minecraft_version_range"       : minecraft_version_range,
+      "java_version"                  : java_version,
 
       /* Loaders */
       "fabric_version"                : fabric_version,
@@ -148,7 +151,6 @@ subprojects {
   }
 }
 
-// Configurações específicas para projetos que usam o código comum
 configure(subprojects.findAll { it.name != "common" }) {
   tasks.withType(JavaCompile).configureEach {
     source(project(":common").sourceSets.main.allSource)
@@ -170,12 +172,10 @@ configure(subprojects.findAll { it.name != "common" }) {
     compileOnly project(":common")
   }
 
-  // Adicionar configuração para recursos gerados em todos os projetos de plataforma
   sourceSets.main.resources {
     srcDir(project(":common").file('src/main/generated'))
   }
 
-  // Diretórios de saída padronizados
   afterEvaluate {
     tasks.named("jar") {
       destinationDirectory = layout.buildDirectory.dir("libs")
