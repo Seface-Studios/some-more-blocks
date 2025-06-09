@@ -14,7 +14,7 @@ f88db9a0f2b399572b920ee73c405abf440da243 data/minecraft/tags/block/flower_pots.j
 28712f2ed6e9430bc22b65ed630e27b4cb31ccc6 data/minecraft/tags/block/mangrove_logs.json
 5f1e7a89279fc3d9f8c30730a295f2611c8efbfd data/minecraft/tags/block/mineable/axe.json
 22f4366c206d2ce59d7093a8922306955f9c8bd4 data/minecraft/tags/block/mineable/hoe.json
-94dc75aa1df257010b806c053ae9e6f8d8310adf data/minecraft/tags/block/mineable/pickaxe.json
+2211a372e0e9961a12e0d2bf06ecd2e876042338 data/minecraft/tags/block/mineable/pickaxe.json
 766e1857e7b0886002547cc7e67fa705be2408eb data/minecraft/tags/block/mineable/shovel.json
 26273cf3265195487be031579f575b49cba636e1 data/minecraft/tags/block/needs_diamond_tool.json
 8222c8066f1c990324e148b462eabeee10e5d409 data/minecraft/tags/block/needs_iron_tool.json

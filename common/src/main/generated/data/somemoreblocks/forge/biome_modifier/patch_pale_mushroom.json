@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#somemoreblocks:generates/nether_clover",
+  "features": "somemoreblocks:patch_pale_mushroom",
+  "step": "vegetal_decoration"
+}

@@ -46,7 +46,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
       .add(Blocks.MUSHROOM_STEM)
       .add(
         Blocks.MANGROVE_ROOTS, Blocks.MUDDY_MANGROVE_ROOTS,
-        Blocks.CRIMSON_NYLIUM, Blocks.WARPED_NYLIUM);
+        Blocks.CRIMSON_NYLIUM, Blocks.WARPED_NYLIUM, Blocks.CREAKING_HEART);
 
     this.getOrCreateTagBuilder(SMBBlockTags.SHINGLES)
       .add(
@@ -556,7 +556,15 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.POLISHED_BASALT_TILE_STAIRS.get(), SMBBlocks.POLISHED_BASALT_TILE_SLAB.get(),
         SMBBlocks.POLISHED_BASALT_TILE_WALL.get(), SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICKS.get(),
         SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get(), SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_SLAB.get(),
-        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_WALL.get(), SMBBlocks.REDSTONE_SEA_LANTERN.get()
+        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_WALL.get(), SMBBlocks.REDSTONE_SEA_LANTERN.get(),
+        SMBBlocks.WHITE_CHECKERED_TILES.get(), SMBBlocks.LIGHT_GRAY_CHECKERED_TILES.get(),
+        SMBBlocks.GRAY_CHECKERED_TILES.get(), SMBBlocks.BLACK_CHECKERED_TILES.get(),
+        SMBBlocks.BROWN_CHECKERED_TILES.get(), SMBBlocks.RED_CHECKERED_TILES.get(),
+        SMBBlocks.ORANGE_CHECKERED_TILES.get(), SMBBlocks.YELLOW_CHECKERED_TILES.get(),
+        SMBBlocks.LIME_CHECKERED_TILES.get(), SMBBlocks.GREEN_CHECKERED_TILES.get(),
+        SMBBlocks.CYAN_CHECKERED_TILES.get(), SMBBlocks.LIGHT_BLUE_CHECKERED_TILES.get(),
+        SMBBlocks.BLUE_CHECKERED_TILES.get(), SMBBlocks.PURPLE_CHECKERED_TILES.get(),
+        SMBBlocks.MAGENTA_CHECKERED_TILES.get(), SMBBlocks.PINK_CHECKERED_TILES.get()
       );
 
     this.getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_SHOVEL).setReplace(false)

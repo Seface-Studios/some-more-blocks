@@ -17,12 +17,13 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.patchCattail();
     SMBBiomeModifiers.patchCattailSwamp();
     SMBBiomeModifiers.patchClover();
-    SMBBiomeModifiers.patchNetherClover();
     SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.PATCH_CRIMSON_FUNGUS_COLONY);
     SMBBiomeModifiers.patchCrimsonFungusColony(SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL);
     SMBBiomeModifiers.patchDuneGrass();
     SMBBiomeModifiers.patchLargeSnowFern();
     SMBBiomeModifiers.patchLuminousFlower();
+    SMBBiomeModifiers.patchNetherClover();
+    SMBBiomeModifiers.patchPaleMushroom();
     SMBBiomeModifiers.patchPaleRoseBush();
     SMBBiomeModifiers.patchSmallLilyPads();
     SMBBiomeModifiers.patchSmallLilyPadsLushCaves();
@@ -37,6 +38,8 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER);
     SMBBiomeModifiers.simpleLeafLitter(SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER);
+    SMBBiomeModifiers.simplePaleMushroomColony(SMBPlacedFeature.PATCH_PALE_MUSHROOM_COLONY);
+    SMBBiomeModifiers.simplePaleMushroomColony(SMBPlacedFeature.SIMPLE_PALE_MUSHROOM_COLONY_WALL);
     SMBBiomeModifiers.simpleRedMushroomColony(SMBPlacedFeature.PATCH_RED_MUSHROOM_COLONY);
     SMBBiomeModifiers.simpleRedMushroomColony(SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL);
   }
@@ -137,6 +140,14 @@ public class SMBBiomeModifiers {
     );
   }
 
+  private static void patchPaleMushroom() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_PALE_MUSHROOM).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_PALE_MUSHROOM
+    );
+  }
+
   private static void patchLargeSnowFern() {
     BiomeModifications.addFeature(
       (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_LARGE_SNOW_FERN).test(ctx),
@@ -164,6 +175,14 @@ public class SMBBiomeModifiers {
   private static void simpleRedMushroomColony(ResourceKey<PlacedFeature> feature) {
     BiomeModifications.addFeature(
       (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      feature
+    );
+  }
+
+  private static void simplePaleMushroomColony(ResourceKey<PlacedFeature> feature) {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY).test(ctx),
       GenerationStep.Decoration.VEGETAL_DECORATION,
       feature
     );

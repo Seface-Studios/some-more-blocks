@@ -53,5 +53,11 @@ public class SMBBiomeTagProvider extends FabricTagProvider<Biome> {
 
     this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_NETHER_CLOVER)
       .add(Biomes.CRIMSON_FOREST, Biomes.WARPED_FOREST, Biomes.FLOWER_FOREST, Biomes.NETHER_WASTES);
+
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_PALE_MUSHROOM)
+      .add(Biomes.PALE_GARDEN);
+
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY)
+      .add(Biomes.PALE_GARDEN);
   }
 }

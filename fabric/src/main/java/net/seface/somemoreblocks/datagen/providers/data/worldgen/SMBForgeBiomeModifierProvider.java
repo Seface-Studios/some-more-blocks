@@ -51,6 +51,7 @@ public class SMBForgeBiomeModifierProvider extends ForgeModifierProvider {
     this.vegetalDecoration(SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_CLOVER).setBiomes(SMBBiomeTags.GENERATES_CLOVER).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_NETHER_CLOVER).setBiomes(SMBBiomeTags.GENERATES_NETHER_CLOVER).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_PALE_MUSHROOM).setBiomes(SMBBiomeTags.GENERATES_NETHER_CLOVER).build();
   }
 
   private ForgeBiomeModifier leafLitterDecoration(ResourceKey<PlacedFeature> placedFeature) {

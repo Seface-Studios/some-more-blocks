@@ -385,6 +385,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
 
         /* More Colored Blocks */
         this.shingles();
+        this.checkeredTiles();
         this.terracottaBricksAndTiles();
         this.concreteBricksAndTiles();
         this.tiledGlassAndTiledGlassPane();
@@ -595,6 +596,23 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
 
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.SHINGLES.get(), Blocks.TERRACOTTA, 4);
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.SHINGLES.get(), List.of(Blocks.TERRACOTTA));
+      }
+
+      private void checkeredTiles() {
+        DyeColor[] dyeColors = DyeColor.values();
+
+        for (DyeColor dyeColor : dyeColors) {
+          Block checkeredTiles = SMBRegistries.CHECKERED_TILES.getNext(dyeColor).orElseThrow();
+          Block concrete = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(dyeColor + "_concrete"));
+
+          this.shaped(RecipeCategory.BUILDING_BLOCKS, checkeredTiles, 4)
+            .define('#', Blocks.QUARTZ_BLOCK)
+            .define('$', concrete)
+            .pattern("#$")
+            .pattern("$#")
+            .unlockedBy(RecipeProvider.getHasName(Blocks.QUARTZ_BLOCK), this.has(Blocks.QUARTZ_BLOCK))
+            .save(this.output);
+        }
       }
 
       /**

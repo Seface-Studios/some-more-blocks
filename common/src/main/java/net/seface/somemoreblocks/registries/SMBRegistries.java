@@ -26,6 +26,7 @@ public class SMBRegistries {
   public static BidirectionalRegistryObject<@Nullable DyeColor, Block> TERRACOTTA_TILES_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("terracotta_tiles_blocks"));
   public static BidirectionalRegistryObject<DyeColor, Block> CONCRETE_BRICKS_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("concrete_bricks_blocks"));
   public static BidirectionalRegistryObject<DyeColor, Block> CONCRETE_TILES_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("concrete_tiles_blocks"));
+  public static BidirectionalRegistryObject<DyeColor, Block> CHECKERED_TILES = BidirectionalRegistryObject.create(SomeMoreBlocks.id("concrete_tiles_blocks"));
 
   /**
    * This initialization need to be called directly on Mod Loader initialize class!
@@ -41,6 +42,7 @@ public class SMBRegistries {
     SMBRegistries.concreteBlocks();
     SMBRegistries.stainedTiledGlassBlocks();
     SMBRegistries.stainedTiledGlassPaneBlocks();
+    SMBRegistries.checkeredTiles();
   }
 
   private static void compostableItems() {
@@ -273,5 +275,24 @@ public class SMBRegistries {
     CONCRETE_TILES_BLOCKS.register(DyeColor.PURPLE, SMBBlocks.PURPLE_CONCRETE_TILES.get());
     CONCRETE_TILES_BLOCKS.register(DyeColor.MAGENTA, SMBBlocks.MAGENTA_CONCRETE_TILES.get());
     CONCRETE_TILES_BLOCKS.register(DyeColor.PINK, SMBBlocks.PINK_CONCRETE_TILES.get());
+  }
+
+  private static void checkeredTiles() {
+    CHECKERED_TILES.register(DyeColor.WHITE, SMBBlocks.WHITE_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.LIGHT_GRAY, SMBBlocks.LIGHT_GRAY_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.GRAY, SMBBlocks.GRAY_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.BLACK, SMBBlocks.BLACK_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.BROWN, SMBBlocks.BROWN_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.RED, SMBBlocks.RED_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.ORANGE, SMBBlocks.ORANGE_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.YELLOW, SMBBlocks.YELLOW_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.LIME, SMBBlocks.LIME_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.GREEN, SMBBlocks.GREEN_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.CYAN, SMBBlocks.CYAN_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.LIGHT_BLUE, SMBBlocks.LIGHT_BLUE_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.BLUE, SMBBlocks.BLUE_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.PURPLE, SMBBlocks.PURPLE_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.MAGENTA, SMBBlocks.MAGENTA_CHECKERED_TILES.get());
+    CHECKERED_TILES.register(DyeColor.PINK, SMBBlocks.PINK_CHECKERED_TILES.get());
   }
 }

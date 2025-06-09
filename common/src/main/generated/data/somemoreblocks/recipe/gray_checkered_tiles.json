@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": "minecraft:quartz_block",
+    "$": "minecraft:gray_concrete"
+  },
+  "pattern": [
+    "#$",
+    "$#"
+  ],
+  "result": {
+    "count": 4,
+    "id": "somemoreblocks:gray_checkered_tiles"
+  }
+}

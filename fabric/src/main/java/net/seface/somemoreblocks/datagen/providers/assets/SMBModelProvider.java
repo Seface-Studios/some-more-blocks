@@ -165,6 +165,22 @@ public class SMBModelProvider extends FabricModelProvider {
     this.tiledGlassProvider(SMBBlocks.PURPLE_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.PURPLE_STAINED_TILED_GLASS_PANE.get(), Blocks.PURPLE_STAINED_GLASS_PANE);
     this.tiledGlassProvider(SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get(), Blocks.MAGENTA_STAINED_GLASS_PANE);
     this.tiledGlassProvider(SMBBlocks.PINK_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.PINK_STAINED_TILED_GLASS_PANE.get(), Blocks.PINK_STAINED_GLASS_PANE);
+    gen.createTrivialCube(SMBBlocks.WHITE_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.LIGHT_GRAY_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.GRAY_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.BLACK_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.BROWN_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.RED_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.ORANGE_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.YELLOW_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.LIME_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.GREEN_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.CYAN_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.LIGHT_BLUE_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.BLUE_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.PURPLE_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.MAGENTA_CHECKERED_TILES.get());
+    gen.createTrivialCube(SMBBlocks.PINK_CHECKERED_TILES.get());
     gen.createTrivialCube(SMBBlocks.TERRACOTTA_BRICKS.get());
     gen.createTrivialCube(SMBBlocks.WHITE_TERRACOTTA_BRICKS.get());
     gen.createTrivialCube(SMBBlocks.LIGHT_GRAY_TERRACOTTA_BRICKS.get());
@@ -260,6 +276,10 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.registerSimpleItemModel(SMBItems.PALE_MUSHROOM.get(), gen.createFlatItemModel(SMBItems.PALE_MUSHROOM.get()));
+    this.createPottedPaleMushroom(SMBBlocks.POTTED_PALE_MUSHROOM.get());
+    gen.createCrossBlockWithDefaultItem(SMBBlocks.PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.WARPED_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
@@ -370,6 +390,10 @@ public class SMBModelProvider extends FabricModelProvider {
     ResourceLocation model = plantType.getCrossPot().create(pottedBlock, textureMapping, this.modelOutput);
 
     this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(pottedBlock, model));
+  }
+
+  public final void createPottedPaleMushroom(Block pottedBlock) {
+    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(pottedBlock, ModelLocationUtils.getModelLocation(pottedBlock)));
   }
 
   /**
