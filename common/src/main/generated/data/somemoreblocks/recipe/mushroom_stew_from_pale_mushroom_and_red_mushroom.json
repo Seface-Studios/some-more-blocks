@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "somemoreblocks:pale_mushroom",
+    "minecraft:bowl",
+    "minecraft:red_mushroom"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:mushroom_stew"
+  }
+}

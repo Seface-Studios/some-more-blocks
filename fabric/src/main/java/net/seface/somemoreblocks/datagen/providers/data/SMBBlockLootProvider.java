@@ -349,6 +349,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropPottedContents(SMBBlocks.POTTED_TINY_CACTUS.get());
     this.dropPottedContents(SMBBlocks.POTTED_LUMINOUS_FLOWER.get());
     this.dropPottedContents(SMBBlocks.POTTED_SNOW_FERN.get());
+    this.dropPottedContents(SMBBlocks.POTTED_PALE_MUSHROOM.get());
 
     /* More Redstone Blocks */
     this.dropSelf(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());

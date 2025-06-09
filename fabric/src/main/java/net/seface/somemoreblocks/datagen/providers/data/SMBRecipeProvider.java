@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.seface.somemoreblocks.registries.SMBBlockFamilies;
 import net.seface.somemoreblocks.registries.SMBBlocks;
+import net.seface.somemoreblocks.registries.SMBItems;
 import net.seface.somemoreblocks.registries.SMBRegistries;
 import org.jetbrains.annotations.Nullable;
 
@@ -411,6 +412,9 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.oneItemToOther(RecipeCategory.MISC, Items.GLOWSTONE_DUST, SMBBlocks.LUMINOUS_FLOWER.get(), 2);
         this.oneItemToOther(RecipeCategory.MISC, Items.GREEN_DYE, SMBBlocks.TINY_CACTUS.get(), 1);
         this.oneItemToOther(RecipeCategory.MISC, Items.GREEN_DYE, SMBBlocks.TALL_CACTUS.get(), 2);
+        this.mushroomStewFromPaleMushroom(Items.RED_MUSHROOM);
+        this.mushroomStewFromPaleMushroom(Items.BROWN_MUSHROOM);
+        this.rabbitStewFromPaleMushroom();
       }
 
       /**
@@ -576,6 +580,36 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
           .requires(input)
           .unlockedBy(RecipeProvider.getHasName(input), this.has(input))
           .save(this.output, getConversionRecipeName(output, input));
+      }
+
+      /**
+       * Create a new Craft Recipe with Pale Mushroom and other Mushroom.
+       * @param input The other mushroom to be used to craft with Pale Mushroom.
+       */
+      private void mushroomStewFromPaleMushroom(ItemLike input) {
+        String outputName = "mushroom_stew_from_pale_mushroom_and_" + getItemName(input);
+
+        this.shapeless(RecipeCategory.MISC, Items.MUSHROOM_STEW, 1)
+          .requires(SMBItems.PALE_MUSHROOM.get())
+          .requires(Items.BOWL)
+          .requires(input)
+          .unlockedBy(RecipeProvider.getHasName(SMBItems.PALE_MUSHROOM.get()), this.has(SMBItems.PALE_MUSHROOM.get()))
+          .save(this.output, outputName);
+      }
+
+      /**
+       * Create a new Craft Recipe with Pale Mushroom and other Mushroom.
+       */
+      private void rabbitStewFromPaleMushroom() {
+        this.shapeless(RecipeCategory.MISC, Items.RABBIT_STEW, 1)
+          .requires(Items.BAKED_POTATO)
+          .requires(Items.COOKED_RABBIT)
+          .requires(Items.BOWL)
+          .requires(Items.CARROT)
+          .requires(SMBItems.PALE_MUSHROOM.get())
+          .unlockedBy(RecipeProvider.getHasName(SMBItems.PALE_MUSHROOM.get()), this.has(SMBItems.PALE_MUSHROOM.get()))
+          .group("rabbit_stew")
+          .save(this.output, getConversionRecipeName(Items.RABBIT_STEW, SMBItems.PALE_MUSHROOM.get()));
       }
 
       /**
