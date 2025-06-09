@@ -10,13 +10,14 @@ dependencies {
 neoForge {
   version = neoforge_version
 
-  if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+  var File AT = project(":common").file('src/main/resources/META-INF/accesstransformer.cfg')
+  if (AT.exists()) {
+    accessTransformers.from(AT.absolutePath)
   }
 
   parchment {
-    mappingsVersion = "2025.03.23"
-    minecraftVersion = "1.21.4"
+    mappingsVersion = neoforge_mappings_version
+    minecraftVersion = minecraft_version
   }
 
   runs {

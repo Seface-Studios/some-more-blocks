@@ -17,7 +17,7 @@ allprojects {
   }
 
   java {
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    toolchain.languageVersion = JavaLanguageVersion.of(java_version.toInteger())
     withSourcesJar()
     withJavadocJar()
   }
@@ -33,7 +33,7 @@ allprojects {
 
   tasks.withType(JavaCompile).configureEach {
     it.options.encoding = 'UTF-8'
-    it.options.getRelease().set(21)
+    it.options.getRelease().set(java_version.toInteger())
   }
 
   tasks.withType(GenerateModuleMetadata).configureEach {
@@ -84,10 +84,10 @@ subprojects {
   }
 
   dependencies {
-    compileOnly 'org.projectlombok:lombok:1.18.34'
-    annotationProcessor 'org.projectlombok:lombok:1.18.34'
-    testCompileOnly 'org.projectlombok:lombok:1.18.34'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
+    compileOnly "org.projectlombok:lombok:${lombok_version}"
+    annotationProcessor "org.projectlombok:lombok:${lombok_version}"
+    testCompileOnly "org.projectlombok:lombok:${lombok_version}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombok_version}"
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
   }
 
@@ -96,6 +96,7 @@ subprojects {
       /* Minecraft */
       "minecraft_version"             : minecraft_version,
       "minecraft_version_range"       : minecraft_version_range,
+      "java_version"                  : java_version,
 
       /* Loaders */
       "fabric_version"                : fabric_version,
@@ -115,7 +116,6 @@ subprojects {
       "mod_id"                        : mod_id,
       "license"                       : license,
       "description"                   : project.description,
-      "credits"                       : credits,
       "main_url"                      : main_url,
       "source_url"                    : source_url,
       "issues_tracker_url"            : source_url.concat("/issues"),
@@ -170,12 +170,10 @@ configure(subprojects.findAll { it.name != "common" }) {
     compileOnly project(":common")
   }
 
-  // Adicionar configuração para recursos gerados em todos os projetos de plataforma
   sourceSets.main.resources {
     srcDir(project(":common").file('src/main/generated'))
   }
 
-  // Diretórios de saída padronizados
   afterEvaluate {
     tasks.named("jar") {
       destinationDirectory = layout.buildDirectory.dir("libs")

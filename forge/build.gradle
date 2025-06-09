@@ -16,18 +16,21 @@ minecraft {
   reobf = false
   copyIdeResources = true
 
-  if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+  var File AT = project(":common").file('src/main/resources/META-INF/accesstransformer.cfg')
+  if (AT.exists()) {
+    accessTransformers.from(AT.absolutePath)
   }
 
   runs {
-    client {
+    configureEach {
       workingDirectory project.file('run')
       ideaModule "${rootProject.name}.${project.name}.main"
-      taskName 'Client'
       property 'mixin.env.remapRefMap', 'true'
       property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-      args '--username Dev2'
+      taskName "${it.name.capitalize()}"
+    }
+
+    client {
       mods {
         modClientRun {
           source sourceSets.main
@@ -37,11 +40,6 @@ minecraft {
     }
 
     server {
-      workingDirectory project.file('run')
-      ideaModule "${rootProject.name}.${project.name}.main"
-      taskName 'Server'
-      property 'mixin.env.remapRefMap', 'true'
-      property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
       mods {
         modServerRun {
           source sourceSets.main
