@@ -6,6 +6,14 @@ accessible method net/minecraft/world/level/block/TransparentBlock <init> (Lnet/
 accessible method net/minecraft/world/level/block/IronBarsBlock <init> (Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
 accessible method net/minecraft/world/level/block/WaterloggedTransparentBlock <init> (Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
 accessible method net/minecraft/world/level/block/WaterlilyBlock <init> (Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
+accessible method net/minecraft/world/level/block/BushBlock <init> (Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V # BushBlock constructor
 
 # Methods & Fields
 accessible method net/minecraft/world/level/GameRules$BooleanValue create (Z)Lnet/minecraft/world/level/GameRules$Type;
+
+## Data Generation only
+accessible method net/minecraft/client/data/models/BlockModelGenerators plainVariant (Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/data/models/MultiVariant;
+accessible method net/minecraft/client/data/models/BlockModelGenerators createSimpleBlock (Lnet/minecraft/world/level/block/Block;Lnet/minecraft/client/data/models/MultiVariant;)Lnet/minecraft/client/data/models/blockstates/MultiVariantGenerator;
+accessible method net/minecraft/client/data/models/BlockModelGenerators createBooleanModelDispatch (Lnet/minecraft/world/level/block/state/properties/BooleanProperty;Lnet/minecraft/client/data/models/MultiVariant;Lnet/minecraft/client/data/models/MultiVariant;)Lnet/minecraft/client/data/models/blockstates/PropertyDispatch;
+accessible method net/minecraft/client/data/models/BlockModelGenerators createDoubleBlock (Lnet/minecraft/world/level/block/Block;Lnet/minecraft/client/data/models/MultiVariant;Lnet/minecraft/client/data/models/MultiVariant;)V
+accessible method net/minecraft/client/data/models/BlockModelGenerators createRotatedPillarWithHorizontalVariant (Lnet/minecraft/world/level/block/Block;Lnet/minecraft/client/data/models/MultiVariant;Lnet/minecraft/client/data/models/MultiVariant;)Lnet/minecraft/client/data/models/blockstates/BlockModelDefinitionGenerator;

@@ -1,6 +1,6 @@
 {
-  "parent": "somemoreblocks:block/templates/square_horizontal",
+  "parent": "minecraft:block/template_leaf_litter_2",
   "textures": {
-    "texture": "somemoreblocks:block/flowering_azalea_leaf_litter_2"
+    "texture": "somemoreblocks:block/flowering_azalea_leaf_litter"
   }
 }

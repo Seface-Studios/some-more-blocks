@@ -1,4 +1,4 @@
-// 1.21.4	-999999999-01-01T00:00:00	Some More Blocks/Block Loot Tables
+// 1.21.5	-999999999-01-01T00:00:00	Some More Blocks/Block Loot Tables
 13fa3b2161ec2abcf4f8b3ae0f3e8784b0465680 data/somemoreblocks/loot_table/blocks/acacia_mosaic.json
 dec15ee90b3be2f96752adb1e056f0f9f07303c8 data/somemoreblocks/loot_table/blocks/acacia_mosaic_slab.json
 32f457551315bec391a82c58de20a16f62ceb6be data/somemoreblocks/loot_table/blocks/acacia_mosaic_stairs.json
@@ -571,7 +571,9 @@ c5d010eb8313776139eba918f81e4edac139bf1c data/somemoreblocks/loot_table/blocks/s
 81bbbd6a4bfded39efc879fde3bff499f86486dd data/somemoreblocks/loot_table/blocks/snow_brick_stairs.json
 131722ee5451d47bcba14713d4959c7519816c75 data/somemoreblocks/loot_table/blocks/snow_brick_wall.json
 1de0410f41a5306a9ebb10999749cef91ab2e619 data/somemoreblocks/loot_table/blocks/snow_bricks.json
+ba9a68aeca03500318b17197d96bb34a60e20695 data/somemoreblocks/loot_table/blocks/snow_bush.json
 17451ef57ec891912d050da5ba393b754ef04616 data/somemoreblocks/loot_table/blocks/snow_fern.json
+038516c4798f828e84cca7ee726b8b9a0e41c51a data/somemoreblocks/loot_table/blocks/snow_firefly_bush.json
 5bc6bb08fac1f10e39f5fdb2e8363b5656f5d6db data/somemoreblocks/loot_table/blocks/snow_pillar.json
 147aeb46a956c6ec523d157cc6d06f3ab70249f0 data/somemoreblocks/loot_table/blocks/snow_tile_slab.json
 160dd1e599453b6becc7f58228545875ab65abeb data/somemoreblocks/loot_table/blocks/snow_tile_stairs.json

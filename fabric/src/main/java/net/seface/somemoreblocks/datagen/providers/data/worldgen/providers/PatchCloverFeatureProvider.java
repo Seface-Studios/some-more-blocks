@@ -3,7 +3,7 @@ package net.seface.somemoreblocks.datagen.providers.data.worldgen.providers;
 import lombok.Setter;
 import net.minecraft.core.Direction;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -45,7 +45,7 @@ public class PatchCloverFeatureProvider extends AbstractFeatureProvider<RandomPa
 
   @Override
   protected RandomPatchConfiguration configuration() {
-    SimpleWeightedRandomList.Builder<BlockState> builder = new SimpleWeightedRandomList.Builder<>();
+    WeightedList.Builder<BlockState> builder = new WeightedList.Builder<>();
 
     for (Direction direction : CloverBlock.FACING.getPossibleValues()) {
       for (int i : CloverBlock.AMOUNT.getPossibleValues()) {

@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.item.properties.numeric.RangeSelectItemMode
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
+import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
 import org.jetbrains.annotations.Nullable;
 
 public record BucketVolumeProperty() implements RangeSelectItemModelProperty {
@@ -13,8 +14,8 @@ public record BucketVolumeProperty() implements RangeSelectItemModelProperty {
 
   @Override
   public float get(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity entity, int i) {
-    if (stack.getComponents().has(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType())) {
-      return stack.get(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType());
+    if (stack.getComponents().has(SMBDataComponentTypes.BUCKET_VOLUME.get())) {
+      return stack.get(SMBDataComponentTypes.BUCKET_VOLUME.get());
     }
 
     return 0;

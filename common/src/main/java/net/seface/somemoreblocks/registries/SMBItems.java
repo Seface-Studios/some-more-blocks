@@ -7,6 +7,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.minecraft.world.item.StandingAndWallBlockItem;
+import net.minecraft.world.level.block.Blocks;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
 import net.seface.somemoreblocks.item.CarvedPaleOakBlockItem;
@@ -32,14 +33,13 @@ public class SMBItems {
   public static final PlatformRegistryObject<Item> TALL_WARPED_FUNGUS_COLONY = PlatformServices.REGISTRY.registerItem("tall_warped_fungus_colony", () -> new BlockItem(SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), new Item.Properties().useBlockDescriptionPrefix().setId(SomeMoreBlocks.key(Registries.ITEM, "tall_warped_fungus_colony"))));
   public static final PlatformRegistryObject<Item> WARPED_FUNGUS_COLONY = PlatformServices.REGISTRY.registerItem("warped_fungus_colony", () -> new StandingAndWallBlockItem(SMBBlocks.WARPED_FUNGUS_COLONY.get(), SMBBlocks.WARPED_FUNGUS_COLONY_WALL.get(), Direction.DOWN, new Item.Properties().useBlockDescriptionPrefix().setId(SomeMoreBlocks.key(Registries.ITEM, "warped_fungus_colony"))));
   public static final PlatformRegistryObject<Item> SMALL_LILY_PADS = PlatformServices.REGISTRY.registerItem("small_lily_pads", () -> new PlaceOnWaterBlockItem(SMBBlocks.SMALL_LILY_PADS.get(), new Item.Properties().useBlockDescriptionPrefix().setId(SomeMoreBlocks.key(Registries.ITEM, "small_lily_pads"))));
-
-  /* 1.21.4 */
   public static final PlatformRegistryObject<Item> PALE_OAK_LEAVES_BUCKET = PlatformServices.REGISTRY.registerItem("pale_oak_leaves_bucket", () -> new LeavesBucketItem(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), SoundEvents.GRASS_PLACE, new Item.Properties().component(SMBDataComponentTypes.BUCKET_VOLUME.get(), LeavesBucketItem.MAX_VOLUME).stacksTo(1).setId(SomeMoreBlocks.key(Registries.ITEM, "pale_oak_leaves_bucket"))));
   public static final PlatformRegistryObject<Item> CARVED_PALE_OAK_LOG = PlatformServices.REGISTRY.registerItem("carved_pale_oak_log", () -> new CarvedPaleOakBlockItem(SMBBlocks.CARVED_PALE_OAK_LOG.get(), new Item.Properties().component(SMBDataComponentTypes.MOON_PHASE.get(), RotatedCarvedPaleOakBlock.MIN_MOON_PHASE).useBlockDescriptionPrefix().setId(SomeMoreBlocks.key(Registries.ITEM, "carved_pale_oak_log"))));
   public static final PlatformRegistryObject<Item> CARVED_PALE_OAK_WOOD = PlatformServices.REGISTRY.registerItem("carved_pale_oak_wood", () -> new CarvedPaleOakBlockItem(SMBBlocks.CARVED_PALE_OAK_WOOD.get(), new Item.Properties().component(SMBDataComponentTypes.MOON_PHASE.get(), RotatedCarvedPaleOakBlock.MIN_MOON_PHASE).useBlockDescriptionPrefix().setId(SomeMoreBlocks.key(Registries.ITEM, "carved_pale_oak_wood"))));
   public static final PlatformRegistryObject<Item> PALE_MUSHROOM = PlatformServices.REGISTRY.registerItem("pale_mushroom", () -> new BlockItem(SMBBlocks.PALE_MUSHROOM.get(), new Item.Properties().useBlockDescriptionPrefix().setId(SomeMoreBlocks.key(Registries.ITEM, "pale_mushroom"))));
   public static final PlatformRegistryObject<Item> TALL_PALE_MUSHROOM_COLONY = PlatformServices.REGISTRY.registerItem("tall_pale_mushroom_colony", () -> new BlockItem(SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get(), new Item.Properties().useBlockDescriptionPrefix().setId(SomeMoreBlocks.key(Registries.ITEM, "tall_pale_mushroom_colony"))));
   public static final PlatformRegistryObject<Item> PALE_MUSHROOM_COLONY = PlatformServices.REGISTRY.registerItem("pale_mushroom_colony", () -> new StandingAndWallBlockItem(SMBBlocks.PALE_MUSHROOM_COLONY.get(), SMBBlocks.PALE_MUSHROOM_COLONY_WALL.get(), Direction.DOWN, new Item.Properties().useBlockDescriptionPrefix().setId(SomeMoreBlocks.key(Registries.ITEM, "pale_mushroom_colony"))));
+  public static final PlatformRegistryObject<Item> DRY_LEAVES_BUCKET = PlatformServices.REGISTRY.registerItem("dry_leaves_bucket", () -> new LeavesBucketItem(Blocks.LEAF_LITTER, SoundEvents.GRASS_PLACE, new Item.Properties().component(SMBDataComponentTypes.BUCKET_VOLUME.get(), LeavesBucketItem.MAX_VOLUME).stacksTo(1).setId(SomeMoreBlocks.key(Registries.ITEM, "dry_leaves_bucket"))));
 
   public static void init() {}
 }

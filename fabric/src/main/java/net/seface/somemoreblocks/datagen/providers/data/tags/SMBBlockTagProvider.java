@@ -38,7 +38,8 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         Blocks.DEAD_BUSH, Blocks.FERN,
         Blocks.SHORT_GRASS, Blocks.VINE,
         Blocks.MOSS_CARPET, Blocks.PALE_MOSS_CARPET,
-        SMBBlocks.DUNE_GRASS.get(), SMBBlocks.SNOW_FERN.get(), SMBBlocks.SHORT_SNOW_GRASS.get());
+        SMBBlocks.DUNE_GRASS.get(), SMBBlocks.SNOW_FERN.get(),
+        SMBBlocks.SHORT_SNOW_GRASS.get(), Blocks.LEAF_LITTER);
 
     this.getOrCreateTagBuilder(SMBBlockTags.MUSHROOM_COLONY_PLACEABLE)
       .forceAddTag(BlockTags.DIRT)
@@ -648,5 +649,10 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
       .add(
         Blocks.NETHERRACK, Blocks.CRIMSON_NYLIUM, Blocks.WARPED_NYLIUM,
         Blocks.SOUL_SAND, Blocks.SOUL_SOIL);
+
+    this.getOrCreateTagBuilder(BlockTags.INSIDE_STEP_SOUND_BLOCKS).setReplace(false)
+      .add(
+        SMBBlocks.LEAF_LITTER.get(), SMBBlocks.BIRCH_LEAF_LITTER.get(), SMBBlocks.SPRUCE_LEAF_LITTER.get(),
+        SMBBlocks.PALE_OAK_LEAF_LITTER.get(), SMBBlocks.AZALEA_LEAF_LITTER.get(), SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get());
   }
 }

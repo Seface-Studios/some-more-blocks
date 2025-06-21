@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "somemoreblocks:block/carved_bamboo_block_horizontal",
+      "model": "somemoreblocks:block/carved_bamboo_block",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "somemoreblocks:block/carved_bamboo_block"
     },
     "axis=z": {
-      "model": "somemoreblocks:block/carved_bamboo_block_horizontal",
+      "model": "somemoreblocks:block/carved_bamboo_block",
       "x": 90
     }
   }

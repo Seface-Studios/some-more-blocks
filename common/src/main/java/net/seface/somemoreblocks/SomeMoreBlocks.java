@@ -5,6 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.StairBlock;
 import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
@@ -162,5 +163,7 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.POTTED_PALE_MUSHROOM.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_MUSHROOM_COLONY.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_MUSHROOM_COLONY_WALL.get(), translucent);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SNOW_BUSH.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SNOW_FIREFLY_BUSH.get(), cutout);
   }
 }

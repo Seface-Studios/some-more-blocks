@@ -711,6 +711,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.TALL_SNOW_GRASS.get());
         entry.accept(SMBBlocks.SNOW_FERN.get());
         entry.accept(SMBBlocks.LARGE_SNOW_FERN.get());
+        entry.accept(SMBBlocks.SNOW_BUSH.get());
+        entry.accept(SMBBlocks.SNOW_FIREFLY_BUSH.get());
         entry.accept(SMBBlocks.PALE_ROSE_BUSH.get());
         entry.accept(SMBBlocks.CATTAIL.get());
         entry.accept(SMBBlocks.REEDS.get());
@@ -720,6 +722,7 @@ public class SMBCreativeTabs {
         entry.accept(SMBItems.PALE_OAK_LEAVES_BUCKET.get());
         entry.accept(SMBItems.AZALEA_LEAVES_BUCKET.get());
         entry.accept(SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
+        entry.accept(SMBItems.DRY_LEAVES_BUCKET.get());
         entry.accept(SMBItems.CLOVER.get());
         entry.accept(SMBItems.NETHER_CLOVER.get());
         entry.accept(SMBItems.SMALL_LILY_PADS.get());

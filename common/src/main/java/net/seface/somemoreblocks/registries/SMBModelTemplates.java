@@ -7,16 +7,20 @@ import net.seface.somemoreblocks.SomeMoreBlocks;
 import java.util.Optional;
 
 public class SMBModelTemplates {
+  public static final ModelTemplate NETHER_FLOWERBED_1 = create("nether_flowerbed_1", "_1", TextureSlot.FLOWERBED, TextureSlot.STEM);
+  public static final ModelTemplate NETHER_FLOWERBED_2 = create("nether_flowerbed_2", "_2", TextureSlot.FLOWERBED, TextureSlot.STEM);
+  public static final ModelTemplate NETHER_FLOWERBED_3 = create("nether_flowerbed_3", "_3", TextureSlot.FLOWERBED, TextureSlot.STEM);
+  public static final ModelTemplate NETHER_FLOWERBED_4 = create("nether_flowerbed_4", "_4", TextureSlot.FLOWERBED, TextureSlot.STEM);
+  public static final ModelTemplate NOT_TINTED_LEAF_LITTER_1 = create("not_tinted_leaf_litter_1", "_1", TextureSlot.TEXTURE);
+  public static final ModelTemplate NOT_TINTED_LEAF_LITTER_2 = create("not_tinted_leaf_litter_2", "_2", TextureSlot.TEXTURE);
+  public static final ModelTemplate NOT_TINTED_LEAF_LITTER_3 = create("not_tinted_leaf_litter_3", "_3", TextureSlot.TEXTURE);
+  public static final ModelTemplate NOT_TINTED_LEAF_LITTER_4 = create("not_tinted_leaf_litter_4", "_4", TextureSlot.TEXTURE);
   public static final ModelTemplate SQUARE_HORIZONTAL = create("square_horizontal", TextureSlot.TEXTURE);
   public static final ModelTemplate SQUARE_VERTICAL = create("square_vertical", TextureSlot.TEXTURE);
   public static final ModelTemplate TINTED_FLOWERBED_1 = create("tinted_flowerbed_1", "_1", TextureSlot.FLOWERBED, TextureSlot.STEM);
   public static final ModelTemplate TINTED_FLOWERBED_2 = create("tinted_flowerbed_2", "_2", TextureSlot.FLOWERBED, TextureSlot.STEM);
   public static final ModelTemplate TINTED_FLOWERBED_3 = create("tinted_flowerbed_3", "_3", TextureSlot.FLOWERBED, TextureSlot.STEM);
   public static final ModelTemplate TINTED_FLOWERBED_4 = create("tinted_flowerbed_4", "_4", TextureSlot.FLOWERBED, TextureSlot.STEM);
-  public static final ModelTemplate NETHER_FLOWERBED_1 = create("nether_flowerbed_1", "_1", TextureSlot.FLOWERBED, TextureSlot.STEM);
-  public static final ModelTemplate NETHER_FLOWERBED_2 = create("nether_flowerbed_2", "_2", TextureSlot.FLOWERBED, TextureSlot.STEM);
-  public static final ModelTemplate NETHER_FLOWERBED_3 = create("nether_flowerbed_3", "_3", TextureSlot.FLOWERBED, TextureSlot.STEM);
-  public static final ModelTemplate NETHER_FLOWERBED_4 = create("nether_flowerbed_4", "_4", TextureSlot.FLOWERBED, TextureSlot.STEM);
 
   public static ModelTemplate create(String path, TextureSlot ...textureSlots) {
     return create(path, "", textureSlots);

@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.seface.somemoreblocks.item.LeavesBucketItem;
+import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -32,7 +33,7 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
 
     if (stack.getItem() instanceof LeavesBucketItem) {
       int levelState = state.getValue(ComposterBlock.LEVEL);
-      int bucketVolume = stack.get(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType());
+      int bucketVolume = stack.get(SMBDataComponentTypes.BUCKET_VOLUME.get());
       int missingLevels = ComposterBlock.MAX_LEVEL - levelState;
 
       bucketVolume -= Math.min(missingLevels, bucketVolume);
@@ -41,7 +42,7 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
         if (bucketVolume == 0) {
           player.setItemInHand(hand, Items.BUCKET.getDefaultInstance());
         } else {
-          stack.set(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType(), bucketVolume);
+          stack.set(SMBDataComponentTypes.BUCKET_VOLUME.get(), bucketVolume);
         }
       }
 
@@ -53,7 +54,7 @@ public abstract class ComposterBlockMixin extends Block implements WorldlyContai
   private static void addItemMixin(Entity entity, BlockState state, LevelAccessor level, BlockPos pos, ItemStack stack, CallbackInfoReturnable<BlockState> cir) {
     if (stack.getItem() instanceof LeavesBucketItem) {
       int levelState = state.getValue(ComposterBlock.LEVEL);
-      int bucketVolume = stack.get(((LeavesBucketItem) stack.getItem()).getBucketVolumeComponentType());
+      int bucketVolume = stack.get(SMBDataComponentTypes.BUCKET_VOLUME.get());
       int missingLevels = ComposterBlock.MAX_LEVEL - levelState;
 
       levelState += Math.min(missingLevels, bucketVolume);

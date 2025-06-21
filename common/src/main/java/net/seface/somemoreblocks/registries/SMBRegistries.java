@@ -1,6 +1,7 @@
 package net.seface.somemoreblocks.registries;
 
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -27,22 +28,34 @@ public class SMBRegistries {
   public static BidirectionalRegistryObject<DyeColor, Block> CONCRETE_BRICKS_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("concrete_bricks_blocks"));
   public static BidirectionalRegistryObject<DyeColor, Block> CONCRETE_TILES_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("concrete_tiles_blocks"));
   public static BidirectionalRegistryObject<DyeColor, Block> CHECKERED_TILES = BidirectionalRegistryObject.create(SomeMoreBlocks.id("concrete_tiles_blocks"));
+  public static BidirectionalRegistryObject<Block, Item> LEAVES_BUCKET = BidirectionalRegistryObject.create(SomeMoreBlocks.id("leaves_bucket"));
 
   /**
    * This initialization need to be called directly on Mod Loader initialize class!
    */
   public static void init() {
     SMBRegistries.carvedBlocks();
-    SMBRegistries.snowyPlantBlocks();
-    SMBRegistries.waxedCopperBlocks();
-    SMBRegistries.weatheringCopperBlocks();
+    SMBRegistries.checkeredTiles();
     SMBRegistries.compostableItems();
-    SMBRegistries.shinglesBlocks();
-    SMBRegistries.terracottaBlocks();
     SMBRegistries.concreteBlocks();
+    SMBRegistries.leavesBucket();
+    SMBRegistries.shinglesBlocks();
+    SMBRegistries.snowyPlantBlocks();
     SMBRegistries.stainedTiledGlassBlocks();
     SMBRegistries.stainedTiledGlassPaneBlocks();
-    SMBRegistries.checkeredTiles();
+    SMBRegistries.terracottaBlocks();
+    SMBRegistries.waxedCopperBlocks();
+    SMBRegistries.weatheringCopperBlocks();
+  }
+
+  private static void leavesBucket() {
+    LEAVES_BUCKET.register(SMBBlocks.AZALEA_LEAF_LITTER.get(), SMBItems.AZALEA_LEAVES_BUCKET.get());
+    LEAVES_BUCKET.register(SMBBlocks.BIRCH_LEAF_LITTER.get(), SMBItems.BIRCH_LEAVES_BUCKET.get());
+    LEAVES_BUCKET.register(Blocks.LEAF_LITTER, SMBItems.DRY_LEAVES_BUCKET.get());
+    LEAVES_BUCKET.register(SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get(), SMBItems.FLOWERING_AZALEA_LEAVES_BUCKET.get());
+    LEAVES_BUCKET.register(SMBBlocks.LEAF_LITTER.get(), SMBItems.LEAVES_BUCKET.get());
+    LEAVES_BUCKET.register(SMBBlocks.PALE_OAK_LEAF_LITTER.get(), SMBItems.PALE_OAK_LEAVES_BUCKET.get());
+    LEAVES_BUCKET.register(SMBBlocks.SPRUCE_LEAF_LITTER.get(), SMBItems.SPRUCE_LEAVES_BUCKET.get());
   }
 
   private static void compostableItems() {
@@ -107,6 +120,8 @@ public class SMBRegistries {
     SNOWY_PLANT_BLOCKS.register(Blocks.TALL_GRASS, SMBBlocks.TALL_SNOW_GRASS.get());
     SNOWY_PLANT_BLOCKS.register(Blocks.FERN, SMBBlocks.SNOW_FERN.get());
     SNOWY_PLANT_BLOCKS.register(Blocks.LARGE_FERN, SMBBlocks.LARGE_SNOW_FERN.get());
+    SNOWY_PLANT_BLOCKS.register(Blocks.BUSH, SMBBlocks.SNOW_BUSH.get());
+    SNOWY_PLANT_BLOCKS.register(Blocks.FIREFLY_BUSH, SMBBlocks.SNOW_FIREFLY_BUSH.get());
   }
 
   private static void waxedCopperBlocks() {

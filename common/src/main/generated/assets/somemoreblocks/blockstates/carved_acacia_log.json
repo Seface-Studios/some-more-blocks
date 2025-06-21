@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "somemoreblocks:block/carved_acacia_log_horizontal",
+      "model": "somemoreblocks:block/carved_acacia_log",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "somemoreblocks:block/carved_acacia_log"
     },
     "axis=z": {
-      "model": "somemoreblocks:block/carved_acacia_log_horizontal",
+      "model": "somemoreblocks:block/carved_acacia_log",
       "x": 90
     }
   }

@@ -12,6 +12,7 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraftforge.client.model.renderable.BakedModelRenderable;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -105,7 +106,7 @@ public class ForgePlatformRegistry implements PlatformRegistry {
      */
     if (renderType == RenderType.translucent()) {
       ItemBlockRenderTypes.setRenderLayer(block, renderType);
-      ItemBlockRenderTypes.TYPE_BY_BLOCK.put(block, renderType); /* TYPE_BY_BLOCK via Access Transformer. */
+      ItemBlockRenderTypes.TYPE_BY_BLOCK.put(block, renderType); /* TYPE_BY_BLOCK via Access Widener. */
       return;
     }
 

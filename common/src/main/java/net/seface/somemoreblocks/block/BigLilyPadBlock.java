@@ -2,6 +2,7 @@ package net.seface.somemoreblocks.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -103,7 +104,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
   }
 
   @Override
-  protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean bool) {
+  protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel level, BlockPos pos, boolean bool) {
     Direction facing = state.getValue(FACING);
     QuadDirection position = state.getValue(POSITION);
 
@@ -116,7 +117,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
       }
     }
 
-    super.onRemove(state, level, pos, newState, bool);
+    super.affectNeighborsAfterRemoval(state, level, pos, bool);
   }
 
   @Override

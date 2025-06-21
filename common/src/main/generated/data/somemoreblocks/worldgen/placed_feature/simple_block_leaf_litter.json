@@ -1,4 +1,9 @@
 {
   "feature": "somemoreblocks:simple_block_leaf_litter",
-  "placement": []
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 3
+    }
+  ]
 }

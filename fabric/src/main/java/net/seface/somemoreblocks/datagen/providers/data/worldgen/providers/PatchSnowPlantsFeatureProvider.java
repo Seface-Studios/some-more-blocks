@@ -1,7 +1,7 @@
 package net.seface.somemoreblocks.datagen.providers.data.worldgen.providers;
 
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -38,7 +38,7 @@ public class PatchSnowPlantsFeatureProvider extends AbstractFeatureProvider<Rand
         Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(
           new WeightedStateProvider(
-            new SimpleWeightedRandomList.Builder<BlockState>()
+            new WeightedList.Builder<BlockState>()
               .add(SMBBlocks.SHORT_SNOW_GRASS.get().defaultBlockState(), 2)
               .add(SMBBlocks.SNOW_FERN.get().defaultBlockState(), 2)
               .build()

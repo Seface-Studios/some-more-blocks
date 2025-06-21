@@ -3,20 +3,17 @@ package net.seface.somemoreblocks.datagen.providers.data.worldgen.providers;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
-import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.Fluids;
 import net.seface.somemoreblocks.registries.SMBBlocks;
-import net.seface.somemoreblocks.tags.SMBBlockTags;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
 
@@ -45,7 +42,7 @@ public class PatchCattailFeatureProvider extends AbstractFeatureProvider<RandomP
         Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(
           new WeightedStateProvider(
-            new SimpleWeightedRandomList.Builder<BlockState>()
+            new WeightedList.Builder<BlockState>()
               .add(SMBBlocks.CATTAIL.get().defaultBlockState(), 50)
               .add(SMBBlocks.REEDS.get().defaultBlockState(), 50)
               .build()

@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
 public class MushroomColonyBlock extends BushBlock implements BonemealableBlock {
-  public static final MapCodec<MushroomColonyBlock> CODEC = simpleCodec(MushroomColonyBlock::new);
+  public static final MapCodec<BushBlock> CODEC = simpleCodec(MushroomColonyBlock::new);
   protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0);
 
   private final TagKey<Block> tagKey;
@@ -41,9 +41,8 @@ public class MushroomColonyBlock extends BushBlock implements BonemealableBlock 
     this.grownBlock = grownBlock;
   }
 
-  @NotNull
   @Override
-  public MapCodec<MushroomColonyBlock> codec() {
+  public MapCodec<BushBlock> codec() {
     return CODEC;
   }
 

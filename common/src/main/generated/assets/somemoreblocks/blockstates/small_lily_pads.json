@@ -2,12 +2,10 @@
   "variants": {
     "": [
       {
-        "model": "somemoreblocks:block/small_lily_pads",
-        "y": 0
+        "model": "somemoreblocks:block/small_lily_pads"
       },
       {
-        "model": "somemoreblocks:block/small_lily_pads_with_lotus",
-        "y": 0
+        "model": "somemoreblocks:block/small_lily_pads_with_lotus"
       },
       {
         "model": "somemoreblocks:block/small_lily_pads",

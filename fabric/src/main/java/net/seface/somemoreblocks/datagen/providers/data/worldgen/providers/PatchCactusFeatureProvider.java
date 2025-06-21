@@ -1,7 +1,7 @@
 package net.seface.somemoreblocks.datagen.providers.data.worldgen.providers;
 
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -36,7 +36,7 @@ public class PatchCactusFeatureProvider extends AbstractFeatureProvider<RandomPa
         Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(
           new WeightedStateProvider(
-            new SimpleWeightedRandomList.Builder<BlockState>()
+            new WeightedList.Builder<BlockState>()
               .add(SMBBlocks.TINY_CACTUS.get().defaultBlockState(), 60)
               .add(SMBBlocks.TALL_CACTUS.get().defaultBlockState(), 40)
               .build()

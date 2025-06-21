@@ -9,8 +9,8 @@ import net.minecraft.advancements.AdvancementType;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponentExactPredicate;
 import net.minecraft.core.component.DataComponentMap;
-import net.minecraft.core.component.DataComponentPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.advancements.packs.VanillaHusbandryAdvancements;
 import net.minecraft.network.chat.Component;
@@ -21,14 +21,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.seface.somemoreblocks.block.RotatedCarvedPaleOakBlock;
-import net.seface.somemoreblocks.item.CarvedPaleOakBlockItem;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.registries.SMBDataComponentTypes;
-import net.seface.somemoreblocks.registries.SMBItems;
 import net.seface.somemoreblocks.registries.SMBRegistries;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -111,7 +110,7 @@ public class SMBHusbandryAdvancementsProvider extends FabricAdvancementProvider 
     for (int i : RotatedCarvedPaleOakBlock.MOON_PHASE.getPossibleValues()) {
       items.add(
         ItemPredicate.Builder.item()
-          .hasComponents(DataComponentPredicate.allOf(DataComponentMap.builder().set(SMBDataComponentTypes.MOON_PHASE.get(), i).build())));
+          .withComponents(new DataComponentMatchers(DataComponentExactPredicate.allOf(DataComponentMap.builder().set(SMBDataComponentTypes.MOON_PHASE.get(), i).build()), new HashMap<>())));
     }
 
     ResourceLocation parentPath = ResourceLocation.withDefaultNamespace("husbandry/root");

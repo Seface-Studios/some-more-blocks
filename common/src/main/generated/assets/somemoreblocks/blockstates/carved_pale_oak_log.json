@@ -1,44 +1,28 @@
 {
   "variants": {
     "axis=x,moon_phase=0": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_0_horizontal",
-      "x": 90,
-      "y": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_0_horizontal"
     },
     "axis=x,moon_phase=1": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_1_horizontal",
-      "x": 90,
-      "y": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_1_horizontal"
     },
     "axis=x,moon_phase=2": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_2_horizontal",
-      "x": 90,
-      "y": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_2_horizontal"
     },
     "axis=x,moon_phase=3": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_3_horizontal",
-      "x": 90,
-      "y": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_3_horizontal"
     },
     "axis=x,moon_phase=4": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_4_horizontal",
-      "x": 90,
-      "y": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_4_horizontal"
     },
     "axis=x,moon_phase=5": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_5_horizontal",
-      "x": 90,
-      "y": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_5_horizontal"
     },
     "axis=x,moon_phase=6": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_6_horizontal",
-      "x": 90,
-      "y": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_6_horizontal"
     },
     "axis=x,moon_phase=7": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_7_horizontal",
-      "x": 90,
-      "y": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_7_horizontal"
     },
     "axis=y,moon_phase=0": {
       "model": "somemoreblocks:block/carved_pale_oak_log_0"
@@ -65,36 +49,28 @@
       "model": "somemoreblocks:block/carved_pale_oak_log_7"
     },
     "axis=z,moon_phase=0": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_0_horizontal",
-      "x": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_0_horizontal"
     },
     "axis=z,moon_phase=1": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_1_horizontal",
-      "x": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_1_horizontal"
     },
     "axis=z,moon_phase=2": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_2_horizontal",
-      "x": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_2_horizontal"
     },
     "axis=z,moon_phase=3": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_3_horizontal",
-      "x": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_3_horizontal"
     },
     "axis=z,moon_phase=4": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_4_horizontal",
-      "x": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_4_horizontal"
     },
     "axis=z,moon_phase=5": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_5_horizontal",
-      "x": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_5_horizontal"
     },
     "axis=z,moon_phase=6": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_6_horizontal",
-      "x": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_6_horizontal"
     },
     "axis=z,moon_phase=7": {
-      "model": "somemoreblocks:block/carved_pale_oak_log_7_horizontal",
-      "x": 90
+      "model": "somemoreblocks:block/carved_pale_oak_log_7_horizontal"
     }
   }
 }

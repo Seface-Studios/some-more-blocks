@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "somemoreblocks:block/carved_crimson_stem_horizontal",
+      "model": "somemoreblocks:block/carved_crimson_stem",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "somemoreblocks:block/carved_crimson_stem"
     },
     "axis=z": {
-      "model": "somemoreblocks:block/carved_crimson_stem_horizontal",
+      "model": "somemoreblocks:block/carved_crimson_stem",
       "x": 90
     }
   }

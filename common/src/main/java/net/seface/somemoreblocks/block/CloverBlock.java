@@ -22,7 +22,7 @@ import net.seface.somemoreblocks.tags.SMBBlockTags;
 import java.util.function.BiFunction;
 
 public class CloverBlock extends BushBlock {
-  public static final MapCodec<CloverBlock> CODEC = simpleCodec(CloverBlock::new);
+  public static final MapCodec<BushBlock> CODEC = simpleCodec(CloverBlock::new);
   public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
   public static final IntegerProperty AMOUNT = BlockStateProperties.FLOWER_AMOUNT;
   private static final BiFunction<Direction, Integer, VoxelShape> SHAPE_BY_PROPERTIES = Util.memoize((direction, amount) -> {
@@ -57,7 +57,7 @@ public class CloverBlock extends BushBlock {
   }
 
   @Override
-  protected MapCodec<? extends BushBlock> codec() {
+  public MapCodec<BushBlock> codec() {
     return CODEC;
   }
 

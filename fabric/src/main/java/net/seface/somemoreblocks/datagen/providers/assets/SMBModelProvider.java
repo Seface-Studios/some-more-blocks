@@ -1,20 +1,27 @@
 package net.seface.somemoreblocks.datagen.providers.assets;
 
 import com.google.common.collect.ImmutableMap;
+import com.mojang.math.Quadrant;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
+import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.*;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.block.model.Variant;
+import net.minecraft.client.renderer.block.model.VariantMutator;
 import net.minecraft.client.renderer.item.RangeSelectItemModel;
 import net.minecraft.core.Direction;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.Weighted;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.seface.somemoreblocks.block.properties.QuadDirection;
 import net.seface.somemoreblocks.datagen.providers.assets.providers.CarvedWoodBlockProvider;
@@ -27,13 +34,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class SMBModelProvider extends FabricModelProvider {
   private BlockModelGenerators blockModelGenerators;
   private Map<Block, TexturedModel> texturedModels;
 
   public BiConsumer<ResourceLocation, ModelInstance> modelOutput;
-  public Consumer<BlockStateGenerator> blockStateOutput;
+  public Consumer<BlockModelDefinitionGenerator> blockStateOutput;
   public ItemModelOutput itemModelOutput;
 
   public SMBModelProvider(FabricDataOutput output) {
@@ -258,6 +266,8 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_SNOW_GRASS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createPlantWithDefaultItem(SMBBlocks.SNOW_FERN.get(), SMBBlocks.POTTED_SNOW_FERN.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.LARGE_SNOW_FERN.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createCrossBlockWithDefaultItem(SMBBlocks.SNOW_BUSH.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createCrossBlockWithDefaultItem(SMBBlocks.SNOW_FIREFLY_BUSH.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     this.createEmissiveDoublePlantWithDefaultItem(SMBBlocks.PALE_ROSE_BUSH.get());
     gen.createDoublePlantWithDefaultItem(SMBBlocks.CATTAIL.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.REEDS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
@@ -277,7 +287,7 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createCrossBlockWithDefaultItem(SMBBlocks.RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.registerSimpleItemModel(SMBItems.PALE_MUSHROOM.get(), gen.createFlatItemModel(SMBItems.PALE_MUSHROOM.get()));
-    this.createPottedPaleMushroom(SMBBlocks.POTTED_PALE_MUSHROOM.get());
+    gen.createNonTemplateModelBlock(SMBBlocks.POTTED_PALE_MUSHROOM.get());
     gen.createCrossBlockWithDefaultItem(SMBBlocks.PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
@@ -295,7 +305,9 @@ public class SMBModelProvider extends FabricModelProvider {
   }
 
   @Override
-  public void generateItemModels(ItemModelGenerators gen) {}
+  public void generateItemModels(ItemModelGenerators gen) {
+    this.createLeavesBucket(SMBItems.DRY_LEAVES_BUCKET.get());
+  }
 
   /**
    * Create a block with the model copied from other block.
@@ -304,11 +316,11 @@ public class SMBModelProvider extends FabricModelProvider {
    * @param toBlock The block to be generated.
    */
   public final void copyCutCopperModel(Block fromBlock, Block toBlock) {
-    TextureMapping textureMapping = TextureMapping.cube(fromBlock).put(TextureSlot.ALL, ModelLocationUtils.getModelLocation(fromBlock));
-    ResourceLocation location = ModelTemplates.CUBE_ALL.create(ModelLocationUtils.getModelLocation(toBlock), textureMapping, this.modelOutput);
+    TextureMapping mapping = TextureMapping.cube(fromBlock).put(TextureSlot.ALL, ModelLocationUtils.getModelLocation(fromBlock));
+    MultiVariant variant = BlockModelGenerators.plainVariant(ModelTemplates.CUBE_ALL.create(ModelLocationUtils.getModelLocation(toBlock), mapping, this.modelOutput));
 
     this.itemModelOutput.copy(fromBlock.asItem(), toBlock.asItem());
-    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(toBlock, location));
+    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(toBlock, variant));
   }
 
   /**
@@ -318,18 +330,14 @@ public class SMBModelProvider extends FabricModelProvider {
    * @param toBlock The block to be generated.
    */
   public final void copyCopperPillarModel(Block fromBlock, Block toBlock) {
-    TextureMapping verticalMapping = TextureMapping.column(fromBlock)
-      .put(TextureSlot.SIDE, ModelLocationUtils.getModelLocation(fromBlock));
-    TextureMapping horizontalMapping = TextureMapping.column(fromBlock)
-      .put(TextureSlot.SIDE, ModelLocationUtils.getModelLocation(fromBlock));
+    TextureMapping mappingY = TextureMapping.column(fromBlock).put(TextureSlot.SIDE, ModelLocationUtils.getModelLocation(fromBlock));
+    TextureMapping mappingXZ = TextureMapping.column(fromBlock).put(TextureSlot.SIDE, ModelLocationUtils.getModelLocation(fromBlock));
 
-    ResourceLocation verticalModel = ModelTemplates.CUBE_COLUMN
-      .create(ModelLocationUtils.getModelLocation(toBlock), verticalMapping, this.modelOutput);
-    ResourceLocation horizontalModel = ModelTemplates.CUBE_COLUMN_HORIZONTAL
-      .create(ModelLocationUtils.getModelLocation(toBlock).withSuffix("_horizontal"), horizontalMapping, this.modelOutput);
+    MultiVariant variantY = BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN.create(ModelLocationUtils.getModelLocation(toBlock), mappingY, this.modelOutput));
+    MultiVariant variantXZ = BlockModelGenerators.plainVariant(ModelTemplates.CUBE_COLUMN_HORIZONTAL.createWithSuffix(toBlock, "_horizontal", mappingXZ, this.modelOutput));
 
     this.itemModelOutput.copy(fromBlock.asItem(), toBlock.asItem());
-    this.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(toBlock, verticalModel, horizontalModel));
+    this.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(toBlock, variantY, variantXZ));
   }
 
   /**
@@ -337,17 +345,10 @@ public class SMBModelProvider extends FabricModelProvider {
    * @param block The Redstone Froglight block.
    */
   public final void createRedstoneLampBlock(Block block) {
-    TextureMapping offTextureMapping = TextureMapping.cube(block);
-    TextureMapping onTextureMapping = TextureMapping.cube(block)
-      .put(TextureSlot.ALL, ModelLocationUtils.getModelLocation(block).withSuffix("_on"));
+    MultiVariant variantOff = BlockModelGenerators.plainVariant(TexturedModel.CUBE.create(block, this.modelOutput));
+    MultiVariant variantOn = BlockModelGenerators.plainVariant(this.blockModelGenerators.createSuffixedVariant(block, "_on", ModelTemplates.CUBE_ALL, TextureMapping::cube));
 
-    ResourceLocation offModel = ModelTemplates.CUBE_ALL.create(block, offTextureMapping, this.modelOutput);
-    ResourceLocation onModel = ModelTemplates.CUBE_ALL.createWithSuffix(block, "_on", onTextureMapping, this.modelOutput);
-
-    this.blockStateOutput.accept(
-      MultiVariantGenerator.multiVariant(block)
-        .with(BlockModelGenerators.createBooleanModelDispatch(BlockStateProperties.LIT, onModel, offModel))
-    );
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(BlockModelGenerators.createBooleanModelDispatch(BlockStateProperties.LIT, variantOn, variantOff)));
   }
 
   /**
@@ -356,11 +357,11 @@ public class SMBModelProvider extends FabricModelProvider {
    * @param block The Redstone Sea Lantern block.
    */
   public final void createRedstoneSeaLantern(Block bottomAndTopBlock, Block block) {
-    TextureMapping offTextureMapping = TextureMapping.cube(block)
+    TextureMapping mappingOff = TextureMapping.cube(block)
       .put(TextureSlot.UP, ModelLocationUtils.getModelLocation(bottomAndTopBlock))
       .put(TextureSlot.DOWN, ModelLocationUtils.getModelLocation(bottomAndTopBlock));
 
-    TextureMapping onTextureMapping = TextureMapping.cube(block)
+    TextureMapping mappingOn = TextureMapping.cube(block)
       .put(TextureSlot.UP, ModelLocationUtils.getModelLocation(bottomAndTopBlock))
       .put(TextureSlot.DOWN, ModelLocationUtils.getModelLocation(bottomAndTopBlock))
       .put(TextureSlot.NORTH, ModelLocationUtils.getModelLocation(block).withSuffix("_on_north"))
@@ -368,13 +369,10 @@ public class SMBModelProvider extends FabricModelProvider {
       .put(TextureSlot.EAST, ModelLocationUtils.getModelLocation(block).withSuffix("_on_east"))
       .put(TextureSlot.WEST, ModelLocationUtils.getModelLocation(block).withSuffix("_on_west"));
 
-    ResourceLocation offModel = ModelTemplates.CUBE.create(block, offTextureMapping, this.modelOutput);
-    ResourceLocation onModel = ModelTemplates.CUBE.createWithSuffix(block, "_on", onTextureMapping, this.modelOutput);
+    MultiVariant variantOff = BlockModelGenerators.plainVariant(ModelTemplates.CUBE.create(block, mappingOff, this.modelOutput));
+    MultiVariant variantOn = BlockModelGenerators.plainVariant(ModelTemplates.CUBE.createWithSuffix(block, "_on", mappingOn, this.modelOutput));
 
-    this.blockStateOutput.accept(
-      MultiVariantGenerator.multiVariant(block)
-        .with(BlockModelGenerators.createBooleanModelDispatch(BlockStateProperties.LIT, onModel, offModel))
-    );
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(BlockModelGenerators.createBooleanModelDispatch(BlockStateProperties.LIT, variantOn, variantOff)));
   }
 
   /**
@@ -384,16 +382,11 @@ public class SMBModelProvider extends FabricModelProvider {
    */
   public final void createPottedTinyCactus(Block plantBlock, Block pottedBlock) {
     BlockModelGenerators.PlantType plantType = BlockModelGenerators.PlantType.NOT_TINTED;
-    TextureMapping textureMapping = plantType.getPlantTextureMapping(plantBlock)
-      .put(TextureSlot.PLANT, ModelLocationUtils.getModelLocation(pottedBlock));
+    TextureMapping mapping = plantType.getPlantTextureMapping(plantBlock).put(TextureSlot.PLANT, ModelLocationUtils.getModelLocation(pottedBlock));
 
-    ResourceLocation model = plantType.getCrossPot().create(pottedBlock, textureMapping, this.modelOutput);
+    MultiVariant variant = BlockModelGenerators.plainVariant(plantType.getCrossPot().create(pottedBlock, mapping, this.modelOutput));
 
-    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(pottedBlock, model));
-  }
-
-  public final void createPottedPaleMushroom(Block pottedBlock) {
-    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(pottedBlock, ModelLocationUtils.getModelLocation(pottedBlock)));
+    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(pottedBlock, variant));
   }
 
   /**
@@ -403,19 +396,20 @@ public class SMBModelProvider extends FabricModelProvider {
   public final void createSmallLilyPad(Block block) {
     this.createIndexedModelWithYRotationVariant(block, false, 1);
 
-    ResourceLocation model = ModelLocationUtils.getModelLocation(block);
-    ResourceLocation modelWithLotus = ModelLocationUtils.getModelLocation(block).withSuffix("_with_lotus");
+    Variant variant = new Variant(ModelLocationUtils.getModelLocation(block));
+    Variant variantWithLotus = new Variant(ModelLocationUtils.getModelLocation(block).withSuffix("_with_lotus"));
+
     ResourceLocation itemModel = ModelTemplates.FLAT_ITEM.create(block.asItem(), TextureMapping.layer0(block), this.modelOutput);
 
-    List<Variant> variants = new ArrayList<>();
+    List<Weighted<Variant>> variants = new ArrayList<>();
 
-    for (VariantProperties.Rotation rotation : VariantProperties.Rotation.values()) {
-      variants.add(Variant.variant().with(VariantProperties.MODEL, model).with(VariantProperties.Y_ROT, rotation));
-      variants.add(Variant.variant().with(VariantProperties.MODEL, modelWithLotus).with(VariantProperties.Y_ROT, rotation));
+    for (Quadrant quadrant : Quadrant.values()) {
+      variants.add(new Weighted<>(variant.with(VariantMutator.Y_ROT.withValue(quadrant)), 1));
+      variants.add(new Weighted<>(variantWithLotus.with(VariantMutator.Y_ROT.withValue(quadrant)), 1));
     }
 
     this.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(itemModel));
-    this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block, variants.toArray(new Variant[0])));
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, new MultiVariant(WeightedList.of(variants))));
   }
 
   /**
@@ -423,7 +417,7 @@ public class SMBModelProvider extends FabricModelProvider {
    * @param block The Big Lily Pad block.
    */
   public final void createBigLilyPad(Block block) {
-    PropertyDispatch.C2<Direction, QuadDirection> c2 = PropertyDispatch.properties(BlockStateProperties.HORIZONTAL_FACING, SMBBlockStateProperties.POSITION);
+    PropertyDispatch.C2<MultiVariant, Direction, QuadDirection> c2 = PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, SMBBlockStateProperties.POSITION);
 
     /* Generate Block Model */
     for (int i = 0; i < QuadDirection.values().length; i++) {
@@ -435,20 +429,20 @@ public class SMBModelProvider extends FabricModelProvider {
       ResourceLocation model = SMBModelTemplates.SQUARE_HORIZONTAL.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
 
       for (Direction facing : Direction.Plane.HORIZONTAL) {
-        Variant variant = Variant.variant()
-          .with(VariantProperties.MODEL, model);
+        MultiVariant variant = new MultiVariant(WeightedList.of(new Variant(model)))
+          .with(VariantMutator.MODEL.withValue(model));
 
         if (facing != Direction.NORTH) {
-          VariantProperties.Rotation yRot;
+          VariantMutator yRot;
 
           switch (facing) {
-            case EAST  -> yRot = VariantProperties.Rotation.R90;
-            case SOUTH -> yRot = VariantProperties.Rotation.R180;
-            case WEST  -> yRot = VariantProperties.Rotation.R270;
-            default -> yRot = VariantProperties.Rotation.R0;
+            case EAST  -> yRot = VariantMutator.Y_ROT.withValue(Quadrant.R90);
+            case SOUTH -> yRot = VariantMutator.Y_ROT.withValue(Quadrant.R180);
+            case WEST  -> yRot = VariantMutator.Y_ROT.withValue(Quadrant.R270);
+            default -> yRot = VariantMutator.Y_ROT.withValue(Quadrant.R0);
           }
 
-          variant.with(VariantProperties.Y_ROT, yRot);
+          variant = variant.with(yRot);
         }
 
         c2.select(facing, QuadDirection.getByIndex(i), variant);
@@ -459,17 +453,14 @@ public class SMBModelProvider extends FabricModelProvider {
       .create(block.asItem(), TextureMapping.layer0(block.asItem()), this.modelOutput);
 
     this.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(itemModel));
-    this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block).with(c2));
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(c2));
   }
 
   /**
-   * Create a Leaf Litter block and Bucket item.
-   * @param block The Leaf Litter block.
-   * @param item The Leaves Bucket item.
+   * Create a Leaves Bucket item.
+   * @param item The Leaves Bucket item
    */
-  public final void createLeafLitterWithBucket(Block block, Item item) {
-    this.createIndexedModelWithYRotationVariant(block, 3);
-
+  public final void createLeavesBucket(Item item) {
     RangeSelectItemModel.Entry[] overrides = new RangeSelectItemModel.Entry[4];
     for (int i = 0; i < overrides.length; i++) {
       String suffix = i == 0 ? "" : "_" + (i - 1);
@@ -479,10 +470,30 @@ public class SMBModelProvider extends FabricModelProvider {
       TextureMapping textureMapping = TextureMapping.layer0(item).put(TextureSlot.LAYER0, identifier);
       ResourceLocation itemModel = ModelTemplates.FLAT_ITEM.create(identifier, textureMapping, this.modelOutput);
 
-     overrides[i] = ItemModelUtils.override(ItemModelUtils.plainModel(itemModel), threshold);
+      overrides[i] = ItemModelUtils.override(ItemModelUtils.plainModel(itemModel), threshold);
     }
 
     this.itemModelOutput.accept(item, ItemModelUtils.rangeSelect(new BucketVolumeProperty(), overrides[3].model(), overrides));
+  }
+
+  /**
+   * Create a Leaf Litter block and Bucket item.
+   * @param block The Leaf Litter block.
+   * @param item The Leaves Bucket item.
+   */
+  public final void createLeafLitterWithBucket(Block block, Item item) {
+    MultiVariant variant1 = BlockModelGenerators.plainVariant(TexturedModel.LEAF_LITTER_1.create(block, this.modelOutput));
+    MultiVariant variant2 = BlockModelGenerators.plainVariant(TexturedModel.LEAF_LITTER_2.create(block, this.modelOutput));
+    MultiVariant variant3 = BlockModelGenerators.plainVariant(TexturedModel.LEAF_LITTER_3.create(block, this.modelOutput));
+    MultiVariant variant4 = BlockModelGenerators.plainVariant(TexturedModel.LEAF_LITTER_4.create(block, this.modelOutput));
+
+    Function<ConditionBuilder, ConditionBuilder> condition1 = (conditionBuilder) -> conditionBuilder.term(BlockStateProperties.SEGMENT_AMOUNT, 1);
+    Function<ConditionBuilder, ConditionBuilder> condition2 = (conditionBuilder) -> conditionBuilder.term(BlockStateProperties.SEGMENT_AMOUNT, 2, new Integer[]{3});
+    Function<ConditionBuilder, ConditionBuilder> condition3 = (conditionBuilder) -> conditionBuilder.term(BlockStateProperties.SEGMENT_AMOUNT, 3);
+    Function<ConditionBuilder, ConditionBuilder> condition4 = (conditionBuilder) -> conditionBuilder.term(BlockStateProperties.SEGMENT_AMOUNT, 4);
+
+    this.blockModelGenerators.createSegmentedBlock(block, variant1, condition1, variant2, condition2, variant3, condition3, variant4, condition4);
+    this.createLeavesBucket(item);
   }
 
   public final void createFlowerBedWithItem(Block block, Item item, boolean isNetherVersion) {
@@ -491,7 +502,28 @@ public class SMBModelProvider extends FabricModelProvider {
     ResourceLocation resourceLocation2 = TexturedModel.createDefault(TextureMapping::flowerbed, !isNetherVersion ? SMBModelTemplates.TINTED_FLOWERBED_2 : SMBModelTemplates.NETHER_FLOWERBED_2).create(block, this.modelOutput);
     ResourceLocation resourceLocation3 = TexturedModel.createDefault(TextureMapping::flowerbed, !isNetherVersion ? SMBModelTemplates.TINTED_FLOWERBED_3 : SMBModelTemplates.NETHER_FLOWERBED_3).create(block, this.modelOutput);
     ResourceLocation resourceLocation4 = TexturedModel.createDefault(TextureMapping::flowerbed, !isNetherVersion ? SMBModelTemplates.TINTED_FLOWERBED_4 : SMBModelTemplates.NETHER_FLOWERBED_4).create(block, this.modelOutput);
-    this.blockStateOutput.accept(MultiPartGenerator.multiPart(block).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), Variant.variant().with(VariantProperties.MODEL, resourceLocation)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), Variant.variant().with(VariantProperties.MODEL, resourceLocation).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), Variant.variant().with(VariantProperties.MODEL, resourceLocation).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), Variant.variant().with(VariantProperties.MODEL, resourceLocation).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), Variant.variant().with(VariantProperties.MODEL, resourceLocation2)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), Variant.variant().with(VariantProperties.MODEL, resourceLocation2).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), Variant.variant().with(VariantProperties.MODEL, resourceLocation2).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), Variant.variant().with(VariantProperties.MODEL, resourceLocation2).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), Variant.variant().with(VariantProperties.MODEL, resourceLocation3)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), Variant.variant().with(VariantProperties.MODEL, resourceLocation3).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), Variant.variant().with(VariantProperties.MODEL, resourceLocation3).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), Variant.variant().with(VariantProperties.MODEL, resourceLocation3).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), Variant.variant().with(VariantProperties.MODEL, resourceLocation4)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), Variant.variant().with(VariantProperties.MODEL, resourceLocation4).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), Variant.variant().with(VariantProperties.MODEL, resourceLocation4).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180)).with(Condition.condition().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), Variant.variant().with(VariantProperties.MODEL, resourceLocation4).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)));
+    this.blockStateOutput.accept(
+      MultiPartGenerator.multiPart(block)
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), BlockModelGenerators.plainVariant(resourceLocation).with(VariantMutator.MODEL.withValue(resourceLocation)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), BlockModelGenerators.plainVariant(resourceLocation).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), BlockModelGenerators.plainVariant(resourceLocation).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), BlockModelGenerators.plainVariant(resourceLocation).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)))
+
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), BlockModelGenerators.plainVariant(resourceLocation2).with(VariantMutator.MODEL.withValue(resourceLocation2)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), BlockModelGenerators.plainVariant(resourceLocation2).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), BlockModelGenerators.plainVariant(resourceLocation2).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), BlockModelGenerators.plainVariant(resourceLocation2).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)))
+
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), BlockModelGenerators.plainVariant(resourceLocation3).with(VariantMutator.MODEL.withValue(resourceLocation3)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), BlockModelGenerators.plainVariant(resourceLocation3).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), BlockModelGenerators.plainVariant(resourceLocation3).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), BlockModelGenerators.plainVariant(resourceLocation3).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)))
+
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), BlockModelGenerators.plainVariant(resourceLocation4).with(VariantMutator.MODEL.withValue(resourceLocation4)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), BlockModelGenerators.plainVariant(resourceLocation4).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), BlockModelGenerators.plainVariant(resourceLocation4).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
+        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), BlockModelGenerators.plainVariant(resourceLocation4).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)))
+    );
   }
 
   /**
@@ -516,7 +548,7 @@ public class SMBModelProvider extends FabricModelProvider {
     ResourceLocation itemModel = ModelTemplates.TWO_LAYERED_ITEM.create(block.asItem(), itemTextureMapping, this.modelOutput);
 
     this.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(itemModel));
-    this.blockModelGenerators.createDoubleBlock(block, topModel, bottomModel);
+    this.blockModelGenerators.createDoubleBlock(block, BlockModelGenerators.plainVariant(topModel), BlockModelGenerators.plainVariant(bottomModel));
   }
 
   /**
@@ -524,7 +556,7 @@ public class SMBModelProvider extends FabricModelProvider {
    * @param block The block flat block.
    * @param maxVariations The max number of variations.
    */
-  public final List<Variant> createIndexedModelWithYRotationVariant(Block block, int maxVariations) {
+  public final MultiVariant createIndexedModelWithYRotationVariant(Block block, int maxVariations) {
     return this.createIndexedModelWithYRotationVariant(block, true, maxVariations);
   }
 
@@ -534,12 +566,12 @@ public class SMBModelProvider extends FabricModelProvider {
    * @param generateBlockState If true, the block state will be generated.
    * @param maxVariations The max number of variations.
    */
-  public final List<Variant> createIndexedModelWithYRotationVariant(Block block, boolean generateBlockState, int maxVariations) {
+  public final MultiVariant createIndexedModelWithYRotationVariant(Block block, boolean generateBlockState, int maxVariations) {
     if (maxVariations <= 0) {
       throw new IllegalArgumentException("The max variations value should be 1 or greater.");
     }
 
-    List<Variant> variants = new ArrayList<>();
+    List<Weighted<Variant>> variants = new ArrayList<>();
 
     for (int i = 0; i < maxVariations; i++) {
       String suffix = maxVariations > 1 ? "_" + i : "";
@@ -549,19 +581,21 @@ public class SMBModelProvider extends FabricModelProvider {
 
       ResourceLocation model = SMBModelTemplates.SQUARE_HORIZONTAL.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
 
-      for (VariantProperties.Rotation rotation : VariantProperties.Rotation.values()) {
-        variants.add(
-          Variant.variant()
-            .with(VariantProperties.MODEL, model)
-            .with(VariantProperties.Y_ROT, rotation)
-        );
+      for (Quadrant quadrant : Quadrant.values()) {
+        Variant variant = new Variant(model)
+          .with(VariantMutator.MODEL.withValue(model))
+          .with(VariantMutator.Y_ROT.withValue(quadrant));
+
+        variants.add(new Weighted<>(variant, 1));
       }
     }
 
-    if (!generateBlockState) return variants;
-    this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block, variants.toArray(new Variant[0])));
+    MultiVariant multiVariant = new MultiVariant(WeightedList.of(variants));
 
-    return variants;
+    if (!generateBlockState) return multiVariant;
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, multiVariant));
+
+    return multiVariant;
   }
 
   /**
@@ -574,7 +608,7 @@ public class SMBModelProvider extends FabricModelProvider {
       .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(SMBBlocks.CHISELED_SOUL_SANDSTONE.get()));
 
     ResourceLocation model = ModelTemplates.CUBE_COLUMN.create(block, textureMapping, this.modelOutput);
-    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, model));
+    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, BlockModelGenerators.plainVariant(model)));
   }
 
   /**

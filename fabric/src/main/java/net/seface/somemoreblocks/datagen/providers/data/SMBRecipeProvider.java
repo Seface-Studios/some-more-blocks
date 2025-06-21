@@ -383,6 +383,8 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.snowyPlant(Blocks.FERN);
         this.snowyPlant(Blocks.TALL_GRASS);
         this.snowyPlant(Blocks.LARGE_FERN);
+        this.snowyPlant(Blocks.BUSH);
+        this.snowyPlant(Blocks.FIREFLY_BUSH);
 
         /* More Colored Blocks */
         this.shingles();

@@ -7,10 +7,169 @@
       "minecraft:azalea_leaves"
     ],
     "to_place": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "somemoreblocks:flowering_azalea_leaf_litter"
-      }
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "north",
+              "segment_amount": "1"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "north",
+              "segment_amount": "2"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "north",
+              "segment_amount": "3"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "north",
+              "segment_amount": "4"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "south",
+              "segment_amount": "1"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "south",
+              "segment_amount": "2"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "south",
+              "segment_amount": "3"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "south",
+              "segment_amount": "4"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "west",
+              "segment_amount": "1"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "west",
+              "segment_amount": "2"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "west",
+              "segment_amount": "3"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "west",
+              "segment_amount": "4"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "east",
+              "segment_amount": "1"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "east",
+              "segment_amount": "2"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "east",
+              "segment_amount": "3"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:flowering_azalea_leaf_litter",
+            "Properties": {
+              "facing": "east",
+              "segment_amount": "4"
+            }
+          },
+          "weight": 1
+        }
+      ]
     }
   }
 }

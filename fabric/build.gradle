@@ -51,6 +51,8 @@ loom {
 }
 
 task applyLocalizations(type: NodeTask) {
+  dependsOn("runDatagen")
+
   script = project(":common").file('../scripts/langfy/main.mjs')
   args = [minecraft_version, mod_name]
 }
