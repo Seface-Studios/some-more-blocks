@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "somemoreblocks:block/pale_mushroom_colony"
+    "layer0": "somemoreblocks:item/pale_mushroom_colony"
   }
 }

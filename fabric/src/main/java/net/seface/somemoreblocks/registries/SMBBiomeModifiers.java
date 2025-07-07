@@ -143,7 +143,7 @@ public class SMBBiomeModifiers {
   private static void patchPaleMushroom() {
     BiomeModifications.addFeature(
       (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_PALE_MUSHROOM).test(ctx),
-      GenerationStep.Decoration.VEGETAL_DECORATION,
+      GenerationStep.Decoration.UNDERGROUND_DECORATION,
       SMBPlacedFeature.PATCH_PALE_MUSHROOM
     );
   }

@@ -3,7 +3,6 @@ package net.seface.somemoreblocks.mixin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.*;
@@ -17,9 +16,9 @@ import org.spongepowered.asm.mixin.Unique;
 import java.util.Optional;
 
 @SuppressWarnings("deprecation")
-@Mixin(BushBlock.class)
-public abstract class BushBlockMixin extends Block {
-  public BushBlockMixin(Properties properties) {
+@Mixin(VegetationBlock.class)
+public abstract class VegetationBlockMixin extends Block {
+  public VegetationBlockMixin(Properties properties) {
     super(properties);
   }
 

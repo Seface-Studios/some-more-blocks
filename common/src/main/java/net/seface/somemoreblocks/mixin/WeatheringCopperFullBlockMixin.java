@@ -1,5 +1,10 @@
 package net.seface.somemoreblocks.mixin;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.WeatheringCopperFullBlock;
@@ -20,6 +25,21 @@ public abstract class WeatheringCopperFullBlockMixin extends Block implements We
     super(properties);
   }
 
+  /*@Override
+  public Optional<BlockState> getNextState(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    *//*
+     * Why we don't run this on NeoForge?
+     * Because NeoForge has a Built-in data map, so to prevent any incompatibility we need to avoid it.
+     *//*
+    if (PlatformServices.HELPER.is(PlatformServices.Platforms.NEOFORGE)) {
+      return WeatheringCopper.super.getNextState(state, level, pos, random);
+    }
+
+    return SMBRegistries.WEATHERING_COPPER_BLOCKS.getNext(state.getBlock())
+      .map(block -> block.withPropertiesOf(state))
+      .or(() -> Optional.of(WeatheringCopper.getNext(state.getBlock()).get().defaultBlockState()));
+  }
+*/
   @Override
   public @NotNull Optional<BlockState> getNext(BlockState state) {
     /*
@@ -32,8 +52,7 @@ public abstract class WeatheringCopperFullBlockMixin extends Block implements We
 
     return SMBRegistries.WEATHERING_COPPER_BLOCKS.getNext(state.getBlock())
       .map(block -> block.withPropertiesOf(state))
-      .or(() -> Optional.of(WeatheringCopper.getNext(state.getBlock()).get().defaultBlockState()));
-
+      .or(() -> WeatheringCopper.super.getNext(state));
   }
 
   @Inject(method = "isRandomlyTicking", at = @At(value = "HEAD"), cancellable = true)

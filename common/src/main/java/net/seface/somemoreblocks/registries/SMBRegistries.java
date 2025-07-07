@@ -5,15 +5,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraft.world.level.block.ConduitBlock;
-import net.minecraft.world.level.block.entity.ConduitBlockEntity;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.platform.registry.BidirectionalRegistryObject;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class SMBRegistries {
   public static BidirectionalRegistryObject<Block, Block> CARVED_BLOCKS = BidirectionalRegistryObject.create(SomeMoreBlocks.id("carved_blocks"));

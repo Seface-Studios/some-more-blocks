@@ -321,7 +321,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropWhenShears(SMBBlocks.SNOW_FERN.get());
     this.dropWhenShearsDoublePlant(SMBBlocks.LARGE_SNOW_FERN.get(), SMBBlocks.SNOW_FERN.get());
     this.dropWhenShears(SMBBlocks.SNOW_BUSH.get());
-    this.dropWhenShears(SMBBlocks.SNOW_FIREFLY_BUSH.get());
+    this.dropSelf(SMBBlocks.SNOW_FIREFLY_BUSH.get());
     this.dropDoublePlantWithoutShears(SMBBlocks.PALE_ROSE_BUSH.get());
     this.dropWhenShears(SMBBlocks.CATTAIL.get());
     this.dropWhenShears(SMBBlocks.REEDS.get());

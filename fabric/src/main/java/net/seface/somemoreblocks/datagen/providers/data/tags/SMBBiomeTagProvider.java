@@ -55,7 +55,7 @@ public class SMBBiomeTagProvider extends FabricTagProvider<Biome> {
       .add(Biomes.CRIMSON_FOREST, Biomes.WARPED_FOREST, Biomes.FLOWER_FOREST, Biomes.NETHER_WASTES);
 
     this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_PALE_MUSHROOM)
-      .add(Biomes.PALE_GARDEN);
+      .add(Biomes.PALE_GARDEN, Biomes.DRIPSTONE_CAVES, Biomes.LUSH_CAVES, Biomes.DEEP_DARK);
 
     this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY)
       .add(Biomes.PALE_GARDEN);

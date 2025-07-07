@@ -9,8 +9,10 @@ import net.seface.somemoreblocks.Constants;
 public class CommonRegistries {
 
   public static void init() {
+    SMBRegistries.init();
     CommonRegistries.registerPathNodeTypes();
     CommonRegistries.registerFuels();
+    SMBBiomeModifiers.init();
   }
 
   private static void registerPathNodeTypes() {

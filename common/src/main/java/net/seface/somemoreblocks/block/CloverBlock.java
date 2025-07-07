@@ -4,8 +4,12 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,31 +24,13 @@ import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
 
 import java.util.function.BiFunction;
+import java.util.function.Function;
 
-public class CloverBlock extends BushBlock {
-  public static final MapCodec<BushBlock> CODEC = simpleCodec(CloverBlock::new);
+public class CloverBlock extends VegetationBlock implements BonemealableBlock, SegmentableBlock {
+  public static final MapCodec<CloverBlock> CODEC = simpleCodec(CloverBlock::new);
   public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
   public static final IntegerProperty AMOUNT = BlockStateProperties.FLOWER_AMOUNT;
-  private static final BiFunction<Direction, Integer, VoxelShape> SHAPE_BY_PROPERTIES = Util.memoize((direction, amount) -> {
-    VoxelShape[] shapes = new VoxelShape[]{
-      Block.box(8.0, 0.0, 8.0, 16.0, 3.0, 16.0),
-      Block.box(8.0, 0.0, 0.0, 16.0, 3.0, 8.0),
-      Block.box(0.0, 0.0, 0.0, 8.0, 3.0, 8.0),
-      Block.box(0.0, 0.0, 8.0, 8.0, 3.0, 16.0)
-    };
-
-    VoxelShape shape = Shapes.empty();
-
-    for(int i = 0; i < amount; ++i) {
-      int $$5 = Math.floorMod(i - direction.get2DDataValue(), 4);
-      shape = Shapes.or(shape, shapes[$$5]);
-    }
-
-    return shape.singleEncompassing();
-  });
-
-  public static final int MIN_FLOWERS = 1;
-  public static final int MAX_FLOWERS = 4;
+  private final Function<BlockState, VoxelShape> shapes;
 
   public CloverBlock(Properties properties) {
     super(properties);
@@ -54,10 +40,12 @@ public class CloverBlock extends BushBlock {
         .any()
         .setValue(FACING, Direction.NORTH)
         .setValue(AMOUNT, 1));
+
+    this.shapes = this.makeShapes();
   }
 
   @Override
-  public MapCodec<BushBlock> codec() {
+  public MapCodec<CloverBlock> codec() {
     return CODEC;
   }
 
@@ -67,7 +55,7 @@ public class CloverBlock extends BushBlock {
   }
 
   public VoxelShape getShape(BlockState state, BlockGetter block, BlockPos pos, CollisionContext ctx) {
-    return SHAPE_BY_PROPERTIES.apply(state.getValue(FACING), state.getValue(AMOUNT));
+    return this.shapes.apply(state);
   }
 
   public BlockState rotate(BlockState state, Rotation rotation) {
@@ -79,7 +67,7 @@ public class CloverBlock extends BushBlock {
   }
 
   public boolean canBeReplaced(BlockState state, BlockPlaceContext ctx) {
-    return !ctx.isSecondaryUseActive() && ctx.getItemInHand().is(this.asItem()) && state.getValue(AMOUNT) < MAX_FLOWERS ? true : super.canBeReplaced(state, ctx);
+    return this.canBeReplaced(state, ctx, AMOUNT) ? true : super.canBeReplaced(state, ctx);
   }
 
   public BlockState getStateForPlacement(BlockPlaceContext ctx) {
@@ -90,6 +78,15 @@ public class CloverBlock extends BushBlock {
       this.defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite());
   }
 
+  private Function<BlockState, VoxelShape> makeShapes() {
+    return this.getShapeForEachState(this.getShapeCalculator(FACING, AMOUNT));
+  }
+
+  @Override
+  public double getShapeHeight() {
+    return 3.0F;
+  }
+
   @Override
   protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
     if (state.is(SMBBlocks.NETHER_CLOVER.get())) {
@@ -98,5 +95,27 @@ public class CloverBlock extends BushBlock {
     }
 
     return super.canSurvive(state, level, pos);
+  }
+
+  @Override
+  public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+    return true;
+  }
+
+  @Override
+  public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    return true;
+  }
+
+  @Override
+  public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    int amount = state.getValue(AMOUNT);
+
+    if (amount < SegmentableBlock.MAX_SEGMENT) {
+      level.setBlock(pos, state.setValue(AMOUNT, amount + 1), 2);
+      return;
+    }
+
+    Block.popResource(level, pos, new ItemStack(this));
   }
 }

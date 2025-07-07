@@ -11,6 +11,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.VegetationBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -23,8 +24,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 
 @SuppressWarnings("deprecation")
-public class WallMushroomColonyBlock extends BushBlock {
-  public static final MapCodec<BushBlock> CODEC = simpleCodec(WallMushroomColonyBlock::new);
+public class WallMushroomColonyBlock extends VegetationBlock {
+  public static final MapCodec<WallMushroomColonyBlock> CODEC = simpleCodec(WallMushroomColonyBlock::new);
   protected static final Map<Direction, VoxelShape> SHAPE = Maps.newEnumMap(ImmutableMap.of(
     Direction.SOUTH, Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 6.0),
     Direction.WEST, Block.box(10.0, 0.0, 0.0, 16.0, 16.0, 16.0),
@@ -40,7 +41,7 @@ public class WallMushroomColonyBlock extends BushBlock {
   }
 
   @Override
-  public MapCodec<BushBlock> codec() {
+  public MapCodec<WallMushroomColonyBlock> codec() {
     return CODEC;
   }
 

@@ -23,6 +23,7 @@ import org.jetbrains.annotations.NotNull;
 public class MushroomColonyBlock extends BushBlock implements BonemealableBlock {
   public static final MapCodec<BushBlock> CODEC = simpleCodec(MushroomColonyBlock::new);
   protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0);
+  protected static final VoxelShape PALE_MUSHROOM_COLONY_SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 6.0, 14.0);
 
   private final TagKey<Block> tagKey;
   private final Block grownBlock;
@@ -49,7 +50,7 @@ public class MushroomColonyBlock extends BushBlock implements BonemealableBlock 
   @NotNull
   @Override
   public VoxelShape getShape(BlockState state, BlockGetter block, BlockPos pos, CollisionContext context) {
-    return SHAPE;
+    return state.is(SMBBlocks.PALE_MUSHROOM_COLONY.get()) ? PALE_MUSHROOM_COLONY_SHAPE : SHAPE;
   }
 
   @Override
