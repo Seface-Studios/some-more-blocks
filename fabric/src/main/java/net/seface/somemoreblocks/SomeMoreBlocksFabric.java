@@ -7,7 +7,6 @@ public class SomeMoreBlocksFabric implements ModInitializer {
 
   @Override
   public void onInitialize() {
-    SomeMoreBlocks.init();
-    CommonRegistries.init();
+    SomeMoreBlocks.init(null, CommonRegistries::init);
   }
 }
