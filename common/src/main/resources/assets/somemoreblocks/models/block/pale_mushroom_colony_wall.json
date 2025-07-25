@@ -1,581 +1,209 @@
 {
-  "credit": "By Seface Studios",
-  "ambientocclusion": false,
-  "textures": {
-    "particle": "somemoreblocks:block/pale_mushroom_colony_wall",
-    "texture": "somemoreblocks:block/pale_mushroom_colony_wall"
-  },
-  "elements": [
-    {
-      "name": "wall_mushroom_colony",
-      "from": [
-        0.99,
-        4.99,
-        -0.01
-      ],
-      "to": [
-        9.01,
-        5.01,
-        6.01
-      ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          0,
-          8
-        ]
-      },
-      "faces": {
-        "up": {
-          "uv": [
-            8,
-            6,
-            0,
-            0
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        },
-        "down": {
-          "uv": [
-            16,
-            0,
-            8,
-            6
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        }
-      }
-    },
-    {
-      "name": "wall_mushroom_colony",
-      "from": [
-        4.99,
-        14.99,
-        -0.01
-      ],
-      "to": [
-        13.01,
-        15.01,
-        6.01
-      ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          0,
-          8
-        ]
-      },
-      "faces": {
-        "up": {
-          "uv": [
-            8,
-            6,
-            0,
-            0
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        },
-        "down": {
-          "uv": [
-            16,
-            0,
-            8,
-            6
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        }
-      }
-    },
-    {
-      "name": "wall_mushroom_colony",
-      "from": [
-        6.99,
-        5.99,
-        -0.01
-      ],
-      "to": [
-        7.01,
-        8.01,
-        4.01
-      ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          0,
-          8
-        ]
-      },
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "texture": "#texture"
-        },
-        "east": {
-          "uv": [
-            4,
-            6,
-            0,
-            8
-          ],
-          "texture": "#texture"
-        },
-        "south": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "texture": "#texture"
-        },
-        "west": {
-          "uv": [
-            0,
-            6,
-            4,
-            8
-          ],
-          "texture": "#texture"
-        },
-        "up": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        },
-        "down": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        }
-      }
-    },
-    {
-      "name": "wall_mushroom_colony",
-      "from": [
-        8.99,
-        12.99,
-        -0.01
-      ],
-      "to": [
-        9.01,
-        15.01,
-        4.01
-      ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          0,
-          8
-        ]
-      },
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "texture": "#texture"
-        },
-        "east": {
-          "uv": [
-            4,
-            6,
-            0,
-            8
-          ],
-          "texture": "#texture"
-        },
-        "south": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "texture": "#texture"
-        },
-        "west": {
-          "uv": [
-            0,
-            6,
-            4,
-            8
-          ],
-          "texture": "#texture"
-        },
-        "up": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        },
-        "down": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        }
-      }
-    },
-    {
-      "name": "wall_mushroom_colony",
-      "from": [
-        4.99,
-        2.99,
-        -0.01
-      ],
-      "to": [
-        5.01,
-        5.01,
-        4.01
-      ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          0,
-          8
-        ]
-      },
-      "faces": {
-        "north": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "texture": "#texture"
-        },
-        "east": {
-          "uv": [
-            4,
-            6,
-            0,
-            8
-          ],
-          "texture": "#texture"
-        },
-        "south": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "texture": "#texture"
-        },
-        "west": {
-          "uv": [
-            0,
-            6,
-            4,
-            8
-          ],
-          "texture": "#texture"
-        },
-        "up": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        },
-        "down": {
-          "uv": [
-            0,
-            5,
-            0,
-            5
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        }
-      }
-    },
-    {
-      "name": "wall_mushroom_colony",
-      "from": [
-        3.99,
-        7.99,
-        -0.01
-      ],
-      "to": [
-        10.01,
-        8.01,
-        4.01
-      ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          0,
-          8
-        ]
-      },
-      "faces": {
-        "up": {
-          "uv": [
-            16,
-            12,
-            10,
-            8
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        },
-        "down": {
-          "uv": [
-            16,
-            12,
-            10,
-            16
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        }
-      }
-    },
-    {
-      "name": "wall_mushroom_colony",
-      "from": [
-        5.99,
-        0.99,
-        -0.01
-      ],
-      "to": [
-        12.01,
-        1.01,
-        4.01
-      ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          0,
-          8
-        ]
-      },
-      "faces": {
-        "up": {
-          "uv": [
-            16,
-            12,
-            10,
-            8
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        },
-        "down": {
-          "uv": [
-            16,
-            12,
-            10,
-            16
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        }
-      }
-    },
-    {
-      "name": "wall_mushroom_colony",
-      "from": [
-        7.99,
-        11.99,
-        -0.01
-      ],
-      "to": [
-        14.01,
-        12.01,
-        4.01
-      ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          0,
-          8
-        ]
-      },
-      "faces": {
-        "up": {
-          "uv": [
-            16,
-            12,
-            10,
-            8
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        },
-        "down": {
-          "uv": [
-            16,
-            12,
-            10,
-            16
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        }
-      }
-    },
-    {
-      "name": "wall_mushroom_colony",
-      "from": [
-        9.99,
-        6.99,
-        -0.01
-      ],
-      "to": [
-        16.01,
-        7.01,
-        4.01
-      ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          0,
-          8
-        ]
-      },
-      "faces": {
-        "up": {
-          "uv": [
-            16,
-            12,
-            10,
-            8
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        },
-        "down": {
-          "uv": [
-            16,
-            12,
-            10,
-            16
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        }
-      }
-    },
-    {
-      "name": "wall_mushroom_colony",
-      "from": [
-        2.99,
-        13.99,
-        -0.01
-      ],
-      "to": [
-        7.01,
-        14.01,
-        5.01
-      ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          0,
-          8
-        ]
-      },
-      "faces": {
-        "up": {
-          "uv": [
-            8,
-            16,
-            4,
-            11
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        },
-        "down": {
-          "uv": [
-            4,
-            11,
-            0,
-            16
-          ],
-          "rotation": 180,
-          "texture": "#texture"
-        }
-      }
-    }
-  ],
-  "groups": [
-    {
-      "name": "wall_mushroom_colony",
-      "origin": [
-        8,
-        0,
-        8
-      ],
-      "color": 0,
-      "children": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ]
-    }
-  ]
+	"credit": "By Seface Studios",
+	"textures": {
+		"stem": "somemoreblocks:block/pale_mushroom_stem",
+		"particle": "somemoreblocks:block/pale_mushroom",
+		"mushroom": "somemoreblocks:block/pale_mushroom",
+		"mushroom_emissive": "somemoreblocks:block/pale_mushroom_emissive"
+	},
+	"elements": [
+		{
+			"from": [7, 7, 0],
+			"to": [14, 7, 4],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"up": {"uv": [0, 0, 7, 4], "rotation": 180, "texture": "#mushroom"},
+				"down": {"uv": [8, 3, 15, 7], "rotation": 180, "texture": "#mushroom"}
+			}
+		},
+		{
+			"from": [4, 3, 0],
+			"to": [9, 3, 3],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"up": {"uv": [0, 8, 5, 11], "rotation": 180, "texture": "#mushroom"},
+				"down": {"uv": [8, 10, 13, 13], "rotation": 180, "texture": "#mushroom"}
+			}
+		},
+		{
+			"from": [8, 14, 0],
+			"to": [13, 14, 3],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"up": {"uv": [0, 8, 5, 11], "rotation": 180, "texture": "#mushroom"},
+				"down": {"uv": [8, 10, 13, 13], "rotation": 180, "texture": "#mushroom"}
+			}
+		},
+		{
+			"from": [11, 11, 0],
+			"to": [16, 11, 3],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"up": {"uv": [0, 8, 5, 11], "rotation": 180, "texture": "#mushroom"},
+				"down": {"uv": [8, 10, 13, 13], "rotation": 180, "texture": "#mushroom"}
+			}
+		},
+		{
+			"from": [0, 12, 0],
+			"to": [7, 12, 4],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"up": {"uv": [0, 0, 7, 4], "rotation": 180, "texture": "#mushroom"},
+				"down": {"uv": [8, 3, 15, 7], "rotation": 180, "texture": "#mushroom"}
+			}
+		},
+		{
+			"from": [5, 2, 0],
+			"to": [8, 3, 2],
+			"shade": false,
+			"light_emission": 15,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"east": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"south": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"west": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"down": {"uv": [10, 2, 13, 4], "rotation": 180, "texture": "#mushroom_emissive"}
+			}
+		},
+		{
+			"from": [9, 6, 0],
+			"to": [12, 7, 2],
+			"shade": false,
+			"light_emission": 15,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"east": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"south": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"west": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"down": {"uv": [10, 2, 13, 4], "rotation": 180, "texture": "#mushroom_emissive"}
+			}
+		},
+		{
+			"from": [12, 10, 0],
+			"to": [15, 11, 2],
+			"shade": false,
+			"light_emission": 15,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"east": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"south": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"west": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"down": {"uv": [10, 2, 13, 4], "rotation": 180, "texture": "#mushroom_emissive"}
+			}
+		},
+		{
+			"from": [9, 13, 0],
+			"to": [12, 14, 2],
+			"shade": false,
+			"light_emission": 15,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"east": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"south": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"west": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"down": {"uv": [10, 2, 13, 4], "rotation": 180, "texture": "#mushroom_emissive"}
+			}
+		},
+		{
+			"from": [2, 11, 0],
+			"to": [5, 12, 2],
+			"shade": false,
+			"light_emission": 15,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"east": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"south": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"west": {"uv": [10, 2, 13, 3], "texture": "#mushroom_emissive"},
+				"down": {"uv": [10, 2, 13, 4], "rotation": 180, "texture": "#mushroom_emissive"}
+			}
+		},
+		{
+			"from": [7, 7, 0],
+			"to": [14, 7, 4],
+			"shade": false,
+			"light_emission": 10,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"down": {"uv": [8, 3, 15, 7], "rotation": 180, "texture": "#mushroom_emissive"}
+			}
+		},
+		{
+			"from": [0, 12, 0],
+			"to": [7, 12, 4],
+			"shade": false,
+			"light_emission": 10,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"down": {"uv": [8, 3, 15, 7], "rotation": 180, "texture": "#mushroom_emissive"}
+			}
+		},
+		{
+			"from": [3.5, 10, 0],
+			"to": [3.5, 11, 1],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"east": {"uv": [9, 15, 10, 16], "texture": "#stem"},
+				"west": {"uv": [9, 15, 10, 16], "texture": "#stem"}
+			}
+		},
+		{
+			"from": [10.5, 12, 0],
+			"to": [10.5, 13, 1],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"east": {"uv": [9, 15, 10, 16], "texture": "#stem"},
+				"west": {"uv": [9, 15, 10, 16], "texture": "#stem"}
+			}
+		},
+		{
+			"from": [13.5, 9, 0],
+			"to": [13.5, 10, 1],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"east": {"uv": [9, 15, 10, 16], "texture": "#stem"},
+				"west": {"uv": [9, 15, 10, 16], "texture": "#stem"}
+			}
+		},
+		{
+			"from": [10.5, 5, 0],
+			"to": [10.5, 6, 1],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"east": {"uv": [9, 15, 10, 16], "texture": "#stem"},
+				"west": {"uv": [9, 15, 10, 16], "texture": "#stem"}
+			}
+		},
+		{
+			"from": [6.5, 1, 0],
+			"to": [6.5, 2, 1],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"east": {"uv": [9, 15, 10, 16], "texture": "#stem"},
+				"west": {"uv": [9, 15, 10, 16], "texture": "#stem"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "wall_mushroom_colony",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+		}
+	]
 }

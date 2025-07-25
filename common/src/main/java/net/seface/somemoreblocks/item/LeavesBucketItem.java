@@ -75,8 +75,12 @@ public class LeavesBucketItem extends SolidBucketItem {
     // Try to place leaf litter and decrease bucket volume
     if (bucketVolume > 0) {
       BlockPlaceContext placeContext = new BlockPlaceContext(ctx);
+      BlockPos relativePos = placeContext.getClickedPos();
+      BlockState relativeBlock = level.getBlockState(relativePos);
 
-      if (!this.canPlace(placeContext, this.leafLitterState)) return InteractionResult.FAIL;
+      if (!relativeBlock.canBeReplaced() || relativeBlock.is(this.leafLitterState.getBlock())) {
+        return InteractionResult.FAIL;
+      }
 
       if (player instanceof ServerPlayer) {
         CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer) player, pos, stack);

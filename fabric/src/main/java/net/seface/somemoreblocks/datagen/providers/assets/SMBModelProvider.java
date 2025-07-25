@@ -276,10 +276,16 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+
     gen.registerSimpleItemModel(SMBItems.PALE_MUSHROOM.get(), gen.createFlatItemModel(SMBItems.PALE_MUSHROOM.get()));
-    this.createPottedPaleMushroom(SMBBlocks.POTTED_PALE_MUSHROOM.get());
-    gen.createCrossBlockWithDefaultItem(SMBBlocks.PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
-    gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.registerSimpleItemModel(SMBItems.PALE_MUSHROOM_COLONY.get(), gen.createFlatItemModel(SMBItems.PALE_MUSHROOM_COLONY.get()));
+    gen.registerSimpleItemModel(SMBItems.TALL_PALE_MUSHROOM_COLONY.get(), gen.createFlatItemModel(SMBItems.TALL_PALE_MUSHROOM_COLONY.get()));
+
+    gen.createNonTemplateModelBlock(SMBBlocks.PALE_MUSHROOM.get());
+    gen.createNonTemplateModelBlock(SMBBlocks.POTTED_PALE_MUSHROOM.get());
+    gen.createNonTemplateModelBlock(SMBBlocks.PALE_MUSHROOM_COLONY.get());
+    //gen.createCrossBlockWithDefaultItem(SMBBlocks.PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    //gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.WARPED_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);

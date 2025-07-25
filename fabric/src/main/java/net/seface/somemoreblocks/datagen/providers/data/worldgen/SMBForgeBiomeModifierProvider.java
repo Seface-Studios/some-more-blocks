@@ -33,25 +33,33 @@ public class SMBForgeBiomeModifierProvider extends ForgeModifierProvider {
       .setDecorationStep(GenerationStep.Decoration.UNDERGROUND_DECORATION)
       .setBiomes(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER).build();
 
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_PALE_ROSE_BUSH).setBiomes(Biomes.PALE_GARDEN).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_SMALL_LILY_PADS).setBiomes(SMBBiomeTags.GENERATES_SMALL_LILY_PADS).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES).setBiomes(Biomes.LUSH_CAVES).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_SNOW_GRASS).setBiomes(SMBBiomeTags.GENERATES_SNOW_GRASS).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY).setBiomes(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_BROWN_MUSHROOM_COLONY).setBiomes(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_FLOWERING_AZALEA_LEAF_LITTER).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_LEAF_LITTER).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER).build();
     this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_RED_MUSHROOM_COLONY).setBiomes(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_BROWN_MUSHROOM_COLONY).setBiomes(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_CLOVER).setBiomes(SMBBiomeTags.GENERATES_CLOVER).build();
     this.vegetalDecoration(SMBPlacedFeature.PATCH_NETHER_CLOVER).setBiomes(SMBBiomeTags.GENERATES_NETHER_CLOVER).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_PALE_MUSHROOM).setBiomes(SMBBiomeTags.GENERATES_NETHER_CLOVER).build();
+
+    this.configure()
+      .setType(this.loader, Modifier.ADD_FEATURES)
+      .setFeature(SMBPlacedFeature.PATCH_PALE_MUSHROOM)
+      .setDecorationStep(GenerationStep.Decoration.UNDERGROUND_DECORATION)
+      .setBiomes(SMBBiomeTags.GENERATES_PALE_MUSHROOM).build();
+
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_PALE_MUSHROOM_COLONY).setBiomes(SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_PALE_ROSE_BUSH).setBiomes(Biomes.PALE_GARDEN).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_RED_MUSHROOM_COLONY).setBiomes(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_SMALL_LILY_PADS).setBiomes(SMBBiomeTags.GENERATES_SMALL_LILY_PADS).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES).setBiomes(Biomes.LUSH_CAVES).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_SNOW_GRASS).setBiomes(SMBBiomeTags.GENERATES_SNOW_GRASS).build();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY).setBiomes(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_PALE_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).build();
+    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).build();
   }
 
   private ForgeBiomeModifier leafLitterDecoration(ResourceKey<PlacedFeature> placedFeature) {

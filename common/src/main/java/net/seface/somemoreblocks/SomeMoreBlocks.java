@@ -160,7 +160,8 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_MUSHROOM.get(), translucent);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.POTTED_PALE_MUSHROOM.get(), cutout);
-    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_MUSHROOM_COLONY.get(), translucent);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_MUSHROOM_COLONY.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PALE_MUSHROOM_COLONY_WALL.get(), translucent);
   }
 }

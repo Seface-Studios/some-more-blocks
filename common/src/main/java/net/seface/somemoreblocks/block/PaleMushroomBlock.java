@@ -1,31 +1,34 @@
 package net.seface.somemoreblocks.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.TallGrassBlock;
+import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("deprecation")
-public class PaleMushroomBlock extends TallGrassBlock {
+public class PaleMushroomBlock extends MushroomBlock {
   public PaleMushroomBlock(Properties properties) {
-    super(properties);
-  }
-  protected static final VoxelShape SHAPE = Block.box(5.0, 0.0, 5.0, 11.0, 6.0, 11.0);
-
-  @Override
-  protected VoxelShape getShape(BlockState state, BlockGetter block, BlockPos pos, CollisionContext ctx) {
-    return SHAPE;
+    super(null, properties);
   }
 
   @Override
-  public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-    BlockState blockBelow = level.getBlockState(pos.below());
-    return blockBelow.is(BlockTags.MUSHROOM_GROW_BLOCK) && !level.getBlockState(pos.above()).liquid() || (level.getRawBrightness(pos, 0) < 13 && Block.isFaceFull(blockBelow.getCollisionShape(level, pos.below()), Direction.UP));
+  public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+    return false;
+  }
+
+  @Override
+  public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    return false;
+  }
+
+  @Override
+  public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    /*
+      Maybe in the future we add a
+      tree-like mushroom feature.
+    */
   }
 }
