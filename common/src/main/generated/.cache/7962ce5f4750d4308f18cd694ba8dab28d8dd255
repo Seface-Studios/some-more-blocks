@@ -1,4 +1,4 @@
-// 1.21	2025-06-07T13:44:03.4960568	Some More Blocks/Block Loot Tables
+// 1.21	2025-07-26T20:32:34.4253671	Some More Blocks/Block Loot Tables
 bc976649ff0ac56de39f0c7102b571d89dfed986 data\somemoreblocks\loot_table\blocks\diorite_brick_stairs.json
 f8c574a72ce99e45ee92b37e45d6828e4eb13b5b data\somemoreblocks\loot_table\blocks\red_terracotta_tiles.json
 beef7249e0fa7f2674451f2c7af8b7424062b76e data\somemoreblocks\loot_table\blocks\polished_end_stone_stairs.json
@@ -63,9 +63,9 @@ f1768c335b8b439b705b5fe1eec63fa14bbb5567 data\somemoreblocks\loot_table\blocks\p
 ec8ae53bbc273652f645f9208296a73d9008b57b data\somemoreblocks\loot_table\blocks\cracked_andesite_tiles.json
 3dcf29afa0311effea2f9f290b17d126f4cd733f data\somemoreblocks\loot_table\blocks\cracked_cut_redstone.json
 0a4727c558ac96c2649929ae7124907201fe52e7 data\somemoreblocks\loot_table\blocks\cracked_polished_basalt_tiles.json
-64a5e6d97b4aab6147dc9e7561a2cab7984a6aa0 data\somemoreblocks\loot_table\blocks\oak_mosaic_stairs.json
-ca6b4b52409ddae0de1ccad06d8fe7dad14035ab data\somemoreblocks\loot_table\blocks\chiseled_diorite_bricks.json
 e5d99fa305e8b0dfe0d7c9628f4054d085c5e4cc data\somemoreblocks\loot_table\blocks\lime_shingles_stairs.json
+ca6b4b52409ddae0de1ccad06d8fe7dad14035ab data\somemoreblocks\loot_table\blocks\chiseled_diorite_bricks.json
+64a5e6d97b4aab6147dc9e7561a2cab7984a6aa0 data\somemoreblocks\loot_table\blocks\oak_mosaic_stairs.json
 d8b03414df8da7dbb42e542d58172f2eb2781935 data\somemoreblocks\loot_table\blocks\carved_warped_hyphae.json
 8b4305a93f9a554c17a9c977878ef0bc4f3e95bd data\somemoreblocks\loot_table\blocks\soul_sandstone_stairs.json
 4c3ecc056df6bca3686e6742ad5d319a44fd3f6b data\somemoreblocks\loot_table\blocks\mossy_calcite_brick_slab.json
