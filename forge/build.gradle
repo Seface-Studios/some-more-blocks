@@ -16,7 +16,7 @@ minecraft {
   reobf = false
   copyIdeResources = true
 
-  var File AT = project(":common").file('src/main/resources/META-INF/accesstransformer.cfg')
+  var File AT = project(":forge").file('src/main/resources/META-INF/accesstransformer.cfg')
   if (AT.exists()) {
     accessTransformers.from(AT.absolutePath)
   }

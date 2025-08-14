@@ -9,11 +9,9 @@
     "BushBlockMixin",
     "ComposterBlockMixin",
     "ConduitBlockEntityMixin",
-    "HoneycombItemMixin",
-    "WeatheringCopperFullBlockMixin"
+    "HoneycombItemMixin"
   ],
-  "client": [
-  ],
+  "client": [],
   "server": [],
   "injectors": {
     "defaultRequire": 1

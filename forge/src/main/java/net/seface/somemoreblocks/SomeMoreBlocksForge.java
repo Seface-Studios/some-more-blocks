@@ -1,9 +1,11 @@
 package net.seface.somemoreblocks;
 
 import lombok.Getter;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.seface.somemoreblocks.mixin.WeatheringCopperFullBlockMixin;
 import net.seface.somemoreblocks.platform.registry.ForgePlatformRegistry;
 import net.seface.somemoreblocks.registries.SMBBiomeModifiers;
 

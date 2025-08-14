@@ -72,6 +72,13 @@ public class BidirectionalRegistryObject<K, V> {
     return this.next.values();
   }
 
+  /**
+   * Get the number os objects.
+   */
+  public int size() {
+    return this.next.values().size();
+  }
+
   public static <K, V> BidirectionalRegistryObject<K, V> create(ResourceLocation id) {
     return new BidirectionalRegistryObject<>(id);
   }

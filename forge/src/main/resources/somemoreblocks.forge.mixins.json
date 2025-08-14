@@ -6,7 +6,8 @@
   "compatibilityLevel": "JAVA_${java_version}",
   "mixins": [
     "TinyCactusBlockMixin",
-    "TallCactusBlockMixin"
+    "TallCactusBlockMixin",
+    "WeatheringCopperFullBlockMixin"
   ],
   "client": [
     "RangeSelectItemModelPropertiesMixin"

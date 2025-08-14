@@ -74,12 +74,12 @@ public abstract class AxeItemMixin {
     Optional<Block> waxableOff = SMBRegistries.WAXED_COPPER_BLOCKS.getPrevious(state.getBlock());
 
     if (weatheringOff.isPresent()) {
-      this.SMB$evaluateNewBlockState(ctx, level, weatheringOff.get().defaultBlockState(), SoundEvents.AXE_SCRAPE, LevelEvent.PARTICLES_SCRAPE);
+      this.SMB$evaluateNewBlockState(ctx, level, weatheringOff.get().withPropertiesOf(state), SoundEvents.AXE_SCRAPE, LevelEvent.PARTICLES_SCRAPE);
       cir.setReturnValue(InteractionResult.SUCCESS);
     }
 
     if (waxableOff.isPresent()) {
-      this.SMB$evaluateNewBlockState(ctx, level, waxableOff.get().defaultBlockState(), SoundEvents.AXE_WAX_OFF, LevelEvent.PARTICLES_WAX_OFF);
+      this.SMB$evaluateNewBlockState(ctx, level, waxableOff.get().withPropertiesOf(state), SoundEvents.AXE_WAX_OFF, LevelEvent.PARTICLES_WAX_OFF);
       cir.setReturnValue(InteractionResult.SUCCESS);
     }
   }
