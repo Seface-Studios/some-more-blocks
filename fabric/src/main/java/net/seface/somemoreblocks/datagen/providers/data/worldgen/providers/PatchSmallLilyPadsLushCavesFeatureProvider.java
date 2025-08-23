@@ -15,10 +15,11 @@ import net.minecraft.world.level.material.Fluids;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
-public class PatchSmallLilyPadsLushCavesFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchSmallLilyPadsLushCavesFeatureProvider extends FeatureProvider<RandomPatchConfiguration> {
 
   public PatchSmallLilyPadsLushCavesFeatureProvider() {
     super(Feature.RANDOM_PATCH);
@@ -54,7 +55,7 @@ public class PatchSmallLilyPadsLushCavesFeatureProvider extends AbstractFeatureP
           BlockPredicate.matchesFluids(Vec3i.ZERO.below(), Fluids.WATER))));
   }
 
-  public static <T extends AbstractFeatureProvider<?>> T create() {
+  public static <T extends FeatureProvider<?>> T create() {
     return new PatchSmallLilyPadsLushCavesFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES);

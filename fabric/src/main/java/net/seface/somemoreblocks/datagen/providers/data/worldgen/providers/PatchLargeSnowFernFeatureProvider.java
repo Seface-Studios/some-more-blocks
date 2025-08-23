@@ -11,10 +11,11 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
-public class PatchLargeSnowFernFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchLargeSnowFernFeatureProvider extends FeatureProvider<RandomPatchConfiguration> {
   public PatchLargeSnowFernFeatureProvider() {
     super(Feature.RANDOM_PATCH);
   }
@@ -38,7 +39,7 @@ public class PatchLargeSnowFernFeatureProvider extends AbstractFeatureProvider<R
     );
   }
 
-  public static <T extends AbstractFeatureProvider<?>> T create() {
+  public static <T extends FeatureProvider<?>> T create() {
     return new PatchLargeSnowFernFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_LARGE_SNOW_FERN)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_LARGE_SNOW_FERN);

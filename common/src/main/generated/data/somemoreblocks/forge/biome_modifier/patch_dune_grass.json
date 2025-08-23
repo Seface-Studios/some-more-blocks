@@ -1,5 +1,5 @@
 {
-  "type": "somemoreblocks:patch_dune_grass",
+  "type": "forge:add_features",
   "biomes": "#minecraft:is_beach",
   "features": "somemoreblocks:patch_dune_grass",
   "step": "vegetal_decoration"

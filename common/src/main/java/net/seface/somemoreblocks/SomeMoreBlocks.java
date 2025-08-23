@@ -5,6 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.tags.SMBBlockTags;

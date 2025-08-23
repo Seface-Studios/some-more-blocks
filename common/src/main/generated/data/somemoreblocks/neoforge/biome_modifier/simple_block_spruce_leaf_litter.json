@@ -1,6 +1,0 @@
-{
-  "type": "neoforge:add_features",
-  "biomes": "#minecraft:is_overworld",
-  "features": "somemoreblocks:simple_block_spruce_leaf_litter",
-  "step": "vegetal_decoration"
-}

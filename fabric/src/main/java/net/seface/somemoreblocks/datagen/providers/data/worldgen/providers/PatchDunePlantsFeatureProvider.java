@@ -13,10 +13,11 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
-public class PatchDunePlantsFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchDunePlantsFeatureProvider extends FeatureProvider<RandomPatchConfiguration> {
   public PatchDunePlantsFeatureProvider() {
     super(Feature.RANDOM_PATCH);
   }
@@ -47,7 +48,7 @@ public class PatchDunePlantsFeatureProvider extends AbstractFeatureProvider<Rand
     );
   }
 
-  public static <T extends AbstractFeatureProvider<?>> T create() {
+  public static <T extends FeatureProvider<?>> T create() {
     return new PatchDunePlantsFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_DUNE_GRASS)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_DUNE_GRASS);

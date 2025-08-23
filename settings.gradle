@@ -20,6 +20,8 @@ plugins {
     id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
 }
 
+//includeBuild 'C:\\Users\\llgav\\Documents\\Repositories\\SefaceStudios\\extended-fabric-data-generation'
+
 rootProject.name = 'some-more-blocks'
 include("common")
 include("fabric")

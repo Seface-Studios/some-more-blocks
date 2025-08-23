@@ -14,10 +14,11 @@ import net.minecraft.world.level.material.Fluids;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
-public class PatchSmallLilyPadsFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchSmallLilyPadsFeatureProvider extends FeatureProvider<RandomPatchConfiguration> {
 
   public PatchSmallLilyPadsFeatureProvider() {
     super(Feature.RANDOM_PATCH);
@@ -42,7 +43,7 @@ public class PatchSmallLilyPadsFeatureProvider extends AbstractFeatureProvider<R
           BlockPredicate.matchesFluids(Vec3i.ZERO.below(), Fluids.WATER))));
   }
 
-  public static <T extends AbstractFeatureProvider<?>> T create() {
+  public static <T extends FeatureProvider<?>> T create() {
     return new PatchSmallLilyPadsFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_SMALL_LILY_PADS)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_SMALL_LILY_PADS);

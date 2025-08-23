@@ -6,16 +6,19 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.seface.somemoreblocks.datagen.providers.assets.SMBModelProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBBlockLootProvider;
-import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBAdventureAdvancementsProvider;
-import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBNetherAdvancementsProvider;
-import net.seface.somemoreblocks.datagen.providers.data.worldgen.SMBForgeBiomeModifierProvider;
 import net.seface.somemoreblocks.datagen.providers.data.SMBRecipeProvider;
+import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBAdventureAdvancementsProvider;
 import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBHusbandryAdvancementsProvider;
-import net.seface.somemoreblocks.datagen.providers.data.forge.ForgeModifierProvider;
+import net.seface.somemoreblocks.datagen.providers.data.advancements.SMBNetherAdvancementsProvider;
+import net.seface.somemoreblocks.datagen.providers.data.datamaps.SMBCompostablesDataMapProvider;
+import net.seface.somemoreblocks.datagen.providers.data.datamaps.SMBCopperBehaviorDataMapProvider;
+import net.seface.somemoreblocks.datagen.providers.data.datamaps.SMBFurnaceFuelsDataMapProvider;
 import net.seface.somemoreblocks.datagen.providers.data.tags.SMBBiomeTagProvider;
 import net.seface.somemoreblocks.datagen.providers.data.tags.SMBBlockTagProvider;
 import net.seface.somemoreblocks.datagen.providers.data.tags.SMBItemTagProvider;
+import net.seface.somemoreblocks.datagen.providers.data.worldgen.SMBForgeBiomeModifierProvider;
 import net.seface.somemoreblocks.datagen.providers.data.worldgen.SMBFeatureProvider;
+import net.sefacestudios.datagen_extras.utils.ForgedModLoaders;
 
 public class Main implements DataGeneratorEntrypoint {
 
@@ -36,8 +39,11 @@ public class Main implements DataGeneratorEntrypoint {
     pack.addProvider(SMBAdventureAdvancementsProvider::new);
     pack.addProvider(SMBHusbandryAdvancementsProvider::new);
     pack.addProvider(SMBNetherAdvancementsProvider::new);
-    pack.addProvider((output, _completableFuture) -> new SMBForgeBiomeModifierProvider(output, ForgeModifierProvider.Loader.FORGE));
-    pack.addProvider((output, _completableFuture) -> new SMBForgeBiomeModifierProvider(output, ForgeModifierProvider.Loader.NEOFORGE));
+    pack.addProvider(SMBCopperBehaviorDataMapProvider::new);
+    pack.addProvider(SMBFurnaceFuelsDataMapProvider::new);
+    pack.addProvider(SMBCompostablesDataMapProvider::new);
+    pack.addProvider(SMBForgeBiomeModifierProvider::new);
+    pack.addProvider((output, registriesFuture) -> new SMBForgeBiomeModifierProvider(output, registriesFuture).setForgedModLoader(ForgedModLoaders.NEOFORGE));
   }
 
   @Override

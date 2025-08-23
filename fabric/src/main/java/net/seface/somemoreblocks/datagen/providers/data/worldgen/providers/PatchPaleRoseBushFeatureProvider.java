@@ -11,10 +11,11 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
-public class PatchPaleRoseBushFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchPaleRoseBushFeatureProvider extends FeatureProvider<RandomPatchConfiguration> {
   public PatchPaleRoseBushFeatureProvider() {
     super(Feature.RANDOM_PATCH);
   }
@@ -38,7 +39,7 @@ public class PatchPaleRoseBushFeatureProvider extends AbstractFeatureProvider<Ra
     );
   }
 
-  public static <T extends AbstractFeatureProvider<?>> T create() {
+  public static <T extends FeatureProvider<?>> T create() {
     return new PatchPaleRoseBushFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_PALE_ROSE_BUSH)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_PALE_ROSE_BUSH);

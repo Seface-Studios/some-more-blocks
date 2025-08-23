@@ -11,10 +11,11 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConf
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
-public class PatchMushroomColonyFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchMushroomColonyFeatureProvider extends FeatureProvider<RandomPatchConfiguration> {
   protected Block toPlaceBlock;
   protected Block toPlaceTallBlock;
 

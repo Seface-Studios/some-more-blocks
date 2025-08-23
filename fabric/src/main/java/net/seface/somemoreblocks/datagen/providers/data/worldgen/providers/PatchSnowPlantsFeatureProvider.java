@@ -16,10 +16,11 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
-public class PatchSnowPlantsFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchSnowPlantsFeatureProvider extends FeatureProvider<RandomPatchConfiguration> {
   public PatchSnowPlantsFeatureProvider() {
     super(Feature.RANDOM_PATCH);
   }
@@ -49,7 +50,7 @@ public class PatchSnowPlantsFeatureProvider extends AbstractFeatureProvider<Rand
     );
   }
 
-  public static <T extends AbstractFeatureProvider<?>> T create() {
+  public static <T extends FeatureProvider<?>> T create() {
     return new PatchSnowPlantsFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_SNOW_GRASS)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_SNOW_GRASS);

@@ -6,6 +6,8 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.seface.somemoreblocks.registries.SMBFeatures;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.sefacestudios.datagen_extras.provider.worldgen.EmptyFeatureProvider;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class NoneBigLilyPadFeatureProvider extends EmptyFeatureProvider {
     modifier.add(BiomeFilter.biome());
   }
 
-  public static <T extends AbstractFeatureProvider<?>> T create() {
+  public static <T extends FeatureProvider<?>> T create() {
     return new NoneBigLilyPadFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.NONE_BIG_LILY_PAD)
       .setConfiguredFeatureKey(SMBConfiguredFeature.NONE_BIG_LILY_PAD);

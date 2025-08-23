@@ -1,76 +1,99 @@
 package net.seface.somemoreblocks.datagen.providers.data.worldgen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.seface.somemoreblocks.datagen.providers.data.forge.ForgeBiomeModifier;
-import net.seface.somemoreblocks.datagen.providers.data.forge.ForgeModifierProvider;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBBiomeTags;
-import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
+import net.sefacestudios.datagen_extras.modifiers.ForgedBiomeModifier;
+import net.sefacestudios.datagen_extras.modifiers.ForgedBiomeModifierTypes;
+import net.sefacestudios.datagen_extras.provider.forge.ForgeBiomeModifierProvider;
 
-public class SMBForgeBiomeModifierProvider extends ForgeModifierProvider {
-  public SMBForgeBiomeModifierProvider(FabricDataOutput output, Loader loader) {
-    super(output, loader);
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
+
+public class SMBForgeBiomeModifierProvider extends ForgeBiomeModifierProvider {
+  private Consumer<ForgedBiomeModifier> consumer;
+
+  public SMBForgeBiomeModifierProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    super(output, registryLookup);
   }
 
   @Override
-  public void create() {
-    this.vegetalDecoration(SMBPlacedFeature.NONE_BIG_LILY_PAD).setBiomes(SMBBiomeTags.GENERATES_BIG_LILY_PAD).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_CACTUS_PLANTS).setBiomes(SMBBiomeTags.GENERATES_CACTUS_PLANTS).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_CATTAIL).setBiomes(Biomes.RIVER).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_CATTAIL_SWAMP).setBiomes(Biomes.SWAMP).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_CRIMSON_FUNGUS_COLONY).setBiomes(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_DUNE_GRASS).setType().setBiomes(BiomeTags.IS_BEACH).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_LARGE_SNOW_FERN).setBiomes(SMBBiomeTags.GENERATES_LARGE_SNOW_FERN).build();
+  public void generate(HolderLookup.Provider lookup, Consumer<ForgedBiomeModifier> gen) {
+    this.consumer = gen;
 
-    this.configure()
-      .setType(this.loader, Modifier.ADD_FEATURES)
-      .setFeature(SMBPlacedFeature.PATCH_LUMINOUS_FLOWER)
-      .setDecorationStep(GenerationStep.Decoration.UNDERGROUND_DECORATION)
-      .setBiomes(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER).build();
-
-    this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER).build();
-    this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER).build();
-    this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_FLOWERING_AZALEA_LEAF_LITTER).build();
-    this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_LEAF_LITTER).build();
-    this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER).build();
-    this.leafLitterDecoration(SMBPlacedFeature.SIMPLE_BLOCK_SPRUCE_LEAF_LITTER).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_BROWN_MUSHROOM_COLONY).setBiomes(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_CLOVER).setBiomes(SMBBiomeTags.GENERATES_CLOVER).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_NETHER_CLOVER).setBiomes(SMBBiomeTags.GENERATES_NETHER_CLOVER).build();
-
-    this.configure()
-      .setType(this.loader, Modifier.ADD_FEATURES)
-      .setFeature(SMBPlacedFeature.PATCH_PALE_MUSHROOM)
-      .setDecorationStep(GenerationStep.Decoration.UNDERGROUND_DECORATION)
-      .setBiomes(SMBBiomeTags.GENERATES_PALE_MUSHROOM).build();
-
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_PALE_MUSHROOM_COLONY).setBiomes(SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_PALE_ROSE_BUSH).setBiomes(Biomes.PALE_GARDEN).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_RED_MUSHROOM_COLONY).setBiomes(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_SMALL_LILY_PADS).setBiomes(SMBBiomeTags.GENERATES_SMALL_LILY_PADS).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES).setBiomes(Biomes.LUSH_CAVES).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_SNOW_GRASS).setBiomes(SMBBiomeTags.GENERATES_SNOW_GRASS).build();
-    this.vegetalDecoration(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY).setBiomes(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_PALE_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY).build();
-    this.vegetalDecoration(SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL).setBiomes(SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY).build();
+    this.vegetalDecoration(SMBConfiguredFeature.NONE_BIG_LILY_PAD, SMBBiomeTags.GENERATES_BIG_LILY_PAD);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_CACTUS_PLANTS, SMBBiomeTags.GENERATES_CACTUS_PLANTS);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_CATTAIL, Biomes.RIVER);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_CATTAIL_SWAMP, Biomes.SWAMP);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_CRIMSON_FUNGUS_COLONY, SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY);
+    this.vegetalDecoration(SMBConfiguredFeature.SIMPLE_CRIMSON_FUNGUS_COLONY_WALL, SMBBiomeTags.GENERATES_CRIMSON_FUNGUS_COLONY);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_DUNE_GRASS, BiomeTags.IS_BEACH);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_LARGE_SNOW_FERN, SMBBiomeTags.GENERATES_LARGE_SNOW_FERN);
+    this.luminousFlower();
+    this.leafLitter(SMBConfiguredFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER);
+    this.leafLitter(SMBConfiguredFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER);
+    this.leafLitter(SMBConfiguredFeature.SIMPLE_BLOCK_FLOWERING_AZALEA_LEAF_LITTER);
+    this.leafLitter(SMBConfiguredFeature.SIMPLE_BLOCK_LEAF_LITTER);
+    this.leafLitter(SMBConfiguredFeature.SIMPLE_BLOCK_PALE_OAK_LEAF_LITTER);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_BROWN_MUSHROOM_COLONY, SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_CLOVER, SMBBiomeTags.GENERATES_CLOVER);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_NETHER_CLOVER, SMBBiomeTags.GENERATES_NETHER_CLOVER);
+    this.paleMushroom();
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_PALE_MUSHROOM_COLONY, SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_PALE_ROSE_BUSH, Biomes.PALE_GARDEN);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_RED_MUSHROOM_COLONY, SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_SMALL_LILY_PADS, SMBBiomeTags.GENERATES_SMALL_LILY_PADS);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES, Biomes.LUSH_CAVES);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_SNOW_GRASS, SMBBiomeTags.GENERATES_SNOW_GRASS);
+    this.vegetalDecoration(SMBConfiguredFeature.PATCH_WARPED_FUNGUS_COLONY, SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY);
+    this.vegetalDecoration(SMBConfiguredFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL, SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY);
+    this.vegetalDecoration(SMBConfiguredFeature.SIMPLE_PALE_MUSHROOM_COLONY_WALL, SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY);
+    this.vegetalDecoration(SMBConfiguredFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL, SMBBiomeTags.GENERATES_RED_MUSHROOM_COLONY);
+    this.vegetalDecoration(SMBConfiguredFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL, SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY);
   }
 
-  private ForgeBiomeModifier leafLitterDecoration(ResourceKey<PlacedFeature> placedFeature) {
-    return this.vegetalDecoration(placedFeature)
-      .setBiomes(BiomeTags.IS_OVERWORLD);
+  private void paleMushroom() {
+    ForgedBiomeModifier.Builder.biomeModifier(this.loader)
+      .type(ForgedBiomeModifierTypes.ADD_FEATURES)
+      .biomes(SMBBiomeTags.GENERATES_PALE_MUSHROOM)
+      .features(SMBConfiguredFeature.PATCH_PALE_MUSHROOM)
+      .step(GenerationStep.Decoration.UNDERGROUND_DECORATION)
+      .save(this.consumer);
   }
 
-  private ForgeBiomeModifier vegetalDecoration(ResourceKey<PlacedFeature> placedFeature) {
-    return this.configure()
-      .setType(this.loader, Modifier.ADD_FEATURES)
-      .setFeature(placedFeature)
-      .setDecorationStep(GenerationStep.Decoration.VEGETAL_DECORATION);
+  private void leafLitter(ResourceKey<ConfiguredFeature<?, ?>> feature) {
+    this.vegetalDecoration(feature).biomes(BiomeTags.IS_OVERWORLD).save(this.consumer);
+  }
+
+  private void luminousFlower() {
+    ForgedBiomeModifier.Builder.biomeModifier(this.loader)
+      .type(ForgedBiomeModifierTypes.ADD_FEATURES)
+      .biomes(SMBBiomeTags.GENERATES_LUMINOUS_FLOWER)
+      .features(SMBConfiguredFeature.PATCH_LUMINOUS_FLOWER)
+      .step(GenerationStep.Decoration.UNDERGROUND_DECORATION)
+      .save(this.consumer);
+  }
+
+  private void vegetalDecoration(ResourceKey<ConfiguredFeature<?, ?>> feature, ResourceKey<Biome> biome) {
+    this.vegetalDecoration(feature).biomes(biome).save(this.consumer);
+  }
+
+  private void vegetalDecoration(ResourceKey<ConfiguredFeature<?, ?>> feature, TagKey<Biome> biome) {
+    this.vegetalDecoration(feature).biomes(biome).save(this.consumer);
+  }
+
+  private ForgedBiomeModifier.Builder vegetalDecoration(ResourceKey<ConfiguredFeature<?, ?>> feature) {
+    return ForgedBiomeModifier.Builder.biomeModifier(this.loader)
+      .type(ForgedBiomeModifierTypes.ADD_FEATURES)
+      .features(feature)
+      .step(GenerationStep.Decoration.VEGETAL_DECORATION);
   }
 }
