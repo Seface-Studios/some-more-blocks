@@ -18,10 +18,11 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.placement.*;
 import net.seface.somemoreblocks.block.WallMushroomColonyBlock;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
-public class SimpleMushroomColonyWallFeatureProvider extends AbstractFeatureProvider<RandomFeatureConfiguration> {
+public class SimpleMushroomColonyWallFeatureProvider extends FeatureProvider<RandomFeatureConfiguration> {
   protected final Block toPlaceBlock;
 
   public SimpleMushroomColonyWallFeatureProvider(Block toPlaceBlock) {

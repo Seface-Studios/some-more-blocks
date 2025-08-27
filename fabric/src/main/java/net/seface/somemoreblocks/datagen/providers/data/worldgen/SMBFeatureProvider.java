@@ -48,6 +48,7 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     PatchSmallLilyPadsFeatureProvider.create().registerPlaceFeature(context);
     PatchSmallLilyPadsLushCavesFeatureProvider.create().registerPlaceFeature(context);
     PatchSnowPlantsFeatureProvider.create().registerPlaceFeature(context);
+    PatchSnowBushProvider.create().registerPlaceFeature(context);
     SMBFeatureProvider.azaleaLeafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.birchLeafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.brownMushroomColony().registerPlaceFeature(context);
@@ -81,6 +82,7 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     PatchSmallLilyPadsFeatureProvider.create().registerConfiguredFeature(context);
     PatchSmallLilyPadsLushCavesFeatureProvider.create().registerConfiguredFeature(context);
     PatchSnowPlantsFeatureProvider.create().registerConfiguredFeature(context);
+    PatchSnowBushProvider.create().registerConfiguredFeature(context);
     SMBFeatureProvider.azaleaLeafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.birchLeafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.brownMushroomColony().registerConfiguredFeature(context);

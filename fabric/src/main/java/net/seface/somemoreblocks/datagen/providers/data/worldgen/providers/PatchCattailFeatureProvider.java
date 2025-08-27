@@ -16,11 +16,12 @@ import net.minecraft.world.level.material.Fluids;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class PatchCattailFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchCattailFeatureProvider extends FeatureProvider<RandomPatchConfiguration> {
 
   public PatchCattailFeatureProvider() {
     super(Feature.RANDOM_PATCH);
@@ -96,7 +97,7 @@ public class PatchCattailFeatureProvider extends AbstractFeatureProvider<RandomP
     );
   }
 
-  public static <T extends AbstractFeatureProvider<?>> T create() {
+  public static <T extends FeatureProvider<?>> T create() {
     return new PatchCattailFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_CATTAIL)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_CATTAIL);

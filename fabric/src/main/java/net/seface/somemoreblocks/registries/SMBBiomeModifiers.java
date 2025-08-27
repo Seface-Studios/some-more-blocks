@@ -27,6 +27,7 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.patchPaleRoseBush();
     SMBBiomeModifiers.patchSmallLilyPads();
     SMBBiomeModifiers.patchSmallLilyPadsLushCaves();
+    SMBBiomeModifiers.patchSnowBush();
     SMBBiomeModifiers.patchSnowGrass();
     SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY);
     SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL);
@@ -129,6 +130,14 @@ public class SMBBiomeModifiers {
       (ctx) -> BiomeSelectors.includeByKey(Biomes.LUSH_CAVES).test(ctx),
       GenerationStep.Decoration.UNDERGROUND_DECORATION,
       SMBPlacedFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES
+    );
+  }
+
+  private static void patchSnowBush() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_SNOW_BUSH).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_SNOW_BUSH
     );
   }
 

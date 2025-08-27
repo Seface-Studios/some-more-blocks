@@ -17,10 +17,11 @@ import net.seface.somemoreblocks.block.CloverBlock;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
-public class PatchCloverFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchCloverFeatureProvider extends FeatureProvider<RandomPatchConfiguration> {
   protected Block toPlaceBlock;
 
   @Setter
@@ -66,7 +67,7 @@ public class PatchCloverFeatureProvider extends AbstractFeatureProvider<RandomPa
     );
   }
 
-  public static <T extends AbstractFeatureProvider<?>> T create() {
+  public static <T extends FeatureProvider<?>> T create() {
     return new PatchCloverFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_CLOVER)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_CLOVER);

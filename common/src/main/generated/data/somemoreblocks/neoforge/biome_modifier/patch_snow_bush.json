@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#somemoreblocks:generates/snow_bush",
+  "features": "somemoreblocks:patch_snow_bush",
+  "step": "vegetal_decoration"
+}

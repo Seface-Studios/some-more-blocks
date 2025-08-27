@@ -13,10 +13,11 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
-public class PatchCactusFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchCactusFeatureProvider extends FeatureProvider<RandomPatchConfiguration> {
   public PatchCactusFeatureProvider() {
     super(Feature.RANDOM_PATCH);
   }
@@ -47,7 +48,7 @@ public class PatchCactusFeatureProvider extends AbstractFeatureProvider<RandomPa
     );
   }
 
-  public static <T extends AbstractFeatureProvider<?>> T create() {
+  public static <T extends FeatureProvider<?>> T create() {
     return new PatchCactusFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_CACTUS_PLANTS)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_CACTUS_PLANTS);

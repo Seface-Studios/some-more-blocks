@@ -94,8 +94,8 @@ public class ForgePlatformRegistry implements PlatformRegistry {
   }
 
   @Override
-  public <T extends GameRules.Value<T>> GameRules.Key<T> registerGameRule(String id, GameRules.Category category, GameRules.Type<T> type) {
-    return GameRules.register(id, category, type);
+  public GameRules.Key<GameRules.BooleanValue> registerBooleanGameRule(String id, GameRules.Category category, boolean defaultValue) {
+    return GameRules.register(id, category, GameRules.BooleanValue.create(defaultValue));
   }
 
   @Override

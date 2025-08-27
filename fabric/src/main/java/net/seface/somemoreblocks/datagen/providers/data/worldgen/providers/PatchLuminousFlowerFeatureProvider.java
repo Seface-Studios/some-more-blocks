@@ -12,10 +12,11 @@ import net.seface.somemoreblocks.registries.SMBBlocks;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
 import net.seface.somemoreblocks.tags.SMBConfiguredFeature;
 import net.seface.somemoreblocks.tags.SMBPlacedFeature;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.List;
 
-public class PatchLuminousFlowerFeatureProvider extends AbstractFeatureProvider<RandomPatchConfiguration> {
+public class PatchLuminousFlowerFeatureProvider extends FeatureProvider<RandomPatchConfiguration> {
 
   public PatchLuminousFlowerFeatureProvider() {
     super(Feature.RANDOM_PATCH);
@@ -43,7 +44,7 @@ public class PatchLuminousFlowerFeatureProvider extends AbstractFeatureProvider<
     );
   }
 
-  public static <T extends AbstractFeatureProvider<?>> T create() {
+  public static <T extends FeatureProvider<?>> T create() {
     return new PatchLuminousFlowerFeatureProvider()
       .setPlacedFeatureKey(SMBPlacedFeature.PATCH_LUMINOUS_FLOWER)
       .setConfiguredFeatureKey(SMBConfiguredFeature.PATCH_LUMINOUS_FLOWER);

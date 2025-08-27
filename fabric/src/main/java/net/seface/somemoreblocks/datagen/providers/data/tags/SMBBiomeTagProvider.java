@@ -59,5 +59,8 @@ public class SMBBiomeTagProvider extends FabricTagProvider<Biome> {
 
     this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY)
       .add(Biomes.PALE_GARDEN);
+
+    this.getOrCreateTagBuilder(SMBBiomeTags.GENERATES_SNOW_BUSH)
+      .add(Biomes.FROZEN_RIVER);
   }
 }

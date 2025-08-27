@@ -36,6 +36,7 @@ public class SMBConfiguredFeature {
   public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_RED_MUSHROOM_COLONY_WALL = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_red_mushroom_colony_wall");
   public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_PALE_MUSHROOM_COLONY_WALL = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_pale_mushroom_colony_wall");
   public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_WARPED_FUNGUS_COLONY_WALL = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_warped_fungus_colony_wall");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SNOW_BUSH = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_snow_bush");
 
   public static void init() {}
 }

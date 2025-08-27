@@ -13,11 +13,12 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.seface.somemoreblocks.block.CloverBlock;
 import net.seface.somemoreblocks.registries.SMBFeatures;
 import net.seface.somemoreblocks.worldgen.feature.configurations.SimpleLeafLitterBlockConfiguration;
+import net.sefacestudios.datagen_extras.provider.worldgen.FeatureProvider;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimpleLeafLitterFeatureProvider extends AbstractFeatureProvider<SimpleLeafLitterBlockConfiguration> {
+public class SimpleLeafLitterFeatureProvider extends FeatureProvider<SimpleLeafLitterBlockConfiguration> {
   private final Block toPlaceBlock;
   private float toPlaceChance;
   private final List<ResourceKey<Block>> parents;
