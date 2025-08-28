@@ -9,8 +9,7 @@
     "BushBlockMixin",
     "ComposterBlockMixin",
     "ConduitBlockEntityMixin",
-    "HoneycombItemMixin",
-    "WeatheringCopperFullBlockMixin"
+    "HoneycombItemMixin"
   ],
   "client": [
   ],

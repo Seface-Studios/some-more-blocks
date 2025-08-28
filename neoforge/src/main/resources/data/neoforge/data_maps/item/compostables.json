@@ -23,6 +23,7 @@
     "somemoreblocks:azalea_leaves_bucket": { "chance": 1.0 },
     "somemoreblocks:birch_leaves_bucket": { "chance": 1.0 },
     "somemoreblocks:flowering_azalea_leaves_bucket": { "chance": 1.0 },
-    "somemoreblocks:spruce_leaves_bucket": { "chance": 1.0 }
+    "somemoreblocks:spruce_leaves_bucket": { "chance": 1.0 },
+    "somemoreblocks:clover": { "chance": 0.4 }
   }
 }
