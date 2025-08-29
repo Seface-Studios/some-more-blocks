@@ -1,4 +1,4 @@
-// 1.20.1	2025-07-27T11:30:26.2378764	Some More Blocks/Block Loot Tables
+// 1.20.1	2025-08-29T14:32:38.9532113	Some More Blocks/Block Loot Tables
 4a95ea8d33cf4a590b1bea12601ba50631290063 data\somemoreblocks\loot_tables\blocks\mossy_purpur_block.json
 1a423ddf712d90c98be06a467d7eb82d49577ca7 data\somemoreblocks\loot_tables\blocks\corrupted_polished_blackstone_brick_slab.json
 0da6906c3980d4a9383e21af3b5408aa76010a58 data\somemoreblocks\loot_tables\blocks\exposed_copper_bricks.json
@@ -640,8 +640,8 @@ f6976e4898a257dbeb91b8635c6c41a6e868b727 data\somemoreblocks\loot_tables\blocks\
 b829c40a107145437df609376d609d6f7ff0387e data\somemoreblocks\loot_tables\blocks\small_lily_pads.json
 7028d520d9b202404591ccbc3e2d1968e8749277 data\somemoreblocks\loot_tables\blocks\white_concrete_bricks.json
 8828ee8303b2966250644e4bd95c0807255e1c3d data\somemoreblocks\loot_tables\blocks\purple_concrete_bricks.json
-e5d99fa305e8b0dfe0d7c9628f4054d085c5e4cc data\somemoreblocks\loot_tables\blocks\lime_shingles_stairs.json
 a3f990791bdfb6b494ce66a2b2621181f8b9ca24 data\somemoreblocks\loot_tables\blocks\diorite_tile_wall.json
 2ab6f78f624b41d9530802a0b159a4480682bd5c data\somemoreblocks\loot_tables\blocks\smooth_mud_slab.json
+e5d99fa305e8b0dfe0d7c9628f4054d085c5e4cc data\somemoreblocks\loot_tables\blocks\lime_shingles_stairs.json
 2c9cf0104f6933345de8d3825925b08dd1f9e276 data\somemoreblocks\loot_tables\blocks\polished_snow_slab.json
 a66e3f8aebc957348e3bae8557dd285c397b21ba data\somemoreblocks\loot_tables\blocks\polished_basalt_tiles.json
