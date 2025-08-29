@@ -84,9 +84,11 @@ subprojects {
   }
 
   dependencies {
+    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
     compileOnly "org.projectlombok:lombok:${lombok_version}"
     annotationProcessor "org.projectlombok:lombok:${lombok_version}"
-    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+    testCompileOnly "org.projectlombok:lombok:${lombok_version}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombok_version}"
   }
 
   processResources {

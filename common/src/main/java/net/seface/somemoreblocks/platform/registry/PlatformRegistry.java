@@ -67,8 +67,6 @@ public interface PlatformRegistry {
    */
   PlatformRegistryObject<CreativeModeTab> registerCreativeModeTab(String path, CreativeModeTab.Row row, int i, UnaryOperator<CreativeModeTab.Builder> builder);
 
-  <T extends GameRules.Value<T>> GameRules.Key<T> registerGameRule(String id, GameRules.Category category, GameRules.Type<T> type);
-
   /**
    * Main method to set the render type for a block.
    * @param block The block to be configured.
@@ -106,4 +104,6 @@ public interface PlatformRegistry {
     return this.registerBlock(path,
       () -> new FlowerPotBlock(plant.get(), properties), false);
   }
+
+  GameRules.Key<GameRules.BooleanValue> registerBooleanGameRule(String id, GameRules.Category category, boolean defaultValue);
 }
