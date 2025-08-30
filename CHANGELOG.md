@@ -31,7 +31,7 @@ Special mention for the **NeoForge port** which will be constantly maintained al
 - **Mushroom/Fungus Colonies generation:** The Brown and Red Mushroom Colonies can now be found in old growth biomes. The Crimson and Warped Fungus can be found in their respective biomes. There are 3 types of Mushroom/Fungus colonies, Short, Tall and Wall.
 - **New plants**⁽⁺⁴⁾
   - **Reeds:** A new water plant that can grow with Cattails.
-  - **Clover:** Can be found in most of forests and plains. 4 Clovers can ocupate the same block space.
+  - **Clover:** Can be found in most of forests and plains. 4 Clovers can ocuppy the same block space.
   - **Nether Clover:** Can be found in all nether biomes with exception of basalt Deltas.
   - **Tall Cactus:** This block can be found in deserts and badlands alongside the Tiny Cactus.
 - **Shingles Stairs:** 17 new colored stairs.
@@ -74,7 +74,7 @@ Special mention for the **NeoForge port** which will be constantly maintained al
     - `generates_tiny_cactus.json` was renamed to `generates/cactus_plants.json`.
   - We are now fully using the Fabric Data Generation.
   - Custom Platform Service for better development.
-  - **`[1.21.4 only]`** Bumped the minimun Fabric version from `0.110.5+1.21.4` to `0.117.0+1.21.4`.
+  - **`[1.21.4 only]`** Bumped the minimum Fabric version from `0.110.5+1.21.4` to `0.117.0+1.21.4`.
   - **`[1.20.4 only]`** The Experimental Update 1.21 texture will not be applied automatically with `Update 1.21` datapack enabled in the world.
     - The Resource Pack stills built-in in the mod, you can enable manually on Resource Packs menu.
 - **`[1.21.5 only] Leaf Litter Integrations`** - Since Minecraft 1.21.5 adds the Leaf Litter block, we did a little rework on our version. Now you can hold up to 32 leaves in one bucket and place 4 in the same spot. The _SMB_ Leaf Litters will dry over time until turn into the Vanilla Leaf Litter.
@@ -83,7 +83,7 @@ Special mention for the **NeoForge port** which will be constantly maintained al
 - All the Parent Block Tags for all leaf litters type. The parent leaves are now set on Configured Feature file of the leaf litter.
 
 ### Fixed
-- The swapped textures between Blue Contrete Bricks and Blue Concrete Tiles. [#11](https://github.com/Seface-Studios/some-more-blocks/issues/11)
+- The swapped textures between Blue Concrete Bricks and Blue Concrete Tiles. [#11](https://github.com/Seface-Studios/some-more-blocks/issues/11)
 - Using Bucket of Leaves on a relative block that does not have a full hitbox would remove that block. [#15](https://github.com/Seface-Studios/some-more-blocks/issues/15)
 
 ---
