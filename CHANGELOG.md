@@ -31,15 +31,15 @@ Special mention for the **NeoForge port** which will be constantly maintained al
 - **Mushroom/Fungus Colonies generation:** The Brown and Red Mushroom Colonies can now be found in old growth biomes. The Crimson and Warped Fungus can be found in their respective biomes. There are 3 types of Mushroom/Fungus colonies, Short, Tall and Wall.
 - **New plants**⁽⁺⁴⁾
   - **Reeds:** A new water plant that can grow with Cattails.
-  - **Clover:** Can be found in most of forests and plains. 4 Clovers can ocuppy the same block space.
-  - **Nether Clover:** Can be found in all nether biomes with exception of basalt Deltas.
+  - **Clover:** Can be found in most of the forests and plains. 4 Clovers can occupy the same block space.
+  - **Nether Clover:** Can be found in all nether biomes except basalt Deltas.
   - **Tall Cactus:** This block can be found in deserts and badlands alongside the Tiny Cactus.
 - **Shingles Stairs:** 17 new colored stairs.
 - **Checkered Tiles:** 16 new colored blocks.
 - **Game Rules**
   - **doSnowAccumulateOnPlants** - If false, the gamerule will prevent some plants to be turned into snowy variant (short grass, ferns etc) and snowy plants to be turned into normal.
     - `Devs Note` - We are aware of incompatibility with some season mods like [Fabric Seasons](https://www.curseforge.com/minecraft/mc-mods/fabric-seasons) and [Serene Seasons](https://www.curseforge.com/minecraft/mc-mods/serene-seasons). While we try to decide the better way to implement this compatibility, this game rule will fix the issue. Have any suggestion about this? Send an email to `contact@sefacestudios.net` with the subject `Snowy Plants Season Mods Compatibility`.
-  - **`[1.21.5 only]` doLeafLitterDry** - Will not dry the Some More Blocks Leaf Litters into Vanilla Leaf Litter.
+  - **`[1.21.5 only]` doLeafLitterDry** - Will not dry Some More Blocks Leaf Litters into Vanilla Leaf Litter.
 - **New advancements**⁽⁺⁴⁾
   - **With Our Power(ed) Combined!** - Have all Redstone Froglights in your inventory.
   - **`[1.21+ only]` A Grate Time Waste...** - Have all Some More Blocks Grates blocks in your inventory.
