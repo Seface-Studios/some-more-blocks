@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:glowstone_dust_from_luminous_flower"
+        "recipe": "somemoreblocks:glowstone_dust_from_luminous_flower"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:glowstone_dust_from_luminous_flower"
+      "somemoreblocks:glowstone_dust_from_luminous_flower"
     ]
   }
 }

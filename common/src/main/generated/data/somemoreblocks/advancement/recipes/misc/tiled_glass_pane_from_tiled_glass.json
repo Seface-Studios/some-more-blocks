@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:tiled_glass_pane_from_tiled_glass"
+        "recipe": "somemoreblocks:tiled_glass_pane_from_tiled_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:tiled_glass_pane_from_tiled_glass"
+      "somemoreblocks:tiled_glass_pane_from_tiled_glass"
     ]
   }
 }

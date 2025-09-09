@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:bone_tile_stairs_from_bone_block_stonecutting"
+        "recipe": "somemoreblocks:bone_tile_stairs_from_bone_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:bone_tile_stairs_from_bone_block_stonecutting"
+      "somemoreblocks:bone_tile_stairs_from_bone_block_stonecutting"
     ]
   }
 }

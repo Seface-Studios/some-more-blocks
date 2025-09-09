@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:purpur_tiles_from_polished_purpur_stonecutting"
+        "recipe": "somemoreblocks:purpur_tiles_from_polished_purpur_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:purpur_tiles_from_polished_purpur_stonecutting"
+      "somemoreblocks:purpur_tiles_from_polished_purpur_stonecutting"
     ]
   }
 }

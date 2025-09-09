@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:magenta_concrete_bricks_from_magenta_concrete"
+        "recipe": "somemoreblocks:magenta_concrete_bricks_from_magenta_concrete"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:magenta_concrete_bricks_from_magenta_concrete"
+      "somemoreblocks:magenta_concrete_bricks_from_magenta_concrete"
     ]
   }
 }

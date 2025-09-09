@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smooth_granite_slab_from_smooth_granite_stonecutting"
+        "recipe": "somemoreblocks:smooth_granite_slab_from_smooth_granite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smooth_granite_slab_from_smooth_granite_stonecutting"
+      "somemoreblocks:smooth_granite_slab_from_smooth_granite_stonecutting"
     ]
   }
 }

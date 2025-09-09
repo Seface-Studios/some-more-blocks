@@ -7,7 +7,7 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -37,7 +37,7 @@ public class SMBBiomeModifiers {
     );
   }
 
-  public static void init(IEventBus event) {
+  public static void init(BusGroup event) {
     BIOME_MODIFIERS.register(event);
   }
 }

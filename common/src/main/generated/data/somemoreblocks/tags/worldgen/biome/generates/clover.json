@@ -1,6 +1,9 @@
 {
   "values": [
-    "#minecraft:is_jungle",
+    {
+      "id": "#minecraft:is_jungle",
+      "required": false
+    },
     "minecraft:birch_forest",
     "minecraft:dark_forest",
     "minecraft:flower_forest",

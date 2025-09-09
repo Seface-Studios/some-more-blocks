@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:copper_pillar_from_waxed_copper_block_stonecutting"
+        "recipe": "somemoreblocks:copper_pillar_from_waxed_copper_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:copper_pillar_from_waxed_copper_block_stonecutting"
+      "somemoreblocks:copper_pillar_from_waxed_copper_block_stonecutting"
     ]
   }
 }

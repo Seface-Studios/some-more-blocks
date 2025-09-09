@@ -1,7 +1,13 @@
 {
   "values": [
-    "#minecraft:dirt",
-    "#minecraft:logs",
+    {
+      "id": "#minecraft:dirt",
+      "required": false
+    },
+    {
+      "id": "#minecraft:logs",
+      "required": false
+    },
     "minecraft:mushroom_stem",
     "minecraft:mangrove_roots",
     "minecraft:muddy_mangrove_roots",

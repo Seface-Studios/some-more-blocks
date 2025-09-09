@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:waxed_oxidized_copper_pillar_from_waxed_oxidized_copper"
+        "recipe": "somemoreblocks:waxed_oxidized_copper_pillar_from_waxed_oxidized_copper"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:waxed_oxidized_copper_pillar_from_waxed_oxidized_copper"
+      "somemoreblocks:waxed_oxidized_copper_pillar_from_waxed_oxidized_copper"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:pink_stained_tiled_glass_from_pink_stained_glass"
+        "recipe": "somemoreblocks:pink_stained_tiled_glass_from_pink_stained_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:pink_stained_tiled_glass_from_pink_stained_glass"
+      "somemoreblocks:pink_stained_tiled_glass_from_pink_stained_glass"
     ]
   }
 }

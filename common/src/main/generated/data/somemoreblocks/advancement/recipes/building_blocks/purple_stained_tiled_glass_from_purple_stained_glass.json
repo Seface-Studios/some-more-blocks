@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:purple_stained_tiled_glass_from_purple_stained_glass"
+        "recipe": "somemoreblocks:purple_stained_tiled_glass_from_purple_stained_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:purple_stained_tiled_glass_from_purple_stained_glass"
+      "somemoreblocks:purple_stained_tiled_glass_from_purple_stained_glass"
     ]
   }
 }

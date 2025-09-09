@@ -1,7 +1,7 @@
 package net.seface.somemoreblocks.platform.registry;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -12,8 +12,7 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraftforge.client.model.renderable.BakedModelRenderable;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -99,21 +98,21 @@ public class ForgePlatformRegistry implements PlatformRegistry {
   }
 
   @Override
-  public void setBlockRenderType(Block block, RenderType renderType) {
+  public void setBlockRenderType(Block block, ChunkSectionLayer blockRenderLayer) {
     /*
      * For some reason, Forge is not registering the correct
      * RenderType for the Translucent block items.
      */
-    if (renderType == RenderType.translucent()) {
+    /*if (renderType == RenderType.translucent()) {
       ItemBlockRenderTypes.setRenderLayer(block, renderType);
-      ItemBlockRenderTypes.TYPE_BY_BLOCK.put(block, renderType); /* TYPE_BY_BLOCK via Access Widener. */
+      ItemBlockRenderTypes.TYPE_BY_BLOCK.put(block, renderType); *//* TYPE_BY_BLOCK via Access Widener. *//*
       return;
-    }
+    }*/
 
-    ItemBlockRenderTypes.setRenderLayer(block, renderType);
+    ItemBlockRenderTypes.setRenderLayer(block, blockRenderLayer);
   }
 
-  public static void init(IEventBus eventBus) {
+  public static void init(BusGroup eventBus) {
     BLOCKS.register(eventBus);
     ITEMS.register(eventBus);
     DATA_COMPONENT_TYPES.register(eventBus);

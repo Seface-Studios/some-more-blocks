@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:gray_stained_tiled_glass_pane_from_gray_stained_tiled_glass"
+        "recipe": "somemoreblocks:gray_stained_tiled_glass_pane_from_gray_stained_tiled_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:gray_stained_tiled_glass_pane_from_gray_stained_tiled_glass"
+      "somemoreblocks:gray_stained_tiled_glass_pane_from_gray_stained_tiled_glass"
     ]
   }
 }

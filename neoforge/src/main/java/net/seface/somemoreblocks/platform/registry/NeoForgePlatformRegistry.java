@@ -2,6 +2,7 @@ package net.seface.somemoreblocks.platform.registry;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -81,8 +82,8 @@ public class NeoForgePlatformRegistry implements PlatformRegistry {
   }
 
   @Override
-  public void setBlockRenderType(Block block, RenderType renderType) {
-    ItemBlockRenderTypes.setRenderLayer(block, renderType);
+  public void setBlockRenderType(Block block, ChunkSectionLayer blockRenderLayer) {
+    ItemBlockRenderTypes.setRenderLayer(block, blockRenderLayer);
   }
 
   public static void init(IEventBus eventBus) {

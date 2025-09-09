@@ -1,10 +1,11 @@
 package net.seface.somemoreblocks.platform.registry;
 
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -86,7 +87,7 @@ public class FabricPlatformRegistry implements PlatformRegistry {
   }
 
   @Override
-  public void setBlockRenderType(Block block, RenderType renderType) {
-    BlockRenderLayerMap.INSTANCE.putBlock(block, renderType);
+  public void setBlockRenderType(Block block, ChunkSectionLayer blockRenderLayer) {
+    BlockRenderLayerMap.putBlock(block, blockRenderLayer);
   }
 }

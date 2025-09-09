@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_end_stone_tiles_from_polished_end_stone_stonecutting"
+        "recipe": "somemoreblocks:cracked_end_stone_tiles_from_polished_end_stone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_end_stone_tiles_from_polished_end_stone_stonecutting"
+      "somemoreblocks:cracked_end_stone_tiles_from_polished_end_stone_stonecutting"
     ]
   }
 }

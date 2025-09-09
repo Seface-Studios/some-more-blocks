@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:orange_concrete_tiles_from_orange_concrete_bricks_stonecutting"
+        "recipe": "somemoreblocks:orange_concrete_tiles_from_orange_concrete_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:orange_concrete_tiles_from_orange_concrete_bricks_stonecutting"
+      "somemoreblocks:orange_concrete_tiles_from_orange_concrete_bricks_stonecutting"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:purple_concrete_tiles_from_purple_concrete_stonecutting"
+        "recipe": "somemoreblocks:purple_concrete_tiles_from_purple_concrete_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:purple_concrete_tiles_from_purple_concrete_stonecutting"
+      "somemoreblocks:purple_concrete_tiles_from_purple_concrete_stonecutting"
     ]
   }
 }

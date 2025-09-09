@@ -1,6 +1,8 @@
 package net.seface.somemoreblocks.platform.registry;
 
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.client.renderer.chunk.ChunkSectionsToRender;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
@@ -66,9 +68,9 @@ public interface PlatformRegistry {
   /**
    * Main method to set the render type for a block.
    * @param block The block to be configured.
-   * @param renderType The render type.
+   * @param blockRenderLayer The render type.
    */
-  void setBlockRenderType(Block block, RenderType renderType);
+  void setBlockRenderType(Block block, ChunkSectionLayer blockRenderLayer);
 
   /**
    * Main method to register a Block and BlockItem.
