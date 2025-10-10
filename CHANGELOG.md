@@ -1,7 +1,8 @@
 ## Changelog
 ![Latest Release](https://img.shields.io/github/v/release/seface-studios/some-more-blocks?logo=github&logoColor=959da5&labelColor=353c43&color=0091c2&Current&label=Latest%20Release)
 
-> [!NOTE] This changelog is only related to the versions for **Minecraft 1.20.1**.
+> [!NOTE]
+> This changelog is only related to the versions for **Minecraft 1.20.1**.
 > For other versions, see their respective branch or the [most recent changelog](https://github.com/Seface-Studios/some-more-blocks/blob/main/CHANGELOG.md).
 
 ## 1.0.5-bp - October 10, 2025
