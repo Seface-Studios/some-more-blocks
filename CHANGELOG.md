@@ -11,7 +11,7 @@
 
 ---
 <div>
-  <img align="right" height="64" width="64" src="https://raw.githubusercontent.com/Seface-Blocks/some-more-blocks/main/.github/assets/animated_icon.gif" title="Some More Blocks Icon" />
+  <img align="right" height="64" width="64" src="https://raw.githubusercontent.com/Seface-Studios/some-more-blocks/refs/heads/main/.github/assets/animated_icon.gif" title="Some More Blocks Icon" />
   <h3>Seface Studios</h3>
-  <p><a href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> · <a title="X (FKA Twitter)" href="https://x.com/SefaceStudios">@SefaceStudios</a></p>
+  <p><a href="mailto:contact@sefacestudios.net">contact@sefacestudios.net</a> · <a title="X (fka Twitter)" href="https://x.com/SefaceStudios">@SefaceStudios</a></p>
 </div>
