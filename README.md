@@ -10,7 +10,6 @@ The mod adds over 500 new blocks such as bricks, tiles, mossy bricks, wood mosai
 ## Instalation
 1. Download and install the Mod Loader of your choice
   - [Fabric](https://fabricmc.net/use/installer/) and [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
-  - [NeoForge](https://neoforged.net)
   - [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/)
 2. Download the mod on official links and drop into your mods folder
   - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/some-more-blocks)
