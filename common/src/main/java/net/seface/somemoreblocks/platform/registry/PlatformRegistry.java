@@ -67,7 +67,15 @@ public interface PlatformRegistry {
    */
   PlatformRegistryObject<CreativeModeTab> registerCreativeModeTab(String path, CreativeModeTab.Row row, int i, UnaryOperator<CreativeModeTab.Builder> builder);
 
+  /**
+   * Register a boolean Game Rule.
+   * @param id The Game Rule id.
+   * @param category The Game Rule category.
+   * @param defaultValue The default value of the Game Rule
+   * @return The registered boolean type Game Rule.
+   */
   GameRules.Key<GameRules.BooleanValue> registerBooleanGameRule(String id, GameRules.Category category, boolean defaultValue);
+
 
   /**
    * Main method to set the render type for a block.

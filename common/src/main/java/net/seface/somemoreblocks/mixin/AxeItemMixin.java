@@ -54,15 +54,11 @@ public abstract class AxeItemMixin {
     if (carvedWoodOrLog.isPresent()) {
       result = Optional.of(carvedWoodOrLog.get().withPropertiesOf(state));
       soundEvent = Optional.of(SoundEvents.AXE_STRIP);
-    }
-
-    if (weatheringOff.isPresent()) {
+    } else if (weatheringOff.isPresent()) {
       result = Optional.of(weatheringOff.get().withPropertiesOf(state));
       soundEvent = Optional.of(SoundEvents.AXE_SCRAPE);
       level.levelEvent(player, LevelEvent.PARTICLES_SCRAPE, clickedPos, 0);
-    }
-
-    if (waxableOff.isPresent()) {
+    } else if (waxableOff.isPresent()) {
       result = Optional.of(waxableOff.get().withPropertiesOf(state));
       soundEvent = Optional.of(SoundEvents.AXE_WAX_OFF);
       level.levelEvent(player, LevelEvent.PARTICLES_WAX_OFF, clickedPos, 0);

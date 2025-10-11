@@ -16,12 +16,6 @@ public abstract class HoneycombItemMixin {
 
   @Inject(method = "getWaxed", at = @At(value = "HEAD"), cancellable = true)
   private static void getWaxedMixin(BlockState state, CallbackInfoReturnable<Optional<BlockState>> cir) {
-    /*
-     * Why we don't run this on NeoForge?
-     * Because NeoForge has a Built-in data map, so to prevent any incompatibility we need to avoid it.
-     */
-    if (PlatformServices.HELPER.is(PlatformServices.Platforms.NEOFORGE)) return;
-
     SMBRegistries.WAXED_COPPER_BLOCKS.getNext(state.getBlock())
       .ifPresent((block) -> cir.setReturnValue(Optional.of(block.withPropertiesOf(state))));
   }
