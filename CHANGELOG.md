@@ -5,6 +5,16 @@
 > This changelog is only related to the versions for **Minecraft 1.20.1**.
 > For other versions, see their respective branch or the [most recent changelog](https://github.com/Seface-Studios/some-more-blocks/blob/main/CHANGELOG.md).
 
+## 1.0.6-bp - October 11, 2025
+
+### Fixed
+- When interact with an Axe on Stripped Logs/Woods, doesn't transform into Carved Log/Wood.
+- When interact with an Axe on Waxed Copper Pillar, the axis was not preserved.
+
+### Fixed
+- An issue where unregistered blocks would attempt to be registered as `VALID_BLOCK` for ConduitBlockEntity. We've completely removed the functionality of using Prismarine blocks from Some More Blocks for active conduits.
+
+
 ## 1.0.5-bp - October 10, 2025
 
 ### Fixed
