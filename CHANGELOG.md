@@ -5,6 +5,11 @@
 > This changelog is only related to the versions for **Minecraft 1.20.1**.
 > For other versions, see their respective branch or the [most recent changelog](https://github.com/Seface-Studios/some-more-blocks/blob/main/CHANGELOG.md).
 
+## 1.0.7-bp - November 7, 2025
+
+### Fixed
+- Shingles Stairs cannot be collected. Now a pickaxe of any tier is required.
+
 ## 1.0.6-bp - October 11, 2025
 
 ### Fixed

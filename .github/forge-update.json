@@ -1,14 +1,13 @@
 {
   "homepage": "https://github.com/Seface-Studios/some-more-blocks/tree/1.20.1",
   "promos": {
-    "1.20.1-latest": "1.0.6-bp",
-    "1.20.1-recommended": "1.0.6-bp"
+    "1.20.1-latest": "1.0.7-bp",
+    "1.20.1-recommended": "1.0.7-bp"
   },
 
   "1.20.1": {
-    "1.0.2-bp": "bug fixes",
-    "1.0.4-bp": "new blocks, texture updates and bug fixes",
     "1.0.5-bp": "fix prismarine blocks crashing the game",
-    "1.0.6-bp": "fix axe item interaction not working correctly"
+    "1.0.6-bp": "fix axe item interaction not working correctly",
+    "1.0.7-bp": "fix shingles stairs cannot be collected"
   }
 }

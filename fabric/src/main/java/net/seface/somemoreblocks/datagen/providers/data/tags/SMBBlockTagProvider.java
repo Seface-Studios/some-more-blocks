@@ -551,7 +551,17 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.LIME_CHECKERED_TILES.get(), SMBBlocks.GREEN_CHECKERED_TILES.get(),
         SMBBlocks.CYAN_CHECKERED_TILES.get(), SMBBlocks.LIGHT_BLUE_CHECKERED_TILES.get(),
         SMBBlocks.BLUE_CHECKERED_TILES.get(), SMBBlocks.PURPLE_CHECKERED_TILES.get(),
-        SMBBlocks.MAGENTA_CHECKERED_TILES.get(), SMBBlocks.PINK_CHECKERED_TILES.get()
+        SMBBlocks.MAGENTA_CHECKERED_TILES.get(), SMBBlocks.PINK_CHECKERED_TILES.get(),
+
+        SMBBlocks.SHINGLES_STAIRS.get(), SMBBlocks.WHITE_SHINGLES_STAIRS.get(),
+        SMBBlocks.LIGHT_GRAY_SHINGLES_STAIRS.get(), SMBBlocks.GRAY_SHINGLES_STAIRS.get(),
+        SMBBlocks.BLACK_SHINGLES_STAIRS.get(), SMBBlocks.BROWN_SHINGLES_STAIRS.get(),
+        SMBBlocks.RED_SHINGLES_STAIRS.get(), SMBBlocks.ORANGE_SHINGLES_STAIRS.get(),
+        SMBBlocks.YELLOW_SHINGLES_STAIRS.get(), SMBBlocks.LIME_SHINGLES_STAIRS.get(),
+        SMBBlocks.GREEN_SHINGLES_STAIRS.get(), SMBBlocks.CYAN_SHINGLES_STAIRS.get(),
+        SMBBlocks.LIGHT_BLUE_SHINGLES_STAIRS.get(), SMBBlocks.BLUE_SHINGLES_STAIRS.get(),
+        SMBBlocks.PURPLE_SHINGLES_STAIRS.get(), SMBBlocks.MAGENTA_SHINGLES_STAIRS.get(),
+        SMBBlocks.PINK_SHINGLES_STAIRS.get()
       );
 
     this.getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_SHOVEL).setReplace(false)
