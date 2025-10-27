@@ -118,6 +118,22 @@ public class SMBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         SMBBlocks.BIRCH_LEAF_LITTER.get(), SMBBlocks.SPRUCE_LEAF_LITTER.get(),
         SMBBlocks.PALE_OAK_LEAF_LITTER.get(), SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get());
 
+    valueLookupBuilder(SMBBlockTags.HANGING_AZALEA_ATTACHABLE)
+      .forceAddTag(BlockTags.LEAVES)
+      .add(Blocks.MOSS_BLOCK)
+      .add(Blocks.PALE_MOSS_BLOCK);
+
+    valueLookupBuilder(SMBBlockTags.HANGING_AZALEA)
+      .add(SMBBlocks.HANGING_AZALEA.get())
+      .add(SMBBlocks.HANGING_AZALEA_PLANT.get())
+      .add(SMBBlocks.HANGING_FLOWERING_AZALEA.get())
+      .add(SMBBlocks.HANGING_FLOWERING_AZALEA_PLANT.get());
+
+    valueLookupBuilder(SMBBlockTags.AZALEA_CEILING_VEIN_REPLACEABLE)
+      .add(SMBBlocks.HANGING_AZALEA_PLANT.get())
+      .add(SMBBlocks.HANGING_FLOWERING_AZALEA_PLANT.get())
+      .add(Blocks.CAVE_VINES_PLANT);
+
     addToVanillaTags();
   }
 

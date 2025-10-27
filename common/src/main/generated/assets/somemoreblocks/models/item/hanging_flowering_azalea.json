@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "somemoreblocks:block/hanging_flowering_azalea"
+  }
+}

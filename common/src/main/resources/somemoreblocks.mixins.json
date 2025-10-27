@@ -8,7 +8,6 @@
     "AxeItemMixin",
     "VegetationBlockMixin",
     "ComposterBlockMixin",
-    "ConduitBlockEntityMixin",
     "HoneycombItemMixin",
     "LeafLitterBlockMixin"
   ],

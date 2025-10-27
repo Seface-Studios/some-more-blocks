@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableMap;
 import com.mojang.math.Quadrant;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.client.color.item.GrassColorSource;
+import net.minecraft.client.color.item.MapColor;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
@@ -21,7 +23,6 @@ import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.seface.somemoreblocks.block.properties.QuadDirection;
 import net.seface.somemoreblocks.datagen.providers.assets.providers.CarvedWoodBlockProvider;
@@ -257,6 +258,7 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createTrivialCube(SMBBlocks.PINK_CONCRETE_TILES.get());
 
     /* More Natural Blocks */
+    gen.createTrivialCube(SMBBlocks.SCULKLIGHT.get());
     gen.createCrossBlockWithDefaultItem(SMBBlocks.TINY_CACTUS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     this.createPottedTinyCactus(SMBBlocks.TINY_CACTUS.get(), SMBBlocks.POTTED_TINY_CACTUS.get());
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_CACTUS.get(), BlockModelGenerators.PlantType.NOT_TINTED);
@@ -286,34 +288,134 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
-
     gen.registerSimpleItemModel(SMBItems.PALE_MUSHROOM.get(), gen.createFlatItemModel(SMBItems.PALE_MUSHROOM.get()));
     gen.registerSimpleItemModel(SMBItems.PALE_MUSHROOM_COLONY.get(), gen.createFlatItemModel(SMBItems.PALE_MUSHROOM_COLONY.get()));
     gen.registerSimpleItemModel(SMBItems.TALL_PALE_MUSHROOM_COLONY.get(), gen.createFlatItemModel(SMBItems.TALL_PALE_MUSHROOM_COLONY.get()));
-
-
     gen.createNonTemplateModelBlock(SMBBlocks.PALE_MUSHROOM.get());
     gen.createNonTemplateModelBlock(SMBBlocks.POTTED_PALE_MUSHROOM.get());
     gen.createNonTemplateModelBlock(SMBBlocks.PALE_MUSHROOM_COLONY.get());
-    //gen.createCrossBlockWithDefaultItem(SMBBlocks.PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
-    //gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.WARPED_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+
+    this.createDuckweed();
+    this.createLavandaAndPottedLavanda();
+    this.createLianaVineBlock(SMBBlocks.LIANA_VINE.get(), true);
+    this.createLianaVineBlock(SMBBlocks.LIANA_VINE_PLANT.get(), false);
+    this.createCrossOcclusionBlockWithItem(SMBBlocks.HANGING_CHERRY_LEAVES.get());
+    this.createCrossOcclusionBlock(SMBBlocks.HANGING_CHERRY_LEAVES_PLANT.get());
+    this.createCrossOcclusionBlockWithItem(SMBBlocks.HANGING_AZALEA.get());
+    this.createCrossOcclusionBlock(SMBBlocks.HANGING_AZALEA_PLANT.get());
+    this.createCrossOcclusionBlockWithItem(SMBBlocks.HANGING_FLOWERING_AZALEA.get());
+    this.createCrossOcclusionBlock(SMBBlocks.HANGING_FLOWERING_AZALEA_PLANT.get());
 
     /* More Redstone Blocks */
     this.createRedstoneLampBlock(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
     this.createRedstoneLampBlock(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
     this.createRedstoneLampBlock(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
     this.createRedstoneLampBlock(SMBBlocks.REDSTONE_SHROOMLIGHT.get());
-
     this.createRedstoneSeaLantern(SMBBlocks.POLISHED_PRISMARINE.get(), SMBBlocks.REDSTONE_SEA_LANTERN.get());
+    this.createRedstoneLampBlock(SMBBlocks.REDSTONE_SCULKLIGHT.get());
   }
 
   @Override
   public void generateItemModels(ItemModelGenerators gen) {
     this.createLeavesBucket(SMBItems.DRY_LEAVES_BUCKET.get());
+  }
+
+  /*public final void createLavandaAndPottedLavanda(Block plantBlock, Block pottedBlock) {
+    BlockModelGenerators.PlantType plantType = BlockModelGenerators.PlantType.NOT_TINTED;
+    TextureMapping mapping = plantType.getPlantTextureMapping(plantBlock).put(TextureSlot.PLANT, ModelLocationUtils.getModelLocation(pottedBlock));
+
+    MultiVariant variant = BlockModelGenerators.plainVariant(plantType.getCrossPot().create(pottedBlock, mapping, this.modelOutput));
+
+    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(pottedBlock, variant));
+  }*/
+
+  public final void createLavandaAndPottedLavanda() {
+    Block block = SMBBlocks.LAVANDER.get();
+    Item item = block.asItem();
+
+    TextureMapping itemTextureMapping = TextureMapping.defaultTexture(block)
+      .put(TextureSlot.LAYER0, ModelLocationUtils.getModelLocation(block, "_stem"))
+      .put(TextureSlot.LAYER1, ModelLocationUtils.getModelLocation(block));
+
+    ResourceLocation itemModel = ModelTemplates.TWO_LAYERED_ITEM.create(item, itemTextureMapping, this.modelOutput);
+    this.itemModelOutput.accept(item, ItemModelUtils.tintedModel(itemModel, new GrassColorSource()));
+
+    TextureMapping blockTextureMapping = TextureMapping.defaultTexture(block)
+      .copyAndUpdate(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(block))
+      .copyAndUpdate(TextureSlot.STEM, ModelLocationUtils.getModelLocation(block, "_stem"));
+
+    ResourceLocation blockModel = SMBModelTemplates.CROSS_TINTED.create(block, blockTextureMapping, this.modelOutput);
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, BlockModelGenerators.plainVariant(blockModel)));
+
+    this.blockModelGenerators.createNonTemplateModelBlock(SMBBlocks.POTTED_LAVANDA.get());
+  }
+
+  private void createDuckweed() {
+    Block block = SMBBlocks.DUCKWEED.get();
+
+    ResourceLocation itemModel = this.blockModelGenerators.createFlatItemModelWithBlockTexture(SMBItems.DUCKWEED.get(), block, "_0");
+    this.blockModelGenerators.registerSimpleItemModel(block, itemModel);
+
+    List<Weighted<Variant>> variants = new ArrayList<>();
+
+    for (int i = 0; i <= 2; i++) {
+      String suffix = "_" + i;
+
+      TextureMapping textureMapping = TextureMapping.defaultTexture(block)
+        .copyAndUpdate(TextureSlot.TEXTURE, ModelLocationUtils.getModelLocation(block, suffix));
+
+      ResourceLocation model = SMBModelTemplates.DUCKWEED.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
+
+      Variant variant = BlockModelGenerators.plainModel(model);
+
+      variants.add(new Weighted<>(variant.with(BlockModelGenerators.Y_ROT_90), 1));
+      variants.add(new Weighted<>(variant.with(BlockModelGenerators.Y_ROT_180), 1));
+      variants.add(new Weighted<>(variant.with(BlockModelGenerators.Y_ROT_270), 1));
+    }
+
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, new MultiVariant(WeightedList.of(variants))));
+  }
+
+  public final void createLianaVineBlock(Block block, boolean createItemModel) {
+    Item item = block.asItem();
+
+    if (createItemModel) {
+      TextureMapping itemTextureMapping = TextureMapping.defaultTexture(block)
+        .put(TextureSlot.LAYER0, ModelLocationUtils.getModelLocation(block))
+        .put(TextureSlot.LAYER1, ModelLocationUtils.getModelLocation(block, "_stem"));
+
+      ResourceLocation itemModel = ModelTemplates.TWO_LAYERED_ITEM.create(item, itemTextureMapping, this.modelOutput);
+      this.itemModelOutput.accept(item, ItemModelUtils.tintedModel(itemModel, new MapColor(3193611)));
+    }
+
+    TextureMapping blockTextureMapping = TextureMapping.defaultTexture(block)
+      .copyAndUpdate(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(block, "_stem"))
+      .copyAndUpdate(TextureSlot.STEM, ModelLocationUtils.getModelLocation(block));
+
+    ResourceLocation blockModel = SMBModelTemplates.CROSS_TINTED.create(block, blockTextureMapping, this.modelOutput);
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, BlockModelGenerators.plainVariant(blockModel)));
+  }
+
+  public final void createCrossOcclusionBlockWithItem(Block block) {
+    Item item = block.asItem();
+
+    ResourceLocation itemModel = ModelTemplates.FLAT_ITEM.create(item, TextureMapping.layer0(block), this.modelOutput);
+
+    this.itemModelOutput.accept(item, ItemModelUtils.plainModel(itemModel));
+    this.createCrossOcclusionBlock(block);
+  }
+
+  public final void createCrossOcclusionBlock(Block block) {
+    TextureMapping textureMapping = TextureMapping.defaultTexture(block)
+      .copyAndUpdate(TextureSlot.CROSS, ModelLocationUtils.getModelLocation(block));
+
+    ResourceLocation model = SMBModelTemplates.CROSS_OCCLUSION.create(block, textureMapping, this.modelOutput);
+    MultiVariant variant = BlockModelGenerators.plainVariant(model);
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, variant));
   }
 
   /**

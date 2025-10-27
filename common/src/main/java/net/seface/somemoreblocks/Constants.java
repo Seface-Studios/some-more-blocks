@@ -39,4 +39,11 @@ public abstract class Constants {
    * Chiseled Purpur Light Level
    * */
   public static final int CHISELED_PURPUR_LIGHT_LEVEL = 14;
+
+  /*
+   * Sculkshroom Light Level
+   * */
+  public static final int SCULKSHROOM_LIGHT_LEVEL = 8;
+
+  public static final int REDSTONE_SCULKSHROOM_LIGHT_LEVEL = 15;
 }

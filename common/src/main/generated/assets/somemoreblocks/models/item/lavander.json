@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "somemoreblocks:block/lavander_stem",
+    "layer1": "somemoreblocks:block/lavander"
+  }
+}

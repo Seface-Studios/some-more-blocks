@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "somemoreblocks:block/redstone_sculklight"
+    },
+    "lit=true": {
+      "model": "somemoreblocks:block/redstone_sculklight_on"
+    }
+  }
+}

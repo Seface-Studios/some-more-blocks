@@ -22,6 +22,6 @@ plugins {
 
 rootProject.name = 'some-more-blocks'
 include("common")
-include("fabric")
+include("fabric")/*
 include("forge")
-include("neoforge")
+include("neoforge")*/

@@ -703,6 +703,8 @@ public class SMBCreativeTabs {
       .icon(() -> SMBBlocks.TINY_CACTUS.get().asItem().getDefaultInstance())
       .title(Component.translatable("itemGroup.somemoreblocks.naturalBlocks"))
       .displayItems((ctx, entry) -> {
+        entry.accept(SMBBlocks.SCULKLIGHT.get());
+        entry.accept(SMBBlocks.LAVANDER.get());
         entry.accept(SMBBlocks.TINY_CACTUS.get());
         entry.accept(SMBBlocks.TALL_CACTUS.get());
         entry.accept(SMBBlocks.DUNE_GRASS.get());
@@ -716,6 +718,10 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.PALE_ROSE_BUSH.get());
         entry.accept(SMBBlocks.CATTAIL.get());
         entry.accept(SMBBlocks.REEDS.get());
+        entry.accept(SMBBlocks.LIANA_VINE.get());
+        entry.accept(SMBBlocks.HANGING_CHERRY_LEAVES.get());
+        entry.accept(SMBBlocks.HANGING_AZALEA.get());
+        entry.accept(SMBBlocks.HANGING_FLOWERING_AZALEA.get());
         entry.accept(SMBItems.LEAVES_BUCKET.get());
         entry.accept(SMBItems.BIRCH_LEAVES_BUCKET.get());
         entry.accept(SMBItems.SPRUCE_LEAVES_BUCKET.get());
@@ -725,6 +731,7 @@ public class SMBCreativeTabs {
         entry.accept(SMBItems.DRY_LEAVES_BUCKET.get());
         entry.accept(SMBItems.CLOVER.get());
         entry.accept(SMBItems.NETHER_CLOVER.get());
+        entry.accept(SMBItems.DUCKWEED.get());
         entry.accept(SMBItems.SMALL_LILY_PADS.get());
         entry.accept(SMBItems.BIG_LILY_PAD.get());
         entry.accept(SMBBlocks.LUMINOUS_FLOWER.get());
@@ -755,6 +762,7 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.VERDANT_REDSTONE_FROGLIGHT.get());
         entry.accept(SMBBlocks.PEARLESCENT_REDSTONE_FROGLIGHT.get());
         entry.accept(SMBBlocks.REDSTONE_SHROOMLIGHT.get());
+        entry.accept(SMBBlocks.REDSTONE_SCULKLIGHT.get());
         entry.accept(SMBBlocks.REDSTONE_SEA_LANTERN.get());
       }));
 

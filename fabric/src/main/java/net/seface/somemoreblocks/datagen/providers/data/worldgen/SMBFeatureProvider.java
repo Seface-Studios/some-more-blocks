@@ -34,6 +34,8 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
   }
 
   public static void bootstrapF(BootstrapContext<PlacedFeature> context) {
+    AzaleaCeilingVeinFeature.create().registerPlaceFeature(context);
+    ColumnHangingAzaleaFeatureProvider.create().registerPlaceFeature(context);
     NoneBigLilyPadFeatureProvider.create().registerPlaceFeature(context);
     PatchCactusFeatureProvider.create().registerPlaceFeature(context);
     PatchCattailFeatureProvider.create().registerPlaceFeature(context);
@@ -68,6 +70,8 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
   }
 
   public static void bootstrapCF(BootstrapContext<ConfiguredFeature<?, ?>> context) {
+    AzaleaCeilingVeinFeature.create().registerConfiguredFeature(context);
+    ColumnHangingAzaleaFeatureProvider.create().registerConfiguredFeature(context);
     NoneBigLilyPadFeatureProvider.create().registerConfiguredFeature(context);
     PatchCactusFeatureProvider.create().registerConfiguredFeature(context);
     PatchCattailFeatureProvider.create().registerConfiguredFeature(context);

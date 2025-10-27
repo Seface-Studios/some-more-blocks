@@ -1,0 +1,96 @@
+{
+  "type": "minecraft:block_column",
+  "config": {
+    "allowed_placement": {
+      "type": "minecraft:matching_blocks",
+      "blocks": "minecraft:air"
+    },
+    "direction": "down",
+    "layers": [
+      {
+        "height": {
+          "type": "minecraft:weighted_list",
+          "distribution": [
+            {
+              "data": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 4,
+                "min_inclusive": 0
+              },
+              "weight": 10
+            },
+            {
+              "data": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 8,
+                "min_inclusive": 0
+              },
+              "weight": 6
+            },
+            {
+              "data": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 2,
+                "min_inclusive": 0
+              },
+              "weight": 3
+            }
+          ]
+        },
+        "provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "somemoreblocks:hanging_flowering_azalea_plant"
+              },
+              "weight": 20
+            },
+            {
+              "data": {
+                "Name": "somemoreblocks:hanging_azalea_plant"
+              },
+              "weight": 80
+            }
+          ]
+        }
+      },
+      {
+        "height": 1,
+        "provider": {
+          "type": "minecraft:randomized_int_state_provider",
+          "property": "age",
+          "source": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "somemoreblocks:hanging_flowering_azalea",
+                  "Properties": {
+                    "age": "0"
+                  }
+                },
+                "weight": 30
+              },
+              {
+                "data": {
+                  "Name": "somemoreblocks:hanging_azalea",
+                  "Properties": {
+                    "age": "0"
+                  }
+                },
+                "weight": 70
+              }
+            ]
+          },
+          "values": {
+            "type": "minecraft:uniform",
+            "max_inclusive": 25,
+            "min_inclusive": 23
+          }
+        }
+      }
+    ],
+    "prioritize_tip": true
+  }
+}

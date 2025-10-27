@@ -1,0 +1,50 @@
+{
+  "type": "somemoreblocks:ceiling_vein_feature",
+  "config": {
+    "entries": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "minecraft:azalea_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "true",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 80
+        },
+        {
+          "data": {
+            "Name": "minecraft:flowering_azalea_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "true",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 20
+        }
+      ]
+    },
+    "length": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 3,
+      "min_inclusive": 1
+    },
+    "replaceablePredicate": {
+      "type": "minecraft:any_of",
+      "predicates": [
+        {
+          "type": "minecraft:matching_blocks",
+          "blocks": "minecraft:air"
+        },
+        {
+          "type": "minecraft:matching_block_tag",
+          "tag": "somemoreblocks:azalea_ceiling_vein_replaceable"
+        }
+      ]
+    }
+  }
+}

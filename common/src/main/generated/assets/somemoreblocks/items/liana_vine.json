@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "somemoreblocks:item/liana_vine",
+    "tints": [
+      {
+        "type": "minecraft:map_color",
+        "default": 3193611
+      }
+    ]
+  }
+}

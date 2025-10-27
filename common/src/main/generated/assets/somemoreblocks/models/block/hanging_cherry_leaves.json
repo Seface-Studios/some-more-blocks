@@ -1,0 +1,6 @@
+{
+  "parent": "somemoreblocks:block/templates/cross_occlusion",
+  "textures": {
+    "cross": "somemoreblocks:block/hanging_cherry_leaves"
+  }
+}

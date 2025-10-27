@@ -1,6 +1,19 @@
 ## Changelog
 ![Latest Release](https://img.shields.io/github/v/release/seface-studios/some-more-blocks?logo=github&logoColor=959da5&labelColor=353c43&color=0091c2&Current&label=Latest%20Release)
 
+## 1.4.0 - TBD
+
+### Added
+- **Hanging Azalea Leaves:** TBD
+- **Hanging Flowering Azalea Leaves:** TBD
+- **Hanging Cherry Leaves:** TBD
+- **Hanging Cobweb:** TBD
+- **Lavanda:** TBD
+- **Liana Vine:** TBD
+- **Duckweed:** TBD
+- **Sculklight:** TBD
+- **Redstone Sculklight:** TBD
+
 ## 1.3.0 - August 30th
 #### [Commit History](https://github.com/Seface-Studios/some-more-blocks/compare/1.21.4...1.21.5)
 

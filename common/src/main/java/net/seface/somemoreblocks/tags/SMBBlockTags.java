@@ -25,5 +25,9 @@ public final class SMBBlockTags {
   public static final TagKey<Block> TERRACOTTA_BRICKS = SomeMoreBlocks.tagKey(Registries.BLOCK, "terracotta_bricks");
   public static final TagKey<Block> TERRACOTTA_TILES = SomeMoreBlocks.tagKey(Registries.BLOCK, "terracotta_tiles");
 
+  public static final TagKey<Block> HANGING_AZALEA_ATTACHABLE = SomeMoreBlocks.tagKey(Registries.BLOCK, "hanging_azalea_attachable");
+  public static final TagKey<Block> HANGING_AZALEA = SomeMoreBlocks.tagKey(Registries.BLOCK, "hanging_azalea");
+  public static final TagKey<Block> AZALEA_CEILING_VEIN_REPLACEABLE = SomeMoreBlocks.tagKey(Registries.BLOCK, "azalea_ceiling_vein_replaceable");
+
   public static void init() {}
 }

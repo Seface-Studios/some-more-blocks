@@ -1,0 +1,7 @@
+{
+  "parent": "somemoreblocks:block/templates/cross_tinted",
+  "textures": {
+    "cross": "somemoreblocks:block/liana_vine_plant_stem",
+    "stem": "somemoreblocks:block/liana_vine_plant"
+  }
+}

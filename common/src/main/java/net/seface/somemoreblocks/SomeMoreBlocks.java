@@ -1,12 +1,10 @@
 package net.seface.somemoreblocks;
 
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.block.StairBlock;
 import net.seface.somemoreblocks.platform.PlatformServices;
 import net.seface.somemoreblocks.registries.*;
 import net.seface.somemoreblocks.tags.SMBBlockTags;
@@ -167,5 +165,17 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SNOW_BUSH.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SNOW_FIREFLY_BUSH.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SCULKLIGHT.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.DUCKWEED.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.LAVANDER.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.POTTED_LAVANDA.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.LIANA_VINE.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.LIANA_VINE_PLANT.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.HANGING_CHERRY_LEAVES.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.HANGING_CHERRY_LEAVES_PLANT.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.HANGING_AZALEA.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.HANGING_AZALEA_PLANT.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.HANGING_FLOWERING_AZALEA.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.HANGING_FLOWERING_AZALEA_PLANT.get(), cutout);
   }
 }

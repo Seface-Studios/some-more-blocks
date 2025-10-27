@@ -43,6 +43,18 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.simplePaleMushroomColony(SMBPlacedFeature.SIMPLE_PALE_MUSHROOM_COLONY_WALL);
     SMBBiomeModifiers.simpleRedMushroomColony(SMBPlacedFeature.PATCH_RED_MUSHROOM_COLONY);
     SMBBiomeModifiers.simpleRedMushroomColony(SMBPlacedFeature.SIMPLE_RED_MUSHROOM_COLONY_WALL);
+
+    BiomeModifications.addFeature(
+      (ctx) -> ctx.getBiomeKey() == Biomes.LUSH_CAVES,
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.CEILING_AZALEA_LEAVES
+    );
+
+    BiomeModifications.addFeature(
+      (ctx) -> ctx.getBiomeKey() == Biomes.LUSH_CAVES,
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.COLUMN_HANGING_AZALEA
+    );
   }
 
   private static void noneBigLilyPad() {

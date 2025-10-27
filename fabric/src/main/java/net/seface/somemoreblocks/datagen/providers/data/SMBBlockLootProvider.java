@@ -350,6 +350,15 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropPottedContents(SMBBlocks.POTTED_LUMINOUS_FLOWER.get());
     this.dropPottedContents(SMBBlocks.POTTED_SNOW_FERN.get());
     this.dropPottedContents(SMBBlocks.POTTED_PALE_MUSHROOM.get());
+    this.dropWhenShears(SMBBlocks.DUCKWEED.get());
+    this.dropWhenShears(SMBBlocks.LIANA_VINE.get());
+    this.dropOtherWhenShears(SMBBlocks.LIANA_VINE_PLANT.get(), SMBBlocks.LIANA_VINE.get());
+    this.dropWhenShears(SMBBlocks.HANGING_CHERRY_LEAVES.get());
+    this.dropOtherWhenShears(SMBBlocks.HANGING_CHERRY_LEAVES_PLANT.get(), SMBBlocks.HANGING_CHERRY_LEAVES.get());
+    this.dropWhenShears(SMBBlocks.HANGING_AZALEA.get());
+    this.dropOtherWhenShears(SMBBlocks.HANGING_AZALEA_PLANT.get(), SMBBlocks.HANGING_AZALEA.get());
+    this.dropWhenShears(SMBBlocks.HANGING_FLOWERING_AZALEA.get());
+    this.dropOtherWhenShears(SMBBlocks.HANGING_FLOWERING_AZALEA_PLANT.get(), SMBBlocks.HANGING_FLOWERING_AZALEA.get());
 
     /* More Redstone Blocks */
     this.dropSelf(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
@@ -511,6 +520,15 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
    */
   private void dropWhenShears(Block block) {
     this.add(block, this.createShearsOnlyDrop(block));
+  }
+
+  /**
+   * Drop the other item when broken with shears.
+   * @param block The affected block.
+   * @param itemLike The item to be dropped.
+   */
+  private void dropOtherWhenShears(Block block, ItemLike itemLike) {
+    this.add(block, this.createShearsOnlyDrop(itemLike));
   }
 
   /**

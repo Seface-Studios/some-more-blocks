@@ -6,6 +6,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 
 public class SMBConfiguredFeature {
+  public static final ResourceKey<ConfiguredFeature<?, ?>> CEILING_AZALEA_LEAVES = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "ceiling_azalea_leaves");
   public static final ResourceKey<ConfiguredFeature<?, ?>> NONE_BIG_LILY_PAD = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "none_big_lily_pad");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BROWN_MUSHROOM_COLONY = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_brown_mushroom_colony");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_PALE_MUSHROOM_COLONY = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_pale_mushroom_colony");
@@ -37,6 +38,8 @@ public class SMBConfiguredFeature {
   public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_PALE_MUSHROOM_COLONY_WALL = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_pale_mushroom_colony_wall");
   public static final ResourceKey<ConfiguredFeature<?, ?>> SIMPLE_WARPED_FUNGUS_COLONY_WALL = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "simple_warped_fungus_colony_wall");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_SNOW_BUSH = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "patch_snow_bush");
+
+  public static final ResourceKey<ConfiguredFeature<?, ?>> COLUMN_HANGING_AZALEA = SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, "column_hanging_azalea");
 
   public static void init() {}
 }

@@ -1,9 +1,9 @@
 package net.seface.somemoreblocks.registries;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.LeafLitterBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -689,9 +689,23 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> TALL_PALE_MUSHROOM_COLONY = PlatformServices.REGISTRY.registerBlock("tall_pale_mushroom_colony", () -> new DoubleMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.PALE_MUSHROOM.get()).setId(SomeMoreBlocks.key(Registries.BLOCK, "tall_pale_mushroom_colony"))), false);
   public static final PlatformRegistryObject<Block> PALE_MUSHROOM_COLONY = PlatformServices.REGISTRY.registerBlock("pale_mushroom_colony", () -> new MushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.PALE_MUSHROOM.get()).setId(SomeMoreBlocks.key(Registries.BLOCK, "pale_mushroom_colony")), SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get()), false);
   public static final PlatformRegistryObject<Block> PALE_MUSHROOM_COLONY_WALL = PlatformServices.REGISTRY.registerBlock("pale_mushroom_colony_wall", () -> new WallMushroomColonyBlock(BlockBehaviour.Properties.ofFullCopy(SMBBlocks.PALE_MUSHROOM_COLONY.get()).setId(SomeMoreBlocks.key(Registries.BLOCK, "pale_mushroom_colony_wall"))), false);
-
   public static final PlatformRegistryObject<Block> SNOW_FIREFLY_BUSH = PlatformServices.REGISTRY.registerBlock("snow_firefly_bush", () -> new BushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FIREFLY_BUSH).setId(SomeMoreBlocks.key(Registries.BLOCK, "snow_firefly_bush"))));
   public static final PlatformRegistryObject<Block> SNOW_BUSH = PlatformServices.REGISTRY.registerBlock("snow_bush", () -> new BushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BUSH).setId(SomeMoreBlocks.key(Registries.BLOCK, "snow_bush"))));
+
+  public static final PlatformRegistryObject<Block> SCULKLIGHT = PlatformServices.REGISTRY.registerBlock("sculklight", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SCULK_SHRIEKER).lightLevel((value) -> Constants.SCULKSHROOM_LIGHT_LEVEL).setId(SomeMoreBlocks.key(Registries.BLOCK, "sculklight"))));
+  public static final PlatformRegistryObject<Block> REDSTONE_SCULKLIGHT = PlatformServices.REGISTRY.registerBlock("redstone_sculklight", () -> new RedstoneLampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SCULK_SHRIEKER).setId(SomeMoreBlocks.key(Registries.BLOCK, "redstone_sculklight"))));
+
+  public static final PlatformRegistryObject<Block> LAVANDER = PlatformServices.REGISTRY.registerBlock("lavander", () -> new FlowerBlock(MobEffects.SATURATION, 0.35F, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION).noCollission().dynamicShape().setId(SomeMoreBlocks.key(Registries.BLOCK, "lavander"))));
+  public static final PlatformRegistryObject<Block> POTTED_LAVANDA = PlatformServices.REGISTRY.registerFlowerPotBlock(SMBBlocks.LAVANDER);
+  public static final PlatformRegistryObject<Block> DUCKWEED = PlatformServices.REGISTRY.registerBlock("duckweed", () -> new DuckweedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET).noCollission().dynamicShape().offsetType(BlockBehaviour.OffsetType.XYZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "duckweed"))), false);
+  public static final PlatformRegistryObject<Block> LIANA_VINE = PlatformServices.REGISTRY.registerBlock("liana_vine", () -> new LianaVineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_LEAVES).instabreak().noCollission().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "liana_vine"))));
+  public static final PlatformRegistryObject<Block> LIANA_VINE_PLANT = PlatformServices.REGISTRY.registerBlock("liana_vine_plant", () -> new LianaVinePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_LEAVES).instabreak().noCollission().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "liana_vine_plant"))), false);
+  public static final PlatformRegistryObject<Block> HANGING_CHERRY_LEAVES = PlatformServices.REGISTRY.registerBlock("hanging_cherry_leaves", () -> new HangingCherryLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA_LEAVES).instabreak().noCollission().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "hanging_cherry_leaves"))));
+  public static final PlatformRegistryObject<Block> HANGING_CHERRY_LEAVES_PLANT = PlatformServices.REGISTRY.registerBlock("hanging_cherry_leaves_plant", () -> new HangingCherryLeavesPlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA_LEAVES).instabreak().noCollission().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "hanging_cherry_leaves_plant"))), false);
+  public static final PlatformRegistryObject<Block> HANGING_AZALEA = PlatformServices.REGISTRY.registerBlock("hanging_azalea", () -> new HangingAzaleaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA_LEAVES).instabreak().noCollission().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "hanging_azalea"))));
+  public static final PlatformRegistryObject<Block> HANGING_AZALEA_PLANT = PlatformServices.REGISTRY.registerBlock("hanging_azalea_plant", () -> new HangingAzaleaPlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA_LEAVES).instabreak().noCollission().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "hanging_azalea_plant"))), false);
+  public static final PlatformRegistryObject<Block> HANGING_FLOWERING_AZALEA = PlatformServices.REGISTRY.registerBlock("hanging_flowering_azalea", () -> new HangingAzaleaBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWERING_AZALEA_LEAVES).instabreak().noCollission().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "hanging_flowering_azalea"))));
+  public static final PlatformRegistryObject<Block> HANGING_FLOWERING_AZALEA_PLANT = PlatformServices.REGISTRY.registerBlock("hanging_flowering_azalea_plant", () -> new HangingAzaleaPlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWERING_AZALEA_LEAVES).instabreak().noCollission().dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "hanging_flowering_azalea_plant"))), false);
 
   public static void init() {}
 }

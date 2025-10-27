@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "somemoreblocks:block/liana_vine",
+    "layer1": "somemoreblocks:block/liana_vine_stem"
+  }
+}
