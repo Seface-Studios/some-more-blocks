@@ -22,6 +22,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LocationCheck;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
@@ -156,7 +157,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropWhenShovel(SMBBlocks.SNOW_TILES.get());
     this.dropWhenSilkTouch(SMBBlocks.POLISHED_ICE.get());
     this.dropWhenSilkTouch(SMBBlocks.POLISHED_ICE_STAIRS.get());
-    this.dropWhenSilkTouch(SMBBlocks.POLISHED_ICE_SLAB.get());
+    this.dropWhenSilkTouchSlab(SMBBlocks.POLISHED_ICE_SLAB.get());
     this.dropWhenSilkTouch(SMBBlocks.ICE_BRICKS.get());
     this.dropWhenSilkTouch(SMBBlocks.CRACKED_ICE_BRICKS.get());
     this.dropWhenSilkTouch(SMBBlocks.ICE_BRICK_STAIRS.get());
@@ -490,14 +491,14 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
         LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
           .add(
             this.applyExplosionDecay(block, LootItem.lootTableItem(block)
-              .when(HAS_NO_SILK_TOUCH)
+              .when(HAS_SILK_TOUCH)
               .apply(
                 SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
                   .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SlabBlock.TYPE, SlabType.DOUBLE)))
               )
             )
           )
-      )
+       )
     );
   }
 }

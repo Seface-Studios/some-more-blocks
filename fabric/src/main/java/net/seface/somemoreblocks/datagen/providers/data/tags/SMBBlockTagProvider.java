@@ -90,7 +90,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.LIME_CONCRETE_BRICKS.get(), SMBBlocks.GREEN_CONCRETE_BRICKS.get(),
         SMBBlocks.CYAN_CONCRETE_BRICKS.get(), SMBBlocks.LIGHT_BLUE_CONCRETE_BRICKS.get(),
         SMBBlocks.BLUE_CONCRETE_BRICKS.get(), SMBBlocks.PURPLE_CONCRETE_BRICKS.get(),
-        SMBBlocks.MAGENTA_CONCRETE_BRICKS.get(), SMBBlocks.PINK_TERRACOTTA_BRICKS.get());
+        SMBBlocks.MAGENTA_CONCRETE_BRICKS.get(), SMBBlocks.PINK_CONCRETE_BRICKS.get());
 
     this.getOrCreateTagBuilder(SMBBlockTags.CONCRETE_TILES)
       .add(
@@ -101,7 +101,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.LIME_CONCRETE_TILES.get(), SMBBlocks.GREEN_CONCRETE_TILES.get(),
         SMBBlocks.CYAN_CONCRETE_TILES.get(), SMBBlocks.LIGHT_BLUE_CONCRETE_TILES.get(),
         SMBBlocks.BLUE_CONCRETE_TILES.get(), SMBBlocks.PURPLE_CONCRETE_TILES.get(),
-        SMBBlocks.MAGENTA_CONCRETE_TILES.get(), SMBBlocks.PINK_TERRACOTTA_TILES.get());
+        SMBBlocks.MAGENTA_CONCRETE_TILES.get(), SMBBlocks.PINK_CONCRETE_TILES.get());
 
     this.getOrCreateTagBuilder(SMBBlockTags.CACTUS_PLANTS_PLACEABLE)
       .forceAddTag(BlockTags.DIRT)
@@ -343,7 +343,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
 
     this.getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).setReplace(false)
       .add(
-        SMBBlocks.OAK_MOSAIC_SLAB.get(), SMBBlocks.SPRUCE_MOSAIC_STAIRS.get(),
+        SMBBlocks.OAK_MOSAIC_STAIRS.get(), SMBBlocks.SPRUCE_MOSAIC_STAIRS.get(),
         SMBBlocks.BIRCH_MOSAIC_STAIRS.get(), SMBBlocks.JUNGLE_MOSAIC_STAIRS.get(),
         SMBBlocks.ACACIA_MOSAIC_STAIRS.get(), SMBBlocks.DARK_OAK_MOSAIC_STAIRS.get(),
         SMBBlocks.MANGROVE_MOSAIC_STAIRS.get(), SMBBlocks.CRIMSON_MOSAIC_STAIRS.get(),
@@ -408,6 +408,10 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.CRACKED_REDSTONE_BRICKS.get(), SMBBlocks.CRACKED_SANDSTONE_BRICKS.get(),
         SMBBlocks.CRACKED_SANDSTONE_TILES.get(), SMBBlocks.CRACKED_SOUL_SANDSTONE_BRICKS.get(),
         SMBBlocks.CRACKED_SOUL_SANDSTONE_TILES.get(), SMBBlocks.CRACKED_STONE_TILES.get(),
+        SMBBlocks.TUFF_BRICKS.get(), SMBBlocks.TUFF_BRICK_STAIRS.get(),
+        SMBBlocks.TUFF_BRICK_SLAB.get(), SMBBlocks.CHISELED_TUFF_BRICKS.get(),
+        SMBBlocks.POLISHED_TUFF.get(), SMBBlocks.POLISHED_TUFF_STAIRS.get(),
+        SMBBlocks.POLISHED_TUFF_SLAB.get(),
         SMBBlocks.CRACKED_TUFF_BRICKS.get(), SMBBlocks.CRACKED_TUFF_TILES.get(),
         SMBBlocks.CUT_AMETHYST.get(), SMBBlocks.CUT_COAL.get(),
         SMBBlocks.CUT_DIAMOND.get(), SMBBlocks.CUT_EMERALD.get(),
@@ -416,6 +420,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.CUT_QUARTZ.get(), SMBBlocks.CUT_REDSTONE.get(),
         SMBBlocks.CUT_SOUL_SANDSTONE_SLAB.get(), SMBBlocks.CUT_SOUL_SANDSTONE.get(),
         SMBBlocks.DEEPSLATE_PILLAR.get(), SMBBlocks.DIAMOND_BRICKS.get(),
+        SMBBlocks.DIAMOND_PILLAR.get(),
         SMBBlocks.DIORITE_BRICK_SLAB.get(), SMBBlocks.DIORITE_BRICK_STAIRS.get(),
         SMBBlocks.DIORITE_BRICK_WALL.get(), SMBBlocks.DIORITE_BRICKS.get(),
         SMBBlocks.DIORITE_PILLAR.get(), SMBBlocks.DIORITE_TILE_SLAB.get(),
@@ -434,6 +439,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.GRANITE_BRICKS.get(), SMBBlocks.GRANITE_PILLAR.get(),
         SMBBlocks.GRANITE_TILE_SLAB.get(), SMBBlocks.GRANITE_TILE_STAIRS.get(),
         SMBBlocks.GRANITE_TILE_WALL.get(), SMBBlocks.GRANITE_TILES.get(),
+        SMBBlocks.IRON_BRICKS.get(),
         SMBBlocks.IRON_PILLAR.get(), SMBBlocks.LAPIS_BRICKS.get(),
         SMBBlocks.LAPIS_PILLAR.get(), SMBBlocks.MOSSY_ANDESITE_BRICK_SLAB.get(),
         SMBBlocks.MOSSY_ANDESITE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_ANDESITE_BRICK_WALL.get(),
@@ -467,6 +473,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.MUD_TILE_SLAB.get(), SMBBlocks.MUD_TILE_STAIRS.get(),
         SMBBlocks.MUD_TILE_WALL.get(), SMBBlocks.MUD_TILES.get(),
         SMBBlocks.NETHER_BRICKS_PILLAR.get(), SMBBlocks.NETHERITE_BRICKS.get(),
+        SMBBlocks.NETHERITE_PILLAR.get(),
         SMBBlocks.POLISHED_BLACKSTONE_TILE_SLAB.get(), SMBBlocks.POLISHED_BLACKSTONE_TILE_STAIRS.get(),
         SMBBlocks.POLISHED_BLACKSTONE_TILE_WALL.get(), SMBBlocks.POLISHED_BLACKSTONE_TILES.get(),
         SMBBlocks.POLISHED_CALCITE_SLAB.get(), SMBBlocks.POLISHED_CALCITE_STAIRS.get(),
