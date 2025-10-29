@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge Client (:neoforge)",
+      "presentation": {
+        "group": "Mod Development - neoforge",
+        "order": 0
+      },
+      "projectName": "neoforge",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\llgav\\Documents\\Repositories\\SefaceStudios\\some-more-blocks\\neoforge\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\llgav\\Documents\\Repositories\\SefaceStudios\\some-more-blocks\\neoforge\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003dsomemoreblocks%%C:\\Users\\llgav\\Documents\\Repositories\\SefaceStudios\\some-more-blocks\\neoforge\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\neoforge\\run",
+      "env": {
+        "MOD_CLASSES": "somemoreblocks%%C:\\Users\\llgav\\Documents\\Repositories\\SefaceStudios\\some-more-blocks\\neoforge\\bin\\main"
+      },
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "NeoForge Server (:neoforge)",
+      "presentation": {
+        "group": "Mod Development - neoforge",
+        "order": 1
+      },
+      "projectName": "neoforge",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\llgav\\Documents\\Repositories\\SefaceStudios\\some-more-blocks\\neoforge\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\llgav\\Documents\\Repositories\\SefaceStudios\\some-more-blocks\\neoforge\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003dsomemoreblocks%%C:\\Users\\llgav\\Documents\\Repositories\\SefaceStudios\\some-more-blocks\\neoforge\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\neoforge\\run",
+      "env": {
+        "MOD_CLASSES": "somemoreblocks%%C:\\Users\\llgav\\Documents\\Repositories\\SefaceStudios\\some-more-blocks\\neoforge\\bin\\main"
+      },
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
+}

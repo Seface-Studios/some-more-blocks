@@ -1,50 +1,11 @@
 {
   "homepage": "https://github.com/Seface-Studios/some-more-blocks",
   "promos": {
-    "1.21.4-latest": "1.2.2",
-    "1.21.4-recommended": "1.2.2",
-
-    "1.21.1-latest": "1.1.3",
-    "1.21.1-recommended": "1.1.3",
-
-    "1.21-latest": "1.1.3",
-    "1.21-recommended": "1.1.3",
-
-    "1.20.4-latest": "1.0.2",
-    "1.20.4-recommended": "1.0.2",
-
-    "1.20.1-latest": "1.0.2-bp",
-    "1.20.1-recommended": "1.0.2-bp"
-  },
-
-  "1.21.4": {
-    "1.2.0": "first release for Minecraft 1.21.4",
-    "1.2.1": "fixed a crash when starting the server",
-    "1.2.2": "fixed a issue where plants don't grow"
-  },
-
-  "1.21.1": {
-    "1.1.1": "first release for Minecraft 1.21.1",
-    "1.1.2": "fixed a crash when starting the server",
-    "1.1.3": "fixed a issue where plants don't grow"
-  },
-
-  "1.21": {
-    "1.1.0": "first release for Minecraft 1.21",
-    "1.1.1": "added compatibility with Minecraft 1.21.1",
-    "1.1.2": "fixed a crash when starting the server",
-    "1.1.3": "fixed a issue where plants don't grow"
+    "1.20.4-latest": "1.0.5",
+    "1.20.4-recommended": "1.0.5"
   },
 
   "1.20.4": {
-    "1.0.0": "first release for Minecraft 1.20.4",
-    "1.0.1": "fixed a crash when starting the server",
-    "1.0.2": "fixed a issue where plants don't grow"
-  },
-
-  "1.20.1": {
-    "1.0.0-bp": "first release for Minecraft 1.20.1 (Backport from 1.20.4)",
-    "1.0.1-bp": "fixed a crash when starting the server",
-    "1.0.2-bp": "fixed a issue where plants don't grow"
+    "1.0.5": "bug fixes"
   }
 }

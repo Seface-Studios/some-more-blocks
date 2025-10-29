@@ -1,9 +1,9 @@
-// 1.20.4	2025-08-29T13:08:52.4689478	Some More Blocks/Tags for minecraft:item
-8b3d2caf983fdd2a4329116409a81164e3e79b2b data\minecraft\tags\items\jungle_logs.json
+// 1.20.4	2025-10-29T13:53:26.8385637	Some More Blocks/Tags for minecraft:item
 2b2aa7957f266e3335e8b868f78b1a595123df1d data\minecraft\tags\items\cherry_logs.json
+8b3d2caf983fdd2a4329116409a81164e3e79b2b data\minecraft\tags\items\jungle_logs.json
 6c6e1ef29ff92c57fdb743f3bc806935cb178232 data\minecraft\tags\items\acacia_logs.json
-92bbb3f7aff8e06768b03e018aefa3ffa961fec4 data\minecraft\tags\items\mangrove_logs.json
 13b0f2c0ba227c08c4092e6b1005472002eea825 data\minecraft\tags\items\oak_logs.json
+92bbb3f7aff8e06768b03e018aefa3ffa961fec4 data\minecraft\tags\items\mangrove_logs.json
 cd48b9ebd69e5ae46b7a1b8e9a8a0994f111efd3 data\minecraft\tags\items\stairs.json
 f79dceb49d61034200043c4b1007325f228240cb data\minecraft\tags\items\slabs.json
 b3a29e642c7d405eee51b94ec8bba73dfd02fcfd data\minecraft\tags\items\bamboo_blocks.json
@@ -13,7 +13,7 @@ de153706cd1738c3cd61c67e09db6d17081e1dd9 data\minecraft\tags\items\dark_oak_logs
 fc6c4946a2a2ce600f4f7f34e4f5440017d81ebb data\minecraft\tags\items\walls.json
 dbd2d25a744daf4ce039d27b43bb393f0f289f0e data\minecraft\tags\items\wooden_slabs.json
 ede15ca961134133c063d36a360d1bdc5fbcb622 data\minecraft\tags\items\planks.json
-3c1a702cfd23a2a0af00fe999b7c164b6d9be935 data\minecraft\tags\items\small_flowers.json
 659c3fe6fa0e85584d397b4bfd2c6aae047da57d data\minecraft\tags\items\spruce_logs.json
+3c1a702cfd23a2a0af00fe999b7c164b6d9be935 data\minecraft\tags\items\small_flowers.json
 93d73808b445594e9e153fbcd83aa4417a226e24 data\minecraft\tags\items\warped_stems.json
 f1dcd5c8bfe22603f1cca74865eb3345674f58a8 data\minecraft\tags\items\birch_logs.json

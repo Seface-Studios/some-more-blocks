@@ -6,8 +6,7 @@
   "compatibilityLevel": "JAVA_${java_version}",
   "mixins": [
     "TinyCactusBlockMixin",
-    "TallCactusBlockMixin",
-    "WeatheringCopperFullBlockMixin"
+    "TallCactusBlockMixin"
   ],
   "client": [],
   "server": [],
