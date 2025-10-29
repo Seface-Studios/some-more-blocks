@@ -16,6 +16,7 @@ The mod adds over 500 new blocks, such as bricks, tiles, mossy blocks, wood mosa
   - [Modrinth](https://modrinth.com/mod/some-more-blocks/versions?g=1.20.1)
 
 ![Become a Translator](.github/assets/titles/become_a_translator.png)
+
 Want to help bring this mod to more players? You totally can!
 
 Whether you're fluent in another language or just want to help polish a few lines, every bit counts. We give credit to all contributors — your name will be listed as a thank-you for making the mod more accessible!
