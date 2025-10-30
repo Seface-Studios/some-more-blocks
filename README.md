@@ -1,4 +1,4 @@
-# Some More Blocks · <img height="22" width="79.53846153846154" title="Fabric and Minecraf Forge mod loaders" src="https://i.imgur.com/O6kUNhI.png">
+# Some More Blocks · <img height="22" width="79.53846153846154" title="Fabric, NeoForge and Minecraf Forge mod loaders" src="https://i.imgur.com/O6kUNhI.png">
 ![Latest Release](https://img.shields.io/github/v/release/seface-studios/some-more-blocks?logo=github&logoColor=959da5&labelColor=353c43&color=0091c2&Current&label=Latest%20Release) [![CurseForge](https://img.shields.io/badge/Available%20on%20CurseForge-test?logo=CurseForge&logoColor=fff&color=EB622B&link=https%3A%2F%2Fwww.curseforge.com%2Fminecraft%2Fmc-mods%2Fsome-more-blocks)](https://www.curseforge.com/minecraft/mc-mods/some-more-blocks) [![Modrinth](https://img.shields.io/badge/Available%20on%20Modrinth-Download?logo=Modrinth&logoColor=fff&color=02b63a&link=https%3A%2F%2Fmodrinth.com%2Fmod%2Fsome-more-blocks)](https://modrinth.com/mod/some-more-blocks)
 
 **Some More Blocks** is a vanilla+ mod which adds new blocks variations to the game.
