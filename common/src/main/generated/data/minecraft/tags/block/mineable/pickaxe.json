@@ -394,6 +394,23 @@
     "somemoreblocks:blue_checkered_tiles",
     "somemoreblocks:purple_checkered_tiles",
     "somemoreblocks:magenta_checkered_tiles",
-    "somemoreblocks:pink_checkered_tiles"
+    "somemoreblocks:pink_checkered_tiles",
+    "somemoreblocks:shingles_stairs",
+    "somemoreblocks:white_shingles_stairs",
+    "somemoreblocks:light_gray_shingles_stairs",
+    "somemoreblocks:gray_shingles_stairs",
+    "somemoreblocks:black_shingles_stairs",
+    "somemoreblocks:brown_shingles_stairs",
+    "somemoreblocks:red_shingles_stairs",
+    "somemoreblocks:orange_shingles_stairs",
+    "somemoreblocks:yellow_shingles_stairs",
+    "somemoreblocks:lime_shingles_stairs",
+    "somemoreblocks:green_shingles_stairs",
+    "somemoreblocks:cyan_shingles_stairs",
+    "somemoreblocks:light_blue_shingles_stairs",
+    "somemoreblocks:blue_shingles_stairs",
+    "somemoreblocks:purple_shingles_stairs",
+    "somemoreblocks:magenta_shingles_stairs",
+    "somemoreblocks:pink_shingles_stairs"
   ]
 }

@@ -8,7 +8,6 @@
     "AxeItemMixin",
     "BushBlockMixin",
     "ComposterBlockMixin",
-    "ConduitBlockEntityMixin",
     "HoneycombItemMixin"
   ],
   "client": [

@@ -1,4 +1,18 @@
 {
   "homepage": "https://github.com/Seface-Studios/some-more-blocks",
-  "promos": {}
+  "promos": {
+    "1.21.1-latest": "1.1.5",
+    "1.21.1-recommended": "1.1.5",
+
+    "1.21-latest": "1.1.5",
+    "1.21-recommended": "1.1.5"
+  },
+
+  "1.21.1": {
+    "1.1.5": "bug fixes"
+  },
+
+  "1.21": {
+    "1.1.5": "bug fixes"
+  }
 }
