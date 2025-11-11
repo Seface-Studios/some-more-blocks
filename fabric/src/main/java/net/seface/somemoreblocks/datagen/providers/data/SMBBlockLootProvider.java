@@ -164,7 +164,7 @@ public class SMBBlockLootProvider extends FabricBlockLootTableProvider {
     this.dropWhenShovel(SMBBlocks.SNOW_TILES.get());
     this.dropWhenSilkTouch(SMBBlocks.POLISHED_ICE.get());
     this.dropWhenSilkTouch(SMBBlocks.POLISHED_ICE_STAIRS.get());
-    this.dropWhenSilkTouch(SMBBlocks.POLISHED_ICE_SLAB.get());
+    this.dropWhenSilkTouchSlab(SMBBlocks.POLISHED_ICE_SLAB.get());
     this.dropWhenSilkTouch(SMBBlocks.ICE_BRICKS.get());
     this.dropWhenSilkTouch(SMBBlocks.CRACKED_ICE_BRICKS.get());
     this.dropWhenSilkTouch(SMBBlocks.ICE_BRICK_STAIRS.get());

@@ -14,11 +14,12 @@ public class ColorProviderRegister {
 
   @SubscribeEvent
   public static void onRegisterColorProvider(final RegisterColorHandlersEvent.Block event) {
-    event.register((state, tint, pos, i) -> tint != null
+    event.register((state, tint, pos, i) -> tint != null && pos != null
         ? BiomeColors.getAverageFoliageColor(tint, pos)
         : Constants.LEAF_LITTER_COLOR,
       SMBBlocks.LEAF_LITTER.get());
-    event.register((state, tint, pos, i) -> tint != null
+
+    event.register((state, tint, pos, i) -> tint != null && pos != null
       ? BiomeColors.getAverageGrassColor(tint, pos)
       : Constants.CLOVER_COLOR, SMBBlocks.CLOVER.get());
   }

@@ -8,7 +8,7 @@ body:
       value: |-
         Thank you for taking the time to report an issue, we are always trying to improve the mod and make your gameplay better!
         Please keep in mind that some issues may be more complex than they seem, so the timeframe for fixing the issue may and will be different.
-        
+
         Minor issues may be delayed by major issues, but they will eventually be fixed!
 
   - type: dropdown
@@ -20,8 +20,9 @@ body:
       options:
         - Fabric
         - Minecraft Forge
-        - Both
-      default: 2
+        - NeoForge
+        - All
+      default: 3
     validations:
       required: true
 
