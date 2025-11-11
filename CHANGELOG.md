@@ -6,10 +6,11 @@ This file tracks all notable changes made to the project. It includes new featur
 > This changelog is only related to the versions for `Minecraft 1.20.1`.
 > For other versions, see their respective branch or the [most recent changelog](https://github.com/Seface-Studios/some-more-blocks/blob/main/CHANGELOG.md).
 
-## 1.0.7-bp - November 7, 2025
+## 1.0.7-bp - November 14, 2025
 ### Fixed
+- A crash related to color provider for Leaf Litter and Clover blocks. ([#17](https://github.com/Seface-Studios/some-more-blocks/issues/17) and [#22](https://github.com/Seface-Studios/some-more-blocks/issues/22))
 - Oak Mosaic Stairs without correct breaking tool. Now can be easily break with Axe.
-- All Shingles Stairs not able to be collected. Now a pickaxe of any tier is required.
+- All Shingles Stairs not able to be collected. Now a pickaxe of any tier is required. ([#19](https://github.com/Seface-Studios/some-more-blocks/issues/19))
 - Pink Concrete Tiles not able to be collected when placed. Now a pickaxe of any tier is required.
 - Pink Concrete Bricks not able to be collected when placed. Now a pickaxe of any tier is required.
 - Tuff Bricks not able to be collected when placed. Now a pickaxe of any tier is required.
@@ -33,7 +34,7 @@ This file tracks all notable changes made to the project. It includes new featur
 
 ## 1.0.5-bp - October 10, 2025
 ### Fixed
-- An issue where unregistered blocks would attempt to be registered as `VALID_BLOCK` for ConduitBlockEntity. We've completely removed the functionality of using Prismarine blocks from Some More Blocks for active conduits.
+- An issue where unregistered blocks would attempt to be registered as `VALID_BLOCK` for ConduitBlockEntity. We've completely removed the functionality of using Prismarine blocks from Some More Blocks for active conduits. ([#18](https://github.com/Seface-Studios/some-more-blocks/issues/18))
 
 ---
 

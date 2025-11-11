@@ -1,4 +1,4 @@
-// 1.20.1	2025-10-27T20:20:27.1016057	Some More Blocks/Block Loot Tables
+// 1.20.1	2025-11-10T18:38:13.9315757	Some More Blocks/Block Loot Tables
 4a95ea8d33cf4a590b1bea12601ba50631290063 data\somemoreblocks\loot_tables\blocks\mossy_purpur_block.json
 1a423ddf712d90c98be06a467d7eb82d49577ca7 data\somemoreblocks\loot_tables\blocks\corrupted_polished_blackstone_brick_slab.json
 0da6906c3980d4a9383e21af3b5408aa76010a58 data\somemoreblocks\loot_tables\blocks\exposed_copper_bricks.json
@@ -579,8 +579,8 @@ a7a0d708e52ebfcccb689d5c03891386d3a297bb data\somemoreblocks\loot_tables\blocks\
 4b82582d2e61cac6cf21a436f7b85f1df1b65441 data\somemoreblocks\loot_tables\blocks\bone_tile_stairs.json
 8283da201aa30da6fe4a6fb5ecd70c838f066189 data\somemoreblocks\loot_tables\blocks\cracked_bricks.json
 57728db991d80cb959c8bf1c4974e3ce23f4fafc data\somemoreblocks\loot_tables\blocks\warped_fungus_colony_wall.json
-13a80daf0b73fd977bbfb3c667d94401fe0b3b08 data\somemoreblocks\loot_tables\blocks\yellow_stained_tiled_glass.json
 803bf802b3606b9c58c7575977f34a6b12d5fdbe data\somemoreblocks\loot_tables\blocks\mud_pillar.json
+13a80daf0b73fd977bbfb3c667d94401fe0b3b08 data\somemoreblocks\loot_tables\blocks\yellow_stained_tiled_glass.json
 5d39fc250e24b11fe69879de6e0fa25551afffad data\somemoreblocks\loot_tables\blocks\magenta_stained_tiled_glass.json
 4d3a36dde5cf00b41428ccbe26da911ea5d6d3ac data\somemoreblocks\loot_tables\blocks\purpur_tile_stairs.json
 b96c5d946dbf58aabd38f682a2d79851c3a672f1 data\somemoreblocks\loot_tables\blocks\stone_tile_slab.json

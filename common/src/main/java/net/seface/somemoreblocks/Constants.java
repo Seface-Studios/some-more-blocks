@@ -39,4 +39,10 @@ public abstract class Constants {
    * Chiseled Purpur Light Level
    * */
   public static final int CHISELED_PURPUR_LIGHT_LEVEL = 14;
+
+  /**
+   * Default color provider values
+   */
+  public static final int LEAF_LITTER_COLOR = 0x77AB2F;
+  public static final int CLOVER_COLOR = 0x91BD59;
 }
