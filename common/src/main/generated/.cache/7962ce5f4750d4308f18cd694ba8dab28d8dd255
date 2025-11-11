@@ -1,4 +1,4 @@
-// 1.20.4	2025-10-29T13:53:26.8305388	Some More Blocks/Block Loot Tables
+// 1.20.4	2025-11-11T10:28:11.9515443	Some More Blocks/Block Loot Tables
 4a95ea8d33cf4a590b1bea12601ba50631290063 data\somemoreblocks\loot_tables\blocks\mossy_purpur_block.json
 1a423ddf712d90c98be06a467d7eb82d49577ca7 data\somemoreblocks\loot_tables\blocks\corrupted_polished_blackstone_brick_slab.json
 0da6906c3980d4a9383e21af3b5408aa76010a58 data\somemoreblocks\loot_tables\blocks\exposed_copper_bricks.json
@@ -635,8 +635,8 @@ a9053a5d374f8c0c28411fe2503ff1f9da0ced94 data\somemoreblocks\loot_tables\blocks\
 0e9437a80bef36be05a7c6f20f7e41699843bb01 data\somemoreblocks\loot_tables\blocks\ice_brick_slab.json
 e23b35a8417f227adfbb4ac1ab10be7d9c4a40ad data\somemoreblocks\loot_tables\blocks\polished_purpur_stairs.json
 933f91db92787744f5b6c5bb19774718c5e6469b data\somemoreblocks\loot_tables\blocks\black_checkered_tiles.json
-65884ce9fbf7fe4fbd27c91a4ac05677cda77389 data\somemoreblocks\loot_tables\blocks\chiseled_andesite_bricks.json
 9377f98a47db571004d598ab074e97767e24ecb0 data\somemoreblocks\loot_tables\blocks\black_stained_tiled_glass_pane.json
+65884ce9fbf7fe4fbd27c91a4ac05677cda77389 data\somemoreblocks\loot_tables\blocks\chiseled_andesite_bricks.json
 178b5a257e6132858dc95df04b2d5b2499c5b278 data\somemoreblocks\loot_tables\blocks\diorite_pillar.json
 f6976e4898a257dbeb91b8635c6c41a6e868b727 data\somemoreblocks\loot_tables\blocks\oxidized_copper_pillar.json
 87e80745674fe396fc30bf7a4ec5d5b61d1bcd59 data\somemoreblocks\loot_tables\blocks\polished_mud_slab.json

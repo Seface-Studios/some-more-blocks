@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.network.chat.Component;
+import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.SomeMoreBlocksFabric;
 import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
@@ -21,10 +22,16 @@ public class ClientRegistries {
    */
   private static void registerColorProviders() {
     ColorProviderRegistry.BLOCK.register(
-      (blockState, tint, pos, i) -> BiomeColors.getAverageFoliageColor(tint, pos), SMBBlocks.LEAF_LITTER.get());
+      (blockState, tint, pos, i) -> tint != null && pos != null
+        ? BiomeColors.getAverageFoliageColor(tint, pos)
+        : Constants.LEAF_LITTER_COLOR,
+      SMBBlocks.LEAF_LITTER.get());
 
     ColorProviderRegistry.BLOCK.register(
-      (blockState, tint, pos, i) -> BiomeColors.getAverageGrassColor(tint, pos), SMBBlocks.CLOVER.get());
+      (blockState, tint, pos, i) -> tint != null && pos != null
+        ? BiomeColors.getAverageGrassColor(tint, pos)
+        : Constants.CLOVER_COLOR,
+      SMBBlocks.CLOVER.get());
   }
 
   /**
