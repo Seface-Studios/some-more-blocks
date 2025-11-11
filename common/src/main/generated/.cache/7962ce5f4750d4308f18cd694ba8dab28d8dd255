@@ -1,4 +1,4 @@
-// 1.21	2025-10-30T10:39:09.5336305	Some More Blocks/Block Loot Tables
+// 1.21	2025-11-11T11:27:10.7526314	Some More Blocks/Block Loot Tables
 bc976649ff0ac56de39f0c7102b571d89dfed986 data\somemoreblocks\loot_table\blocks\diorite_brick_stairs.json
 f8c574a72ce99e45ee92b37e45d6828e4eb13b5b data\somemoreblocks\loot_table\blocks\red_terracotta_tiles.json
 beef7249e0fa7f2674451f2c7af8b7424062b76e data\somemoreblocks\loot_table\blocks\polished_end_stone_stairs.json
@@ -436,8 +436,8 @@ e518116eca003be6043803972c96f472d1e9d09f data\somemoreblocks\loot_table\blocks\d
 ba9f8d5947c6341e5c05146a3be5ce3da81261fc data\somemoreblocks\loot_table\blocks\smooth_calcite_slab.json
 cbb36f84931093504299db1ffc51622e3a7ab25c data\somemoreblocks\loot_table\blocks\polished_basalt_tile_stairs.json
 4793b1f681d8d59ceb1a2fe3c3e435f2b7ffd5c5 data\somemoreblocks\loot_table\blocks\red_mushroom_colony_wall.json
-a2ed1c281e56a355653f9f6e18954c1a4f9983e1 data\somemoreblocks\loot_table\blocks\terracotta_tiles.json
 c4bd747673b78506aa8cd9ebd8530ec8db1f271d data\somemoreblocks\loot_table\blocks\magenta_concrete_tiles.json
+a2ed1c281e56a355653f9f6e18954c1a4f9983e1 data\somemoreblocks\loot_table\blocks\terracotta_tiles.json
 6545c7796d49ec11b2709359649fbb931765b16d data\somemoreblocks\loot_table\blocks\lime_terracotta_bricks.json
 7b996e79b088a5c5e35fd6fb4298629a410d7e33 data\somemoreblocks\loot_table\blocks\soul_sandstone_bricks.json
 1fee3be85032f7170f78eae6a2398fd462749073 data\somemoreblocks\loot_table\blocks\blue_terracotta_bricks.json
