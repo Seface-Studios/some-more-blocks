@@ -3,11 +3,11 @@
 This file tracks all notable changes made to the project. It includes new features, bug fixes, improvements, and other updates — version by version.
 
 > [!NOTE]
-> This changelog is only related to the versions for `Minecraft 1.21.7`.
+> This changelog is only related to the versions for `Minecraft 1.21.8`.
 > For other versions, see their respective branch or the [most recent changelog](https://github.com/Seface-Studios/some-more-blocks/blob/main/CHANGELOG.md).
 
-## 1.5.0 - November 14, 2025
-Updated to Minecraft 1.21.7.
+## 1.6.0 - November 14, 2025
+Updated to Minecraft 1.21.8.
 
 ---
 
