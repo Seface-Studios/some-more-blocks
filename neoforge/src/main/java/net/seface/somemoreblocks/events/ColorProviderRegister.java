@@ -9,7 +9,7 @@ import net.seface.somemoreblocks.Constants;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 
-@EventBusSubscriber(modid = SomeMoreBlocks.ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = SomeMoreBlocks.ID, value = Dist.CLIENT)
 public class ColorProviderRegister {
 
   @SubscribeEvent

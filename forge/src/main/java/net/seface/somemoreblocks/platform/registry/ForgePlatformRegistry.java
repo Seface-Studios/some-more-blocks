@@ -99,6 +99,16 @@ public class ForgePlatformRegistry implements PlatformRegistry {
 
   @Override
   public void setBlockRenderType(Block block, ChunkSectionLayer renderType) {
+    /*
+     * For some reason, Forge is not registering the correct
+     * RenderType for the Translucent block items.
+     */
+    if (renderType == ChunkSectionLayer.TRANSLUCENT) {
+      ItemBlockRenderTypes.setRenderLayer(block, renderType);
+      ItemBlockRenderTypes.TYPE_BY_BLOCK.put(block, renderType); /* TYPE_BY_BLOCK via Access Widener. */
+      return;
+    }
+
     ItemBlockRenderTypes.setRenderLayer(block, renderType);
   }
 

@@ -21,3 +21,7 @@ accessible field net/minecraft/client/data/models/BlockModelGenerators FLOWER_BE
 accessible field net/minecraft/client/data/models/BlockModelGenerators FLOWER_BED_MODEL_2_SEGMENT_CONDITION Ljava/util/function/Function;
 accessible field net/minecraft/client/data/models/BlockModelGenerators FLOWER_BED_MODEL_3_SEGMENT_CONDITION Ljava/util/function/Function;
 accessible field net/minecraft/client/data/models/BlockModelGenerators FLOWER_BED_MODEL_4_SEGMENT_CONDITION Ljava/util/function/Function;
+accessible field net/minecraft/client/data/models/BlockModelGenerators LEAF_LITTER_MODEL_1_SEGMENT_CONDITION Ljava/util/function/Function;
+accessible field net/minecraft/client/data/models/BlockModelGenerators LEAF_LITTER_MODEL_2_SEGMENT_CONDITION Ljava/util/function/Function;
+accessible field net/minecraft/client/data/models/BlockModelGenerators LEAF_LITTER_MODEL_3_SEGMENT_CONDITION Ljava/util/function/Function;
+accessible field net/minecraft/client/data/models/BlockModelGenerators LEAF_LITTER_MODEL_4_SEGMENT_CONDITION Ljava/util/function/Function;

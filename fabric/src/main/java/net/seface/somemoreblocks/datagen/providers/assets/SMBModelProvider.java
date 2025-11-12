@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.seface.somemoreblocks.block.properties.QuadDirection;
 import net.seface.somemoreblocks.datagen.providers.assets.providers.CarvedWoodBlockProvider;
 import net.seface.somemoreblocks.datagen.providers.assets.providers.TiledGlassBlockProvider;
+import net.seface.somemoreblocks.item.LeavesBucketItem;
 import net.seface.somemoreblocks.item.properties.numeric.BucketVolumeProperty;
 import net.seface.somemoreblocks.registries.*;
 
@@ -470,9 +471,11 @@ public class SMBModelProvider extends FabricModelProvider {
    */
   public final void createLeavesBucket(Item item) {
     RangeSelectItemModel.Entry[] overrides = new RangeSelectItemModel.Entry[4];
+    int units = LeavesBucketItem.MAX_VOLUME / overrides.length;
+
     for (int i = 0; i < overrides.length; i++) {
       String suffix = i == 0 ? "" : "_" + (i - 1);
-      int threshold = i == 0 ? 0 : 5 + (i - 1) * 4;
+      int threshold = i == 0 ? 0 : units * i;
 
       ResourceLocation identifier = ModelLocationUtils.getModelLocation(item).withSuffix(suffix);
       TextureMapping textureMapping = TextureMapping.layer0(item).put(TextureSlot.LAYER0, identifier);
@@ -495,12 +498,13 @@ public class SMBModelProvider extends FabricModelProvider {
     MultiVariant variant3 = BlockModelGenerators.plainVariant(TexturedModel.LEAF_LITTER_3.create(block, this.modelOutput));
     MultiVariant variant4 = BlockModelGenerators.plainVariant(TexturedModel.LEAF_LITTER_4.create(block, this.modelOutput));
 
-    Function<ConditionBuilder, ConditionBuilder> condition1 = (conditionBuilder) -> conditionBuilder.term(BlockStateProperties.SEGMENT_AMOUNT, 1);
-    Function<ConditionBuilder, ConditionBuilder> condition2 = (conditionBuilder) -> conditionBuilder.term(BlockStateProperties.SEGMENT_AMOUNT, 2, new Integer[]{3});
-    Function<ConditionBuilder, ConditionBuilder> condition3 = (conditionBuilder) -> conditionBuilder.term(BlockStateProperties.SEGMENT_AMOUNT, 3);
-    Function<ConditionBuilder, ConditionBuilder> condition4 = (conditionBuilder) -> conditionBuilder.term(BlockStateProperties.SEGMENT_AMOUNT, 4);
+    this.blockModelGenerators.createSegmentedBlock(block,
+      variant1, BlockModelGenerators.LEAF_LITTER_MODEL_1_SEGMENT_CONDITION,
+      variant2, BlockModelGenerators.LEAF_LITTER_MODEL_2_SEGMENT_CONDITION,
+      variant3, BlockModelGenerators.LEAF_LITTER_MODEL_3_SEGMENT_CONDITION,
+      variant4, BlockModelGenerators.LEAF_LITTER_MODEL_4_SEGMENT_CONDITION
+    );
 
-    this.blockModelGenerators.createSegmentedBlock(block, variant1, condition1, variant2, condition2, variant3, condition3, variant4, condition4);
     this.createLeavesBucket(item);
   }
 
@@ -517,29 +521,6 @@ public class SMBModelProvider extends FabricModelProvider {
       BlockModelGenerators.plainVariant(resourceLocation3), BlockModelGenerators.FLOWER_BED_MODEL_3_SEGMENT_CONDITION,
       BlockModelGenerators.plainVariant(resourceLocation4), BlockModelGenerators.FLOWER_BED_MODEL_4_SEGMENT_CONDITION
     );
-
-    /*this.blockStateOutput.accept(
-      MultiPartGenerator.multiPart(block)
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), BlockModelGenerators.plainVariant(resourceLocation).with(VariantMutator.MODEL.withValue(resourceLocation)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), BlockModelGenerators.plainVariant(resourceLocation).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), BlockModelGenerators.plainVariant(resourceLocation).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), BlockModelGenerators.plainVariant(resourceLocation).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)))
-
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), BlockModelGenerators.plainVariant(resourceLocation2).with(VariantMutator.MODEL.withValue(resourceLocation2)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), BlockModelGenerators.plainVariant(resourceLocation2).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), BlockModelGenerators.plainVariant(resourceLocation2).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 2, new Integer[]{3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), BlockModelGenerators.plainVariant(resourceLocation2).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)))
-
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), BlockModelGenerators.plainVariant(resourceLocation3).with(VariantMutator.MODEL.withValue(resourceLocation3)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), BlockModelGenerators.plainVariant(resourceLocation3).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), BlockModelGenerators.plainVariant(resourceLocation3).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 3, new Integer[]{4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), BlockModelGenerators.plainVariant(resourceLocation3).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)))
-
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), BlockModelGenerators.plainVariant(resourceLocation4).with(VariantMutator.MODEL.withValue(resourceLocation4)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), BlockModelGenerators.plainVariant(resourceLocation4).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), BlockModelGenerators.plainVariant(resourceLocation4).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
-        .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), BlockModelGenerators.plainVariant(resourceLocation4).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)))
-    );*/
   }
 
   /**

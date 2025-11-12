@@ -10,12 +10,11 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.seface.somemoreblocks.SomeMoreBlocks;
 import net.seface.somemoreblocks.registries.SMBBlocks;
 
-@EventBusSubscriber(modid = SomeMoreBlocks.ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = SomeMoreBlocks.ID, value = Dist.CLIENT)
 public class ClientSetupEvent {
 
   @SubscribeEvent
   public static void onClientSetup(final FMLClientSetupEvent event) {
-
     event.enqueueWork(() -> {
       SomeMoreBlocks.initClient();
       ClientSetupEvent.registerFlowerPots();

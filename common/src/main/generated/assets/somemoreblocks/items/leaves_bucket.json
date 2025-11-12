@@ -14,21 +14,21 @@
           "type": "minecraft:model",
           "model": "somemoreblocks:item/leaves_bucket_0"
         },
-        "threshold": 5.0
+        "threshold": 8.0
       },
       {
         "model": {
           "type": "minecraft:model",
           "model": "somemoreblocks:item/leaves_bucket_1"
         },
-        "threshold": 9.0
+        "threshold": 16.0
       },
       {
         "model": {
           "type": "minecraft:model",
           "model": "somemoreblocks:item/leaves_bucket_2"
         },
-        "threshold": 13.0
+        "threshold": 24.0
       }
     ],
     "fallback": {
