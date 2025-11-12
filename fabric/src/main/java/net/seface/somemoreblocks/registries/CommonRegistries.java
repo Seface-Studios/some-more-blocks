@@ -12,6 +12,7 @@ public class CommonRegistries {
     CommonRegistries.registerPathNodeTypes();
     CommonRegistries.registerFuels();
     CommonRegistries.registerOxidizableBlocks();
+    CommonRegistries.registerWaxableBlocks();
   }
 
   private static void registerPathNodeTypes() {

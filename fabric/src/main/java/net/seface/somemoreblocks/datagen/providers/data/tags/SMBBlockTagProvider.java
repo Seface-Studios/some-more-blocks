@@ -91,7 +91,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.LIME_CONCRETE_BRICKS.get(), SMBBlocks.GREEN_CONCRETE_BRICKS.get(),
         SMBBlocks.CYAN_CONCRETE_BRICKS.get(), SMBBlocks.LIGHT_BLUE_CONCRETE_BRICKS.get(),
         SMBBlocks.BLUE_CONCRETE_BRICKS.get(), SMBBlocks.PURPLE_CONCRETE_BRICKS.get(),
-        SMBBlocks.MAGENTA_CONCRETE_BRICKS.get(), SMBBlocks.PINK_TERRACOTTA_BRICKS.get());
+        SMBBlocks.MAGENTA_CONCRETE_BRICKS.get(), SMBBlocks.PINK_CONCRETE_BRICKS.get());
 
     this.getOrCreateTagBuilder(SMBBlockTags.CONCRETE_TILES)
       .add(
@@ -102,7 +102,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.LIME_CONCRETE_TILES.get(), SMBBlocks.GREEN_CONCRETE_TILES.get(),
         SMBBlocks.CYAN_CONCRETE_TILES.get(), SMBBlocks.LIGHT_BLUE_CONCRETE_TILES.get(),
         SMBBlocks.BLUE_CONCRETE_TILES.get(), SMBBlocks.PURPLE_CONCRETE_TILES.get(),
-        SMBBlocks.MAGENTA_CONCRETE_TILES.get(), SMBBlocks.PINK_TERRACOTTA_TILES.get());
+        SMBBlocks.MAGENTA_CONCRETE_TILES.get(), SMBBlocks.PINK_CONCRETE_TILES.get());
 
     this.getOrCreateTagBuilder(SMBBlockTags.CACTUS_PLANTS_PLACEABLE)
       .forceAddTag(BlockTags.DIRT)
@@ -347,7 +347,7 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
 
     this.getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).setReplace(false)
       .add(
-        SMBBlocks.OAK_MOSAIC_SLAB.get(), SMBBlocks.SPRUCE_MOSAIC_STAIRS.get(),
+        SMBBlocks.OAK_MOSAIC_STAIRS.get(), SMBBlocks.SPRUCE_MOSAIC_STAIRS.get(),
         SMBBlocks.BIRCH_MOSAIC_STAIRS.get(), SMBBlocks.JUNGLE_MOSAIC_STAIRS.get(),
         SMBBlocks.ACACIA_MOSAIC_STAIRS.get(), SMBBlocks.DARK_OAK_MOSAIC_STAIRS.get(),
         SMBBlocks.MANGROVE_MOSAIC_STAIRS.get(), SMBBlocks.CRIMSON_MOSAIC_STAIRS.get(),
@@ -565,7 +565,16 @@ public class SMBBlockTagProvider extends FabricTagProvider<Block> {
         SMBBlocks.LIME_CHECKERED_TILES.get(), SMBBlocks.GREEN_CHECKERED_TILES.get(),
         SMBBlocks.CYAN_CHECKERED_TILES.get(), SMBBlocks.LIGHT_BLUE_CHECKERED_TILES.get(),
         SMBBlocks.BLUE_CHECKERED_TILES.get(), SMBBlocks.PURPLE_CHECKERED_TILES.get(),
-        SMBBlocks.MAGENTA_CHECKERED_TILES.get(), SMBBlocks.PINK_CHECKERED_TILES.get()
+        SMBBlocks.MAGENTA_CHECKERED_TILES.get(), SMBBlocks.PINK_CHECKERED_TILES.get(),
+        SMBBlocks.SHINGLES_STAIRS.get(), SMBBlocks.WHITE_SHINGLES_STAIRS.get(),
+        SMBBlocks.LIGHT_GRAY_SHINGLES_STAIRS.get(), SMBBlocks.GRAY_SHINGLES_STAIRS.get(),
+        SMBBlocks.BLACK_SHINGLES_STAIRS.get(), SMBBlocks.BROWN_SHINGLES_STAIRS.get(),
+        SMBBlocks.RED_SHINGLES_STAIRS.get(), SMBBlocks.ORANGE_SHINGLES_STAIRS.get(),
+        SMBBlocks.YELLOW_SHINGLES_STAIRS.get(), SMBBlocks.LIME_SHINGLES_STAIRS.get(),
+        SMBBlocks.GREEN_SHINGLES_STAIRS.get(), SMBBlocks.CYAN_SHINGLES_STAIRS.get(),
+        SMBBlocks.LIGHT_BLUE_SHINGLES_STAIRS.get(), SMBBlocks.BLUE_SHINGLES_STAIRS.get(),
+        SMBBlocks.PURPLE_SHINGLES_STAIRS.get(), SMBBlocks.MAGENTA_SHINGLES_STAIRS.get(),
+        SMBBlocks.PINK_SHINGLES_STAIRS.get()
       );
 
     this.getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_SHOVEL).setReplace(false)

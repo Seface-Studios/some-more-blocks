@@ -188,7 +188,7 @@ public class SMBItemTagProvider extends FabricTagProvider<Item> {
 
     getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS).setReplace(false)
       .add(
-        SMBBlocks.OAK_MOSAIC_SLAB.get().asItem(), SMBBlocks.SPRUCE_MOSAIC_STAIRS.get().asItem(),
+        SMBBlocks.OAK_MOSAIC_STAIRS.get().asItem(), SMBBlocks.SPRUCE_MOSAIC_STAIRS.get().asItem(),
         SMBBlocks.BIRCH_MOSAIC_STAIRS.get().asItem(), SMBBlocks.JUNGLE_MOSAIC_STAIRS.get().asItem(),
         SMBBlocks.ACACIA_MOSAIC_STAIRS.get().asItem(), SMBBlocks.DARK_OAK_MOSAIC_STAIRS.get().asItem(),
         SMBBlocks.MANGROVE_MOSAIC_STAIRS.get().asItem(), SMBBlocks.CRIMSON_MOSAIC_STAIRS.get().asItem(),
