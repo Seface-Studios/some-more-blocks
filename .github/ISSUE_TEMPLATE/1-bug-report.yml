@@ -19,8 +19,8 @@ body:
       multiple: false
       options:
         - Fabric
-        - NeoForge
         - Minecraft Forge
+        - NeoForge
         - All
       default: 3
     validations:
