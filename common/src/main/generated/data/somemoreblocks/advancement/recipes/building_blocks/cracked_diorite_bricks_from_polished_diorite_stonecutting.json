@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_diorite_bricks_from_polished_diorite_stonecutting"
+        "recipe": "somemoreblocks:cracked_diorite_bricks_from_polished_diorite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_diorite_bricks_from_polished_diorite_stonecutting"
+      "somemoreblocks:cracked_diorite_bricks_from_polished_diorite_stonecutting"
     ]
   }
 }

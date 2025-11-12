@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:rabbit_stew_from_pale_mushroom"
+        "recipe": "somemoreblocks:rabbit_stew_from_pale_mushroom"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:rabbit_stew_from_pale_mushroom"
+      "somemoreblocks:rabbit_stew_from_pale_mushroom"
     ]
   }
 }

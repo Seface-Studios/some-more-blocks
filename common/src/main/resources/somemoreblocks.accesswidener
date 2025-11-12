@@ -17,3 +17,7 @@ accessible method net/minecraft/client/data/models/BlockModelGenerators createSi
 accessible method net/minecraft/client/data/models/BlockModelGenerators createBooleanModelDispatch (Lnet/minecraft/world/level/block/state/properties/BooleanProperty;Lnet/minecraft/client/data/models/MultiVariant;Lnet/minecraft/client/data/models/MultiVariant;)Lnet/minecraft/client/data/models/blockstates/PropertyDispatch;
 accessible method net/minecraft/client/data/models/BlockModelGenerators createDoubleBlock (Lnet/minecraft/world/level/block/Block;Lnet/minecraft/client/data/models/MultiVariant;Lnet/minecraft/client/data/models/MultiVariant;)V
 accessible method net/minecraft/client/data/models/BlockModelGenerators createRotatedPillarWithHorizontalVariant (Lnet/minecraft/world/level/block/Block;Lnet/minecraft/client/data/models/MultiVariant;Lnet/minecraft/client/data/models/MultiVariant;)Lnet/minecraft/client/data/models/blockstates/BlockModelDefinitionGenerator;
+accessible field net/minecraft/client/data/models/BlockModelGenerators FLOWER_BED_MODEL_1_SEGMENT_CONDITION Ljava/util/function/Function;
+accessible field net/minecraft/client/data/models/BlockModelGenerators FLOWER_BED_MODEL_2_SEGMENT_CONDITION Ljava/util/function/Function;
+accessible field net/minecraft/client/data/models/BlockModelGenerators FLOWER_BED_MODEL_3_SEGMENT_CONDITION Ljava/util/function/Function;
+accessible field net/minecraft/client/data/models/BlockModelGenerators FLOWER_BED_MODEL_4_SEGMENT_CONDITION Ljava/util/function/Function;

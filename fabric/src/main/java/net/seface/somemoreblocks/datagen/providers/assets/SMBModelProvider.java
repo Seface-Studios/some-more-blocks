@@ -36,6 +36,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+
 public class SMBModelProvider extends FabricModelProvider {
   private BlockModelGenerators blockModelGenerators;
   private Map<Block, TexturedModel> texturedModels;
@@ -509,7 +510,15 @@ public class SMBModelProvider extends FabricModelProvider {
     ResourceLocation resourceLocation2 = TexturedModel.createDefault(TextureMapping::flowerbed, !isNetherVersion ? SMBModelTemplates.TINTED_FLOWERBED_2 : SMBModelTemplates.NETHER_FLOWERBED_2).create(block, this.modelOutput);
     ResourceLocation resourceLocation3 = TexturedModel.createDefault(TextureMapping::flowerbed, !isNetherVersion ? SMBModelTemplates.TINTED_FLOWERBED_3 : SMBModelTemplates.NETHER_FLOWERBED_3).create(block, this.modelOutput);
     ResourceLocation resourceLocation4 = TexturedModel.createDefault(TextureMapping::flowerbed, !isNetherVersion ? SMBModelTemplates.TINTED_FLOWERBED_4 : SMBModelTemplates.NETHER_FLOWERBED_4).create(block, this.modelOutput);
-    this.blockStateOutput.accept(
+
+    this.blockModelGenerators.createSegmentedBlock(block,
+      BlockModelGenerators.plainVariant(resourceLocation), BlockModelGenerators.FLOWER_BED_MODEL_1_SEGMENT_CONDITION,
+      BlockModelGenerators.plainVariant(resourceLocation2), BlockModelGenerators.FLOWER_BED_MODEL_2_SEGMENT_CONDITION,
+      BlockModelGenerators.plainVariant(resourceLocation3), BlockModelGenerators.FLOWER_BED_MODEL_3_SEGMENT_CONDITION,
+      BlockModelGenerators.plainVariant(resourceLocation4), BlockModelGenerators.FLOWER_BED_MODEL_4_SEGMENT_CONDITION
+    );
+
+    /*this.blockStateOutput.accept(
       MultiPartGenerator.multiPart(block)
         .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), BlockModelGenerators.plainVariant(resourceLocation).with(VariantMutator.MODEL.withValue(resourceLocation)))
         .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 1, new Integer[]{2, 3, 4}).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), BlockModelGenerators.plainVariant(resourceLocation).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
@@ -530,7 +539,7 @@ public class SMBModelProvider extends FabricModelProvider {
         .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), BlockModelGenerators.plainVariant(resourceLocation4).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
         .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), BlockModelGenerators.plainVariant(resourceLocation4).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
         .with(new ConditionBuilder().term(BlockStateProperties.FLOWER_AMOUNT, 4).term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), BlockModelGenerators.plainVariant(resourceLocation4).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)))
-    );
+    );*/
   }
 
   /**

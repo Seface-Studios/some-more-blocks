@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:red_terracotta_bricks_from_red_terracotta"
+        "recipe": "somemoreblocks:red_terracotta_bricks_from_red_terracotta"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:red_terracotta_bricks_from_red_terracotta"
+      "somemoreblocks:red_terracotta_bricks_from_red_terracotta"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:red_concrete_bricks_from_red_concrete"
+        "recipe": "somemoreblocks:red_concrete_bricks_from_red_concrete"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:red_concrete_bricks_from_red_concrete"
+      "somemoreblocks:red_concrete_bricks_from_red_concrete"
     ]
   }
 }

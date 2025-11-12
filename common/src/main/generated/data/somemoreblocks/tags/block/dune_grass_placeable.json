@@ -1,6 +1,12 @@
 {
   "values": [
-    "#minecraft:dirt",
-    "#minecraft:sand"
+    {
+      "id": "#minecraft:dirt",
+      "required": false
+    },
+    {
+      "id": "#minecraft:sand",
+      "required": false
+    }
   ]
 }

@@ -1,10 +1,25 @@
 {
   "values": [
-    "#somemoreblocks:shingles",
-    "#somemoreblocks:concrete_bricks",
-    "#somemoreblocks:concrete_tiles",
-    "#somemoreblocks:terracotta_bricks",
-    "#somemoreblocks:terracotta_tiles",
+    {
+      "id": "#somemoreblocks:shingles",
+      "required": false
+    },
+    {
+      "id": "#somemoreblocks:concrete_bricks",
+      "required": false
+    },
+    {
+      "id": "#somemoreblocks:concrete_tiles",
+      "required": false
+    },
+    {
+      "id": "#somemoreblocks:terracotta_bricks",
+      "required": false
+    },
+    {
+      "id": "#somemoreblocks:terracotta_tiles",
+      "required": false
+    },
     "somemoreblocks:amethyst_bricks",
     "somemoreblocks:amethyst_pillar",
     "somemoreblocks:andesite_brick_slab",

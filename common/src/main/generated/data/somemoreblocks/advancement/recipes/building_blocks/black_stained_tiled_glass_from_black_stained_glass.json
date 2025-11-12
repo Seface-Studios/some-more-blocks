@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:black_stained_tiled_glass_from_black_stained_glass"
+        "recipe": "somemoreblocks:black_stained_tiled_glass_from_black_stained_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:black_stained_tiled_glass_from_black_stained_glass"
+      "somemoreblocks:black_stained_tiled_glass_from_black_stained_glass"
     ]
   }
 }

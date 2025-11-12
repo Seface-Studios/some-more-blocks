@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:lime_stained_tiled_glass_pane_from_lime_stained_tiled_glass"
+        "recipe": "somemoreblocks:lime_stained_tiled_glass_pane_from_lime_stained_tiled_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:lime_stained_tiled_glass_pane_from_lime_stained_tiled_glass"
+      "somemoreblocks:lime_stained_tiled_glass_pane_from_lime_stained_tiled_glass"
     ]
   }
 }

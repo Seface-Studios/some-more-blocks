@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:iron_pillar_from_iron_block_stonecutting"
+        "recipe": "somemoreblocks:iron_pillar_from_iron_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:iron_pillar_from_iron_block_stonecutting"
+      "somemoreblocks:iron_pillar_from_iron_block_stonecutting"
     ]
   }
 }

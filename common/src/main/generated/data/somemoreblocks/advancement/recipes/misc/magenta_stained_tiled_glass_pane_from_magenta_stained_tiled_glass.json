@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:magenta_stained_tiled_glass_pane_from_magenta_stained_tiled_glass"
+        "recipe": "somemoreblocks:magenta_stained_tiled_glass_pane_from_magenta_stained_tiled_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:magenta_stained_tiled_glass_pane_from_magenta_stained_tiled_glass"
+      "somemoreblocks:magenta_stained_tiled_glass_pane_from_magenta_stained_tiled_glass"
     ]
   }
 }

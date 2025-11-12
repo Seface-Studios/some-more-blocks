@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:mushroom_stew_from_pale_mushroom_and_brown_mushroom"
+        "recipe": "somemoreblocks:mushroom_stew_from_pale_mushroom_and_brown_mushroom"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:mushroom_stew_from_pale_mushroom_and_brown_mushroom"
+      "somemoreblocks:mushroom_stew_from_pale_mushroom_and_brown_mushroom"
     ]
   }
 }

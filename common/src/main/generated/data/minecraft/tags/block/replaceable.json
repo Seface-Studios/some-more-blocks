@@ -1,6 +1,9 @@
 {
   "values": [
-    "#somemoreblocks:leaf_litters",
+    {
+      "id": "#somemoreblocks:leaf_litters",
+      "required": false
+    },
     "somemoreblocks:dune_grass",
     "somemoreblocks:tall_dune_grass",
     "somemoreblocks:short_snow_grass",

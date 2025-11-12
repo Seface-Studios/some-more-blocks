@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:polished_prismarine_stairs_from_prismarine_stonecutting"
+        "recipe": "somemoreblocks:polished_prismarine_stairs_from_prismarine_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:polished_prismarine_stairs_from_prismarine_stonecutting"
+      "somemoreblocks:polished_prismarine_stairs_from_prismarine_stonecutting"
     ]
   }
 }

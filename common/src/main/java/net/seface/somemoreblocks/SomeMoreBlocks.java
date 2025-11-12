@@ -1,6 +1,7 @@
 package net.seface.somemoreblocks;
 
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -80,9 +81,9 @@ public class SomeMoreBlocks {
   }
 
   private static void registerBlockRenders() {
-    RenderType cutout = RenderType.cutout();
-    RenderType cutoutMipped = RenderType.cutoutMipped();
-    RenderType translucent = RenderType.translucent();
+    ChunkSectionLayer cutout = ChunkSectionLayer.CUTOUT;
+    ChunkSectionLayer cutoutMipped = ChunkSectionLayer.CUTOUT_MIPPED;
+    ChunkSectionLayer translucent = ChunkSectionLayer.TRANSLUCENT;
 
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.AZALEA_LEAF_LITTER.get(), cutoutMipped);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.BIG_LILY_PAD.get(), cutout);

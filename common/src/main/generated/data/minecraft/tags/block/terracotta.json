@@ -1,6 +1,12 @@
 {
   "values": [
-    "#somemoreblocks:terracotta_bricks",
-    "#somemoreblocks:terracotta_tiles"
+    {
+      "id": "#somemoreblocks:terracotta_bricks",
+      "required": false
+    },
+    {
+      "id": "#somemoreblocks:terracotta_tiles",
+      "required": false
+    }
   ]
 }

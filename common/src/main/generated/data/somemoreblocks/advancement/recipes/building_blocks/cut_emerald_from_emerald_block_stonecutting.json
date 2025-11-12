@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cut_emerald_from_emerald_block_stonecutting"
+        "recipe": "somemoreblocks:cut_emerald_from_emerald_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cut_emerald_from_emerald_block_stonecutting"
+      "somemoreblocks:cut_emerald_from_emerald_block_stonecutting"
     ]
   }
 }

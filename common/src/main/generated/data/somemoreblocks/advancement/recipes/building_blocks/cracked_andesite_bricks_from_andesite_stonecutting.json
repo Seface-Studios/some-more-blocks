@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_andesite_bricks_from_andesite_stonecutting"
+        "recipe": "somemoreblocks:cracked_andesite_bricks_from_andesite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_andesite_bricks_from_andesite_stonecutting"
+      "somemoreblocks:cracked_andesite_bricks_from_andesite_stonecutting"
     ]
   }
 }

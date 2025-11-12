@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:pink_terracotta_bricks_from_pink_terracotta_stonecutting"
+        "recipe": "somemoreblocks:pink_terracotta_bricks_from_pink_terracotta_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:pink_terracotta_bricks_from_pink_terracotta_stonecutting"
+      "somemoreblocks:pink_terracotta_bricks_from_pink_terracotta_stonecutting"
     ]
   }
 }

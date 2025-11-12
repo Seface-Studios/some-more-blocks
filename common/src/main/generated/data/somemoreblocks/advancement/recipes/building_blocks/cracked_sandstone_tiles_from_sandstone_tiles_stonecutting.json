@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_sandstone_tiles_from_sandstone_tiles_stonecutting"
+        "recipe": "somemoreblocks:cracked_sandstone_tiles_from_sandstone_tiles_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_sandstone_tiles_from_sandstone_tiles_stonecutting"
+      "somemoreblocks:cracked_sandstone_tiles_from_sandstone_tiles_stonecutting"
     ]
   }
 }

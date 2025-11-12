@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_diorite_tiles_from_diorite_tiles_stonecutting"
+        "recipe": "somemoreblocks:cracked_diorite_tiles_from_diorite_tiles_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_diorite_tiles_from_diorite_tiles_stonecutting"
+      "somemoreblocks:cracked_diorite_tiles_from_diorite_tiles_stonecutting"
     ]
   }
 }

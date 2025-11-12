@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_mud_tiles_from_polished_mud_stonecutting"
+        "recipe": "somemoreblocks:cracked_mud_tiles_from_polished_mud_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_mud_tiles_from_polished_mud_stonecutting"
+      "somemoreblocks:cracked_mud_tiles_from_polished_mud_stonecutting"
     ]
   }
 }

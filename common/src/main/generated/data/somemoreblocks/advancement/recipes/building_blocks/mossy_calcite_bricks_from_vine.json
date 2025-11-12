@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:mossy_calcite_bricks_from_vine"
+        "recipe": "somemoreblocks:mossy_calcite_bricks_from_vine"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:mossy_calcite_bricks_from_vine"
+      "somemoreblocks:mossy_calcite_bricks_from_vine"
     ]
   }
 }
