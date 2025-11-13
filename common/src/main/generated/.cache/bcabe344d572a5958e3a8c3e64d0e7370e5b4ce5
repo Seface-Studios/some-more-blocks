@@ -1,5 +1,5 @@
-// 1.21.8	-999999999-01-01T00:00:00	Some More Blocks/Advancements Husbandry
+// 1.21.9	-999999999-01-01T00:00:00	Some More Blocks/Advancements Husbandry
 8e1ff4da9746437b4812c9fcf2b8999cf5b5c463 data/minecraft/advancement/husbandry/carved_pale_woods.json
 bb53be2884e98634b624b05682c22c52a2dc15b1 data/minecraft/advancement/husbandry/redstone_froglights.json
-63eab6774fcdfe056512829af3ee85a3b87b3c48 data/minecraft/advancement/husbandry/wax_off.json
-31d908342e333665ce6872e5a8bd026ee316550e data/minecraft/advancement/husbandry/wax_on.json
+aed8e67c8ca9a4e4a68ea3cc81ff826d46c51bfd data/minecraft/advancement/husbandry/wax_off.json
+b290c6fffe2d33d42cfe31499f47307bfa5effe9 data/minecraft/advancement/husbandry/wax_on.json

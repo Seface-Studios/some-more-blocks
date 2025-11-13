@@ -122,7 +122,7 @@ public class BigLilyPadBlock extends WaterlilyBlock {
 
   @Override
   public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-    if (level.isClientSide) return super.playerWillDestroy(level, pos, state, player);
+    if (level.isClientSide()) return super.playerWillDestroy(level, pos, state, player);
 
     if (player.isCreative()) {
       this.preventDropFromBottomLeftPart(level, pos, state, player);

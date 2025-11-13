@@ -20,7 +20,7 @@ public class NeoForgePlatformHelper implements PlatformHelper {
 
   @Override
   public PlatformEnvironment getEnvironment() {
-    return !FMLLoader.isProduction() ? PlatformEnvironment.DEVELOPMENT : PlatformEnvironment.PRODUCTION;
+    return !FMLLoader.getCurrent().isProduction() ? PlatformEnvironment.DEVELOPMENT : PlatformEnvironment.PRODUCTION;
   }
 
   @Override
@@ -30,7 +30,7 @@ public class NeoForgePlatformHelper implements PlatformHelper {
 
   @Override
   public String getVersion() {
-    String minecraft = FMLLoader.versionInfo().mcVersion();
+    String minecraft = FMLLoader.getCurrent().getVersionInfo().mcVersion();
     String mod = ModList.get().getModContainerById(SomeMoreBlocks.ID)
       .orElseThrow(() -> new RuntimeException("Mod cannot be found."))
       .getModInfo()

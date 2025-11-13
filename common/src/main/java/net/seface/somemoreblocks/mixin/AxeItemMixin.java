@@ -76,7 +76,7 @@ public abstract class AxeItemMixin {
       level.playSound(player, clickedPos, soundEvent.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
 
       if (player != null) {
-        heldItem.hurtAndBreak(1, player, LivingEntity.getSlotForHand(ctx.getHand()));
+        heldItem.hurtAndBreak(1, player, ctx.getHand().asEquipmentSlot());
       }
 
       cir.setReturnValue(InteractionResult.SUCCESS);
