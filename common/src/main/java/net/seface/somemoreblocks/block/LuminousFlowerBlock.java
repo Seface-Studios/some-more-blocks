@@ -18,7 +18,7 @@ public class LuminousFlowerBlock extends FlowerBlock {
   }
 
   @Override
-  protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
+  protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean b) {
     if (level.isClientSide() ) return;
     if (entity instanceof LivingEntity affectedEntity) {
       affectedEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 60));

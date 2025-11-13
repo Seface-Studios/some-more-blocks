@@ -27,7 +27,7 @@ public class TallCactusBlock extends DoublePlantBlock {
   }
 
   @Override
-  protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
+  protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean b) {
     if (!(entity instanceof LivingEntity)) return;
     entity.hurt(level.damageSources().cactus(), 1.0F);
   }
