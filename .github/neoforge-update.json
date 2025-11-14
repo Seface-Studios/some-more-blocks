@@ -1,11 +1,11 @@
 {
   "homepage": "https://github.com/Seface-Studios/some-more-blocks",
   "promos": {
-    "1.21.9-latest": "1.7.0",
-    "1.21.9-recommended": "1.7.0"
+    "1.21.10-latest": "1.8.0",
+    "1.21.10-recommended": "1.8.0"
   },
 
-  "1.21.9": {
-    "1.7.0": "1.21.9 port"
+  "1.21.10": {
+    "1.8.0": "1.21.10 port"
   }
 }
