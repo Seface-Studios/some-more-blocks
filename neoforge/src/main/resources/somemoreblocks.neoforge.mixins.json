@@ -7,8 +7,7 @@
   "mixins": [
     "TallCactusBlockMixin",
     "TinyCactusBlockMixin",
-    "RotatedPillarBlockMixin",
-    "WeatheringCopperFullBlockMixin"
+    "RotatedPillarBlockMixin"
   ],
   "client": [],
   "server": [],

@@ -6,6 +6,10 @@ This file tracks all notable changes made to the project. It includes new featur
 > This changelog is only related to the versions for `Minecraft 1.21`.
 > For other versions, see their respective branch or the [most recent changelog](https://github.com/Seface-Studios/some-more-blocks/blob/main/CHANGELOG.md).
 
+## 1.1.5-HF - November 14, 2025
+### Fixed
+- A crash on launching caused by wrong mixin configuration. ([#23](https://github.com/Seface-Studios/some-more-blocks/issues/23))
+
 ## 1.1.5 - November 14, 2025
 ### Fixed
 - A crash related to color provider for Leaf Litter and Clover blocks. ([#17](https://github.com/Seface-Studios/some-more-blocks/issues/17) and [#22](https://github.com/Seface-Studios/some-more-blocks/issues/22))
