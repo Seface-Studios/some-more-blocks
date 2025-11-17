@@ -3,6 +3,7 @@ package net.seface.somemoreblocks.registries;
 import com.google.common.collect.Maps;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamily;
+import net.minecraft.world.item.crafting.RecipePropertySet;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 

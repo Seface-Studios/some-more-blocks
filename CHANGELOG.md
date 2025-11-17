@@ -6,6 +6,11 @@ This file tracks all notable changes made to the project. It includes new featur
 > This changelog is only related to the versions for `Minecraft 1.21.4`.
 > For other versions, see their respective branch or the [most recent changelog](https://github.com/Seface-Studios/some-more-blocks/blob/main/CHANGELOG.md).
 
+## 1.2.6 - November 17, 2025
+### Fixed
+- Missing recipe for Pale Oak Mosaic blocks. ([#24](https://github.com/Seface-Studios/some-more-blocks/issues/24))
+- Missing recipe for Carved Pale Oak Wood from Carved Pale Oak Log. ([#24](https://github.com/Seface-Studios/some-more-blocks/issues/24))
+
 ## 1.2.5 - November 14, 2025
 ### Fixed
 - A crash related to color provider for Leaf Litter and Clover blocks. ([#17](https://github.com/Seface-Studios/some-more-blocks/issues/17) and [#22](https://github.com/Seface-Studios/some-more-blocks/issues/22))
