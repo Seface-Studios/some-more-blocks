@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "concrete_bricks_from_concrete",
+  "key": {
+    "#": "minecraft:lime_concrete"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "id": "somemoreblocks:lime_concrete_bricks"
+  }
+}

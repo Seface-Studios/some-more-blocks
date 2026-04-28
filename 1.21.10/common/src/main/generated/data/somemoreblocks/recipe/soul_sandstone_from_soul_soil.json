@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "soul_sandstone",
+  "key": {
+    "#": "minecraft:soul_soil"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:soul_sandstone"
+  }
+}

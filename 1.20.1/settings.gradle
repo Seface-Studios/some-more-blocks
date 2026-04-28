@@ -1,0 +1,27 @@
+pluginManagement {
+  repositories {
+    gradlePluginPortal()
+    mavenCentral()
+    maven {
+      name = 'Fabric'
+      url = 'https://maven.fabricmc.net/'
+    }
+    maven {
+      name = 'MinecraftForge'
+      url = 'https://maven.minecraftforge.net/'
+    }
+    maven {
+      name = 'Sponge Snapshots'
+      url = 'https://repo.spongepowered.org/repository/maven-public/'
+    }
+  }
+}
+
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
+
+rootProject.name = 'some-more-blocks'
+include("common")
+include("fabric")
+include("forge")

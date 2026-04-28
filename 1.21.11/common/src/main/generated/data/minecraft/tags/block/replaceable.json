@@ -1,0 +1,15 @@
+{
+  "values": [
+    {
+      "id": "#somemoreblocks:leaf_litters",
+      "required": false
+    },
+    "somemoreblocks:dune_grass",
+    "somemoreblocks:tall_dune_grass",
+    "somemoreblocks:short_snow_grass",
+    "somemoreblocks:tall_snow_grass",
+    "somemoreblocks:snow_fern",
+    "somemoreblocks:large_snow_fern",
+    "somemoreblocks:cattail"
+  ]
+}

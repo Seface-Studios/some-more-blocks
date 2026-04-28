@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "somemoreblocks:block/brown_mushroom_colony"
+  }
+}

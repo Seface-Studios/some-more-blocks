@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:polished_purpur",
-  "result": {
-    "id": "somemoreblocks:cracked_purpur_tiles"
-  }
-}

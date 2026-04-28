@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "somemoreblocks:block/acacia_mosaic",
+    "side": "somemoreblocks:block/acacia_mosaic",
+    "top": "somemoreblocks:block/acacia_mosaic"
+  }
+}

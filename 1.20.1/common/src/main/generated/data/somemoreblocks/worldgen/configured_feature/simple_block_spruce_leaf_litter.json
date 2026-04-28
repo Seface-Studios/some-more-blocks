@@ -1,0 +1,14 @@
+{
+  "type": "somemoreblocks:simple_block_leaf_litter",
+  "config": {
+    "parents": [
+      "minecraft:spruce_leaves"
+    ],
+    "to_place": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "somemoreblocks:spruce_leaf_litter"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/polished_resin_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/polished_resin"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/polished_resin_slab_top"
+    }
+  }
+}

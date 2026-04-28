@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side",
+  "textures": {
+    "wall": "somemoreblocks:block/mossy_sandstone_bricks"
+  }
+}

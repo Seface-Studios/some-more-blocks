@@ -1,0 +1,36 @@
+{
+	"format_version": "1.21.6",
+	"credit": "By Seface Studios",
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "#flowerbed"
+	},
+	"elements": [
+		{
+			"from": [8, 2, 8],
+			"to": [16, 2, 16],
+			"faces": {
+				"up": {"uv": [8, 8, 16, 16], "texture": "#flowerbed"},
+				"down": {"uv": [8, 16, 16, 8], "texture": "#flowerbed"}
+			}
+		},
+		{
+			"from": [16.65, 0, -3.05],
+			"to": [16.65, 2, -2.05],
+			"rotation": {"angle": -45, "axis": "y", "origin": [-1.5, 0, -0.2]},
+			"faces": {
+				"east": {"uv": [0, 5, 1, 7], "texture": "#stem"},
+				"west": {"uv": [0, 5, 1, 7], "texture": "#stem"}
+			}
+		},
+		{
+			"from": [16.15, 0, -2.55],
+			"to": [17.15, 2, -2.55],
+			"rotation": {"angle": -45, "axis": "y", "origin": [-1.5, 0, -0.2]},
+			"faces": {
+				"north": {"uv": [0, 5, 1, 7], "texture": "#stem"},
+				"south": {"uv": [0, 5, 1, 7], "texture": "#stem"}
+			}
+		}
+	]
+}

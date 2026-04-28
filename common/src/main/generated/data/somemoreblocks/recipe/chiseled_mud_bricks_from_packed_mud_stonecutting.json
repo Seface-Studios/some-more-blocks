@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:packed_mud",
-  "result": {
-    "id": "somemoreblocks:chiseled_mud_bricks"
-  }
-}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:firefly_bush",
+    "minecraft:snowball"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:snow_firefly_bush"
+  }
+}

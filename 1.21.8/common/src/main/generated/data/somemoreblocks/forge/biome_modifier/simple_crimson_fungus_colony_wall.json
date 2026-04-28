@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#somemoreblocks:generates/crimson_fungus_colony",
+  "features": "somemoreblocks:simple_crimson_fungus_colony_wall",
+  "step": "vegetal_decoration"
+}

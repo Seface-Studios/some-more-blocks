@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:soul_sandstone",
-  "result": {
-    "id": "somemoreblocks:soul_sandstone_tile_stairs"
-  }
-}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross_emissive",
+  "textures": {
+    "cross": "somemoreblocks:block/pale_rose_bush_top",
+    "cross_emissive": "somemoreblocks:block/pale_rose_bush_top_emissive"
+  }
+}

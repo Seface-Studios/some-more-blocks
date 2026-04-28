@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#somemoreblocks:cattail_placeable",
+    "minecraft:gravel",
+    "minecraft:sand"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+	"credit": "By Seface Studios",
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "#texture"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 15.75],
+			"to": [16, 16, 15.75],
+			"rotation": {
+				"angle": 0,
+				"axis": "y",
+				"origin": [0, 0, 15.75]
+			},
+			"faces": {
+				"up": {
+					"uv": [0, 0, 16, 16],
+					"texture": "#texture",
+					"tintindex": 0
+				},
+				"down": {
+					"uv": [0, 16, 16, 0],
+					"texture": "#texture",
+					"tintindex": 0
+				}
+			}
+		}
+	]
+}

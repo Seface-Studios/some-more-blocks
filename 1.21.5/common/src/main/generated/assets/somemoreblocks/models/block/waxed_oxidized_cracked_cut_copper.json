@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "somemoreblocks:block/oxidized_cracked_cut_copper"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "somemoreblocks:block/templates/square_horizontal",
+  "textures": {
+    "texture": "somemoreblocks:block/small_lily_pads"
+  }
+}

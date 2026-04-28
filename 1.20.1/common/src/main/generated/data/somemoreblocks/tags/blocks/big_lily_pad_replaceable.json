@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:lily_pad",
+    "minecraft:moss_carpet",
+    "somemoreblocks:small_lily_pads"
+  ]
+}

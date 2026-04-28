@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#somemoreblocks:generates/brown_mushroom_colony",
+  "features": "somemoreblocks:patch_brown_mushroom_colony",
+  "step": "vegetal_decoration"
+}

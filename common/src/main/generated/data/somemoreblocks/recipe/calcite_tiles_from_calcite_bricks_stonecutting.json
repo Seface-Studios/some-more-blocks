@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:calcite_bricks",
-  "result": {
-    "id": "somemoreblocks:calcite_tiles"
-  }
-}

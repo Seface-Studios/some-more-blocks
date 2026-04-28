@@ -1,6 +1,0 @@
-{
-  "type": "neoforge:add_features",
-  "biomes": "minecraft:desert",
-  "features": "somemoreblocks:patch_dune_grass_desert",
-  "step": "vegetal_decoration"
-}

@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:gray_shingles",
-  "result": {
-    "id": "somemoreblocks:gray_shingles_stairs"
-  }
-}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "mosaic",
+  "key": {
+    "#": {
+      "item": "minecraft:jungle_slab"
+    }
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "item": "somemoreblocks:jungle_mosaic"
+  }
+}

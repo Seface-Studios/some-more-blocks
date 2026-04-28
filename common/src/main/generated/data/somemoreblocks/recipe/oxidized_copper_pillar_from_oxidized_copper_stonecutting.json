@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:oxidized_copper",
-  "result": {
-    "id": "somemoreblocks:oxidized_copper_pillar"
-  }
-}

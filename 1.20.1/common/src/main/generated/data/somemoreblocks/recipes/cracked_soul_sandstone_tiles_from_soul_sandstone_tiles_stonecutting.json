@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:soul_sandstone_tiles"
+  },
+  "result": "somemoreblocks:cracked_soul_sandstone_tiles"
+}

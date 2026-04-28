@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "id": "#minecraft:dirt",
+      "required": false
+    },
+    {
+      "id": "#minecraft:sand",
+      "required": false
+    },
+    {
+      "id": "#minecraft:terracotta",
+      "required": false
+    },
+    {
+      "id": "#somemoreblocks:terracotta_bricks",
+      "required": false
+    },
+    {
+      "id": "#somemoreblocks:terracotta_tiles",
+      "required": false
+    },
+    {
+      "id": "#somemoreblocks:shingles",
+      "required": false
+    }
+  ]
+}

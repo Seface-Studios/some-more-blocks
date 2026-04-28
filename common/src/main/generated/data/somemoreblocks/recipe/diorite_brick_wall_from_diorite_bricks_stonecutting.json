@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:diorite_bricks",
-  "result": {
-    "id": "somemoreblocks:diorite_brick_wall"
-  }
-}

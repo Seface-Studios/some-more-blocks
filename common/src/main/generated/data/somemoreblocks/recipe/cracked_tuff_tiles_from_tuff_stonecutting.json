@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:tuff",
-  "result": {
-    "id": "somemoreblocks:cracked_tuff_tiles"
-  }
-}

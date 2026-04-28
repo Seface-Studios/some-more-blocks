@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:polished_granite",
-  "result": {
-    "id": "somemoreblocks:granite_brick_wall"
-  }
-}

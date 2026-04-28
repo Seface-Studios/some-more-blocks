@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "somemoreblocks:block/tall_dune_grass_bottom"
+    },
+    "half=upper": {
+      "model": "somemoreblocks:block/tall_dune_grass_top"
+    }
+  }
+}

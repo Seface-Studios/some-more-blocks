@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:cyan_shingles"
+  },
+  "result": "somemoreblocks:cyan_shingles_stairs"
+}

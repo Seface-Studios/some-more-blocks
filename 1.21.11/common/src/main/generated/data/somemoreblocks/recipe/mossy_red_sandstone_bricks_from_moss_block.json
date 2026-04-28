@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "mossy_red_sandstone_bricks",
+  "ingredients": [
+    "somemoreblocks:red_sandstone_bricks",
+    "minecraft:moss_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:mossy_red_sandstone_bricks"
+  }
+}

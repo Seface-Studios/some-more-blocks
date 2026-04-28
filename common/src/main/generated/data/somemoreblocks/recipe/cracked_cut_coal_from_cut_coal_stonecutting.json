@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:cut_coal",
-  "result": {
-    "id": "somemoreblocks:cracked_cut_coal"
-  }
-}

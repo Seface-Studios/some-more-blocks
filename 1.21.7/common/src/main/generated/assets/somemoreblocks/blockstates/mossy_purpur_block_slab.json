@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/mossy_purpur_block_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/mossy_purpur_block"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/mossy_purpur_block_slab_top"
+    }
+  }
+}

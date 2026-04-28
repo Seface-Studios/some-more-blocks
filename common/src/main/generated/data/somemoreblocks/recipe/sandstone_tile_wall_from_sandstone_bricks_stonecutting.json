@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:sandstone_bricks",
-  "result": {
-    "id": "somemoreblocks:sandstone_tile_wall"
-  }
-}

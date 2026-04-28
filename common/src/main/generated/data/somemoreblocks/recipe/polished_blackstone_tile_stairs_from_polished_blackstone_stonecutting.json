@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:polished_blackstone",
-  "result": {
-    "id": "somemoreblocks:polished_blackstone_tile_stairs"
-  }
-}

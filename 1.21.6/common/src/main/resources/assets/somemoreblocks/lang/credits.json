@@ -1,0 +1,56 @@
+{
+  "en_us": {
+    "title": "English (United States)",
+    "code": "EN-US",
+    "credits": [
+      "Seface Studios"
+    ]
+  },
+  "it_it": {
+    "title": "Italian",
+    "code": "IT-IT",
+    "credits": [
+      "biancoaleepapy",
+      "Alessia04"
+    ]
+  },
+  "ja_jp": {
+    "title": "Japanese",
+    "code": "JA-JP",
+    "credits": [
+      "HayaKoh",
+      "chatintoro"
+    ]
+  },
+  "pt_br": {
+    "title": "Portuguese (Brazil)",
+    "code": "PT-PT",
+    "credits": [
+      "sufflowers",
+      "TonyBuilds_",
+      "_Fyat"
+    ]
+  },
+  "ru_ru": {
+    "title": "Russian",
+    "code": "RU-RU",
+    "credits": [
+      "mannoob_the_uhh",
+      "bonnie22556"
+    ]
+  },
+  "es_es": {
+    "title": "Spanish (Spain)",
+    "code": "ES-ES",
+    "credits": [
+      "Rubenicos"
+    ]
+  },
+  "tr_tr": {
+    "title": "Turkish",
+    "code": "TR-TR",
+    "credits": [
+      "emrzeyy"
+    ]
+  }
+}

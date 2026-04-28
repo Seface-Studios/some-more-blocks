@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:weathered_copper_bricks",
-  "result": {
-    "id": "somemoreblocks:weathered_cracked_copper_bricks"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:mossy_purpur_block",
-  "result": {
-    "id": "somemoreblocks:mossy_purpur_block_stairs"
-  }
-}

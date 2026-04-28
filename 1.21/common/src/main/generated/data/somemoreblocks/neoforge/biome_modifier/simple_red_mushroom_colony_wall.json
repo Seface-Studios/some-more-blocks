@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#somemoreblocks:generates/red_mushroom_colony",
+  "features": "somemoreblocks:simple_red_mushroom_colony_wall",
+  "step": "vegetal_decoration"
+}

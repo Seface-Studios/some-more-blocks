@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": ["${mod_author}"],
+  "contributors": [
+    "Translators",
+    "§8§nItalian§r",
+    "  Alessia04",
+    "  biancoaleepapy",
+    "§8§nJapanese§r",
+    "  HayaKoh",
+    "  chatintoro",
+    "§8§nPortuguese (Brazil)§r",
+    "  _Fyat",
+    "  _TonyBuilds",
+    "  sufflowers",
+    "§8§nRussian§r",
+    "  bonnie22556",
+    "  mannoob_the_uhh",
+    "§8§nSpanish (Spain)§r",
+    "  Rubenicos",
+    "  emrzeyy",
+    "\\n"
+  ],
+
+  "contact": {
+    "homepage": "${main_url}",
+    "sources": "${source_url}",
+    "issues": "${issues_tracker_url}"
+  },
+
+  "custom": {
+    "modmenu": {
+      "update_checker": true,
+      "links": {
+        "modmenu.becomeATranslator.somemoreblocks": "${crowdin_url}",
+        "modmenu.discord": "${discord_url}"
+      }
+    }
+  },
+
+  "license": "${license}",
+  "icon": "assets/${mod_id}/icon_64.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": ["net.seface.${mod_id}.datagen.Main"],
+    "main": ["net.seface.${mod_id}.SomeMoreBlocksFabric"],
+    "client": ["net.seface.${mod_id}.SomeMoreBlocksFabricClient"]
+  },
+
+  "mixins": [
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": ">=${fabric_version}",
+    "minecraft": ["${minecraft_version}", "1.21.1"],
+    "java": ">=${java_version}"
+  },
+
+  "suggests": {}
+}

@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:redstone_bricks",
-  "result": {
-    "id": "somemoreblocks:cut_redstone"
-  }
-}

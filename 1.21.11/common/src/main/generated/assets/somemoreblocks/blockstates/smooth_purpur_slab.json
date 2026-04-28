@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/smooth_purpur_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/smooth_purpur"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/smooth_purpur_slab_top"
+    }
+  }
+}

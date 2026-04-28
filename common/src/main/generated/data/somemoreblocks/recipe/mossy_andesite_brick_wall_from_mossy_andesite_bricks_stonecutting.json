@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:mossy_andesite_bricks",
-  "result": {
-    "id": "somemoreblocks:mossy_andesite_brick_wall"
-  }
-}

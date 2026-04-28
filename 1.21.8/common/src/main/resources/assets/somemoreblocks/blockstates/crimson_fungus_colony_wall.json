@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=west": {
+      "model": "somemoreblocks:block/crimson_fungus_colony_wall",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "somemoreblocks:block/crimson_fungus_colony_wall"
+    },
+    "facing=north": {
+      "model": "somemoreblocks:block/crimson_fungus_colony_wall",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "somemoreblocks:block/crimson_fungus_colony_wall",
+      "y": 270
+    }
+  }
+}

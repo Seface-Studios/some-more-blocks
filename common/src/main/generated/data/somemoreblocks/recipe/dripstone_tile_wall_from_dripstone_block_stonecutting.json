@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:dripstone_block",
-  "result": {
-    "id": "somemoreblocks:dripstone_tile_wall"
-  }
-}

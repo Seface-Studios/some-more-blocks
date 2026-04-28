@@ -11,11 +11,11 @@ The mod adds over 500 new blocks, such as bricks, tiles, mossy blocks, wood mosa
 ![Installation](.github/assets/titles/installation.png)
 
 1. Download and install the Mod Loader of your choice
-- [Fabric](https://fabricmc.net/use/installer/) and [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files/all?page=1&pageSize=20&version=1.21.10)
-- [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.21.10.html)
+- [Fabric](https://fabricmc.net/use/installer/) and [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files/all)
+- [Forge](https://files.minecraftforge.net/net/minecraftforge/forge)
 2. Download the mod on official links and drop into your mods folder
-- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/some-more-blocks/files/all?page=1&pageSize=20&version=1.21.10&showAlphaFiles=hide)
-- [Modrinth](https://modrinth.com/mod/some-more-blocks/versions?g=1.21.10)
+- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/some-more-blocks/files/all)
+- [Modrinth](https://modrinth.com/mod/some-more-blocks/versions)
 
 ![Become a Translator](.github/assets/titles/become_a_translator.png)
 

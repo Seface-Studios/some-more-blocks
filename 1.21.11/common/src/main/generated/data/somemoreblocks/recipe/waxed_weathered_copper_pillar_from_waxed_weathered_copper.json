@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "waxed_weathering_copper_pillar",
+  "key": {
+    "#": "minecraft:waxed_weathered_copper"
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "count": 2,
+    "id": "somemoreblocks:waxed_weathered_copper_pillar"
+  }
+}

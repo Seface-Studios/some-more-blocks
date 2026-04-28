@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#somemoreblocks:generates/snow_grass",
+  "features": "somemoreblocks:patch_snow_grass",
+  "step": "vegetal_decoration"
+}

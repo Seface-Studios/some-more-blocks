@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "somemoreblocks:ice_tiles"
+  },
+  "result": {
+    "count": 2,
+    "id": "somemoreblocks:ice_tile_slab"
+  }
+}

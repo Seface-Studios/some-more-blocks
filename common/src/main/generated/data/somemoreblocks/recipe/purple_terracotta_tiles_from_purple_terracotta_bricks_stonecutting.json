@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:purple_terracotta_bricks",
-  "result": {
-    "id": "somemoreblocks:purple_terracotta_tiles"
-  }
-}

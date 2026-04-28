@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "somemoreblocks:block/short_snow_grass"
+  }
+}

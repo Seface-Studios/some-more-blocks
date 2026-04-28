@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:bone_bricks",
-  "result": {
-    "id": "somemoreblocks:bone_tile_wall"
-  }
-}

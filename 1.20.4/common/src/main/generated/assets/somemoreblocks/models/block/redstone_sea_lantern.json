@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "somemoreblocks:block/polished_prismarine",
+    "east": "somemoreblocks:block/redstone_sea_lantern",
+    "north": "somemoreblocks:block/redstone_sea_lantern",
+    "particle": "somemoreblocks:block/redstone_sea_lantern",
+    "south": "somemoreblocks:block/redstone_sea_lantern",
+    "up": "somemoreblocks:block/polished_prismarine",
+    "west": "somemoreblocks:block/redstone_sea_lantern"
+  }
+}

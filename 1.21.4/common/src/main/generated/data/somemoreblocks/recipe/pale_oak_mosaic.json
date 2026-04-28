@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "mosaic",
+  "key": {
+    "#": "minecraft:pale_oak_slab"
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:pale_oak_mosaic"
+  }
+}

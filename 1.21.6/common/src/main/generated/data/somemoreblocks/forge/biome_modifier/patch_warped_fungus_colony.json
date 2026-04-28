@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#somemoreblocks:generates/warped_fungus_colony",
+  "features": "somemoreblocks:patch_warped_fungus_colony",
+  "step": "vegetal_decoration"
+}

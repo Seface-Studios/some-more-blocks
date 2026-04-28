@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#somemoreblocks:generates/luminous_flower",
+  "features": "somemoreblocks:patch_luminous_flower",
+  "step": "underground_decoration"
+}

@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:polished_calcite",
-  "result": {
-    "id": "somemoreblocks:polished_calcite_stairs"
-  }
-}

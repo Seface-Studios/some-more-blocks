@@ -1,0 +1,32 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea/*
+!.idea/scopes
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+runs
+
+**/*/lang/*.json
+!**/*/generated/**/*/lang/*.json
+!**/*/lang/credits.json
+!**/*/lang/deprecated_strings.json
+
+**/node_modules
+**/yarn.lock

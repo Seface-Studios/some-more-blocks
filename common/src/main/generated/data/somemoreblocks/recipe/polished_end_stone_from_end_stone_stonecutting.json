@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:end_stone",
-  "result": {
-    "id": "somemoreblocks:polished_end_stone"
-  }
-}

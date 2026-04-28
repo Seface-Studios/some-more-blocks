@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "somemoreblocks:white_shingles",
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:white_shingles_stairs"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:swamp",
+  "features": "somemoreblocks:patch_cattail_swamp",
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "somemoreblocks:block/stone_pillar_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "somemoreblocks:block/stone_pillar"
+    },
+    "axis=z": {
+      "model": "somemoreblocks:block/stone_pillar_horizontal",
+      "x": 90
+    }
+  }
+}

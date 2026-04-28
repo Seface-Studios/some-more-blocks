@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:amethyst_bricks",
-  "result": {
-    "id": "somemoreblocks:cracked_amethyst_bricks"
-  }
-}

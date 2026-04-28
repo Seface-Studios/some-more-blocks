@@ -1,0 +1,6 @@
+{
+  "parent": "somemoreblocks:block/templates/square_horizontal",
+  "textures": {
+    "texture": "somemoreblocks:block/flowering_azalea_leaf_litter_0"
+  }
+}

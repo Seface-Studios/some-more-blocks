@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:netherite_bricks",
-  "result": {
-    "id": "somemoreblocks:cut_netherite"
-  }
-}

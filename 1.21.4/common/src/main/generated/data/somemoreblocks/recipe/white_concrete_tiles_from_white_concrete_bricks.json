@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "concrete_tiles_from_concrete_bricks",
+  "key": {
+    "#": "somemoreblocks:white_concrete_bricks"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "id": "somemoreblocks:white_concrete_tiles"
+  }
+}

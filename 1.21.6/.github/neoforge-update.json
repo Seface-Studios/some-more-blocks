@@ -1,0 +1,11 @@
+{
+  "homepage": "https://github.com/Seface-Studios/some-more-blocks",
+  "promos": {
+    "1.21.6-latest": "1.4.0",
+    "1.21.6-recommended": "1.4.0"
+  },
+
+  "1.21.6": {
+    "1.4.0": "1.21.6 port"
+  }
+}

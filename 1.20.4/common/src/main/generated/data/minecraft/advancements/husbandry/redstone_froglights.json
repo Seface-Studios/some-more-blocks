@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:husbandry/froglights",
+  "criteria": {
+    "redstone_froglights": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "somemoreblocks:ochre_redstone_froglight"
+            ]
+          },
+          {
+            "items": [
+              "somemoreblocks:pearlescent_redstone_froglight"
+            ]
+          },
+          {
+            "items": [
+              "somemoreblocks:verdant_redstone_froglight"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.somemoreblocks.husbandry.redstone_froglights.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "item": "somemoreblocks:verdant_redstone_froglight"
+    },
+    "title": {
+      "translate": "advancements.somemoreblocks.husbandry.redstone_froglights.title"
+    }
+  },
+  "requirements": [
+    [
+      "redstone_froglights"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "somemoreblocks:block/mud_tiles",
+    "side": "somemoreblocks:block/mud_tiles",
+    "top": "somemoreblocks:block/mud_tiles"
+  }
+}

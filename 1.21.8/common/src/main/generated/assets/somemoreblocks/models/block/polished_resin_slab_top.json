@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "somemoreblocks:block/polished_resin",
+    "side": "somemoreblocks:block/polished_resin",
+    "top": "somemoreblocks:block/polished_resin"
+  }
+}

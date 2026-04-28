@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_glass_pane_noside_alt",
+  "textures": {
+    "pane": "somemoreblocks:block/lime_stained_tiled_glass"
+  }
+}

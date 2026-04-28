@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#somemoreblocks:generates/cactus_plants",
+  "features": "somemoreblocks:patch_cactus_plants",
+  "step": "vegetal_decoration"
+}

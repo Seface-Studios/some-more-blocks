@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "somemoreblocks:chiseled_tuff_bricks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tuff_brick_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "somemoreblocks:tuff_brick_slab"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tuff_brick_slab"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "somemoreblocks:chiseled_tuff_bricks"
+    ]
+  }
+}

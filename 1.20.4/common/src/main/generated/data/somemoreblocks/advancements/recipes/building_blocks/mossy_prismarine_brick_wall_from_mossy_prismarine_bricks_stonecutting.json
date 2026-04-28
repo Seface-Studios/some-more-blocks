@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mossy_prismarine_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "somemoreblocks:mossy_prismarine_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:mossy_prismarine_brick_wall_from_mossy_prismarine_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mossy_prismarine_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:mossy_prismarine_brick_wall_from_mossy_prismarine_bricks_stonecutting"
+    ]
+  }
+}

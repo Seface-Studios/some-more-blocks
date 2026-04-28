@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:redstone_block",
-  "result": {
-    "id": "somemoreblocks:redstone_pillar"
-  }
-}

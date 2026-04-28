@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:diamond_bricks",
-  "result": {
-    "id": "somemoreblocks:cracked_diamond_bricks"
-  }
-}

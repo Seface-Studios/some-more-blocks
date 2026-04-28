@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:copper_bricks"
+  },
+  "result": "somemoreblocks:cracked_copper_bricks"
+}

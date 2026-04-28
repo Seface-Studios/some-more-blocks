@@ -1,0 +1,21 @@
+{
+  "values": [
+    "somemoreblocks:packed_snow",
+    "somemoreblocks:packed_snow_stairs",
+    "somemoreblocks:packed_snow_slab",
+    "somemoreblocks:polished_snow",
+    "somemoreblocks:polished_snow_stairs",
+    "somemoreblocks:polished_snow_slab",
+    "somemoreblocks:snow_bricks",
+    "somemoreblocks:cracked_snow_bricks",
+    "somemoreblocks:snow_brick_stairs",
+    "somemoreblocks:snow_brick_slab",
+    "somemoreblocks:snow_brick_wall",
+    "somemoreblocks:snow_pillar",
+    "somemoreblocks:snow_tiles",
+    "somemoreblocks:cracked_snow_tiles",
+    "somemoreblocks:snow_tile_stairs",
+    "somemoreblocks:snow_tile_slab",
+    "somemoreblocks:snow_tile_wall"
+  ]
+}

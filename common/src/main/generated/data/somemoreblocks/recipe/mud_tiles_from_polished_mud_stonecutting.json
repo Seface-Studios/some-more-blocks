@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:polished_mud",
-  "result": {
-    "id": "somemoreblocks:mud_tiles"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:red_sandstone_bricks",
-  "result": {
-    "id": "somemoreblocks:red_sandstone_tile_stairs"
-  }
-}

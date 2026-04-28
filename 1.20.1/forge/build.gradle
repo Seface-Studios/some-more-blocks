@@ -1,0 +1,84 @@
+plugins {
+  id 'idea'
+  id 'maven-publish'
+  id "net.minecraftforge.gradle" version "${forge_loom_version}"
+  id "org.spongepowered.mixin" version "0.7-SNAPSHOT"
+}
+
+dependencies {
+  minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+  annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+}
+
+minecraft {
+  mappings channel: 'official', version: minecraft_version
+  copyIdeResources = true
+
+  var File AT = project(":common").file('src/main/resources/META-INF/accesstransformer.cfg')
+  if (AT.exists()) {
+    accessTransformers.from(AT.absolutePath)
+  }
+
+  runs {
+    configureEach {
+      workingDirectory project.file('run')
+      ideaModule "${rootProject.name}.${project.name}.main"
+      property 'mixin.env.remapRefMap', 'true'
+      property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+      taskName "${it.name.capitalize()}"
+    }
+
+    client {
+      mods {
+        modClientRun {
+          source sourceSets.main
+          source project(":common").sourceSets.main
+        }
+      }
+    }
+
+    server {
+      mods {
+        modServerRun {
+          source sourceSets.main
+          source project(":common").sourceSets.main
+        }
+      }
+
+      args "--nogui"
+    }
+  }
+}
+
+mixin {
+  add(sourceSets.main, "${mod_id}.refmap.json")
+
+  config("${mod_id}.mixins.json")
+  config("${mod_id}.forge.mixins.json")
+}
+
+jar {
+  manifest {
+    attributes(
+      'MixinConfigs'            : "${mod_id}.mixins.json,${mod_id}.forge.mixins.json"
+    )
+  }
+
+  finalizedBy("reobfJar")
+}
+
+afterEvaluate {
+  publishing {
+    publications {
+      mavenJava(MavenPublication) {
+        fg.component(it)
+      }
+    }
+  }
+}
+
+sourceSets.each {
+  def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
+  it.output.resourcesDir = dir
+  it.java.destinationDirectory = dir
+}

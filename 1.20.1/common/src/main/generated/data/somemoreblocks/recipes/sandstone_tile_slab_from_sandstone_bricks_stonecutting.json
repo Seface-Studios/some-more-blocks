@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "somemoreblocks:sandstone_bricks"
+  },
+  "result": "somemoreblocks:sandstone_tile_slab"
+}

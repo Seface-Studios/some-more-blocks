@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "somemoreblocks:big_lily_pad",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "position": "bottom_left"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "somemoreblocks:big_lily_pad"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

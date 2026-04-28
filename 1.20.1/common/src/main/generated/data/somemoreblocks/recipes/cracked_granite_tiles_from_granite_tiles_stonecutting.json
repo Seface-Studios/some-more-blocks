@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:granite_tiles"
+  },
+  "result": "somemoreblocks:cracked_granite_tiles"
+}

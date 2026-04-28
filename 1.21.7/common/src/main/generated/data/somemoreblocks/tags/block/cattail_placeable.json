@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "id": "#minecraft:dirt",
+      "required": false
+    },
+    "minecraft:mud",
+    "minecraft:muddy_mangrove_roots",
+    "minecraft:clay"
+  ]
+}

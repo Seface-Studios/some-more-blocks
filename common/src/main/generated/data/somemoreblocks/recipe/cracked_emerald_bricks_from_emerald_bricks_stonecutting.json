@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:emerald_bricks",
-  "result": {
-    "id": "somemoreblocks:cracked_emerald_bricks"
-  }
-}

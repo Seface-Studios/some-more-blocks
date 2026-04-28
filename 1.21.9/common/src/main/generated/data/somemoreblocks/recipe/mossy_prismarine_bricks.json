@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:prismarine_bricks",
+    "minecraft:kelp"
+  ],
+  "result": {
+    "count": 1,
+    "id": "somemoreblocks:mossy_prismarine_bricks"
+  }
+}

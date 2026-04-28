@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:prismarine",
-  "result": {
-    "id": "somemoreblocks:prismarine_pillar"
-  }
-}

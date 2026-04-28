@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "somemoreblocks:dripstone_bricks",
-  "result": {
-    "id": "somemoreblocks:dripstone_tile_stairs"
-  }
-}

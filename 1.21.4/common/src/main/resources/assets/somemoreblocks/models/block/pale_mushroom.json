@@ -1,0 +1,66 @@
+{
+	"format_version": "1.21.6",
+	"credit": "By Seface Studios",
+	"textures": {
+		"particle": "somemoreblocks:block/pale_mushroom",
+		"stem": "somemoreblocks:block/pale_mushroom_stem",
+		"mushroom": "somemoreblocks:block/pale_mushroom",
+		"mushroom_emissive": "somemoreblocks:block/pale_mushroom_emissive"
+	},
+	"elements": [
+		{
+			"from": [7.5, 0, 8],
+			"to": [8.5, 4, 8],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 4, 1, 8], "texture": "#stem"},
+				"south": {"uv": [0, 4, 1, 8], "texture": "#stem"}
+			}
+		},
+		{
+			"from": [7.5, 0, 8],
+			"to": [8.5, 4, 8],
+			"shade": false,
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 4, 1, 8], "texture": "#stem"},
+				"south": {"uv": [0, 4, 1, 8], "texture": "#stem"}
+			}
+		},
+		{
+			"from": [6.5, 4, 6.5],
+			"to": [9.5, 5, 9.5],
+			"shade": false,
+			"light_emission": 15,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [10, 2, 13, 1], "texture": "#mushroom_emissive"},
+				"east": {"uv": [10, 2, 13, 1], "texture": "#mushroom_emissive"},
+				"south": {"uv": [10, 2, 13, 1], "texture": "#mushroom_emissive"},
+				"west": {"uv": [10, 2, 13, 1], "texture": "#mushroom_emissive"},
+				"down": {"uv": [10, 2, 13, 5], "texture": "#mushroom_emissive"}
+			}
+		},
+		{
+			"from": [4.5, 5, 4.5],
+			"to": [11.5, 5, 11.5],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"up": {"uv": [7, 7, 0, 0], "texture": "#mushroom"},
+				"down": {"uv": [15, 0, 8, 7], "texture": "#mushroom"}
+			}
+		},
+		{
+			"from": [4.5, 5, 4.5],
+			"to": [11.5, 5, 11.5],
+			"shade": false,
+			"light_emission": 10,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"down": {"uv": [15, 0, 8, 7], "texture": "#mushroom_emissive"}
+			}
+		}
+	]
+}

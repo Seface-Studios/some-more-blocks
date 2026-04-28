@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:gold_block",
-  "result": {
-    "id": "somemoreblocks:gold_pillar"
-  }
-}

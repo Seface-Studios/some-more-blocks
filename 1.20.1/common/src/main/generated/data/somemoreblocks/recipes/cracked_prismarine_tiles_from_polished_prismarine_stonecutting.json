@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "somemoreblocks:polished_prismarine"
+  },
+  "result": "somemoreblocks:cracked_prismarine_tiles"
+}

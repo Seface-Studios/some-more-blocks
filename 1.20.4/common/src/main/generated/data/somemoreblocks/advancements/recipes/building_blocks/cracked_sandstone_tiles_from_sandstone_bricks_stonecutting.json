@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sandstone_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "somemoreblocks:sandstone_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:cracked_sandstone_tiles_from_sandstone_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sandstone_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:cracked_sandstone_tiles_from_sandstone_bricks_stonecutting"
+    ]
+  }
+}

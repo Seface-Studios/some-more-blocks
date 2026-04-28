@@ -1,0 +1,85 @@
+{
+  "values": {
+    "somemoreblocks:azalea_leaves_bucket": {
+      "chance": 1.0
+    },
+    "somemoreblocks:big_lily_pad": {
+      "chance": 1.0
+    },
+    "somemoreblocks:birch_leaves_bucket": {
+      "chance": 1.0
+    },
+    "somemoreblocks:brown_mushroom_colony": {
+      "chance": 0.85
+    },
+    "somemoreblocks:cattail": {
+      "chance": 0.65
+    },
+    "somemoreblocks:clover": {
+      "chance": 0.4
+    },
+    "somemoreblocks:crimson_fungus_colony": {
+      "chance": 0.85
+    },
+    "somemoreblocks:flowering_azalea_leaves_bucket": {
+      "chance": 1.0
+    },
+    "somemoreblocks:large_snow_fern": {
+      "chance": 0.65
+    },
+    "somemoreblocks:leaves_bucket": {
+      "chance": 1.0
+    },
+    "somemoreblocks:luminous_flower": {
+      "chance": 0.65
+    },
+    "somemoreblocks:pale_oak_leaves_bucket": {
+      "chance": 1.0
+    },
+    "somemoreblocks:pale_rose_bush": {
+      "chance": 0.85
+    },
+    "somemoreblocks:red_mushroom_colony": {
+      "chance": 0.85
+    },
+    "somemoreblocks:short_snow_grass": {
+      "chance": 0.3
+    },
+    "somemoreblocks:small_lily_pads": {
+      "chance": 0.65
+    },
+    "somemoreblocks:snow_fern": {
+      "chance": 0.3
+    },
+    "somemoreblocks:spruce_leaves_bucket": {
+      "chance": 1.0
+    },
+    "somemoreblocks:tall_brown_mushroom_colony": {
+      "chance": 1.0
+    },
+    "somemoreblocks:tall_cactus": {
+      "chance": 1.0
+    },
+    "somemoreblocks:tall_crimson_fungus_colony": {
+      "chance": 1.0
+    },
+    "somemoreblocks:tall_dune_grass": {
+      "chance": 0.5
+    },
+    "somemoreblocks:tall_red_mushroom_colony": {
+      "chance": 1.0
+    },
+    "somemoreblocks:tall_snow_grass": {
+      "chance": 0.65
+    },
+    "somemoreblocks:tall_warped_fungus_colony": {
+      "chance": 1.0
+    },
+    "somemoreblocks:tiny_cactus": {
+      "chance": 0.3
+    },
+    "somemoreblocks:warped_fungus_colony": {
+      "chance": 0.85
+    }
+  }
+}
