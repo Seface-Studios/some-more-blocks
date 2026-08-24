@@ -12,12 +12,17 @@ out
 *.iws
 *.iml
 .idea/*
-!.idea/scopes
+!.idea/scopes/
+!.idea/scopes/**
+!.idea/runConfigurations/
+!.idea/runConfigurations/**
+!.idea/icon.svg
 
 # gradle
 build
 .gradle
 dist
+.dist
 
 # other
 eclipse
