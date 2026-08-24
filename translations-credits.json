@@ -1,27 +1,27 @@
 {
   "source": {
     "title": "English",
-    "latest_update": "1.21.11",
+    "latest_update": "26.1",
     "credits": ["Seface Studios"]
   },
 
   "es_es": {
     "title": "Spanish",
-    "latest_update": "1.21.11",
+    "latest_update": "26.1",
     "url": "https://crowdin.com/project/minecraft-some-more-blocks/es-ES",
     "credits": ["Rubenicos"]
   },
 
   "ja_jp": {
     "title": "Japanese",
-    "latest_update": "1.21.11",
+    "latest_update": "26.1",
     "url": "https://crowdin.com/project/minecraft-some-more-blocks/ja",
     "credits": ["HayaKoh"]
   },
 
   "pl_pl": {
     "title": "Polish",
-    "latest_update": "1.21.11",
+    "latest_update": "26.1",
     "url": "https://crowdin.com/project/minecraft-some-more-blocks/pl",
     "credits": [
       "DrParalax",
@@ -31,19 +31,18 @@
 
   "pt_br": {
     "title": "Portuguese, Brazilian",
-    "latest_update": "1.21.11",
+    "latest_update": "26.1",
     "url": "https://crowdin.com/project/minecraft-some-more-blocks/pt-BR",
     "credits": [
       "sufflowers",
       "TonyBuilds_",
       "_Fyat"
-
     ]
   },
 
   "ru_ru": {
     "title": "Russian",
-    "latest_update": "1.21.11",
+    "latest_update": "26.1",
     "url": "https://crowdin.com/project/minecraft-some-more-blocks/ru",
     "credits": [
       "mannoob_the_uhh",
@@ -53,7 +52,7 @@
 
   "tr_tr": {
     "title": "Turkish",
-    "latest_update": "1.21.11",
+    "latest_update": "26.1",
     "url": "https://crowdin.com/project/minecraft-some-more-blocks/tr",
     "credits": [
       "emrzeyy",
@@ -63,7 +62,7 @@
 
   "uk_ua": {
     "title": "Ukrainian",
-    "latest_update": "1.21.11",
+    "latest_update": "26.1",
     "url": "https://crowdin.com/project/minecraft-some-more-blocks/uk",
     "credits": [
       "Clocken",

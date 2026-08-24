@@ -1,9 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.seface.${mod_id}.mixin",
+  "package": "net.sefacestudios.${mod_id}.mixin",
   "refmap": "${mod_id}.refmap.json",
-  "compatibilityLevel": "JAVA_${project_jdk}",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [],
   "client": [],
   "server": [],

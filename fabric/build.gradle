@@ -5,6 +5,14 @@ plugins {
 
 def common  = project(":common")
 
+sourceSets {
+  main {
+    java {
+      srcDir common.file("src/main/java")
+    }
+  }
+}
+
 repositories {
   maven {
     name = "Terraformers"
@@ -37,6 +45,12 @@ loom {
 
   mixin {
     defaultRefmapName.set("${mod_id}.refmap.json")
+  }
+
+  mods {
+    "${mod_id}" {
+      sourceSet sourceSets.main
+    }
   }
 
   runs {

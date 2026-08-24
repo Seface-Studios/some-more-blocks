@@ -39,15 +39,18 @@ neoForge {
   }
 }
 
-sourceSets.each {
-  def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
-  it.output.resourcesDir = dir
-  it.java.destinationDirectory = dir
+sourceSets.configureEach {
+  def dir = layout.buildDirectory.dir("sourcesSets/${it.name}")
+  it.java.destinationDirectory.set(dir)
+  it.output.resourcesDir = dir.get().asFile
 }
 
 idea {
   module {
     downloadSources = true
     downloadJavadoc = true
+    inheritOutputDirs = true
+    outputDir = file("build/sourcesSets/main")
+    testOutputDir = file("build/sourcesSets/test")
   }
 }

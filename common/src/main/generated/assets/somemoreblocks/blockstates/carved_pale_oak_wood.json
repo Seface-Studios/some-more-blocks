@@ -1,42 +1,42 @@
 {
   "variants": {
     "axis=x,moon_phase=0": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_0",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_0_horizontal",
       "x": 90,
       "y": 90
     },
     "axis=x,moon_phase=1": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_1",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_1_horizontal",
       "x": 90,
       "y": 90
     },
     "axis=x,moon_phase=2": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_2",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_2_horizontal",
       "x": 90,
       "y": 90
     },
     "axis=x,moon_phase=3": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_3",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_3_horizontal",
       "x": 90,
       "y": 90
     },
     "axis=x,moon_phase=4": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_4",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_4_horizontal",
       "x": 90,
       "y": 90
     },
     "axis=x,moon_phase=5": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_5",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_5_horizontal",
       "x": 90,
       "y": 90
     },
     "axis=x,moon_phase=6": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_6",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_6_horizontal",
       "x": 90,
       "y": 90
     },
     "axis=x,moon_phase=7": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_7",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_7_horizontal",
       "x": 90,
       "y": 90
     },
@@ -65,35 +65,35 @@
       "model": "somemoreblocks:block/carved_pale_oak_wood_7"
     },
     "axis=z,moon_phase=0": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_0",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_0_horizontal",
       "x": 90
     },
     "axis=z,moon_phase=1": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_1",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_1_horizontal",
       "x": 90
     },
     "axis=z,moon_phase=2": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_2",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_2_horizontal",
       "x": 90
     },
     "axis=z,moon_phase=3": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_3",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_3_horizontal",
       "x": 90
     },
     "axis=z,moon_phase=4": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_4",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_4_horizontal",
       "x": 90
     },
     "axis=z,moon_phase=5": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_5",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_5_horizontal",
       "x": 90
     },
     "axis=z,moon_phase=6": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_6",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_6_horizontal",
       "x": 90
     },
     "axis=z,moon_phase=7": {
-      "model": "somemoreblocks:block/carved_pale_oak_wood_7",
+      "model": "somemoreblocks:block/carved_pale_oak_wood_7_horizontal",
       "x": 90
     }
   }

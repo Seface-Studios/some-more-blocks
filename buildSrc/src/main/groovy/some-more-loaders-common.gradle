@@ -4,11 +4,10 @@ plugins {
 
 java {
   toolchain {
-    languageVersion = JavaLanguageVersion.of(25)
+    languageVersion = JavaLanguageVersion.of(project_jdk.toInteger())
   }
 
   withSourcesJar()
-  withJavadocJar()
 }
 
 base {
@@ -39,15 +38,15 @@ jar {
 
   manifest {
     attributes(
-      'Specification-Title'     : mod_name,
-      'Specification-Vendor'    : mod_author,
-      'Specification-Version'   : project.version,
-      'Implementation-Title'    : project.name,
-      'Implementation-Version'  : project.jar.archiveVersion,
-      'Implementation-Vendor'   : mod_author,
-      'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-      'Timestamp'               : System.currentTimeMillis(),
-      'Built-On'                : "Minecraft ${minecraft_version} | ${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})"
+      'Specification-Title'         : mod_name,
+      'Specification-Vendor'        : mod_author,
+      'Specification-Version'       : project.version,
+      'Implementation-Title'        : project.name,
+      'Implementation-Version'      : project.jar.archiveVersion,
+      'Implementation-Vendor'       : mod_author,
+      'Implementation-Timestamp'    : new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+      'Timestamp'                   : System.currentTimeMillis(),
+      'Built-On'                    : "Minecraft ${minecraft_version} | ${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})"
     )
   }
 }
@@ -75,12 +74,8 @@ processResources {
     /* ========= LOADERS ========= */
     "fabric_api_version"          : fabric_api_version,
     "fabric_loader_version"       : fabric_loader_version,
-
     "neoforge_version"            : neoforge_version,
-
-    /*
     "forge_version"               : forge_version,
-    */
 
 
     /* ========== EXTRA ========== */
@@ -98,6 +93,16 @@ processResources {
     'META-INF/mods.toml',
     'META-INF/neoforge.mods.toml',
   ]) { expand props }
+
+  filesMatching('**/lang/*.json') {
+    filter { String line ->
+      def out = line
+      props.each { key, value ->
+        out = out.replace('${' + key + '}', value.toString())
+      }
+      out
+    }
+  }
 
   inputs.properties(props)
 }

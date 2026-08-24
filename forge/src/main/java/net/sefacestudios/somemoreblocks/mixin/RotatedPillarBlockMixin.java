@@ -1,0 +1,27 @@
+package net.sefacestudios.somemoreblocks.mixin;
+
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.extensions.IForgeBlock;
+import net.sefacestudios.somemoreblocks.block.RotatedCarvedPaleOakBlock;
+import net.sefacestudios.somemoreblocks.registries.SMBRegistries;
+import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Mixin;
+
+@Mixin(RotatedPillarBlock.class)
+public abstract class RotatedPillarBlockMixin implements IForgeBlock {
+
+  @Override
+  public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext ctx, ToolAction toolAction, boolean simulate) {
+    return SMBRegistries.CARVED_BLOCKS.getNext(state.getBlock())
+      .map((block) -> {
+        if (block instanceof RotatedCarvedPaleOakBlock) {
+          return block.withPropertiesOf(state)
+            .setValue(RotatedCarvedPaleOakBlock.MOON_PHASE, RotatedCarvedPaleOakBlock.currentMoonPhase(ctx.getLevel()));
+        }
+        return block.withPropertiesOf(state);
+      }).orElse(IForgeBlock.super.getToolModifiedState(state, ctx, toolAction, simulate));
+  }
+}

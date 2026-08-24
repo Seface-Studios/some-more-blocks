@@ -1,0 +1,157 @@
+package net.sefacestudios.somemoreblocks.platform.registry;
+
+import com.mojang.brigadier.arguments.BoolArgumentType;
+import com.mojang.serialization.Codec;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.gamerules.GameRule;
+import net.minecraft.world.level.gamerules.GameRuleCategory;
+import net.minecraft.world.level.gamerules.GameRuleType;
+import net.minecraft.world.level.gamerules.GameRuleTypeVisitor;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraftforge.eventbus.api.bus.BusGroup;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+import net.sefacestudios.somemoreblocks.Constants;
+import net.sefacestudios.somemoreblocks.SomeMoreBlocks;
+import net.sefacestudios.somemoreblocks.item.FuelBlockItem;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Map;
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
+
+public class ForgePlatformRegistry implements PlatformRegistry {
+  private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SomeMoreBlocks.ID);
+  private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, SomeMoreBlocks.ID);
+  private static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, SomeMoreBlocks.ID);
+  private static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, SomeMoreBlocks.ID);
+  private static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SomeMoreBlocks.ID);
+  private static final DeferredRegister<GameRule<?>> GAME_RULES = DeferredRegister.create(Registries.GAME_RULE, SomeMoreBlocks.ID);
+  private static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, SomeMoreBlocks.ID);
+
+
+  /** Forge don't have a Fuel Registry event, so we need to be a little trick here. */
+  private static final Map<String, Integer> FUEL_BLOCK_ITEMS = Map.ofEntries(
+    Map.entry("coal_bricks", Constants.COAL_BRICKS_FUEL),
+    Map.entry("cracked_coal_bricks", Constants.CRACKED_COAL_BRICKS_FUEL),
+    Map.entry("coal_pillar", Constants.COAL_PILLAR_FUEL),
+    Map.entry("cut_coal", Constants.CUT_COAL_FUEL),
+    Map.entry("cracked_cut_coal", Constants.CRACKED_CUT_COAL_FUEL),
+    Map.entry("clover", Constants.CLOVER_FUEL));
+
+  @Override
+  public PlatformRegistryObject<Block> registerBlock(String path, Supplier<Block> supplier, boolean registerBlockItem) {
+    Identifier identifier = SomeMoreBlocks.id(path);
+    RegistryObject<Block> instance = BLOCKS.register(path, supplier);
+
+    if (registerBlockItem) {
+      if (FUEL_BLOCK_ITEMS.containsKey(path)) {
+        this.registerItem(path,
+          () -> new FuelBlockItem(instance.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ITEMS.key(path)), FUEL_BLOCK_ITEMS.get(path)));
+      } else {
+        this.registerItem(path,
+          () -> new BlockItem(instance.get(), new Item.Properties().useBlockDescriptionPrefix().setId(ITEMS.key(path))));
+      }
+    }
+
+    return new ForgeRegistryObject<>(identifier, instance);
+  }
+
+  @Override
+  public PlatformRegistryObject<Item> registerItem(String path, Supplier<Item> supplier) {
+    Identifier identifier = SomeMoreBlocks.id(path);
+    RegistryObject<Item> instance = ITEMS.register(path, supplier);
+
+    return new ForgeRegistryObject<>(identifier, instance);
+  }
+
+  @Override
+  public <T> PlatformRegistryObject<DataComponentType<T>> registerDataComponent(String path, UnaryOperator<DataComponentType.Builder<T>> builder) {
+    Identifier identifier = SomeMoreBlocks.id(path);
+    RegistryObject<DataComponentType<T>> instance = DATA_COMPONENT_TYPES.register(path,
+      () -> builder.apply(DataComponentType.builder()).build());
+
+    return new ForgeRegistryObject<>(identifier, instance);
+  }
+
+  @Override
+  public <F extends Feature<? extends FeatureConfiguration>> PlatformRegistryObject<F> registerFeature(String path, Supplier<F> supplier) {
+    Identifier identifier = SomeMoreBlocks.id(path);
+    RegistryObject<F> instance = FEATURES.register(path, supplier);
+
+    return new ForgeRegistryObject<>(identifier, instance);
+  }
+
+  @Override
+  public PlatformRegistryObject<CreativeModeTab> registerCreativeModeTab(String path, CreativeModeTab.Row row, int i, UnaryOperator<CreativeModeTab.Builder> builder) {
+    Identifier identifier = SomeMoreBlocks.id(path);
+    RegistryObject<CreativeModeTab> instance = CREATIVE_MODE_TABS.register(path,
+      () -> builder.apply(CreativeModeTab.builder(row, i)).build());
+
+    return new ForgeRegistryObject<>(identifier, instance);
+  }
+
+  @Override
+  public PlatformRegistryObject<GameRule<@NotNull Boolean>> registerBooleanGameRule(String path, GameRuleCategory category, boolean defaultValue) {
+    Identifier identifier = SomeMoreBlocks.id(path);
+    RegistryObject<@NotNull GameRule<@NotNull Boolean>> instance = GAME_RULES.register(path,
+      () -> new GameRule<>(
+        category,
+        GameRuleType.BOOL,
+        BoolArgumentType.bool(),
+        GameRuleTypeVisitor::visitBoolean,
+        Codec.BOOL,
+        bool -> bool ? 1 : 0,
+        defaultValue,
+        FeatureFlagSet.of()
+      )
+    );
+
+    return new ForgeRegistryObject<>(identifier, instance);
+  }
+
+  @Override
+  public void setBlockRenderType(Block block, ChunkSectionLayer renderType) {
+    /*
+     * For some reason, Forge is not registering the correct
+     * RenderType for the Translucent block items.
+     */
+    /*if (renderType == ChunkSectionLayer.TRANSLUCENT) {
+      ItemBlockRenderTypes.setRenderLayer(block, renderType);
+      ItemBlockRenderTypes.TYPE_BY_BLOCK.put(block, renderType); *//* TYPE_BY_BLOCK via Access Widener. *//*
+      return;
+    }
+
+    ItemBlockRenderTypes.setRenderLayer(block, renderType);*/
+  }
+
+  @Override
+  public <T extends Recipe<?>> PlatformRegistryObject<RecipeSerializer<@NotNull T>> registerRecipeType(String path, RecipeSerializer<@NotNull T> serializer) {
+    Identifier identifier = SomeMoreBlocks.id(path);
+    RegistryObject<RecipeSerializer<@NotNull T>> instance = RECIPE_SERIALIZERS.register(path, () -> serializer);
+
+    return new ForgeRegistryObject<>(identifier, instance);
+  }
+
+  public static void init(BusGroup eventBus) {
+    BLOCKS.register(eventBus);
+    ITEMS.register(eventBus);
+    DATA_COMPONENT_TYPES.register(eventBus);
+    FEATURES.register(eventBus);
+    CREATIVE_MODE_TABS.register(eventBus);
+    GAME_RULES.register(eventBus);
+    RECIPE_SERIALIZERS.register(eventBus);
+  }
+}

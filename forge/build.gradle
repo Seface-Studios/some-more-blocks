@@ -1,38 +1,31 @@
 plugins {
-  id "some-more-loaders"
-  id "net.minecraftforge.gradle"
-  /*
-  id "org.spongepowered.mixin" version "0.7-SNAPSHOT"*/
+  id 'some-more-loaders'
+  id 'idea'
+  id 'eclipse'
+  id 'net.minecraftforge.gradle'
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+java.toolchain.languageVersion = JavaLanguageVersion.of(project_jdk.toInteger())
 
 jar {
   manifest {
     attributes(
-      'MixinConfigs'            : "${mod_id}.mixins.json,${mod_id}.forge.mixins.json"
+      'MixinConfigs': "${mod_id}.mixins.json,${mod_id}.forge.mixins.json"
     )
   }
 }
 
 minecraft {
-  /*mappings channel: 'official', version: minecraft_version*/
-
-  /*var File AT = file('src/main/resources/META-INF/accesstransformer.cfg')
-  if (AT.exists()) {
-    accessTransformers.from(AT.absolutePath)
-  }*/
-
   runs {
     configureEach {
       workingDir = layout.projectDirectory.dir('run')
-      /*ideaModule "${rootProject.name}.${project.name}.main"*/
-      /*property 'mixin.env.remapRefMap', 'true'
-      property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"*/
-      /*taskName "${it.name.capitalize()}"*/
 
       systemProperty 'eventbus.api.strictRuntimeChecks', 'true'
-      systemProperty 'forge.enabledGameTestNamespaces', "${mod_id}"
+      systemProperty 'forge.enabledGameTestNamespaces', mod_id
+
+      /* FG7 SlimeLauncher: Manifest MixinConfigs is not enough in DevEnv */
+      args "-mixin.config=${mod_id}.mixins.json"
+      args "-mixin.config=${mod_id}.forge.mixins.json"
     }
 
     register('client')
@@ -46,29 +39,12 @@ minecraft {
     register('data') {
       workingDir = layout.projectDirectory.dir('run-data')
 
-      args '--mod', "${mod_id}", '--all', '--output', layout.projectDirectory.dir('src/generated/resources'), '--existing', layout.projectDirectory.dir('src/main/resources')
+      args '--mod', mod_id, '--all',
+        '--output', layout.projectDirectory.dir('src/generated/resources'),
+        '--existing', layout.projectDirectory.dir('src/main/resources')
     }
-
-    /*client {
-      mods {
-        modClientRun {
-          source sourceSets.main
-          source project(":common").sourceSets.main
-        }
-      }
-    }
-
-    server {
-      mods {
-        modServerRun {
-          source sourceSets.main
-          source project(":common").sourceSets.main
-        }
-      }
-    }*/
   }
 }
-
 
 repositories {
   minecraft.mavenizer(it)
@@ -80,38 +56,38 @@ repositories {
 dependencies {
   implementation minecraft.dependency("net.minecraftforge:forge:${minecraft_version}-${forge_version}")
   annotationProcessor 'net.minecraftforge:eventbus-validator:7.0.1'
-  /*
-  *//*implementation("org.spongepowered:mixin:0.8.7")*//*
-
-  annotationProcessor("net.minecraftforge:eventbus-validator:7.0.1")*/
-
-  /*
-    Hack fix for now, force jopt-simple to be exactly 5.0.4 because Mojang ships that version,
-    but some transitive dependencies request 6.0+
-  */
-  /*implementation("net.sf.jopt-simple:jopt-simple:${forge_jopt_version}") {
-    version { strictly "${forge_jopt_version}" }
-  }*/
 }
-/*mixin {
-  add(sourceSets.main, "${mod_id}.refmap.json")
 
-  config("${mod_id}.mixins.json")
-  config("${mod_id}.forge.mixins.json")
-}*/
+tasks.withType(JavaCompile).configureEach {
+  options.encoding = 'UTF-8'
+}
 
-/*afterEvaluate {
-  publishing {
-    publications {
-      mavenJava(MavenPublication) {
-        fg.component(it)
+/* Workaround ForgeGradle 7.0.35 + Gradle 9.x:
+ * slimeLauncherMetadataForForge falha ao ler runsJson = outputDirectory.map(...) no @TaskAction.
+ * Definimos runsJson com um caminho fixo (sem map da própria output). */
+afterEvaluate {
+  tasks.named('slimeLauncherMetadataForForge').configure {
+    def metaDir = layout.buildDirectory.dir('minecraftforge/forgegradle/slimeLauncherMetadataForForge')
+    outputDirectory.set(metaDir)
+    runsJson.set(layout.buildDirectory.file('minecraftforge/forgegradle/slimeLauncherMetadataForForge/launcher/runs.json'))
+  }
+}
+
+final loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements'].each { variant ->
+  configurations.named(variant) {
+    attributes {
+      attribute(loaderAttribute, 'forge')
+    }
+  }
+}
+
+sourceSets.configureEach {
+  [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant ->
+    configurations.named(variant) {
+      attributes {
+        attribute(loaderAttribute, 'forge')
       }
     }
   }
-}*/
-
-sourceSets.each {
-  def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
-  it.output.resourcesDir = dir
-  it.java.destinationDirectory = dir
 }

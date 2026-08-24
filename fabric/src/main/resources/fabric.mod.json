@@ -50,9 +50,9 @@
   "icon": "assets/${mod_id}/icon_64.png",
   "environment": "*",
   "entrypoints": {
-    "fabric-datagen": ["net.seface.${mod_id}.datagen.Main"],
-    "main": ["net.seface.${mod_id}.SomeMoreBlocksFabric"],
-    "client": ["net.seface.${mod_id}.SomeMoreBlocksFabricClient"]
+    "fabric-datagen": ["net.sefacestudios.${mod_id}.datagen.Main"],
+    "main": ["net.sefacestudios.${mod_id}.SomeMoreBlocksFabric"],
+    "client": ["net.sefacestudios.${mod_id}.SomeMoreBlocksFabricClient"]
   },
 
   "mixins": [
