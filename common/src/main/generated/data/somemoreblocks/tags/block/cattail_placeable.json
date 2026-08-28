@@ -4,8 +4,13 @@
       "id": "#minecraft:dirt",
       "required": false
     },
+    {
+      "id": "#minecraft:sand",
+      "required": false
+    },
     "minecraft:mud",
     "minecraft:muddy_mangrove_roots",
-    "minecraft:clay"
+    "minecraft:clay",
+    "minecraft:gravel"
   ]
 }

@@ -166,5 +166,22 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SNOW_BUSH.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SNOW_FIREFLY_BUSH.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.GALAHAD_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SHORT_GALAHAD_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.POTTED_SHORT_GALAHAD_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.ASTOLAT_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SHORT_ASTOLAT_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.POTTED_SHORT_ASTOLAT_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SUMMER_SKIES_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.POTTED_SHORT_SUMMER_SKIES_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PURPLE_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SHORT_PURPLE_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.POTTED_SHORT_PURPLE_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.RED_LARK_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SHORT_RED_LARK_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.POTTED_SHORT_RED_LARK_LARKSPUR.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SPROUTS.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.DUCKWEED.get(), cutout);
   }
 }

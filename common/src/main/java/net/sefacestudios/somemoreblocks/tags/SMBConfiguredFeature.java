@@ -13,11 +13,18 @@ public class SMBConfiguredFeature {
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_CACTUS_PLANTS = register("patch_cactus_plants");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_CATTAIL = register("patch_cattail");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_CATTAIL_SWAMP = register("patch_cattail_swamp");
+  public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_CATTAIL_WATER = register("patch_cattail_water");
+  public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_CATTAIL_WATER_SWAMP = register("patch_cattail_water_swamp");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_CLOVER = register("patch_clover");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_CRIMSON_FUNGUS_COLONY = register("patch_crimson_fungus_colony");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_DUNE_GRASS = register("patch_dune_grass");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_DUNE_GRASS_DESERT = register("patch_dune_grass_desert");
+  public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_DUCKWEED = register("patch_duckweed");
+  public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_DUCKWEED_LUSH_CAVES = register("patch_duckweed_lush_caves");
+  public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_DUCKWEED_SWAMP = register("patch_duckweed_swamp");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_LARGE_SNOW_FERN = register("patch_large_snow_fern");
+  public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_LARKSPUR = register("patch_larkspur");
+  public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_LARKSPUR_FLOWER_FOREST = register("patch_larkspur_flower_forest");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_LUMINOUS_FLOWER = register("patch_luminous_flower");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_NETHER_CLOVER = register("patch_nether_clover");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_PALE_MUSHROOM = register("patch_pale_mushroom");
@@ -26,6 +33,7 @@ public class SMBConfiguredFeature {
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_SMALL_LILY_PADS = register("patch_small_lily_pads");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_SMALL_LILY_PADS_LUSH_CAVES = register("patch_small_lily_pads_lush_caves");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_SNOW_GRASS = register("patch_snow_grass");
+  public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_SPROUTS = register("patch_sprouts");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_WARPED_FUNGUS_COLONY = register("patch_warped_fungus_colony");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> SIMPLE_BLOCK_AZALEA_LEAF_LITTER = register("simple_block_azalea_leaf_litter");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> SIMPLE_BLOCK_BIRCH_LEAF_LITTER = register("simple_block_birch_leaf_litter");

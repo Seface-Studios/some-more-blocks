@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "somemoreblocks:block/galahad_larkspur_bottom"
+    },
+    "half=upper": {
+      "model": "somemoreblocks:block/galahad_larkspur_top"
+    }
+  }
+}

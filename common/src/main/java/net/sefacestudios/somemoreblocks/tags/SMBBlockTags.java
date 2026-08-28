@@ -27,6 +27,7 @@ public final class SMBBlockTags {
   public static final TagKey<@NotNull Block> SHINGLES = register("shingles");
   public static final TagKey<@NotNull Block> TERRACOTTA_BRICKS = register("terracotta_bricks");
   public static final TagKey<@NotNull Block> TERRACOTTA_TILES = register("terracotta_tiles");
+  public static final TagKey<@NotNull Block> LARKSPUR_PLACEABLE = register("larkspur_placeable");
 
   public static void init() {}
 

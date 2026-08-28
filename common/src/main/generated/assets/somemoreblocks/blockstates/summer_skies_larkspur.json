@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "somemoreblocks:block/summer_skies_larkspur_bottom"
+    },
+    "half=upper": {
+      "model": "somemoreblocks:block/summer_skies_larkspur_top"
+    }
+  }
+}

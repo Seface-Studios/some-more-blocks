@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_astolat_larkspur": {
+      "conditions": {
+        "items": [
+          {
+            "items": "somemoreblocks:astolat_larkspur"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "somemoreblocks:pink_dye_from_astolat_larkspur"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_astolat_larkspur"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "somemoreblocks:pink_dye_from_astolat_larkspur"
+    ]
+  }
+}

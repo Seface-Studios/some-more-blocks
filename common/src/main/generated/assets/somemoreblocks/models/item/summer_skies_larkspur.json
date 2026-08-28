@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "somemoreblocks:block/summer_skies_larkspur_top"
+  }
+}

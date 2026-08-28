@@ -9,6 +9,17 @@ This file tracks all notable changes made to the project. It includes new featur
 ## 26.1.0.0 - May 1, 2026
 Updated to Minecraft 26.1.
 
+### Added
+- Larkspur flowersd
+  - Galahad Larkspur
+  - Astolat Larkspur
+  - Summer Skies Larkspur
+  - Purple Larkspur
+  - Red Lark Larkspur
+- Duckweed
+- Sprouts
+- Pebbles
+
 ### Fix
 - Moon phases not being applied correctly to Carved Pale Oak Logs.
 - Some plants cannot be composted. [#30](https://github.com/Seface-Studios/some-more-blocks/issues/30)

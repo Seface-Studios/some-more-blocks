@@ -691,5 +691,18 @@
   "utilities.somemoreblocks.moon_phase.name.4": "New Moon",
   "utilities.somemoreblocks.moon_phase.name.5": "Waning Crescent",
   "utilities.somemoreblocks.moon_phase.name.6": "Third Quarter",
-  "utilities.somemoreblocks.moon_phase.name.7": "Waning Gibbous"
+  "utilities.somemoreblocks.moon_phase.name.7": "Waning Gibbous",
+  "block.somemoreblocks.pebbles": "Pebbles",
+  "block.somemoreblocks.sprouts": "Sprouts",
+  "block.somemoreblocks.duckweed": "Duckweed",
+  "block.somemoreblocks.galahad_larkspur": "Galahad Larkspur",
+  "block.somemoreblocks.astolat_larkspur": "Astolat Larkspur",
+  "block.somemoreblocks.summer_skies_larkspur": "Summer Skies Larkspur",
+  "block.somemoreblocks.purple_larkspur": "Purple Larkspur",
+  "block.somemoreblocks.red_lark_larkspur": "Red Lark Larkspur",
+  "block.somemoreblocks.short_galahad_larkspur": "Short Galahad Larkspur",
+  "block.somemoreblocks.short_astolat_larkspur": "Short Astolat Larkspur",
+  "block.somemoreblocks.short_summer_skies_larkspur": "Short Summer Skies Larkspur",
+  "block.somemoreblocks.short_purple_larkspur": "Short Purple Larkspur",
+  "block.somemoreblocks.short_red_lark_larkspur": "Short Red Lark Larkspur"
 }

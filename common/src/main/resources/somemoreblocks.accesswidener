@@ -8,6 +8,7 @@ accessible method net/minecraft/world/level/block/WaterloggedTransparentBlock <i
 accessible method net/minecraft/world/level/block/LilyPadBlock <init> (Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
 accessible method net/minecraft/world/level/block/BushBlock <init> (Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V # BushBlock constructor
 accessible method net/minecraft/world/item/CreativeModeTab$Output accept (Lnet/minecraft/world/level/ItemLike;)V
+accessible method net/minecraft/world/level/block/TallGrassBlock <init> (Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
 
 # Methods & Fields
 

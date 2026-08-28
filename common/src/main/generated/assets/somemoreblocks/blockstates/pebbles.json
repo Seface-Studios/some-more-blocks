@@ -1,0 +1,156 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_1"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_2"
+      },
+      "when": {
+        "facing": "north",
+        "segment_amount": "2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_3"
+      },
+      "when": {
+        "facing": "north",
+        "segment_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_4"
+      },
+      "when": {
+        "facing": "north",
+        "segment_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "segment_amount": "2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "segment_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "segment_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "segment_amount": "2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "segment_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "segment_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "segment_amount": "2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "segment_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "somemoreblocks:block/pebbles_4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "segment_amount": "4"
+      }
+    }
+  ]
+}

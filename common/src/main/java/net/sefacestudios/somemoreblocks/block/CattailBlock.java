@@ -1,6 +1,8 @@
 package net.sefacestudios.somemoreblocks.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -30,13 +32,32 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
   public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
     BlockState blockBelow = level.getBlockState(pos.below());
 
-    if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
-      return (blockBelow.is(SMBBlockTags.CATTAIL_PLACEABLE) && !state.getValue(WATERLOGGED) ||
-        blockBelow.is(SMBBlockTags.CATTAIL_ON_WATER_PLACEABLE) && state.getValue(WATERLOGGED)) &&
-        !level.getBlockState(pos.above()).liquid();
+    if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+      return blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER;
     }
 
-    return blockBelow.is(this) && blockBelow.getValue(HALF) == DoubleBlockHalf.LOWER;
+    if (level.getBlockState(pos.above()).liquid()) {
+      return false;
+    }
+
+    // In water: only needs a valid underwater soil.
+    if (state.getValue(WATERLOGGED)) {
+      return blockBelow.is(SMBBlockTags.CATTAIL_ON_WATER_PLACEABLE);
+    }
+
+    // On land: sugar-cane style — placeable soil with water touching that soil.
+    if (!blockBelow.is(SMBBlockTags.CATTAIL_PLACEABLE)) {
+      return false;
+    }
+
+    BlockPos soilPos = pos.below();
+    for (Direction direction : Direction.Plane.HORIZONTAL) {
+      if (level.getFluidState(soilPos.relative(direction)).is(FluidTags.WATER)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   @Override

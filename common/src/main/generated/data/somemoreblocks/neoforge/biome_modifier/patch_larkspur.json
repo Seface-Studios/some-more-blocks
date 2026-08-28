@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#somemoreblocks:generates/larkspur",
+  "features": "somemoreblocks:patch_larkspur",
+  "step": "vegetal_decoration"
+}

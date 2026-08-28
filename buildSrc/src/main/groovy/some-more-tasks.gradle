@@ -1,0 +1,54 @@
+def sefaceTaskGroup = 'some more tasks'
+def distDir = layout.projectDirectory.dir('.dist')
+def loaderProjects = {
+  subprojects.findAll { it.name != 'common' }
+}
+
+tasks.register('copyJarsToDist', Copy) {
+  group = sefaceTaskGroup
+  description = 'Copy built JARs to dist folder at project root'
+
+  into(distDir)
+  duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+  doFirst {
+    def dir = distDir.asFile
+    if (dir.exists()) {
+      dir.listFiles()?.findAll { it.name.endsWith('.jar') }?.each { it.delete() }
+    }
+  }
+}
+
+tasks.register('dist') {
+  group = sefaceTaskGroup
+  description = 'Build all loader modules and copy JARs to dist/'
+  dependsOn('copyJarsToDist')
+}
+
+afterEvaluate {
+  def loaders = loaderProjects()
+
+  tasks.named('copyJarsToDist', Copy).configure {
+    loaders.each { loader ->
+      dependsOn(loader.tasks.named('assemble'))
+      from(loader.layout.buildDirectory.dir('libs')) {
+        include('*.jar')
+        exclude('*-sources.jar', '*-javadoc.jar', '*-dev.jar', '*-dev-shadow.jar')
+      }
+    }
+  }
+
+  tasks.named('dist').configure {
+    dependsOn(loaders.collect { "${it.path}:build" })
+  }
+}
+
+gradle.projectsEvaluated {
+  allprojects { proj ->
+    proj.tasks.configureEach { task ->
+      if (task.group != sefaceTaskGroup) {
+        task.group = null
+      }
+    }
+  }
+}

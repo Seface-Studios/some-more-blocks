@@ -30,6 +30,49 @@ public class SMBBiomeTagProvider extends FabricTagsProvider<@NotNull Biome> {
         Biomes.BAMBOO_JUNGLE
       ));
 
+    // Same biomes as cattail/reeds; swamp uses the denser GENERATES_SWAMP_VEGETATION feature instead.
+    this.builder(SMBBiomeTags.GENERATES_DUCKWEED)
+      .addOptionalTag(BiomeTags.IS_FOREST)
+      .addOptionalTag(BiomeTags.IS_RIVER)
+      .addAll(List.of(
+        Biomes.PLAINS,
+        Biomes.SUNFLOWER_PLAINS,
+        Biomes.MEADOW,
+        Biomes.BIRCH_FOREST,
+        Biomes.OLD_GROWTH_BIRCH_FOREST,
+        Biomes.DARK_FOREST,
+        Biomes.FLOWER_FOREST,
+        Biomes.FOREST,
+        Biomes.TAIGA,
+        Biomes.OLD_GROWTH_PINE_TAIGA,
+        Biomes.OLD_GROWTH_SPRUCE_TAIGA,
+        Biomes.JUNGLE,
+        Biomes.BAMBOO_JUNGLE,
+        Biomes.SPARSE_JUNGLE,
+        Biomes.BEACH
+      ));
+
+    this.builder(SMBBiomeTags.GENERATES_CATTAIL)
+      .addOptionalTag(BiomeTags.IS_FOREST)
+      .addOptionalTag(BiomeTags.IS_RIVER)
+      .addAll(List.of(
+        Biomes.PLAINS,
+        Biomes.SUNFLOWER_PLAINS,
+        Biomes.MEADOW,
+        Biomes.BIRCH_FOREST,
+        Biomes.OLD_GROWTH_BIRCH_FOREST,
+        Biomes.DARK_FOREST,
+        Biomes.FLOWER_FOREST,
+        Biomes.FOREST,
+        Biomes.TAIGA,
+        Biomes.OLD_GROWTH_PINE_TAIGA,
+        Biomes.OLD_GROWTH_SPRUCE_TAIGA,
+        Biomes.JUNGLE,
+        Biomes.BAMBOO_JUNGLE,
+        Biomes.SPARSE_JUNGLE,
+        Biomes.BEACH
+      ));
+
     this.builder(SMBBiomeTags.GENERATES_BIG_LILY_PAD)
       .addAll(List.of(
         Biomes.MANGROVE_SWAMP,
@@ -87,6 +130,29 @@ public class SMBBiomeTagProvider extends FabricTagsProvider<@NotNull Biome> {
         Biomes.MEADOW
       ));
 
+    this.builder(SMBBiomeTags.GENERATES_SPROUTS)
+      .addOptionalTag(BiomeTags.IS_FOREST)
+      .addAll(List.of(
+        Biomes.PLAINS,
+        Biomes.SUNFLOWER_PLAINS,
+        Biomes.MEADOW,
+        Biomes.RIVER,
+        Biomes.SWAMP,
+        Biomes.MANGROVE_SWAMP,
+        Biomes.CHERRY_GROVE
+      ));
+
+    this.builder(SMBBiomeTags.GENERATES_LARKSPUR)
+      .addAll(List.of(
+        Biomes.MEADOW,
+        Biomes.PLAINS,
+        Biomes.SUNFLOWER_PLAINS,
+        Biomes.FOREST,
+        Biomes.BIRCH_FOREST,
+        Biomes.OLD_GROWTH_BIRCH_FOREST,
+        Biomes.CHERRY_GROVE
+      ));
+
     this.builder(SMBBiomeTags.GENERATES_NETHER_CLOVER)
       .addAll(List.of(
         Biomes.CRIMSON_FOREST,
@@ -108,5 +174,11 @@ public class SMBBiomeTagProvider extends FabricTagsProvider<@NotNull Biome> {
 
     this.builder(SMBBiomeTags.GENERATES_SNOW_BUSH)
       .add(Biomes.FROZEN_RIVER);
+
+    this.builder(SMBBiomeTags.GENERATES_SWAMP_VEGETATION)
+      .addAll(List.of(
+        Biomes.SWAMP,
+        Biomes.MANGROVE_SWAMP
+      ));
   }
 }

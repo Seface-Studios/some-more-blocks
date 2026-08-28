@@ -9,6 +9,8 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.BlockModelDefinitionGenerator;
+import net.minecraft.client.data.models.blockstates.ConditionBuilder;
+import net.minecraft.client.data.models.blockstates.MultiPartGenerator;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
@@ -288,21 +290,30 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
-
     gen.registerSimpleItemModel(SMBItems.PALE_MUSHROOM.get(), gen.createFlatItemModel(SMBItems.PALE_MUSHROOM.get()));
     gen.registerSimpleItemModel(SMBItems.PALE_MUSHROOM_COLONY.get(), gen.createFlatItemModel(SMBItems.PALE_MUSHROOM_COLONY.get()));
     gen.registerSimpleItemModel(SMBItems.TALL_PALE_MUSHROOM_COLONY.get(), gen.createFlatItemModel(SMBItems.TALL_PALE_MUSHROOM_COLONY.get()));
-
-
     gen.createNonTemplateModelBlock(SMBBlocks.PALE_MUSHROOM.get());
     gen.createNonTemplateModelBlock(SMBBlocks.POTTED_PALE_MUSHROOM.get());
     gen.createNonTemplateModelBlock(SMBBlocks.PALE_MUSHROOM_COLONY.get());
-    //gen.createCrossBlockWithDefaultItem(SMBBlocks.PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
-    //gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createCrossBlockWithDefaultItem(SMBBlocks.WARPED_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
     gen.createDoublePlantWithDefaultItem(SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.GALAHAD_LARKSPUR.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createPlantWithDefaultItem(SMBBlocks.SHORT_GALAHAD_LARKSPUR.get(), SMBBlocks.POTTED_SHORT_GALAHAD_LARKSPUR.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.ASTOLAT_LARKSPUR.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createPlantWithDefaultItem(SMBBlocks.SHORT_ASTOLAT_LARKSPUR.get(), SMBBlocks.POTTED_SHORT_ASTOLAT_LARKSPUR.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.SUMMER_SKIES_LARKSPUR.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createPlantWithDefaultItem(SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get(), SMBBlocks.POTTED_SHORT_SUMMER_SKIES_LARKSPUR.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.PURPLE_LARKSPUR.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createPlantWithDefaultItem(SMBBlocks.SHORT_PURPLE_LARKSPUR.get(), SMBBlocks.POTTED_SHORT_PURPLE_LARKSPUR.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createDoublePlantWithDefaultItem(SMBBlocks.RED_LARK_LARKSPUR.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createPlantWithDefaultItem(SMBBlocks.SHORT_RED_LARK_LARKSPUR.get(), SMBBlocks.POTTED_SHORT_RED_LARK_LARKSPUR.get(), BlockModelGenerators.PlantType.NOT_TINTED);
+    gen.createCrossBlock(SMBBlocks.SPROUTS.get(), BlockModelGenerators.PlantType.TINTED);
+    gen.createItemWithGrassTint(SMBBlocks.SPROUTS.get());
+    this.createDuckweed();
+    this.createPebbles();
 
     /* More Redstone Blocks */
     this.createRedstoneLampBlock(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
@@ -316,6 +327,83 @@ public class SMBModelProvider extends FabricModelProvider {
   @Override
   public void generateItemModels(ItemModelGenerators gen) {
     this.createLeavesBucket(SMBItems.DRY_LEAVES_BUCKET.get());
+  }
+
+  private void createDuckweed() {
+    Block block = SMBBlocks.DUCKWEED.get();
+
+    Identifier itemModel = this.blockModelGenerators.createFlatItemModelWithBlockTexture(SMBItems.DUCKWEED.get(), block, "_0");
+    this.blockModelGenerators.registerSimpleItemModel(block, itemModel);
+
+    List<Weighted<Variant>> variants = new ArrayList<>();
+
+    for (int i = 0; i <= 2; i++) {
+      String suffix = "_" + i;
+
+      TextureMapping textureMapping = TextureMapping.defaultTexture(block)
+        .copyAndUpdate(TextureSlot.TEXTURE, TextureMapping.getBlockTexture(block, suffix));
+
+      Identifier model = SMBModelTemplates.DUCKWEED.createWithSuffix(block, suffix, textureMapping, this.modelOutput);
+
+      Variant variant = BlockModelGenerators.plainModel(model);
+
+      variants.add(new Weighted<>(variant.with(BlockModelGenerators.Y_ROT_90), 1));
+      variants.add(new Weighted<>(variant.with(BlockModelGenerators.Y_ROT_180), 1));
+      variants.add(new Weighted<>(variant.with(BlockModelGenerators.Y_ROT_270), 1));
+    }
+
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, new MultiVariant(WeightedList.of(variants))));
+  }
+
+  private void createPebbles() {
+    Block block = SMBBlocks.PEBBLES.get();
+    TextureMapping textureMapping = TextureMapping.defaultTexture(block)
+      .copyAndUpdate(TextureSlot.TEXTURE, TextureMapping.getBlockTexture(block));
+
+    MultiVariant pebbles1 = BlockModelGenerators.plainVariant(SMBModelTemplates.PEBBLES_1.create(block, textureMapping, this.modelOutput));
+    MultiVariant pebbles2 = BlockModelGenerators.plainVariant(SMBModelTemplates.PEBBLES_2.create(block, textureMapping, this.modelOutput));
+    MultiVariant pebbles3 = BlockModelGenerators.plainVariant(SMBModelTemplates.PEBBLES_3.create(block, textureMapping, this.modelOutput));
+    MultiVariant pebbles4 = BlockModelGenerators.plainVariant(SMBModelTemplates.PEBBLES_4.create(block, textureMapping, this.modelOutput));
+
+    this.blockModelGenerators.registerSimpleFlatItemModel(SMBItems.PEBBLES.get());
+
+    // Each template is one pebble piece (like flowerbed). Leaf-litter conditions are exclusive,
+    // so use additive segment_amount conditions instead.
+    MultiPartGenerator generator = MultiPartGenerator.multiPart(block);
+    this.addPebbleSegment(generator, Direction.NORTH, pebbles1, pebbles2, pebbles3, pebbles4, null);
+    this.addPebbleSegment(generator, Direction.EAST, pebbles1, pebbles2, pebbles3, pebbles4, BlockModelGenerators.Y_ROT_90);
+    this.addPebbleSegment(generator, Direction.SOUTH, pebbles1, pebbles2, pebbles3, pebbles4, BlockModelGenerators.Y_ROT_180);
+    this.addPebbleSegment(generator, Direction.WEST, pebbles1, pebbles2, pebbles3, pebbles4, BlockModelGenerators.Y_ROT_270);
+    this.blockStateOutput.accept(generator);
+  }
+
+  private void addPebbleSegment(
+    MultiPartGenerator generator,
+    Direction facing,
+    MultiVariant pebbles1,
+    MultiVariant pebbles2,
+    MultiVariant pebbles3,
+    MultiVariant pebbles4,
+    VariantMutator rotation
+  ) {
+    MultiVariant rotated1 = rotation == null ? pebbles1 : pebbles1.with(rotation);
+    MultiVariant rotated2 = rotation == null ? pebbles2 : pebbles2.with(rotation);
+    MultiVariant rotated3 = rotation == null ? pebbles3 : pebbles3.with(rotation);
+    MultiVariant rotated4 = rotation == null ? pebbles4 : pebbles4.with(rotation);
+
+    generator.with(new ConditionBuilder().term(BlockStateProperties.HORIZONTAL_FACING, facing), rotated1);
+    generator.with(
+      new ConditionBuilder().term(BlockStateProperties.HORIZONTAL_FACING, facing).term(BlockStateProperties.SEGMENT_AMOUNT, 2, 3, 4),
+      rotated2
+    );
+    generator.with(
+      new ConditionBuilder().term(BlockStateProperties.HORIZONTAL_FACING, facing).term(BlockStateProperties.SEGMENT_AMOUNT, 3, 4),
+      rotated3
+    );
+    generator.with(
+      new ConditionBuilder().term(BlockStateProperties.HORIZONTAL_FACING, facing).term(BlockStateProperties.SEGMENT_AMOUNT, 4),
+      rotated4
+    );
   }
 
   /**

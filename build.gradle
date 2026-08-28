@@ -2,6 +2,7 @@ plugins {
   id 'net.fabricmc.fabric-loom' version "${fabric_loom}" apply false
   id 'net.neoforged.moddev' version "${moddev_version}" apply false
   id 'net.minecraftforge.gradle' version "${forge_gradle}" apply false
+  id 'some-more-tasks'
 }
 
 subprojects {
@@ -19,47 +20,3 @@ subprojects {
     }
   }
 }
-
-def distDir = layout.projectDirectory.dir('dist')
-def loaderProjects = ['fabric', 'forge', 'neoforge']
-
-tasks.register('copyJarsToDist', Copy) {
-  group = 'distribution'
-  description = 'Copy built JARs to dist folder at project root'
-
-  loaderProjects.each { name ->
-    def loader = project(":${name}")
-    dependsOn(loader.tasks.named('assemble'))
-    from(loader.layout.buildDirectory.dir('libs')) {
-      include('*.jar')
-      exclude('*-sources.jar', '*-javadoc.jar', '*-dev.jar', '*-dev-shadow.jar')
-    }
-  }
-
-  into(distDir)
-  duplicatesStrategy = DuplicatesStrategy.INCLUDE
-
-  doFirst {
-    def dir = distDir.asFile
-    if (dir.exists()) {
-      dir.listFiles()?.findAll { it.name.endsWith('.jar') }?.each { it.delete() }
-    }
-  }
-}
-
-tasks.register('dist') {
-  group = 'distribution'
-  description = 'Build fabric/forge/neoforge and copy to dist/'
-  dependsOn(loaderProjects.collect { ":${it}:build" })
-  dependsOn('copyJarsToDist')
-}
-
-tasks.register('buildAndDist') {
-  group = 'build'
-  description = 'Builda todos os módulos e copia os JARs dos loaders para dist/'
-  dependsOn(subprojects.collect { it.path + ':build' })
-  finalizedBy('copyJarsToDist')
-}
-
-
-

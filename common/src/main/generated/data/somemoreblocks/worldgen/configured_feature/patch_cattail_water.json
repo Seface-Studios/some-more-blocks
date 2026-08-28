@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "somemoreblocks:cattail",
+            "Properties": {
+              "half": "lower",
+              "waterlogged": "true"
+            }
+          },
+          "weight": 55
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:reeds",
+            "Properties": {
+              "half": "lower",
+              "waterlogged": "true"
+            }
+          },
+          "weight": 45
+        }
+      ]
+    }
+  }
+}

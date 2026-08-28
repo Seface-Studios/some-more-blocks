@@ -350,6 +350,18 @@ public class SMBBlockLootProvider extends FabricBlockLootSubProvider {
     this.dropPottedContents(SMBBlocks.POTTED_LUMINOUS_FLOWER.get());
     this.dropPottedContents(SMBBlocks.POTTED_SNOW_FERN.get());
     this.dropPottedContents(SMBBlocks.POTTED_PALE_MUSHROOM.get());
+    this.dropDoublePlantWithoutShears(SMBBlocks.GALAHAD_LARKSPUR.get());
+    this.dropDoublePlantWithoutShears(SMBBlocks.ASTOLAT_LARKSPUR.get());
+    this.dropDoublePlantWithoutShears(SMBBlocks.SUMMER_SKIES_LARKSPUR.get());
+    this.dropDoublePlantWithoutShears(SMBBlocks.PURPLE_LARKSPUR.get());
+    this.dropDoublePlantWithoutShears(SMBBlocks.RED_LARK_LARKSPUR.get());
+    this.dropSelf(SMBBlocks.SHORT_GALAHAD_LARKSPUR.get());
+    this.dropSelf(SMBBlocks.SHORT_ASTOLAT_LARKSPUR.get());
+    this.dropSelf(SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get());
+    this.dropSelf(SMBBlocks.SHORT_PURPLE_LARKSPUR.get());
+    this.dropSelf(SMBBlocks.SHORT_RED_LARK_LARKSPUR.get());
+    this.dropWhenShears(SMBBlocks.SPROUTS.get());
+    this.dropWhenShears(SMBBlocks.DUCKWEED.get());
 
     /* More Redstone Blocks */
     this.dropSelf(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());

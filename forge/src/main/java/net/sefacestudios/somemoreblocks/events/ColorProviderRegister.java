@@ -19,5 +19,6 @@ public class ColorProviderRegister {
   public static void onRegisterColorProvider(final RegisterColorHandlersEvent.Block event) {
     event.register(List.of(BlockTintSources.foliage()), SMBBlocks.LEAF_LITTER.get());
     event.register(List.of(BlockTintSources.grass()), SMBBlocks.CLOVER.get());
+    event.register(List.of(BlockTintSources.grass()), SMBBlocks.SPROUTS.get());
   }
 }

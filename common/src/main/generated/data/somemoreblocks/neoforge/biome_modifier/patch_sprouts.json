@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#somemoreblocks:generates/sprouts",
+  "features": "somemoreblocks:patch_sprouts",
+  "step": "vegetal_decoration"
+}

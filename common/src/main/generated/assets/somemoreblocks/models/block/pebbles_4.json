@@ -1,0 +1,6 @@
+{
+  "parent": "somemoreblocks:block/templates/pebbles_4",
+  "textures": {
+    "texture": "somemoreblocks:block/pebbles"
+  }
+}

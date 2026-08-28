@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:flower_forest",
+  "features": "somemoreblocks:patch_larkspur_flower_forest",
+  "step": "vegetal_decoration"
+}

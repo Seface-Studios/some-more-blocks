@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.sefacestudios.somemoreblocks.registries.SMBBlocks;
 import net.sefacestudios.somemoreblocks.tags.SMBBlockTags;
 import org.jetbrains.annotations.NotNull;
@@ -20,15 +21,18 @@ public class SMBBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
   protected void addTags(@NotNull HolderLookup.Provider provider) {
     this.valueLookupBuilder(SMBBlockTags.CATTAIL_PLACEABLE)
       .addOptionalTag(BlockTags.DIRT)
-      .add(Blocks.MUD, Blocks.MUDDY_MANGROVE_ROOTS,Blocks.CLAY);
+      .addOptionalTag(BlockTags.SAND)
+      .add(Blocks.MUD, Blocks.MUDDY_MANGROVE_ROOTS, Blocks.CLAY, Blocks.GRAVEL);
 
     this.valueLookupBuilder(SMBBlockTags.CATTAIL_ON_WATER_PLACEABLE)
-      .addOptionalTag(SMBBlockTags.CATTAIL_PLACEABLE)
-      .add(Blocks.GRAVEL, Blocks.SAND);
+      .addOptionalTag(SMBBlockTags.CATTAIL_PLACEABLE);
 
     this.valueLookupBuilder(SMBBlockTags.DUNE_GRASS_PLACEABLE)
       .addOptionalTag(BlockTags.DIRT)
       .addOptionalTag(BlockTags.SAND);
+
+    this.valueLookupBuilder(SMBBlockTags.LARKSPUR_PLACEABLE)
+      .addOptionalTag(BlockTags.SUPPORTS_VEGETATION);
 
     this.valueLookupBuilder(SMBBlockTags.LEAF_LITTERS_PLACEABLE).add(Blocks.DIRT_PATH, Blocks.FARMLAND, Blocks.MUD);
 
@@ -146,7 +150,16 @@ public class SMBBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
       .setReplace(false);
 
     this.valueLookupBuilder(BlockTags.FLOWER_POTS)
-      .add(SMBBlocks.POTTED_LUMINOUS_FLOWER.get(), SMBBlocks.POTTED_SNOW_FERN.get(), SMBBlocks.POTTED_TINY_CACTUS.get())
+      .add(
+        SMBBlocks.POTTED_LUMINOUS_FLOWER.get(),
+        SMBBlocks.POTTED_SNOW_FERN.get(),
+        SMBBlocks.POTTED_TINY_CACTUS.get(),
+        SMBBlocks.POTTED_SHORT_GALAHAD_LARKSPUR.get(),
+        SMBBlocks.POTTED_SHORT_ASTOLAT_LARKSPUR.get(),
+        SMBBlocks.POTTED_SHORT_SUMMER_SKIES_LARKSPUR.get(),
+        SMBBlocks.POTTED_SHORT_PURPLE_LARKSPUR.get(),
+        SMBBlocks.POTTED_SHORT_RED_LARK_LARKSPUR.get()
+      )
       .setReplace(false);
 
     this.valueLookupBuilder(BlockTags.ICE)

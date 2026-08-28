@@ -1,0 +1,85 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "somemoreblocks:galahad_larkspur",
+            "Properties": {
+              "half": "lower"
+            }
+          },
+          "weight": 20
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:astolat_larkspur",
+            "Properties": {
+              "half": "lower"
+            }
+          },
+          "weight": 20
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:summer_skies_larkspur",
+            "Properties": {
+              "half": "lower"
+            }
+          },
+          "weight": 20
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:purple_larkspur",
+            "Properties": {
+              "half": "lower"
+            }
+          },
+          "weight": 20
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:red_lark_larkspur",
+            "Properties": {
+              "half": "lower"
+            }
+          },
+          "weight": 20
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:short_galahad_larkspur"
+          },
+          "weight": 20
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:short_astolat_larkspur"
+          },
+          "weight": 20
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:short_summer_skies_larkspur"
+          },
+          "weight": 20
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:short_purple_larkspur"
+          },
+          "weight": 20
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:short_red_lark_larkspur"
+          },
+          "weight": 20
+        }
+      ]
+    }
+  }
+}

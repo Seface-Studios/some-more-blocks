@@ -1,0 +1,6 @@
+{
+  "parent": "somemoreblocks:block/templates/duckweed",
+  "textures": {
+    "texture": "somemoreblocks:block/duckweed_0"
+  }
+}

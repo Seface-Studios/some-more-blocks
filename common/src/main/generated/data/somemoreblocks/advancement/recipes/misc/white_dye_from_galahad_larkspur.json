@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_galahad_larkspur": {
+      "conditions": {
+        "items": [
+          {
+            "items": "somemoreblocks:galahad_larkspur"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "somemoreblocks:white_dye_from_galahad_larkspur"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_galahad_larkspur"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "somemoreblocks:white_dye_from_galahad_larkspur"
+    ]
+  }
+}

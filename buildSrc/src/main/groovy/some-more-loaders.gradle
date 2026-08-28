@@ -20,6 +20,8 @@ tasks.named('processResources', ProcessResources).configure {
 }
 
 tasks.named('sourcesJar', Jar) {
+  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
   from(rootProject.file("LICENSE.md")) {
     rename { "${it}-${mod_name.replaceAll(' ', '')}" }
   }

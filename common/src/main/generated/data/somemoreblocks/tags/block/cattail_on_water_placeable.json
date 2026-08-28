@@ -3,8 +3,6 @@
     {
       "id": "#somemoreblocks:cattail_placeable",
       "required": false
-    },
-    "minecraft:gravel",
-    "minecraft:sand"
+    }
   ]
 }

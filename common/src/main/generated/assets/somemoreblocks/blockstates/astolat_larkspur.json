@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "somemoreblocks:block/astolat_larkspur_bottom"
+    },
+    "half=upper": {
+      "model": "somemoreblocks:block/astolat_larkspur_top"
+    }
+  }
+}

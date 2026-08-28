@@ -21,6 +21,7 @@ public class ClientRegistries {
   private static void registerColorProviders() {
     BlockColorRegistry.register(List.of(BlockTintSources.foliage()), SMBBlocks.LEAF_LITTER.get());
     BlockColorRegistry.register(List.of(BlockTintSources.grass()), SMBBlocks.CLOVER.get());
+    BlockColorRegistry.register(List.of(BlockTintSources.grass()), SMBBlocks.SPROUTS.get());
   }
 
   /**

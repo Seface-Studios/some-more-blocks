@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#somemoreblocks:generates/swamp_vegetation",
+  "features": "somemoreblocks:patch_duckweed_swamp",
+  "step": "vegetal_decoration"
+}

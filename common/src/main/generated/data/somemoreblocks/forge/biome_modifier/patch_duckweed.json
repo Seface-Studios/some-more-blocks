@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#somemoreblocks:generates/duckweed",
+  "features": "somemoreblocks:patch_duckweed",
+  "step": "vegetal_decoration"
+}

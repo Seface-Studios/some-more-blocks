@@ -435,6 +435,16 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.oneItemToOther(RecipeCategory.MISC, Items.GLOWSTONE_DUST, SMBBlocks.LUMINOUS_FLOWER.get(), 2);
         this.oneItemToOther(RecipeCategory.MISC, Items.GREEN_DYE, SMBBlocks.TINY_CACTUS.get(), 1);
         this.oneItemToOther(RecipeCategory.MISC, Items.GREEN_DYE, SMBBlocks.TALL_CACTUS.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.WHITE_DYE, SMBBlocks.GALAHAD_LARKSPUR.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.WHITE_DYE, SMBBlocks.SHORT_GALAHAD_LARKSPUR.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.PINK_DYE, SMBBlocks.ASTOLAT_LARKSPUR.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.PINK_DYE, SMBBlocks.SHORT_ASTOLAT_LARKSPUR.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.LIGHT_BLUE_DYE, SMBBlocks.SUMMER_SKIES_LARKSPUR.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.LIGHT_BLUE_DYE, SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.PURPLE_DYE, SMBBlocks.PURPLE_LARKSPUR.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.PURPLE_DYE, SMBBlocks.SHORT_PURPLE_LARKSPUR.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.RED_DYE, SMBBlocks.RED_LARK_LARKSPUR.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.RED_DYE, SMBBlocks.SHORT_RED_LARK_LARKSPUR.get(), 1);
         this.mushroomStewFromPaleMushroom(Items.RED_MUSHROOM);
         this.mushroomStewFromPaleMushroom(Items.BROWN_MUSHROOM);
         this.rabbitStewFromPaleMushroom();

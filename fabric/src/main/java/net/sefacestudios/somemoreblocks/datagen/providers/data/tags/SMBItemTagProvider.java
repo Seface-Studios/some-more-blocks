@@ -107,7 +107,14 @@ public class SMBItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
       .setReplace(false);
 
     this.valueLookupBuilder(ItemTags.SMALL_FLOWERS)
-      .add(SMBBlocks.LUMINOUS_FLOWER.get().asItem())
+      .add(
+        SMBBlocks.LUMINOUS_FLOWER.get().asItem(),
+        SMBBlocks.SHORT_GALAHAD_LARKSPUR.get().asItem(),
+        SMBBlocks.SHORT_ASTOLAT_LARKSPUR.get().asItem(),
+        SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get().asItem(),
+        SMBBlocks.SHORT_PURPLE_LARKSPUR.get().asItem(),
+        SMBBlocks.SHORT_RED_LARK_LARKSPUR.get().asItem()
+      )
       .setReplace(false);
 
     this.valueLookupBuilder(ItemTags.SPRUCE_LOGS)

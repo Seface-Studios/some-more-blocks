@@ -1,0 +1,23 @@
+{
+	"format_version": "1.21.6",
+	"credit": "By Seface Studios",
+	"texture_size": [32, 32],
+	"textures": {
+		"particle": "#texture"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [7, 6, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 5]},
+			"faces": {
+				"north": {"uv": [4, 8, 7, 11], "texture": "#texture"},
+				"east": {"uv": [0, 8, 4, 11], "texture": "#texture"},
+				"south": {"uv": [4, 8, 7, 11], "texture": "#texture"},
+				"west": {"uv": [0, 8, 4, 11], "texture": "#texture"},
+				"up": {"uv": [10, 10, 7, 6], "texture": "#texture"},
+				"down": {"uv": [13, 6, 10, 10], "texture": "#texture"}
+			}
+		}
+	]
+}

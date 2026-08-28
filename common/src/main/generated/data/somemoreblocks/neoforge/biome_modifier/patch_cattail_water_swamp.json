@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#somemoreblocks:generates/swamp_vegetation",
+  "features": "somemoreblocks:patch_cattail_water_swamp",
+  "step": "vegetal_decoration"
+}

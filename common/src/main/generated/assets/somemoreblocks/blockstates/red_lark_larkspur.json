@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "somemoreblocks:block/red_lark_larkspur_bottom"
+    },
+    "half=upper": {
+      "model": "somemoreblocks:block/red_lark_larkspur_top"
+    }
+  }
+}

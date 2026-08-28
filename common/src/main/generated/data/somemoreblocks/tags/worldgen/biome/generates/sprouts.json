@@ -1,0 +1,15 @@
+{
+  "values": [
+    {
+      "id": "#minecraft:is_forest",
+      "required": false
+    },
+    "minecraft:plains",
+    "minecraft:sunflower_plains",
+    "minecraft:meadow",
+    "minecraft:river",
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp",
+    "minecraft:cherry_grove"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "somemoreblocks:block/purple_larkspur_bottom"
+  }
+}
