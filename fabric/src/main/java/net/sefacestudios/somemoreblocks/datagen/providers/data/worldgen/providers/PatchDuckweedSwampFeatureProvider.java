@@ -20,7 +20,7 @@ public class PatchDuckweedSwampFeatureProvider extends PatchDuckweedFeatureProvi
   private final int xzSpread;
 
   public PatchDuckweedSwampFeatureProvider() {
-    this(1, 90, 140, 7);
+    this(2, 90, 140, 7);
   }
 
   public PatchDuckweedSwampFeatureProvider(int rarity, int minTries, int maxTries, int xzSpread) {

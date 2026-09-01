@@ -1,7 +1,15 @@
 {
   "variants": {
-    "": {
-      "model": "somemoreblocks:block/tiny_cactus"
-    }
+    "": [
+      {
+        "model": "somemoreblocks:block/tiny_cactus_0"
+      },
+      {
+        "model": "somemoreblocks:block/tiny_cactus_1"
+      },
+      {
+        "model": "somemoreblocks:block/tiny_cactus_2"
+      }
+    ]
   }
 }

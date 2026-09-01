@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "somemoreblocks:block/tiny_cactus"
+    "layer0": "somemoreblocks:block/tiny_cactus_0"
   }
 }

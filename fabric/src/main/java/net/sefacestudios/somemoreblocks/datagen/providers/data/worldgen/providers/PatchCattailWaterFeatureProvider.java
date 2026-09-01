@@ -35,7 +35,7 @@ public class PatchCattailWaterFeatureProvider extends PatchCattailFeatureProvide
   private final int xzSpread;
 
   public PatchCattailWaterFeatureProvider() {
-    this(1, 140, 200, 6);
+    this(5, 140, 200, 6);
   }
 
   public PatchCattailWaterFeatureProvider(int rarity, int minTries, int maxTries, int xzSpread) {

@@ -2,6 +2,11 @@
   "values": [
     "somemoreblocks:potted_luminous_flower",
     "somemoreblocks:potted_snow_fern",
-    "somemoreblocks:potted_tiny_cactus"
+    "somemoreblocks:potted_tiny_cactus",
+    "somemoreblocks:potted_short_galahad_larkspur",
+    "somemoreblocks:potted_short_astolat_larkspur",
+    "somemoreblocks:potted_short_summer_skies_larkspur",
+    "somemoreblocks:potted_short_purple_larkspur",
+    "somemoreblocks:potted_short_red_lark_larkspur"
   ]
 }

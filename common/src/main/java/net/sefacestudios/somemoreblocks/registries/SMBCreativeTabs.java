@@ -8,6 +8,8 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.component.ItemLore;
+import net.sefacestudios.somemoreblocks.SomeMoreBlocks;
+import net.sefacestudios.somemoreblocks.platform.PlatformEnvironment;
 import net.sefacestudios.somemoreblocks.platform.PlatformServices;
 import net.sefacestudios.somemoreblocks.platform.registry.PlatformRegistryObject;
 
@@ -700,7 +702,7 @@ public class SMBCreativeTabs {
 
   public static final PlatformRegistryObject<CreativeModeTab> MORE_NATURAL_BLOCKS = PlatformServices.REGISTRY.registerCreativeModeTab("more_natural_blocks", CreativeModeTab.Row.TOP, 2,
     (builder) -> builder
-      .icon(() -> SMBBlocks.TINY_CACTUS.get().asItem().getDefaultInstance())
+      .icon(() -> SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get().asItem().getDefaultInstance())
       .title(Component.translatable("itemGroup.somemoreblocks.naturalBlocks"))
       .displayItems((ctx, entry) -> {
         entry.accept(SMBBlocks.TINY_CACTUS.get());
@@ -771,5 +773,9 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.REDSTONE_SEA_LANTERN.get());
       }));
 
-  public static void init() {}
+  public static void init() {
+    if (PlatformServices.HELPER.getEnvironment().equals(PlatformEnvironment.DEVELOPMENT)) {
+      SomeMoreBlocks.LOGGER.info("Creative Tabs registry initialized.");
+    }
+  }
 }

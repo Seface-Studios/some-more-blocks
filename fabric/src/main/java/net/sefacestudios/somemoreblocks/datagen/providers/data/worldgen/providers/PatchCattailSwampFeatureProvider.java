@@ -10,7 +10,7 @@ import net.sefacestudios.somemoreblocks.tags.SMBPlacedFeature;
 public class PatchCattailSwampFeatureProvider extends PatchCattailFeatureProvider {
 
   public PatchCattailSwampFeatureProvider() {
-    super(1, 240, 320, 6);
+    super(3, 240, 320, 6);
   }
 
   public static <T extends FeatureProvider<?>> T create() {

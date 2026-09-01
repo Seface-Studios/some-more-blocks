@@ -30,8 +30,7 @@ public class PatchDuckweedFeatureProvider extends FeatureProvider<SimpleBlockCon
   private final int xzSpread;
 
   public PatchDuckweedFeatureProvider() {
-    // Less than swamp, but enough for a shoreline fringe in rivers/plains.
-    this(1, 40, 6);
+    this(4, 40, 6);
   }
 
   public PatchDuckweedFeatureProvider(int rarity, int tries, int xzSpread) {

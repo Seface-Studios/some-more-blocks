@@ -6,6 +6,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.sefacestudios.somemoreblocks.SomeMoreBlocks;
+import net.sefacestudios.somemoreblocks.platform.PlatformEnvironment;
+import net.sefacestudios.somemoreblocks.platform.PlatformServices;
 import org.jetbrains.annotations.NotNull;
 
 public final class SMBBlockTags {
@@ -29,7 +31,11 @@ public final class SMBBlockTags {
   public static final TagKey<@NotNull Block> TERRACOTTA_TILES = register("terracotta_tiles");
   public static final TagKey<@NotNull Block> LARKSPUR_PLACEABLE = register("larkspur_placeable");
 
-  public static void init() {}
+  public static void init() {
+    if (PlatformServices.HELPER.getEnvironment().equals(PlatformEnvironment.DEVELOPMENT)) {
+      SomeMoreBlocks.LOGGER.info("Block Tags registry initialized.");
+    }
+  }
 
   private static TagKey<@NotNull Block> register(String path) {
     return SomeMoreBlocks.tagKey(Registries.BLOCK, path);

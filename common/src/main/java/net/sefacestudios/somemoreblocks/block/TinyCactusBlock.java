@@ -6,15 +6,23 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.TallGrassBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sefacestudios.somemoreblocks.registries.SMBBlocks;
 import net.sefacestudios.somemoreblocks.tags.SMBBlockTags;
+import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
 public class TinyCactusBlock extends TallGrassBlock {
+  private static final VoxelShape SHAPE = Block.column(6.0F, 0.0F, 10.0F);
+
   public TinyCactusBlock(Properties properties) {
     super(properties);
   }
@@ -39,5 +47,11 @@ public class TinyCactusBlock extends TallGrassBlock {
   @Override
   public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
     DoubleMushroomColonyBlock.placeAt(level, SMBBlocks.TALL_CACTUS.get().defaultBlockState(), pos, 2);
+  }
+
+  @NotNull
+  @Override
+  protected VoxelShape getShape(final BlockState state, final BlockGetter level, final BlockPos pos, final CollisionContext context) {
+    return SHAPE.move(state.getOffset(pos));
   }
 }

@@ -145,8 +145,6 @@ public class SMBBiomeTagProvider extends FabricTagsProvider<@NotNull Biome> {
     this.builder(SMBBiomeTags.GENERATES_LARKSPUR)
       .addAll(List.of(
         Biomes.MEADOW,
-        Biomes.PLAINS,
-        Biomes.SUNFLOWER_PLAINS,
         Biomes.FOREST,
         Biomes.BIRCH_FOREST,
         Biomes.OLD_GROWTH_BIRCH_FOREST,

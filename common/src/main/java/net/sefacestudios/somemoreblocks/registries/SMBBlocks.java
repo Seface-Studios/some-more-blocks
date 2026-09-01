@@ -11,6 +11,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.sefacestudios.somemoreblocks.Constants;
 import net.sefacestudios.somemoreblocks.SomeMoreBlocks;
 import net.sefacestudios.somemoreblocks.block.*;
+import net.sefacestudios.somemoreblocks.platform.PlatformEnvironment;
 import net.sefacestudios.somemoreblocks.platform.PlatformServices;
 import net.sefacestudios.somemoreblocks.platform.registry.PlatformRegistryObject;
 import net.sefacestudios.somemoreblocks.tags.SMBBlockTags;
@@ -704,9 +705,13 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> RED_LARK_LARKSPUR = PlatformServices.REGISTRY.registerBlock("red_lark_larkspur", () -> new TallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH).setId(SomeMoreBlocks.key(Registries.BLOCK, "red_lark_larkspur"))));
   public static final PlatformRegistryObject<Block> SHORT_RED_LARK_LARKSPUR = PlatformServices.REGISTRY.registerBlock("short_red_lark_larkspur", () -> new GenericBonemealableBlock(RED_LARK_LARKSPUR.get(), SMBBlockTags.LARKSPUR_PLACEABLE, BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH).setId(SomeMoreBlocks.key(Registries.BLOCK, "short_red_lark_larkspur"))));
   public static final PlatformRegistryObject<Block> POTTED_SHORT_RED_LARK_LARKSPUR = PlatformServices.REGISTRY.registerFlowerPotBlock(SMBBlocks.SHORT_RED_LARK_LARKSPUR);
-  public static final PlatformRegistryObject<Block> SPROUTS = PlatformServices.REGISTRY.registerBlock("sprouts", () -> new TallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS).setId(SomeMoreBlocks.key(Registries.BLOCK, "sprouts"))));
+  public static final PlatformRegistryObject<Block> SPROUTS = PlatformServices.REGISTRY.registerBlock("sprouts", () -> new TallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS).offsetType(BlockBehaviour.OffsetType.XZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "sprouts"))));
   public static final PlatformRegistryObject<Block> DUCKWEED = PlatformServices.REGISTRY.registerBlock("duckweed", () -> new DuckweedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET).noCollision().dynamicShape().offsetType(BlockBehaviour.OffsetType.XYZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "duckweed"))), false);
   public static final PlatformRegistryObject<Block> PEBBLES = PlatformServices.REGISTRY.registerBlock("pebbles", () -> new PebblesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noCollision().dynamicShape().setId(SomeMoreBlocks.key(Registries.BLOCK, "pebbles"))), false);
 
-  public static void init() {}
+  public static void init() {
+    if (PlatformServices.HELPER.getEnvironment().equals(PlatformEnvironment.DEVELOPMENT)) {
+      SomeMoreBlocks.LOGGER.info("Blocks registry initialized.");
+    }
+  }
 }

@@ -34,8 +34,8 @@ public class PatchCattailFeatureProvider extends FeatureProvider<SimpleBlockConf
   private final int xzSpread;
 
   public PatchCattailFeatureProvider() {
-    // Wider spread so more random centers still reach the shoreline fringe.
-    this(1, 160, 220, 6);
+    // Local patch density unchanged — rarity throttles how many chunks get a attempt.
+    this(5, 160, 220, 6);
   }
 
   public PatchCattailFeatureProvider(int rarity, int minTries, int maxTries, int xzSpread) {

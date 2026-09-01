@@ -42,7 +42,7 @@ public class Main implements DataGeneratorEntrypoint {
     pack.addProvider(SMBBlockDataMapProvider::new);
     pack.addProvider(SMBItemDataMapProvider::new);
     pack.addProvider(SMBBiomeModifierProvider::new);
-    pack.addProvider((output, registriesFuture) -> new SMBBiomeModifierProvider(output, registriesFuture, ModLoaderType.NEOFORGE));
+    pack.addProvider((o, cf) -> new SMBBiomeModifierProvider(o, cf, ModLoaderType.NEOFORGE));
   }
 
   @Override

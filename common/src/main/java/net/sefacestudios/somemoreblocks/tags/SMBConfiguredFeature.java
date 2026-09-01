@@ -4,6 +4,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.sefacestudios.somemoreblocks.SomeMoreBlocks;
+import net.sefacestudios.somemoreblocks.platform.PlatformEnvironment;
+import net.sefacestudios.somemoreblocks.platform.PlatformServices;
 import org.jetbrains.annotations.NotNull;
 
 public class SMBConfiguredFeature {
@@ -48,7 +50,11 @@ public class SMBConfiguredFeature {
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> SIMPLE_WARPED_FUNGUS_COLONY_WALL = register("simple_warped_fungus_colony_wall");
   public static final ResourceKey<@NotNull ConfiguredFeature<?, ?>> PATCH_SNOW_BUSH = register("patch_snow_bush");
 
-  public static void init() {}
+  public static void init() {
+    if (PlatformServices.HELPER.getEnvironment().equals(PlatformEnvironment.DEVELOPMENT)) {
+      SomeMoreBlocks.LOGGER.info("Configured Features registry initialized.");
+    }
+  }
 
   private static ResourceKey<@NotNull ConfiguredFeature<?, ?>> register(String path) {
     return SomeMoreBlocks.key(Registries.CONFIGURED_FEATURE, path);

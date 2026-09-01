@@ -5,6 +5,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.sefacestudios.somemoreblocks.SomeMoreBlocks;
+import net.sefacestudios.somemoreblocks.platform.PlatformEnvironment;
+import net.sefacestudios.somemoreblocks.platform.PlatformServices;
 import org.jetbrains.annotations.NotNull;
 
 public final class SMBBiomeTags {
@@ -29,7 +31,11 @@ public final class SMBBiomeTags {
   public static final TagKey<@NotNull Biome> GENERATES_WARPED_FUNGUS_COLONY = register("generates/warped_fungus_colony");
   public static final TagKey<@NotNull Biome> GENERATES_SNOW_BUSH = register("generates/snow_bush");
 
-  public static void init() {}
+  public static void init() {
+    if (PlatformServices.HELPER.getEnvironment().equals(PlatformEnvironment.DEVELOPMENT)) {
+      SomeMoreBlocks.LOGGER.info("Biome Tags registry initialized.");
+    }
+  }
 
   private static TagKey<@NotNull Biome> register(String path) {
     return SomeMoreBlocks.tagKey(Registries.BIOME, path);

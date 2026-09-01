@@ -12,6 +12,7 @@ import net.sefacestudios.somemoreblocks.SomeMoreBlocks;
 import net.sefacestudios.somemoreblocks.block.RotatedCarvedPaleOakBlock;
 import net.sefacestudios.somemoreblocks.item.CarvedPaleOakBlockItem;
 import net.sefacestudios.somemoreblocks.item.LeavesBucketItem;
+import net.sefacestudios.somemoreblocks.platform.PlatformEnvironment;
 import net.sefacestudios.somemoreblocks.platform.PlatformServices;
 import net.sefacestudios.somemoreblocks.platform.registry.PlatformRegistryObject;
 
@@ -43,5 +44,9 @@ public class SMBItems {
   public static final PlatformRegistryObject<Item> DUCKWEED = PlatformServices.REGISTRY.registerItem("duckweed", () -> new PlaceOnWaterBlockItem(SMBBlocks.DUCKWEED.get(), new Item.Properties().useBlockDescriptionPrefix().setId(SomeMoreBlocks.key(Registries.ITEM, "duckweed"))));
   public static final PlatformRegistryObject<Item> PEBBLES = PlatformServices.REGISTRY.registerItem("pebbles", () -> new BlockItem(SMBBlocks.PEBBLES.get(), new Item.Properties().useBlockDescriptionPrefix().setId(SomeMoreBlocks.key(Registries.ITEM, "pebbles"))));
 
-  public static void init() {}
+  public static void init() {
+    if (PlatformServices.HELPER.getEnvironment().equals(PlatformEnvironment.DEVELOPMENT)) {
+      SomeMoreBlocks.LOGGER.info("Items registry initialized.");
+    }
+  }
 }

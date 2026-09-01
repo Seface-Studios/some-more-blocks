@@ -1,5 +1,8 @@
 {
   "values": {
+    "somemoreblocks:astolat_larkspur": {
+      "chance": 1.0
+    },
     "somemoreblocks:azalea_leaves_bucket": {
       "chance": 1.0
     },
@@ -21,7 +24,13 @@
     "somemoreblocks:crimson_fungus_colony": {
       "chance": 0.85
     },
+    "somemoreblocks:duckweed": {
+      "chance": 0.4
+    },
     "somemoreblocks:flowering_azalea_leaves_bucket": {
+      "chance": 1.0
+    },
+    "somemoreblocks:galahad_larkspur": {
       "chance": 1.0
     },
     "somemoreblocks:large_snow_fern": {
@@ -39,11 +48,32 @@
     "somemoreblocks:pale_rose_bush": {
       "chance": 0.85
     },
+    "somemoreblocks:purple_larkspur": {
+      "chance": 1.0
+    },
+    "somemoreblocks:red_lark_larkspur": {
+      "chance": 1.0
+    },
     "somemoreblocks:red_mushroom_colony": {
       "chance": 0.85
     },
+    "somemoreblocks:short_astolat_larkspur": {
+      "chance": 0.65
+    },
+    "somemoreblocks:short_galahad_larkspur": {
+      "chance": 0.65
+    },
+    "somemoreblocks:short_purple_larkspur": {
+      "chance": 0.65
+    },
+    "somemoreblocks:short_red_lark_larkspur": {
+      "chance": 0.65
+    },
     "somemoreblocks:short_snow_grass": {
       "chance": 0.3
+    },
+    "somemoreblocks:short_summer_skies_larkspur": {
+      "chance": 0.65
     },
     "somemoreblocks:small_lily_pads": {
       "chance": 0.65
@@ -52,6 +82,9 @@
       "chance": 0.3
     },
     "somemoreblocks:spruce_leaves_bucket": {
+      "chance": 1.0
+    },
+    "somemoreblocks:summer_skies_larkspur": {
       "chance": 1.0
     },
     "somemoreblocks:tall_brown_mushroom_colony": {

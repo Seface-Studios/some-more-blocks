@@ -44,6 +44,17 @@ public class SMBItemDataMapProvider extends ItemDataMapProvider {
     this.addCompostableItem(SMBItems.SPRUCE_LEAVES_BUCKET.get(), 1.0f);
     this.addCompostableItem(SMBItems.PALE_OAK_LEAVES_BUCKET.get(), 1.0f);
     this.addCompostableItem(SMBBlocks.CLOVER.get().asItem(), 0.4f);
+    this.addCompostableItem(SMBBlocks.DUCKWEED.get().asItem(), 0.4f);
+    this.addCompostableItem(SMBBlocks.GALAHAD_LARKSPUR.get().asItem(), 1.0f);
+    this.addCompostableItem(SMBBlocks.SHORT_GALAHAD_LARKSPUR.get().asItem(), 0.65f);
+    this.addCompostableItem(SMBBlocks.ASTOLAT_LARKSPUR.get().asItem(), 1.0f);
+    this.addCompostableItem(SMBBlocks.SHORT_ASTOLAT_LARKSPUR.get().asItem(), 0.65f);
+    this.addCompostableItem(SMBBlocks.SUMMER_SKIES_LARKSPUR.get().asItem(), 1.0f);
+    this.addCompostableItem(SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get().asItem(), 0.65f);
+    this.addCompostableItem(SMBBlocks.PURPLE_LARKSPUR.get().asItem(), 1.0f);
+    this.addCompostableItem(SMBBlocks.SHORT_PURPLE_LARKSPUR.get().asItem(), 0.65f);
+    this.addCompostableItem(SMBBlocks.RED_LARK_LARKSPUR.get().asItem(), 1.0f);
+    this.addCompostableItem(SMBBlocks.SHORT_RED_LARK_LARKSPUR.get().asItem(), 0.65f);
 
     this.addFuelItem(SMBBlocks.COAL_BRICKS.get().asItem(), 32000);
     this.addFuelItem(SMBBlocks.CRACKED_COAL_BRICKS.get().asItem(), 19200);

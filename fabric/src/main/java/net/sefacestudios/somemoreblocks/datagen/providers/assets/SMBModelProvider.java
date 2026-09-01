@@ -473,18 +473,40 @@ public class SMBModelProvider extends FabricModelProvider {
   }
 
   /**
-   * Create a Potted Tiny Cactus block model.
-   * @param plantBlock The plant block.
-   * @param pottedBlock The potted plant block.
-   * @param plantType The potted plant block.
+   * Tiny cactus with three cross texture variants (_0–_2), picked by block position.
+   * Potted variant uses the same plant textures randomly.
    */
   public final void createTinyCactusWithFlowerPot(Block plantBlock, Block pottedBlock, BlockModelGenerators.PlantType plantType) {
-    this.blockModelGenerators.createCrossBlockWithDefaultItem(plantBlock, plantType);
-    TextureMapping mapping = plantType.getPlantTextureMapping(plantBlock).put(TextureSlot.PLANT, TextureMapping.getBlockTexture(pottedBlock));
+    Identifier itemModel = this.blockModelGenerators.createFlatItemModelWithBlockTexture(plantBlock.asItem(), plantBlock, "_0");
+    this.blockModelGenerators.registerSimpleItemModel(plantBlock, itemModel);
 
-    MultiVariant variant = BlockModelGenerators.plainVariant(plantType.getCrossPot().create(pottedBlock, mapping, this.modelOutput));
+    List<Weighted<Variant>> plantVariants = new ArrayList<>();
 
-    this.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(pottedBlock, variant));
+    for (int i = 0; i <= 2; i++) {
+      String suffix = "_" + i;
+
+      TextureMapping textureMapping = plantType.getTextureMapping(plantBlock)
+        .copyAndUpdate(TextureSlot.CROSS, TextureMapping.getBlockTexture(plantBlock, suffix));
+
+      Identifier model = plantType.getCross().createWithSuffix(plantBlock, suffix, textureMapping, this.modelOutput);
+      plantVariants.add(new Weighted<>(BlockModelGenerators.plainModel(model), 1));
+    }
+
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(plantBlock, new MultiVariant(WeightedList.of(plantVariants))));
+
+    List<Weighted<Variant>> pottedVariants = new ArrayList<>();
+
+    for (int i = 0; i <= 2; i++) {
+      String suffix = "_" + i;
+
+      TextureMapping mapping = plantType.getPlantTextureMapping(plantBlock)
+        .put(TextureSlot.PLANT, TextureMapping.getBlockTexture(plantBlock, suffix));
+
+      Identifier model = plantType.getCrossPot().createWithSuffix(pottedBlock, suffix, mapping, this.modelOutput);
+      pottedVariants.add(new Weighted<>(BlockModelGenerators.plainModel(model), 1));
+    }
+
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(pottedBlock, new MultiVariant(WeightedList.of(pottedVariants))));
   }
 
   /**

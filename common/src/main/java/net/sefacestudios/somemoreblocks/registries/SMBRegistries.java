@@ -6,6 +6,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.sefacestudios.somemoreblocks.SomeMoreBlocks;
+import net.sefacestudios.somemoreblocks.platform.PlatformEnvironment;
+import net.sefacestudios.somemoreblocks.platform.PlatformServices;
 import net.sefacestudios.somemoreblocks.platform.registry.BidirectionalRegistryObject;
 import org.jetbrains.annotations.Nullable;
 
@@ -40,6 +42,10 @@ public class SMBRegistries {
     SMBRegistries.terracottaBlocks();
     SMBRegistries.waxedCopperBlocks();
     SMBRegistries.weatheringCopperBlocks();
+
+    if (PlatformServices.HELPER.getEnvironment().equals(PlatformEnvironment.DEVELOPMENT)) {
+      SomeMoreBlocks.LOGGER.info("Bidirectional registry initialized.");
+    }
   }
 
   private static void leavesBucket() {
@@ -89,6 +95,17 @@ public class SMBRegistries {
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.PALE_MUSHROOM.get().asItem(), 0.65F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.PALE_MUSHROOM_COLONY.get().asItem(), 0.85F);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.TALL_PALE_MUSHROOM_COLONY.get().asItem(), 1.0F);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.DUCKWEED.get().asItem(), 0.4f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.GALAHAD_LARKSPUR.get().asItem(), 1.0f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.SHORT_GALAHAD_LARKSPUR.get().asItem(), 0.65f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.ASTOLAT_LARKSPUR.get().asItem(), 1.0f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.SHORT_ASTOLAT_LARKSPUR.get().asItem(), 0.65f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.SUMMER_SKIES_LARKSPUR.get().asItem(), 1.0f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get().asItem(), 0.65f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.PURPLE_LARKSPUR.get().asItem(), 1.0f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.SHORT_PURPLE_LARKSPUR.get().asItem(), 0.65f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.RED_LARK_LARKSPUR.get().asItem(), 1.0f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.SHORT_RED_LARK_LARKSPUR.get().asItem(), 0.65f);
   }
 
   private static void carvedBlocks() {

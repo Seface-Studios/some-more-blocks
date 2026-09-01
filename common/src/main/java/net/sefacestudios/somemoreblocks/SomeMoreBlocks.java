@@ -77,6 +77,7 @@ public class SomeMoreBlocks {
     LOGGER.info("  > Platform: " + PlatformServices.HELPER.getPlatformName());
     LOGGER.info("  > Environment: " + PlatformServices.HELPER.getEnvironment().getName());
     LOGGER.info("  > Version: " + PlatformServices.HELPER.getModVersion());
+    LOGGER.info("  > Minecraft Version: " + PlatformServices.HELPER.getGameVersion());
     LOGGER.info("*****************************************************");
   }
 

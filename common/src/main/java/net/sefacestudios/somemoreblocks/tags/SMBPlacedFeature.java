@@ -4,6 +4,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.sefacestudios.somemoreblocks.SomeMoreBlocks;
+import net.sefacestudios.somemoreblocks.platform.PlatformEnvironment;
+import net.sefacestudios.somemoreblocks.platform.PlatformServices;
 import org.jetbrains.annotations.NotNull;
 
 public class SMBPlacedFeature {
@@ -48,7 +50,11 @@ public class SMBPlacedFeature {
   public static final ResourceKey<@NotNull PlacedFeature> SIMPLE_WARPED_FUNGUS_COLONY_WALL = register("simple_warped_fungus_colony_wall");
   public static final ResourceKey<@NotNull PlacedFeature> PATCH_SNOW_BUSH = register("patch_snow_bush");
 
-  public static void init() {}
+  public static void init() {
+    if (PlatformServices.HELPER.getEnvironment().equals(PlatformEnvironment.DEVELOPMENT)) {
+      SomeMoreBlocks.LOGGER.info("Placed Feature registry initialized.");
+    }
+  }
 
   private static ResourceKey<@NotNull PlacedFeature> register(String path) {
     return SomeMoreBlocks.key(Registries.PLACED_FEATURE, path);

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "somemoreblocks:block/tiny_cactus"
+    "cross": "somemoreblocks:block/tiny_cactus_2"
   }
 }
