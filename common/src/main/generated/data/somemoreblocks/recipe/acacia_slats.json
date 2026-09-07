@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "slats",
+  "key": {
+    "#": "somemoreblocks:acacia_mosaic",
+    "X": "somemoreblocks:acacia_mosaic_slab"
+  },
+  "pattern": [
+    "X",
+    "#",
+    "X"
+  ],
+  "result": {
+    "count": 2,
+    "id": "somemoreblocks:acacia_slats"
+  }
+}

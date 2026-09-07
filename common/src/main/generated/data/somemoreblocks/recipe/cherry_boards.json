@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "boards",
+  "key": {
+    "#": "minecraft:cherry_planks",
+    "X": "minecraft:cherry_slab"
+  },
+  "pattern": [
+    "X",
+    "#",
+    "X"
+  ],
+  "result": {
+    "count": 2,
+    "id": "somemoreblocks:cherry_boards"
+  }
+}

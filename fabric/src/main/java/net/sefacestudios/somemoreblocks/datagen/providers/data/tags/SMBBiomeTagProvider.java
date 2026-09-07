@@ -132,14 +132,19 @@ public class SMBBiomeTagProvider extends FabricTagsProvider<@NotNull Biome> {
 
     this.builder(SMBBiomeTags.GENERATES_SPROUTS)
       .addOptionalTag(BiomeTags.IS_FOREST)
+      .addOptionalTag(BiomeTags.IS_SAVANNA)
+      .addOptionalTag(BiomeTags.IS_JUNGLE)
       .addAll(List.of(
         Biomes.PLAINS,
-        Biomes.SUNFLOWER_PLAINS,
+        Biomes.DESERT,
         Biomes.MEADOW,
+        Biomes.CHERRY_GROVE,
+        Biomes.LUSH_CAVES,
+        Biomes.PALE_GARDEN,
+        Biomes.SUNFLOWER_PLAINS,
         Biomes.RIVER,
         Biomes.SWAMP,
-        Biomes.MANGROVE_SWAMP,
-        Biomes.CHERRY_GROVE
+        Biomes.MANGROVE_SWAMP
       ));
 
     this.builder(SMBBiomeTags.GENERATES_LARKSPUR)

@@ -8,13 +8,15 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 import net.sefacestudios.somemoreblocks.block.RotatedCarvedPaleOakBlock;
 import net.sefacestudios.somemoreblocks.registries.SMBRegistries;
 import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Implements;
+import org.spongepowered.asm.mixin.Interface;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(RotatedPillarBlock.class)
-public abstract class RotatedPillarBlockMixin implements IForgeBlock {
+@Implements(@Interface(iface = IForgeBlock.class, prefix = "smb$forge$"))
+public abstract class RotatedPillarBlockMixin {
 
-  @Override
-  public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext ctx, ToolAction toolAction, boolean simulate) {
+  public @Nullable BlockState smb$forge$getToolModifiedState(BlockState state, UseOnContext ctx, ToolAction toolAction, boolean simulate) {
     return SMBRegistries.CARVED_BLOCKS.getNext(state.getBlock())
       .map((block) -> {
         if (block instanceof RotatedCarvedPaleOakBlock) {
@@ -22,6 +24,6 @@ public abstract class RotatedPillarBlockMixin implements IForgeBlock {
             .setValue(RotatedCarvedPaleOakBlock.MOON_PHASE, RotatedCarvedPaleOakBlock.currentMoonPhase(ctx.getLevel()));
         }
         return block.withPropertiesOf(state);
-      }).orElse(IForgeBlock.super.getToolModifiedState(state, ctx, toolAction, simulate));
+      }).orElse(null);
   }
 }

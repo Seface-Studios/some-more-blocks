@@ -16,6 +16,8 @@ jar {
 }
 
 minecraft {
+  mappings channel: 'official', version: minecraft_version
+
   runs {
     configureEach {
       workingDir = layout.projectDirectory.dir('run')

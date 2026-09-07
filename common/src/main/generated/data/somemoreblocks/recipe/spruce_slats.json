@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "slats",
+  "key": {
+    "#": "somemoreblocks:spruce_mosaic",
+    "X": "somemoreblocks:spruce_mosaic_slab"
+  },
+  "pattern": [
+    "X",
+    "#",
+    "X"
+  ],
+  "result": {
+    "count": 2,
+    "id": "somemoreblocks:spruce_slats"
+  }
+}

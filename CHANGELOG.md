@@ -24,6 +24,8 @@ Updated to Minecraft 26.1.
 - Duckweed
 - Sprouts
 - Pebbles
+- Wooden Slats
+- Wooden Boards
 
 ### Changes
 - All variations of mossy blocks have been reworked.
@@ -31,6 +33,10 @@ Updated to Minecraft 26.1.
 - Tiny Cactus texture reworked.
   - Now Tiny Cactus has 3 textures variations.
 - Tall Cactus texture reworked to match with new Tiny Cactus.
+- "More Building Blocks" creative category was renamed to "Some More Building Blocks".
+- "More Colored Blocks" creative category was renamed to "Some More Colored Blocks".
+- "More Natural Blocks" creative category was renamed to "Some More Natural Blocks".
+- "More Redstone Blocks" creative category was renamed to "Some More Redstone Blocks".
 
 ### Fix
 - Moon phases not being applied correctly to Carved Pale Oak Logs.

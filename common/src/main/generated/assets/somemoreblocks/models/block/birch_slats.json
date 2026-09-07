@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "somemoreblocks:block/birch_slats_top",
+    "side": "somemoreblocks:block/birch_slats"
+  }
+}

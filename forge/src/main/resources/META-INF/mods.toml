@@ -5,6 +5,12 @@ license = "${project_license}"
 issueTrackerURL = "${issues_tracker_url}"
 showAsResourcePack = false
 
+[[mixins]]
+config = "${mod_id}.mixins.json"
+
+[[mixins]]
+config = "${mod_id}.forge.mixins.json"
+
 [[mods]]
     modId = "${mod_id}"
     version = "${mod_version}"

@@ -188,26 +188,50 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
 
         /* More Building Blocks */
         this.carvedWoodFromLogs(SMBBlocks.CARVED_OAK_WOOD.get(), SMBBlocks.CARVED_OAK_LOG.get());
+        this.slatsOrBoardsBuilder(SMBBlocks.OAK_BOARDS.get(), "boards", Blocks.OAK_PLANKS, Blocks.OAK_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.OAK_SLATS.get(), "slats", SMBBlocks.OAK_MOSAIC.get(), SMBBlocks.OAK_MOSAIC_SLAB.get());
         this.mosaicBuilder(SMBBlocks.OAK_MOSAIC.get(), Blocks.OAK_SLAB);
         this.carvedWoodFromLogs(SMBBlocks.CARVED_SPRUCE_WOOD.get(), SMBBlocks.CARVED_SPRUCE_LOG.get());
+        this.slatsOrBoardsBuilder(SMBBlocks.SPRUCE_BOARDS.get(), "boards", Blocks.SPRUCE_PLANKS, Blocks.SPRUCE_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.SPRUCE_SLATS.get(), "slats", SMBBlocks.SPRUCE_MOSAIC.get(), SMBBlocks.SPRUCE_MOSAIC_SLAB.get());
         this.mosaicBuilder(SMBBlocks.SPRUCE_MOSAIC.get(), Blocks.SPRUCE_SLAB);
         this.carvedWoodFromLogs(SMBBlocks.CARVED_BIRCH_WOOD.get(), SMBBlocks.CARVED_BIRCH_LOG.get());
+        this.slatsOrBoardsBuilder(SMBBlocks.BIRCH_BOARDS.get(), "boards", Blocks.BIRCH_PLANKS, Blocks.BIRCH_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.BIRCH_SLATS.get(), "slats", SMBBlocks.BIRCH_MOSAIC.get(), SMBBlocks.BIRCH_MOSAIC_SLAB.get());
         this.mosaicBuilder(SMBBlocks.BIRCH_MOSAIC.get(), Blocks.BIRCH_SLAB);
         this.carvedWoodFromLogs(SMBBlocks.CARVED_JUNGLE_WOOD.get(), SMBBlocks.CARVED_JUNGLE_LOG.get());
+        this.slatsOrBoardsBuilder(SMBBlocks.JUNGLE_BOARDS.get(), "boards", Blocks.JUNGLE_PLANKS, Blocks.JUNGLE_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.JUNGLE_SLATS.get(), "slats", SMBBlocks.JUNGLE_MOSAIC.get(), SMBBlocks.JUNGLE_MOSAIC_SLAB.get());
         this.mosaicBuilder(SMBBlocks.JUNGLE_MOSAIC.get(), Blocks.JUNGLE_SLAB);
         this.carvedWoodFromLogs(SMBBlocks.CARVED_ACACIA_WOOD.get(), SMBBlocks.CARVED_ACACIA_LOG.get());
+        this.slatsOrBoardsBuilder(SMBBlocks.ACACIA_BOARDS.get(), "boards", Blocks.ACACIA_PLANKS, Blocks.ACACIA_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.ACACIA_SLATS.get(), "slats", SMBBlocks.ACACIA_MOSAIC.get(), SMBBlocks.ACACIA_MOSAIC_SLAB.get());
         this.mosaicBuilder(SMBBlocks.ACACIA_MOSAIC.get(), Blocks.ACACIA_SLAB);
         this.carvedWoodFromLogs(SMBBlocks.CARVED_DARK_OAK_WOOD.get(), SMBBlocks.CARVED_DARK_OAK_LOG.get());
+        this.slatsOrBoardsBuilder(SMBBlocks.DARK_OAK_BOARDS.get(), "boards", Blocks.DARK_OAK_PLANKS, Blocks.DARK_OAK_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.DARK_OAK_SLATS.get(), "slats", SMBBlocks.DARK_OAK_MOSAIC.get(), SMBBlocks.DARK_OAK_MOSAIC_SLAB.get());
         this.mosaicBuilder(SMBBlocks.DARK_OAK_MOSAIC.get(), Blocks.DARK_OAK_SLAB);
         this.carvedWoodFromLogs(SMBBlocks.CARVED_MANGROVE_WOOD.get(), SMBBlocks.CARVED_MANGROVE_LOG.get());
+        this.slatsOrBoardsBuilder(SMBBlocks.MANGROVE_BOARDS.get(), "boards", Blocks.MANGROVE_PLANKS, Blocks.MANGROVE_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.MANGROVE_SLATS.get(), "slats", SMBBlocks.MANGROVE_MOSAIC.get(), SMBBlocks.MANGROVE_MOSAIC_SLAB.get());
         this.mosaicBuilder(SMBBlocks.MANGROVE_MOSAIC.get(), Blocks.MANGROVE_SLAB);
         this.carvedWoodFromLogs(SMBBlocks.CARVED_CRIMSON_HYPHAE.get(), SMBBlocks.CARVED_CRIMSON_STEM.get());
+        this.slatsOrBoardsBuilder(SMBBlocks.CRIMSON_BOARDS.get(), "boards", Blocks.CRIMSON_PLANKS, Blocks.CRIMSON_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.CRIMSON_SLATS.get(), "slats", SMBBlocks.CRIMSON_MOSAIC.get(), SMBBlocks.CRIMSON_MOSAIC_SLAB.get());
         this.mosaicBuilder(SMBBlocks.CRIMSON_MOSAIC.get(), Blocks.CRIMSON_SLAB);
         this.carvedWoodFromLogs(SMBBlocks.CARVED_WARPED_HYPHAE.get(), SMBBlocks.CARVED_WARPED_STEM.get());
+        this.slatsOrBoardsBuilder(SMBBlocks.WARPED_BOARDS.get(), "boards", Blocks.WARPED_PLANKS, Blocks.WARPED_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.WARPED_SLATS.get(), "slats", SMBBlocks.WARPED_MOSAIC.get(), SMBBlocks.WARPED_MOSAIC_SLAB.get());
         this.mosaicBuilder(SMBBlocks.WARPED_MOSAIC.get(), Blocks.WARPED_SLAB);
         this.carvedWoodFromLogs(SMBBlocks.CARVED_CHERRY_WOOD.get(), SMBBlocks.CARVED_CHERRY_LOG.get());
+        this.slatsOrBoardsBuilder(SMBBlocks.CHERRY_BOARDS.get(), "boards", Blocks.CHERRY_PLANKS, Blocks.CHERRY_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.CHERRY_SLATS.get(), "slats", SMBBlocks.CHERRY_MOSAIC.get(), SMBBlocks.CHERRY_MOSAIC_SLAB.get());
         this.mosaicBuilder(SMBBlocks.CHERRY_MOSAIC.get(), Blocks.CHERRY_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.PALE_OAK_BOARDS.get(), "boards", Blocks.PALE_OAK_PLANKS, Blocks.PALE_OAK_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.PALE_OAK_SLATS.get(), "slats", SMBBlocks.PALE_OAK_MOSAIC.get(), SMBBlocks.PALE_OAK_MOSAIC_SLAB.get());
         this.mosaicBuilder(SMBBlocks.PALE_OAK_MOSAIC.get(), Blocks.PALE_OAK_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.BAMBOO_BOARDS.get(), "boards", Blocks.BAMBOO_PLANKS, Blocks.BAMBOO_SLAB);
+        this.slatsOrBoardsBuilder(SMBBlocks.BAMBOO_SLATS.get(), "slats", Blocks.BAMBOO_MOSAIC, Blocks.BAMBOO_MOSAIC_SLAB);
         this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.STONE_TILES.get(), Blocks.STONE_BRICKS, 4);
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.STONE_PILLAR.get(), Blocks.STONE_BRICKS, 2);
         this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.GRANITE_BRICKS.get(), Blocks.POLISHED_GRANITE, 4);
@@ -557,6 +581,25 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
           .pattern("#")
           .group("mosaic")
           .unlockedBy(RecipeProvider.getHasName(input), this.has(input))
+          .save(this.output);
+      }
+
+      /**
+       * Create a Slats/Boards Block.
+       * This actually already exist, but we are adding the group "slats/boards" here.
+       * @param output The item output.
+       * @param inputPlanks The item plank input.
+       * @param inputSlab The item slab input.
+       */
+      private void slatsOrBoardsBuilder(ItemLike output, String group, ItemLike inputPlanks, ItemLike inputSlab) {
+        this.shaped(RecipeCategory.BUILDING_BLOCKS, output, 2)
+          .define('#', inputPlanks)
+          .define('X', inputSlab)
+          .pattern("X")
+          .pattern("#")
+          .pattern("X")
+          .group(group)
+          .unlockedBy(RecipeProvider.getHasName(inputPlanks), this.has(inputPlanks))
           .save(this.output);
       }
 

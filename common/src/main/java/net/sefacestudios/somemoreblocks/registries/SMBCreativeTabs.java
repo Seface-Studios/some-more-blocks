@@ -19,55 +19,75 @@ public class SMBCreativeTabs {
   public static final PlatformRegistryObject<CreativeModeTab> MORE_BUILDING_BLOCKS = PlatformServices.REGISTRY.registerCreativeModeTab("more_building_blocks", CreativeModeTab.Row.TOP, 0,
     (builder) -> builder
       .icon(() -> SMBBlocks.MOSSY_BRICKS.get().asItem().getDefaultInstance())
-      .title(Component.translatable("itemGroup.somemoreblocks.buildingBlocks"))
+      .title(Component.translatable("itemGroup.somemoreblocks.someMoreBuildingBlocks"))
       .displayItems((ctx, entry) -> {
         entry.accept(SMBBlocks.CARVED_OAK_LOG.get());
         entry.accept(SMBBlocks.CARVED_OAK_WOOD.get());
+        entry.accept(SMBBlocks.OAK_BOARDS.get());
+        entry.accept(SMBBlocks.OAK_SLATS.get());
         entry.accept(SMBBlocks.OAK_MOSAIC.get());
         entry.accept(SMBBlocks.OAK_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.OAK_MOSAIC_SLAB.get());
         entry.accept(SMBBlocks.CARVED_SPRUCE_LOG.get());
         entry.accept(SMBBlocks.CARVED_SPRUCE_WOOD.get());
+        entry.accept(SMBBlocks.SPRUCE_BOARDS.get());
+        entry.accept(SMBBlocks.SPRUCE_SLATS.get());
         entry.accept(SMBBlocks.SPRUCE_MOSAIC.get());
         entry.accept(SMBBlocks.SPRUCE_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.SPRUCE_MOSAIC_SLAB.get());
         entry.accept(SMBBlocks.CARVED_BIRCH_LOG.get());
         entry.accept(SMBBlocks.CARVED_BIRCH_WOOD.get());
+        entry.accept(SMBBlocks.BIRCH_BOARDS.get());
+        entry.accept(SMBBlocks.BIRCH_SLATS.get());
         entry.accept(SMBBlocks.BIRCH_MOSAIC.get());
         entry.accept(SMBBlocks.BIRCH_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.BIRCH_MOSAIC_SLAB.get());
         entry.accept(SMBBlocks.CARVED_JUNGLE_LOG.get());
         entry.accept(SMBBlocks.CARVED_JUNGLE_WOOD.get());
+        entry.accept(SMBBlocks.JUNGLE_BOARDS.get());
+        entry.accept(SMBBlocks.JUNGLE_SLATS.get());
         entry.accept(SMBBlocks.JUNGLE_MOSAIC.get());
         entry.accept(SMBBlocks.JUNGLE_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.JUNGLE_MOSAIC_SLAB.get());
         entry.accept(SMBBlocks.CARVED_ACACIA_LOG.get());
         entry.accept(SMBBlocks.CARVED_ACACIA_WOOD.get());
+        entry.accept(SMBBlocks.ACACIA_BOARDS.get());
+        entry.accept(SMBBlocks.ACACIA_SLATS.get());
         entry.accept(SMBBlocks.ACACIA_MOSAIC.get());
         entry.accept(SMBBlocks.ACACIA_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.ACACIA_MOSAIC_SLAB.get());
         entry.accept(SMBBlocks.CARVED_DARK_OAK_LOG.get());
         entry.accept(SMBBlocks.CARVED_DARK_OAK_WOOD.get());
+        entry.accept(SMBBlocks.DARK_OAK_BOARDS.get());
+        entry.accept(SMBBlocks.DARK_OAK_SLATS.get());
         entry.accept(SMBBlocks.DARK_OAK_MOSAIC.get());
         entry.accept(SMBBlocks.DARK_OAK_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.DARK_OAK_MOSAIC_SLAB.get());
         entry.accept(SMBBlocks.CARVED_MANGROVE_LOG.get());
         entry.accept(SMBBlocks.CARVED_MANGROVE_WOOD.get());
+        entry.accept(SMBBlocks.MANGROVE_BOARDS.get());
+        entry.accept(SMBBlocks.MANGROVE_SLATS.get());
         entry.accept(SMBBlocks.MANGROVE_MOSAIC.get());
         entry.accept(SMBBlocks.MANGROVE_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.MANGROVE_MOSAIC_SLAB.get());
         entry.accept(SMBBlocks.CARVED_CRIMSON_STEM.get());
         entry.accept(SMBBlocks.CARVED_CRIMSON_HYPHAE.get());
+        entry.accept(SMBBlocks.CRIMSON_BOARDS.get());
+        entry.accept(SMBBlocks.CRIMSON_SLATS.get());
         entry.accept(SMBBlocks.CRIMSON_MOSAIC.get());
         entry.accept(SMBBlocks.CRIMSON_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.CRIMSON_MOSAIC_SLAB.get());
         entry.accept(SMBBlocks.CARVED_WARPED_STEM.get());
         entry.accept(SMBBlocks.CARVED_WARPED_HYPHAE.get());
+        entry.accept(SMBBlocks.WARPED_BOARDS.get());
+        entry.accept(SMBBlocks.WARPED_SLATS.get());
         entry.accept(SMBBlocks.WARPED_MOSAIC.get());
         entry.accept(SMBBlocks.WARPED_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.WARPED_MOSAIC_SLAB.get());
         entry.accept(SMBBlocks.CARVED_CHERRY_LOG.get());
         entry.accept(SMBBlocks.CARVED_CHERRY_WOOD.get());
+        entry.accept(SMBBlocks.CHERRY_BOARDS.get());
+        entry.accept(SMBBlocks.CHERRY_SLATS.get());
         entry.accept(SMBBlocks.CHERRY_MOSAIC.get());
         entry.accept(SMBBlocks.CHERRY_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.CHERRY_MOSAIC_SLAB.get());
@@ -115,11 +135,15 @@ public class SMBCreativeTabs {
           entry.accept(SMBItems.CARVED_PALE_OAK_WOOD.get());
         }
 
+
+        entry.accept(SMBBlocks.PALE_OAK_BOARDS.get());
+        entry.accept(SMBBlocks.PALE_OAK_SLATS.get());
         entry.accept(SMBBlocks.PALE_OAK_MOSAIC.get());
         entry.accept(SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.PALE_OAK_MOSAIC_SLAB.get());
-
         entry.accept(SMBBlocks.CARVED_BAMBOO_BLOCK.get());
+        entry.accept(SMBBlocks.BAMBOO_BOARDS.get());
+        entry.accept(SMBBlocks.BAMBOO_SLATS.get());
         entry.accept(SMBBlocks.CARVED_MUSHROOM_STEM.get());
         entry.accept(SMBBlocks.POLISHED_STONE.get());
         entry.accept(SMBBlocks.POLISHED_STONE_STAIRS.get());
@@ -545,7 +569,7 @@ public class SMBCreativeTabs {
   public static final PlatformRegistryObject<CreativeModeTab> MORE_COLORED_BLOCKS = PlatformServices.REGISTRY.registerCreativeModeTab("more_colored_blocks", CreativeModeTab.Row.TOP, 1,
     (builder) -> builder
       .icon(() -> SMBBlocks.MAGENTA_SHINGLES.get().asItem().getDefaultInstance())
-      .title(Component.translatable("itemGroup.somemoreblocks.coloredBlocks"))
+      .title(Component.translatable("itemGroup.somemoreblocks.someMoreColoredBlocks"))
       .displayItems((ctx, entry) -> {
         entry.accept(SMBBlocks.TILED_GLASS.get());
         entry.accept(SMBBlocks.TILED_TINTED_GLASS.get());
@@ -703,7 +727,7 @@ public class SMBCreativeTabs {
   public static final PlatformRegistryObject<CreativeModeTab> MORE_NATURAL_BLOCKS = PlatformServices.REGISTRY.registerCreativeModeTab("more_natural_blocks", CreativeModeTab.Row.TOP, 2,
     (builder) -> builder
       .icon(() -> SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get().asItem().getDefaultInstance())
-      .title(Component.translatable("itemGroup.somemoreblocks.naturalBlocks"))
+      .title(Component.translatable("itemGroup.somemoreblocks.someMoreNaturalBlocks"))
       .displayItems((ctx, entry) -> {
         entry.accept(SMBBlocks.TINY_CACTUS.get());
         entry.accept(SMBBlocks.TALL_CACTUS.get());
@@ -759,7 +783,7 @@ public class SMBCreativeTabs {
   public static final PlatformRegistryObject<CreativeModeTab> MORE_REDSTONE_BLOCKS = PlatformServices.REGISTRY.registerCreativeModeTab("more_redstone_blocks", CreativeModeTab.Row.TOP, 3,
     (builder) -> builder
       .icon(() -> SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get().asItem().getDefaultInstance())
-      .title(Component.translatable("itemGroup.somemoreblocks.redstoneBlocks"))
+      .title(Component.translatable("itemGroup.somemoreblocks.someMoreRedstoneBlocks"))
       .displayItems((ctx, entry) -> {
         entry.accept(SMBBlocks.REDSTONE_BRICKS.get());
         entry.accept(SMBBlocks.CRACKED_REDSTONE_BRICKS.get());

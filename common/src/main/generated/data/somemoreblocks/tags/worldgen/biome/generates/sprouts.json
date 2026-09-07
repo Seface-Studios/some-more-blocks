@@ -4,12 +4,23 @@
       "id": "#minecraft:is_forest",
       "required": false
     },
+    {
+      "id": "#minecraft:is_savanna",
+      "required": false
+    },
+    {
+      "id": "#minecraft:is_jungle",
+      "required": false
+    },
     "minecraft:plains",
-    "minecraft:sunflower_plains",
+    "minecraft:desert",
     "minecraft:meadow",
+    "minecraft:cherry_grove",
+    "minecraft:lush_caves",
+    "minecraft:pale_garden",
+    "minecraft:sunflower_plains",
     "minecraft:river",
     "minecraft:swamp",
-    "minecraft:mangrove_swamp",
-    "minecraft:cherry_grove"
+    "minecraft:mangrove_swamp"
   ]
 }

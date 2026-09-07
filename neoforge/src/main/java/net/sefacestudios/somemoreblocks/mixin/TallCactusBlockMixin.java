@@ -8,13 +8,15 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.neoforged.neoforge.common.extensions.IBlockExtension;
 import net.sefacestudios.somemoreblocks.block.TallCactusBlock;
 import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Implements;
+import org.spongepowered.asm.mixin.Interface;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(TallCactusBlock.class)
-public abstract class TallCactusBlockMixin implements IBlockExtension {
+@Implements(@Interface(iface = IBlockExtension.class, prefix = "smb$neo$"))
+public abstract class TallCactusBlockMixin {
 
-  @Override
-  public @Nullable PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
+  public @Nullable PathType smb$neo$getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
     return PathType.DAMAGING;
   }
 }

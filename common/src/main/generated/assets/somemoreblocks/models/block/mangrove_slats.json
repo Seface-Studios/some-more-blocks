@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "somemoreblocks:block/mangrove_slats_top",
+    "side": "somemoreblocks:block/mangrove_slats"
+  }
+}

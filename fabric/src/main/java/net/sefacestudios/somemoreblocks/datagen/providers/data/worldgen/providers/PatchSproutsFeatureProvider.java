@@ -1,5 +1,6 @@
 package net.sefacestudios.somemoreblocks.datagen.providers.data.worldgen.providers;
 
+import net.minecraft.core.Vec3i;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -15,9 +16,6 @@ import net.sefacestudios.somemoreblocks.tags.SMBPlacedFeature;
 
 import java.util.List;
 
-/**
- * Small grass-like sprouts patches across temperate grassy biomes.
- */
 public class PatchSproutsFeatureProvider extends FeatureProvider<SimpleBlockConfiguration> {
 
   public PatchSproutsFeatureProvider() {
@@ -34,7 +32,7 @@ public class PatchSproutsFeatureProvider extends FeatureProvider<SimpleBlockConf
     modifier.add(BlockPredicateFilter.forPredicate(
       BlockPredicate.allOf(
         BlockPredicate.ONLY_IN_AIR_PREDICATE,
-        BlockPredicate.wouldSurvive(this.sproutsState(), net.minecraft.core.Vec3i.ZERO)
+        BlockPredicate.wouldSurvive(this.sproutsState(), Vec3i.ZERO)
       )
     ));
   }

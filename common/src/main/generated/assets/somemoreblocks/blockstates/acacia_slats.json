@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "somemoreblocks:block/acacia_slats_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "somemoreblocks:block/acacia_slats"
+    },
+    "axis=z": {
+      "model": "somemoreblocks:block/acacia_slats_horizontal",
+      "x": 90
+    }
+  }
+}

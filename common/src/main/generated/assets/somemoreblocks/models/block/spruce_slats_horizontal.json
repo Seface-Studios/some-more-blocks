@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "somemoreblocks:block/spruce_slats_top",
+    "side": "somemoreblocks:block/spruce_slats"
+  }
+}

@@ -60,28 +60,52 @@ public class SMBBlockLootProvider extends FabricBlockLootSubProvider {
     this.dropSelfBlockFamilyBlocks();
 
     /* More Building Block */
+    this.dropSelf(SMBBlocks.OAK_BOARDS.get());
+    this.dropSelf(SMBBlocks.OAK_SLATS.get());
     this.dropSelf(SMBBlocks.CARVED_OAK_LOG.get());
     this.dropSelf(SMBBlocks.CARVED_OAK_WOOD.get());
+    this.dropSelf(SMBBlocks.SPRUCE_BOARDS.get());
+    this.dropSelf(SMBBlocks.SPRUCE_SLATS.get());
     this.dropSelf(SMBBlocks.CARVED_SPRUCE_LOG.get());
     this.dropSelf(SMBBlocks.CARVED_SPRUCE_WOOD.get());
+    this.dropSelf(SMBBlocks.BIRCH_BOARDS.get());
+    this.dropSelf(SMBBlocks.BIRCH_SLATS.get());
     this.dropSelf(SMBBlocks.CARVED_BIRCH_LOG.get());
     this.dropSelf(SMBBlocks.CARVED_BIRCH_WOOD.get());
+    this.dropSelf(SMBBlocks.JUNGLE_BOARDS.get());
+    this.dropSelf(SMBBlocks.JUNGLE_SLATS.get());
     this.dropSelf(SMBBlocks.CARVED_JUNGLE_LOG.get());
     this.dropSelf(SMBBlocks.CARVED_JUNGLE_WOOD.get());
+    this.dropSelf(SMBBlocks.ACACIA_BOARDS.get());
+    this.dropSelf(SMBBlocks.ACACIA_SLATS.get());
     this.dropSelf(SMBBlocks.CARVED_ACACIA_LOG.get());
     this.dropSelf(SMBBlocks.CARVED_ACACIA_WOOD.get());
+    this.dropSelf(SMBBlocks.DARK_OAK_BOARDS.get());
+    this.dropSelf(SMBBlocks.DARK_OAK_SLATS.get());
     this.dropSelf(SMBBlocks.CARVED_DARK_OAK_LOG.get());
     this.dropSelf(SMBBlocks.CARVED_DARK_OAK_WOOD.get());
+    this.dropSelf(SMBBlocks.MANGROVE_BOARDS.get());
+    this.dropSelf(SMBBlocks.MANGROVE_SLATS.get());
     this.dropSelf(SMBBlocks.CARVED_MANGROVE_LOG.get());
     this.dropSelf(SMBBlocks.CARVED_MANGROVE_WOOD.get());
+    this.dropSelf(SMBBlocks.CRIMSON_BOARDS.get());
+    this.dropSelf(SMBBlocks.CRIMSON_SLATS.get());
     this.dropSelf(SMBBlocks.CARVED_CRIMSON_STEM.get());
     this.dropSelf(SMBBlocks.CARVED_CRIMSON_HYPHAE.get());
+    this.dropSelf(SMBBlocks.WARPED_BOARDS.get());
+    this.dropSelf(SMBBlocks.WARPED_SLATS.get());
     this.dropSelf(SMBBlocks.CARVED_WARPED_STEM.get());
     this.dropSelf(SMBBlocks.CARVED_WARPED_HYPHAE.get());
+    this.dropSelf(SMBBlocks.CHERRY_BOARDS.get());
+    this.dropSelf(SMBBlocks.CHERRY_SLATS.get());
     this.dropSelf(SMBBlocks.CARVED_CHERRY_LOG.get());
     this.dropSelf(SMBBlocks.CARVED_CHERRY_WOOD.get());
+    this.dropSelf(SMBBlocks.PALE_OAK_BOARDS.get());
+    this.dropSelf(SMBBlocks.PALE_OAK_SLATS.get());
     this.dropSelfCarvedPaleOak(SMBBlocks.CARVED_PALE_OAK_LOG.get());
     this.dropSelfCarvedPaleOak(SMBBlocks.CARVED_PALE_OAK_WOOD.get());
+    this.dropSelf(SMBBlocks.BAMBOO_BOARDS.get());
+    this.dropSelf(SMBBlocks.BAMBOO_SLATS.get());
     this.dropSelf(SMBBlocks.CARVED_BAMBOO_BLOCK.get());
     this.dropSelf(SMBBlocks.AMETHYST_PILLAR.get());
     this.dropSelf(SMBBlocks.ANDESITE_PILLAR.get());
@@ -360,7 +384,7 @@ public class SMBBlockLootProvider extends FabricBlockLootSubProvider {
     this.dropSelf(SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get());
     this.dropSelf(SMBBlocks.SHORT_PURPLE_LARKSPUR.get());
     this.dropSelf(SMBBlocks.SHORT_RED_LARK_LARKSPUR.get());
-    this.dropWhenShears(SMBBlocks.SPROUTS.get());
+    this.add(SMBBlocks.SPROUTS.get(), this::createGrassDrops);
     this.dropWhenShears(SMBBlocks.DUCKWEED.get());
 
     /* More Redstone Blocks */

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "slats",
+  "key": {
+    "#": "somemoreblocks:dark_oak_mosaic",
+    "X": "somemoreblocks:dark_oak_mosaic_slab"
+  },
+  "pattern": [
+    "X",
+    "#",
+    "X"
+  ],
+  "result": {
+    "count": 2,
+    "id": "somemoreblocks:dark_oak_slats"
+  }
+}

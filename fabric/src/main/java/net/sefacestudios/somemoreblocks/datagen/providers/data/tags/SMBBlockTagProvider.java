@@ -204,11 +204,40 @@ public class SMBBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 
     this.valueLookupBuilder(BlockTags.PLANKS)
       .add(
-        SMBBlocks.OAK_MOSAIC.get(), SMBBlocks.SPRUCE_MOSAIC.get(),
-        SMBBlocks.BIRCH_MOSAIC.get(), SMBBlocks.JUNGLE_MOSAIC.get(),
-        SMBBlocks.ACACIA_MOSAIC.get(), SMBBlocks.DARK_OAK_MOSAIC.get(),
-        SMBBlocks.MANGROVE_MOSAIC.get(), SMBBlocks.CRIMSON_MOSAIC.get(),
-        SMBBlocks.WARPED_MOSAIC.get(), SMBBlocks.CHERRY_MOSAIC.get(), SMBBlocks.PALE_OAK_MOSAIC.get())
+        SMBBlocks.OAK_BOARDS.get(),
+        SMBBlocks.OAK_SLATS.get(),
+        SMBBlocks.OAK_MOSAIC.get(),
+        SMBBlocks.SPRUCE_BOARDS.get(),
+        SMBBlocks.SPRUCE_SLATS.get(),
+        SMBBlocks.SPRUCE_MOSAIC.get(),
+        SMBBlocks.BIRCH_BOARDS.get(),
+        SMBBlocks.BIRCH_SLATS.get(),
+        SMBBlocks.BIRCH_MOSAIC.get(),
+        SMBBlocks.JUNGLE_BOARDS.get(),
+        SMBBlocks.JUNGLE_SLATS.get(),
+        SMBBlocks.JUNGLE_MOSAIC.get(),
+        SMBBlocks.ACACIA_BOARDS.get(),
+        SMBBlocks.ACACIA_SLATS.get(),
+        SMBBlocks.ACACIA_MOSAIC.get(),
+        SMBBlocks.DARK_OAK_BOARDS.get(),
+        SMBBlocks.DARK_OAK_SLATS.get(),
+        SMBBlocks.DARK_OAK_MOSAIC.get(),
+        SMBBlocks.MANGROVE_BOARDS.get(),
+        SMBBlocks.MANGROVE_SLATS.get(),
+        SMBBlocks.MANGROVE_MOSAIC.get(),
+        SMBBlocks.CRIMSON_BOARDS.get(),
+        SMBBlocks.CRIMSON_SLATS.get(),
+        SMBBlocks.CRIMSON_MOSAIC.get(),
+        SMBBlocks.WARPED_BOARDS.get(),
+        SMBBlocks.WARPED_SLATS.get(),
+        SMBBlocks.WARPED_MOSAIC.get(),
+        SMBBlocks.CHERRY_BOARDS.get(),
+        SMBBlocks.CHERRY_SLATS.get(),
+        SMBBlocks.CHERRY_MOSAIC.get(),
+        SMBBlocks.PALE_OAK_BOARDS.get(),
+        SMBBlocks.PALE_OAK_SLATS.get(),
+        SMBBlocks.PALE_OAK_MOSAIC.get()
+      )
       .setReplace(false);
 
     this.valueLookupBuilder(BlockTags.REPLACEABLE_BY_TREES)

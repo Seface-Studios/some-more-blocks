@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "slats",
+  "key": {
+    "#": "somemoreblocks:jungle_mosaic",
+    "X": "somemoreblocks:jungle_mosaic_slab"
+  },
+  "pattern": [
+    "X",
+    "#",
+    "X"
+  ],
+  "result": {
+    "count": 2,
+    "id": "somemoreblocks:jungle_slats"
+  }
+}

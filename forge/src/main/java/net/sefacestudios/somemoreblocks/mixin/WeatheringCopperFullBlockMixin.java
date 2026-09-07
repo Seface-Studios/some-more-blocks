@@ -5,18 +5,21 @@ import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.WeatheringCopperFullBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.sefacestudios.somemoreblocks.registries.SMBRegistries;
+import org.spongepowered.asm.mixin.Implements;
+import org.spongepowered.asm.mixin.Interface;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Optional;
 
 @Mixin(WeatheringCopperFullBlock.class)
-public abstract class WeatheringCopperFullBlockMixin implements WeatheringCopper {
+@Implements(@Interface(iface = WeatheringCopper.class, prefix = "smb$weathering$"))
+public abstract class WeatheringCopperFullBlockMixin extends Block {
 
-  @Override
-  public Optional<BlockState> getNext(BlockState state) {
+  public WeatheringCopperFullBlockMixin(Properties properties) {
+    super(properties);
+  }
+
+  public Optional<BlockState> smb$weathering$getNext(BlockState state) {
     Block block = state.getBlock();
     Optional<Block> nextBlock = SMBRegistries.WEATHERING_COPPER_BLOCKS.getNext(block);
 
@@ -27,12 +30,12 @@ public abstract class WeatheringCopperFullBlockMixin implements WeatheringCopper
     return Optional.of(WeatheringCopper.getNext(block).get().withPropertiesOf(state));
   }
 
-  @Inject(method = "isRandomlyTicking", at = @At("HEAD"), cancellable = true)
-  public void isRandomlyTickingMixin(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-    Optional<Block> nextBlock = SMBRegistries.WEATHERING_COPPER_BLOCKS.getNext(state.getBlock());
-
-    if (nextBlock.isPresent()) {
-      cir.setReturnValue(true);
+  @Override
+  protected boolean isRandomlyTicking(BlockState state) {
+    if (SMBRegistries.WEATHERING_COPPER_BLOCKS.getNext(state.getBlock()).isPresent()) {
+      return true;
     }
+
+    return super.isRandomlyTicking(state);
   }
 }
