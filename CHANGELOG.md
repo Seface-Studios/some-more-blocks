@@ -26,6 +26,8 @@ Updated to Minecraft 26.1.
 - Pebbles
 - Wooden Slats
 - Wooden Boards
+- Wooden Boards Stairs
+- Wooden Boards Slabs
 
 ### Changes
 - All variations of mossy blocks have been reworked.

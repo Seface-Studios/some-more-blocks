@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/pale_oak_boards_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/pale_oak_boards"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/pale_oak_boards_slab_top"
+    }
+  }
+}

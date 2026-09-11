@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/birch_boards_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/birch_boards"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/birch_boards_slab_top"
+    }
+  }
+}

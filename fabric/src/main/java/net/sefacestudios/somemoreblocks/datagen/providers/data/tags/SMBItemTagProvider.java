@@ -86,7 +86,9 @@ public class SMBItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
         SMBBlocks.CHERRY_MOSAIC.get().asItem(),
         SMBBlocks.PALE_OAK_BOARDS.get().asItem(),
         SMBBlocks.PALE_OAK_SLATS.get().asItem(),
-        SMBBlocks.PALE_OAK_MOSAIC.get().asItem()
+        SMBBlocks.PALE_OAK_MOSAIC.get().asItem(),
+        SMBBlocks.BAMBOO_BOARDS.get().asItem(),
+        SMBBlocks.BAMBOO_SLATS.get().asItem()
       )
       .setReplace(false);
 
@@ -234,7 +236,13 @@ public class SMBItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
         SMBBlocks.ACACIA_MOSAIC_SLAB.get().asItem(), SMBBlocks.DARK_OAK_MOSAIC_SLAB.get().asItem(),
         SMBBlocks.MANGROVE_MOSAIC_SLAB.get().asItem(), SMBBlocks.CRIMSON_MOSAIC_SLAB.get().asItem(),
         SMBBlocks.WARPED_MOSAIC_SLAB.get().asItem(), SMBBlocks.CHERRY_MOSAIC_SLAB.get().asItem(),
-        SMBBlocks.PALE_OAK_MOSAIC_SLAB.get().asItem()
+        SMBBlocks.PALE_OAK_MOSAIC_SLAB.get().asItem(),
+        SMBBlocks.OAK_BOARDS_SLAB.get().asItem(), SMBBlocks.SPRUCE_BOARDS_SLAB.get().asItem(),
+        SMBBlocks.BIRCH_BOARDS_SLAB.get().asItem(), SMBBlocks.JUNGLE_BOARDS_SLAB.get().asItem(),
+        SMBBlocks.ACACIA_BOARDS_SLAB.get().asItem(), SMBBlocks.DARK_OAK_BOARDS_SLAB.get().asItem(),
+        SMBBlocks.MANGROVE_BOARDS_SLAB.get().asItem(), SMBBlocks.CRIMSON_BOARDS_SLAB.get().asItem(),
+        SMBBlocks.WARPED_BOARDS_SLAB.get().asItem(), SMBBlocks.CHERRY_BOARDS_SLAB.get().asItem(),
+        SMBBlocks.PALE_OAK_BOARDS_SLAB.get().asItem(), SMBBlocks.BAMBOO_BOARDS_SLAB.get().asItem()
       )
       .setReplace(false);
 
@@ -245,7 +253,13 @@ public class SMBItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
         SMBBlocks.ACACIA_MOSAIC_STAIRS.get().asItem(), SMBBlocks.DARK_OAK_MOSAIC_STAIRS.get().asItem(),
         SMBBlocks.MANGROVE_MOSAIC_STAIRS.get().asItem(), SMBBlocks.CRIMSON_MOSAIC_STAIRS.get().asItem(),
         SMBBlocks.WARPED_MOSAIC_STAIRS.get().asItem(), SMBBlocks.CHERRY_MOSAIC_STAIRS.get().asItem(),
-        SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get().asItem()
+        SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get().asItem(),
+        SMBBlocks.OAK_BOARDS_STAIRS.get().asItem(), SMBBlocks.SPRUCE_BOARDS_STAIRS.get().asItem(),
+        SMBBlocks.BIRCH_BOARDS_STAIRS.get().asItem(), SMBBlocks.JUNGLE_BOARDS_STAIRS.get().asItem(),
+        SMBBlocks.ACACIA_BOARDS_STAIRS.get().asItem(), SMBBlocks.DARK_OAK_BOARDS_STAIRS.get().asItem(),
+        SMBBlocks.MANGROVE_BOARDS_STAIRS.get().asItem(), SMBBlocks.CRIMSON_BOARDS_STAIRS.get().asItem(),
+        SMBBlocks.WARPED_BOARDS_STAIRS.get().asItem(), SMBBlocks.CHERRY_BOARDS_STAIRS.get().asItem(),
+        SMBBlocks.PALE_OAK_BOARDS_STAIRS.get().asItem(), SMBBlocks.BAMBOO_BOARDS_STAIRS.get().asItem()
       )
       .setReplace(false);
 

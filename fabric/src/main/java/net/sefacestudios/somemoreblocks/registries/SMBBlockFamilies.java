@@ -18,6 +18,19 @@ import java.util.Map;
 public class SMBBlockFamilies {
   private static final Map<Block, BlockFamily> BLOCK_FAMILIES = Maps.newHashMap();
 
+  public static final BlockFamily ACACIA_BOARDS = register(SMBBlocks.ACACIA_BOARDS.get()).stairs(SMBBlocks.ACACIA_BOARDS_STAIRS.get()).slab(SMBBlocks.ACACIA_BOARDS_SLAB.get()).getFamily();
+  public static final BlockFamily BIRCH_BOARDS = register(SMBBlocks.BIRCH_BOARDS.get()).stairs(SMBBlocks.BIRCH_BOARDS_STAIRS.get()).slab(SMBBlocks.BIRCH_BOARDS_SLAB.get()).getFamily();
+  public static final BlockFamily CHERRY_BOARDS = register(SMBBlocks.CHERRY_BOARDS.get()).stairs(SMBBlocks.CHERRY_BOARDS_STAIRS.get()).slab(SMBBlocks.CHERRY_BOARDS_SLAB.get()).getFamily();
+  public static final BlockFamily CRIMSON_BOARDS = register(SMBBlocks.CRIMSON_BOARDS.get()).stairs(SMBBlocks.CRIMSON_BOARDS_STAIRS.get()).slab(SMBBlocks.CRIMSON_BOARDS_SLAB.get()).getFamily();
+  public static final BlockFamily DARK_OAK_BOARDS = register(SMBBlocks.DARK_OAK_BOARDS.get()).stairs(SMBBlocks.DARK_OAK_BOARDS_STAIRS.get()).slab(SMBBlocks.DARK_OAK_BOARDS_SLAB.get()).getFamily();
+  public static final BlockFamily JUNGLE_BOARDS = register(SMBBlocks.JUNGLE_BOARDS.get()).stairs(SMBBlocks.JUNGLE_BOARDS_STAIRS.get()).slab(SMBBlocks.JUNGLE_BOARDS_SLAB.get()).getFamily();
+  public static final BlockFamily MANGROVE_BOARDS = register(SMBBlocks.MANGROVE_BOARDS.get()).stairs(SMBBlocks.MANGROVE_BOARDS_STAIRS.get()).slab(SMBBlocks.MANGROVE_BOARDS_SLAB.get()).getFamily();
+  public static final BlockFamily OAK_BOARDS = register(SMBBlocks.OAK_BOARDS.get()).stairs(SMBBlocks.OAK_BOARDS_STAIRS.get()).slab(SMBBlocks.OAK_BOARDS_SLAB.get()).getFamily();
+  public static final BlockFamily PALE_OAK_BOARDS = register(SMBBlocks.PALE_OAK_BOARDS.get()).stairs(SMBBlocks.PALE_OAK_BOARDS_STAIRS.get()).slab(SMBBlocks.PALE_OAK_BOARDS_SLAB.get()).getFamily();
+  public static final BlockFamily SPRUCE_BOARDS = register(SMBBlocks.SPRUCE_BOARDS.get()).stairs(SMBBlocks.SPRUCE_BOARDS_STAIRS.get()).slab(SMBBlocks.SPRUCE_BOARDS_SLAB.get()).getFamily();
+  public static final BlockFamily WARPED_BOARDS = register(SMBBlocks.WARPED_BOARDS.get()).stairs(SMBBlocks.WARPED_BOARDS_STAIRS.get()).slab(SMBBlocks.WARPED_BOARDS_SLAB.get()).getFamily();
+  public static final BlockFamily BAMBOO_BOARDS = register(SMBBlocks.BAMBOO_BOARDS.get()).stairs(SMBBlocks.BAMBOO_BOARDS_STAIRS.get()).slab(SMBBlocks.BAMBOO_BOARDS_SLAB.get()).getFamily();
+
   public static final BlockFamily ACACIA_MOSAIC = register(SMBBlocks.ACACIA_MOSAIC.get()).stairs(SMBBlocks.ACACIA_MOSAIC_STAIRS.get()).slab(SMBBlocks.ACACIA_MOSAIC_SLAB.get()).getFamily();
   public static final BlockFamily BIRCH_MOSAIC = register(SMBBlocks.BIRCH_MOSAIC.get()).stairs(SMBBlocks.BIRCH_MOSAIC_STAIRS.get()).slab(SMBBlocks.BIRCH_MOSAIC_SLAB.get()).getFamily();
   public static final BlockFamily CHERRY_MOSAIC = register(SMBBlocks.CHERRY_MOSAIC.get()).stairs(SMBBlocks.CHERRY_MOSAIC_STAIRS.get()).slab(SMBBlocks.CHERRY_MOSAIC_SLAB.get()).getFamily();

@@ -24,6 +24,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CARVED_OAK_LOG.get());
         entry.accept(SMBBlocks.CARVED_OAK_WOOD.get());
         entry.accept(SMBBlocks.OAK_BOARDS.get());
+        entry.accept(SMBBlocks.OAK_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.OAK_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.OAK_SLATS.get());
         entry.accept(SMBBlocks.OAK_MOSAIC.get());
         entry.accept(SMBBlocks.OAK_MOSAIC_STAIRS.get());
@@ -31,6 +33,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CARVED_SPRUCE_LOG.get());
         entry.accept(SMBBlocks.CARVED_SPRUCE_WOOD.get());
         entry.accept(SMBBlocks.SPRUCE_BOARDS.get());
+        entry.accept(SMBBlocks.SPRUCE_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.SPRUCE_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.SPRUCE_SLATS.get());
         entry.accept(SMBBlocks.SPRUCE_MOSAIC.get());
         entry.accept(SMBBlocks.SPRUCE_MOSAIC_STAIRS.get());
@@ -38,6 +42,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CARVED_BIRCH_LOG.get());
         entry.accept(SMBBlocks.CARVED_BIRCH_WOOD.get());
         entry.accept(SMBBlocks.BIRCH_BOARDS.get());
+        entry.accept(SMBBlocks.BIRCH_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.BIRCH_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.BIRCH_SLATS.get());
         entry.accept(SMBBlocks.BIRCH_MOSAIC.get());
         entry.accept(SMBBlocks.BIRCH_MOSAIC_STAIRS.get());
@@ -45,6 +51,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CARVED_JUNGLE_LOG.get());
         entry.accept(SMBBlocks.CARVED_JUNGLE_WOOD.get());
         entry.accept(SMBBlocks.JUNGLE_BOARDS.get());
+        entry.accept(SMBBlocks.JUNGLE_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.JUNGLE_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.JUNGLE_SLATS.get());
         entry.accept(SMBBlocks.JUNGLE_MOSAIC.get());
         entry.accept(SMBBlocks.JUNGLE_MOSAIC_STAIRS.get());
@@ -52,6 +60,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CARVED_ACACIA_LOG.get());
         entry.accept(SMBBlocks.CARVED_ACACIA_WOOD.get());
         entry.accept(SMBBlocks.ACACIA_BOARDS.get());
+        entry.accept(SMBBlocks.ACACIA_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.ACACIA_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.ACACIA_SLATS.get());
         entry.accept(SMBBlocks.ACACIA_MOSAIC.get());
         entry.accept(SMBBlocks.ACACIA_MOSAIC_STAIRS.get());
@@ -59,6 +69,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CARVED_DARK_OAK_LOG.get());
         entry.accept(SMBBlocks.CARVED_DARK_OAK_WOOD.get());
         entry.accept(SMBBlocks.DARK_OAK_BOARDS.get());
+        entry.accept(SMBBlocks.DARK_OAK_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.DARK_OAK_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.DARK_OAK_SLATS.get());
         entry.accept(SMBBlocks.DARK_OAK_MOSAIC.get());
         entry.accept(SMBBlocks.DARK_OAK_MOSAIC_STAIRS.get());
@@ -66,6 +78,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CARVED_MANGROVE_LOG.get());
         entry.accept(SMBBlocks.CARVED_MANGROVE_WOOD.get());
         entry.accept(SMBBlocks.MANGROVE_BOARDS.get());
+        entry.accept(SMBBlocks.MANGROVE_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.MANGROVE_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.MANGROVE_SLATS.get());
         entry.accept(SMBBlocks.MANGROVE_MOSAIC.get());
         entry.accept(SMBBlocks.MANGROVE_MOSAIC_STAIRS.get());
@@ -73,6 +87,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CARVED_CRIMSON_STEM.get());
         entry.accept(SMBBlocks.CARVED_CRIMSON_HYPHAE.get());
         entry.accept(SMBBlocks.CRIMSON_BOARDS.get());
+        entry.accept(SMBBlocks.CRIMSON_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.CRIMSON_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.CRIMSON_SLATS.get());
         entry.accept(SMBBlocks.CRIMSON_MOSAIC.get());
         entry.accept(SMBBlocks.CRIMSON_MOSAIC_STAIRS.get());
@@ -80,6 +96,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CARVED_WARPED_STEM.get());
         entry.accept(SMBBlocks.CARVED_WARPED_HYPHAE.get());
         entry.accept(SMBBlocks.WARPED_BOARDS.get());
+        entry.accept(SMBBlocks.WARPED_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.WARPED_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.WARPED_SLATS.get());
         entry.accept(SMBBlocks.WARPED_MOSAIC.get());
         entry.accept(SMBBlocks.WARPED_MOSAIC_STAIRS.get());
@@ -87,6 +105,8 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.CARVED_CHERRY_LOG.get());
         entry.accept(SMBBlocks.CARVED_CHERRY_WOOD.get());
         entry.accept(SMBBlocks.CHERRY_BOARDS.get());
+        entry.accept(SMBBlocks.CHERRY_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.CHERRY_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.CHERRY_SLATS.get());
         entry.accept(SMBBlocks.CHERRY_MOSAIC.get());
         entry.accept(SMBBlocks.CHERRY_MOSAIC_STAIRS.get());
@@ -137,12 +157,16 @@ public class SMBCreativeTabs {
 
 
         entry.accept(SMBBlocks.PALE_OAK_BOARDS.get());
+        entry.accept(SMBBlocks.PALE_OAK_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.PALE_OAK_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.PALE_OAK_SLATS.get());
         entry.accept(SMBBlocks.PALE_OAK_MOSAIC.get());
         entry.accept(SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get());
         entry.accept(SMBBlocks.PALE_OAK_MOSAIC_SLAB.get());
         entry.accept(SMBBlocks.CARVED_BAMBOO_BLOCK.get());
         entry.accept(SMBBlocks.BAMBOO_BOARDS.get());
+        entry.accept(SMBBlocks.BAMBOO_BOARDS_STAIRS.get());
+        entry.accept(SMBBlocks.BAMBOO_BOARDS_SLAB.get());
         entry.accept(SMBBlocks.BAMBOO_SLATS.get());
         entry.accept(SMBBlocks.CARVED_MUSHROOM_STEM.get());
         entry.accept(SMBBlocks.POLISHED_STONE.get());

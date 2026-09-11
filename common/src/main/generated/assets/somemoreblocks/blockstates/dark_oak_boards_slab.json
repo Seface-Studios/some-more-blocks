@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/dark_oak_boards_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/dark_oak_boards"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/dark_oak_boards_slab_top"
+    }
+  }
+}

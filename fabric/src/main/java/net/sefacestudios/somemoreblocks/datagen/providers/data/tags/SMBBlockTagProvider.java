@@ -236,7 +236,9 @@ public class SMBBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
         SMBBlocks.CHERRY_MOSAIC.get(),
         SMBBlocks.PALE_OAK_BOARDS.get(),
         SMBBlocks.PALE_OAK_SLATS.get(),
-        SMBBlocks.PALE_OAK_MOSAIC.get()
+        SMBBlocks.PALE_OAK_MOSAIC.get(),
+        SMBBlocks.BAMBOO_BOARDS.get(),
+        SMBBlocks.BAMBOO_SLATS.get()
       )
       .setReplace(false);
 
@@ -408,7 +410,13 @@ public class SMBBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
         SMBBlocks.ACACIA_MOSAIC_SLAB.get(), SMBBlocks.DARK_OAK_MOSAIC_SLAB.get(),
         SMBBlocks.MANGROVE_MOSAIC_SLAB.get(), SMBBlocks.CRIMSON_MOSAIC_SLAB.get(),
         SMBBlocks.WARPED_MOSAIC_SLAB.get(), SMBBlocks.CHERRY_MOSAIC_SLAB.get(),
-        SMBBlocks.PALE_OAK_MOSAIC_SLAB.get()
+        SMBBlocks.PALE_OAK_MOSAIC_SLAB.get(),
+        SMBBlocks.OAK_BOARDS_SLAB.get(), SMBBlocks.SPRUCE_BOARDS_SLAB.get(),
+        SMBBlocks.BIRCH_BOARDS_SLAB.get(), SMBBlocks.JUNGLE_BOARDS_SLAB.get(),
+        SMBBlocks.ACACIA_BOARDS_SLAB.get(), SMBBlocks.DARK_OAK_BOARDS_SLAB.get(),
+        SMBBlocks.MANGROVE_BOARDS_SLAB.get(), SMBBlocks.CRIMSON_BOARDS_SLAB.get(),
+        SMBBlocks.WARPED_BOARDS_SLAB.get(), SMBBlocks.CHERRY_BOARDS_SLAB.get(),
+        SMBBlocks.PALE_OAK_BOARDS_SLAB.get(), SMBBlocks.BAMBOO_BOARDS_SLAB.get()
       )
       .setReplace(false);
 
@@ -419,7 +427,13 @@ public class SMBBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
         SMBBlocks.ACACIA_MOSAIC_STAIRS.get(), SMBBlocks.DARK_OAK_MOSAIC_STAIRS.get(),
         SMBBlocks.MANGROVE_MOSAIC_STAIRS.get(), SMBBlocks.CRIMSON_MOSAIC_STAIRS.get(),
         SMBBlocks.WARPED_MOSAIC_STAIRS.get(), SMBBlocks.CHERRY_MOSAIC_STAIRS.get(),
-        SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get()
+        SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get(),
+        SMBBlocks.OAK_BOARDS_STAIRS.get(), SMBBlocks.SPRUCE_BOARDS_STAIRS.get(),
+        SMBBlocks.BIRCH_BOARDS_STAIRS.get(), SMBBlocks.JUNGLE_BOARDS_STAIRS.get(),
+        SMBBlocks.ACACIA_BOARDS_STAIRS.get(), SMBBlocks.DARK_OAK_BOARDS_STAIRS.get(),
+        SMBBlocks.MANGROVE_BOARDS_STAIRS.get(), SMBBlocks.CRIMSON_BOARDS_STAIRS.get(),
+        SMBBlocks.WARPED_BOARDS_STAIRS.get(), SMBBlocks.CHERRY_BOARDS_STAIRS.get(),
+        SMBBlocks.PALE_OAK_BOARDS_STAIRS.get(), SMBBlocks.BAMBOO_BOARDS_STAIRS.get()
       )
       .setReplace(false);
 

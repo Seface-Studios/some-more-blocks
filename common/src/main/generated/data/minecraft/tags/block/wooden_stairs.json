@@ -10,6 +10,18 @@
     "somemoreblocks:crimson_mosaic_stairs",
     "somemoreblocks:warped_mosaic_stairs",
     "somemoreblocks:cherry_mosaic_stairs",
-    "somemoreblocks:pale_oak_mosaic_stairs"
+    "somemoreblocks:pale_oak_mosaic_stairs",
+    "somemoreblocks:oak_boards_stairs",
+    "somemoreblocks:spruce_boards_stairs",
+    "somemoreblocks:birch_boards_stairs",
+    "somemoreblocks:jungle_boards_stairs",
+    "somemoreblocks:acacia_boards_stairs",
+    "somemoreblocks:dark_oak_boards_stairs",
+    "somemoreblocks:mangrove_boards_stairs",
+    "somemoreblocks:crimson_boards_stairs",
+    "somemoreblocks:warped_boards_stairs",
+    "somemoreblocks:cherry_boards_stairs",
+    "somemoreblocks:pale_oak_boards_stairs",
+    "somemoreblocks:bamboo_boards_stairs"
   ]
 }

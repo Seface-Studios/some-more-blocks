@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "somemoreblocks:block/pale_oak_boards",
+    "side": "somemoreblocks:block/pale_oak_boards",
+    "top": "somemoreblocks:block/pale_oak_boards"
+  }
+}

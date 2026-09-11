@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "somemoreblocks:block/bamboo_boards_slab"
+    },
+    "type=double": {
+      "model": "somemoreblocks:block/bamboo_boards"
+    },
+    "type=top": {
+      "model": "somemoreblocks:block/bamboo_boards_slab_top"
+    }
+  }
+}

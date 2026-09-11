@@ -10,6 +10,18 @@
     "somemoreblocks:crimson_mosaic_slab",
     "somemoreblocks:warped_mosaic_slab",
     "somemoreblocks:cherry_mosaic_slab",
-    "somemoreblocks:pale_oak_mosaic_slab"
+    "somemoreblocks:pale_oak_mosaic_slab",
+    "somemoreblocks:oak_boards_slab",
+    "somemoreblocks:spruce_boards_slab",
+    "somemoreblocks:birch_boards_slab",
+    "somemoreblocks:jungle_boards_slab",
+    "somemoreblocks:acacia_boards_slab",
+    "somemoreblocks:dark_oak_boards_slab",
+    "somemoreblocks:mangrove_boards_slab",
+    "somemoreblocks:crimson_boards_slab",
+    "somemoreblocks:warped_boards_slab",
+    "somemoreblocks:cherry_boards_slab",
+    "somemoreblocks:pale_oak_boards_slab",
+    "somemoreblocks:bamboo_boards_slab"
   ]
 }

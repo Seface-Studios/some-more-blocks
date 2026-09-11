@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_acacia_boards": {
+      "conditions": {
+        "items": [
+          {
+            "items": "somemoreblocks:acacia_boards"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "somemoreblocks:acacia_boards_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_acacia_boards"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "somemoreblocks:acacia_boards_stairs"
+    ]
+  }
+}
