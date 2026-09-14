@@ -372,6 +372,7 @@ public class SMBBlockLootProvider extends FabricBlockLootSubProvider {
     this.dropSelf(SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get());
     this.dropSelf(SMBBlocks.SHORT_PURPLE_LARKSPUR.get());
     this.dropSelf(SMBBlocks.SHORT_RED_LARK_LARKSPUR.get());
+    this.dropSelf(SMBBlocks.LAVENDER.get());
     this.add(SMBBlocks.SPROUTS.get(), this::createGrassDrops);
     this.dropWhenShears(SMBBlocks.DUCKWEED.get());
 

@@ -592,7 +592,7 @@ public class SMBCreativeTabs {
 
   public static final PlatformRegistryObject<CreativeModeTab> MORE_COLORED_BLOCKS = PlatformServices.REGISTRY.registerCreativeModeTab("more_colored_blocks", CreativeModeTab.Row.TOP, 1,
     (builder) -> builder
-      .icon(() -> SMBBlocks.MAGENTA_SHINGLES.get().asItem().getDefaultInstance())
+      .icon(() -> SMBBlocks.YELLOW_SHINGLES.get().asItem().getDefaultInstance())
       .title(Component.translatable("itemGroup.somemoreblocks.someMoreColoredBlocks"))
       .displayItems((ctx, entry) -> {
         entry.accept(SMBBlocks.TILED_GLASS.get());
@@ -750,7 +750,7 @@ public class SMBCreativeTabs {
 
   public static final PlatformRegistryObject<CreativeModeTab> MORE_NATURAL_BLOCKS = PlatformServices.REGISTRY.registerCreativeModeTab("more_natural_blocks", CreativeModeTab.Row.TOP, 2,
     (builder) -> builder
-      .icon(() -> SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get().asItem().getDefaultInstance())
+      .icon(() -> SMBBlocks.RED_LARK_LARKSPUR.get().asItem().getDefaultInstance())
       .title(Component.translatable("itemGroup.somemoreblocks.someMoreNaturalBlocks"))
       .displayItems((ctx, entry) -> {
         entry.accept(SMBBlocks.TINY_CACTUS.get());
@@ -781,6 +781,7 @@ public class SMBCreativeTabs {
         entry.accept(SMBItems.SMALL_LILY_PADS.get());
         entry.accept(SMBItems.BIG_LILY_PAD.get());
         entry.accept(SMBBlocks.LUMINOUS_FLOWER.get());
+        entry.accept(SMBBlocks.LAVENDER.get());
         entry.accept(SMBBlocks.SHORT_GALAHAD_LARKSPUR.get());
         entry.accept(SMBBlocks.SHORT_ASTOLAT_LARKSPUR.get());
         entry.accept(SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get());
@@ -806,7 +807,7 @@ public class SMBCreativeTabs {
 
   public static final PlatformRegistryObject<CreativeModeTab> MORE_REDSTONE_BLOCKS = PlatformServices.REGISTRY.registerCreativeModeTab("more_redstone_blocks", CreativeModeTab.Row.TOP, 3,
     (builder) -> builder
-      .icon(() -> SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get().asItem().getDefaultInstance())
+      .icon(() -> SMBBlocks.REDSTONE_SHROOMLIGHT.get().asItem().getDefaultInstance())
       .title(Component.translatable("itemGroup.somemoreblocks.someMoreRedstoneBlocks"))
       .displayItems((ctx, entry) -> {
         entry.accept(SMBBlocks.REDSTONE_BRICKS.get());

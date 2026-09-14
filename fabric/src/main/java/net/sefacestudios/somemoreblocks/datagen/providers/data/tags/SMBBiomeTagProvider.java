@@ -156,6 +156,17 @@ public class SMBBiomeTagProvider extends FabricTagsProvider<@NotNull Biome> {
         Biomes.CHERRY_GROVE
       ));
 
+    this.builder(SMBBiomeTags.GENERATES_LAVENDER)
+      .addAll(List.of(
+        Biomes.MEADOW,
+        Biomes.PLAINS,
+        Biomes.SUNFLOWER_PLAINS,
+        Biomes.FLOWER_FOREST,
+        Biomes.FOREST,
+        Biomes.BIRCH_FOREST,
+        Biomes.OLD_GROWTH_BIRCH_FOREST
+      ));
+
     this.builder(SMBBiomeTags.GENERATES_NETHER_CLOVER)
       .addAll(List.of(
         Biomes.CRIMSON_FOREST,

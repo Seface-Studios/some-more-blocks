@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#somemoreblocks:generates/lavender",
+  "features": "somemoreblocks:patch_lavender",
+  "step": "vegetal_decoration"
+}

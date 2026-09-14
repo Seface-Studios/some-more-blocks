@@ -22,6 +22,7 @@ public class ClientRegistries {
     BlockColorRegistry.register(List.of(BlockTintSources.foliage()), SMBBlocks.LEAF_LITTER.get());
     BlockColorRegistry.register(List.of(BlockTintSources.grass()), SMBBlocks.CLOVER.get());
     BlockColorRegistry.register(List.of(BlockTintSources.grass()), SMBBlocks.SPROUTS.get());
+    BlockColorRegistry.register(List.of(BlockTintSources.grass()), SMBBlocks.LAVENDER.get());
   }
 
   /**

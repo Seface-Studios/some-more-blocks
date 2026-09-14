@@ -469,6 +469,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.oneItemToOther(RecipeCategory.MISC, Items.PURPLE_DYE, SMBBlocks.SHORT_PURPLE_LARKSPUR.get(), 1);
         this.oneItemToOther(RecipeCategory.MISC, Items.RED_DYE, SMBBlocks.RED_LARK_LARKSPUR.get(), 2);
         this.oneItemToOther(RecipeCategory.MISC, Items.RED_DYE, SMBBlocks.SHORT_RED_LARK_LARKSPUR.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.PURPLE_DYE, SMBBlocks.LAVENDER.get(), 1);
         this.mushroomStewFromPaleMushroom(Items.RED_MUSHROOM);
         this.mushroomStewFromPaleMushroom(Items.BROWN_MUSHROOM);
         this.rabbitStewFromPaleMushroom();

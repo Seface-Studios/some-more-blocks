@@ -1,6 +1,7 @@
 package net.sefacestudios.somemoreblocks.registries;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -707,6 +708,7 @@ public class SMBBlocks {
   public static final PlatformRegistryObject<Block> POTTED_SHORT_RED_LARK_LARKSPUR = PlatformServices.REGISTRY.registerFlowerPotBlock(SMBBlocks.SHORT_RED_LARK_LARKSPUR);
   public static final PlatformRegistryObject<Block> SPROUTS = PlatformServices.REGISTRY.registerBlock("sprouts", () -> new TallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS).offsetType(BlockBehaviour.OffsetType.XZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "sprouts"))));
   public static final PlatformRegistryObject<Block> DUCKWEED = PlatformServices.REGISTRY.registerBlock("duckweed", () -> new DuckweedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET).noCollision().dynamicShape().offsetType(BlockBehaviour.OffsetType.XYZ).setId(SomeMoreBlocks.key(Registries.BLOCK, "duckweed"))), false);
+  public static final PlatformRegistryObject<Block> LAVENDER = PlatformServices.REGISTRY.registerBlock("lavender", () -> new FlowerBlock(MobEffects.SATURATION, 0.35F, BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION).noCollision().dynamicShape().setId(SomeMoreBlocks.key(Registries.BLOCK, "lavender"))));
   public static final PlatformRegistryObject<Block> PEBBLES = PlatformServices.REGISTRY.registerBlock("pebbles", () -> new PebblesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noCollision().dynamicShape().setId(SomeMoreBlocks.key(Registries.BLOCK, "pebbles"))), false);
 
   public static final PlatformRegistryObject<Block> OAK_SLATS = PlatformServices.REGISTRY.registerBlock("oak_slats", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).setId(SomeMoreBlocks.key(Registries.BLOCK, "oak_slats"))));

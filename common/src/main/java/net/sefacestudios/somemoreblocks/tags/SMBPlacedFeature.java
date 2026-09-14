@@ -27,6 +27,7 @@ public class SMBPlacedFeature {
   public static final ResourceKey<@NotNull PlacedFeature> PATCH_LARGE_SNOW_FERN = register("patch_large_snow_fern");
   public static final ResourceKey<@NotNull PlacedFeature> PATCH_LARKSPUR = register("patch_larkspur");
   public static final ResourceKey<@NotNull PlacedFeature> PATCH_LARKSPUR_FLOWER_FOREST = register("patch_larkspur_flower_forest");
+  public static final ResourceKey<@NotNull PlacedFeature> PATCH_LAVENDER = register("patch_lavender");
   public static final ResourceKey<@NotNull PlacedFeature> PATCH_LUMINOUS_FLOWER = register("patch_luminous_flower");
   public static final ResourceKey<@NotNull PlacedFeature> PATCH_NETHER_CLOVER = register("patch_nether_clover");
   public static final ResourceKey<@NotNull PlacedFeature> PATCH_PALE_MUSHROOM = register("patch_pale_mushroom");

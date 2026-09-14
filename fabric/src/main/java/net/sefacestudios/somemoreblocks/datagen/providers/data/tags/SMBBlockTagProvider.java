@@ -304,7 +304,10 @@ public class SMBBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
       .setReplace(false);
 
     this.valueLookupBuilder(BlockTags.SMALL_FLOWERS)
-      .add(SMBBlocks.LUMINOUS_FLOWER.get())
+      .add(
+        SMBBlocks.LUMINOUS_FLOWER.get(),
+        SMBBlocks.LAVENDER.get()
+      )
       .setReplace(false);
 
     this.valueLookupBuilder(BlockTags.SNOW)

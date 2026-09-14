@@ -1,0 +1,7 @@
+{
+  "parent": "somemoreblocks:block/templates/cross_tinted",
+  "textures": {
+    "cross": "somemoreblocks:block/lavender",
+    "stem": "somemoreblocks:block/lavender_stem"
+  }
+}

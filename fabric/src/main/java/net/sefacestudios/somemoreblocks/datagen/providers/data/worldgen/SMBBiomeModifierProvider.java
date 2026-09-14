@@ -46,6 +46,7 @@ public class SMBBiomeModifierProvider extends BiomeModifierProvider {
     this.vegetalDecoration(SMBPlacedFeature.PATCH_LARGE_SNOW_FERN, SMBBiomeTags.GENERATES_LARGE_SNOW_FERN);
     this.vegetalDecoration(SMBPlacedFeature.PATCH_LARKSPUR, SMBBiomeTags.GENERATES_LARKSPUR);
     this.vegetalDecoration(SMBPlacedFeature.PATCH_LARKSPUR_FLOWER_FOREST, Biomes.FLOWER_FOREST);
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_LAVENDER, SMBBiomeTags.GENERATES_LAVENDER);
     this.luminousFlower();
     this.leafLitter(SMBPlacedFeature.SIMPLE_BLOCK_AZALEA_LEAF_LITTER);
     this.leafLitter(SMBPlacedFeature.SIMPLE_BLOCK_BIRCH_LEAF_LITTER);

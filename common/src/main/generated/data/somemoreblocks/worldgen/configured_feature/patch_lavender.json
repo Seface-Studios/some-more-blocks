@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "somemoreblocks:lavender"
+          },
+          "weight": 6
+        },
+        {
+          "data": {
+            "Name": "minecraft:short_grass"
+          },
+          "weight": 2
+        },
+        {
+          "data": {
+            "Name": "somemoreblocks:sprouts"
+          },
+          "weight": 2
+        }
+      ]
+    }
+  }
+}

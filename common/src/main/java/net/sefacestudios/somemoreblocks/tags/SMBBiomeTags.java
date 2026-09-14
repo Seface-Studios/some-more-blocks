@@ -19,6 +19,7 @@ public final class SMBBiomeTags {
   public static final TagKey<@NotNull Biome> GENERATES_DUCKWEED = register("generates/duckweed");
   public static final TagKey<@NotNull Biome> GENERATES_LARGE_SNOW_FERN = register("generates/large_snow_fern");
   public static final TagKey<@NotNull Biome> GENERATES_LARKSPUR = register("generates/larkspur");
+  public static final TagKey<@NotNull Biome> GENERATES_LAVENDER = register("generates/lavender");
   public static final TagKey<@NotNull Biome> GENERATES_LUMINOUS_FLOWER = register("generates/luminous_flower");
   public static final TagKey<@NotNull Biome> GENERATES_NETHER_CLOVER = register("generates/nether_clover");
   public static final TagKey<@NotNull Biome> GENERATES_PALE_MUSHROOM = register("generates/pale_mushroom");

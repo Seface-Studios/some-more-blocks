@@ -30,6 +30,7 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.patchLargeSnowFern();
     SMBBiomeModifiers.patchLarkspur();
     SMBBiomeModifiers.patchLarkspurFlowerForest();
+    SMBBiomeModifiers.patchLavender();
     SMBBiomeModifiers.patchLuminousFlower();
     SMBBiomeModifiers.patchNetherClover();
     SMBBiomeModifiers.patchPaleMushroom();
@@ -236,6 +237,14 @@ public class SMBBiomeModifiers {
       (ctx) -> ctx.getBiomeKey() == Biomes.FLOWER_FOREST,
       GenerationStep.Decoration.VEGETAL_DECORATION,
       SMBPlacedFeature.PATCH_LARKSPUR_FLOWER_FOREST
+    );
+  }
+
+  private static void patchLavender() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_LAVENDER).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_LAVENDER
     );
   }
 

@@ -22,6 +22,7 @@ Updated to Minecraft 26.1.
   - Red Lark Larkspur
   - Short Red Lark Larkspur
 - Duckweed
+- Lavender
 - Sprouts
 - Pebbles
 - Wooden Slats

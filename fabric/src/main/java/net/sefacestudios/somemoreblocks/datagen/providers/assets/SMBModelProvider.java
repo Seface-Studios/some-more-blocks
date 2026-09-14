@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.mojang.math.Quadrant;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.minecraft.client.color.item.GrassColorSource;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ItemModelOutput;
@@ -326,6 +327,7 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createItemWithGrassTint(SMBBlocks.SPROUTS.get());
     this.createDuckweed();
     this.createPebbles();
+    this.createLavender();
 
     /* More Redstone Blocks */
     this.createRedstoneLampBlock(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
@@ -339,6 +341,27 @@ public class SMBModelProvider extends FabricModelProvider {
   @Override
   public void generateItemModels(ItemModelGenerators gen) {
     this.createLeavesBucket(SMBItems.DRY_LEAVES_BUCKET.get());
+  }
+
+  public final void createLavender() {
+    Block block = SMBBlocks.LAVENDER.get();
+    Item item = block.asItem();
+
+    TextureMapping itemTextureMapping = TextureMapping.defaultTexture(block)
+      .put(TextureSlot.LAYER0, TextureMapping.getBlockTexture(block, "_stem"))
+      .put(TextureSlot.LAYER1, TextureMapping.getBlockTexture(block));
+
+    Identifier itemModel = ModelTemplates.TWO_LAYERED_ITEM.create(item, itemTextureMapping, this.modelOutput);
+    this.itemModelOutput.accept(item, ItemModelUtils.tintedModel(itemModel, new GrassColorSource()));
+
+    TextureMapping blockTextureMapping = TextureMapping.defaultTexture(block)
+      .copyAndUpdate(TextureSlot.CROSS, TextureMapping.getBlockTexture(block))
+      .copyAndUpdate(TextureSlot.STEM, TextureMapping.getBlockTexture(block, "_stem"));
+
+    Identifier blockModel = SMBModelTemplates.CROSS_TINTED.create(block, blockTextureMapping, this.modelOutput);
+    this.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, BlockModelGenerators.plainVariant(blockModel)));
+
+    /*this.blockModelGenerators.createNonTemplateModelBlock(SMBBlocks.POTTED_LAVANDA.get());*/
   }
 
   private void createDuckweed() {
