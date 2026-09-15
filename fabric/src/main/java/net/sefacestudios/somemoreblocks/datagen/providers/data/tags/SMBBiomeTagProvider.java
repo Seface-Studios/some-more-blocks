@@ -147,6 +147,22 @@ public class SMBBiomeTagProvider extends FabricTagsProvider<@NotNull Biome> {
         Biomes.MANGROVE_SWAMP
       ));
 
+    // Same biomes where vanilla Short Dry Grass generates.
+    this.builder(SMBBiomeTags.GENERATES_DRY_SPROUTS)
+      .addOptionalTag(BiomeTags.IS_BADLANDS)
+      .add(Biomes.DESERT);
+
+    this.builder(SMBBiomeTags.GENERATES_PEBBLES)
+      .addOptionalTag(BiomeTags.IS_OVERWORLD);
+
+    this.builder(SMBBiomeTags.GENERATES_PEBBLES_STONY)
+      .addAll(List.of(
+        Biomes.STONY_SHORE,
+        Biomes.STONY_PEAKS,
+        Biomes.WINDSWEPT_GRAVELLY_HILLS,
+        Biomes.WINDSWEPT_HILLS
+      ));
+
     this.builder(SMBBiomeTags.GENERATES_LARKSPUR)
       .addAll(List.of(
         Biomes.MEADOW,
@@ -175,13 +191,9 @@ public class SMBBiomeTagProvider extends FabricTagsProvider<@NotNull Biome> {
         Biomes.NETHER_WASTES
       ));
 
+    // Underground only under Pale Garden columns (not lush/dripstone/deep dark worldwide).
     this.builder(SMBBiomeTags.GENERATES_PALE_MUSHROOM)
-      .addAll(List.of(
-        Biomes.PALE_GARDEN,
-        Biomes.DRIPSTONE_CAVES,
-        Biomes.LUSH_CAVES,
-        Biomes.DEEP_DARK
-      ));
+      .add(Biomes.PALE_GARDEN);
 
     this.builder(SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY)
       .add(Biomes.PALE_GARDEN);

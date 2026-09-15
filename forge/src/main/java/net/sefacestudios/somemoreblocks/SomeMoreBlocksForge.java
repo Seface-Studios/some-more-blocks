@@ -1,8 +1,11 @@
 package net.sefacestudios.somemoreblocks;
 
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.sefacestudios.somemoreblocks.events.ColorProviderRegister;
 import net.sefacestudios.somemoreblocks.platform.registry.ForgePlatformRegistry;
 import net.sefacestudios.somemoreblocks.registries.SMBBiomeModifiers;
 
@@ -16,5 +19,9 @@ public class SomeMoreBlocksForge {
 
     SomeMoreBlocks.init(() -> ForgePlatformRegistry.init(EVENT_BUS), null);
     SMBBiomeModifiers.init(EVENT_BUS);
+
+    if (FMLEnvironment.dist == Dist.CLIENT) {
+      ColorProviderRegister.init();
+    }
   }
 }

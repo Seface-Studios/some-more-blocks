@@ -62,6 +62,11 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     PatchSnowPlantsFeatureProvider.create().registerPlaceFeature(context);
     PatchSnowBushProvider.create().registerPlaceFeature(context);
     PatchSproutsFeatureProvider.create().registerPlaceFeature(context);
+    PatchDrySproutsFeatureProvider.create().registerPlaceFeature(context);
+    PatchPebblesFeatureProvider.create().registerPlaceFeature(context);
+    PatchPebblesStonyFeatureProvider.create().registerPlaceFeature(context);
+    PatchPebblesUndergroundFeatureProvider.create().registerPlaceFeature(context);
+    PatchPebblesUnderwaterFeatureProvider.create().registerPlaceFeature(context);
     SMBFeatureProvider.azaleaLeafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.birchLeafLitter().registerPlaceFeature(context);
     SMBFeatureProvider.brownMushroomColony().registerPlaceFeature(context);
@@ -106,6 +111,11 @@ public class SMBFeatureProvider extends FabricDynamicRegistryProvider {
     PatchSnowPlantsFeatureProvider.create().registerConfiguredFeature(context);
     PatchSnowBushProvider.create().registerConfiguredFeature(context);
     PatchSproutsFeatureProvider.create().registerConfiguredFeature(context);
+    PatchDrySproutsFeatureProvider.create().registerConfiguredFeature(context);
+    PatchPebblesFeatureProvider.create().registerConfiguredFeature(context);
+    PatchPebblesStonyFeatureProvider.create().registerConfiguredFeature(context);
+    PatchPebblesUndergroundFeatureProvider.create().registerConfiguredFeature(context);
+    PatchPebblesUnderwaterFeatureProvider.create().registerConfiguredFeature(context);
     SMBFeatureProvider.azaleaLeafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.birchLeafLitter().registerConfiguredFeature(context);
     SMBFeatureProvider.brownMushroomColony().registerConfiguredFeature(context);

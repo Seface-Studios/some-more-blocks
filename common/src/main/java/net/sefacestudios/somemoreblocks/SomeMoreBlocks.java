@@ -183,6 +183,8 @@ public class SomeMoreBlocks {
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SHORT_RED_LARK_LARKSPUR.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.POTTED_SHORT_RED_LARK_LARKSPUR.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.SPROUTS.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.DRY_SPROUTS.get(), cutout);
+    PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.PEBBLES.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.DUCKWEED.get(), cutout);
     PlatformServices.REGISTRY.setBlockRenderType(SMBBlocks.LAVENDER.get(), cutout);
   }

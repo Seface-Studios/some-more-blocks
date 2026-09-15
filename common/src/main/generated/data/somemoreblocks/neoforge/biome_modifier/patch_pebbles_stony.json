@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#somemoreblocks:generates/pebbles_stony",
+  "features": "somemoreblocks:patch_pebbles_stony",
+  "step": "vegetal_decoration"
+}

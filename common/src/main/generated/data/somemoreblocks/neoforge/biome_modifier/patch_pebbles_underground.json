@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#somemoreblocks:generates/pebbles",
+  "features": "somemoreblocks:patch_pebbles_underground",
+  "step": "underground_decoration"
+}

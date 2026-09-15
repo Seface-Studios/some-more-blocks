@@ -24,6 +24,9 @@
     "somemoreblocks:crimson_fungus_colony": {
       "chance": 0.85
     },
+    "somemoreblocks:dry_sprouts": {
+      "chance": 0.3
+    },
     "somemoreblocks:duckweed": {
       "chance": 0.4
     },
@@ -34,6 +37,9 @@
       "chance": 1.0
     },
     "somemoreblocks:large_snow_fern": {
+      "chance": 0.65
+    },
+    "somemoreblocks:lavender": {
       "chance": 0.65
     },
     "somemoreblocks:leaves_bucket": {
@@ -79,6 +85,9 @@
       "chance": 0.65
     },
     "somemoreblocks:snow_fern": {
+      "chance": 0.3
+    },
+    "somemoreblocks:sprouts": {
       "chance": 0.3
     },
     "somemoreblocks:spruce_leaves_bucket": {

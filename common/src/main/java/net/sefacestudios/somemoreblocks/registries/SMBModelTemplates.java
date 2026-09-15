@@ -22,10 +22,6 @@ public class SMBModelTemplates {
   public static final ModelTemplate TINTED_FLOWERBED_3 = create("tinted_flowerbed_3", "_3", TextureSlot.FLOWERBED, TextureSlot.STEM);
   public static final ModelTemplate TINTED_FLOWERBED_4 = create("tinted_flowerbed_4", "_4", TextureSlot.FLOWERBED, TextureSlot.STEM);
   public static final ModelTemplate DUCKWEED = create("duckweed", TextureSlot.TEXTURE);
-  public static final ModelTemplate PEBBLES_1 = create("pebbles_1", "_1", TextureSlot.TEXTURE);
-  public static final ModelTemplate PEBBLES_2 = create("pebbles_2", "_2", TextureSlot.TEXTURE);
-  public static final ModelTemplate PEBBLES_3 = create("pebbles_3", "_3", TextureSlot.TEXTURE);
-  public static final ModelTemplate PEBBLES_4 = create("pebbles_4", "_4", TextureSlot.TEXTURE);
   public static final ModelTemplate CROSS_TINTED = create("cross_tinted", TextureSlot.CROSS, TextureSlot.STEM);
 
   public static ModelTemplate create(String path, TextureSlot ...textureSlots) {

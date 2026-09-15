@@ -2,6 +2,7 @@ package net.sefacestudios.somemoreblocks.datagen.providers.data.datamaps;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.sefacestudios.somemoreblocks.registries.SMBBlocks;
 import net.sefacestudios.somemoreblocks.registries.SMBItems;
 import net.sefacestudios.datagen_extras.data_maps.item.ItemDataMap;
@@ -55,6 +56,9 @@ public class SMBItemDataMapProvider extends ItemDataMapProvider {
     this.addCompostableItem(SMBBlocks.SHORT_PURPLE_LARKSPUR.get().asItem(), 0.65f);
     this.addCompostableItem(SMBBlocks.RED_LARK_LARKSPUR.get().asItem(), 1.0f);
     this.addCompostableItem(SMBBlocks.SHORT_RED_LARK_LARKSPUR.get().asItem(), 0.65f);
+    this.addCompostableItem(SMBBlocks.SPROUTS.get().asItem(), 0.3f);
+    this.addCompostableItem(SMBBlocks.DRY_SPROUTS.get().asItem(), 0.3f);
+    this.addCompostableItem(SMBBlocks.LAVENDER.get().asItem(), 0.65f);
 
     this.addFuelItem(SMBBlocks.COAL_BRICKS.get().asItem(), 32000);
     this.addFuelItem(SMBBlocks.CRACKED_COAL_BRICKS.get().asItem(), 19200);

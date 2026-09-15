@@ -37,6 +37,11 @@ public class SMBPlacedFeature {
   public static final ResourceKey<@NotNull PlacedFeature> PATCH_SMALL_LILY_PADS_LUSH_CAVES = register("patch_small_lily_pads_lush_caves");
   public static final ResourceKey<@NotNull PlacedFeature> PATCH_SNOW_GRASS = register("patch_snow_grass");
   public static final ResourceKey<@NotNull PlacedFeature> PATCH_SPROUTS = register("patch_sprouts");
+  public static final ResourceKey<@NotNull PlacedFeature> PATCH_DRY_SPROUTS = register("patch_dry_sprouts");
+  public static final ResourceKey<@NotNull PlacedFeature> PATCH_PEBBLES = register("patch_pebbles");
+  public static final ResourceKey<@NotNull PlacedFeature> PATCH_PEBBLES_STONY = register("patch_pebbles_stony");
+  public static final ResourceKey<@NotNull PlacedFeature> PATCH_PEBBLES_UNDERGROUND = register("patch_pebbles_underground");
+  public static final ResourceKey<@NotNull PlacedFeature> PATCH_PEBBLES_UNDERWATER = register("patch_pebbles_underwater");
   public static final ResourceKey<@NotNull PlacedFeature> PATCH_WARPED_FUNGUS_COLONY = register("patch_warped_fungus_colony");
   public static final ResourceKey<@NotNull PlacedFeature> SIMPLE_BLOCK_AZALEA_LEAF_LITTER = register("simple_block_azalea_leaf_litter");
   public static final ResourceKey<@NotNull PlacedFeature> SIMPLE_BLOCK_BIRCH_LEAF_LITTER = register("simple_block_birch_leaf_litter");

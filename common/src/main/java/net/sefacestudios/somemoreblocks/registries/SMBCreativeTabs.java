@@ -758,6 +758,7 @@ public class SMBCreativeTabs {
         entry.accept(SMBBlocks.DUNE_GRASS.get());
         entry.accept(SMBBlocks.TALL_DUNE_GRASS.get());
         entry.accept(SMBBlocks.SPROUTS.get());
+        entry.accept(SMBBlocks.DRY_SPROUTS.get());
         entry.accept(SMBBlocks.SHORT_SNOW_GRASS.get());
         entry.accept(SMBBlocks.TALL_SNOW_GRASS.get());
         entry.accept(SMBBlocks.SNOW_FERN.get());

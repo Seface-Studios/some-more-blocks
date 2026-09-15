@@ -5,16 +5,21 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "somemoreblocks:big_lily_pad",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "position": "bottom_left"
-          }
+          "condition": "minecraft:survives_explosion"
         }
       ],
       "entries": [
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "somemoreblocks:big_lily_pad",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "position": "bottom_left"
+              }
+            }
+          ],
           "name": "somemoreblocks:big_lily_pad"
         }
       ],

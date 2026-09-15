@@ -64,6 +64,11 @@ public class SMBBiomeModifierProvider extends BiomeModifierProvider {
     this.vegetalDecoration(SMBPlacedFeature.PATCH_SMALL_LILY_PADS_LUSH_CAVES, Biomes.LUSH_CAVES);
     this.vegetalDecoration(SMBPlacedFeature.PATCH_SNOW_GRASS, SMBBiomeTags.GENERATES_SNOW_GRASS);
     this.vegetalDecoration(SMBPlacedFeature.PATCH_SPROUTS, SMBBiomeTags.GENERATES_SPROUTS);
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_DRY_SPROUTS, SMBBiomeTags.GENERATES_DRY_SPROUTS);
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_PEBBLES, SMBBiomeTags.GENERATES_PEBBLES);
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_PEBBLES_STONY, SMBBiomeTags.GENERATES_PEBBLES_STONY);
+    this.pebblesUnderground();
+    this.vegetalDecoration(SMBPlacedFeature.PATCH_PEBBLES_UNDERWATER, SMBBiomeTags.GENERATES_PEBBLES);
     this.vegetalDecoration(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY, SMBBiomeTags.GENERATES_WARPED_FUNGUS_COLONY);
     this.vegetalDecoration(SMBPlacedFeature.SIMPLE_BROWN_MUSHROOM_COLONY_WALL, SMBBiomeTags.GENERATES_BROWN_MUSHROOM_COLONY);
     this.vegetalDecoration(SMBPlacedFeature.SIMPLE_PALE_MUSHROOM_COLONY_WALL, SMBBiomeTags.GENERATES_PALE_MUSHROOM_COLONY);
@@ -77,6 +82,15 @@ public class SMBBiomeModifierProvider extends BiomeModifierProvider {
       SMBPlacedFeature.PATCH_PALE_MUSHROOM.identifier(),
       SMBBiomeTags.GENERATES_PALE_MUSHROOM,
       SMBPlacedFeature.PATCH_PALE_MUSHROOM,
+      GenerationStep.Decoration.UNDERGROUND_DECORATION
+    );
+  }
+
+  private void pebblesUnderground() {
+    this.features().add(
+      SMBPlacedFeature.PATCH_PEBBLES_UNDERGROUND.identifier(),
+      SMBBiomeTags.GENERATES_PEBBLES,
+      SMBPlacedFeature.PATCH_PEBBLES_UNDERGROUND,
       GenerationStep.Decoration.UNDERGROUND_DECORATION
     );
   }

@@ -325,22 +325,22 @@ public class SMBBlockLootProvider extends FabricBlockLootSubProvider {
 
     /* More Natural Blocks */
     this.dropSelf(SMBBlocks.TINY_CACTUS.get());
-    this.dropDoublePlantWithoutShears(SMBBlocks.TALL_CACTUS.get());
-    this.dropWhenShears(SMBBlocks.DUNE_GRASS.get());
-    this.dropWhenShearsDoublePlant(SMBBlocks.TALL_DUNE_GRASS.get(), SMBBlocks.DUNE_GRASS.get());
-    this.dropWhenShears(SMBBlocks.SHORT_SNOW_GRASS.get());
-    this.dropWhenShearsDoublePlant(SMBBlocks.TALL_SNOW_GRASS.get(), SMBBlocks.SHORT_SNOW_GRASS.get());
-    this.dropWhenShears(SMBBlocks.SNOW_FERN.get());
-    this.dropWhenShearsDoublePlant(SMBBlocks.LARGE_SNOW_FERN.get(), SMBBlocks.SNOW_FERN.get());
-    this.dropWhenShears(SMBBlocks.SNOW_BUSH.get());
+    this.add(SMBBlocks.TALL_CACTUS.get(), this::createShearsOnlyDropForDoublePlant);
+    this.add(SMBBlocks.DUNE_GRASS.get(), this::createShearsOnlyDrop);
+    this.add(SMBBlocks.TALL_DUNE_GRASS.get(), this.createDoublePlantShearsDrop(SMBBlocks.DUNE_GRASS.get()));
+    this.add(SMBBlocks.SHORT_SNOW_GRASS.get(), this::createShearsOnlyDrop);
+    this.add(SMBBlocks.TALL_SNOW_GRASS.get(), this.createDoublePlantShearsDrop(SMBBlocks.SHORT_SNOW_GRASS.get()));
+    this.add(SMBBlocks.SNOW_FERN.get(), this::createShearsOnlyDrop);
+    this.add(SMBBlocks.LARGE_SNOW_FERN.get(), this.createDoublePlantShearsDrop(SMBBlocks.SNOW_FERN.get()));
+    this.add(SMBBlocks.SNOW_BUSH.get(), this::createShearsOnlyDrop);
     this.dropSelf(SMBBlocks.SNOW_FIREFLY_BUSH.get());
-    this.dropDoublePlantWithoutShears(SMBBlocks.PALE_ROSE_BUSH.get());
-    this.dropWhenShears(SMBBlocks.CATTAIL.get());
-    this.dropWhenShears(SMBBlocks.REEDS.get());
+    this.add(SMBBlocks.PALE_ROSE_BUSH.get(), this::createShearsOnlyDropForDoublePlant);
+    this.add(SMBBlocks.CATTAIL.get(), this::createShearsOnlyDrop);
+    this.add(SMBBlocks.REEDS.get(), this::createShearsOnlyDrop);
     this.dropSelfClover(SMBBlocks.CLOVER.get());
     this.dropSelfClover(SMBBlocks.NETHER_CLOVER.get());
     this.dropSelf(SMBBlocks.SMALL_LILY_PADS.get());
-    this.dropBigLilyPad(SMBBlocks.BIG_LILY_PAD.get());
+    this.add(SMBBlocks.BIG_LILY_PAD.get(), this::createQuadDirectionDrop);
     this.dropSelf(SMBBlocks.LUMINOUS_FLOWER.get());
     this.dropSmallMushroomColony(SMBBlocks.BROWN_MUSHROOM_COLONY.get(), SMBItems.BROWN_MUSHROOM_COLONY.get(), Items.BROWN_MUSHROOM, 2);
     this.dropSmallMushroomColony(SMBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(), SMBItems.BROWN_MUSHROOM_COLONY.get(), Items.BROWN_MUSHROOM, 2);
@@ -362,19 +362,21 @@ public class SMBBlockLootProvider extends FabricBlockLootSubProvider {
     this.dropPottedContents(SMBBlocks.POTTED_LUMINOUS_FLOWER.get());
     this.dropPottedContents(SMBBlocks.POTTED_SNOW_FERN.get());
     this.dropPottedContents(SMBBlocks.POTTED_PALE_MUSHROOM.get());
-    this.dropDoublePlantWithoutShears(SMBBlocks.GALAHAD_LARKSPUR.get());
-    this.dropDoublePlantWithoutShears(SMBBlocks.ASTOLAT_LARKSPUR.get());
-    this.dropDoublePlantWithoutShears(SMBBlocks.SUMMER_SKIES_LARKSPUR.get());
-    this.dropDoublePlantWithoutShears(SMBBlocks.PURPLE_LARKSPUR.get());
-    this.dropDoublePlantWithoutShears(SMBBlocks.RED_LARK_LARKSPUR.get());
+    this.add(SMBBlocks.GALAHAD_LARKSPUR.get(), this::createShearsOnlyDropForDoublePlant);
+    this.add(SMBBlocks.ASTOLAT_LARKSPUR.get(), this::createShearsOnlyDropForDoublePlant);
+    this.add(SMBBlocks.SUMMER_SKIES_LARKSPUR.get(), this::createShearsOnlyDropForDoublePlant);
+    this.add(SMBBlocks.PURPLE_LARKSPUR.get(), this::createShearsOnlyDropForDoublePlant);
+    this.add(SMBBlocks.RED_LARK_LARKSPUR.get(), this::createShearsOnlyDropForDoublePlant);
     this.dropSelf(SMBBlocks.SHORT_GALAHAD_LARKSPUR.get());
     this.dropSelf(SMBBlocks.SHORT_ASTOLAT_LARKSPUR.get());
     this.dropSelf(SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get());
     this.dropSelf(SMBBlocks.SHORT_PURPLE_LARKSPUR.get());
     this.dropSelf(SMBBlocks.SHORT_RED_LARK_LARKSPUR.get());
     this.dropSelf(SMBBlocks.LAVENDER.get());
+    this.dropSelf(SMBBlocks.PEBBLES.get());
     this.add(SMBBlocks.SPROUTS.get(), this::createGrassDrops);
-    this.dropWhenShears(SMBBlocks.DUCKWEED.get());
+    this.add(SMBBlocks.DRY_SPROUTS.get(), this::createShearsOrSilkTouchOnlyDrop);
+    this.add(SMBBlocks.DUCKWEED.get(), this::createShearsOnlyDrop);
 
     /* More Redstone Blocks */
     this.dropSelf(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get());
@@ -404,8 +406,12 @@ public class SMBBlockLootProvider extends FabricBlockLootSubProvider {
     }
   }
 
-  private void dropDoublePlantWithoutShears(Block block) {
-    this.add(block, this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
+  private LootTable.Builder createShearsOnlyDropForDoublePlant(Block block) {
+    return this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER);
+  }
+
+  private LootTable.Builder createQuadDirectionDrop(Block block) {
+    return this.createSinglePropConditionTable(block, SMBBlockStateProperties.POSITION, QuadDirection.BOTTOM_LEFT);
   }
 
   private void dropSelfClover(Block block) {
@@ -460,20 +466,6 @@ public class SMBBlockLootProvider extends FabricBlockLootSubProvider {
         .add(AlternativesEntry.alternatives(LootItem.lootTableItem(whenShearsItem).when(this.hasShears()))
           .otherwise(LootItem.lootTableItem(otherItem).apply(SetItemCountFunction.setCount(ConstantValue.exactly(otherAmount))))
         )
-      )
-    );
-  }
-
-  private void dropBigLilyPad(Block block) {
-    this.add(block, LootTable.lootTable()
-      .withPool(LootPool.lootPool()
-        .setRolls(ConstantValue.exactly(1.0F))
-        .when(
-          LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-            .setProperties(StatePropertiesPredicate.Builder.properties()
-              .hasProperty(SMBBlockStateProperties.POSITION, QuadDirection.BOTTOM_LEFT))
-        )
-        .add(LootItem.lootTableItem(block))
       )
     );
   }
@@ -534,18 +526,18 @@ public class SMBBlockLootProvider extends FabricBlockLootSubProvider {
    * Drop the block item when broken with shears.
    * @param block The affected block.
    */
-  private void dropWhenShears(Block block) {
+  /*private void dropWhenShears(Block block) {
     this.add(block, this.createShearsOnlyDrop(block));
-  }
+  }*/
 
   /**
    * Drop an item when break a double plant block with shears.
    * @param block The affected plant block.
    * @param dropBlock The dropped plant block in place.
    */
-  private void dropWhenShearsDoublePlant(Block block, Block dropBlock) {
+  /*private void dropWhenShearsDoublePlant(Block block, Block dropBlock) {
     this.add(block, this.createDoublePlantShearsDrop(dropBlock));
-  }
+  }*/
 
   /**
    * Generic slab drop with silk touch condition.

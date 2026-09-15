@@ -2,18 +2,6 @@
   "variants": {
     "": [
       {
-        "model": "somemoreblocks:block/duckweed_0",
-        "y": 90
-      },
-      {
-        "model": "somemoreblocks:block/duckweed_0",
-        "y": 180
-      },
-      {
-        "model": "somemoreblocks:block/duckweed_0",
-        "y": 270
-      },
-      {
         "model": "somemoreblocks:block/duckweed_1",
         "y": 90
       },
@@ -35,6 +23,18 @@
       },
       {
         "model": "somemoreblocks:block/duckweed_2",
+        "y": 270
+      },
+      {
+        "model": "somemoreblocks:block/duckweed_3",
+        "y": 90
+      },
+      {
+        "model": "somemoreblocks:block/duckweed_3",
+        "y": 180
+      },
+      {
+        "model": "somemoreblocks:block/duckweed_3",
         "y": 270
       }
     ]

@@ -106,6 +106,9 @@ public class SMBRegistries {
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.SHORT_PURPLE_LARKSPUR.get().asItem(), 0.65f);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.RED_LARK_LARKSPUR.get().asItem(), 1.0f);
     ComposterBlock.COMPOSTABLES.put(SMBBlocks.SHORT_RED_LARK_LARKSPUR.get().asItem(), 0.65f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.SPROUTS.get().asItem(), 0.3f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.DRY_SPROUTS.get().asItem(), 0.3f);
+    ComposterBlock.COMPOSTABLES.put(SMBBlocks.LAVENDER.get().asItem(), 0.65f);
   }
 
   private static void carvedBlocks() {

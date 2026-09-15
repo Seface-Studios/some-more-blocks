@@ -25,6 +25,7 @@ public class PatchPaleMushroomFeatureProvider extends FeatureProvider<SimpleBloc
     modifier.add(RarityFilter.onAverageOnceEvery(3));
     modifier.add(InSquarePlacement.spread());
     modifier.add(HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(0)));
+    modifier.add(BiomeFilter.biome());
     RandomPatchPlacementUtils.add(modifier, 96, 7, 3);
     modifier.add(BlockPredicateFilter.forPredicate(BlockPredicate.ONLY_IN_AIR_PREDICATE));
   }

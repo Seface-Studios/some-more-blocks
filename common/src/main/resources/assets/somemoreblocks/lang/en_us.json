@@ -733,6 +733,7 @@
   "item.somemoreblocks.birch_leaves_bucket": "Bucket of Birch Leaves",
   "item.somemoreblocks.carved_pale_oak_logs.moon_phase_description": "Moon Phase: %s",
   "item.somemoreblocks.dry_leaves_bucket": "Bucket of Dry Leaves",
+  "block.somemoreblocks.dry_sprouts": "Dry Sprouts",
   "item.somemoreblocks.flowering_azalea_leaves_bucket": "Bucket of Flowering Azalea Leaves",
   "item.somemoreblocks.leaves_bucket": "Bucket of Leaves",
   "item.somemoreblocks.leaves_bucket.volume_description": "Bucket volume: %s/%s",

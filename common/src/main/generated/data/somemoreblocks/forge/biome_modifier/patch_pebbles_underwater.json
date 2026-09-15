@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#somemoreblocks:generates/pebbles",
+  "features": "somemoreblocks:patch_pebbles_underwater",
+  "step": "vegetal_decoration"
+}

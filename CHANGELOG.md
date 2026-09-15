@@ -9,6 +9,12 @@ This file tracks all notable changes made to the project. It includes new featur
 ## 26.1.0.0 - TBD x, 2026
 Updated to Minecraft 26.1.
 
+| Platform 	| Minimum API Version 	 |
+|:--------:	|:---------------------:|
+| Fabric   	|   \>=0.144.0      	   |
+| Forge    	|   \>=62.0.8      	    |
+| NeoForge 	| \>=26.1.0.1-beta   	  |
+
 ### Added
 - Larkspur flowers
   - Galahad Larkspur
@@ -24,6 +30,7 @@ Updated to Minecraft 26.1.
 - Duckweed
 - Lavender
 - Sprouts
+- Dry Sprouts
 - Pebbles
 - Wooden Slats
 - Wooden Boards

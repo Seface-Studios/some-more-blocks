@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#somemoreblocks:generates/dry_sprouts",
+  "features": "somemoreblocks:patch_dry_sprouts",
+  "step": "vegetal_decoration"
+}

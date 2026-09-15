@@ -306,7 +306,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.smeltingResultFromBase(SMBBlocks.CRACKED_PRISMARINE_BRICKS.get(), Blocks.PRISMARINE_BRICKS);
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.PRISMARINE_PILLAR.get(), Blocks.PRISMARINE_BRICKS, 2);
         this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.PRISMARINE_TILES.get(), Blocks.PRISMARINE_BRICKS, 4);
-        this.mossyPrismarineBricks();
+        this.mossyBlockFromVineAndMossBlock(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.MOSSY_PRISMARINE_BRICKS.get(), Blocks.PRISMARINE_BRICKS);
         this.smeltingResultFromBase(SMBBlocks.SMOOTH_PRISMARINE.get(), Blocks.PRISMARINE);
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.NETHER_BRICKS_PILLAR.get(), Blocks.NETHER_BRICKS, 2);
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CHISELED_RED_NETHER_BRICKS.get(), Blocks.RED_NETHER_BRICK_SLAB, 1);

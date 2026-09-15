@@ -40,6 +40,11 @@ public class SMBBiomeModifiers {
     SMBBiomeModifiers.patchSnowBush();
     SMBBiomeModifiers.patchSnowGrass();
     SMBBiomeModifiers.patchSprouts();
+    SMBBiomeModifiers.patchDrySprouts();
+    SMBBiomeModifiers.patchPebbles();
+    SMBBiomeModifiers.patchPebblesStony();
+    SMBBiomeModifiers.patchPebblesUnderground();
+    SMBBiomeModifiers.patchPebblesUnderwater();
     SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.PATCH_WARPED_FUNGUS_COLONY);
     SMBBiomeModifiers.patchWarpedFungusColony(SMBPlacedFeature.SIMPLE_WARPED_FUNGUS_COLONY_WALL);
     SMBBiomeModifiers.simpleBrownMushroomColony(SMBPlacedFeature.PATCH_BROWN_MUSHROOM_COLONY);
@@ -253,6 +258,46 @@ public class SMBBiomeModifiers {
       (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_SPROUTS).test(ctx),
       GenerationStep.Decoration.VEGETAL_DECORATION,
       SMBPlacedFeature.PATCH_SPROUTS
+    );
+  }
+
+  private static void patchDrySprouts() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_DRY_SPROUTS).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_DRY_SPROUTS
+    );
+  }
+
+  private static void patchPebbles() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_PEBBLES).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_PEBBLES
+    );
+  }
+
+  private static void patchPebblesStony() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_PEBBLES_STONY).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_PEBBLES_STONY
+    );
+  }
+
+  private static void patchPebblesUnderground() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_PEBBLES).test(ctx),
+      GenerationStep.Decoration.UNDERGROUND_DECORATION,
+      SMBPlacedFeature.PATCH_PEBBLES_UNDERGROUND
+    );
+  }
+
+  private static void patchPebblesUnderwater() {
+    BiomeModifications.addFeature(
+      (ctx) -> BiomeSelectors.tag(SMBBiomeTags.GENERATES_PEBBLES).test(ctx),
+      GenerationStep.Decoration.VEGETAL_DECORATION,
+      SMBPlacedFeature.PATCH_PEBBLES_UNDERWATER
     );
   }
 
