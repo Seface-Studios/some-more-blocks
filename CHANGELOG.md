@@ -6,7 +6,7 @@ This file tracks all notable changes made to the project. It includes new featur
 > This changelog is only related to the versions for `Minecraft 26.1`.
 > For other versions, see their respective branch or the [most recent changelog](https://github.com/Seface-Studios/some-more-blocks/blob/main/CHANGELOG.md).
 
-## 26.1.0.0 - TBD x, 2026
+## 26.1.0.0 - September 17, 2026
 Updated to Minecraft 26.1.
 
 | Platform 	| Minimum API Version 	 |
