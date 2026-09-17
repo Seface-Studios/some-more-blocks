@@ -1,4 +1,4 @@
-![CHANGELOG](.github/assets/titles/changelog.png)
+![CHANGELOG](https://i.imgur.com/sOwvxNe.png)
 
 This file tracks all notable changes made to the project. It includes new features, bug fixes, improvements, and other updates — version by version.
 
