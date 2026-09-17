@@ -2,7 +2,6 @@ package net.sefacestudios.somemoreblocks.platform.registry;
 
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.serialization.Codec;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -13,7 +12,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.gamerules.*;
+import net.minecraft.world.level.gamerules.GameRule;
+import net.minecraft.world.level.gamerules.GameRuleCategory;
+import net.minecraft.world.level.gamerules.GameRuleType;
+import net.minecraft.world.level.gamerules.GameRuleTypeVisitor;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.neoforged.bus.api.IEventBus;
@@ -101,11 +103,6 @@ public class NeoForgePlatformRegistry implements PlatformRegistry {
       ));
 
     return new NeoForgeRegistryObject<>(identifier, instance);
-  }
-
-  @Override
-  public void setBlockRenderType(Block block, ChunkSectionLayer renderType) {
-    //ItemBlockRenderTypes.setRenderLayer(block, renderType);
   }
 
   @Override

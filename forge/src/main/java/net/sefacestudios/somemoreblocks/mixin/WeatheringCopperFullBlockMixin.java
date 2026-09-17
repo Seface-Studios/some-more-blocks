@@ -27,7 +27,7 @@ public abstract class WeatheringCopperFullBlockMixin extends Block {
       return nextBlock.map(_block -> _block.withPropertiesOf(state));
     }
 
-    return Optional.of(WeatheringCopper.getNext(block).get().withPropertiesOf(state));
+    return WeatheringCopper.getNext(block).map(_block -> _block.withPropertiesOf(state));
   }
 
   @Override

@@ -64,7 +64,7 @@ public class SMBItemDataMapProvider extends ItemDataMapProvider {
     this.addFuelItem(SMBBlocks.CRACKED_COAL_BRICKS.get().asItem(), 19200);
     this.addFuelItem(SMBBlocks.COAL_PILLAR.get().asItem(), 16000);
     this.addFuelItem(SMBBlocks.CUT_COAL.get().asItem(), 32767);
-    this.addFuelItem(SMBBlocks.CRACKED_CUT_COPPER.get().asItem(), 19800);
+    this.addFuelItem(SMBBlocks.CRACKED_CUT_COAL.get().asItem(), 19800);
     this.addFuelItem(SMBBlocks.CLOVER.get().asItem(), 100);
   }
 }

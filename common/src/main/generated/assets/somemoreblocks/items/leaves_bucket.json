@@ -5,35 +5,35 @@
       {
         "model": {
           "type": "minecraft:model",
-          "model": "somemoreblocks:item/leaves_bucket"
+          "model": "somemoreblocks:item/leaves_bucket_volume_0"
         },
         "threshold": 0.0
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "somemoreblocks:item/leaves_bucket_0"
+          "model": "somemoreblocks:item/leaves_bucket_volume_1"
         },
         "threshold": 8.0
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "somemoreblocks:item/leaves_bucket_1"
+          "model": "somemoreblocks:item/leaves_bucket_volume_2"
         },
         "threshold": 16.0
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "somemoreblocks:item/leaves_bucket_2"
+          "model": "somemoreblocks:item/leaves_bucket_volume_3"
         },
         "threshold": 24.0
       }
     ],
     "fallback": {
       "type": "minecraft:model",
-      "model": "somemoreblocks:item/leaves_bucket_2"
+      "model": "somemoreblocks:item/leaves_bucket_volume_3"
     },
     "property": "somemoreblocks:bucket_volume"
   }

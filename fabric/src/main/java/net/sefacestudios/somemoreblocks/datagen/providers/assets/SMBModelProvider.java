@@ -591,12 +591,16 @@ public class SMBModelProvider extends FabricModelProvider {
     int units = LeavesBucketItem.MAX_VOLUME / overrides.length;
 
     for (int i = 0; i < overrides.length; i++) {
-      String suffix = i == 0 ? "" : "_" + (i - 1);
+      // Keep texture ids ("" / _0 / _1 / _2) but never write a geometry model at the same
+      // ResourceLocation as the ClientItem (items/<id>.json), which can recurse on Forge.
+      String textureSuffix = i == 0 ? "" : "_" + (i - 1);
+      String modelSuffix = "_volume_" + i;
       int threshold = i == 0 ? 0 : units * i;
 
-      Material material = TextureMapping.getItemTexture(item, suffix);
+      Material material = TextureMapping.getItemTexture(item, textureSuffix);
       TextureMapping textureMapping = TextureMapping.layer0(item).put(TextureSlot.LAYER0, material);
-      Identifier itemModel = ModelTemplates.FLAT_ITEM.create(material.sprite(), textureMapping, this.modelOutput);
+      Identifier modelLocation = TextureMapping.getItemTexture(item, modelSuffix).sprite();
+      Identifier itemModel = ModelTemplates.FLAT_ITEM.create(modelLocation, textureMapping, this.modelOutput);
 
       overrides[i] = ItemModelUtils.override(ItemModelUtils.plainModel(itemModel), threshold);
     }

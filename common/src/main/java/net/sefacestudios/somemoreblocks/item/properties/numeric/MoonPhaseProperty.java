@@ -14,8 +14,13 @@ public record MoonPhaseProperty() implements RangeSelectItemModelProperty {
 
   @Override
   public float get(ItemStack stack, @Nullable ClientLevel clientLevel, @Nullable ItemOwner itemOwner, int i) {
-    if (stack.getComponents().has(((CarvedPaleOakBlockItem) stack.getItem()).getMoonPhaseComponentType())) {
-      return stack.get(((CarvedPaleOakBlockItem) stack.getItem()).getMoonPhaseComponentType());
+    if (!(stack.getItem() instanceof CarvedPaleOakBlockItem carved)) {
+      return 0;
+    }
+
+    var moonPhase = carved.getMoonPhaseComponentType();
+    if (stack.getComponents().has(moonPhase)) {
+      return stack.get(moonPhase);
     }
 
     return 0;

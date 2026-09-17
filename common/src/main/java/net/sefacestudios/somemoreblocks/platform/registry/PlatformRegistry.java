@@ -68,13 +68,6 @@ public interface PlatformRegistry {
    */
   PlatformRegistryObject<CreativeModeTab> registerCreativeModeTab(String path, CreativeModeTab.Row row, int i, UnaryOperator<CreativeModeTab.Builder> builder);
 
-  /**
-   * Main method to set the render type for a block.
-   * @param block The block to be configured.
-   * @param renderType The render type.
-   */
-  void setBlockRenderType(Block block, ChunkSectionLayer renderType);
-
   <T extends Recipe<?>> PlatformRegistryObject<RecipeSerializer<@NotNull T>> registerRecipeType(String path, RecipeSerializer<@NotNull T> serializer);
 
   /**

@@ -92,11 +92,6 @@ public class FabricPlatformRegistry implements PlatformRegistry {
   }
 
   @Override
-  public void setBlockRenderType(Block block, ChunkSectionLayer renderType) {
-    //BlockRenderLayerMap.putBlock(block, renderType);
-  }
-
-  @Override
   public <T extends Recipe<?>> PlatformRegistryObject<RecipeSerializer<@NotNull T>> registerRecipeType(String path, RecipeSerializer<@NotNull T> serializer) {
     Identifier identifier = SomeMoreBlocks.id(path);
     RecipeSerializer<@NotNull T> instance = Registry.register(

@@ -73,6 +73,14 @@ afterEvaluate {
     outputDirectory.set(metaDir)
     runsJson.set(layout.buildDirectory.file('minecraftforge/forgegradle/slimeLauncherMetadataForForge/launcher/runs.json'))
   }
+
+  /* SlimeLauncher metadata defaults to Java 8. gradlew.bat sets JAVA_TOOL_OPTIONS=--enable-preview,
+   * which makes Gradle mark every JDK 8 install as invalid. Run the launcher on the project JDK. */
+  tasks.withType(net.minecraftforge.gradle.internal.SlimeLauncherExec).configureEach {
+    javaLauncher.set(javaToolchains.launcherFor {
+      languageVersion = JavaLanguageVersion.of(project_jdk.toInteger())
+    })
+  }
 }
 
 final loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)

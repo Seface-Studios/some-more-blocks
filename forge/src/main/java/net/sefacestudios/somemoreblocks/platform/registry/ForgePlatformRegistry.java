@@ -2,7 +2,6 @@ package net.sefacestudios.somemoreblocks.platform.registry;
 
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.serialization.Codec;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -40,7 +39,6 @@ public class ForgePlatformRegistry implements PlatformRegistry {
   private static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SomeMoreBlocks.ID);
   private static final DeferredRegister<GameRule<?>> GAME_RULES = DeferredRegister.create(Registries.GAME_RULE, SomeMoreBlocks.ID);
   private static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, SomeMoreBlocks.ID);
-
 
   /** Forge don't have a Fuel Registry event, so we need to be a little trick here. */
   private static final Map<String, Integer> FUEL_BLOCK_ITEMS = Map.ofEntries(
@@ -120,11 +118,6 @@ public class ForgePlatformRegistry implements PlatformRegistry {
     );
 
     return new ForgeRegistryObject<>(identifier, instance);
-  }
-
-  @Override
-  public void setBlockRenderType(Block block, ChunkSectionLayer renderType) {
-    /* MC 26.1+ picks cutout/translucent from sprite alpha; ItemBlockRenderTypes is gone. */
   }
 
   @Override
