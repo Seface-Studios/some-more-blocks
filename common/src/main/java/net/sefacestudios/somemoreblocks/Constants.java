@@ -1,5 +1,9 @@
 package net.sefacestudios.somemoreblocks;
 
+import net.minecraft.world.item.DyeColor;
+
+import java.util.List;
+
 /**
  * Constants values to be used between multiple mod loaders.
  */
@@ -45,4 +49,6 @@ public abstract class Constants {
    */
   public static final int LEAF_LITTER_COLOR = 0x77AB2F;
   public static final int CLOVER_COLOR = 0x91BD59;
+
+  public static List<DyeColor> COLOR_ORDER = List.of(DyeColor.WHITE, DyeColor.LIGHT_GRAY, DyeColor.GRAY, DyeColor.BLACK, DyeColor.BROWN, DyeColor.RED, DyeColor.ORANGE, DyeColor.YELLOW, DyeColor.LIME, DyeColor.GREEN, DyeColor.CYAN, DyeColor.LIGHT_BLUE, DyeColor.BLUE, DyeColor.PURPLE, DyeColor.MAGENTA, DyeColor.PINK);
 }

@@ -1,12 +1,19 @@
 package net.sefacestudios.somemoreblocks.registries;
 
 import com.google.common.collect.Maps;
+import com.mojang.datafixers.types.Func;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ColorCollection;
+import net.minecraft.world.level.block.WeatheringCopperCollection;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
+import java.util.Objects;
+import java.util.function.Function;
 
 /**
  * This is <b>only used for Data Generation</b> and should not be implemented in other part of the code.
@@ -122,14 +129,9 @@ public class SMBBlockFamilies {
   public static final BlockFamily CUT_QUARTZ = register(SMBBlocks.CUT_QUARTZ.get()).cracked(SMBBlocks.CRACKED_CUT_QUARTZ.get()).getFamily();
   public static final BlockFamily AMETHYST_BRICKS = register(SMBBlocks.AMETHYST_BRICKS.get()).cracked(SMBBlocks.CRACKED_AMETHYST_BRICKS.get()).getFamily();
   public static final BlockFamily CUT_AMETHYST = register(SMBBlocks.CUT_AMETHYST.get()).cracked(SMBBlocks.CRACKED_CUT_AMETHYST.get()).getFamily();
-  public static final BlockFamily COPPER_BRICKS = register(SMBBlocks.COPPER_BRICKS.get()).cracked(SMBBlocks.CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
-  public static final BlockFamily EXPOSED_COPPER_BRICKS = register(SMBBlocks.EXPOSED_COPPER_BRICKS.get()).cracked(SMBBlocks.EXPOSED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
-  public static final BlockFamily WEATHERED_COPPER_BRICKS = register(SMBBlocks.WEATHERED_COPPER_BRICKS.get()).cracked(SMBBlocks.WEATHERED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
-  public static final BlockFamily OXIDIZED_COPPER_BRICKS = register(SMBBlocks.OXIDIZED_COPPER_BRICKS.get()).cracked(SMBBlocks.OXIDIZED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
-  public static final BlockFamily WAXED_COPPER_BRICKS = register(SMBBlocks.WAXED_COPPER_BRICKS.get()).cracked(SMBBlocks.WAXED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
-  public static final BlockFamily WAXED_EXPOSED_COPPER_BRICKS = register(SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get()).cracked(SMBBlocks.WAXED_EXPOSED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
-  public static final BlockFamily WAXED_WEATHERED_COPPER_BRICKS = register(SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get()).cracked(SMBBlocks.WAXED_WEATHERED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
-  public static final BlockFamily WAXED_OXIDIZED_COPPER_BRICKS = register(SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get()).cracked(SMBBlocks.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS.get()).dontGenerateModel().getFamily();
+
+  public static final WeatheringCopperCollection<@NotNull BlockFamily> COPPER_BRICKS = registerWeatheringCopper(SMBBlocks.COPPER_BRICKS.get(), SMBBlocks.CRACKED_COPPER_BRICKS.get());
+
   public static final BlockFamily BONE_BRICKS = register(SMBBlocks.BONE_BRICKS.get()).cracked(SMBBlocks.CRACKED_BONE_BRICKS.get()).stairs(SMBBlocks.BONE_BRICK_STAIRS.get()).slab(SMBBlocks.BONE_BRICK_SLAB.get()).wall(SMBBlocks.BONE_BRICK_WALL.get()).getFamily();
   public static final BlockFamily BONE_TILES = register(SMBBlocks.BONE_TILES.get()).cracked(SMBBlocks.CRACKED_BONE_TILES.get()).stairs(SMBBlocks.BONE_TILE_STAIRS.get()).slab(SMBBlocks.BONE_TILE_SLAB.get()).wall(SMBBlocks.BONE_TILE_WALL.get()).getFamily();
   public static final BlockFamily SOUL_SANDSTONE = register(SMBBlocks.SOUL_SANDSTONE.get()).stairs(SMBBlocks.SOUL_SANDSTONE_STAIRS.get()).slab(SMBBlocks.SOUL_SANDSTONE_SLAB.get()).wall(SMBBlocks.SOUL_SANDSTONE_WALL.get()).cut(SMBBlocks.CUT_SOUL_SANDSTONE.get()).dontGenerateModel().getFamily();
@@ -145,25 +147,27 @@ public class SMBBlockFamilies {
   public static final BlockFamily ICE_BRICKS = register(SMBBlocks.ICE_BRICKS.get()).cracked(SMBBlocks.CRACKED_ICE_BRICKS.get()).stairs(SMBBlocks.ICE_BRICK_STAIRS.get()).slab(SMBBlocks.ICE_BRICK_SLAB.get()).wall(SMBBlocks.ICE_BRICK_WALL.get()).getFamily();
   public static final BlockFamily ICE_TILES = register(SMBBlocks.ICE_TILES.get()).cracked(SMBBlocks.CRACKED_ICE_TILES.get()).stairs(SMBBlocks.ICE_TILE_STAIRS.get()).slab(SMBBlocks.ICE_TILE_SLAB.get()).wall(SMBBlocks.ICE_TILE_WALL.get()).getFamily();
 
+  /* TODO: Create a register method to ColorCollection<BlockFamily.Builder> */
   public static final BlockFamily SHINGLES = register(SMBBlocks.SHINGLES.get()).stairs(SMBBlocks.SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily WHITE_SHINGLES = register(SMBBlocks.WHITE_SHINGLES.get()).stairs(SMBBlocks.WHITE_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily LIGHT_GRAY_SHINGLES = register(SMBBlocks.LIGHT_GRAY_SHINGLES.get()).stairs(SMBBlocks.LIGHT_GRAY_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily GRAY_SHINGLES = register(SMBBlocks.GRAY_SHINGLES.get()).stairs(SMBBlocks.GRAY_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily BLACK_SHINGLES = register(SMBBlocks.BLACK_SHINGLES.get()).stairs(SMBBlocks.BLACK_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily BROWN_SHINGLES = register(SMBBlocks.BROWN_SHINGLES.get()).stairs(SMBBlocks.BROWN_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily RED_SHINGLES = register(SMBBlocks.RED_SHINGLES.get()).stairs(SMBBlocks.RED_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily ORANGE_SHINGLES = register(SMBBlocks.ORANGE_SHINGLES.get()).stairs(SMBBlocks.ORANGE_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily YELLOW_SHINGLES = register(SMBBlocks.YELLOW_SHINGLES.get()).stairs(SMBBlocks.YELLOW_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily LIME_SHINGLES = register(SMBBlocks.LIME_SHINGLES.get()).stairs(SMBBlocks.LIME_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily GREEN_SHINGLES = register(SMBBlocks.GREEN_SHINGLES.get()).stairs(SMBBlocks.GREEN_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily CYAN_SHINGLES = register(SMBBlocks.CYAN_SHINGLES.get()).stairs(SMBBlocks.CYAN_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily LIGHT_BLUE_SHINGLES = register(SMBBlocks.LIGHT_BLUE_SHINGLES.get()).stairs(SMBBlocks.LIGHT_BLUE_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily BLUE_SHINGLES = register(SMBBlocks.BLUE_SHINGLES.get()).stairs(SMBBlocks.BLUE_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily PURPLE_SHINGLES = register(SMBBlocks.PURPLE_SHINGLES.get()).stairs(SMBBlocks.PURPLE_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily MAGENTA_SHINGLES = register(SMBBlocks.MAGENTA_SHINGLES.get()).stairs(SMBBlocks.MAGENTA_SHINGLES_STAIRS.get()).getFamily();
-  public static final BlockFamily PINK_SHINGLES = register(SMBBlocks.PINK_SHINGLES.get()).stairs(SMBBlocks.PINK_SHINGLES_STAIRS.get()).getFamily();
+  public static final BlockFamily WHITE_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().white()).stairs(SMBBlocks.DYED_SHINGLES.get().white()).getFamily();
+  public static final BlockFamily LIGHT_GRAY_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().lightGray()).stairs(SMBBlocks.DYED_SHINGLES.get().lightGray()).getFamily();
+  public static final BlockFamily GRAY_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().gray()).stairs(SMBBlocks.DYED_SHINGLES.get().gray()).getFamily();
+  public static final BlockFamily BLACK_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().black()).stairs(SMBBlocks.DYED_SHINGLES.get().black()).getFamily();
+  public static final BlockFamily BROWN_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().brown()).stairs(SMBBlocks.DYED_SHINGLES.get().brown()).getFamily();
+  public static final BlockFamily RED_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().red()).stairs(SMBBlocks.DYED_SHINGLES.get().red()).getFamily();
+  public static final BlockFamily ORANGE_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().orange()).stairs(SMBBlocks.DYED_SHINGLES.get().orange()).getFamily();
+  public static final BlockFamily YELLOW_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().yellow()).stairs(SMBBlocks.DYED_SHINGLES.get().yellow()).getFamily();
+  public static final BlockFamily LIME_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().lime()).stairs(SMBBlocks.DYED_SHINGLES.get().lime()).getFamily();
+  public static final BlockFamily GREEN_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().green()).stairs(SMBBlocks.DYED_SHINGLES.get().green()).getFamily();
+  public static final BlockFamily CYAN_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().cyan()).stairs(SMBBlocks.DYED_SHINGLES.get().cyan()).getFamily();
+  public static final BlockFamily LIGHT_BLUE_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().lightBlue()).stairs(SMBBlocks.DYED_SHINGLES.get().lightBlue()).getFamily();
+  public static final BlockFamily BLUE_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().blue()).stairs(SMBBlocks.DYED_SHINGLES.get().blue()).getFamily();
+  public static final BlockFamily PURPLE_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().purple()).stairs(SMBBlocks.DYED_SHINGLES.get().purple()).getFamily();
+  public static final BlockFamily MAGENTA_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().magenta()).stairs(SMBBlocks.DYED_SHINGLES.get().magenta()).getFamily();
+  public static final BlockFamily PINK_SHINGLES = register(SMBBlocks.DYED_SHINGLES.get().pink()).stairs(SMBBlocks.DYED_SHINGLES.get().pink()).getFamily();
 
-  public static void init() {}
+  public static void init() {
+  }
 
   public static Map<Block, BlockFamily> getAllFamilies() {
     return BLOCK_FAMILIES;
@@ -182,6 +186,7 @@ public class SMBBlockFamilies {
 
   /**
    * Literally a copy & paste of {@link net.minecraft.data.BlockFamilies#familyBuilder(Block) BlockFamilies#familyBuilder} method.
+   *
    * @param parent The main block of the family.
    */
   private static BlockFamily.Builder register(Block parent) {
@@ -192,5 +197,20 @@ public class SMBBlockFamilies {
     } else {
       return builder;
     }
+  }
+
+  public static WeatheringCopperCollection<@NotNull BlockFamily> registerWeatheringCopper(
+    WeatheringCopperCollection<@NotNull Block> baseBlock,
+    @Nullable WeatheringCopperCollection<@NotNull Block> cracked
+  ) {
+    Function<Block, BlockFamily> createFamily = base -> {
+      BlockFamily.Builder builder = register(base).dontGenerateModel();
+      return builder.getFamily();
+    };
+
+    return WeatheringCopperCollection.createFamily(
+      (prefix, state) -> createFamily.apply(baseBlock.weathering().pick(state)),
+      (prefix, state) -> createFamily.apply(baseBlock.waxed().pick(state))
+    );
   }
 }

@@ -25,6 +25,8 @@ import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.StainedGlassBlock;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.sefacestudios.somemoreblocks.block.properties.QuadDirection;
 import net.sefacestudios.somemoreblocks.datagen.providers.assets.providers.CarvedWoodProvider;
@@ -132,34 +134,28 @@ public class SMBModelProvider extends FabricModelProvider {
     gen.createTrivialCube(SMBBlocks.NETHERITE_GRATE.get());
     gen.createTrivialCube(SMBBlocks.CRACKED_QUARTZ_BRICKS.get());
     gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.AMETHYST_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.family(SMBBlocks.COPPER_BRICKS.get()).generateFor(SMBBlockFamilies.COPPER_BRICKS)
-      .donateModelTo(SMBBlocks.COPPER_BRICKS.get(), SMBBlocks.WAXED_COPPER_BRICKS.get())
-      .donateModelTo(SMBBlocks.CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_CRACKED_COPPER_BRICKS.get());
-    gen.family(SMBBlocks.EXPOSED_COPPER_BRICKS.get()).generateFor(SMBBlockFamilies.EXPOSED_COPPER_BRICKS)
-      .donateModelTo(SMBBlocks.EXPOSED_COPPER_BRICKS.get(), SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get())
-      .donateModelTo(SMBBlocks.EXPOSED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_EXPOSED_CRACKED_COPPER_BRICKS.get());
-    gen.family(SMBBlocks.WEATHERED_COPPER_BRICKS.get()).generateFor(SMBBlockFamilies.WEATHERED_COPPER_BRICKS)
-      .donateModelTo(SMBBlocks.WEATHERED_COPPER_BRICKS.get(), SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get())
-      .donateModelTo(SMBBlocks.WEATHERED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_WEATHERED_CRACKED_COPPER_BRICKS.get());
-    gen.family(SMBBlocks.OXIDIZED_COPPER_BRICKS.get()).generateFor(SMBBlockFamilies.OXIDIZED_COPPER_BRICKS)
-      .donateModelTo(SMBBlocks.OXIDIZED_COPPER_BRICKS.get(), SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get())
-      .donateModelTo(SMBBlocks.OXIDIZED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS.get());
-    gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.COPPER_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.EXPOSED_COPPER_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.WEATHERED_COPPER_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
-    gen.createTrivialCube(SMBBlocks.CRACKED_CUT_COPPER.get());
-    gen.createTrivialCube(SMBBlocks.EXPOSED_CRACKED_CUT_COPPER.get());
-    gen.createTrivialCube(SMBBlocks.WEATHERED_CRACKED_CUT_COPPER.get());
-    gen.createTrivialCube(SMBBlocks.OXIDIZED_CRACKED_CUT_COPPER.get());
-    this.copyCutCopperModel(SMBBlocks.CRACKED_CUT_COPPER.get(), SMBBlocks.WAXED_CRACKED_CUT_COPPER.get());
-    this.copyCutCopperModel(SMBBlocks.EXPOSED_CRACKED_CUT_COPPER.get(), SMBBlocks.WAXED_EXPOSED_CRACKED_CUT_COPPER.get());
-    this.copyCutCopperModel(SMBBlocks.WEATHERED_CRACKED_CUT_COPPER.get(), SMBBlocks.WAXED_WEATHERED_CRACKED_CUT_COPPER.get());
-    this.copyCutCopperModel(SMBBlocks.OXIDIZED_CRACKED_CUT_COPPER.get(), SMBBlocks.WAXED_OXIDIZED_CRACKED_CUT_COPPER.get());
-    this.copyCopperPillarModel(SMBBlocks.COPPER_PILLAR.get(), SMBBlocks.WAXED_COPPER_PILLAR.get());
-    this.copyCopperPillarModel(SMBBlocks.EXPOSED_COPPER_PILLAR.get(), SMBBlocks.WAXED_EXPOSED_COPPER_PILLAR.get());
-    this.copyCopperPillarModel(SMBBlocks.WEATHERED_COPPER_PILLAR.get(), SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get());
-    this.copyCopperPillarModel(SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get());
+
+    WeatheringCopper.WeatherState.forEach((state) -> {
+      gen.family(SMBBlocks.COPPER_BRICKS.get().weathering().pick(state))
+        .generateFor(SMBBlockFamilies.COPPER_BRICKS.weathering().pick(state))
+        .donateModelTo(SMBBlocks.COPPER_BRICKS.get().weathering().pick(state), SMBBlocks.COPPER_BRICKS.get().waxed().pick(state))
+        .donateModelTo(SMBBlocks.CRACKED_COPPER_BRICKS.get().weathering().pick(state), SMBBlocks.CRACKED_COPPER_BRICKS.get().waxed().pick(state));
+    });
+
+    WeatheringCopper.WeatherState.forEach((state) -> {
+      gen.createRotatedPillarWithHorizontalVariant(SMBBlocks.COPPER_PILLAR.get().weathering().pick(state), TexturedModel.COLUMN_ALT, TexturedModel.COLUMN_HORIZONTAL_ALT);
+    });
+
+    SMBBlocks.CRACKED_CUT_COPPER.get().forEach(gen::createTrivialCube);
+
+    WeatheringCopper.WeatherState.forEach((state) -> {
+      this.copyCutCopperModel(SMBBlocks.CRACKED_CUT_COPPER.get().weathering().pick(state), SMBBlocks.CRACKED_CUT_COPPER.get().waxed().pick(state));
+    });
+
+    WeatheringCopper.WeatherState.forEach((state) -> {
+      this.copyCutCopperModel(SMBBlocks.COPPER_PILLAR.get().weathering().pick(state), SMBBlocks.COPPER_PILLAR.get().waxed().pick(state));
+    });
+
     this.soulSandstoneFamily(SMBBlocks.SOUL_SANDSTONE.get()).generateFor(SMBBlockFamilies.SOUL_SANDSTONE);
     this.createChiseledSoulSandstone(SMBBlocks.CHISELED_SOUL_SANDSTONE.get());
     this.soulSandstoneFamily(SMBBlocks.SOUL_SANDSTONE_BRICKS.get()).generateFor(SMBBlockFamilies.SOUL_SANDSTONE_BRICKS);
@@ -173,104 +169,21 @@ public class SMBModelProvider extends FabricModelProvider {
     /* More Colored Blocks */
     this.tiledGlassProvider(SMBBlocks.TILED_GLASS.get()).fullBlock().pane(SMBBlocks.TILED_GLASS_PANE.get(), Blocks.GLASS_PANE);
     this.tiledGlassProvider(SMBBlocks.TILED_TINTED_GLASS.get()).fullBlock();
-    this.tiledGlassProvider(SMBBlocks.WHITE_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get(), Blocks.WHITE_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE.get(), Blocks.LIGHT_GRAY_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.GRAY_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE.get(), Blocks.GRAY_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.BLACK_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.BLACK_STAINED_TILED_GLASS_PANE.get(), Blocks.BLACK_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.BROWN_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE.get(), Blocks.BROWN_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.RED_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.RED_STAINED_TILED_GLASS_PANE.get(), Blocks.RED_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.ORANGE_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get(), Blocks.ORANGE_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.YELLOW_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), Blocks.YELLOW_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.LIME_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.LIME_STAINED_TILED_GLASS_PANE.get(), Blocks.LIME_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.GREEN_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE.get(), Blocks.GREEN_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.CYAN_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE.get(), Blocks.CYAN_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE.get(), Blocks.LIGHT_BLUE_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.BLUE_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE.get(), Blocks.BLUE_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.PURPLE_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.PURPLE_STAINED_TILED_GLASS_PANE.get(), Blocks.PURPLE_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get(), Blocks.MAGENTA_STAINED_GLASS_PANE);
-    this.tiledGlassProvider(SMBBlocks.PINK_STAINED_TILED_GLASS.get()).fullBlock().pane(SMBBlocks.PINK_STAINED_TILED_GLASS_PANE.get(), Blocks.PINK_STAINED_GLASS_PANE);
-    gen.createTrivialCube(SMBBlocks.WHITE_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.LIGHT_GRAY_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.GRAY_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.BLACK_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.BROWN_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.RED_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.ORANGE_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.YELLOW_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.LIME_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.GREEN_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.CYAN_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.LIGHT_BLUE_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.BLUE_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.PURPLE_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.MAGENTA_CHECKERED_TILES.get());
-    gen.createTrivialCube(SMBBlocks.PINK_CHECKERED_TILES.get());
+
+    SMBBlocks.STAINED_TILED_GLASS.get().forEach((tiledGlass) -> {
+        StainedGlassBlock block = (StainedGlassBlock) tiledGlass;
+        this.tiledGlassProvider(tiledGlass).fullBlock().pane(SMBBlocks.STAINED_TILED_GLASS_PANE.get().pick(block.getColor()), Blocks.STAINED_GLASS_PANE.pick(block.getColor()));
+    });
+
+    SMBBlocks.CHECKERED_TILES.get().forEach(gen::createTrivialCube);
+
     gen.createTrivialCube(SMBBlocks.TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.WHITE_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.LIGHT_GRAY_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.GRAY_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.BLACK_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.BROWN_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.RED_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.ORANGE_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.YELLOW_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.LIME_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.GREEN_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.CYAN_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.LIGHT_BLUE_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.BLUE_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.PURPLE_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.MAGENTA_TERRACOTTA_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.PINK_TERRACOTTA_BRICKS.get());
+    SMBBlocks.DYED_TERRACOTTA_BRICKS.get().forEach(gen::createTrivialCube);
+
     gen.createTrivialCube(SMBBlocks.TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.WHITE_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.LIGHT_GRAY_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.GRAY_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.BLACK_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.BROWN_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.RED_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.ORANGE_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.YELLOW_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.LIME_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.GREEN_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.CYAN_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.LIGHT_BLUE_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.BLUE_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.PURPLE_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.MAGENTA_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.PINK_TERRACOTTA_TILES.get());
-    gen.createTrivialCube(SMBBlocks.WHITE_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.LIGHT_GRAY_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.GRAY_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.BLACK_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.BROWN_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.RED_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.ORANGE_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.YELLOW_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.LIME_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.GREEN_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.CYAN_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.LIGHT_BLUE_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.BLUE_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.PURPLE_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.MAGENTA_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.PINK_CONCRETE_BRICKS.get());
-    gen.createTrivialCube(SMBBlocks.WHITE_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.LIGHT_GRAY_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.GRAY_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.BLACK_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.BROWN_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.RED_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.ORANGE_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.YELLOW_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.LIME_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.GREEN_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.CYAN_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.LIGHT_BLUE_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.BLUE_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.PURPLE_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.MAGENTA_CONCRETE_TILES.get());
-    gen.createTrivialCube(SMBBlocks.PINK_CONCRETE_TILES.get());
+    SMBBlocks.DYED_TERRACOTTA_TILES.get().forEach(gen::createTrivialCube);
+    SMBBlocks.CONCRETE_BRICKS.get().forEach(gen::createTrivialCube);
+    SMBBlocks.CONCRETE_TILES.get().forEach(gen::createTrivialCube);
 
     /* More Natural Blocks */
     this.createTinyCactusWithFlowerPot(SMBBlocks.TINY_CACTUS.get(), SMBBlocks.POTTED_TINY_CACTUS.get(), BlockModelGenerators.PlantType.NOT_TINTED);

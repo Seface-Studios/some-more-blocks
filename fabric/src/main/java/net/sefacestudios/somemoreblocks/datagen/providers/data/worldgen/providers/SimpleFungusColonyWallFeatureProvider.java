@@ -53,8 +53,8 @@ public class SimpleFungusColonyWallFeatureProvider extends SimpleMushroomColonyW
           BlockPredicate.matchesBlocks(Vec3i.ZERO.relative(direction.getOpposite()), Blocks.NETHER_WART_BLOCK)
         ),
         BlockPredicate.anyOf(
-          BlockPredicate.matchesTag(Vec3i.ZERO.relative(direction.getOpposite()), BlockTags.CRIMSON_STEMS),
-          BlockPredicate.matchesTag(Vec3i.ZERO.relative(direction.getOpposite()), BlockTags.WARPED_STEMS)
+          BlockPredicate.matchesTag(Vec3i.ZERO.relative(direction.getOpposite()), BlockTags.LOGS),
+          BlockPredicate.matchesTag(Vec3i.ZERO.relative(direction.getOpposite()), BlockTags.LOGS)
         )
       )
     );

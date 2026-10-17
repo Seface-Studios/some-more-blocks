@@ -73,7 +73,7 @@ public class SimpleMushroomColonyWallFeatureProvider extends FeatureProvider<Ran
         ),
 
         BlockPredicate.anyOf(
-          BlockPredicate.matchesTag(Vec3i.ZERO.relative(direction.getOpposite()), BlockTags.LOGS_THAT_BURN),
+          BlockPredicate.matchesTag(Vec3i.ZERO.relative(direction.getOpposite()), BlockTags.LOGS),
           BlockPredicate.matchesBlocks(Vec3i.ZERO.relative(direction.getOpposite()), Blocks.MUSHROOM_STEM)
         )
       )

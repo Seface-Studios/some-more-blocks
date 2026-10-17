@@ -3,12 +3,13 @@ package net.sefacestudios.somemoreblocks.platform.registry;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.references.BlockItemId;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.gamerules.GameRule;
 import net.minecraft.world.level.gamerules.GameRuleCategory;
@@ -19,6 +20,8 @@ import net.minecraft.world.level.material.PushReaction;
 import net.sefacestudios.somemoreblocks.SomeMoreBlocks;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.function.BiFunction;
+import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
@@ -32,6 +35,40 @@ public interface PlatformRegistry {
    * @return The registered Block.
    */
   PlatformRegistryObject<Block> registerBlock(String path, Supplier<Block> supplier, boolean registerBlockItem);
+
+  PlatformRegistryObject<ColorCollection<@NotNull Block>> registerColoredBlock(
+    String path,
+    ColorCollection<@NotNull BlockItemId> collectionIds,
+    BiFunction<DyeColor, BlockBehaviour.Properties, Block> factory,
+    Function<DyeColor, BlockBehaviour.Properties> properties,
+    boolean registerBlockItem
+  );
+
+  default PlatformRegistryObject<ColorCollection<@NotNull Block>> registerColoredBlock(
+    String path,
+    ColorCollection<@NotNull BlockItemId> collectionIds,
+    BiFunction<DyeColor, BlockBehaviour.Properties, Block> factory,
+    Function<DyeColor, BlockBehaviour.Properties> properties
+  ) {
+    return this.registerColoredBlock(path, collectionIds, factory, properties, true);
+  }
+
+  PlatformRegistryObject<WeatheringCopperCollection<@NotNull Block>> registerWeatheringCopperBlock(
+    String path,
+    WeatheringCopperCollection<@NotNull BlockItemId> collectionIds,
+    BiFunction<WeatheringCopper.WeatherState, BlockBehaviour.Properties, Block> factory,
+    Function<WeatheringCopper.WeatherState, BlockBehaviour.Properties> properties,
+    boolean registerBlockItem
+  );
+
+  default PlatformRegistryObject<WeatheringCopperCollection<@NotNull Block>> registerWeatheringCopperBlock(
+    String path,
+    WeatheringCopperCollection<@NotNull BlockItemId> collectionIds,
+    BiFunction<WeatheringCopper.WeatherState, BlockBehaviour.Properties, Block> factory,
+    Function<WeatheringCopper.WeatherState, BlockBehaviour.Properties> properties
+  ) {
+    return this.registerWeatheringCopperBlock(path, collectionIds, factory, properties, true);
+  }
 
   /**
    * Main method to register an Item.

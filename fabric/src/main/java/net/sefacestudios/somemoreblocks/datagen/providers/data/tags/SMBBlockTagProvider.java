@@ -3,10 +3,12 @@ package net.sefacestudios.somemoreblocks.datagen.providers.data.tags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.references.BlockIds;
+import net.minecraft.references.BlockItemId;
+import net.minecraft.references.BlockItemIds;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FlowerBlock;
-import net.sefacestudios.somemoreblocks.registries.SMBBlocks;
+import net.sefacestudios.somemoreblocks.references.SMBBlockIds;
+import net.sefacestudios.somemoreblocks.references.SMBBlockItemIds;
 import net.sefacestudios.somemoreblocks.tags.SMBBlockTags;
 import org.jetbrains.annotations.NotNull;
 
@@ -19,95 +21,58 @@ public class SMBBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 
   @Override
   protected void addTags(@NotNull HolderLookup.Provider provider) {
-    this.valueLookupBuilder(SMBBlockTags.CATTAIL_PLACEABLE)
+    this.builder(SMBBlockTags.CATTAIL_PLACEABLE)
       .addOptionalTag(BlockTags.DIRT)
       .addOptionalTag(BlockTags.SAND)
-      .add(Blocks.MUD, Blocks.MUDDY_MANGROVE_ROOTS, Blocks.CLAY, Blocks.GRAVEL);
+      .add(BlockItemIds.MUD, BlockItemIds.MUDDY_MANGROVE_ROOTS, BlockItemIds.CLAY, BlockItemIds.GRAVEL);
 
-    this.valueLookupBuilder(SMBBlockTags.CATTAIL_ON_WATER_PLACEABLE)
+    this.builder(SMBBlockTags.CATTAIL_ON_WATER_PLACEABLE)
       .addOptionalTag(SMBBlockTags.CATTAIL_PLACEABLE);
 
-    this.valueLookupBuilder(SMBBlockTags.DUNE_GRASS_PLACEABLE)
+    this.builder(SMBBlockTags.DUNE_GRASS_PLACEABLE)
       .addOptionalTag(BlockTags.DIRT)
       .addOptionalTag(BlockTags.SAND);
 
-    this.valueLookupBuilder(SMBBlockTags.LARKSPUR_PLACEABLE)
+    this.builder(SMBBlockTags.LARKSPUR_PLACEABLE)
       .addOptionalTag(BlockTags.SUPPORTS_VEGETATION);
 
-    this.valueLookupBuilder(SMBBlockTags.LEAF_LITTERS_PLACEABLE).add(Blocks.DIRT_PATH, Blocks.FARMLAND, Blocks.MUD);
+    this.builder(SMBBlockTags.LEAF_LITTERS_PLACEABLE).add(BlockItemIds.DIRT_PATH, BlockItemIds.FARMLAND, BlockItemIds.MUD);
 
-    this.valueLookupBuilder(SMBBlockTags.LEAF_LITTER_REPLACEABLE)
+    this.builder(SMBBlockTags.LEAF_LITTER_REPLACEABLE)
       .add(
-        Blocks.DEAD_BUSH, Blocks.FERN,
-        Blocks.SHORT_GRASS, Blocks.VINE,
-        Blocks.MOSS_CARPET, Blocks.PALE_MOSS_CARPET,
-        SMBBlocks.DUNE_GRASS.get(), SMBBlocks.SNOW_FERN.get(),
-        SMBBlocks.SHORT_SNOW_GRASS.get(), Blocks.LEAF_LITTER);
+        BlockItemIds.DEAD_BUSH.block(), BlockItemIds.FERN.block(),
+        BlockItemIds.SHORT_GRASS.block(), BlockItemIds.VINE.block(),
+        BlockItemIds.MOSS_CARPET.block(), BlockItemIds.PALE_MOSS_CARPET.block(),
+        SMBBlockItemIds.DUNE_GRASS.block(), SMBBlockItemIds.SNOW_FERN.block(),
+        SMBBlockItemIds.SHORT_SNOW_GRASS.block(), BlockItemIds.LEAF_LITTER.block());
 
-    this.valueLookupBuilder(SMBBlockTags.MUSHROOM_COLONY_PLACEABLE)
+    this.builder(SMBBlockTags.MUSHROOM_COLONY_PLACEABLE)
       .addOptionalTag(BlockTags.DIRT)
       .addOptionalTag(BlockTags.LOGS)
-      .add(Blocks.MUSHROOM_STEM)
+      .add(BlockItemIds.MUSHROOM_STEM)
       .add(
-        Blocks.MANGROVE_ROOTS, Blocks.MUDDY_MANGROVE_ROOTS,
-        Blocks.CRIMSON_NYLIUM, Blocks.WARPED_NYLIUM, Blocks.CREAKING_HEART);
+        BlockItemIds.MANGROVE_ROOTS, BlockItemIds.MUDDY_MANGROVE_ROOTS,
+        BlockItemIds.CRIMSON_NYLIUM, BlockItemIds.WARPED_NYLIUM, BlockItemIds.CREAKING_HEART);
 
-    this.valueLookupBuilder(SMBBlockTags.SHINGLES)
-      .add(
-        SMBBlocks.SHINGLES.get(), SMBBlocks.WHITE_SHINGLES.get(),
-        SMBBlocks.LIGHT_GRAY_SHINGLES.get(), SMBBlocks.GRAY_SHINGLES.get(),
-        SMBBlocks.BLACK_SHINGLES.get(), SMBBlocks.BROWN_SHINGLES.get(),
-        SMBBlocks.RED_SHINGLES.get(), SMBBlocks.ORANGE_SHINGLES.get(),
-        SMBBlocks.YELLOW_SHINGLES.get(), SMBBlocks.LIME_SHINGLES.get(),
-        SMBBlocks.GREEN_SHINGLES.get(), SMBBlocks.CYAN_SHINGLES.get(),
-        SMBBlocks.LIGHT_BLUE_SHINGLES.get(), SMBBlocks.BLUE_SHINGLES.get(),
-        SMBBlocks.PURPLE_SHINGLES.get(), SMBBlocks.MAGENTA_SHINGLES.get(), SMBBlocks.PINK_SHINGLES.get());
+    this.builder(SMBBlockTags.SHINGLES)
+      .add(SMBBlockItemIds.SHINGLES)
+      .addAll(SMBBlockItemIds.DYED_SHINGLES.map(BlockItemId::block));
 
-    this.valueLookupBuilder(SMBBlockTags.TERRACOTTA_BRICKS)
-      .add(
-        SMBBlocks.TERRACOTTA_BRICKS.get(), SMBBlocks.WHITE_TERRACOTTA_BRICKS.get(),
-        SMBBlocks.LIGHT_GRAY_TERRACOTTA_BRICKS.get(), SMBBlocks.GRAY_TERRACOTTA_BRICKS.get(),
-        SMBBlocks.BLACK_TERRACOTTA_BRICKS.get(), SMBBlocks.BROWN_TERRACOTTA_BRICKS.get(),
-        SMBBlocks.RED_TERRACOTTA_BRICKS.get(), SMBBlocks.ORANGE_TERRACOTTA_BRICKS.get(),
-        SMBBlocks.YELLOW_TERRACOTTA_BRICKS.get(), SMBBlocks.LIME_TERRACOTTA_BRICKS.get(),
-        SMBBlocks.GREEN_TERRACOTTA_BRICKS.get(), SMBBlocks.CYAN_TERRACOTTA_BRICKS.get(),
-        SMBBlocks.LIGHT_BLUE_TERRACOTTA_BRICKS.get(), SMBBlocks.BLUE_TERRACOTTA_BRICKS.get(),
-        SMBBlocks.PURPLE_TERRACOTTA_BRICKS.get(), SMBBlocks.MAGENTA_TERRACOTTA_BRICKS.get(), SMBBlocks.PINK_TERRACOTTA_BRICKS.get());
+    this.builder(SMBBlockTags.TERRACOTTA_BRICKS)
+      .add(SMBBlockItemIds.TERRACOTTA_BRICKS)
+      .addAll(SMBBlockItemIds.DYED_TERRACOTTA_BRICKS.map(BlockItemId::block));
 
-    this.valueLookupBuilder(SMBBlockTags.TERRACOTTA_TILES)
-      .add(
-        SMBBlocks.TERRACOTTA_TILES.get(), SMBBlocks.WHITE_TERRACOTTA_TILES.get(),
-        SMBBlocks.LIGHT_GRAY_TERRACOTTA_TILES.get(), SMBBlocks.GRAY_TERRACOTTA_TILES.get(),
-        SMBBlocks.BLACK_TERRACOTTA_TILES.get(), SMBBlocks.BROWN_TERRACOTTA_TILES.get(),
-        SMBBlocks.RED_TERRACOTTA_TILES.get(), SMBBlocks.ORANGE_TERRACOTTA_TILES.get(),
-        SMBBlocks.YELLOW_TERRACOTTA_TILES.get(), SMBBlocks.LIME_TERRACOTTA_TILES.get(),
-        SMBBlocks.GREEN_TERRACOTTA_TILES.get(), SMBBlocks.CYAN_TERRACOTTA_TILES.get(),
-        SMBBlocks.LIGHT_BLUE_TERRACOTTA_TILES.get(), SMBBlocks.BLUE_TERRACOTTA_TILES.get(),
-        SMBBlocks.PURPLE_TERRACOTTA_TILES.get(), SMBBlocks.MAGENTA_TERRACOTTA_TILES.get(), SMBBlocks.PINK_TERRACOTTA_TILES.get());
+    this.builder(SMBBlockTags.TERRACOTTA_TILES)
+      .add(SMBBlockItemIds.TERRACOTTA_TILES)
+      .addAll(SMBBlockItemIds.DYED_TERRACOTTA_TILES.map(BlockItemId::block));
 
-    this.valueLookupBuilder(SMBBlockTags.CONCRETE_BRICKS)
-      .add(
-        SMBBlocks.WHITE_CONCRETE_BRICKS.get(), SMBBlocks.LIGHT_GRAY_CONCRETE_BRICKS.get(),
-        SMBBlocks.GRAY_CONCRETE_BRICKS.get(), SMBBlocks.BLACK_CONCRETE_BRICKS.get(),
-        SMBBlocks.BROWN_CONCRETE_BRICKS.get(), SMBBlocks.RED_CONCRETE_BRICKS.get(),
-        SMBBlocks.ORANGE_CONCRETE_BRICKS.get(), SMBBlocks.YELLOW_CONCRETE_BRICKS.get(),
-        SMBBlocks.LIME_CONCRETE_BRICKS.get(), SMBBlocks.GREEN_CONCRETE_BRICKS.get(),
-        SMBBlocks.CYAN_CONCRETE_BRICKS.get(), SMBBlocks.LIGHT_BLUE_CONCRETE_BRICKS.get(),
-        SMBBlocks.BLUE_CONCRETE_BRICKS.get(), SMBBlocks.PURPLE_CONCRETE_BRICKS.get(),
-        SMBBlocks.MAGENTA_CONCRETE_BRICKS.get(), SMBBlocks.PINK_CONCRETE_BRICKS.get());
+    this.builder(SMBBlockTags.CONCRETE_BRICKS)
+      .addAll(SMBBlockItemIds.CONCRETE_BRICKS.map(BlockItemId::block));
 
-    this.valueLookupBuilder(SMBBlockTags.CONCRETE_TILES)
-      .add(
-        SMBBlocks.WHITE_CONCRETE_TILES.get(), SMBBlocks.LIGHT_GRAY_CONCRETE_TILES.get(),
-        SMBBlocks.GRAY_CONCRETE_TILES.get(), SMBBlocks.BLACK_CONCRETE_TILES.get(),
-        SMBBlocks.BROWN_CONCRETE_TILES.get(), SMBBlocks.RED_CONCRETE_TILES.get(),
-        SMBBlocks.ORANGE_CONCRETE_TILES.get(), SMBBlocks.YELLOW_CONCRETE_TILES.get(),
-        SMBBlocks.LIME_CONCRETE_TILES.get(), SMBBlocks.GREEN_CONCRETE_TILES.get(),
-        SMBBlocks.CYAN_CONCRETE_TILES.get(), SMBBlocks.LIGHT_BLUE_CONCRETE_TILES.get(),
-        SMBBlocks.BLUE_CONCRETE_TILES.get(), SMBBlocks.PURPLE_CONCRETE_TILES.get(),
-        SMBBlocks.MAGENTA_CONCRETE_TILES.get(), SMBBlocks.PINK_CONCRETE_TILES.get());
+    this.builder(SMBBlockTags.CONCRETE_TILES)
+      .addAll(SMBBlockItemIds.CONCRETE_TILES.map(BlockItemId::block));
 
-    this.valueLookupBuilder(SMBBlockTags.CACTUS_PLANTS_PLACEABLE)
+    this.builder(SMBBlockTags.CACTUS_PLANTS_PLACEABLE)
       .addOptionalTag(BlockTags.DIRT)
       .addOptionalTag(BlockTags.SAND)
       .addOptionalTag(BlockTags.TERRACOTTA)
@@ -115,649 +80,609 @@ public class SMBBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
       .addOptionalTag(SMBBlockTags.TERRACOTTA_TILES)
       .addOptionalTag(SMBBlockTags.SHINGLES);
 
-    this.valueLookupBuilder(SMBBlockTags.LEAF_LITTERS)
+    this.builder(SMBBlockTags.LEAF_LITTERS)
       .add(
-        SMBBlocks.LEAF_LITTER.get(), SMBBlocks.AZALEA_LEAF_LITTER.get(),
-        SMBBlocks.BIRCH_LEAF_LITTER.get(), SMBBlocks.SPRUCE_LEAF_LITTER.get(),
-        SMBBlocks.PALE_OAK_LEAF_LITTER.get(), SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get());
+        SMBBlockIds.LEAF_LITTER, SMBBlockIds.AZALEA_LEAF_LITTER,
+        SMBBlockIds.BIRCH_LEAF_LITTER, SMBBlockIds.SPRUCE_LEAF_LITTER,
+        SMBBlockIds.PALE_OAK_LEAF_LITTER, SMBBlockIds.FLOWERING_AZALEA_LEAF_LITTER);
 
     addToVanillaTags();
   }
 
   private void addToVanillaTags() {
-    this.valueLookupBuilder(BlockTags.ACACIA_LOGS)
-      .add(SMBBlocks.CARVED_ACACIA_LOG.get(), SMBBlocks.CARVED_ACACIA_WOOD.get())
+    this.builder(BlockTags.LOGS)
+      .add(SMBBlockItemIds.CARVED_ACACIA_LOG, SMBBlockItemIds.CARVED_ACACIA_WOOD)
+      .add(SMBBlockItemIds.CARVED_BIRCH_LOG, SMBBlockItemIds.CARVED_BIRCH_WOOD)
+      .add(SMBBlockItemIds.CARVED_CHERRY_LOG, SMBBlockItemIds.CARVED_CHERRY_WOOD)
+      .add(SMBBlockItemIds.CARVED_CRIMSON_STEM, SMBBlockItemIds.CARVED_CRIMSON_HYPHAE)
+      .add(SMBBlockItemIds.CARVED_DARK_OAK_LOG, SMBBlockItemIds.CARVED_DARK_OAK_WOOD)
+      .add(SMBBlockItemIds.CARVED_MANGROVE_LOG, SMBBlockItemIds.CARVED_MANGROVE_WOOD)
+      .add(SMBBlockItemIds.CARVED_OAK_LOG, SMBBlockItemIds.CARVED_OAK_WOOD)
+      .add(SMBBlockItemIds.CARVED_SPRUCE_LOG, SMBBlockItemIds.CARVED_SPRUCE_WOOD)
+      .add(SMBBlockItemIds.CARVED_WARPED_STEM, SMBBlockItemIds.CARVED_WARPED_HYPHAE)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.BAMBOO_BLOCKS)
-      .add(SMBBlocks.CARVED_BAMBOO_BLOCK.get())
+    this.builder(BlockTags.BAMBOO_BLOCKS)
+      .add(SMBBlockItemIds.CARVED_BAMBOO_BLOCK)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.BIRCH_LOGS)
-      .add(SMBBlocks.CARVED_BIRCH_LOG.get(), SMBBlocks.CARVED_BIRCH_WOOD.get())
+    /*this.builder(BlockTags.BIRCH_LOGS)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.CHERRY_LOGS)
-      .add(SMBBlocks.CARVED_CHERRY_LOG.get(), SMBBlocks.CARVED_CHERRY_WOOD.get())
+    this.builder(BlockTags.CHERRY_LOGS)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.CRIMSON_STEMS)
-      .add(SMBBlocks.CARVED_CRIMSON_STEM.get(), SMBBlocks.CARVED_CRIMSON_HYPHAE.get())
+    this.builder(BlockTags.CRIMSON_STEMS)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.DARK_OAK_LOGS)
-      .add(SMBBlocks.CARVED_DARK_OAK_LOG.get(), SMBBlocks.CARVED_DARK_OAK_WOOD.get())
+    this.builder(BlockTags.DARK_OAK_LOGS)
       .setReplace(false);
-
-    this.valueLookupBuilder(BlockTags.FLOWER_POTS)
+*/
+    this.builder(BlockTags.FLOWER_POTS)
       .add(
-        SMBBlocks.POTTED_LUMINOUS_FLOWER.get(),
-        SMBBlocks.POTTED_SNOW_FERN.get(),
-        SMBBlocks.POTTED_TINY_CACTUS.get(),
-        SMBBlocks.POTTED_SHORT_GALAHAD_LARKSPUR.get(),
-        SMBBlocks.POTTED_SHORT_ASTOLAT_LARKSPUR.get(),
-        SMBBlocks.POTTED_SHORT_SUMMER_SKIES_LARKSPUR.get(),
-        SMBBlocks.POTTED_SHORT_PURPLE_LARKSPUR.get(),
-        SMBBlocks.POTTED_SHORT_RED_LARK_LARKSPUR.get()
+        SMBBlockIds.POTTED_LUMINOUS_FLOWER,
+        SMBBlockIds.POTTED_SNOW_FERN,
+        SMBBlockIds.POTTED_TINY_CACTUS,
+        SMBBlockIds.POTTED_SHORT_GALAHAD_LARKSPUR,
+        SMBBlockIds.POTTED_SHORT_ASTOLAT_LARKSPUR,
+        SMBBlockIds.POTTED_SHORT_SUMMER_SKIES_LARKSPUR,
+        SMBBlockIds.POTTED_SHORT_PURPLE_LARKSPUR,
+        SMBBlockIds.POTTED_SHORT_RED_LARK_LARKSPUR
       )
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.ICE)
+    this.builder(BlockTags.ICE)
       .add(
-        SMBBlocks.POLISHED_ICE.get(), SMBBlocks.POLISHED_ICE_STAIRS.get(),
-        SMBBlocks.POLISHED_ICE_SLAB.get(), SMBBlocks.ICE_BRICKS.get(),
-        SMBBlocks.CRACKED_ICE_BRICKS.get(), SMBBlocks.ICE_BRICK_STAIRS.get(),
-        SMBBlocks.ICE_BRICK_SLAB.get(), SMBBlocks.ICE_BRICK_WALL.get(),
-        SMBBlocks.ICE_PILLAR.get(), SMBBlocks.ICE_TILES.get(),
-        SMBBlocks.CRACKED_ICE_TILES.get(), SMBBlocks.ICE_TILE_STAIRS.get(),
-        SMBBlocks.ICE_TILE_SLAB.get(), SMBBlocks.ICE_TILE_WALL.get())
+        SMBBlockItemIds.POLISHED_ICE, SMBBlockItemIds.POLISHED_ICE_STAIRS,
+        SMBBlockItemIds.POLISHED_ICE_SLAB, SMBBlockItemIds.ICE_BRICKS,
+        SMBBlockItemIds.CRACKED_ICE_BRICKS, SMBBlockItemIds.ICE_BRICK_STAIRS,
+        SMBBlockItemIds.ICE_BRICK_SLAB, SMBBlockItemIds.ICE_BRICK_WALL,
+        SMBBlockItemIds.ICE_PILLAR, SMBBlockItemIds.ICE_TILES,
+        SMBBlockItemIds.CRACKED_ICE_TILES, SMBBlockItemIds.ICE_TILE_STAIRS,
+        SMBBlockItemIds.ICE_TILE_SLAB, SMBBlockItemIds.ICE_TILE_WALL)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.IMPERMEABLE)
+    this.builder(BlockTags.IMPERMEABLE)
       .add(
-        SMBBlocks.TILED_GLASS.get(), SMBBlocks.WHITE_STAINED_TILED_GLASS.get(),
-        SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS.get(), SMBBlocks.GRAY_STAINED_TILED_GLASS.get(),
-        SMBBlocks.BLACK_STAINED_TILED_GLASS.get(), SMBBlocks.BROWN_STAINED_TILED_GLASS.get(),
-        SMBBlocks.RED_STAINED_TILED_GLASS.get(), SMBBlocks.ORANGE_STAINED_TILED_GLASS.get(),
-        SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(), SMBBlocks.LIME_STAINED_TILED_GLASS.get(),
-        SMBBlocks.GREEN_STAINED_TILED_GLASS.get(), SMBBlocks.CYAN_STAINED_TILED_GLASS.get(),
-        SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS.get(), SMBBlocks.BLUE_STAINED_TILED_GLASS.get(),
-        SMBBlocks.PURPLE_STAINED_TILED_GLASS.get(), SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get(),
-        SMBBlocks.PINK_STAINED_TILED_GLASS.get(), SMBBlocks.TILED_TINTED_GLASS.get())
+        SMBBlockItemIds.TILED_GLASS, SMBBlockItemIds.TILED_TINTED_GLASS)
+      .addAll(SMBBlockItemIds.STAINED_TILED_GLASS.map(BlockItemId::block))
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.JUNGLE_LOGS)
-      .add(SMBBlocks.CARVED_JUNGLE_LOG.get(), SMBBlocks.CARVED_JUNGLE_WOOD.get())
+    this.builder(BlockTags.JUNGLE_LOGS)
+      .add(SMBBlockItemIds.CARVED_JUNGLE_LOG, SMBBlockItemIds.CARVED_JUNGLE_WOOD)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.MANGROVE_LOGS)
-      .add(SMBBlocks.CARVED_MANGROVE_LOG.get(), SMBBlocks.CARVED_MANGROVE_WOOD.get())
+    /*this.builder(BlockTags.MANGROVE_LOGS)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.OAK_LOGS)
-      .add(SMBBlocks.CARVED_OAK_LOG.get(), SMBBlocks.CARVED_OAK_WOOD.get())
+    this.builder(BlockTags.OAK_LOGS)
+      .setReplace(false);*/
+
+    this.builder(BlockTags.PALE_OAK_LOGS)
+      .add(SMBBlockIds.CARVED_PALE_OAK_LOG, SMBBlockIds.CARVED_PALE_OAK_WOOD)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.PALE_OAK_LOGS)
-      .add(SMBBlocks.CARVED_PALE_OAK_LOG.get(), SMBBlocks.CARVED_PALE_OAK_WOOD.get())
-      .setReplace(false);
-
-    this.valueLookupBuilder(BlockTags.PLANKS)
+    this.builder(BlockTags.PLANKS)
       .add(
-        SMBBlocks.OAK_BOARDS.get(),
-        SMBBlocks.OAK_SLATS.get(),
-        SMBBlocks.OAK_MOSAIC.get(),
-        SMBBlocks.SPRUCE_BOARDS.get(),
-        SMBBlocks.SPRUCE_SLATS.get(),
-        SMBBlocks.SPRUCE_MOSAIC.get(),
-        SMBBlocks.BIRCH_BOARDS.get(),
-        SMBBlocks.BIRCH_SLATS.get(),
-        SMBBlocks.BIRCH_MOSAIC.get(),
-        SMBBlocks.JUNGLE_BOARDS.get(),
-        SMBBlocks.JUNGLE_SLATS.get(),
-        SMBBlocks.JUNGLE_MOSAIC.get(),
-        SMBBlocks.ACACIA_BOARDS.get(),
-        SMBBlocks.ACACIA_SLATS.get(),
-        SMBBlocks.ACACIA_MOSAIC.get(),
-        SMBBlocks.DARK_OAK_BOARDS.get(),
-        SMBBlocks.DARK_OAK_SLATS.get(),
-        SMBBlocks.DARK_OAK_MOSAIC.get(),
-        SMBBlocks.MANGROVE_BOARDS.get(),
-        SMBBlocks.MANGROVE_SLATS.get(),
-        SMBBlocks.MANGROVE_MOSAIC.get(),
-        SMBBlocks.CRIMSON_BOARDS.get(),
-        SMBBlocks.CRIMSON_SLATS.get(),
-        SMBBlocks.CRIMSON_MOSAIC.get(),
-        SMBBlocks.WARPED_BOARDS.get(),
-        SMBBlocks.WARPED_SLATS.get(),
-        SMBBlocks.WARPED_MOSAIC.get(),
-        SMBBlocks.CHERRY_BOARDS.get(),
-        SMBBlocks.CHERRY_SLATS.get(),
-        SMBBlocks.CHERRY_MOSAIC.get(),
-        SMBBlocks.PALE_OAK_BOARDS.get(),
-        SMBBlocks.PALE_OAK_SLATS.get(),
-        SMBBlocks.PALE_OAK_MOSAIC.get(),
-        SMBBlocks.BAMBOO_BOARDS.get(),
-        SMBBlocks.BAMBOO_SLATS.get()
+        SMBBlockItemIds.OAK_BOARDS,
+        SMBBlockItemIds.OAK_SLATS,
+        SMBBlockItemIds.OAK_MOSAIC,
+        SMBBlockItemIds.SPRUCE_BOARDS,
+        SMBBlockItemIds.SPRUCE_SLATS,
+        SMBBlockItemIds.SPRUCE_MOSAIC,
+        SMBBlockItemIds.BIRCH_BOARDS,
+        SMBBlockItemIds.BIRCH_SLATS,
+        SMBBlockItemIds.BIRCH_MOSAIC,
+        SMBBlockItemIds.JUNGLE_BOARDS,
+        SMBBlockItemIds.JUNGLE_SLATS,
+        SMBBlockItemIds.JUNGLE_MOSAIC,
+        SMBBlockItemIds.ACACIA_BOARDS,
+        SMBBlockItemIds.ACACIA_SLATS,
+        SMBBlockItemIds.ACACIA_MOSAIC,
+        SMBBlockItemIds.DARK_OAK_BOARDS,
+        SMBBlockItemIds.DARK_OAK_SLATS,
+        SMBBlockItemIds.DARK_OAK_MOSAIC,
+        SMBBlockItemIds.MANGROVE_BOARDS,
+        SMBBlockItemIds.MANGROVE_SLATS,
+        SMBBlockItemIds.MANGROVE_MOSAIC,
+        SMBBlockItemIds.CRIMSON_BOARDS,
+        SMBBlockItemIds.CRIMSON_SLATS,
+        SMBBlockItemIds.CRIMSON_MOSAIC,
+        SMBBlockItemIds.WARPED_BOARDS,
+        SMBBlockItemIds.WARPED_SLATS,
+        SMBBlockItemIds.WARPED_MOSAIC,
+        SMBBlockItemIds.CHERRY_BOARDS,
+        SMBBlockItemIds.CHERRY_SLATS,
+        SMBBlockItemIds.CHERRY_MOSAIC,
+        SMBBlockItemIds.PALE_OAK_BOARDS,
+        SMBBlockItemIds.PALE_OAK_SLATS,
+        SMBBlockItemIds.PALE_OAK_MOSAIC,
+        SMBBlockItemIds.BAMBOO_BOARDS,
+        SMBBlockItemIds.BAMBOO_SLATS
       )
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.REPLACEABLE_BY_TREES)
+    this.builder(BlockTags.REPLACEABLE_BY_TREES)
       .addOptionalTag(SMBBlockTags.LEAF_LITTERS)
       .add(
-        SMBBlocks.DUNE_GRASS.get(), SMBBlocks.TALL_DUNE_GRASS.get(),
-        SMBBlocks.SHORT_SNOW_GRASS.get(), SMBBlocks.TALL_SNOW_GRASS.get(),
-        SMBBlocks.SNOW_FERN.get(), SMBBlocks.LARGE_SNOW_FERN.get(),
-        SMBBlocks.CATTAIL.get())
+        SMBBlockItemIds.DUNE_GRASS, SMBBlockItemIds.TALL_DUNE_GRASS,
+        SMBBlockItemIds.SHORT_SNOW_GRASS, SMBBlockItemIds.TALL_SNOW_GRASS,
+        SMBBlockItemIds.SNOW_FERN, SMBBlockItemIds.LARGE_SNOW_FERN,
+        SMBBlockItemIds.CATTAIL)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.REPLACEABLE)
+    this.builder(BlockTags.REPLACEABLE)
       .addOptionalTag(SMBBlockTags.LEAF_LITTERS)
       .add(
-        SMBBlocks.DUNE_GRASS.get(), SMBBlocks.TALL_DUNE_GRASS.get(),
-        SMBBlocks.SHORT_SNOW_GRASS.get(), SMBBlocks.TALL_SNOW_GRASS.get(),
-        SMBBlocks.SNOW_FERN.get(), SMBBlocks.LARGE_SNOW_FERN.get(),
-        SMBBlocks.CATTAIL.get())
+        SMBBlockItemIds.DUNE_GRASS, SMBBlockItemIds.TALL_DUNE_GRASS,
+        SMBBlockItemIds.SHORT_SNOW_GRASS, SMBBlockItemIds.TALL_SNOW_GRASS,
+        SMBBlockItemIds.SNOW_FERN, SMBBlockItemIds.LARGE_SNOW_FERN,
+        SMBBlockItemIds.CATTAIL)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.SLABS)
+    this.builder(BlockTags.SLABS)
       .add(
-        SMBBlocks.PACKED_SNOW_SLAB.get(), SMBBlocks.POLISHED_SNOW_SLAB.get(),
-        SMBBlocks.SNOW_BRICK_SLAB.get(), SMBBlocks.SNOW_TILE_SLAB.get(),
-        SMBBlocks.SMOOTH_DEEPSLATE_SLAB.get(), SMBBlocks.MOSSY_DEEPSLATE_BRICK_SLAB.get(),
-        SMBBlocks.POLISHED_STONE_SLAB.get(), SMBBlocks.STONE_TILE_SLAB.get(),
-        SMBBlocks.SMOOTH_GRANITE_SLAB.get(), SMBBlocks.GRANITE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_GRANITE_BRICK_SLAB.get(), SMBBlocks.GRANITE_TILE_SLAB.get(),
-        SMBBlocks.SMOOTH_DIORITE_SLAB.get(), SMBBlocks.DIORITE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_DIORITE_BRICK_SLAB.get(), SMBBlocks.DIORITE_TILE_SLAB.get(),
-        SMBBlocks.SMOOTH_ANDESITE_SLAB.get(), SMBBlocks.ANDESITE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_ANDESITE_BRICK_SLAB.get(), SMBBlocks.ANDESITE_TILE_SLAB.get(),
-        SMBBlocks.POLISHED_END_STONE_SLAB.get(), SMBBlocks.SMOOTH_END_STONE_SLAB.get(),
-        SMBBlocks.MOSSY_END_STONE_BRICK_SLAB.get(), SMBBlocks.END_STONE_TILE_SLAB.get(),
-        SMBBlocks.SMOOTH_TUFF_SLAB.get(), SMBBlocks.MOSSY_TUFF_BRICK_SLAB.get(),
-        SMBBlocks.TUFF_TILE_SLAB.get(), SMBBlocks.RED_SANDSTONE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_SLAB.get(), SMBBlocks.RED_SANDSTONE_TILE_SLAB.get(),
-        SMBBlocks.POLISHED_CALCITE_SLAB.get(), SMBBlocks.SMOOTH_CALCITE_SLAB.get(),
-        SMBBlocks.CALCITE_BRICK_SLAB.get(), SMBBlocks.MOSSY_CALCITE_BRICK_SLAB.get(),
-        SMBBlocks.CALCITE_TILE_SLAB.get(), SMBBlocks.POLISHED_DRIPSTONE_SLAB.get(),
-        SMBBlocks.SMOOTH_DRIPSTONE_SLAB.get(), SMBBlocks.DRIPSTONE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_DRIPSTONE_BRICK_SLAB.get(), SMBBlocks.DRIPSTONE_TILE_SLAB.get(),
-        SMBBlocks.POLISHED_PRISMARINE_SLAB.get(), SMBBlocks.SMOOTH_PRISMARINE_SLAB.get(),
-        SMBBlocks.MOSSY_PRISMARINE_BRICK_SLAB.get(), SMBBlocks.PRISMARINE_TILE_SLAB.get(),
-        SMBBlocks.SMOOTH_BLACKSTONE_SLAB.get(), SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_SLAB.get(),
-        SMBBlocks.POLISHED_BLACKSTONE_TILE_SLAB.get(), SMBBlocks.POLISHED_MUD_SLAB.get(),
-        SMBBlocks.SMOOTH_MUD_SLAB.get(), SMBBlocks.MOSSY_MUD_BRICK_SLAB.get(),
-        SMBBlocks.MUD_TILE_SLAB.get(), SMBBlocks.SANDSTONE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_SANDSTONE_BRICK_SLAB.get(), SMBBlocks.SANDSTONE_TILE_SLAB.get(),
-        SMBBlocks.POLISHED_ICE_SLAB.get(), SMBBlocks.ICE_BRICK_SLAB.get(),
-        SMBBlocks.ICE_TILE_SLAB.get(), SMBBlocks.POLISHED_PURPUR_SLAB.get(),
-        SMBBlocks.SMOOTH_PURPUR_SLAB.get(), SMBBlocks.MOSSY_PURPUR_BLOCK_SLAB.get(),
-        SMBBlocks.PURPUR_TILE_SLAB.get(), SMBBlocks.SOUL_SANDSTONE_SLAB.get(),
-        SMBBlocks.CUT_SOUL_SANDSTONE_SLAB.get(), SMBBlocks.SMOOTH_SOUL_SANDSTONE_SLAB.get(),
-        SMBBlocks.SOUL_SANDSTONE_BRICK_SLAB.get(), SMBBlocks.SOUL_SANDSTONE_TILE_SLAB.get(),
-        SMBBlocks.MOSSY_BRICK_SLAB.get(), SMBBlocks.BONE_BRICK_SLAB.get(),
-        SMBBlocks.BONE_TILE_SLAB.get(), SMBBlocks.POLISHED_RESIN_SLAB.get(),
-        SMBBlocks.RESIN_TILE_SLAB.get(), SMBBlocks.SMOOTH_RESIN_SLAB.get(),
-        SMBBlocks.POLISHED_BASALT_BRICK_SLAB.get(), SMBBlocks.POLISHED_BASALT_TILE_SLAB.get(),
-        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_SLAB.get()
+        SMBBlockItemIds.PACKED_SNOW_SLAB, SMBBlockItemIds.POLISHED_SNOW_SLAB,
+        SMBBlockItemIds.SNOW_BRICK_SLAB, SMBBlockItemIds.SNOW_TILE_SLAB,
+        SMBBlockItemIds.SMOOTH_DEEPSLATE_SLAB, SMBBlockItemIds.MOSSY_DEEPSLATE_BRICK_SLAB,
+        SMBBlockItemIds.POLISHED_STONE_SLAB, SMBBlockItemIds.STONE_TILE_SLAB,
+        SMBBlockItemIds.SMOOTH_GRANITE_SLAB, SMBBlockItemIds.GRANITE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_GRANITE_BRICK_SLAB, SMBBlockItemIds.GRANITE_TILE_SLAB,
+        SMBBlockItemIds.SMOOTH_DIORITE_SLAB, SMBBlockItemIds.DIORITE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_DIORITE_BRICK_SLAB, SMBBlockItemIds.DIORITE_TILE_SLAB,
+        SMBBlockItemIds.SMOOTH_ANDESITE_SLAB, SMBBlockItemIds.ANDESITE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_ANDESITE_BRICK_SLAB, SMBBlockItemIds.ANDESITE_TILE_SLAB,
+        SMBBlockItemIds.POLISHED_END_STONE_SLAB, SMBBlockItemIds.SMOOTH_END_STONE_SLAB,
+        SMBBlockItemIds.MOSSY_END_STONE_BRICK_SLAB, SMBBlockItemIds.END_STONE_TILE_SLAB,
+        SMBBlockItemIds.SMOOTH_TUFF_SLAB, SMBBlockItemIds.MOSSY_TUFF_BRICK_SLAB,
+        SMBBlockItemIds.TUFF_TILE_SLAB, SMBBlockItemIds.RED_SANDSTONE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_RED_SANDSTONE_BRICK_SLAB, SMBBlockItemIds.RED_SANDSTONE_TILE_SLAB,
+        SMBBlockItemIds.POLISHED_CALCITE_SLAB, SMBBlockItemIds.SMOOTH_CALCITE_SLAB,
+        SMBBlockItemIds.CALCITE_BRICK_SLAB, SMBBlockItemIds.MOSSY_CALCITE_BRICK_SLAB,
+        SMBBlockItemIds.CALCITE_TILE_SLAB, SMBBlockItemIds.POLISHED_DRIPSTONE_SLAB,
+        SMBBlockItemIds.SMOOTH_DRIPSTONE_SLAB, SMBBlockItemIds.DRIPSTONE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_DRIPSTONE_BRICK_SLAB, SMBBlockItemIds.DRIPSTONE_TILE_SLAB,
+        SMBBlockItemIds.POLISHED_PRISMARINE_SLAB, SMBBlockItemIds.SMOOTH_PRISMARINE_SLAB,
+        SMBBlockItemIds.MOSSY_PRISMARINE_BRICK_SLAB, SMBBlockItemIds.PRISMARINE_TILE_SLAB,
+        SMBBlockItemIds.SMOOTH_BLACKSTONE_SLAB, SMBBlockItemIds.CORRUPTED_POLISHED_BLACKSTONE_BRICK_SLAB,
+        SMBBlockItemIds.POLISHED_BLACKSTONE_TILE_SLAB, SMBBlockItemIds.POLISHED_MUD_SLAB,
+        SMBBlockItemIds.SMOOTH_MUD_SLAB, SMBBlockItemIds.MOSSY_MUD_BRICK_SLAB,
+        SMBBlockItemIds.MUD_TILE_SLAB, SMBBlockItemIds.SANDSTONE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_SANDSTONE_BRICK_SLAB, SMBBlockItemIds.SANDSTONE_TILE_SLAB,
+        SMBBlockItemIds.POLISHED_ICE_SLAB, SMBBlockItemIds.ICE_BRICK_SLAB,
+        SMBBlockItemIds.ICE_TILE_SLAB, SMBBlockItemIds.POLISHED_PURPUR_SLAB,
+        SMBBlockItemIds.SMOOTH_PURPUR_SLAB, SMBBlockItemIds.MOSSY_PURPUR_BLOCK_SLAB,
+        SMBBlockItemIds.PURPUR_TILE_SLAB, SMBBlockItemIds.SOUL_SANDSTONE_SLAB,
+        SMBBlockItemIds.CUT_SOUL_SANDSTONE_SLAB, SMBBlockItemIds.SMOOTH_SOUL_SANDSTONE_SLAB,
+        SMBBlockItemIds.SOUL_SANDSTONE_BRICK_SLAB, SMBBlockItemIds.SOUL_SANDSTONE_TILE_SLAB,
+        SMBBlockItemIds.MOSSY_BRICK_SLAB, SMBBlockItemIds.BONE_BRICK_SLAB,
+        SMBBlockItemIds.BONE_TILE_SLAB, SMBBlockItemIds.POLISHED_RESIN_SLAB,
+        SMBBlockItemIds.RESIN_TILE_SLAB, SMBBlockItemIds.SMOOTH_RESIN_SLAB,
+        SMBBlockItemIds.POLISHED_BASALT_BRICK_SLAB, SMBBlockItemIds.POLISHED_BASALT_TILE_SLAB,
+        SMBBlockItemIds.CORRUPTED_POLISHED_BASALT_BRICK_SLAB
       )
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.SMALL_FLOWERS)
+    this.builder(BlockTags.SMALL_FLOWERS)
       .add(
-        SMBBlocks.LUMINOUS_FLOWER.get(),
-        SMBBlocks.LAVENDER.get()
+        SMBBlockItemIds.LUMINOUS_FLOWER,
+        SMBBlockItemIds.LAVENDER
       )
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.SNOW)
+    this.builder(BlockTags.SNOW)
       .add(
-        SMBBlocks.PACKED_SNOW.get(), SMBBlocks.POLISHED_SNOW.get(),
-        SMBBlocks.SNOW_BRICKS.get(), SMBBlocks.CRACKED_SNOW_BRICKS.get(),
-        SMBBlocks.SNOW_PILLAR.get(), SMBBlocks.SNOW_TILES.get(),
-        SMBBlocks.CRACKED_SNOW_TILES.get())
+        SMBBlockItemIds.PACKED_SNOW, SMBBlockItemIds.POLISHED_SNOW,
+        SMBBlockItemIds.SNOW_BRICKS, SMBBlockItemIds.CRACKED_SNOW_BRICKS,
+        SMBBlockItemIds.SNOW_PILLAR, SMBBlockItemIds.SNOW_TILES,
+        SMBBlockItemIds.CRACKED_SNOW_TILES)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.SPRUCE_LOGS)
-      .add(SMBBlocks.CARVED_SPRUCE_LOG.get(), SMBBlocks.CARVED_SPRUCE_WOOD.get())
+   /* this.builder(BlockTags.SPRUCE_LOGS)
       .setReplace(false);
-
-    this.valueLookupBuilder(BlockTags.STAIRS)
+*/
+    this.builder(BlockTags.STAIRS)
       .add(
-        SMBBlocks.PACKED_SNOW_STAIRS.get(), SMBBlocks.POLISHED_SNOW_STAIRS.get(),
-        SMBBlocks.SNOW_BRICK_STAIRS.get(), SMBBlocks.SNOW_TILE_STAIRS.get(),
-        SMBBlocks.MOSSY_DEEPSLATE_BRICK_STAIRS.get(), SMBBlocks.POLISHED_STONE_STAIRS.get(),
-        SMBBlocks.STONE_TILE_STAIRS.get(), SMBBlocks.GRANITE_BRICK_STAIRS.get(),
-        SMBBlocks.MOSSY_GRANITE_BRICK_STAIRS.get(), SMBBlocks.GRANITE_TILE_STAIRS.get(),
-        SMBBlocks.DIORITE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_DIORITE_BRICK_STAIRS.get(),
-        SMBBlocks.DIORITE_TILE_STAIRS.get(), SMBBlocks.ANDESITE_BRICK_STAIRS.get(),
-        SMBBlocks.MOSSY_ANDESITE_BRICK_STAIRS.get(), SMBBlocks.ANDESITE_TILE_STAIRS.get(),
-        SMBBlocks.POLISHED_END_STONE_STAIRS.get(), SMBBlocks.MOSSY_END_STONE_BRICK_STAIRS.get(),
-        SMBBlocks.END_STONE_TILE_STAIRS.get(), SMBBlocks.MOSSY_TUFF_BRICK_STAIRS.get(),
-        SMBBlocks.TUFF_TILE_STAIRS.get(), SMBBlocks.RED_SANDSTONE_BRICK_STAIRS.get(),
-        SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_STAIRS.get(), SMBBlocks.RED_SANDSTONE_TILE_STAIRS.get(),
-        SMBBlocks.POLISHED_CALCITE_STAIRS.get(), SMBBlocks.CALCITE_BRICK_STAIRS.get(),
-        SMBBlocks.MOSSY_CALCITE_BRICK_STAIRS.get(), SMBBlocks.CALCITE_TILE_STAIRS.get(),
-        SMBBlocks.POLISHED_DRIPSTONE_STAIRS.get(), SMBBlocks.DRIPSTONE_BRICK_STAIRS.get(),
-        SMBBlocks.MOSSY_DRIPSTONE_BRICK_STAIRS.get(), SMBBlocks.DRIPSTONE_TILE_STAIRS.get(),
-        SMBBlocks.POLISHED_PRISMARINE_STAIRS.get(), SMBBlocks.MOSSY_PRISMARINE_BRICK_STAIRS.get(),
-        SMBBlocks.PRISMARINE_TILE_STAIRS.get(), SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_STAIRS.get(),
-        SMBBlocks.POLISHED_BLACKSTONE_TILE_STAIRS.get(), SMBBlocks.POLISHED_MUD_STAIRS.get(),
-        SMBBlocks.MOSSY_MUD_BRICK_STAIRS.get(), SMBBlocks.MUD_TILE_STAIRS.get(),
-        SMBBlocks.SANDSTONE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_SANDSTONE_BRICK_STAIRS.get(),
-        SMBBlocks.SANDSTONE_TILE_STAIRS.get(), SMBBlocks.POLISHED_ICE_STAIRS.get(),
-        SMBBlocks.ICE_BRICK_STAIRS.get(), SMBBlocks.ICE_TILE_STAIRS.get(),
-        SMBBlocks.POLISHED_PURPUR_STAIRS.get(), SMBBlocks.MOSSY_PURPUR_BLOCK_STAIRS.get(),
-        SMBBlocks.PURPUR_TILE_STAIRS.get(), SMBBlocks.SOUL_SANDSTONE_STAIRS.get(),
-        SMBBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS.get(), SMBBlocks.SOUL_SANDSTONE_BRICK_STAIRS.get(),
-        SMBBlocks.SOUL_SANDSTONE_TILE_STAIRS.get(), SMBBlocks.MOSSY_BRICK_STAIRS.get(),
-        SMBBlocks.BONE_BRICK_STAIRS.get(), SMBBlocks.BONE_TILE_STAIRS.get(),
-        SMBBlocks.POLISHED_RESIN_STAIRS.get(), SMBBlocks.RESIN_TILE_STAIRS.get(),
-        SMBBlocks.POLISHED_BASALT_BRICK_STAIRS.get(), SMBBlocks.POLISHED_BASALT_TILE_STAIRS.get(),
-        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get(),
-        SMBBlocks.SHINGLES_STAIRS.get(), SMBBlocks.WHITE_SHINGLES_STAIRS.get(),
-        SMBBlocks.LIGHT_GRAY_SHINGLES_STAIRS.get(), SMBBlocks.GRAY_SHINGLES_STAIRS.get(),
-        SMBBlocks.BLACK_SHINGLES_STAIRS.get(), SMBBlocks.BROWN_SHINGLES_STAIRS.get(),
-        SMBBlocks.RED_SHINGLES_STAIRS.get(), SMBBlocks.ORANGE_SHINGLES_STAIRS.get(),
-        SMBBlocks.YELLOW_SHINGLES_STAIRS.get(), SMBBlocks.LIME_SHINGLES_STAIRS.get(),
-        SMBBlocks.GREEN_SHINGLES_STAIRS.get(), SMBBlocks.CYAN_SHINGLES_STAIRS.get(),
-        SMBBlocks.LIGHT_BLUE_SHINGLES_STAIRS.get(), SMBBlocks.BLUE_SHINGLES_STAIRS.get(),
-        SMBBlocks.PURPLE_SHINGLES_STAIRS.get(), SMBBlocks.MAGENTA_SHINGLES_STAIRS.get(),
-        SMBBlocks.PINK_SHINGLES_STAIRS.get()
+        SMBBlockItemIds.PACKED_SNOW_STAIRS, SMBBlockItemIds.POLISHED_SNOW_STAIRS,
+        SMBBlockItemIds.SNOW_BRICK_STAIRS, SMBBlockItemIds.SNOW_TILE_STAIRS,
+        SMBBlockItemIds.MOSSY_DEEPSLATE_BRICK_STAIRS, SMBBlockItemIds.POLISHED_STONE_STAIRS,
+        SMBBlockItemIds.STONE_TILE_STAIRS, SMBBlockItemIds.GRANITE_BRICK_STAIRS,
+        SMBBlockItemIds.MOSSY_GRANITE_BRICK_STAIRS, SMBBlockItemIds.GRANITE_TILE_STAIRS,
+        SMBBlockItemIds.DIORITE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_DIORITE_BRICK_STAIRS,
+        SMBBlockItemIds.DIORITE_TILE_STAIRS, SMBBlockItemIds.ANDESITE_BRICK_STAIRS,
+        SMBBlockItemIds.MOSSY_ANDESITE_BRICK_STAIRS, SMBBlockItemIds.ANDESITE_TILE_STAIRS,
+        SMBBlockItemIds.POLISHED_END_STONE_STAIRS, SMBBlockItemIds.MOSSY_END_STONE_BRICK_STAIRS,
+        SMBBlockItemIds.END_STONE_TILE_STAIRS, SMBBlockItemIds.MOSSY_TUFF_BRICK_STAIRS,
+        SMBBlockItemIds.TUFF_TILE_STAIRS, SMBBlockItemIds.RED_SANDSTONE_BRICK_STAIRS,
+        SMBBlockItemIds.MOSSY_RED_SANDSTONE_BRICK_STAIRS, SMBBlockItemIds.RED_SANDSTONE_TILE_STAIRS,
+        SMBBlockItemIds.POLISHED_CALCITE_STAIRS, SMBBlockItemIds.CALCITE_BRICK_STAIRS,
+        SMBBlockItemIds.MOSSY_CALCITE_BRICK_STAIRS, SMBBlockItemIds.CALCITE_TILE_STAIRS,
+        SMBBlockItemIds.POLISHED_DRIPSTONE_STAIRS, SMBBlockItemIds.DRIPSTONE_BRICK_STAIRS,
+        SMBBlockItemIds.MOSSY_DRIPSTONE_BRICK_STAIRS, SMBBlockItemIds.DRIPSTONE_TILE_STAIRS,
+        SMBBlockItemIds.POLISHED_PRISMARINE_STAIRS, SMBBlockItemIds.MOSSY_PRISMARINE_BRICK_STAIRS,
+        SMBBlockItemIds.PRISMARINE_TILE_STAIRS, SMBBlockItemIds.CORRUPTED_POLISHED_BLACKSTONE_BRICK_STAIRS,
+        SMBBlockItemIds.POLISHED_BLACKSTONE_TILE_STAIRS, SMBBlockItemIds.POLISHED_MUD_STAIRS,
+        SMBBlockItemIds.MOSSY_MUD_BRICK_STAIRS, SMBBlockItemIds.MUD_TILE_STAIRS,
+        SMBBlockItemIds.SANDSTONE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_SANDSTONE_BRICK_STAIRS,
+        SMBBlockItemIds.SANDSTONE_TILE_STAIRS, SMBBlockItemIds.POLISHED_ICE_STAIRS,
+        SMBBlockItemIds.ICE_BRICK_STAIRS, SMBBlockItemIds.ICE_TILE_STAIRS,
+        SMBBlockItemIds.POLISHED_PURPUR_STAIRS, SMBBlockItemIds.MOSSY_PURPUR_BLOCK_STAIRS,
+        SMBBlockItemIds.PURPUR_TILE_STAIRS, SMBBlockItemIds.SOUL_SANDSTONE_STAIRS,
+        SMBBlockItemIds.SMOOTH_SOUL_SANDSTONE_STAIRS, SMBBlockItemIds.SOUL_SANDSTONE_BRICK_STAIRS,
+        SMBBlockItemIds.SOUL_SANDSTONE_TILE_STAIRS, SMBBlockItemIds.MOSSY_BRICK_STAIRS,
+        SMBBlockItemIds.BONE_BRICK_STAIRS, SMBBlockItemIds.BONE_TILE_STAIRS,
+        SMBBlockItemIds.POLISHED_RESIN_STAIRS, SMBBlockItemIds.RESIN_TILE_STAIRS,
+        SMBBlockItemIds.POLISHED_BASALT_BRICK_STAIRS, SMBBlockItemIds.POLISHED_BASALT_TILE_STAIRS,
+        SMBBlockItemIds.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS,
+        SMBBlockItemIds.SHINGLES_STAIRS
       )
+      .addAll(SMBBlockItemIds.DYED_SHINGLES_STAIRS.map(BlockItemId::block))
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.TERRACOTTA)
+    this.builder(BlockTags.TERRACOTTA)
       .addOptionalTag(SMBBlockTags.TERRACOTTA_BRICKS)
       .addOptionalTag(SMBBlockTags.TERRACOTTA_TILES)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.WALLS)
+    this.builder(BlockTags.WALLS)
       .add(
-        SMBBlocks.SNOW_BRICK_WALL.get(), SMBBlocks.SNOW_TILE_WALL.get(),
-        SMBBlocks.MOSSY_DEEPSLATE_BRICK_WALL.get(), SMBBlocks.STONE_TILE_WALL.get(),
-        SMBBlocks.GRANITE_BRICK_WALL.get(), SMBBlocks.MOSSY_GRANITE_BRICK_WALL.get(),
-        SMBBlocks.GRANITE_TILE_WALL.get(), SMBBlocks.DIORITE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_DIORITE_BRICK_WALL.get(), SMBBlocks.DIORITE_TILE_WALL.get(),
-        SMBBlocks.ANDESITE_BRICK_WALL.get(), SMBBlocks.MOSSY_ANDESITE_BRICK_WALL.get(),
-        SMBBlocks.ANDESITE_TILE_WALL.get(), SMBBlocks.MOSSY_END_STONE_BRICK_WALL.get(),
-        SMBBlocks.END_STONE_TILE_WALL.get(), SMBBlocks.MOSSY_TUFF_BRICK_WALL.get(),
-        SMBBlocks.TUFF_TILE_WALL.get(), SMBBlocks.RED_SANDSTONE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_WALL.get(), SMBBlocks.RED_SANDSTONE_TILE_WALL.get(),
-        SMBBlocks.CALCITE_BRICK_WALL.get(), SMBBlocks.MOSSY_CALCITE_BRICK_WALL.get(),
-        SMBBlocks.CALCITE_TILE_WALL.get(), SMBBlocks.DRIPSTONE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_DRIPSTONE_BRICK_WALL.get(), SMBBlocks.DRIPSTONE_TILE_WALL.get(),
-        SMBBlocks.MOSSY_PRISMARINE_BRICK_WALL.get(), SMBBlocks.PRISMARINE_TILE_WALL.get(),
-        SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_WALL.get(), SMBBlocks.POLISHED_BLACKSTONE_TILE_WALL.get(),
-        SMBBlocks.MOSSY_MUD_BRICK_WALL.get(), SMBBlocks.MUD_TILE_WALL.get(),
-        SMBBlocks.SANDSTONE_BRICK_WALL.get(), SMBBlocks.MOSSY_SANDSTONE_BRICK_WALL.get(),
-        SMBBlocks.SANDSTONE_TILE_WALL.get(), SMBBlocks.ICE_BRICK_WALL.get(),
-        SMBBlocks.ICE_TILE_WALL.get(), SMBBlocks.MOSSY_PURPUR_BLOCK_WALL.get(),
-        SMBBlocks.PURPUR_TILE_WALL.get(), SMBBlocks.SOUL_SANDSTONE_WALL.get(),
-        SMBBlocks.SOUL_SANDSTONE_BRICK_WALL.get(), SMBBlocks.SOUL_SANDSTONE_TILE_WALL.get(),
-        SMBBlocks.MOSSY_BRICK_WALL.get(), SMBBlocks.BONE_BRICK_WALL.get(),
-        SMBBlocks.BONE_TILE_WALL.get(), SMBBlocks.RESIN_TILE_WALL.get(),
-        SMBBlocks.POLISHED_BASALT_BRICK_WALL.get(), SMBBlocks.POLISHED_BASALT_TILE_WALL.get(),
-        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_WALL.get()
+        SMBBlockItemIds.SNOW_BRICK_WALL, SMBBlockItemIds.SNOW_TILE_WALL,
+        SMBBlockItemIds.MOSSY_DEEPSLATE_BRICK_WALL, SMBBlockItemIds.STONE_TILE_WALL,
+        SMBBlockItemIds.GRANITE_BRICK_WALL, SMBBlockItemIds.MOSSY_GRANITE_BRICK_WALL,
+        SMBBlockItemIds.GRANITE_TILE_WALL, SMBBlockItemIds.DIORITE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_DIORITE_BRICK_WALL, SMBBlockItemIds.DIORITE_TILE_WALL,
+        SMBBlockItemIds.ANDESITE_BRICK_WALL, SMBBlockItemIds.MOSSY_ANDESITE_BRICK_WALL,
+        SMBBlockItemIds.ANDESITE_TILE_WALL, SMBBlockItemIds.MOSSY_END_STONE_BRICK_WALL,
+        SMBBlockItemIds.END_STONE_TILE_WALL, SMBBlockItemIds.MOSSY_TUFF_BRICK_WALL,
+        SMBBlockItemIds.TUFF_TILE_WALL, SMBBlockItemIds.RED_SANDSTONE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_RED_SANDSTONE_BRICK_WALL, SMBBlockItemIds.RED_SANDSTONE_TILE_WALL,
+        SMBBlockItemIds.CALCITE_BRICK_WALL, SMBBlockItemIds.MOSSY_CALCITE_BRICK_WALL,
+        SMBBlockItemIds.CALCITE_TILE_WALL, SMBBlockItemIds.DRIPSTONE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_DRIPSTONE_BRICK_WALL, SMBBlockItemIds.DRIPSTONE_TILE_WALL,
+        SMBBlockItemIds.MOSSY_PRISMARINE_BRICK_WALL, SMBBlockItemIds.PRISMARINE_TILE_WALL,
+        SMBBlockItemIds.CORRUPTED_POLISHED_BLACKSTONE_BRICK_WALL, SMBBlockItemIds.POLISHED_BLACKSTONE_TILE_WALL,
+        SMBBlockItemIds.MOSSY_MUD_BRICK_WALL, SMBBlockItemIds.MUD_TILE_WALL,
+        SMBBlockItemIds.SANDSTONE_BRICK_WALL, SMBBlockItemIds.MOSSY_SANDSTONE_BRICK_WALL,
+        SMBBlockItemIds.SANDSTONE_TILE_WALL, SMBBlockItemIds.ICE_BRICK_WALL,
+        SMBBlockItemIds.ICE_TILE_WALL, SMBBlockItemIds.MOSSY_PURPUR_BLOCK_WALL,
+        SMBBlockItemIds.PURPUR_TILE_WALL, SMBBlockItemIds.SOUL_SANDSTONE_WALL,
+        SMBBlockItemIds.SOUL_SANDSTONE_BRICK_WALL, SMBBlockItemIds.SOUL_SANDSTONE_TILE_WALL,
+        SMBBlockItemIds.MOSSY_BRICK_WALL, SMBBlockItemIds.BONE_BRICK_WALL,
+        SMBBlockItemIds.BONE_TILE_WALL, SMBBlockItemIds.RESIN_TILE_WALL,
+        SMBBlockItemIds.POLISHED_BASALT_BRICK_WALL, SMBBlockItemIds.POLISHED_BASALT_TILE_WALL,
+        SMBBlockItemIds.CORRUPTED_POLISHED_BASALT_BRICK_WALL
       )
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.WARPED_STEMS)
-      .add(SMBBlocks.CARVED_WARPED_STEM.get(), SMBBlocks.CARVED_WARPED_HYPHAE.get())
-      .setReplace(false);
+    /*this.builder(BlockTags.WARPED_STEMS)
+      .setReplace(false);*/
 
-    this.valueLookupBuilder(BlockTags.WOODEN_SLABS)
+    this.builder(BlockTags.WOODEN_SLABS)
       .add(
-        SMBBlocks.OAK_MOSAIC_SLAB.get(), SMBBlocks.SPRUCE_MOSAIC_SLAB.get(),
-        SMBBlocks.BIRCH_MOSAIC_SLAB.get(), SMBBlocks.JUNGLE_MOSAIC_SLAB.get(),
-        SMBBlocks.ACACIA_MOSAIC_SLAB.get(), SMBBlocks.DARK_OAK_MOSAIC_SLAB.get(),
-        SMBBlocks.MANGROVE_MOSAIC_SLAB.get(), SMBBlocks.CRIMSON_MOSAIC_SLAB.get(),
-        SMBBlocks.WARPED_MOSAIC_SLAB.get(), SMBBlocks.CHERRY_MOSAIC_SLAB.get(),
-        SMBBlocks.PALE_OAK_MOSAIC_SLAB.get(),
-        SMBBlocks.OAK_BOARDS_SLAB.get(), SMBBlocks.SPRUCE_BOARDS_SLAB.get(),
-        SMBBlocks.BIRCH_BOARDS_SLAB.get(), SMBBlocks.JUNGLE_BOARDS_SLAB.get(),
-        SMBBlocks.ACACIA_BOARDS_SLAB.get(), SMBBlocks.DARK_OAK_BOARDS_SLAB.get(),
-        SMBBlocks.MANGROVE_BOARDS_SLAB.get(), SMBBlocks.CRIMSON_BOARDS_SLAB.get(),
-        SMBBlocks.WARPED_BOARDS_SLAB.get(), SMBBlocks.CHERRY_BOARDS_SLAB.get(),
-        SMBBlocks.PALE_OAK_BOARDS_SLAB.get(), SMBBlocks.BAMBOO_BOARDS_SLAB.get()
+        SMBBlockItemIds.OAK_MOSAIC_SLAB, SMBBlockItemIds.SPRUCE_MOSAIC_SLAB,
+        SMBBlockItemIds.BIRCH_MOSAIC_SLAB, SMBBlockItemIds.JUNGLE_MOSAIC_SLAB,
+        SMBBlockItemIds.ACACIA_MOSAIC_SLAB, SMBBlockItemIds.DARK_OAK_MOSAIC_SLAB,
+        SMBBlockItemIds.MANGROVE_MOSAIC_SLAB, SMBBlockItemIds.CRIMSON_MOSAIC_SLAB,
+        SMBBlockItemIds.WARPED_MOSAIC_SLAB, SMBBlockItemIds.CHERRY_MOSAIC_SLAB,
+        SMBBlockItemIds.PALE_OAK_MOSAIC_SLAB,
+        SMBBlockItemIds.OAK_BOARDS_SLAB, SMBBlockItemIds.SPRUCE_BOARDS_SLAB,
+        SMBBlockItemIds.BIRCH_BOARDS_SLAB, SMBBlockItemIds.JUNGLE_BOARDS_SLAB,
+        SMBBlockItemIds.ACACIA_BOARDS_SLAB, SMBBlockItemIds.DARK_OAK_BOARDS_SLAB,
+        SMBBlockItemIds.MANGROVE_BOARDS_SLAB, SMBBlockItemIds.CRIMSON_BOARDS_SLAB,
+        SMBBlockItemIds.WARPED_BOARDS_SLAB, SMBBlockItemIds.CHERRY_BOARDS_SLAB,
+        SMBBlockItemIds.PALE_OAK_BOARDS_SLAB, SMBBlockItemIds.BAMBOO_BOARDS_SLAB
       )
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.WOODEN_STAIRS)
+    this.builder(BlockTags.WOODEN_STAIRS)
       .add(
-        SMBBlocks.OAK_MOSAIC_STAIRS.get(), SMBBlocks.SPRUCE_MOSAIC_STAIRS.get(),
-        SMBBlocks.BIRCH_MOSAIC_STAIRS.get(), SMBBlocks.JUNGLE_MOSAIC_STAIRS.get(),
-        SMBBlocks.ACACIA_MOSAIC_STAIRS.get(), SMBBlocks.DARK_OAK_MOSAIC_STAIRS.get(),
-        SMBBlocks.MANGROVE_MOSAIC_STAIRS.get(), SMBBlocks.CRIMSON_MOSAIC_STAIRS.get(),
-        SMBBlocks.WARPED_MOSAIC_STAIRS.get(), SMBBlocks.CHERRY_MOSAIC_STAIRS.get(),
-        SMBBlocks.PALE_OAK_MOSAIC_STAIRS.get(),
-        SMBBlocks.OAK_BOARDS_STAIRS.get(), SMBBlocks.SPRUCE_BOARDS_STAIRS.get(),
-        SMBBlocks.BIRCH_BOARDS_STAIRS.get(), SMBBlocks.JUNGLE_BOARDS_STAIRS.get(),
-        SMBBlocks.ACACIA_BOARDS_STAIRS.get(), SMBBlocks.DARK_OAK_BOARDS_STAIRS.get(),
-        SMBBlocks.MANGROVE_BOARDS_STAIRS.get(), SMBBlocks.CRIMSON_BOARDS_STAIRS.get(),
-        SMBBlocks.WARPED_BOARDS_STAIRS.get(), SMBBlocks.CHERRY_BOARDS_STAIRS.get(),
-        SMBBlocks.PALE_OAK_BOARDS_STAIRS.get(), SMBBlocks.BAMBOO_BOARDS_STAIRS.get()
+        SMBBlockItemIds.OAK_MOSAIC_STAIRS, SMBBlockItemIds.SPRUCE_MOSAIC_STAIRS,
+        SMBBlockItemIds.BIRCH_MOSAIC_STAIRS, SMBBlockItemIds.JUNGLE_MOSAIC_STAIRS,
+        SMBBlockItemIds.ACACIA_MOSAIC_STAIRS, SMBBlockItemIds.DARK_OAK_MOSAIC_STAIRS,
+        SMBBlockItemIds.MANGROVE_MOSAIC_STAIRS, SMBBlockItemIds.CRIMSON_MOSAIC_STAIRS,
+        SMBBlockItemIds.WARPED_MOSAIC_STAIRS, SMBBlockItemIds.CHERRY_MOSAIC_STAIRS,
+        SMBBlockItemIds.PALE_OAK_MOSAIC_STAIRS,
+        SMBBlockItemIds.OAK_BOARDS_STAIRS, SMBBlockItemIds.SPRUCE_BOARDS_STAIRS,
+        SMBBlockItemIds.BIRCH_BOARDS_STAIRS, SMBBlockItemIds.JUNGLE_BOARDS_STAIRS,
+        SMBBlockItemIds.ACACIA_BOARDS_STAIRS, SMBBlockItemIds.DARK_OAK_BOARDS_STAIRS,
+        SMBBlockItemIds.MANGROVE_BOARDS_STAIRS, SMBBlockItemIds.CRIMSON_BOARDS_STAIRS,
+        SMBBlockItemIds.WARPED_BOARDS_STAIRS, SMBBlockItemIds.CHERRY_BOARDS_STAIRS,
+        SMBBlockItemIds.PALE_OAK_BOARDS_STAIRS, SMBBlockItemIds.BAMBOO_BOARDS_STAIRS
       )
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE).setReplace(false)
-      .add(SMBBlocks.CARVED_MUSHROOM_STEM.get());
+    this.builder(BlockTags.MINEABLE_WITH_AXE)
+      .add(SMBBlockItemIds.CARVED_MUSHROOM_STEM)
+      .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
+    this.builder(BlockTags.MINEABLE_WITH_PICKAXE)
       .addOptionalTag(SMBBlockTags.SHINGLES)
       .addOptionalTag(SMBBlockTags.CONCRETE_BRICKS)
       .addOptionalTag(SMBBlockTags.CONCRETE_TILES)
       .addOptionalTag(SMBBlockTags.TERRACOTTA_BRICKS)
       .addOptionalTag(SMBBlockTags.TERRACOTTA_TILES)
       .add(
-        SMBBlocks.AMETHYST_BRICKS.get(), SMBBlocks.AMETHYST_PILLAR.get(),
-        SMBBlocks.ANDESITE_BRICK_SLAB.get(), SMBBlocks.ANDESITE_BRICK_STAIRS.get(),
-        SMBBlocks.ANDESITE_BRICK_WALL.get(), SMBBlocks.ANDESITE_BRICKS.get(),
-        SMBBlocks.ANDESITE_PILLAR.get(), SMBBlocks.ANDESITE_TILE_SLAB.get(),
-        SMBBlocks.ANDESITE_TILE_STAIRS.get(), SMBBlocks.ANDESITE_TILE_WALL.get(),
-        SMBBlocks.ANDESITE_TILES.get(), SMBBlocks.POLISHED_BLACKSTONE_PILLAR.get(),
-        SMBBlocks.BONE_BRICK_SLAB.get(), SMBBlocks.BONE_BRICK_STAIRS.get(),
-        SMBBlocks.BONE_BRICK_WALL.get(), SMBBlocks.BONE_BRICKS.get(),
-        SMBBlocks.BONE_TILE_SLAB.get(), SMBBlocks.BONE_TILE_STAIRS.get(),
-        SMBBlocks.BONE_TILE_WALL.get(), SMBBlocks.BONE_TILES.get(),
-        SMBBlocks.CALCITE_BRICK_SLAB.get(), SMBBlocks.CALCITE_BRICK_STAIRS.get(),
-        SMBBlocks.CALCITE_BRICK_WALL.get(), SMBBlocks.CALCITE_BRICKS.get(),
-        SMBBlocks.CALCITE_PILLAR.get(), SMBBlocks.CALCITE_TILE_SLAB.get(),
-        SMBBlocks.CALCITE_TILE_STAIRS.get(), SMBBlocks.CALCITE_TILE_WALL.get(),
-        SMBBlocks.CALCITE_TILES.get(), SMBBlocks.CHISELED_ANDESITE_BRICKS.get(),
-        SMBBlocks.CHISELED_CALCITE_BRICKS.get(), SMBBlocks.CHISELED_DIORITE_BRICKS.get(),
-        SMBBlocks.CHISELED_DRIPSTONE_BRICKS.get(), SMBBlocks.CHISELED_END_STONE_BRICKS.get(),
-        SMBBlocks.CHISELED_GRANITE_BRICKS.get(), SMBBlocks.CHISELED_MUD_BRICKS.get(),
-        SMBBlocks.CHISELED_PRISMARINE_BRICKS.get(), SMBBlocks.CHISELED_PURPUR.get(),
-        SMBBlocks.CHISELED_RED_NETHER_BRICKS.get(), SMBBlocks.CHISELED_SOUL_SANDSTONE.get(),
-        SMBBlocks.COAL_BRICKS.get(), SMBBlocks.COAL_PILLAR.get(),
-        SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_SLAB.get(), SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_STAIRS.get(),
-        SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICK_WALL.get(), SMBBlocks.CORRUPTED_POLISHED_BLACKSTONE_BRICKS.get(),
-        SMBBlocks.CRACKED_AMETHYST_BRICKS.get(), SMBBlocks.CRACKED_ANDESITE_BRICKS.get(),
-        SMBBlocks.CRACKED_ANDESITE_TILES.get(), SMBBlocks.CRACKED_BONE_BRICKS.get(),
-        SMBBlocks.CRACKED_BONE_TILES.get(), SMBBlocks.CRACKED_BRICKS.get(),
-        SMBBlocks.CRACKED_CALCITE_BRICKS.get(), SMBBlocks.CRACKED_CALCITE_TILES.get(),
-        SMBBlocks.CRACKED_COAL_BRICKS.get(), SMBBlocks.CRACKED_CUT_AMETHYST.get(),
-        SMBBlocks.CRACKED_CUT_COAL.get(), SMBBlocks.CRACKED_CUT_DIAMOND.get(),
-        SMBBlocks.CRACKED_CUT_EMERALD.get(), SMBBlocks.CRACKED_CUT_GOLD.get(),
-        SMBBlocks.CRACKED_CUT_IRON.get(), SMBBlocks.CRACKED_CUT_LAPIS.get(),
-        SMBBlocks.CRACKED_CUT_NETHERITE.get(), SMBBlocks.CRACKED_CUT_QUARTZ.get(),
-        SMBBlocks.CRACKED_CUT_REDSTONE.get(), SMBBlocks.CRACKED_DIAMOND_BRICKS.get(),
-        SMBBlocks.CRACKED_DIORITE_BRICKS.get(), SMBBlocks.CRACKED_DIORITE_TILES.get(),
-        SMBBlocks.CRACKED_DRIPSTONE_BRICKS.get(), SMBBlocks.CRACKED_DRIPSTONE_TILES.get(),
-        SMBBlocks.CRACKED_EMERALD_BRICKS.get(), SMBBlocks.CRACKED_END_STONE_BRICKS.get(),
-        SMBBlocks.CRACKED_END_STONE_TILES.get(), SMBBlocks.CRACKED_GOLD_BRICKS.get(),
-        SMBBlocks.CRACKED_GRANITE_BRICKS.get(), SMBBlocks.CRACKED_GRANITE_TILES.get(),
-        SMBBlocks.CRACKED_IRON_BRICKS.get(), SMBBlocks.CRACKED_LAPIS_BRICKS.get(),
-        SMBBlocks.CRACKED_MUD_BRICKS.get(), SMBBlocks.CRACKED_MUD_TILES.get(),
-        SMBBlocks.CRACKED_NETHERITE_BRICKS.get(), SMBBlocks.CRACKED_POLISHED_BLACKSTONE_TILES.get(),
-        SMBBlocks.CRACKED_PRISMARINE_BRICKS.get(), SMBBlocks.CRACKED_PRISMARINE_TILES.get(),
-        SMBBlocks.CRACKED_PURPUR_BLOCK.get(), SMBBlocks.CRACKED_PURPUR_TILES.get(),
-        SMBBlocks.CRACKED_QUARTZ_BRICKS.get(), SMBBlocks.CRACKED_RED_NETHER_BRICKS.get(),
-        SMBBlocks.CRACKED_RED_SANDSTONE_BRICKS.get(), SMBBlocks.CRACKED_RED_SANDSTONE_TILES.get(),
-        SMBBlocks.CRACKED_REDSTONE_BRICKS.get(), SMBBlocks.CRACKED_SANDSTONE_BRICKS.get(),
-        SMBBlocks.CRACKED_SANDSTONE_TILES.get(), SMBBlocks.CRACKED_SOUL_SANDSTONE_BRICKS.get(),
-        SMBBlocks.CRACKED_SOUL_SANDSTONE_TILES.get(), SMBBlocks.CRACKED_STONE_TILES.get(),
-        SMBBlocks.CRACKED_TUFF_BRICKS.get(), SMBBlocks.CRACKED_TUFF_TILES.get(),
-        SMBBlocks.CUT_AMETHYST.get(), SMBBlocks.CUT_COAL.get(),
-        SMBBlocks.CUT_DIAMOND.get(), SMBBlocks.CUT_EMERALD.get(),
-        SMBBlocks.CUT_GOLD.get(), SMBBlocks.CUT_IRON.get(),
-        SMBBlocks.CUT_LAPIS.get(), SMBBlocks.CUT_NETHERITE.get(),
-        SMBBlocks.CUT_QUARTZ.get(), SMBBlocks.CUT_REDSTONE.get(),
-        SMBBlocks.CUT_SOUL_SANDSTONE_SLAB.get(), SMBBlocks.CUT_SOUL_SANDSTONE.get(),
-        SMBBlocks.DEEPSLATE_PILLAR.get(), SMBBlocks.DIAMOND_BRICKS.get(),
-        SMBBlocks.DIAMOND_GRATE.get(), SMBBlocks.DIAMOND_PILLAR.get(),
-        SMBBlocks.DIORITE_BRICK_SLAB.get(), SMBBlocks.DIORITE_BRICK_STAIRS.get(),
-        SMBBlocks.DIORITE_BRICK_WALL.get(), SMBBlocks.DIORITE_BRICKS.get(),
-        SMBBlocks.DIORITE_PILLAR.get(), SMBBlocks.DIORITE_TILE_SLAB.get(),
-        SMBBlocks.DIORITE_TILE_STAIRS.get(), SMBBlocks.DIORITE_TILE_WALL.get(),
-        SMBBlocks.DIORITE_TILES.get(), SMBBlocks.DRIPSTONE_BRICK_SLAB.get(),
-        SMBBlocks.DRIPSTONE_BRICK_STAIRS.get(), SMBBlocks.DRIPSTONE_BRICK_WALL.get(),
-        SMBBlocks.DRIPSTONE_BRICKS.get(), SMBBlocks.DRIPSTONE_PILLAR.get(),
-        SMBBlocks.DRIPSTONE_TILE_SLAB.get(), SMBBlocks.DRIPSTONE_TILE_STAIRS.get(),
-        SMBBlocks.DRIPSTONE_TILE_WALL.get(), SMBBlocks.DRIPSTONE_TILES.get(),
-        SMBBlocks.EMERALD_BRICKS.get(), SMBBlocks.EMERALD_PILLAR.get(),
-        SMBBlocks.END_STONE_PILLAR.get(), SMBBlocks.END_STONE_TILE_SLAB.get(),
-        SMBBlocks.END_STONE_TILE_STAIRS.get(), SMBBlocks.END_STONE_TILE_WALL.get(),
-        SMBBlocks.END_STONE_TILES.get(), SMBBlocks.GOLD_BRICKS.get(),
-        SMBBlocks.GOLD_PILLAR.get(), SMBBlocks.GRANITE_BRICK_SLAB.get(),
-        SMBBlocks.GRANITE_BRICK_STAIRS.get(), SMBBlocks.GRANITE_BRICK_WALL.get(),
-        SMBBlocks.GRANITE_BRICKS.get(), SMBBlocks.GRANITE_PILLAR.get(),
-        SMBBlocks.GRANITE_TILE_SLAB.get(), SMBBlocks.GRANITE_TILE_STAIRS.get(),
-        SMBBlocks.GRANITE_TILE_WALL.get(), SMBBlocks.GRANITE_TILES.get(),
-        SMBBlocks.IRON_BRICKS.get(), SMBBlocks.IRON_GRATE.get(),
-        SMBBlocks.IRON_PILLAR.get(), SMBBlocks.LAPIS_BRICKS.get(),
-        SMBBlocks.LAPIS_PILLAR.get(), SMBBlocks.MOSSY_ANDESITE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_ANDESITE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_ANDESITE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_ANDESITE_BRICKS.get(), SMBBlocks.MOSSY_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_BRICK_STAIRS.get(), SMBBlocks.MOSSY_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_BRICKS.get(), SMBBlocks.MOSSY_CALCITE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_CALCITE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_CALCITE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_CALCITE_BRICKS.get(), SMBBlocks.MOSSY_DEEPSLATE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_DEEPSLATE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_DEEPSLATE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_DEEPSLATE_BRICKS.get(), SMBBlocks.MOSSY_DIORITE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_DIORITE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_DIORITE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_DIORITE_BRICKS.get(), SMBBlocks.MOSSY_DRIPSTONE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_DRIPSTONE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_DRIPSTONE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_DRIPSTONE_BRICKS.get(), SMBBlocks.MOSSY_END_STONE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_END_STONE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_END_STONE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_END_STONE_BRICKS.get(), SMBBlocks.MOSSY_GRANITE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_GRANITE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_GRANITE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_GRANITE_BRICKS.get(), SMBBlocks.MOSSY_MUD_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_MUD_BRICK_STAIRS.get(), SMBBlocks.MOSSY_MUD_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_MUD_BRICKS.get(), SMBBlocks.MOSSY_PRISMARINE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_PRISMARINE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_PRISMARINE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_PRISMARINE_BRICKS.get(), SMBBlocks.MOSSY_PURPUR_BLOCK_SLAB.get(),
-        SMBBlocks.MOSSY_PURPUR_BLOCK_STAIRS.get(), SMBBlocks.MOSSY_PURPUR_BLOCK_WALL.get(),
-        SMBBlocks.MOSSY_PURPUR_BLOCK.get(), SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_RED_SANDSTONE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_RED_SANDSTONE_BRICKS.get(), SMBBlocks.MOSSY_SANDSTONE_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_SANDSTONE_BRICK_STAIRS.get(), SMBBlocks.MOSSY_SANDSTONE_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_SANDSTONE_BRICKS.get(), SMBBlocks.MOSSY_TUFF_BRICK_SLAB.get(),
-        SMBBlocks.MOSSY_TUFF_BRICK_STAIRS.get(), SMBBlocks.MOSSY_TUFF_BRICK_WALL.get(),
-        SMBBlocks.MOSSY_TUFF_BRICKS.get(), SMBBlocks.MUD_PILLAR.get(),
-        SMBBlocks.MUD_TILE_SLAB.get(), SMBBlocks.MUD_TILE_STAIRS.get(),
-        SMBBlocks.MUD_TILE_WALL.get(), SMBBlocks.MUD_TILES.get(),
-        SMBBlocks.NETHER_BRICKS_PILLAR.get(), SMBBlocks.NETHERITE_BRICKS.get(),
-        SMBBlocks.NETHERITE_GRATE.get(), SMBBlocks.NETHERITE_PILLAR.get(),
-        SMBBlocks.POLISHED_BLACKSTONE_TILE_SLAB.get(), SMBBlocks.POLISHED_BLACKSTONE_TILE_STAIRS.get(),
-        SMBBlocks.POLISHED_BLACKSTONE_TILE_WALL.get(), SMBBlocks.POLISHED_BLACKSTONE_TILES.get(),
-        SMBBlocks.POLISHED_CALCITE_SLAB.get(), SMBBlocks.POLISHED_CALCITE_STAIRS.get(),
-        SMBBlocks.POLISHED_CALCITE.get(), SMBBlocks.POLISHED_DRIPSTONE_SLAB.get(),
-        SMBBlocks.POLISHED_DRIPSTONE_STAIRS.get(), SMBBlocks.POLISHED_DRIPSTONE.get(),
-        SMBBlocks.POLISHED_END_STONE_SLAB.get(), SMBBlocks.POLISHED_END_STONE_STAIRS.get(),
-        SMBBlocks.POLISHED_END_STONE.get(), SMBBlocks.POLISHED_MUD_SLAB.get(),
-        SMBBlocks.POLISHED_MUD_STAIRS.get(), SMBBlocks.POLISHED_MUD.get(),
-        SMBBlocks.POLISHED_PRISMARINE_SLAB.get(), SMBBlocks.POLISHED_PRISMARINE_STAIRS.get(),
-        SMBBlocks.POLISHED_PRISMARINE.get(), SMBBlocks.POLISHED_PURPUR_SLAB.get(),
-        SMBBlocks.POLISHED_PURPUR_STAIRS.get(), SMBBlocks.POLISHED_PURPUR.get(),
-        SMBBlocks.POLISHED_STONE_SLAB.get(), SMBBlocks.POLISHED_STONE_STAIRS.get(),
-        SMBBlocks.POLISHED_STONE.get(), SMBBlocks.PRISMARINE_PILLAR.get(),
-        SMBBlocks.PRISMARINE_TILE_SLAB.get(), SMBBlocks.PRISMARINE_TILE_STAIRS.get(),
-        SMBBlocks.PRISMARINE_TILE_WALL.get(), SMBBlocks.PRISMARINE_TILES.get(),
-        SMBBlocks.PURPUR_TILE_SLAB.get(), SMBBlocks.PURPUR_TILE_STAIRS.get(),
-        SMBBlocks.PURPUR_TILE_WALL.get(), SMBBlocks.PURPUR_TILES.get(),
-        SMBBlocks.RED_NETHER_BRICKS_PILLAR.get(), SMBBlocks.RED_SANDSTONE_BRICK_SLAB.get(),
-        SMBBlocks.RED_SANDSTONE_BRICK_STAIRS.get(), SMBBlocks.RED_SANDSTONE_BRICK_WALL.get(),
-        SMBBlocks.RED_SANDSTONE_BRICKS.get(), SMBBlocks.RED_SANDSTONE_PILLAR.get(),
-        SMBBlocks.RED_SANDSTONE_TILE_SLAB.get(), SMBBlocks.RED_SANDSTONE_TILE_STAIRS.get(),
-        SMBBlocks.RED_SANDSTONE_TILE_WALL.get(), SMBBlocks.RED_SANDSTONE_TILES.get(),
-        SMBBlocks.REDSTONE_BRICKS.get(), SMBBlocks.REDSTONE_PILLAR.get(),
-        SMBBlocks.SANDSTONE_BRICK_SLAB.get(), SMBBlocks.SANDSTONE_BRICK_STAIRS.get(),
-        SMBBlocks.SANDSTONE_BRICK_WALL.get(), SMBBlocks.SANDSTONE_BRICKS.get(),
-        SMBBlocks.SANDSTONE_PILLAR.get(), SMBBlocks.SANDSTONE_TILE_SLAB.get(),
-        SMBBlocks.SANDSTONE_TILE_STAIRS.get(), SMBBlocks.SANDSTONE_TILE_WALL.get(),
-        SMBBlocks.SANDSTONE_TILES.get(), SMBBlocks.SMOOTH_ANDESITE_SLAB.get(),
-        SMBBlocks.SMOOTH_ANDESITE.get(), SMBBlocks.SMOOTH_BLACKSTONE_SLAB.get(),
-        SMBBlocks.SMOOTH_BLACKSTONE.get(), SMBBlocks.SMOOTH_CALCITE_SLAB.get(),
-        SMBBlocks.SMOOTH_CALCITE.get(), SMBBlocks.SMOOTH_DEEPSLATE_SLAB.get(),
-        SMBBlocks.SMOOTH_DEEPSLATE.get(), SMBBlocks.SMOOTH_DIORITE_SLAB.get(),
-        SMBBlocks.SMOOTH_DIORITE.get(), SMBBlocks.SMOOTH_DRIPSTONE_SLAB.get(),
-        SMBBlocks.SMOOTH_DRIPSTONE.get(), SMBBlocks.SMOOTH_END_STONE_SLAB.get(),
-        SMBBlocks.SMOOTH_END_STONE.get(), SMBBlocks.SMOOTH_GRANITE_SLAB.get(),
-        SMBBlocks.SMOOTH_GRANITE.get(), SMBBlocks.SMOOTH_MUD_SLAB.get(),
-        SMBBlocks.SMOOTH_MUD.get(), SMBBlocks.SMOOTH_PRISMARINE_SLAB.get(),
-        SMBBlocks.SMOOTH_PRISMARINE.get(), SMBBlocks.SMOOTH_PURPUR_SLAB.get(),
-        SMBBlocks.SMOOTH_PURPUR.get(), SMBBlocks.SMOOTH_SOUL_SANDSTONE_SLAB.get(),
-        SMBBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS.get(), SMBBlocks.SMOOTH_SOUL_SANDSTONE.get(),
-        SMBBlocks.SMOOTH_TUFF_SLAB.get(), SMBBlocks.SMOOTH_TUFF.get(),
-        SMBBlocks.SOUL_SANDSTONE_BRICK_SLAB.get(), SMBBlocks.SOUL_SANDSTONE_BRICK_STAIRS.get(),
-        SMBBlocks.SOUL_SANDSTONE_BRICK_WALL.get(), SMBBlocks.SOUL_SANDSTONE_BRICKS.get(),
-        SMBBlocks.SOUL_SANDSTONE_PILLAR.get(), SMBBlocks.SOUL_SANDSTONE_SLAB.get(),
-        SMBBlocks.SOUL_SANDSTONE_STAIRS.get(), SMBBlocks.SOUL_SANDSTONE_TILE_SLAB.get(),
-        SMBBlocks.SOUL_SANDSTONE_TILE_STAIRS.get(), SMBBlocks.SOUL_SANDSTONE_TILE_WALL.get(),
-        SMBBlocks.SOUL_SANDSTONE_TILES.get(), SMBBlocks.SOUL_SANDSTONE_WALL.get(),
-        SMBBlocks.SOUL_SANDSTONE.get(), SMBBlocks.STONE_PILLAR.get(),
-        SMBBlocks.STONE_TILE_SLAB.get(), SMBBlocks.STONE_TILE_STAIRS.get(),
-        SMBBlocks.STONE_TILE_WALL.get(), SMBBlocks.STONE_TILES.get(),
-        SMBBlocks.TUFF_PILLAR.get(), SMBBlocks.TUFF_TILE_SLAB.get(),
-        SMBBlocks.TUFF_TILE_STAIRS.get(), SMBBlocks.TUFF_TILE_WALL.get(),
-        SMBBlocks.TUFF_TILES.get(), SMBBlocks.COPPER_BRICKS.get(),
-        SMBBlocks.EXPOSED_COPPER_BRICKS.get(), SMBBlocks.WEATHERED_COPPER_BRICKS.get(),
-        SMBBlocks.OXIDIZED_COPPER_BRICKS.get(), SMBBlocks.CRACKED_COPPER_BRICKS.get(),
-        SMBBlocks.EXPOSED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WEATHERED_CRACKED_COPPER_BRICKS.get(),
-        SMBBlocks.OXIDIZED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.CRACKED_CUT_COPPER.get(),
-        SMBBlocks.EXPOSED_CRACKED_CUT_COPPER.get(), SMBBlocks.WEATHERED_CRACKED_CUT_COPPER.get(),
-        SMBBlocks.OXIDIZED_CRACKED_CUT_COPPER.get(), SMBBlocks.COPPER_PILLAR.get(),
-        SMBBlocks.EXPOSED_COPPER_PILLAR.get(), SMBBlocks.WEATHERED_COPPER_PILLAR.get(),
-        SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), SMBBlocks.WAXED_COPPER_BRICKS.get(),
-        SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get(), SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get(),
-        SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get(), SMBBlocks.WAXED_CRACKED_COPPER_BRICKS.get(),
-        SMBBlocks.WAXED_EXPOSED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_WEATHERED_CRACKED_COPPER_BRICKS.get(),
-        SMBBlocks.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_CRACKED_CUT_COPPER.get(),
-        SMBBlocks.WAXED_EXPOSED_CRACKED_CUT_COPPER.get(), SMBBlocks.WAXED_WEATHERED_CRACKED_CUT_COPPER.get(),
-        SMBBlocks.WAXED_OXIDIZED_CRACKED_CUT_COPPER.get(), SMBBlocks.WAXED_COPPER_PILLAR.get(),
-        SMBBlocks.WAXED_EXPOSED_COPPER_PILLAR.get(), SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get(),
-        SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get(), SMBBlocks.POLISHED_RESIN.get(),
-        SMBBlocks.POLISHED_RESIN_STAIRS.get(), SMBBlocks.POLISHED_RESIN_SLAB.get(),
-        SMBBlocks.CRACKED_RESIN_BRICKS.get(), SMBBlocks.RESIN_PILLAR.get(),
-        SMBBlocks.RESIN_TILES.get(), SMBBlocks.CRACKED_RESIN_TILES.get(),
-        SMBBlocks.RESIN_TILE_STAIRS.get(), SMBBlocks.RESIN_TILE_SLAB.get(),
-        SMBBlocks.RESIN_TILE_WALL.get(), SMBBlocks.SMOOTH_RESIN.get(),
-        SMBBlocks.SMOOTH_RESIN_SLAB.get(), SMBBlocks.POLISHED_BASALT_BRICKS.get(),
-        SMBBlocks.CRACKED_POLISHED_BASALT_BRICKS.get(), SMBBlocks.POLISHED_BASALT_BRICK_STAIRS.get(),
-        SMBBlocks.POLISHED_BASALT_BRICK_SLAB.get(), SMBBlocks.POLISHED_BASALT_BRICK_WALL.get(),
-        SMBBlocks.CHISELED_POLISHED_BASALT_BRICKS.get(), SMBBlocks.POLISHED_BASALT_PILLAR.get(),
-        SMBBlocks.POLISHED_BASALT_TILES.get(), SMBBlocks.CRACKED_POLISHED_BASALT_TILES.get(),
-        SMBBlocks.POLISHED_BASALT_TILE_STAIRS.get(), SMBBlocks.POLISHED_BASALT_TILE_SLAB.get(),
-        SMBBlocks.POLISHED_BASALT_TILE_WALL.get(), SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICKS.get(),
-        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS.get(), SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_SLAB.get(),
-        SMBBlocks.CORRUPTED_POLISHED_BASALT_BRICK_WALL.get(), SMBBlocks.REDSTONE_SEA_LANTERN.get(),
-        SMBBlocks.WHITE_CHECKERED_TILES.get(), SMBBlocks.LIGHT_GRAY_CHECKERED_TILES.get(),
-        SMBBlocks.GRAY_CHECKERED_TILES.get(), SMBBlocks.BLACK_CHECKERED_TILES.get(),
-        SMBBlocks.BROWN_CHECKERED_TILES.get(), SMBBlocks.RED_CHECKERED_TILES.get(),
-        SMBBlocks.ORANGE_CHECKERED_TILES.get(), SMBBlocks.YELLOW_CHECKERED_TILES.get(),
-        SMBBlocks.LIME_CHECKERED_TILES.get(), SMBBlocks.GREEN_CHECKERED_TILES.get(),
-        SMBBlocks.CYAN_CHECKERED_TILES.get(), SMBBlocks.LIGHT_BLUE_CHECKERED_TILES.get(),
-        SMBBlocks.BLUE_CHECKERED_TILES.get(), SMBBlocks.PURPLE_CHECKERED_TILES.get(),
-        SMBBlocks.MAGENTA_CHECKERED_TILES.get(), SMBBlocks.PINK_CHECKERED_TILES.get(),
-        SMBBlocks.SHINGLES_STAIRS.get(), SMBBlocks.WHITE_SHINGLES_STAIRS.get(),
-        SMBBlocks.LIGHT_GRAY_SHINGLES_STAIRS.get(), SMBBlocks.GRAY_SHINGLES_STAIRS.get(),
-        SMBBlocks.BLACK_SHINGLES_STAIRS.get(), SMBBlocks.BROWN_SHINGLES_STAIRS.get(),
-        SMBBlocks.RED_SHINGLES_STAIRS.get(), SMBBlocks.ORANGE_SHINGLES_STAIRS.get(),
-        SMBBlocks.YELLOW_SHINGLES_STAIRS.get(), SMBBlocks.LIME_SHINGLES_STAIRS.get(),
-        SMBBlocks.GREEN_SHINGLES_STAIRS.get(), SMBBlocks.CYAN_SHINGLES_STAIRS.get(),
-        SMBBlocks.LIGHT_BLUE_SHINGLES_STAIRS.get(), SMBBlocks.BLUE_SHINGLES_STAIRS.get(),
-        SMBBlocks.PURPLE_SHINGLES_STAIRS.get(), SMBBlocks.MAGENTA_SHINGLES_STAIRS.get(),
-        SMBBlocks.PINK_SHINGLES_STAIRS.get()
+        SMBBlockItemIds.AMETHYST_BRICKS, SMBBlockItemIds.AMETHYST_PILLAR,
+        SMBBlockItemIds.ANDESITE_BRICK_SLAB, SMBBlockItemIds.ANDESITE_BRICK_STAIRS,
+        SMBBlockItemIds.ANDESITE_BRICK_WALL, SMBBlockItemIds.ANDESITE_BRICKS,
+        SMBBlockItemIds.ANDESITE_PILLAR, SMBBlockItemIds.ANDESITE_TILE_SLAB,
+        SMBBlockItemIds.ANDESITE_TILE_STAIRS, SMBBlockItemIds.ANDESITE_TILE_WALL,
+        SMBBlockItemIds.ANDESITE_TILES, SMBBlockItemIds.POLISHED_BLACKSTONE_PILLAR,
+        SMBBlockItemIds.BONE_BRICK_SLAB, SMBBlockItemIds.BONE_BRICK_STAIRS,
+        SMBBlockItemIds.BONE_BRICK_WALL, SMBBlockItemIds.BONE_BRICKS,
+        SMBBlockItemIds.BONE_TILE_SLAB, SMBBlockItemIds.BONE_TILE_STAIRS,
+        SMBBlockItemIds.BONE_TILE_WALL, SMBBlockItemIds.BONE_TILES,
+        SMBBlockItemIds.CALCITE_BRICK_SLAB, SMBBlockItemIds.CALCITE_BRICK_STAIRS,
+        SMBBlockItemIds.CALCITE_BRICK_WALL, SMBBlockItemIds.CALCITE_BRICKS,
+        SMBBlockItemIds.CALCITE_PILLAR, SMBBlockItemIds.CALCITE_TILE_SLAB,
+        SMBBlockItemIds.CALCITE_TILE_STAIRS, SMBBlockItemIds.CALCITE_TILE_WALL,
+        SMBBlockItemIds.CALCITE_TILES, SMBBlockItemIds.CHISELED_ANDESITE_BRICKS,
+        SMBBlockItemIds.CHISELED_CALCITE_BRICKS, SMBBlockItemIds.CHISELED_DIORITE_BRICKS,
+        SMBBlockItemIds.CHISELED_DRIPSTONE_BRICKS, SMBBlockItemIds.CHISELED_END_STONE_BRICKS,
+        SMBBlockItemIds.CHISELED_GRANITE_BRICKS, SMBBlockItemIds.CHISELED_MUD_BRICKS,
+        SMBBlockItemIds.CHISELED_PRISMARINE_BRICKS, SMBBlockItemIds.CHISELED_PURPUR,
+        SMBBlockItemIds.CHISELED_RED_NETHER_BRICKS, SMBBlockItemIds.CHISELED_SOUL_SANDSTONE,
+        SMBBlockItemIds.COAL_BRICKS, SMBBlockItemIds.COAL_PILLAR,
+        SMBBlockItemIds.CORRUPTED_POLISHED_BLACKSTONE_BRICK_SLAB, SMBBlockItemIds.CORRUPTED_POLISHED_BLACKSTONE_BRICK_STAIRS,
+        SMBBlockItemIds.CORRUPTED_POLISHED_BLACKSTONE_BRICK_WALL, SMBBlockItemIds.CORRUPTED_POLISHED_BLACKSTONE_BRICKS,
+        SMBBlockItemIds.CRACKED_AMETHYST_BRICKS, SMBBlockItemIds.CRACKED_ANDESITE_BRICKS,
+        SMBBlockItemIds.CRACKED_ANDESITE_TILES, SMBBlockItemIds.CRACKED_BONE_BRICKS,
+        SMBBlockItemIds.CRACKED_BONE_TILES, SMBBlockItemIds.CRACKED_BRICKS,
+        SMBBlockItemIds.CRACKED_CALCITE_BRICKS, SMBBlockItemIds.CRACKED_CALCITE_TILES,
+        SMBBlockItemIds.CRACKED_COAL_BRICKS, SMBBlockItemIds.CRACKED_CUT_AMETHYST,
+        SMBBlockItemIds.CRACKED_CUT_COAL, SMBBlockItemIds.CRACKED_CUT_DIAMOND,
+        SMBBlockItemIds.CRACKED_CUT_EMERALD, SMBBlockItemIds.CRACKED_CUT_GOLD,
+        SMBBlockItemIds.CRACKED_CUT_IRON, SMBBlockItemIds.CRACKED_CUT_LAPIS,
+        SMBBlockItemIds.CRACKED_CUT_NETHERITE, SMBBlockItemIds.CRACKED_CUT_QUARTZ,
+        SMBBlockItemIds.CRACKED_CUT_REDSTONE, SMBBlockItemIds.CRACKED_DIAMOND_BRICKS,
+        SMBBlockItemIds.CRACKED_DIORITE_BRICKS, SMBBlockItemIds.CRACKED_DIORITE_TILES,
+        SMBBlockItemIds.CRACKED_DRIPSTONE_BRICKS, SMBBlockItemIds.CRACKED_DRIPSTONE_TILES,
+        SMBBlockItemIds.CRACKED_EMERALD_BRICKS, SMBBlockItemIds.CRACKED_END_STONE_BRICKS,
+        SMBBlockItemIds.CRACKED_END_STONE_TILES, SMBBlockItemIds.CRACKED_GOLD_BRICKS,
+        SMBBlockItemIds.CRACKED_GRANITE_BRICKS, SMBBlockItemIds.CRACKED_GRANITE_TILES,
+        SMBBlockItemIds.CRACKED_IRON_BRICKS, SMBBlockItemIds.CRACKED_LAPIS_BRICKS,
+        SMBBlockItemIds.CRACKED_MUD_BRICKS, SMBBlockItemIds.CRACKED_MUD_TILES,
+        SMBBlockItemIds.CRACKED_NETHERITE_BRICKS, SMBBlockItemIds.CRACKED_POLISHED_BLACKSTONE_TILES,
+        SMBBlockItemIds.CRACKED_PRISMARINE_BRICKS, SMBBlockItemIds.CRACKED_PRISMARINE_TILES,
+        SMBBlockItemIds.CRACKED_PURPUR_BLOCK, SMBBlockItemIds.CRACKED_PURPUR_TILES,
+        SMBBlockItemIds.CRACKED_QUARTZ_BRICKS, SMBBlockItemIds.CRACKED_RED_NETHER_BRICKS,
+        SMBBlockItemIds.CRACKED_RED_SANDSTONE_BRICKS, SMBBlockItemIds.CRACKED_RED_SANDSTONE_TILES,
+        SMBBlockItemIds.CRACKED_REDSTONE_BRICKS, SMBBlockItemIds.CRACKED_SANDSTONE_BRICKS,
+        SMBBlockItemIds.CRACKED_SANDSTONE_TILES, SMBBlockItemIds.CRACKED_SOUL_SANDSTONE_BRICKS,
+        SMBBlockItemIds.CRACKED_SOUL_SANDSTONE_TILES, SMBBlockItemIds.CRACKED_STONE_TILES,
+        SMBBlockItemIds.CRACKED_TUFF_BRICKS, SMBBlockItemIds.CRACKED_TUFF_TILES,
+        SMBBlockItemIds.CUT_AMETHYST, SMBBlockItemIds.CUT_COAL,
+        SMBBlockItemIds.CUT_DIAMOND, SMBBlockItemIds.CUT_EMERALD,
+        SMBBlockItemIds.CUT_GOLD, SMBBlockItemIds.CUT_IRON,
+        SMBBlockItemIds.CUT_LAPIS, SMBBlockItemIds.CUT_NETHERITE,
+        SMBBlockItemIds.CUT_QUARTZ, SMBBlockItemIds.CUT_REDSTONE,
+        SMBBlockItemIds.CUT_SOUL_SANDSTONE_SLAB, SMBBlockItemIds.CUT_SOUL_SANDSTONE,
+        SMBBlockItemIds.DEEPSLATE_PILLAR, SMBBlockItemIds.DIAMOND_BRICKS,
+        SMBBlockItemIds.DIAMOND_GRATE, SMBBlockItemIds.DIAMOND_PILLAR,
+        SMBBlockItemIds.DIORITE_BRICK_SLAB, SMBBlockItemIds.DIORITE_BRICK_STAIRS,
+        SMBBlockItemIds.DIORITE_BRICK_WALL, SMBBlockItemIds.DIORITE_BRICKS,
+        SMBBlockItemIds.DIORITE_PILLAR, SMBBlockItemIds.DIORITE_TILE_SLAB,
+        SMBBlockItemIds.DIORITE_TILE_STAIRS, SMBBlockItemIds.DIORITE_TILE_WALL,
+        SMBBlockItemIds.DIORITE_TILES, SMBBlockItemIds.DRIPSTONE_BRICK_SLAB,
+        SMBBlockItemIds.DRIPSTONE_BRICK_STAIRS, SMBBlockItemIds.DRIPSTONE_BRICK_WALL,
+        SMBBlockItemIds.DRIPSTONE_BRICKS, SMBBlockItemIds.DRIPSTONE_PILLAR,
+        SMBBlockItemIds.DRIPSTONE_TILE_SLAB, SMBBlockItemIds.DRIPSTONE_TILE_STAIRS,
+        SMBBlockItemIds.DRIPSTONE_TILE_WALL, SMBBlockItemIds.DRIPSTONE_TILES,
+        SMBBlockItemIds.EMERALD_BRICKS, SMBBlockItemIds.EMERALD_PILLAR,
+        SMBBlockItemIds.END_STONE_PILLAR, SMBBlockItemIds.END_STONE_TILE_SLAB,
+        SMBBlockItemIds.END_STONE_TILE_STAIRS, SMBBlockItemIds.END_STONE_TILE_WALL,
+        SMBBlockItemIds.END_STONE_TILES, SMBBlockItemIds.GOLD_BRICKS,
+        SMBBlockItemIds.GOLD_PILLAR, SMBBlockItemIds.GRANITE_BRICK_SLAB,
+        SMBBlockItemIds.GRANITE_BRICK_STAIRS, SMBBlockItemIds.GRANITE_BRICK_WALL,
+        SMBBlockItemIds.GRANITE_BRICKS, SMBBlockItemIds.GRANITE_PILLAR,
+        SMBBlockItemIds.GRANITE_TILE_SLAB, SMBBlockItemIds.GRANITE_TILE_STAIRS,
+        SMBBlockItemIds.GRANITE_TILE_WALL, SMBBlockItemIds.GRANITE_TILES,
+        SMBBlockItemIds.IRON_BRICKS, SMBBlockItemIds.IRON_GRATE,
+        SMBBlockItemIds.IRON_PILLAR, SMBBlockItemIds.LAPIS_BRICKS,
+        SMBBlockItemIds.LAPIS_PILLAR, SMBBlockItemIds.MOSSY_ANDESITE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_ANDESITE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_ANDESITE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_ANDESITE_BRICKS, SMBBlockItemIds.MOSSY_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_BRICK_STAIRS, SMBBlockItemIds.MOSSY_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_BRICKS, SMBBlockItemIds.MOSSY_CALCITE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_CALCITE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_CALCITE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_CALCITE_BRICKS, SMBBlockItemIds.MOSSY_DEEPSLATE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_DEEPSLATE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_DEEPSLATE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_DEEPSLATE_BRICKS, SMBBlockItemIds.MOSSY_DIORITE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_DIORITE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_DIORITE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_DIORITE_BRICKS, SMBBlockItemIds.MOSSY_DRIPSTONE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_DRIPSTONE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_DRIPSTONE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_DRIPSTONE_BRICKS, SMBBlockItemIds.MOSSY_END_STONE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_END_STONE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_END_STONE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_END_STONE_BRICKS, SMBBlockItemIds.MOSSY_GRANITE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_GRANITE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_GRANITE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_GRANITE_BRICKS, SMBBlockItemIds.MOSSY_MUD_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_MUD_BRICK_STAIRS, SMBBlockItemIds.MOSSY_MUD_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_MUD_BRICKS, SMBBlockItemIds.MOSSY_PRISMARINE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_PRISMARINE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_PRISMARINE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_PRISMARINE_BRICKS, SMBBlockItemIds.MOSSY_PURPUR_BLOCK_SLAB,
+        SMBBlockItemIds.MOSSY_PURPUR_BLOCK_STAIRS, SMBBlockItemIds.MOSSY_PURPUR_BLOCK_WALL,
+        SMBBlockItemIds.MOSSY_PURPUR_BLOCK, SMBBlockItemIds.MOSSY_RED_SANDSTONE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_RED_SANDSTONE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_RED_SANDSTONE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_RED_SANDSTONE_BRICKS, SMBBlockItemIds.MOSSY_SANDSTONE_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_SANDSTONE_BRICK_STAIRS, SMBBlockItemIds.MOSSY_SANDSTONE_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_SANDSTONE_BRICKS, SMBBlockItemIds.MOSSY_TUFF_BRICK_SLAB,
+        SMBBlockItemIds.MOSSY_TUFF_BRICK_STAIRS, SMBBlockItemIds.MOSSY_TUFF_BRICK_WALL,
+        SMBBlockItemIds.MOSSY_TUFF_BRICKS, SMBBlockItemIds.MUD_PILLAR,
+        SMBBlockItemIds.MUD_TILE_SLAB, SMBBlockItemIds.MUD_TILE_STAIRS,
+        SMBBlockItemIds.MUD_TILE_WALL, SMBBlockItemIds.MUD_TILES,
+        SMBBlockItemIds.NETHER_BRICKS_PILLAR, SMBBlockItemIds.NETHERITE_BRICKS,
+        SMBBlockItemIds.NETHERITE_GRATE, SMBBlockItemIds.NETHERITE_PILLAR,
+        SMBBlockItemIds.POLISHED_BLACKSTONE_TILE_SLAB, SMBBlockItemIds.POLISHED_BLACKSTONE_TILE_STAIRS,
+        SMBBlockItemIds.POLISHED_BLACKSTONE_TILE_WALL, SMBBlockItemIds.POLISHED_BLACKSTONE_TILES,
+        SMBBlockItemIds.POLISHED_CALCITE_SLAB, SMBBlockItemIds.POLISHED_CALCITE_STAIRS,
+        SMBBlockItemIds.POLISHED_CALCITE, SMBBlockItemIds.POLISHED_DRIPSTONE_SLAB,
+        SMBBlockItemIds.POLISHED_DRIPSTONE_STAIRS, SMBBlockItemIds.POLISHED_DRIPSTONE,
+        SMBBlockItemIds.POLISHED_END_STONE_SLAB, SMBBlockItemIds.POLISHED_END_STONE_STAIRS,
+        SMBBlockItemIds.POLISHED_END_STONE, SMBBlockItemIds.POLISHED_MUD_SLAB,
+        SMBBlockItemIds.POLISHED_MUD_STAIRS, SMBBlockItemIds.POLISHED_MUD,
+        SMBBlockItemIds.POLISHED_PRISMARINE_SLAB, SMBBlockItemIds.POLISHED_PRISMARINE_STAIRS,
+        SMBBlockItemIds.POLISHED_PRISMARINE, SMBBlockItemIds.POLISHED_PURPUR_SLAB,
+        SMBBlockItemIds.POLISHED_PURPUR_STAIRS, SMBBlockItemIds.POLISHED_PURPUR,
+        SMBBlockItemIds.POLISHED_STONE_SLAB, SMBBlockItemIds.POLISHED_STONE_STAIRS,
+        SMBBlockItemIds.POLISHED_STONE, SMBBlockItemIds.PRISMARINE_PILLAR,
+        SMBBlockItemIds.PRISMARINE_TILE_SLAB, SMBBlockItemIds.PRISMARINE_TILE_STAIRS,
+        SMBBlockItemIds.PRISMARINE_TILE_WALL, SMBBlockItemIds.PRISMARINE_TILES,
+        SMBBlockItemIds.PURPUR_TILE_SLAB, SMBBlockItemIds.PURPUR_TILE_STAIRS,
+        SMBBlockItemIds.PURPUR_TILE_WALL, SMBBlockItemIds.PURPUR_TILES,
+        SMBBlockItemIds.RED_NETHER_BRICKS_PILLAR, SMBBlockItemIds.RED_SANDSTONE_BRICK_SLAB,
+        SMBBlockItemIds.RED_SANDSTONE_BRICK_STAIRS, SMBBlockItemIds.RED_SANDSTONE_BRICK_WALL,
+        SMBBlockItemIds.RED_SANDSTONE_BRICKS, SMBBlockItemIds.RED_SANDSTONE_PILLAR,
+        SMBBlockItemIds.RED_SANDSTONE_TILE_SLAB, SMBBlockItemIds.RED_SANDSTONE_TILE_STAIRS,
+        SMBBlockItemIds.RED_SANDSTONE_TILE_WALL, SMBBlockItemIds.RED_SANDSTONE_TILES,
+        SMBBlockItemIds.REDSTONE_BRICKS, SMBBlockItemIds.REDSTONE_PILLAR,
+        SMBBlockItemIds.SANDSTONE_BRICK_SLAB, SMBBlockItemIds.SANDSTONE_BRICK_STAIRS,
+        SMBBlockItemIds.SANDSTONE_BRICK_WALL, SMBBlockItemIds.SANDSTONE_BRICKS,
+        SMBBlockItemIds.SANDSTONE_PILLAR, SMBBlockItemIds.SANDSTONE_TILE_SLAB,
+        SMBBlockItemIds.SANDSTONE_TILE_STAIRS, SMBBlockItemIds.SANDSTONE_TILE_WALL,
+        SMBBlockItemIds.SANDSTONE_TILES, SMBBlockItemIds.SMOOTH_ANDESITE_SLAB,
+        SMBBlockItemIds.SMOOTH_ANDESITE, SMBBlockItemIds.SMOOTH_BLACKSTONE_SLAB,
+        SMBBlockItemIds.SMOOTH_BLACKSTONE, SMBBlockItemIds.SMOOTH_CALCITE_SLAB,
+        SMBBlockItemIds.SMOOTH_CALCITE, SMBBlockItemIds.SMOOTH_DEEPSLATE_SLAB,
+        SMBBlockItemIds.SMOOTH_DEEPSLATE, SMBBlockItemIds.SMOOTH_DIORITE_SLAB,
+        SMBBlockItemIds.SMOOTH_DIORITE, SMBBlockItemIds.SMOOTH_DRIPSTONE_SLAB,
+        SMBBlockItemIds.SMOOTH_DRIPSTONE, SMBBlockItemIds.SMOOTH_END_STONE_SLAB,
+        SMBBlockItemIds.SMOOTH_END_STONE, SMBBlockItemIds.SMOOTH_GRANITE_SLAB,
+        SMBBlockItemIds.SMOOTH_GRANITE, SMBBlockItemIds.SMOOTH_MUD_SLAB,
+        SMBBlockItemIds.SMOOTH_MUD, SMBBlockItemIds.SMOOTH_PRISMARINE_SLAB,
+        SMBBlockItemIds.SMOOTH_PRISMARINE, SMBBlockItemIds.SMOOTH_PURPUR_SLAB,
+        SMBBlockItemIds.SMOOTH_PURPUR, SMBBlockItemIds.SMOOTH_SOUL_SANDSTONE_SLAB,
+        SMBBlockItemIds.SMOOTH_SOUL_SANDSTONE_STAIRS, SMBBlockItemIds.SMOOTH_SOUL_SANDSTONE,
+        SMBBlockItemIds.SMOOTH_TUFF_SLAB, SMBBlockItemIds.SMOOTH_TUFF,
+        SMBBlockItemIds.SOUL_SANDSTONE_BRICK_SLAB, SMBBlockItemIds.SOUL_SANDSTONE_BRICK_STAIRS,
+        SMBBlockItemIds.SOUL_SANDSTONE_BRICK_WALL, SMBBlockItemIds.SOUL_SANDSTONE_BRICKS,
+        SMBBlockItemIds.SOUL_SANDSTONE_PILLAR, SMBBlockItemIds.SOUL_SANDSTONE_SLAB,
+        SMBBlockItemIds.SOUL_SANDSTONE_STAIRS, SMBBlockItemIds.SOUL_SANDSTONE_TILE_SLAB,
+        SMBBlockItemIds.SOUL_SANDSTONE_TILE_STAIRS, SMBBlockItemIds.SOUL_SANDSTONE_TILE_WALL,
+        SMBBlockItemIds.SOUL_SANDSTONE_TILES, SMBBlockItemIds.SOUL_SANDSTONE_WALL,
+        SMBBlockItemIds.SOUL_SANDSTONE, SMBBlockItemIds.STONE_PILLAR,
+        SMBBlockItemIds.STONE_TILE_SLAB, SMBBlockItemIds.STONE_TILE_STAIRS,
+        SMBBlockItemIds.STONE_TILE_WALL, SMBBlockItemIds.STONE_TILES,
+        SMBBlockItemIds.TUFF_PILLAR, SMBBlockItemIds.TUFF_TILE_SLAB,
+        SMBBlockItemIds.TUFF_TILE_STAIRS, SMBBlockItemIds.TUFF_TILE_WALL,
+        SMBBlockItemIds.TUFF_TILES)
+      .addAll(SMBBlockItemIds.COPPER_BRICKS.map(BlockItemId::block))
+      .addAll(SMBBlockItemIds.CRACKED_COPPER_BRICKS.map(BlockItemId::block))
+      .addAll(SMBBlockItemIds.CRACKED_CUT_COPPER.map(BlockItemId::block))
+      .addAll(SMBBlockItemIds.COPPER_PILLAR.map(BlockItemId::block))
+      .addAll(SMBBlockItemIds.CHECKERED_TILES.map(BlockItemId::block))
+      .addAll(SMBBlockItemIds.DYED_SHINGLES_STAIRS.map(BlockItemId::block))
+      .add(
+        SMBBlockItemIds.POLISHED_RESIN,
+        SMBBlockItemIds.POLISHED_RESIN_STAIRS, SMBBlockItemIds.POLISHED_RESIN_SLAB,
+        SMBBlockItemIds.CRACKED_RESIN_BRICKS, SMBBlockItemIds.RESIN_PILLAR,
+        SMBBlockItemIds.RESIN_TILES, SMBBlockItemIds.CRACKED_RESIN_TILES,
+        SMBBlockItemIds.RESIN_TILE_STAIRS, SMBBlockItemIds.RESIN_TILE_SLAB,
+        SMBBlockItemIds.RESIN_TILE_WALL, SMBBlockItemIds.SMOOTH_RESIN,
+        SMBBlockItemIds.SMOOTH_RESIN_SLAB, SMBBlockItemIds.POLISHED_BASALT_BRICKS,
+        SMBBlockItemIds.CRACKED_POLISHED_BASALT_BRICKS, SMBBlockItemIds.POLISHED_BASALT_BRICK_STAIRS,
+        SMBBlockItemIds.POLISHED_BASALT_BRICK_SLAB, SMBBlockItemIds.POLISHED_BASALT_BRICK_WALL,
+        SMBBlockItemIds.CHISELED_POLISHED_BASALT_BRICKS, SMBBlockItemIds.POLISHED_BASALT_PILLAR,
+        SMBBlockItemIds.POLISHED_BASALT_TILES, SMBBlockItemIds.CRACKED_POLISHED_BASALT_TILES,
+        SMBBlockItemIds.POLISHED_BASALT_TILE_STAIRS, SMBBlockItemIds.POLISHED_BASALT_TILE_SLAB,
+        SMBBlockItemIds.POLISHED_BASALT_TILE_WALL, SMBBlockItemIds.CORRUPTED_POLISHED_BASALT_BRICKS,
+        SMBBlockItemIds.CORRUPTED_POLISHED_BASALT_BRICK_STAIRS, SMBBlockItemIds.CORRUPTED_POLISHED_BASALT_BRICK_SLAB,
+        SMBBlockItemIds.CORRUPTED_POLISHED_BASALT_BRICK_WALL, SMBBlockItemIds.REDSTONE_SEA_LANTERN,
+        SMBBlockItemIds.SHINGLES_STAIRS
       )
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
+    this.builder(BlockTags.MINEABLE_WITH_SHOVEL)
         .add(
-          SMBBlocks.PACKED_SNOW.get(), SMBBlocks.PACKED_SNOW_STAIRS.get(), SMBBlocks.PACKED_SNOW_SLAB.get(),
-          SMBBlocks.POLISHED_SNOW.get(), SMBBlocks.POLISHED_SNOW_STAIRS.get(), SMBBlocks.POLISHED_SNOW_SLAB.get(),
-          SMBBlocks.SNOW_BRICKS.get(), SMBBlocks.CRACKED_SNOW_BRICKS.get(), SMBBlocks.SNOW_BRICK_STAIRS.get(),
-          SMBBlocks.SNOW_BRICK_SLAB.get(), SMBBlocks.SNOW_BRICK_WALL.get(), SMBBlocks.SNOW_PILLAR.get(),
-          SMBBlocks.SNOW_TILES.get(), SMBBlocks.CRACKED_SNOW_TILES.get(), SMBBlocks.SNOW_TILE_STAIRS.get(),
-          SMBBlocks.SNOW_TILE_SLAB.get(), SMBBlocks.SNOW_TILE_WALL.get())
+          SMBBlockItemIds.PACKED_SNOW, SMBBlockItemIds.PACKED_SNOW_STAIRS, SMBBlockItemIds.PACKED_SNOW_SLAB,
+          SMBBlockItemIds.POLISHED_SNOW, SMBBlockItemIds.POLISHED_SNOW_STAIRS, SMBBlockItemIds.POLISHED_SNOW_SLAB,
+          SMBBlockItemIds.SNOW_BRICKS, SMBBlockItemIds.CRACKED_SNOW_BRICKS, SMBBlockItemIds.SNOW_BRICK_STAIRS,
+          SMBBlockItemIds.SNOW_BRICK_SLAB, SMBBlockItemIds.SNOW_BRICK_WALL, SMBBlockItemIds.SNOW_PILLAR,
+          SMBBlockItemIds.SNOW_TILES, SMBBlockItemIds.CRACKED_SNOW_TILES, SMBBlockItemIds.SNOW_TILE_STAIRS,
+          SMBBlockItemIds.SNOW_TILE_SLAB, SMBBlockItemIds.SNOW_TILE_WALL)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.MINEABLE_WITH_HOE)
-      .add(SMBBlocks.REDSTONE_SHROOMLIGHT.get())
+    this.builder(BlockTags.MINEABLE_WITH_HOE)
+      .add(SMBBlockItemIds.REDSTONE_SHROOMLIGHT)
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.NEEDS_STONE_TOOL)
+    this.builder(BlockTags.NEEDS_STONE_TOOL)
         .add(
-          SMBBlocks.IRON_BRICKS.get(), SMBBlocks.CRACKED_SNOW_BRICKS.get(), SMBBlocks.IRON_PILLAR.get(),
-          SMBBlocks.CUT_IRON.get(), SMBBlocks.CRACKED_CUT_IRON.get(), SMBBlocks.IRON_GRATE.get(),
-          SMBBlocks.LAPIS_BRICKS.get(), SMBBlocks.CRACKED_LAPIS_BRICKS.get(), SMBBlocks.LAPIS_PILLAR.get(),
-          SMBBlocks.CUT_LAPIS.get(), SMBBlocks.CRACKED_CUT_LAPIS.get(),
-          SMBBlocks.COPPER_BRICKS.get(), SMBBlocks.CRACKED_COPPER_BRICKS.get(), SMBBlocks.COPPER_PILLAR.get(), SMBBlocks.CRACKED_CUT_COPPER.get(),
-          SMBBlocks.EXPOSED_COPPER_BRICKS.get(), SMBBlocks.EXPOSED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.EXPOSED_COPPER_PILLAR.get(), SMBBlocks.EXPOSED_CRACKED_CUT_COPPER.get(),
-          SMBBlocks.WEATHERED_COPPER_BRICKS.get(), SMBBlocks.WEATHERED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WEATHERED_COPPER_PILLAR.get(), SMBBlocks.WEATHERED_CRACKED_CUT_COPPER.get(),
-          SMBBlocks.OXIDIZED_COPPER_BRICKS.get(), SMBBlocks.OXIDIZED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), SMBBlocks.OXIDIZED_CRACKED_CUT_COPPER.get(),
-          SMBBlocks.WAXED_COPPER_BRICKS.get(), SMBBlocks.WAXED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_COPPER_PILLAR.get(), SMBBlocks.WAXED_CRACKED_CUT_COPPER.get(),
-          SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get(), SMBBlocks.WAXED_EXPOSED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_EXPOSED_COPPER_PILLAR.get(), SMBBlocks.WAXED_EXPOSED_CRACKED_CUT_COPPER.get(),
-          SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get(), SMBBlocks.WAXED_WEATHERED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get(), SMBBlocks.WAXED_WEATHERED_CRACKED_CUT_COPPER.get(),
-          SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get(), SMBBlocks.WAXED_OXIDIZED_CRACKED_COPPER_BRICKS.get(), SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get(), SMBBlocks.WAXED_OXIDIZED_CRACKED_CUT_COPPER.get()
+          SMBBlockItemIds.IRON_BRICKS, SMBBlockItemIds.CRACKED_SNOW_BRICKS, SMBBlockItemIds.IRON_PILLAR,
+          SMBBlockItemIds.CUT_IRON, SMBBlockItemIds.CRACKED_CUT_IRON, SMBBlockItemIds.IRON_GRATE,
+          SMBBlockItemIds.LAPIS_BRICKS, SMBBlockItemIds.CRACKED_LAPIS_BRICKS, SMBBlockItemIds.LAPIS_PILLAR,
+          SMBBlockItemIds.CUT_LAPIS, SMBBlockItemIds.CRACKED_CUT_LAPIS
         )
+        .addAll(SMBBlockItemIds.COPPER_BRICKS.map(BlockItemId::block))
+        .addAll(SMBBlockItemIds.CRACKED_COPPER_BRICKS.map(BlockItemId::block))
+        .addAll(SMBBlockItemIds.CRACKED_CUT_COPPER.map(BlockItemId::block))
+        .addAll(SMBBlockItemIds.COPPER_PILLAR.map(BlockItemId::block))
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.NEEDS_IRON_TOOL)
+    this.builder(BlockTags.NEEDS_IRON_TOOL)
       .add(
-        SMBBlocks.GOLD_BRICKS.get(), SMBBlocks.CRACKED_GOLD_BRICKS.get(), SMBBlocks.GOLD_PILLAR.get(),
-        SMBBlocks.CUT_GOLD.get(), SMBBlocks.CRACKED_CUT_GOLD.get(),
-        SMBBlocks.EMERALD_BRICKS.get(), SMBBlocks.CRACKED_EMERALD_BRICKS.get(), SMBBlocks.EMERALD_PILLAR.get(),
-        SMBBlocks.CUT_EMERALD.get(), SMBBlocks.CRACKED_CUT_EMERALD.get(),
-        SMBBlocks.DIAMOND_BRICKS.get(), SMBBlocks.CRACKED_DIAMOND_BRICKS.get(), SMBBlocks.DIAMOND_PILLAR.get(),
-        SMBBlocks.CUT_DIAMOND.get(), SMBBlocks.CRACKED_CUT_DIAMOND.get(), SMBBlocks.DIAMOND_GRATE.get()
+        SMBBlockItemIds.GOLD_BRICKS, SMBBlockItemIds.CRACKED_GOLD_BRICKS, SMBBlockItemIds.GOLD_PILLAR,
+        SMBBlockItemIds.CUT_GOLD, SMBBlockItemIds.CRACKED_CUT_GOLD,
+        SMBBlockItemIds.EMERALD_BRICKS, SMBBlockItemIds.CRACKED_EMERALD_BRICKS, SMBBlockItemIds.EMERALD_PILLAR,
+        SMBBlockItemIds.CUT_EMERALD, SMBBlockItemIds.CRACKED_CUT_EMERALD,
+        SMBBlockItemIds.DIAMOND_BRICKS, SMBBlockItemIds.CRACKED_DIAMOND_BRICKS, SMBBlockItemIds.DIAMOND_PILLAR,
+        SMBBlockItemIds.CUT_DIAMOND, SMBBlockItemIds.CRACKED_CUT_DIAMOND, SMBBlockItemIds.DIAMOND_GRATE
       )
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
+    this.builder(BlockTags.NEEDS_DIAMOND_TOOL)
       .add(
-        SMBBlocks.NETHERITE_BRICKS.get(), SMBBlocks.CRACKED_NETHERITE_BRICKS.get(), SMBBlocks.NETHERITE_PILLAR.get(),
-        SMBBlocks.CUT_NETHERITE.get(), SMBBlocks.CRACKED_CUT_NETHERITE.get(), SMBBlocks.NETHERITE_GRATE.get()
+        SMBBlockItemIds.NETHERITE_BRICKS, SMBBlockItemIds.CRACKED_NETHERITE_BRICKS, SMBBlockItemIds.NETHERITE_PILLAR,
+        SMBBlockItemIds.CUT_NETHERITE, SMBBlockItemIds.CRACKED_CUT_NETHERITE, SMBBlockItemIds.NETHERITE_GRATE
       )
       .setReplace(false);
 
-    this.valueLookupBuilder(BlockTags.PALE_OAK_LOGS)
-      .add(SMBBlocks.CARVED_PALE_OAK_LOG.get(), SMBBlocks.CARVED_PALE_OAK_WOOD.get())
+    this.builder(BlockTags.PALE_OAK_LOGS)
+      .add(SMBBlockIds.CARVED_PALE_OAK_LOG, SMBBlockIds.CARVED_PALE_OAK_WOOD)
       .setReplace(false);
 
-    this.valueLookupBuilder(SMBBlockTags.LUMINOUS_FLOWER_REPLACEABLE)
+    this.builder(SMBBlockTags.LUMINOUS_FLOWER_REPLACEABLE)
       .add(
-        Blocks.SHORT_GRASS, Blocks.MOSS_CARPET, Blocks.SCULK_VEIN,
-        Blocks.GLOW_LICHEN, Blocks.VINE, Blocks.CAVE_VINES,
-        Blocks.CAVE_VINES_PLANT);
+        BlockItemIds.SHORT_GRASS.block(), BlockItemIds.MOSS_CARPET.block(), BlockItemIds.SCULK_VEIN.block(),
+        BlockItemIds.GLOW_LICHEN.block(), BlockItemIds.VINE.block()/*, BlockIds.CAVE_VINES*/,
+        BlockIds.CAVE_VINES_PLANT);
 
-    this.valueLookupBuilder(BlockTags.FROG_PREFER_JUMP_TO)
-      .add(SMBBlocks.BIG_LILY_PAD.get())
+    this.builder(BlockTags.FROG_PREFER_JUMP_TO)
+      .add(SMBBlockIds.BIG_LILY_PAD)
       .setReplace(false);
 
-    this.valueLookupBuilder(SMBBlockTags.BIG_LILY_PAD_REPLACEABLE)
-      .add(Blocks.LILY_PAD, Blocks.MOSS_CARPET, SMBBlocks.SMALL_LILY_PADS.get());
+    this.builder(SMBBlockTags.BIG_LILY_PAD_REPLACEABLE)
+      .add(BlockItemIds.LILY_PAD.block(), BlockItemIds.MOSS_CARPET.block(), SMBBlockIds.SMALL_LILY_PADS);
 
-    this.valueLookupBuilder(SMBBlockTags.MUSHROOM_COLONIES)
+    this.builder(SMBBlockTags.MUSHROOM_COLONIES)
       .add(
-        SMBBlocks.BROWN_MUSHROOM_COLONY.get(), SMBBlocks.TALL_BROWN_MUSHROOM_COLONY.get(), SMBBlocks.BROWN_MUSHROOM_COLONY_WALL.get(),
-        SMBBlocks.RED_MUSHROOM_COLONY.get(), SMBBlocks.TALL_RED_MUSHROOM_COLONY.get(), SMBBlocks.RED_MUSHROOM_COLONY_WALL.get());
+        SMBBlockIds.BROWN_MUSHROOM_COLONY, SMBBlockIds.TALL_BROWN_MUSHROOM_COLONY, SMBBlockIds.BROWN_MUSHROOM_COLONY_WALL,
+        SMBBlockIds.RED_MUSHROOM_COLONY, SMBBlockIds.TALL_RED_MUSHROOM_COLONY, SMBBlockIds.RED_MUSHROOM_COLONY_WALL);
 
-    this.valueLookupBuilder(SMBBlockTags.FUNGUS_COLONIES)
+    this.builder(SMBBlockTags.FUNGUS_COLONIES)
       .add(
-        SMBBlocks.WARPED_FUNGUS_COLONY.get(), SMBBlocks.TALL_WARPED_FUNGUS_COLONY.get(), SMBBlocks.WARPED_FUNGUS_COLONY.get(),
-        SMBBlocks.CRIMSON_FUNGUS_COLONY.get(), SMBBlocks.TALL_CRIMSON_FUNGUS_COLONY.get(), SMBBlocks.CRIMSON_FUNGUS_COLONY.get());
+        SMBBlockIds.WARPED_FUNGUS_COLONY, SMBBlockIds.TALL_WARPED_FUNGUS_COLONY, SMBBlockIds.WARPED_FUNGUS_COLONY,
+        SMBBlockIds.CRIMSON_FUNGUS_COLONY, SMBBlockIds.TALL_CRIMSON_FUNGUS_COLONY, SMBBlockIds.CRIMSON_FUNGUS_COLONY);
 
-    this.valueLookupBuilder(BlockTags.BEACON_BASE_BLOCKS)
+    this.builder(BlockTags.BEACON_BASE_BLOCKS)
       .add(
-        SMBBlocks.IRON_BRICKS.get(), SMBBlocks.IRON_PILLAR.get(), SMBBlocks.CUT_IRON.get(),
-        SMBBlocks.GOLD_BRICKS.get(), SMBBlocks.GOLD_PILLAR.get(), SMBBlocks.CUT_GOLD.get(),
-        SMBBlocks.EMERALD_BRICKS.get(), SMBBlocks.EMERALD_PILLAR.get(), SMBBlocks.CUT_EMERALD.get(),
-        SMBBlocks.DIAMOND_BRICKS.get(), SMBBlocks.DIAMOND_PILLAR.get(), SMBBlocks.CUT_DIAMOND.get(),
-        SMBBlocks.NETHERITE_BRICKS.get(), SMBBlocks.NETHERITE_PILLAR.get(), SMBBlocks.CUT_NETHERITE.get())
+        SMBBlockItemIds.IRON_BRICKS, SMBBlockItemIds.IRON_PILLAR, SMBBlockItemIds.CUT_IRON,
+        SMBBlockItemIds.GOLD_BRICKS, SMBBlockItemIds.GOLD_PILLAR, SMBBlockItemIds.CUT_GOLD,
+        SMBBlockItemIds.EMERALD_BRICKS, SMBBlockItemIds.EMERALD_PILLAR, SMBBlockItemIds.CUT_EMERALD,
+        SMBBlockItemIds.DIAMOND_BRICKS, SMBBlockItemIds.DIAMOND_PILLAR, SMBBlockItemIds.CUT_DIAMOND,
+        SMBBlockItemIds.NETHERITE_BRICKS, SMBBlockItemIds.NETHERITE_PILLAR, SMBBlockItemIds.CUT_NETHERITE)
       .setReplace(false);
 
-    this.valueLookupBuilder(SMBBlockTags.NETHER_CLOVER_PLACEABLE)
+    this.builder(SMBBlockTags.NETHER_CLOVER_PLACEABLE)
       .add(
-        Blocks.NETHERRACK, Blocks.CRIMSON_NYLIUM, Blocks.WARPED_NYLIUM,
-        Blocks.SOUL_SAND, Blocks.SOUL_SOIL);
+        BlockItemIds.NETHERRACK, BlockItemIds.CRIMSON_NYLIUM, BlockItemIds.WARPED_NYLIUM,
+        BlockItemIds.SOUL_SAND, BlockItemIds.SOUL_SOIL);
 
-    this.valueLookupBuilder(BlockTags.INSIDE_STEP_SOUND_BLOCKS)
+    this.builder(BlockTags.INSIDE_STEP_SOUND_BLOCKS)
       .add(
-        SMBBlocks.LEAF_LITTER.get(), SMBBlocks.BIRCH_LEAF_LITTER.get(), SMBBlocks.SPRUCE_LEAF_LITTER.get(),
-        SMBBlocks.PALE_OAK_LEAF_LITTER.get(), SMBBlocks.AZALEA_LEAF_LITTER.get(), SMBBlocks.FLOWERING_AZALEA_LEAF_LITTER.get(),
-        SMBBlocks.CLOVER.get(), SMBBlocks.NETHER_CLOVER.get())
+        SMBBlockIds.LEAF_LITTER, SMBBlockIds.BIRCH_LEAF_LITTER, SMBBlockIds.SPRUCE_LEAF_LITTER,
+        SMBBlockIds.PALE_OAK_LEAF_LITTER, SMBBlockIds.AZALEA_LEAF_LITTER, SMBBlockIds.FLOWERING_AZALEA_LEAF_LITTER,
+        SMBBlockIds.CLOVER, SMBBlockIds.NETHER_CLOVER)
       .setReplace(false);
   }
+
 }

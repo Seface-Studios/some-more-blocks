@@ -16,8 +16,8 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.*;
+import net.sefacestudios.somemoreblocks.references.SMBBlockItemIds;
 import net.sefacestudios.somemoreblocks.registries.SMBBlockFamilies;
 import net.sefacestudios.somemoreblocks.registries.SMBBlocks;
 import net.sefacestudios.somemoreblocks.registries.SMBItems;
@@ -147,30 +147,54 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.AMETHYST_BRICKS, List.of(Blocks.AMETHYST_BLOCK));
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.AMETHYST_PILLAR.get(), Blocks.AMETHYST_BLOCK);
         this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.CUT_AMETHYST, List.of(Blocks.AMETHYST_BLOCK, SMBBlocks.AMETHYST_BRICKS.get()));
-        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.COPPER_BRICKS, List.of(Blocks.COPPER_BLOCK));
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_PILLAR.get(), Blocks.COPPER_BLOCK);
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.CUT_COPPER, SMBBlocks.COPPER_BRICKS.get());
-        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.EXPOSED_COPPER_BRICKS, List.of(Blocks.EXPOSED_COPPER));
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.EXPOSED_COPPER_PILLAR.get(), Blocks.EXPOSED_COPPER);
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.EXPOSED_CUT_COPPER, SMBBlocks.EXPOSED_COPPER_BRICKS.get());
-        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.WEATHERED_COPPER_BRICKS, List.of(Blocks.WEATHERED_COPPER));
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WEATHERED_COPPER_PILLAR.get(), Blocks.WEATHERED_COPPER);
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.WEATHERED_CUT_COPPER, SMBBlocks.WEATHERED_COPPER_BRICKS.get());
-        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.OXIDIZED_COPPER_BRICKS, List.of(Blocks.OXIDIZED_COPPER));
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), Blocks.OXIDIZED_COPPER);
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.OXIDIZED_CUT_COPPER, SMBBlocks.OXIDIZED_COPPER_BRICKS.get());
-        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.WAXED_COPPER_BRICKS, List.of(Blocks.WAXED_COPPER_BLOCK));
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_PILLAR.get(), Blocks.WAXED_COPPER_BLOCK);
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.WAXED_CUT_COPPER, SMBBlocks.WAXED_COPPER_BRICKS.get());
-        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.WAXED_EXPOSED_COPPER_BRICKS, List.of(Blocks.WAXED_EXPOSED_COPPER));
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WAXED_EXPOSED_COPPER_PILLAR.get(), Blocks.WAXED_EXPOSED_COPPER);
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.WAXED_EXPOSED_CUT_COPPER, SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get());
-        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.WAXED_WEATHERED_COPPER_BRICKS, List.of(Blocks.WAXED_WEATHERED_COPPER));
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get(), Blocks.WAXED_WEATHERED_COPPER);
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.WAXED_WEATHERED_CUT_COPPER, SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get());
-        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.WAXED_OXIDIZED_COPPER_BRICKS, List.of(Blocks.WAXED_OXIDIZED_COPPER));
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get(), Blocks.WAXED_OXIDIZED_COPPER);
-        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.WAXED_OXIDIZED_CUT_COPPER, SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get());
+
+        // TODO: Add WeatheringBlockCollection implementation
+
+
+
+        WeatheringCopper.WeatherState.forEach((state) -> {
+          this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.COPPER_BRICKS.weathering().pick(state), List.of(Blocks.COPPER_BLOCK.weathering().pick(state)));
+          this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_PILLAR.get().weathering().pick(state), Blocks.COPPER_BLOCK.weathering().pick(state));
+          this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.CUT_COPPER.weathering().pick(state), SMBBlocks.COPPER_BRICKS.get().weathering().pick(state));
+
+          this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.COPPER_BRICKS.waxed().pick(state), List.of(Blocks.COPPER_BLOCK.waxed().pick(state)));
+          this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_PILLAR.get().waxed().pick(state), Blocks.COPPER_BLOCK.waxed().pick(state));
+          this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.CUT_COPPER.waxed().pick(state), SMBBlocks.COPPER_BRICKS.get().waxed().pick(state));
+        });
+
+
+        /*this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.COPPER_BRICKS, List.of(Blocks.COPPER_BLOCK.weathering().unaffected()));
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.weathering().unaffected());
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.CUT_COPPER.weathering().weathered(), SMBBlocks.COPPER_BRICKS.get());
+
+        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.EXPOSED_COPPER_BRICKS, List.of(Blocks.COPPER_BLOCK.weathering().exposed()));
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.EXPOSED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.weathering().exposed());
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.CUT_COPPER.weathering().exposed(), SMBBlocks.EXPOSED_COPPER_BRICKS.get());
+
+        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.WEATHERED_COPPER_BRICKS, List.of(Blocks.COPPER_BLOCK.weathering().weathered()));
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WEATHERED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.weathering().weathered());
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.CUT_COPPER.weathering().weathered(), SMBBlocks.WEATHERED_COPPER_BRICKS.get());
+
+        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.OXIDIZED_COPPER_BRICKS, List.of(Blocks.COPPER_BLOCK.weathering().oxidized()));
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.weathering().oxidized());
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.CUT_COPPER.weathering().oxidized(), SMBBlocks.OXIDIZED_COPPER_BRICKS.get());*/
+/*
+        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.WAXED_COPPER_BRICKS, List.of(Blocks.COPPER_BLOCK.waxed().unaffected()));
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.waxed().unaffected());
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.CUT_COPPER.waxed().unaffected(), SMBBlocks.WAXED_COPPER_BRICKS.get());
+
+        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.WAXED_EXPOSED_COPPER_BRICKS, List.of(Blocks.COPPER_BLOCK.waxed().exposed()));
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WAXED_EXPOSED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.waxed().exposed());
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.CUT_COPPER.waxed().exposed(), SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get());
+
+        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.WAXED_WEATHERED_COPPER_BRICKS, List.of(Blocks.COPPER_BLOCK.waxed().weathered()));
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.waxed().weathered());
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.CUT_COPPER.waxed().weathered(), SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get());
+
+        this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.WAXED_OXIDIZED_COPPER_BRICKS, List.of(Blocks.COPPER_BLOCK.waxed().oxidized()));
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.waxed().oxidized());
+        this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.CUT_COPPER.waxed().oxidized(), SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get());*/
+
         this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.BONE_BRICKS, List.of(Blocks.BONE_BLOCK));
         this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.BONE_TILES, List.of(Blocks.BONE_BLOCK, SMBBlocks.BONE_BRICKS.get()));
         this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.SOUL_SANDSTONE);
@@ -363,30 +387,67 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.CUT_AMETHYST.get(), Blocks.AMETHYST_BLOCK, 4);
         this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.AMETHYST_PILLAR.get(), Blocks.AMETHYST_BLOCK, 2);
         this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.AMETHYST_BRICKS.get(), SMBBlocks.CUT_AMETHYST.get(), 4);
-        this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_PILLAR.get(), Blocks.COPPER_BLOCK, 2);
-        this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_BRICKS.get(), Blocks.CUT_COPPER, 4);
-        this.smeltingResultFromBase(SMBBlocks.CRACKED_CUT_COPPER.get(), Blocks.CUT_COPPER);
-        this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.EXPOSED_COPPER_PILLAR.get(), Blocks.EXPOSED_COPPER, 2);
-        this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.EXPOSED_COPPER_BRICKS.get(), Blocks.EXPOSED_CUT_COPPER, 4);
-        this.smeltingResultFromBase(SMBBlocks.EXPOSED_CRACKED_CUT_COPPER.get(), Blocks.EXPOSED_CUT_COPPER);
-        this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WEATHERED_COPPER_PILLAR.get(), Blocks.WEATHERED_COPPER, 2);
-        this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WEATHERED_COPPER_BRICKS.get(), Blocks.WEATHERED_CUT_COPPER, 4);
-        this.smeltingResultFromBase(SMBBlocks.WEATHERED_CRACKED_CUT_COPPER.get(), Blocks.WEATHERED_CUT_COPPER);
-        this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), Blocks.OXIDIZED_COPPER, 2);
-        this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.OXIDIZED_COPPER_BRICKS.get(), Blocks.OXIDIZED_CUT_COPPER, 4);
-        this.smeltingResultFromBase(SMBBlocks.OXIDIZED_CRACKED_CUT_COPPER.get(), Blocks.OXIDIZED_CUT_COPPER);
-        this.oneByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_copper_pillar", SMBBlocks.WAXED_COPPER_PILLAR.get(), Blocks.WAXED_COPPER_BLOCK, 2);
-        this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_copper_bricks", SMBBlocks.WAXED_COPPER_BRICKS.get(), Blocks.WAXED_CUT_COPPER, 4);
-        this.smeltingResultFromBase(SMBBlocks.WAXED_CRACKED_CUT_COPPER.get(), Blocks.WAXED_CUT_COPPER);
-        this.oneByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_exposed_copper_pillar", SMBBlocks.WAXED_EXPOSED_COPPER_PILLAR.get(), Blocks.WAXED_EXPOSED_COPPER, 2);
-        this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_exposed_copper_bricks", SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get(), Blocks.WAXED_EXPOSED_CUT_COPPER, 4);
-        this.smeltingResultFromBase(SMBBlocks.WAXED_EXPOSED_CRACKED_CUT_COPPER.get(), Blocks.WAXED_EXPOSED_CUT_COPPER);
-        this.oneByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_weathering_copper_pillar", SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get(), Blocks.WAXED_WEATHERED_COPPER, 2);
-        this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_weathering_copper_bricks", SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get(), Blocks.WAXED_WEATHERED_CUT_COPPER, 4);
-        this.smeltingResultFromBase(SMBBlocks.WAXED_WEATHERED_CRACKED_CUT_COPPER.get(), Blocks.WAXED_WEATHERED_CUT_COPPER);
-        this.oneByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_oxidized_copper_pillar", SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get(), Blocks.WAXED_OXIDIZED_COPPER, 2);
-        this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_oxidized_copper_bricks", SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get(), Blocks.WAXED_OXIDIZED_CUT_COPPER, 4);
-        this.smeltingResultFromBase(SMBBlocks.WAXED_OXIDIZED_CRACKED_CUT_COPPER.get(), Blocks.WAXED_OXIDIZED_CUT_COPPER);
+
+
+        WeatheringCopper.WeatherState.forEach((state) -> {
+          this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_PILLAR.get().weathering().pick(state), Blocks.COPPER_BLOCK.weathering().pick(state), 2);
+        });
+
+        WeatheringCopper.WeatherState.forEach((state) -> {
+          this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_BRICKS.get().weathering().pick(state), Blocks.CUT_COPPER.weathering().pick(state), 4);
+        });
+
+        /*this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_BRICKS.get(), Blocks.CUT_COPPER.weathering().unaffected(), 4);
+        this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.EXPOSED_COPPER_BRICKS.get(), Blocks.CUT_COPPER.weathering().exposed(), 4);
+        this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WEATHERED_COPPER_BRICKS.get(), Blocks.CUT_COPPER.weathering().weathered(), 4);
+        this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.OXIDIZED_COPPER_BRICKS.get(), Blocks.CUT_COPPER.weathering().oxidized(), 4);*/
+
+
+        /*this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.weathering().unaffected(), 2);
+        this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.EXPOSED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.weathering().exposed(), 2);
+        this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.WEATHERED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.weathering().weathered(), 2);
+        this.oneByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.OXIDIZED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.weathering().oxidized(), 2);*/
+
+        WeatheringCopper.WeatherState.forEach((state) -> {
+          this.smeltingResultFromBase(SMBBlocks.CRACKED_CUT_COPPER.get().weathering().pick(state), Blocks.CUT_COPPER.weathering().pick(state));
+        });
+
+        // TODO
+        WeatheringCopper.WeatherState.forEach((state) -> {
+          String group = WeatheringCopperCollection.PREFIXES.waxed().pick(state) + "copper_pillar";
+          this.oneByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, group, SMBBlocks.COPPER_PILLAR.get().waxed().pick(state), Blocks.COPPER_BLOCK.waxed().pick(state), 2);
+        });
+
+        WeatheringCopper.WeatherState.forEach((state) -> {
+          String group = WeatheringCopperCollection.PREFIXES.waxed().pick(state) + "copper_bricks";
+          this.oneByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, group, SMBBlocks.COPPER_BRICKS.get().waxed().pick(state), Blocks.CUT_COPPER.waxed().pick(state), 2);
+        });
+
+        WeatheringCopper.WeatherState.forEach((state) -> {
+          this.smeltingResultFromBase(SMBBlocks.CRACKED_CUT_COPPER.get().waxed().pick(state), Blocks.CUT_COPPER.waxed().pick(state));
+        });
+
+
+        /*this.smeltingResultFromBase(SMBBlocks.CRACKED_CUT_COPPER.get(), Blocks.CUT_COPPER.weathering().unaffected());
+        this.smeltingResultFromBase(SMBBlocks.EXPOSED_CRACKED_CUT_COPPER.get(), Blocks.CUT_COPPER.weathering().exposed());
+        this.smeltingResultFromBase(SMBBlocks.WEATHERED_CRACKED_CUT_COPPER.get(), Blocks.CUT_COPPER.weathering().weathered());
+        this.smeltingResultFromBase(SMBBlocks.OXIDIZED_CRACKED_CUT_COPPER.get(), Blocks.CUT_COPPER.weathering().oxidized());*/
+
+        /*this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_copper_bricks", SMBBlocks.WAXED_COPPER_BRICKS.get(), Blocks.CUT_COPPER.waxed().unaffected(), 4);
+        this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_exposed_copper_bricks", SMBBlocks.WAXED_EXPOSED_COPPER_BRICKS.get(), Blocks.CUT_COPPER.waxed().exposed(), 4);
+        this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_weathering_copper_bricks", SMBBlocks.WAXED_WEATHERED_COPPER_BRICKS.get(), Blocks.CUT_COPPER.waxed().weathered(), 4);
+        this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_oxidized_copper_bricks", SMBBlocks.WAXED_OXIDIZED_COPPER_BRICKS.get(), Blocks.CUT_COPPER.waxed().oxidized(), 4);*/
+
+        /*this.oneByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_copper_pillar", SMBBlocks.WAXED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.waxed().unaffected(), 2);
+        this.oneByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_exposed_copper_pillar", SMBBlocks.WAXED_EXPOSED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.waxed().exposed(), 2);
+        this.oneByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_weathering_copper_pillar", SMBBlocks.WAXED_WEATHERED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.waxed().weathered(), 2);
+        this.oneByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "waxed_oxidized_copper_pillar", SMBBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get(), Blocks.COPPER_BLOCK.waxed().oxidized(), 2);*/
+
+        /*this.smeltingResultFromBase(SMBBlocks.WAXED_CRACKED_CUT_COPPER.get(), Blocks.CUT_COPPER.waxed().unaffected());
+        this.smeltingResultFromBase(SMBBlocks.WAXED_EXPOSED_CRACKED_CUT_COPPER.get(), Blocks.CUT_COPPER.waxed().exposed());
+        this.smeltingResultFromBase(SMBBlocks.WAXED_WEATHERED_CRACKED_CUT_COPPER.get(), Blocks.CUT_COPPER.waxed().weathered());
+        this.smeltingResultFromBase(SMBBlocks.WAXED_OXIDIZED_CRACKED_CUT_COPPER.get(), Blocks.CUT_COPPER.waxed().oxidized());*/
+
         this.waxedBlocksFromHoneycomb();
         this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.BONE_BRICKS.get(), Blocks.BONE_BLOCK, 4);
         this.twoByTwo(RecipeCategory.BUILDING_BLOCKS, SMBBlocks.BONE_TILES.get(), SMBBlocks.BONE_BRICKS.get(), 4);
@@ -421,22 +482,13 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.concreteBricksAndTiles();
         this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.GLASS, SMBBlocks.TILED_GLASS.get(), SMBBlocks.TILED_GLASS_PANE.get(), null);
         this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.TINTED_GLASS, SMBBlocks.TILED_TINTED_GLASS.get(), null, null);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.WHITE_STAINED_GLASS, SMBBlocks.WHITE_STAINED_TILED_GLASS.get(), SMBBlocks.WHITE_STAINED_TILED_GLASS_PANE.get(), Items.WHITE_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.LIGHT_GRAY_STAINED_GLASS, SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS.get(), SMBBlocks.LIGHT_GRAY_STAINED_TILED_GLASS_PANE.get(), Items.LIGHT_GRAY_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.GRAY_STAINED_GLASS, SMBBlocks.GRAY_STAINED_TILED_GLASS.get(), SMBBlocks.GRAY_STAINED_TILED_GLASS_PANE.get(), Items.GRAY_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.BLACK_STAINED_GLASS, SMBBlocks.BLACK_STAINED_TILED_GLASS.get(), SMBBlocks.BLACK_STAINED_TILED_GLASS_PANE.get(), Items.BLACK_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.BROWN_STAINED_GLASS, SMBBlocks.BROWN_STAINED_TILED_GLASS.get(), SMBBlocks.BROWN_STAINED_TILED_GLASS_PANE.get(), Items.BROWN_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.RED_STAINED_GLASS, SMBBlocks.RED_STAINED_TILED_GLASS.get(), SMBBlocks.RED_STAINED_TILED_GLASS_PANE.get(), Items.RED_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.ORANGE_STAINED_GLASS, SMBBlocks.ORANGE_STAINED_TILED_GLASS.get(), SMBBlocks.ORANGE_STAINED_TILED_GLASS_PANE.get(), Items.ORANGE_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.YELLOW_STAINED_GLASS, SMBBlocks.YELLOW_STAINED_TILED_GLASS.get(), SMBBlocks.YELLOW_STAINED_TILED_GLASS_PANE.get(), Items.YELLOW_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.LIME_STAINED_GLASS, SMBBlocks.LIME_STAINED_TILED_GLASS.get(), SMBBlocks.LIME_STAINED_TILED_GLASS_PANE.get(), Items.LIME_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.GREEN_STAINED_GLASS, SMBBlocks.GREEN_STAINED_TILED_GLASS.get(), SMBBlocks.GREEN_STAINED_TILED_GLASS_PANE.get(), Items.GREEN_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.CYAN_STAINED_GLASS, SMBBlocks.CYAN_STAINED_TILED_GLASS.get(), SMBBlocks.CYAN_STAINED_TILED_GLASS_PANE.get(), Items.CYAN_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.LIGHT_BLUE_STAINED_GLASS, SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS.get(), SMBBlocks.LIGHT_BLUE_STAINED_TILED_GLASS_PANE.get(), Items.LIGHT_BLUE_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.BLUE_STAINED_GLASS, SMBBlocks.BLUE_STAINED_TILED_GLASS.get(), SMBBlocks.BLUE_STAINED_TILED_GLASS_PANE.get(), Items.BLUE_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.PURPLE_STAINED_GLASS, SMBBlocks.PURPLE_STAINED_TILED_GLASS.get(), SMBBlocks.PURPLE_STAINED_TILED_GLASS_PANE.get(), Items.PURPLE_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.MAGENTA_STAINED_GLASS, SMBBlocks.MAGENTA_STAINED_TILED_GLASS.get(), SMBBlocks.MAGENTA_STAINED_TILED_GLASS_PANE.get(), Items.MAGENTA_DYE);
-        this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.PINK_STAINED_GLASS, SMBBlocks.PINK_STAINED_TILED_GLASS.get(), SMBBlocks.PINK_STAINED_TILED_GLASS_PANE.get(), Items.PINK_DYE);
+
+        // TODO: add color collection
+
+        SMBBlocks.STAINED_TILED_GLASS.get().forEach((tiledGlass) -> {
+          StainedGlassBlock block = (StainedGlassBlock) tiledGlass;
+          this.stainedTiledGlassAndStainedTiledGlassPane(Blocks.STAINED_GLASS.pick(block.getColor()), tiledGlass, SMBBlocks.STAINED_TILED_GLASS_PANE.get().pick(block.getColor()), Items.DYE.pick(block.getColor()));
+        });
 
         /* More Redstone Blocks */
         this.redstoneLamp(SMBBlocks.OCHRE_REDSTONE_FROGLIGHT.get(), Blocks.OCHRE_FROGLIGHT);
@@ -457,19 +509,19 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.END_STONE_BRICK_SLAB, SMBBlocks.POLISHED_END_STONE.get(), 2);
         this.stonecutterFrom(RecipeCategory.BUILDING_BLOCKS, Blocks.END_STONE_BRICK_WALL, SMBBlocks.POLISHED_END_STONE.get());
         this.oneItemToOther(RecipeCategory.MISC, Items.GLOWSTONE_DUST, SMBBlocks.LUMINOUS_FLOWER.get(), 2);
-        this.oneItemToOther(RecipeCategory.MISC, Items.GREEN_DYE, SMBBlocks.TINY_CACTUS.get(), 1);
-        this.oneItemToOther(RecipeCategory.MISC, Items.GREEN_DYE, SMBBlocks.TALL_CACTUS.get(), 2);
-        this.oneItemToOther(RecipeCategory.MISC, Items.WHITE_DYE, SMBBlocks.GALAHAD_LARKSPUR.get(), 2);
-        this.oneItemToOther(RecipeCategory.MISC, Items.WHITE_DYE, SMBBlocks.SHORT_GALAHAD_LARKSPUR.get(), 1);
-        this.oneItemToOther(RecipeCategory.MISC, Items.PINK_DYE, SMBBlocks.ASTOLAT_LARKSPUR.get(), 2);
-        this.oneItemToOther(RecipeCategory.MISC, Items.PINK_DYE, SMBBlocks.SHORT_ASTOLAT_LARKSPUR.get(), 1);
-        this.oneItemToOther(RecipeCategory.MISC, Items.LIGHT_BLUE_DYE, SMBBlocks.SUMMER_SKIES_LARKSPUR.get(), 2);
-        this.oneItemToOther(RecipeCategory.MISC, Items.LIGHT_BLUE_DYE, SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get(), 1);
-        this.oneItemToOther(RecipeCategory.MISC, Items.PURPLE_DYE, SMBBlocks.PURPLE_LARKSPUR.get(), 2);
-        this.oneItemToOther(RecipeCategory.MISC, Items.PURPLE_DYE, SMBBlocks.SHORT_PURPLE_LARKSPUR.get(), 1);
-        this.oneItemToOther(RecipeCategory.MISC, Items.RED_DYE, SMBBlocks.RED_LARK_LARKSPUR.get(), 2);
-        this.oneItemToOther(RecipeCategory.MISC, Items.RED_DYE, SMBBlocks.SHORT_RED_LARK_LARKSPUR.get(), 1);
-        this.oneItemToOther(RecipeCategory.MISC, Items.PURPLE_DYE, SMBBlocks.LAVENDER.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.green(), SMBBlocks.TINY_CACTUS.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.green(), SMBBlocks.TALL_CACTUS.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.white(), SMBBlocks.GALAHAD_LARKSPUR.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.white(), SMBBlocks.SHORT_GALAHAD_LARKSPUR.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.pink(), SMBBlocks.ASTOLAT_LARKSPUR.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.pink(), SMBBlocks.SHORT_ASTOLAT_LARKSPUR.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.lightBlue(), SMBBlocks.SUMMER_SKIES_LARKSPUR.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.lightBlue(), SMBBlocks.SHORT_SUMMER_SKIES_LARKSPUR.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.purple(), SMBBlocks.PURPLE_LARKSPUR.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.purple(), SMBBlocks.SHORT_PURPLE_LARKSPUR.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.red(), SMBBlocks.RED_LARK_LARKSPUR.get(), 2);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.red(), SMBBlocks.SHORT_RED_LARK_LARKSPUR.get(), 1);
+        this.oneItemToOther(RecipeCategory.MISC, Items.DYE.purple(), SMBBlocks.LAVENDER.get(), 1);
         this.mushroomStewFromPaleMushroom(Items.RED_MUSHROOM);
         this.mushroomStewFromPaleMushroom(Items.BROWN_MUSHROOM);
         this.rabbitStewFromPaleMushroom();
@@ -696,7 +748,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         DyeColor[] dyeColors = DyeColor.values();
 
         for (DyeColor dyeColor : dyeColors) {
-          Block shingles = SMBRegistries.SHINGLES_BLOCKS.getNext(dyeColor).orElseThrow();
+          Block shingles = SMBBlocks.DYED_SHINGLES.get().pick(dyeColor);
           Block terracotta = BuiltInRegistries.BLOCK.getValue(Identifier.withDefaultNamespace(dyeColor + "_terracotta"));
 
           this.stonecutterFamily(RecipeCategory.BUILDING_BLOCKS, SMBBlockFamilies.getByBaseBlock(shingles));
@@ -713,7 +765,7 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
         DyeColor[] dyeColors = DyeColor.values();
 
         for (DyeColor dyeColor : dyeColors) {
-          Block checkeredTiles = SMBRegistries.CHECKERED_TILES.getNext(dyeColor).orElseThrow();
+          Block checkeredTiles = SMBBlocks.CHECKERED_TILES.get().pick(dyeColor);
           Block concrete = BuiltInRegistries.BLOCK.getValue(Identifier.withDefaultNamespace(dyeColor + "_concrete"));
 
           this.shaped(RecipeCategory.BUILDING_BLOCKS, checkeredTiles, 4)
@@ -728,14 +780,15 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
 
       /**
        * Generate all the Terracotta Bricks and Terracotta Tiles blocks variants.
+       * TODO: Update to use ColorCollection iterator!
        */
       private void terracottaBricksAndTiles() {
         DyeColor[] dyeColors = DyeColor.values();
 
         for (DyeColor dyeColor : dyeColors) {
           Block terracotta = BuiltInRegistries.BLOCK.getValue(Identifier.withDefaultNamespace(dyeColor + "_terracotta"));
-          Block terracottaBricks = SMBRegistries.TERRACOTTA_BRICKS_BLOCKS.getNext(dyeColor).orElseThrow();
-          Block terracottaTiles = SMBRegistries.TERRACOTTA_TILES_BLOCKS.getNext(dyeColor).orElseThrow();
+          Block terracottaBricks = SMBBlocks.DYED_TERRACOTTA_BRICKS.get().pick(dyeColor);
+          Block terracottaTiles = SMBBlocks.DYED_TERRACOTTA_TILES.get().pick(dyeColor);
 
           //this.aroundDyeItemWith(RecipeCategory.BUILDING_BLOCKS, "terracotta_bricks_from_dye", SMBBlocks.TERRACOTTA_BRICKS.get(), terracottaBricks, dyeColor);
           //this.aroundDyeItemWith(RecipeCategory.BUILDING_BLOCKS, "terracotta_tiles_from_dye", SMBBlocks.TERRACOTTA_TILES.get(), terracottaTiles, dyeColor);
@@ -759,8 +812,8 @@ public class SMBRecipeProvider extends FabricRecipeProvider {
 
         for (DyeColor dyeColor : dyeColors) {
           Block concrete = BuiltInRegistries.BLOCK.getValue(Identifier.withDefaultNamespace(dyeColor + "_concrete"));
-          Block concreteBricks = SMBRegistries.CONCRETE_BRICKS_BLOCKS.getNext(dyeColor).orElseThrow();
-          Block concreteTiles = SMBRegistries.CONCRETE_TILES_BLOCKS.getNext(dyeColor).orElseThrow();
+          Block concreteBricks = SMBBlocks.CONCRETE_BRICKS.get().pick(dyeColor);
+          Block concreteTiles = SMBBlocks.CONCRETE_TILES.get().pick(dyeColor);
 
           this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "concrete_bricks_from_concrete", concrete, concreteBricks, 4);
           this.twoByTwoGrouped(RecipeCategory.BUILDING_BLOCKS, "concrete_tiles_from_concrete_bricks", concreteBricks, concreteTiles, 4);
